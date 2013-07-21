@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Globalization;
 using System.Diagnostics.CodeAnalysis;
+using System.Collections;
 
 namespace Cadru.UnitTest.Framework.UnitTests.Extensions
 {
@@ -50,7 +51,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         }
 
         [TestMethod]
-        public void FirstDayOfQuarter()
+        public void DayOfQuarter()
         {
             Assert.AreEqual(new DateTime(2010, 01, 01),DateTimeExtensions.FirstDayOfQuarter(new DateTime(2010, 01, 01)));
             Assert.AreEqual(new DateTime(2010, 01, 01),DateTimeExtensions.FirstDayOfQuarter(new DateTime(2010, 02, 01)));
@@ -77,6 +78,33 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             Assert.AreEqual(new DateTime(2010, 10, 01),DateTimeExtensions.FirstDayOfQuarter(new DateTime(2010, 10, 31)));
             Assert.AreEqual(new DateTime(2010, 10, 01),DateTimeExtensions.FirstDayOfQuarter(new DateTime(2010, 11, 30)));
             Assert.AreEqual(new DateTime(2010, 10, 01),DateTimeExtensions.FirstDayOfQuarter(new DateTime(2010, 12, 31)));
+
+
+            Assert.AreEqual(new DateTime(2010, 03, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 01, 01)));
+            Assert.AreEqual(new DateTime(2010, 03, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 02, 01)));
+            Assert.AreEqual(new DateTime(2010, 03, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 03, 01)));
+            Assert.AreEqual(new DateTime(2010, 06, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 04, 01)));
+            Assert.AreEqual(new DateTime(2010, 06, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 05, 01)));
+            Assert.AreEqual(new DateTime(2010, 06, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 06, 01)));
+            Assert.AreEqual(new DateTime(2010, 09, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 07, 01)));
+            Assert.AreEqual(new DateTime(2010, 09, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 08, 01)));
+            Assert.AreEqual(new DateTime(2010, 09, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 09, 01)));
+            Assert.AreEqual(new DateTime(2010, 12, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 10, 01)));
+            Assert.AreEqual(new DateTime(2010, 12, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 11, 01)));
+            Assert.AreEqual(new DateTime(2010, 12, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 12, 01)));
+
+            Assert.AreEqual(new DateTime(2010, 03, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 01, 31)));
+            Assert.AreEqual(new DateTime(2010, 03, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 02, 28)));
+            Assert.AreEqual(new DateTime(2010, 03, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 03, 31)));
+            Assert.AreEqual(new DateTime(2010, 06, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 04, 30)));
+            Assert.AreEqual(new DateTime(2010, 06, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 05, 31)));
+            Assert.AreEqual(new DateTime(2010, 06, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 06, 30)));
+            Assert.AreEqual(new DateTime(2010, 09, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 07, 31)));
+            Assert.AreEqual(new DateTime(2010, 09, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 08, 31)));
+            Assert.AreEqual(new DateTime(2010, 09, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 09, 30)));
+            Assert.AreEqual(new DateTime(2010, 12, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 10, 31)));
+            Assert.AreEqual(new DateTime(2010, 12, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 11, 30)));
+            Assert.AreEqual(new DateTime(2010, 12, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 12, 31)));
         }
 
         [TestMethod]
@@ -368,36 +396,6 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         }
 
         [TestMethod]
-        public void LastDayOfQuarter()
-        {
-            Assert.AreEqual(new DateTime(2010, 03, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 01, 01)));
-            Assert.AreEqual(new DateTime(2010, 03, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 02, 01)));
-            Assert.AreEqual(new DateTime(2010, 03, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 03, 01)));
-            Assert.AreEqual(new DateTime(2010, 06, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 04, 01)));
-            Assert.AreEqual(new DateTime(2010, 06, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 05, 01)));
-            Assert.AreEqual(new DateTime(2010, 06, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 06, 01)));
-            Assert.AreEqual(new DateTime(2010, 09, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 07, 01)));
-            Assert.AreEqual(new DateTime(2010, 09, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 08, 01)));
-            Assert.AreEqual(new DateTime(2010, 09, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 09, 01)));
-            Assert.AreEqual(new DateTime(2010, 12, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 10, 01)));
-            Assert.AreEqual(new DateTime(2010, 12, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 11, 01)));
-            Assert.AreEqual(new DateTime(2010, 12, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 12, 01)));
-
-            Assert.AreEqual(new DateTime(2010, 03, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 01, 31)));
-            Assert.AreEqual(new DateTime(2010, 03, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 02, 28)));
-            Assert.AreEqual(new DateTime(2010, 03, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 03, 31)));
-            Assert.AreEqual(new DateTime(2010, 06, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 04, 30)));
-            Assert.AreEqual(new DateTime(2010, 06, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 05, 31)));
-            Assert.AreEqual(new DateTime(2010, 06, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 06, 30)));
-            Assert.AreEqual(new DateTime(2010, 09, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 07, 31)));
-            Assert.AreEqual(new DateTime(2010, 09, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 08, 31)));
-            Assert.AreEqual(new DateTime(2010, 09, 30), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 09, 30)));
-            Assert.AreEqual(new DateTime(2010, 12, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 10, 31)));
-            Assert.AreEqual(new DateTime(2010, 12, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 11, 30)));
-            Assert.AreEqual(new DateTime(2010, 12, 31), DateTimeExtensions.LastDayOfQuarter(new DateTime(2010, 12, 31)));
-        }
-
-        [TestMethod]
         public void Quarter()
         {
             Assert.AreEqual(1, DateTimeExtensions.Quarter(new DateTime(2010, 01, 01)));
@@ -425,6 +423,99 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             Assert.AreEqual(4, DateTimeExtensions.Quarter(new DateTime(2010, 10, 31)));
             Assert.AreEqual(4, DateTimeExtensions.Quarter(new DateTime(2010, 11, 30)));
             Assert.AreEqual(4, DateTimeExtensions.Quarter(new DateTime(2010, 12, 31)));
+        }
+
+        [TestMethod]
+        public void DaysInMonth()
+        {
+            Assert.AreEqual(31, DateTimeExtensions.DaysInMonth(new DateTime(2013, 7, 1)));
+            Assert.AreEqual(30, DateTimeExtensions.DaysInMonth(new DateTime(2013, 9, 1)));
+            Assert.AreEqual(28, DateTimeExtensions.DaysInMonth(new DateTime(2013, 2, 1)));
+            Assert.AreEqual(29, DateTimeExtensions.DaysInMonth(new DateTime(2004, 2, 1)));
+        }
+
+        [TestMethod]
+        public void Elapsed()
+        {
+            Assert.AreEqual(1, DateTimeExtensions.Elapsed(DateTime.Now.AddDays(-1)).Days);
+            Assert.AreEqual(7, DateTimeExtensions.Elapsed(DateTime.Now.AddDays(-7)).Days);
+            Assert.AreEqual(-7, DateTimeExtensions.Elapsed(DateTime.Now.AddDays(7)).Days);
+        }
+
+        [TestMethod]
+        public void DayOfMonth()
+        {
+            Assert.AreEqual(new DateTime(2013, 7, 1), DateTimeExtensions.FirstDayOfMonth(new DateTime(2013, 7, 25)));
+            Assert.AreEqual(new DateTime(2013, 7, 1), DateTimeExtensions.FirstDayOfMonth(new DateTime(2013, 7, 1)));
+            Assert.AreEqual(new DateTime(2013, 7, 1), DateTimeExtensions.FirstDayOfMonth(new DateTime(2013, 7, 31)));
+
+            Assert.AreEqual(new DateTime(2013, 7, 31), DateTimeExtensions.LastDayOfMonth(new DateTime(2013, 7, 25)));
+            Assert.AreEqual(new DateTime(2013, 7, 31), DateTimeExtensions.LastDayOfMonth(new DateTime(2013, 7, 1)));
+            Assert.AreEqual(new DateTime(2013, 7, 31), DateTimeExtensions.LastDayOfMonth(new DateTime(2013, 7, 31)));
+            Assert.AreEqual(new DateTime(2013, 9, 30), DateTimeExtensions.LastDayOfMonth(new DateTime(2013, 9, 25)));
+            Assert.AreEqual(new DateTime(2013, 9, 30), DateTimeExtensions.LastDayOfMonth(new DateTime(2013, 9, 1)));
+            Assert.AreEqual(new DateTime(2013, 9, 30), DateTimeExtensions.LastDayOfMonth(new DateTime(2013, 9, 30)));
+            Assert.AreEqual(new DateTime(2013, 2, 28), DateTimeExtensions.LastDayOfMonth(new DateTime(2013, 2, 1)));
+            Assert.AreEqual(new DateTime(2004, 2, 29), DateTimeExtensions.LastDayOfMonth(new DateTime(2004, 2, 1)));
+        }
+
+        [TestMethod]
+        public void DaysOfWeek()
+        {
+            Assert.AreEqual(new DateTime(2013, 6, 30), DateTimeExtensions.FirstDayOfWeek(new DateTime(2013, 7, 1)));
+            Assert.AreEqual(new DateTime(2013, 7, 6), DateTimeExtensions.LastDayOfWeek(new DateTime(2013, 7, 1)));
+
+            Assert.AreEqual(new DateTime(2013, 7, 1), DateTimeExtensions.FirstDayOfWeek(new DateTime(2013, 7, 1), DayOfWeek.Monday));
+            Assert.AreEqual(new DateTime(2013, 7, 7), DateTimeExtensions.LastDayOfWeek(new DateTime(2013, 7, 1), DayOfWeek.Monday));
+
+            Assert.AreEqual(new DateTime(2013, 6, 30), DateTimeExtensions.FirstDayOfWeek(new DateTime(2013, 7, 1), DayOfWeek.Sunday));
+            Assert.AreEqual(new DateTime(2013, 7, 6), DateTimeExtensions.LastDayOfWeek(new DateTime(2013, 7, 1), DayOfWeek.Sunday));
+        }
+
+        [TestMethod]
+        public void DayOfYear()
+        {
+            Assert.AreEqual(new DateTime(2013, 1, 1), DateTimeExtensions.FirstDayOfYear(new DateTime(2013, 7, 12)));
+            Assert.AreEqual(new DateTime(2013, 12, 31), DateTimeExtensions.LastDayOfYear(new DateTime(2013, 7, 12)));
+        }
+
+        [TestMethod]
+        public void LeapYears()
+        {
+            Assert.IsTrue(DateTimeExtensions.IsLeapYear(new DateTime(2004, 2, 1)));
+            Assert.IsFalse(DateTimeExtensions.IsLeapMonth(new DateTime(2012, 6, 18)));
+            Assert.IsTrue(DateTimeExtensions.IsLeapDay(new DateTime(2004, 2, 29)));
+            Assert.IsFalse(DateTimeExtensions.IsLeapDay(new DateTime(2004, 2, 28)));
+
+            Assert.IsFalse(DateTimeExtensions.IsLeapYear(new DateTime(2013, 2, 1)));
+            Assert.IsFalse(DateTimeExtensions.IsLeapMonth(new DateTime(2013, 2, 1)));
+            Assert.IsFalse(DateTimeExtensions.IsLeapDay(new DateTime(2013, 2, 2)));
+        }
+
+        [TestMethod]
+        public void MonthNames()
+        {
+            var months = DateTimeExtensions.GetMonthNames();
+            CustomAssert.IsNotEmpty((ICollection)months);
+
+            months = DateTimeExtensions.GetAbbreviatedMonthNames();
+            CustomAssert.IsNotEmpty((ICollection)months);
+
+            Assert.AreEqual("July", DateTimeExtensions.GetMonthName(new DateTime(2013, 7, 1)));
+            Assert.AreEqual("Jul", DateTimeExtensions.GetAbbreviatedMonthName(new DateTime(2013, 7, 1)));
+
+            Assert.AreEqual(7, DateTimeExtensions.GetMonthNumber("July", false));
+            Assert.AreEqual(7, DateTimeExtensions.GetMonthNumber("Jul", true));
+            Assert.AreEqual(0, DateTimeExtensions.GetMonthNumber("ABC", false));
+            Assert.AreEqual(0, DateTimeExtensions.GetMonthNumber("ABC", true));
+        }
+
+        [TestMethod]
+        public void GetDate()
+        {
+            Assert.AreEqual(new DateTime(2013, 7, 3), DateTimeExtensions.GetDayOfWeek(new DateTime(2013, 7, 1), DayOfWeek.Wednesday));
+            Assert.AreEqual(new DateTime(2013, 6, 30), DateTimeExtensions.GetDayOfWeek(new DateTime(2013, 7, 1), DayOfWeek.Sunday));
+            Assert.AreEqual(new DateTime(2013, 7, 1), DateTimeExtensions.GetDayOfWeek(new DateTime(2013, 7, 1), DayOfWeek.Monday));
         }
     }
 }

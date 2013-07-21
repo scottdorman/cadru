@@ -68,7 +68,7 @@ namespace Cadru.Collections
         /// string comparisons might have different results depending on the 
         /// culture. For more information on culture-specific comparisons, see 
         /// the <see cref="System.Globalization"/> namespace and 
-        /// <see cref="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+        /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </remarks>
         public LogicalStringComparer()
             : this(CultureInfo.CurrentCulture)
@@ -88,7 +88,7 @@ namespace Cadru.Collections
         /// the sort order and casing rules. String comparisons might have different results
         /// depending on the culture. For more information on culture-specific comparisons, see
         /// the <see cref="System.Globalization"/> namespace and 
-        /// <see cref="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+        /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </rermarks>
         public LogicalStringComparer(CultureInfo culture)
         {
@@ -117,7 +117,7 @@ namespace Cadru.Collections
         /// might have different results depending on the culture. For more 
         /// information on culture-specific comparisons, see the 
         /// <see cref="System.Globalization"/> namespace and 
-        /// <see cref="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+        /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1304:SpecifyCultureInfo", MessageId = "Cadru.Collections.LogicalStringComparer.#ctor", Justification = "This constructor call implicitly passes a culture.")]
         public static IComparer Default
@@ -145,7 +145,7 @@ namespace Cadru.Collections
         /// results depending on the culture. For more information on 
         /// culture-specific comparisons, see the 
         /// <see cref="System.Globalization"/> namespace and 
-        /// <see cref="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+        /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </remarks>
         public static IComparer DefaultInvariant
         {

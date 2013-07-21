@@ -25,7 +25,7 @@ namespace Cadru.Text
     using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
-    /// Options used by the <see cref="StringExtensions.Normalize"/> methods to
+    /// Options used by the <see cref="StringExtensions.Normalize(string)"/> methods to
     /// determine how to normalize a string.
     /// </summary>
     [Flags]

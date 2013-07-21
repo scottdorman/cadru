@@ -53,6 +53,8 @@
     <Compile Include="Collections\LogicalStringComparer.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="EnumDescriptionAttribute.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\NumericExtensions.cs" />
     <Compile Include="Globalization\CountryCode.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />

@@ -59,7 +59,7 @@ namespace Cadru.Collections
         /// string comparisons might have different results depending on the 
         /// culture. For more information on culture-specific comparisons, see 
         /// the <see cref="System.Globalization"/> namespace and 
-        /// <see cref="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+        /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </remarks>
         public DateComparer()
         {
@@ -79,7 +79,7 @@ namespace Cadru.Collections
         /// the sort order and casing rules. String comparisons might have different results
         /// depending on the culture. For more information on culture-specific comparisons, see
         /// the <see cref="System.Globalization"/> namespace and 
-        /// <see cref="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+        /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </rermarks>
         public DateComparer(CultureInfo culture)
         {
@@ -108,7 +108,7 @@ namespace Cadru.Collections
         /// might have different results depending on the culture. For more 
         /// information on culture-specific comparisons, see the 
         /// <see cref="System.Globalization"/> namespace and 
-        /// <see cref="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+        /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </remarks>
         public static IComparer Default
         {
@@ -135,7 +135,7 @@ namespace Cadru.Collections
         /// results depending on the culture. For more information on 
         /// culture-specific comparisons, see the 
         /// <see cref="System.Globalization"/> namespace and 
-        /// <see cref="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+        /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </remarks>
         public static IComparer DefaultInvariant
         {
@@ -416,7 +416,7 @@ namespace Cadru.Collections
         /// </summary>
         /// <param name="obj">The <see cref="Object"/> for which a hash code is to be 
         /// returned.</param>
-        /// <returns>A hash code for the specified <see cref="Objecct"/>.</returns>
+        /// <returns>A hash code for the specified <see cref="Object"/>.</returns>
         /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a 
         /// reference type and <paramref name="obj"/> is a <see langword="null"/>.
         /// </exception>
@@ -507,7 +507,7 @@ namespace Cadru.Collections
         /// <summary>
         /// Returns a value indicating whether two instances of objects are equal.
         /// </summary>
-        /// <param name="x">The first <see cref="Obect"/> to compare.</param>
+        /// <param name="x">The first <see cref="Object"/> to compare.</param>
         /// <param name="y">The second <see cref="Object"/> to compare.</param>
         /// <returns><see langword="true"/> if the two <see cref="Object"/> values are equal; 
         /// otherwise, <see langword="false"/>. </returns>

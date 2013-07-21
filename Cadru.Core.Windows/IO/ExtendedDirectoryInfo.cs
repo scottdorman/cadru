@@ -35,8 +35,8 @@ namespace Cadru.IO
 
     /// <summary>
     /// Provides an encapsulated implementation of the standard .NET 
-    /// <see cref="FileInfo"/>, <see cref="FileVersionInfo"/> and the
-    /// <see cref="http://msdn.microsoft.com/en-us/library/windows/desktop/bb762179(v=vs.85).aspx">SHGetFileInfo</see>
+    /// <see cref="DirectoryInfo"/> and the
+    /// <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb762179(v=vs.85).aspx">SHGetFileInfo</see>
     /// API method.
     /// </summary>
     [Serializable]

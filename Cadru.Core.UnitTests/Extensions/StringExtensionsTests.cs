@@ -10,6 +10,30 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
     public class StringExtensionsTests
     {
         [TestMethod]
+        public void IsEmpty()
+        {
+            Assert.IsTrue(StringExtensions.IsNullOrWhiteSpace(null));
+            Assert.IsTrue(StringExtensions.IsNullOrWhiteSpace(""));
+            Assert.IsTrue(StringExtensions.IsNullOrWhiteSpace("   "));
+            Assert.IsTrue(StringExtensions.IsNullOrWhiteSpace("\n"));
+            Assert.IsTrue(StringExtensions.IsNullOrWhiteSpace("\t"));
+            Assert.IsFalse(StringExtensions.IsNullOrWhiteSpace("abc"));
+            Assert.IsFalse(StringExtensions.IsNullOrWhiteSpace("\0"));
+            Assert.IsFalse(StringExtensions.IsNullOrWhiteSpace("\u1680d\u2004c\u205fb\u2028a\u00a0"));
+            Assert.IsTrue(StringExtensions.IsNullOrWhiteSpace("\u1680 \u2004 \u205f \u2028 \u00a0"));
+
+            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace(null));
+            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace(""));
+            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace("   "));
+            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace("\n"));
+            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace("\t"));
+            Assert.IsTrue(StringExtensions.IsNotNullOrWhiteSpace("abc"));
+            Assert.IsTrue(StringExtensions.IsNotNullOrWhiteSpace("\0"));
+            Assert.IsTrue(StringExtensions.IsNotNullOrWhiteSpace("\u1680d\u2004c\u205fb\u2028a\u00a0"));
+            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace("\u1680 \u2004 \u205f \u2028 \u00a0"));
+        }
+
+        [TestMethod]
         public void SubstringBetween()
         {
             string testValue = "abcdefg";

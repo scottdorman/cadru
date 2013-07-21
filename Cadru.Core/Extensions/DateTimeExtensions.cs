@@ -24,28 +24,75 @@ namespace Cadru
 {
     using System;
     using System.Globalization;
+    using System.Linq;
     using Cadru.Properties;
+    using System.Collections.Generic;
+    using Cadru;
 
     /// <summary>
     /// Provides basic routines for common DateTime manipulation.
     /// </summary>
     public static class DateTimeExtensions
     {
-        #region Quarter
+        #region DaysInMonth
         /// <summary>
-        /// Gets the quarter component of the date represented by this instance.
+        /// Returns the number of days in the month for the date represented by this instance.
         /// </summary>
         /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
-        /// <returns>The quarter component of the date represented by this instance.</returns>
-        public static int Quarter(this DateTime date)
+        /// <returns>The number of days in the month for the date represented by this instance.</returns>
+        public static int DaysInMonth(this DateTime date)
         {
-            return ((date.Month - 1) / 3) + 1;
+            return DateTime.DaysInMonth(date.Year, date.Month);
+        }
+        #endregion
+
+        #region Elapsed
+        /// <summary>
+        /// Returns the elapsed time between the date represented by this instance
+        /// and the current date and time.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns>A <see cref="TimeSpan"/> representing the elapsed
+        /// time between the date represented by this instance and the
+        /// current date and time.</returns>
+        public static TimeSpan Elapsed(this DateTime date)
+        {
+            return DateTime.Now - date;
+        }
+        #endregion
+
+        #region FirstDayOfMonth
+        /// <summary>
+        /// Returns a <see cref="DateTime"/> representing the
+        /// first day of the month for the date represented by this instance.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns>A <see cref="DateTime"/> representing the
+        /// first day of the month for the date represented by this instance.</returns>
+        public static DateTime FirstDayOfMonth(this DateTime date)
+        {
+            var firstDate = new DateTime(date.Year, date.Month, 1);
+            return firstDate;
+        }
+        #endregion
+
+        #region FirstDayOfNextQuarter
+        /// <summary>
+        /// Returns a <see cref="DateTime"/> which represents the 
+        /// first day of the next quarter of the date represented by this instance.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns>A <see cref="DateTime"/> which represents the 
+        /// first day of the next quarter of the date represented by this instance.</returns>
+        public static DateTime FirstDayOfNextQuarter(this DateTime date)
+        {
+            return date.FirstDayOfQuarter().AddMonths(3);
         }
         #endregion
 
         #region FirstDayOfQuarter
         /// <summary>
-        /// Gets a <see cref="DateTime"/> which represents the 
+        /// Returns a <see cref="DateTime"/> which represents the 
         /// first day of the quarter of the date represented by this instance.
         /// </summary>
         /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
@@ -57,31 +104,132 @@ namespace Cadru
         }
         #endregion
 
-        #region LastDayOfQuarter
+        #region FirstDayOfWeek
         /// <summary>
-        /// Gets a <see cref="DateTime"/> which represents the 
-        /// last day of the quarter of the date represented by this instance.
+        /// Returns a <see cref="DateTime"/> which represents the 
+        /// first day of the week of the date represented by this instance.
         /// </summary>
         /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
         /// <returns>A <see cref="DateTime"/> which represents the 
-        /// last day of the quarter of the date represented by this instance.</returns>
-        public static DateTime LastDayOfQuarter(this DateTime date)
+        /// first day of the week of the date represented by this instance.</returns>
+        public static DateTime FirstDayOfWeek(this DateTime date)
         {
-            return date.FirstDayOfNextQuarter().AddDays(-1);
+            return date.FirstDayOfWeek(DateTimeFormatInfo.CurrentInfo.FirstDayOfWeek);
+        }
+
+        /// <summary>
+        /// Returns a <see cref="DateTime"/> which represents the 
+        /// first day of the week of the date represented by this instance.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <param name="startOfWeek">An enumeration value that represents the first day of the week.</param>
+        /// <returns>A <see cref="DateTime"/> which represents the 
+        /// first day of the week of the date represented by this instance.</returns>
+        public static DateTime FirstDayOfWeek(this DateTime date, DayOfWeek startOfWeek)
+        {
+            int diff = date.DayOfWeek - startOfWeek;
+            if (diff < 0)
+            {
+                diff += 7;
+            }
+
+            return date.AddDays(-1 * diff).Date;
         }
         #endregion
 
-        #region FirstDayOfNextQuarter
+        #region FirstDayOfYear
         /// <summary>
-        /// Gets a <see cref="DateTime"/> which represents the 
-        /// first day of the next quarter of the date represented by this instance.
+        /// Returns a <see cref="DateTime"/> representing the
+        /// first day of the year for the date represented by this instance.
         /// </summary>
         /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
-        /// <returns>A <see cref="DateTime"/> which represents the 
-        /// first day of the next quarter of the date represented by this instance.</returns>
-        public static DateTime FirstDayOfNextQuarter(this DateTime date)
+        /// <returns>A <see cref="DateTime"/> representing the
+        /// first day of the year for the date represented by this instance.</returns>
+        public static DateTime FirstDayOfYear(this DateTime date)
         {
-            return date.FirstDayOfQuarter().AddMonths(3);
+            return new DateTime(date.Year, 1, 1);
+        }
+        #endregion
+
+        #region GetAbbreviatedMonthName
+        /// <summary>
+        /// Returns the culture-specific abbreviated name of the month represented by this instance.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns>The culture-specific abbreviated name of the month represented by this instance.</returns>
+        public static string GetAbbreviatedMonthName(this DateTime date)
+        {
+            return DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month);
+        }
+        #endregion
+
+        #region GetAbbreviatedMonthNames
+        /// <summary>
+        /// Returns the culture-specific abbreviated names of the months.
+        /// </summary>
+        /// <returns>A list that contains the culture-specific abbreviated names of the months.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "This is an extension method.")]
+        public static IList<string> GetAbbreviatedMonthNames()
+        {
+            return CultureInfo.CurrentCulture.DateTimeFormat.AbbreviatedMonthNames.Where(m => !string.IsNullOrEmpty(m)).ToList();
+        }
+        #endregion
+
+        #region GetDayOfWeek
+        /// <summary>
+        /// Returns a <see cref="DateTime"/> representing the
+        /// day of the week from the date represented by this instance.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <param name="day">An enumeration value that represents the day of
+        /// the week for which the date is to be calculated.</param>
+        /// <returns>A <see cref="DateTime"/> representing the
+        /// day of the week from the date represented by this instance.</returns>
+        public static DateTime GetDayOfWeek(this DateTime date, DayOfWeek day)
+        {
+            DayOfWeek firstDayOfWeek = DateTimeFormatInfo.CurrentInfo.FirstDayOfWeek;
+            int current = DaysBetween(date.DayOfWeek, firstDayOfWeek);
+            int resultday = DaysBetween(day, firstDayOfWeek);
+            return date.AddDays(resultday - current);
+        }
+        #endregion
+
+        #region GetMonthName
+        /// <summary>
+        /// Returns the culture-specific name of the month represented by this instance.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns>The culture-specific name of the month represented by this instance.</returns>
+        public static string GetMonthName(this DateTime date)
+        {
+            return DateTimeFormatInfo.CurrentInfo.GetMonthName(date.Month);
+        }
+        #endregion
+
+        #region GetMonthNames
+        /// <summary>
+        /// Returns the culture-specific names of the months.
+        /// </summary>
+        /// <returns>A list that contains the culture-specific names of the months.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "This is an extension method.")]
+        public static IList<string> GetMonthNames()
+        {
+            return CultureInfo.CurrentCulture.DateTimeFormat.MonthNames.Where(m => !string.IsNullOrEmpty(m)).ToList();
+        }
+        #endregion
+
+        #region GetMonthNumber
+        /// <summary>
+        /// Returns the month number for the given month name.
+        /// </summary>
+        /// <param name="name">The month name.</param>
+        /// <param name="abbreviated"><see langword="true"/> if the name is abbreviated;
+        /// otherwise, <see langword="false"/>.</param>
+        /// <returns></returns>
+        public static int GetMonthNumber(string name, bool abbreviated)
+        {
+            var months = abbreviated ? GetAbbreviatedMonthNames() : GetMonthNames();
+            return months.IndexOf(name) + 1;
         }
         #endregion
 
@@ -125,66 +273,137 @@ namespace Cadru
         /// that includes the date in the <paramref name="time"/> parameter.</returns>
         public static int GetWeekOfYear(this DateTime time, CalendarWeekRule rule, DayOfWeek firstDayOfWeek)
         {
-            int num = 0;
-
-            if (firstDayOfWeek < DayOfWeek.Sunday || firstDayOfWeek > DayOfWeek.Saturday)
-            {
-                throw new ArgumentOutOfRangeException("firstDayOfWeek", String.Format(CultureInfo.CurrentUICulture, Resources.ArgumentOutOfRange_Range, DayOfWeek.Sunday, DayOfWeek.Saturday));
-            }
-
-            switch (rule)
-            {
-                case CalendarWeekRule.FirstDay:
-                    num = GetFirstDayWeekOfYear(time, (int)firstDayOfWeek);
-                    break;
-
-                case CalendarWeekRule.FirstFullWeek:
-                    num = GetWeekOfYearFullDays(time, (int)firstDayOfWeek, 7);
-                    break;
-
-                case CalendarWeekRule.FirstFourDayWeek:
-                    num = GetWeekOfYearFullDays(time, (int)firstDayOfWeek, 4);
-                    break;
-
-                default:
-                    throw new ArgumentOutOfRangeException("rule", String.Format(CultureInfo.CurrentUICulture, Resources.ArgumentOutOfRange_Range, CalendarWeekRule.FirstDay, CalendarWeekRule.FirstFourDayWeek));
-            }
-
-            return num;
+            return CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(time, rule, firstDayOfWeek);
         }
         #endregion
 
         #endregion
 
-        #region GetFirstDayWeekOfYear
-        internal static int GetFirstDayWeekOfYear(DateTime time, int firstDayOfWeek)
+        #region IsLeapYear
+        /// <summary>
+        /// Determines whether the specified date is a leap year.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns><see langword="true"/> if the specified date is a leap year;
+        /// otherwise, <see langword="false"/>.</returns>
+        public static bool IsLeapYear(this DateTime date)
         {
-            int dayOfYear = time.DayOfYear - 1;
-            int dayOfWeek = ((int)time.DayOfWeek - dayOfYear) % 7;
-            int num = (dayOfWeek - firstDayOfWeek + 14) % 7;
-            return ((dayOfYear + num) / 7) + 1;
+            return DateTime.IsLeapYear(date.Year);
         }
         #endregion
 
-        #region GetWeekOfYearFullDays
-        internal static int GetWeekOfYearFullDays(DateTime time, int firstDayOfWeek, int fullDays)
+        #region IsLeapMonth
+        /// <summary>
+        /// Determines whether the specified date is a leap month.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns><see langword="true"/> if the specified date is a leap month;
+        /// otherwise, <see langword="false"/>.</returns>
+        public static bool IsLeapMonth(this DateTime date)
         {
-            int dayOfYear = time.DayOfYear - 1;
-            int dayOfWeek = ((int)time.DayOfWeek - dayOfYear) % 7;
-            int num = (firstDayOfWeek - dayOfWeek + 14) % 7;
+            return CultureInfo.CurrentCulture.Calendar.IsLeapMonth(date.Year, date.Month);
+        }
+        #endregion
 
-            if (num != 0 && num >= fullDays)
-            {
-                num = num - 7;
-            }
+        #region IsLeapDay
+        /// <summary>
+        /// Determines whether the specified date is a leap day.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns><see langword="true"/> if the specified date is a leap day;
+        /// otherwise, <see langword="false"/>.</returns>
+        public static bool IsLeapDay(this DateTime date)
+        {
+            return CultureInfo.CurrentCulture.Calendar.IsLeapDay(date.Year, date.Month, date.Day);
+        }
+        #endregion
 
-            int num1 = dayOfYear - num;
-            if (num1 >= 0)
-            {
-                return (num1 / 7) + 1;
-            }
+        #region LastDayOfMonth
+        /// <summary>
+        /// Returns a <see cref="DateTime"/> representing the
+        /// last day of the month for the date represented by this instance.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns>A <see cref="DateTime"/> representing the
+        /// last day of the month for the date represented by this instance.</returns>
+        public static DateTime LastDayOfMonth(this DateTime date)
+        {
+            return new DateTime(date.Year, date.Month, date.DaysInMonth());
+        }
+        #endregion
 
-            return GetWeekOfYearFullDays(time.AddDays((double)(-(dayOfYear + 1))), firstDayOfWeek, fullDays);
+        #region LastDayOfQuarter
+        /// <summary>
+        /// Returns a <see cref="DateTime"/> which represents the 
+        /// last day of the quarter of the date represented by this instance.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns>A <see cref="DateTime"/> which represents the 
+        /// last day of the quarter of the date represented by this instance.</returns>
+        public static DateTime LastDayOfQuarter(this DateTime date)
+        {
+            return date.FirstDayOfNextQuarter().AddDays(-1);
+        }
+        #endregion
+
+        #region LastDayOfWeek
+        /// <summary>
+        /// Returns a <see cref="DateTime"/> which represents the 
+        /// last day of the week of the date represented by this instance.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns>A <see cref="DateTime"/> which represents the 
+        /// last day of the week of the date represented by this instance.</returns>
+        public static DateTime LastDayOfWeek(this DateTime date)
+        {
+            return date.LastDayOfWeek(DateTimeFormatInfo.CurrentInfo.FirstDayOfWeek);
+        }
+
+        /// <summary>
+        /// Returns a <see cref="DateTime"/> which represents the 
+        /// last day of the week of the date represented by this instance.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <param name="firstDayOfWeek">An enumeration value that represents the first day of the week.</param>
+        /// <returns>A <see cref="DateTime"/> which represents the 
+        /// last day of the week of the date represented by this instance.</returns>
+        public static DateTime LastDayOfWeek(this DateTime date, DayOfWeek firstDayOfWeek)
+        {
+            return date.FirstDayOfWeek(firstDayOfWeek).AddDays(6);
+        }
+        #endregion
+
+        #region LastDayOfYear
+        /// <summary>
+        /// Returns a <see cref="DateTime"/> representing the
+        /// last day of the year for the date represented by this instance.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns>A <see cref="DateTime"/> representing the
+        /// last day of the year for the date represented by this instance.</returns>
+        public static DateTime LastDayOfYear(this DateTime date)
+        {
+            return new DateTime(date.Year, 12, 31);
+        }
+        #endregion
+
+        #region Quarter
+        /// <summary>
+        /// Returns the quarter component of the date represented by this instance.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns>The quarter component of the date represented by this instance.</returns>
+        public static int Quarter(this DateTime date)
+        {
+            return ((date.Month - 1) / 3) + 1;
+        }
+        #endregion
+
+        #region DaysBetween
+        private static int DaysBetween(DayOfWeek current, DayOfWeek firstDayOfWeek)
+        {
+            int days = current - firstDayOfWeek;
+            return days < 0 ? days + 7 : days;
         }
         #endregion
     }

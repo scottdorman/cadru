@@ -409,6 +409,63 @@ namespace Cadru
         }
         #endregion
 
+        #region IsNullOrWhiteSpace
+        /// <summary>
+        /// Indicates whether a specified string is <see langword="null"/>, 
+        /// <see cref="String.Empty">empty</see>, or consists only of white-space characters
+        /// </summary>
+        /// <param name="value">The string to test.</param>
+        /// <returns><see langword="true"/> if the <paramref name="value"/>
+        /// parameter is <see langword="null"/>null or <see cref="String.Empty">String.Empty</see>,
+        /// or if <paramref name="value"/> consists exclusively of white-space characters.</returns>
+        /// <remarks>White-space characters are defined by the Unicode standard. The 
+        /// <see cref="IsNullOrWhiteSpace"/> method interprets any character that returns a value of 
+        /// <see langword="true"/> when it is passed to the <see cref="Char.IsWhiteSpace(char)"/>
+        /// method as a white-space character.</remarks>
+        public static bool IsNullOrWhiteSpace(this string value)
+        {
+            if (value != null)
+            {
+                int num = 0;
+                while (num < value.Length)
+                {
+                    if (char.IsWhiteSpace(value[num]))
+                    {
+                        num++;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        #endregion
+
+        #region IsNotNullOrWhiteSpace
+        /// <summary>
+        /// Indicates whether a specified string is not <see langword="null"/>, 
+        /// <see cref="String.Empty">empty</see>, or consists only of white-space characters
+        /// </summary>
+        /// <param name="value">The string to test.</param>
+        /// <returns><see langword="true"/> if the <paramref name="value"/>
+        /// parameter is not <see langword="null"/>null or <see cref="String.Empty">String.Empty</see>,
+        /// or if <paramref name="value"/> does not consist exclusively of white-space characters.</returns>
+        /// <remarks>White-space characters are defined by the Unicode standard. The 
+        /// <see cref="IsNotNullOrWhiteSpace"/> method interprets any character that returns a value of 
+        /// <see langword="true"/> when it is passed to the <see cref="Char.IsWhiteSpace(char)"/>
+        /// method as a white-space character.</remarks>
+        public static bool IsNotNullOrWhiteSpace(this string value)
+        {
+            return !value.IsNullOrWhiteSpace();
+        }
+        #endregion
+
         #region Normalize
 
         #region Normalize(string source)
