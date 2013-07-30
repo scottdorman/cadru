@@ -31,6 +31,20 @@ namespace Cadru.UnitTest.Framework
     /// </summary>
     public static class CustomAssert
     {
+        #region fields
+        #endregion
+
+        #region constructors
+        #endregion
+
+        #region events
+        #endregion
+
+        #region properties
+        #endregion
+
+        #region methods
+
         #region AreEqualIgnoringCase
 
         #region AreEqualIgnoringCase(string expected, string actual)
@@ -41,7 +55,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="actual">The actual string.</param>
         public static void AreEqualIgnoringCase(string expected, string actual)
         {
-            AreEqualIgnoringCase(expected, actual, Properties.Resources.Assertion_GenericFailure, expected, actual);
+            CustomAssert.AreEqualIgnoringCase(expected, actual, Properties.Resources.Assertion_GenericFailure, expected, actual);
         }
         #endregion
 
@@ -54,7 +68,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
         public static void AreEqualIgnoringCase(string expected, string actual, string message)
         {
-            AreEqualIgnoringCase(expected, actual, message, null);
+            CustomAssert.AreEqualIgnoringCase(expected, actual, message, null);
         }
         #endregion
 
@@ -83,7 +97,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="collection">The value to be tested.</param>
         public static void IsEmpty(ICollection collection)
         {
-            IsEmpty(collection, Properties.Resources.Assertion_CollectionFailure, 0, collection.Count);
+            CustomAssert.IsEmpty(collection, Properties.Resources.Assertion_CollectionFailure, 0, collection.Count);
         }
         #endregion
 
@@ -95,7 +109,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
         public static void IsEmpty(ICollection collection, string message)
         {
-            IsEmpty(collection, message, null);
+            CustomAssert.IsEmpty(collection, message, null);
         }
         #endregion
 
@@ -119,7 +133,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="value">The value to be tested.</param>
         public static void IsEmpty(string value)
         {
-            IsEmpty(value, Properties.Resources.Assertion_GenericFailure, String.Empty, value);
+            CustomAssert.IsEmpty(value, Properties.Resources.Assertion_GenericFailure, String.Empty, value);
         }
         #endregion
 
@@ -131,7 +145,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
         public static void IsEmpty(string value, string message)
         {
-            IsEmpty(value, message, null);
+            CustomAssert.IsEmpty(value, message, null);
         }
         #endregion
 
@@ -159,7 +173,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="collection">The value to be tested.</param>
         public static void IsNotEmpty(ICollection collection)
         {
-            IsNotEmpty(collection, Properties.Resources.Assertion_CollectionFailure, collection.Count, 0);
+            CustomAssert.IsNotEmpty(collection, Properties.Resources.Assertion_CollectionFailure, collection.Count, 0);
         }
         #endregion
 
@@ -171,7 +185,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
         public static void IsNotEmpty(ICollection collection, string message)
         {
-            IsNotEmpty(collection, message, null);
+            CustomAssert.IsNotEmpty(collection, message, null);
         }
         #endregion
 
@@ -195,7 +209,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="value">The value to be tested.</param>
         public static void IsNotEmpty(string value)
         {
-            IsNotEmpty(value, Properties.Resources.Assertion_GenericFailure, value, String.Empty);
+            CustomAssert.IsNotEmpty(value, Properties.Resources.Assertion_GenericFailure, value, String.Empty);
         }
         #endregion
 
@@ -207,7 +221,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
         public static void IsNotEmpty(string value, string message)
         {
-            IsNotEmpty(value, message, null);
+            CustomAssert.IsNotEmpty(value, message, null);
         }
         #endregion
 
@@ -222,6 +236,8 @@ namespace Cadru.UnitTest.Framework
         {
             Assert.IsFalse(value.Length == 0, message, parameters);
         }
+        #endregion
+
         #endregion
 
         #endregion

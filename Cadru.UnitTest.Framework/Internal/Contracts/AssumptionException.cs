@@ -20,7 +20,7 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.UnitTest.Framework.Internal.Contracts
+namespace Cadru.Contracts
 {
     using System;
     using System.Runtime.Serialization;
@@ -32,10 +32,7 @@ namespace Cadru.UnitTest.Framework.Internal.Contracts
     [Serializable]
     public sealed class AssumptionException : Exception
     {
-        #region events
-        #endregion
-
-        #region class-wide fields
+        #region fields
         #endregion
 
         #region constructors
@@ -75,40 +72,15 @@ namespace Cadru.UnitTest.Framework.Internal.Contracts
         }
         #endregion
 
-        #region AssumptionException(SerializationInfo info, StreamingContext context)
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AssumptionException"/> class with serialized data.
-        /// </summary>
-        /// <param name="info">The System.Runtime.Serialization.SerializationInfo that holds the serialized object data about the exception being thrown.</param>
-        /// <param name="context">The System.Runtime.Serialization.StreamingContext that contains contextual information about the source or destination.</param>
-        /// <exception cref="System.ArgumentNullException">The info parameter is null.</exception>
-        /// <exception cref="System.Runtime.Serialization.SerializationException">The class name is <see langword="null"/> or System.Exception.HResult is zero (0).</exception>
-        private AssumptionException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
         #endregion
 
+        #region events
         #endregion
-
-        #region private and internal properties and methods
 
         #region properties
         #endregion
 
         #region methods
-        #endregion
-
-        #endregion
-
-        #region public and protected properties and methods
-
-        #region properties
-        #endregion
-
-        #region methods
-        #endregion
-
         #endregion
     }
 }

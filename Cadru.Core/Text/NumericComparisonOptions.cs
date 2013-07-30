@@ -21,8 +21,7 @@
 //------------------------------------------------------------------------------
 namespace Cadru.Text
 {
-using System;
-using System.Diagnostics.CodeAnalysis;
+    using System;
 
     /// <summary>
     /// Specifies the comparison rules to be used by certain overloads of the

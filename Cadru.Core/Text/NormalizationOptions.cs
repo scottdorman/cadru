@@ -22,7 +22,6 @@
 namespace Cadru.Text
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// Options used by the <see cref="Cadru.Extensions.StringExtensions.Normalize(string)"/> methods to
@@ -46,7 +45,7 @@ namespace Cadru.Text
         /// and end of the string and collapse all internal white
         /// space characters to a single white space character.
         /// </summary>
-        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "Whitespace", Justification = "Both case forms (Whitespace or WhiteSpace) generate this error, so we are choosing one and ignoring the error.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "Whitespace", Justification = "Both case forms (Whitespace or WhiteSpace) generate this error, so we are choosing one and ignoring the error.")]
         Whitespace = 0x004,
 
         /// <summary>

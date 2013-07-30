@@ -23,23 +23,35 @@
 namespace Cadru.Extensions
 {
     using System;
+    using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
-    using Cadru.Properties;
-    using System.Collections.Generic;
-    using Cadru;
 
     /// <summary>
     /// Provides basic routines for common DateTime manipulation.
     /// </summary>
     public static class DateTimeExtensions
     {
+        #region fields
+        #endregion
+
+        #region constructors
+        #endregion
+
+        #region events
+        #endregion
+
+        #region properties
+        #endregion
+
+        #region methods
+
         #region AddWeekdays
         /// <summary>
         /// Returns a new <see cref="DateTime"/> that adds the specified number of
         /// weekdays to the value of this instance.
         /// </summary>
-        /// <param name="date"></param>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
         /// <param name="value">A number of whole and fractional weekdays.
         /// The <paramref name="value"/> parameter can be negative or positive.</param>
         /// <returns>A <see cref="DateTime"/> whose value is the sum of the
@@ -72,7 +84,7 @@ namespace Cadru.Extensions
         /// Returns a new <see cref="DateTime"/> that adds the specified number of
         /// quarters to the value of this instance.
         /// </summary>
-        /// <param name="date"></param>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
         /// <param name="value">A number of whole and fractional quarters.
         /// The <paramref name="value"/> parameter can be negative or positive.</param>
         /// <returns>A <see cref="DateTime"/> whose value is the sum of the
@@ -94,7 +106,7 @@ namespace Cadru.Extensions
         /// Returns a new <see cref="DateTime"/> that adds the specified number of
         /// weeks to the value of this instance.
         /// </summary>
-        /// <param name="date"></param>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
         /// <param name="value">A number of whole and fractional weeks.
         /// The <paramref name="value"/> parameter can be negative or positive.</param>
         /// <returns>A <see cref="DateTime"/> whose value is the sum of the
@@ -302,7 +314,7 @@ namespace Cadru.Extensions
         /// <param name="name">The month name.</param>
         /// <param name="abbreviated"><see langword="true"/> if the name is abbreviated;
         /// otherwise, <see langword="false"/>.</param>
-        /// <returns></returns>
+        /// <returns>The month number for the given month name.</returns>
         public static int GetMonthNumber(string name, bool abbreviated)
         {
             var months = abbreviated ? GetAbbreviatedMonthNames() : GetMonthNames();
@@ -417,7 +429,7 @@ namespace Cadru.Extensions
         /// otherwise, <see langword="false"/>.</returns>
         public static bool IsWeekend(this DateTime date)
         {
-            return (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday);
+            return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
         }
         #endregion
 
@@ -508,6 +520,8 @@ namespace Cadru.Extensions
             int days = current - firstDayOfWeek;
             return days < 0 ? days + 7 : days;
         }
+        #endregion
+
         #endregion
     }
 }

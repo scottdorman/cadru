@@ -22,9 +22,9 @@
 
 namespace Cadru.Contracts
 {
-    using Cadru.Properties;
     using System;
     using System.Runtime.Serialization;
+    using Cadru.Properties;
 
     /// <summary>
     /// The exception that is thrown when an assumption fails.
@@ -32,9 +32,6 @@ namespace Cadru.Contracts
     [DataContract]
     public sealed class AssumptionException : Exception
     {
-        #region events
-        #endregion
-
         #region fields
         #endregion
 
@@ -75,6 +72,9 @@ namespace Cadru.Contracts
         }
         #endregion
 
+        #endregion
+
+        #region events
         #endregion
 
         #region properties

@@ -34,7 +34,7 @@ namespace Cadru.IO
         /// <summary>
         /// The file is an MS-DOS .exe, .com, or .bat file.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DOS")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DOS", Justification = "Reviewed.")]
         DOS,
 
         /// <summary>

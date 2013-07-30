@@ -27,13 +27,26 @@ namespace Cadru.Extensions
     using System.Text;
     using Cadru.Properties;
     using Cadru.Text;
-    using System.IO;
 
     /// <summary>
     /// Provides basic routines for common string manipulation.
     /// </summary>
     public static class StringExtensions
     {
+        #region fields
+        #endregion
+
+        #region constructors
+        #endregion
+
+        #region events
+        #endregion
+
+        #region properties
+        #endregion
+
+        #region methods
+
         #region Contains
         /// <summary>
         /// Returns a value indicating whether the specified <see cref="string"/> object occurs within this string.
@@ -140,7 +153,7 @@ namespace Cadru.Extensions
         /// ends at <paramref name="endingIndex"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="endingIndex"/> is not found in the string.
         /// </returns>
-        /// <exception cref="ArgumentOutOfRangeException">endingIndex is less than zero. </exception>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="endingIndex"/> is less than zero. </exception>
         public static string LeftSubstring(this string source, int endingIndex)
         {
             return LeftSubstring(source, endingIndex, true);
@@ -395,7 +408,7 @@ namespace Cadru.Extensions
         #region IsNullOrWhiteSpace
         /// <summary>
         /// Indicates whether a specified string is <see langword="null"/>, 
-        /// <see cref="String.Empty">empty</see>, or consists only of white-space characters
+        /// <see cref="String.Empty">empty</see>, or consists only of white-space characters.
         /// </summary>
         /// <param name="value">The string to test.</param>
         /// <returns><see langword="true"/> if the <paramref name="value"/>
@@ -421,6 +434,7 @@ namespace Cadru.Extensions
                         return false;
                     }
                 }
+
                 return true;
             }
             else
@@ -433,7 +447,7 @@ namespace Cadru.Extensions
         #region IsNotNullOrWhiteSpace
         /// <summary>
         /// Indicates whether a specified string is not <see langword="null"/>, 
-        /// <see cref="String.Empty">empty</see>, or consists only of white-space characters
+        /// <see cref="String.Empty">empty</see>, or consists only of white-space characters.
         /// </summary>
         /// <param name="value">The string to test.</param>
         /// <returns><see langword="true"/> if the <paramref name="value"/>
@@ -1062,7 +1076,7 @@ namespace Cadru.Extensions
         /// ends at <paramref name="endingIndex"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="endingIndex"/> is not found in the string.
         /// </returns>
-        /// <exception cref="ArgumentOutOfRangeException">endingIndex is less than zero. </exception>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="endingIndex"/> is less than zero. </exception>
         public static string RightSubstring(this string source, int endingIndex)
         {
             return RightSubstring(source, endingIndex, true);
@@ -1345,6 +1359,7 @@ namespace Cadru.Extensions
                     {
                         break;
                     }
+
                     num++;
                 }
                 else
@@ -1360,6 +1375,8 @@ namespace Cadru.Extensions
 
             return value.Substring(num, length - num + 1);
         }
+        #endregion
+
         #endregion
     }
 }

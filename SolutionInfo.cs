@@ -31,7 +31,6 @@
 using System.Reflection;
 using System.Resources;
 
-
 #region Assembly identity attributes
 
 [assembly: AssemblyCulture("")]

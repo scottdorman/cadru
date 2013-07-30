@@ -24,8 +24,6 @@ namespace Cadru.Collections
 {
     using System;
     using System.Collections.Generic;
-    using System.Globalization;
-    using System.Linq;
     using System.Text;
 
     /// <summary>Defines a key/value pair that can be set or retrieved.</summary>
@@ -33,20 +31,30 @@ namespace Cadru.Collections
     /// <filterpriority>1</filterpriority>
     public struct NameValuePair<TValue>
     {
+        #region fields
         private string key;
-        private IList<TValue> @value;
+        private IList<TValue> value;
+        #endregion
 
-        /// <summary>Initializes a new instance of the <see cref="T:Cadru.Collections.NameValuePair{TValue}" /> 
+        #region constructors
+        /// <summary>Initializes a new instance of the <see cref="NameValuePair{TValue}" /> 
         /// structure with the specified key.</summary>
         /// <param name="key">The object defined in each key/value pair.</param>
         public NameValuePair(string key)
         {
             this.key = key;
-            this.@value = new List<TValue>();
+            this.value = new List<TValue>();
         }
+        #endregion
 
+        #region events
+        #endregion
+
+        #region properties
+
+        #region Key
         /// <summary>Gets the key in the key/value pair.</summary>
-        /// <returns>A <see cref="string"/> that is the key of the <see cref="NameValuePair{TValue}" />. </returns>
+        /// <value>A <see cref="string"/> that is the key of the <see cref="NameValuePair{TValue}" />. </value>
         public string Key
         {
             get
@@ -54,16 +62,56 @@ namespace Cadru.Collections
                 return this.key;
             }
         }
+        #endregion
 
+        #region Value
         /// <summary>Gets the value in the key/value pair.</summary>
-        /// <returns>A <see cref="IList{TValue}"/> that is the value of the <see cref="NameValuePair{TValue}" />. </returns>
+        /// <value>A <see cref="IList{TValue}"/> that is the value of the <see cref="NameValuePair{TValue}" />. </value>
         public IList<TValue> Value
         {
             get
             {
-                return this.@value;
+                return this.value;
             }
         }
+        #endregion
+
+        #endregion
+
+        #region operators
+
+        #region op_Equality
+        /// <summary>
+        /// Determines whether two specified instances of <see cref="NameValuePair{TValue}"/> are equal.
+        /// </summary>
+        /// <param name="left">An <see cref="NameValuePair{TValue}"/>.</param>
+        /// <param name="right">An <see cref="NameValuePair{TValue}"/>.</param>
+        /// <returns><see langword="true"/> if left and right represent the same server; otherwise <see langword="false"/>.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
+        public static bool operator ==(NameValuePair<TValue> left, NameValuePair<TValue> right)
+        {
+            return left.Equals(right);
+        }
+        #endregion
+
+        #region op_Inequality
+        /// <summary>
+        /// Determines whether two specified instances of <see cref="NameValuePair{TValue}"/> are not equal.
+        /// </summary>
+        /// <param name="left">An <see cref="NameValuePair{TValue}"/>.</param>
+        /// <param name="right">An <see cref="NameValuePair{TValue}"/>.</param>
+        /// <returns><see langword="true"/> if left and right do note represent the same server;
+        /// otherwise <see langword="false"/>.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
+        public static bool operator !=(NameValuePair<TValue> left, NameValuePair<TValue> right)
+        {
+            return !left.Equals(right);
+        }
+        #endregion
+
+        #endregion
+
+        #region methods
 
         #region Equals
 
@@ -79,7 +127,9 @@ namespace Cadru.Collections
         public bool Equals(NameValuePair<TValue> other)
         {
             if (other.key != this.key)
+            {
                 return false;
+            }
 
             return true;
         }
@@ -98,13 +148,18 @@ namespace Cadru.Collections
 
             // Check that o is a Server first
             if (obj == null || !(obj is NameValuePair<TValue>))
+            {
                 return false;
+            }
             else
+            {
                 s = (NameValuePair<TValue>)obj;
+            }
 
-            // Now compare each of the elements
             if (s.key != this.key)
+            {
                 return false;
+            }
 
             return true;
         }
@@ -157,31 +212,6 @@ namespace Cadru.Collections
 
         #endregion
 
-        #region op_Equality
-        /// <summary>
-        /// Determines whether two specified instances of <see cref="NameValuePair{TValue}"/> are equal.
-        /// </summary>
-        /// <param name="left">An <see cref="NameValuePair{TValue}"/>.</param>
-        /// <param name="right">An <see cref="NameValuePair{TValue}"/>.</param>
-        /// <returns><see langword="true"/> if left and right represent the same server; otherwise <see langword="false"/>.</returns>
-        public static bool operator ==(NameValuePair<TValue> left, NameValuePair<TValue> right)
-        {
-            return left.Equals(right);
-        }
-        #endregion
-
-        #region op_Inequality
-        /// <summary>
-        /// Determines whether two specified instances of <see cref="NameValuePair{TValue}"/> are not equal.
-        /// </summary>
-        /// <param name="left">An <see cref="NameValuePair{TValue}"/>.</param>
-        /// <param name="right">An <see cref="NameValuePair{TValue}"/>.</param>
-        /// <returns><see langword="true"/> if left and right do note represent the same server;
-        /// otherwise <see langword="false"/>.</returns>
-        public static bool operator !=(NameValuePair<TValue> left, NameValuePair<TValue> right)
-        {
-            return !left.Equals(right);
-        }
         #endregion
     }
 }

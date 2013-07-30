@@ -35,7 +35,7 @@ namespace Cadru.Networking
         /// <summary>
         /// Retrieve platform-specific information for a DOS system.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DOS")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DOS", Justification = "Reviewed.")]
         DOS = 300,
 
         /// <summary>
@@ -51,13 +51,13 @@ namespace Cadru.Networking
         /// <summary>
         /// Retrieve platform-specific information for an OSF system.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "OSF")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "OSF", Justification = "Reviewed.")]
         OSF = 600,
 
         /// <summary>
         /// Retrieve platform-specific information for a VMS system.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "VMS")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "VMS", Justification = "Reviewed.")]
         VMS = 700
     }
 }

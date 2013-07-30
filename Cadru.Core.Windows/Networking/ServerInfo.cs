@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// <copyright file="Server.cs" 
+// <copyright file="ServerInfo.cs" 
 //  company="Scott Dorman" 
 //  library="Cadru">
 //    Copyright (C) 2001-2013 Scott Dorman.
@@ -23,8 +23,6 @@
 namespace Cadru.Networking
 {
     using System;
-    using System.Collections.Generic;
-    using System.Text;
     using System.Globalization;
     using System.Runtime.InteropServices;
     using System.Runtime.Serialization;
@@ -43,7 +41,7 @@ namespace Cadru.Networking
 
         #endregion
 
-        #region class-wide fields
+        #region fields
         private PlatformId platformId;
         private string name;
         private int majorVersion;
@@ -57,22 +55,19 @@ namespace Cadru.Networking
         #region Server(SERVER_INFO_101 info)
         internal ServerInfo(SERVER_INFO_101 info)
         {
-            platformId = (PlatformId)info.sv101_platform_id;
-            name = info.sv101_name;
-            majorVersion = (int)info.sv101_version_major;
-            minorVersion = (int)info.sv101_version_minor;
-            serverType = (ServerTypes)info.sv101_type;
-            comment = info.sv101_comment;
+            this.platformId = (PlatformId)info.sv101_platform_id;
+            this.name = info.sv101_name;
+            this.majorVersion = (int)info.sv101_version_major;
+            this.minorVersion = (int)info.sv101_version_minor;
+            this.serverType = (ServerTypes)info.sv101_type;
+            this.comment = info.sv101_comment;
         }
         #endregion
 
         #region serialization constructor
         private ServerInfo(SerializationInfo info, StreamingContext context)
         {
-            if (info == null)
-            {
-                throw new ArgumentNullException("info");
-            }
+            Contracts.Requires.NotNull(info, "info");
 
             this.platformId = (PlatformId)info.GetValue("platformId", typeof(PlatformId));
             this.name = info.GetString("name");
@@ -90,12 +85,12 @@ namespace Cadru.Networking
         /// <summary>
         /// Gets the information level used for platform-specific information.
         /// </summary>
-        /// <value>One of the <see cref="PlatformId"/> value.s</value>
+        /// <value>One of the <see cref="PlatformId"/> values.</value>
         public PlatformId PlatformId
         {
             get
             {
-                return platformId;
+                return this.platformId;
             }
         }
 
@@ -108,12 +103,12 @@ namespace Cadru.Networking
         {
             get
             {
-                return name;
+                return this.name;
             }
         }
 
         /// <summary>
-        /// Get the Server comment.
+        /// Gets the Server comment.
         /// </summary>
         /// <value>A <see cref="String"/> that represents the comment
         /// associated with the server or an empty string if there is no
@@ -122,7 +117,7 @@ namespace Cadru.Networking
         {
             get
             {
-                return comment;
+                return this.comment;
             }
         }
 
@@ -135,7 +130,7 @@ namespace Cadru.Networking
         {
             get
             {
-                return majorVersion;
+                return this.majorVersion;
             }
         }
 
@@ -148,7 +143,7 @@ namespace Cadru.Networking
         {
             get
             {
-                return minorVersion;
+                return this.minorVersion;
             }
         }
 
@@ -174,165 +169,13 @@ namespace Cadru.Networking
         {
             get
             {
-                return serverType;
+                return this.serverType;
             }
         }
 
         #endregion
 
-        #region methods
-
-        #region GetObjectData
-        /// <summary>
-        /// Populates a <see cref="SerializationInfo"/> object with the data needed
-        /// to serialize the current <see cref="ServerInfo"/> object. 
-        /// </summary>
-        /// <param name="info">The <see cref="SerializationInfo"/> object to populate with data.</param>
-        /// <param name="context">The destination for this serialization. (This parameter is not used; 
-        /// specify a <see langword="null"/>.)</param>
-        /// <exception cref="ArgumentNullException">info is a <see langword="null"/>.</exception>
-        [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.SerializationFormatter)]
-        void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            if (info == null)
-            {
-                throw new ArgumentNullException("info");
-            }
-
-            info.AddValue("platformId", this.platformId, typeof(PlatformId));
-            info.AddValue("name", this.name);
-            info.AddValue("serverType", this.serverType, typeof(ServerTypes));
-            info.AddValue("majorVersion", this.majorVersion);
-            info.AddValue("minorVersion", this.minorVersion);
-            info.AddValue("comment", this.comment);
-        }
-        #endregion
-
-        #region Equals
-
-        #region Equals(Server other)
-        /// <summary>
-        /// Returns a value indicating whether this instance is equal to the specified <see cref="ServerInfo"/> instance.
-        /// </summary>
-        /// <param name="other">An <see cref="ServerInfo"/> instance to compare to this instance.</param>
-        /// <returns><see langword="true"/> if the other parameter equals the value of this instance; otherwise, <see langword="false"/>. </returns>
-        /// <remarks>This method implements the <see cref="System.IEquatable{T}"/> interface and performs slightly
-        /// better than the <see cref="ServerInfo.Equals(Object)"/> method because it does not have to convert
-        /// the other parameter to an object.</remarks>
-        public bool Equals(ServerInfo other)
-        {
-            // Now compare each of the elements
-            if (other.platformId != this.platformId)
-                return false;
-            if (other.name != this.name)
-                return false;
-            if (other.serverType != this.serverType)
-                return false;
-            if (other.majorVersion != this.majorVersion)
-                return false;
-            if (other.minorVersion != this.minorVersion)
-                return false;
-            if (other.comment != this.comment)
-                return false;
-
-            return true;
-        }
-        #endregion
-
-        #region Equals(Server left, Server right)
-        /// <summary>
-        /// Returns a value indicating whether two instances of <see cref="ServerInfo"/> are equal.
-        /// </summary>
-        /// <param name="left">The first <see cref="ServerInfo"/>. </param>
-        /// <param name="right">The second <see cref="ServerInfo"/>.</param>
-        /// <returns><see langword="true"/> if the two <see cref="ServerInfo"/> values are equal; otherwise, <see langword="false"/>. </returns>
-        public static bool Equals(ServerInfo left, ServerInfo right)
-        {
-            return (left == right);
-        }
-        #endregion
-
-        #region Equals(Object obj)
-        /// <summary>
-        /// Returns a value indicating whether this instance is equal to a specified object.
-        /// </summary>
-        /// <param name="obj">An object to compare to this instance.</param>
-        /// <returns><see langword="true"/> if value is an instance of <see cref="ServerInfo"/>
-        /// equals the value of this instance; otherwise, <see langword="false"/>. </returns>
-        public override bool Equals(Object obj)
-        {
-            ServerInfo s;
-
-            // Check that o is a Server first
-            if (obj == null || !(obj is ServerInfo))
-                return false;
-            else
-                s = (ServerInfo)obj;
-
-            // Now compare each of the elements
-            if (s.platformId != this.platformId)
-                return false;
-            if (s.name != this.name)
-                return false;
-            if (s.serverType != this.serverType)
-                return false;
-            if (s.majorVersion != this.majorVersion)
-                return false;
-            if (s.minorVersion != this.minorVersion)
-                return false;
-            if (s.comment != this.comment)
-                return false;
-
-            return true;
-        }
-        #endregion
-
-        #endregion
-
-        #region GetHashCode
-        /// <summary>
-        /// Returns the hash code for this instance. 
-        /// </summary>
-        /// <returns>A 32-bit signed integer hash code.</returns>
-        public override int GetHashCode()
-        {
-            return (
-                    this.platformId.GetHashCode() ^
-                    this.serverType.GetHashCode() ^
-                    this.name.GetHashCode() ^
-                    this.majorVersion.GetHashCode() ^
-                    this.minorVersion.GetHashCode() ^
-                    this.comment.GetHashCode()
-                   );
-        }
-        #endregion
-
-        #region ToString
-
-        #region ToString()
-        /// <summary>
-        /// Converts the value of the current Server object to its equivalent string representation. 
-        /// </summary>
-        /// <returns></returns>
-        public override String ToString()
-        {
-            return ToString(CultureInfo.CurrentCulture);
-        }
-        #endregion
-
-        #region ToString(IFormatProvider provider)
-        /// <summary>
-        /// Converts the value of the current Server object to its equivalent string representation using the specified culture-specific format information. 
-        /// </summary>
-        /// <param name="provider"></param>
-        /// <returns></returns>
-        public String ToString(IFormatProvider provider)
-        {
-            return String.Format(provider, "{0}, {1}", this.name, this.serverType.ToString());
-        }
-        #endregion
-
-        #endregion
+        #region operators
 
         #region op_Equality
         /// <summary>
@@ -341,6 +184,7 @@ namespace Cadru.Networking
         /// <param name="left">An <see cref="ServerInfo"/>.</param>
         /// <param name="right">An <see cref="ServerInfo"/>.</param>
         /// <returns><see langword="true"/> if s1 and s2 represent the same server; otherwise <see langword="false"/>.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
         public static bool operator ==(ServerInfo left, ServerInfo right)
         {
             return left.Equals(right);
@@ -355,10 +199,200 @@ namespace Cadru.Networking
         /// <param name="right">An <see cref="ServerInfo"/>.</param>
         /// <returns><see langword="true"/> if s1 and s2 do note represent the same server;
         /// otherwise <see langword="false"/>.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
         public static bool operator !=(ServerInfo left, ServerInfo right)
         {
             return !left.Equals(right);
         }
+        #endregion
+
+        #endregion
+
+        #region methods
+
+        #region Equals(Server left, Server right)
+        /// <summary>
+        /// Returns a value indicating whether two instances of <see cref="ServerInfo"/> are equal.
+        /// </summary>
+        /// <param name="left">The first <see cref="ServerInfo"/>. </param>
+        /// <param name="right">The second <see cref="ServerInfo"/>.</param>
+        /// <returns><see langword="true"/> if the two <see cref="ServerInfo"/> values are equal; otherwise, <see langword="false"/>. </returns>
+        public static bool Equals(ServerInfo left, ServerInfo right)
+        {
+            return left == right;
+        }
+        #endregion
+
+        #region GetObjectData
+        /// <summary>
+        /// Populates a <see cref="SerializationInfo"/> object with the data needed
+        /// to serialize the current <see cref="ServerInfo"/> object. 
+        /// </summary>
+        /// <param name="info">The <see cref="SerializationInfo"/> object to populate with data.</param>
+        /// <param name="context">The destination for this serialization.(This parameter is not used; 
+        /// specify a <see langword="null"/>.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="info"/> is a <see langword="null"/>.</exception>
+        [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.SerializationFormatter)]
+        void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            Contracts.Requires.NotNull(info, "info");
+
+            info.AddValue("platformId", this.platformId, typeof(PlatformId));
+            info.AddValue("name", this.name);
+            info.AddValue("serverType", this.serverType, typeof(ServerTypes));
+            info.AddValue("majorVersion", this.majorVersion);
+            info.AddValue("minorVersion", this.minorVersion);
+            info.AddValue("comment", this.comment);
+        }
+        #endregion
+
+        #region Equals
+
+        #region Equals(Object obj)
+        /// <summary>
+        /// Returns a value indicating whether this instance is equal to a specified object.
+        /// </summary>
+        /// <param name="obj">An object to compare to this instance.</param>
+        /// <returns><see langword="true"/> if value is an instance of <see cref="ServerInfo"/>
+        /// equals the value of this instance; otherwise, <see langword="false"/>. </returns>
+        public override bool Equals(Object obj)
+        {
+            ServerInfo s;
+
+            // Check that o is a Server first
+            if (obj == null || !(obj is ServerInfo))
+            {
+                return false;
+            }
+            else
+            {
+                s = (ServerInfo)obj;
+            }
+
+            // Now compare each of the elements
+            if (s.platformId != this.platformId)
+            {
+                return false;
+            }
+
+            if (s.name != this.name)
+            {
+                return false;
+            }
+
+            if (s.serverType != this.serverType)
+            {
+                return false;
+            }
+
+            if (s.majorVersion != this.majorVersion)
+            {
+                return false;
+            }
+
+            if (s.minorVersion != this.minorVersion)
+            {
+                return false;
+            }
+
+            if (s.comment != this.comment)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        #endregion
+
+        #region Equals(Server other)
+        /// <summary>
+        /// Returns a value indicating whether this instance is equal to the specified <see cref="ServerInfo"/> instance.
+        /// </summary>
+        /// <param name="other">An <see cref="ServerInfo"/> instance to compare to this instance.</param>
+        /// <returns><see langword="true"/> if the other parameter equals the value of this instance; otherwise, <see langword="false"/>. </returns>
+        /// <remarks>This method implements the <see cref="System.IEquatable{T}"/> interface and performs slightly
+        /// better than the <see cref="ServerInfo.Equals(Object)"/> method because it does not have to convert
+        /// the other parameter to an object.</remarks>
+        public bool Equals(ServerInfo other)
+        {
+            // Now compare each of the elements
+            if (other.platformId != this.platformId)
+            {
+                return false;
+            }
+
+            if (other.name != this.name)
+            {
+                return false;
+            }
+
+            if (other.serverType != this.serverType)
+            {
+                return false;
+            }
+
+            if (other.majorVersion != this.majorVersion)
+            {
+                return false;
+            }
+
+            if (other.minorVersion != this.minorVersion)
+            {
+                return false;
+            }
+
+            if (other.comment != this.comment)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        #endregion
+
+        #endregion
+
+        #region GetHashCode
+        /// <summary>
+        /// Returns the hash code for this instance. 
+        /// </summary>
+        /// <returns>A 32-bit signed integer hash code.</returns>
+        public override int GetHashCode()
+        {
+            return this.platformId.GetHashCode() ^
+                    this.serverType.GetHashCode() ^
+                    this.name.GetHashCode() ^
+                    this.majorVersion.GetHashCode() ^
+                    this.minorVersion.GetHashCode() ^
+                    this.comment.GetHashCode();
+        }
+        #endregion
+
+        #region ToString
+
+        #region ToString()
+        /// <summary>
+        /// Converts the value of this instance to its equivalent string representation. 
+        /// </summary>
+        /// <returns>The string representation of this instance.</returns>
+        public override String ToString()
+        {
+            return this.ToString(CultureInfo.CurrentCulture);
+        }
+        #endregion
+
+        #region ToString(IFormatProvider provider)
+        /// <summary>
+        /// Converts the value of the current Server object to its equivalent string representation using the specified culture-specific format information. 
+        /// </summary>
+        /// <param name="provider">An object that supplies culture-specific formatting information. </param>
+        /// <returns>The string representation of this instance as specified by <paramref name="provider"/>.</returns>
+        public String ToString(IFormatProvider provider)
+        {
+            return String.Format(provider, "{0}, {1}", this.name, this.serverType.ToString());
+        }
+        #endregion
+
         #endregion
 
         #endregion

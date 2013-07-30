@@ -23,8 +23,6 @@
 namespace Cadru.Networking
 {
     using System;
-    using System.Collections.Generic;
-    using System.Text;
     using System.Net.NetworkInformation;
 
     /// <summary>
@@ -32,15 +30,7 @@ namespace Cadru.Networking
     /// </summary>
     public sealed class NetworkStatus : IDisposable
     {
-        #region events
-        /// <summary>
-        /// Represents the method that will handle the <see cref="NetworkStatus.NetworkStatusChanged"/> event.
-        /// </summary>
-        public event EventHandler<NetworkStatusChangedEventArgs> NetworkStatusChanged;
-
-        #endregion
-
-        #region class-wide fields
+        #region fields
         private static object syncRoot = new object(); 
         private ConnectionStatus connectionStatus;
         #endregion
@@ -62,8 +52,19 @@ namespace Cadru.Networking
                 }
             }
 
-            NetworkChange.NetworkAvailabilityChanged += new NetworkAvailabilityChangedEventHandler(NetworkChange_NetworkAvailabilityChanged);
+            NetworkChange.NetworkAvailabilityChanged += new NetworkAvailabilityChangedEventHandler(this.NetworkChange_NetworkAvailabilityChanged);
         }
+        #endregion
+
+        #region events
+        #endregion
+
+        #region events
+        /// <summary>
+        /// Represents the method that will handle the <see cref="NetworkStatus.NetworkStatusChanged"/> event.
+        /// </summary>
+        public event EventHandler<NetworkStatusChangedEventArgs> NetworkStatusChanged;
+
         #endregion
 
         #region properties
@@ -77,7 +78,7 @@ namespace Cadru.Networking
         {
             get
             {
-                return connectionStatus;
+                return this.connectionStatus;
             }
         }
         #endregion
@@ -85,6 +86,17 @@ namespace Cadru.Networking
         #endregion
 
         #region methods
+
+        #region Dispose
+        /// <summary>
+        /// Releases all resources used by the <see cref="NetworkStatus"/>.
+        /// </summary>
+        public void Dispose()
+        {
+            NetworkChange.NetworkAvailabilityChanged -= this.NetworkChange_NetworkAvailabilityChanged;
+            GC.SuppressFinalize(this);
+        }
+        #endregion
 
         #region NetworkChange_NetworkAvailabilityChanged
         private void NetworkChange_NetworkAvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
@@ -109,17 +121,6 @@ namespace Cadru.Networking
                     this.NetworkStatusChanged(this, networkStatusChangedEventArgs);
                 }
             }
-        }
-        #endregion
-
-        #region Dispose
-        /// <summary>
-        /// Releases all resources used by the <see cref="NetworkStatus"/>.
-        /// </summary>
-        public void Dispose()
-        {
-            NetworkChange.NetworkAvailabilityChanged -= NetworkChange_NetworkAvailabilityChanged;
-            GC.SuppressFinalize(this);
         }
         #endregion
 

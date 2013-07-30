@@ -88,11 +88,65 @@ namespace Cadru.UnitTest.Framework.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Expected exception of type {0} but no exception was thrown..
+        /// </summary>
+        internal static string Assertion_ExceptionNotThrown {
+            get {
+                return ResourceManager.GetString("Assertion_ExceptionNotThrown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected {0} to be assignable from {1}.
+        /// </summary>
+        internal static string Assertion_ExpectedToBeAssignableFrom {
+            get {
+                return ResourceManager.GetString("Assertion_ExpectedToBeAssignableFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Expected &lt;{0}&gt; but actual was &lt;{1}&gt;..
         /// </summary>
         internal static string Assertion_GenericFailure {
             get {
                 return ResourceManager.GetString("Assertion_GenericFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} is {1} than {2}..
+        /// </summary>
+        internal static string Assertion_IsComparison {
+            get {
+                return ResourceManager.GetString("Assertion_IsComparison", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} is {1} than or equal to {2}..
+        /// </summary>
+        internal static string Assertion_IsComparisonOrEqualTo {
+            get {
+                return ResourceManager.GetString("Assertion_IsComparisonOrEqualTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected exception with a message of &apos;{0}&apos; but exception with message of &apos;{1}&apos; was thrown instead..
+        /// </summary>
+        internal static string Assertion_UnexceptedExceptionMessage {
+            get {
+                return ResourceManager.GetString("Assertion_UnexceptedExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected exception was not thrown..
+        /// </summary>
+        internal static string Assertion_UnexpectedExceptionThrown {
+            get {
+                return ResourceManager.GetString("Assertion_UnexpectedExceptionThrown", resourceCulture);
             }
         }
         

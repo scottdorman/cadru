@@ -23,9 +23,6 @@
 namespace Cadru
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
 
     /// <summary>
     /// Provides a description for an enumerated type.
@@ -33,10 +30,7 @@ namespace Cadru
     [AttributeUsage(AttributeTargets.Enum | AttributeTargets.Field, AllowMultiple = false)]
     public sealed class EnumDescriptionAttribute : Attribute
     {
-        #region events
-        #endregion
-
-        #region class-wide fields
+        #region fields
         private string description;
         #endregion
 
@@ -51,6 +45,9 @@ namespace Cadru
         {
             this.description = description;
         }
+        #endregion
+
+        #region events
         #endregion
 
         #region properties

@@ -22,250 +22,245 @@
 
 namespace Cadru
 {
-    using System.Diagnostics.CodeAnalysis;
-
     /// <summary>
     /// Specifies the Internet Information Services (IIS) features.
     /// </summary>
     /// <remarks>Features only apply to IIS versions 7 and later.</remarks>
+    [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1628:DocumentationTextMustBeginWithACapitalLetter", Justification = "Reviewed.")]
+    [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1630:DocumentationTextMustContainWhitespace", Justification = "Reviewed.")]
     public enum InternetInformationServicesFeature
     {
         /// <summary>
-        /// World Wide Web (WWW) service
+        /// World Wide Web (WWW) service.
         /// </summary>
         Webserver,
 
         /// <summary>
-        /// File Transfer Protocol (FTP) Service
+        /// File Transfer Protocol (FTP) Service.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "FTP")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "FTP", Justification = "Reviewed.")]
         FTP,
 
         /// <summary>
-        /// Application Initialization
+        /// Application Initialization.
         /// </summary>
         ApplicationInitialization,
 
         /// <summary>
-        /// ASP
+        /// ASP.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ASP")]
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1630:DocumentationTextMustContainWhitespace", Justification = "Reviewed.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ASP", Justification = "Reviewed.")]
         ASP,
 
         /// <summary>
-        /// ASP.NET 3.5
+        /// ASP.NET 3.5.
         /// </summary>
         AspNet,
 
         /// <summary>
-        /// ASP.NET 4.5
+        /// ASP.NET 4.5.
         /// </summary>
         AspNet45,
 
         /// <summary>
-        /// CGI
+        /// CGI.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "CGI")]
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1630:DocumentationTextMustContainWhitespace", Justification = "Reviewed.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "CGI", Justification = "Reviewed.")]
         CGI,
 
         /// <summary>
-        /// ISAPI Extensions
+        /// ISAPI Extensions.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ISAPI")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ISAPI", Justification = "Reviewed.")]
         ISAPIExtensions,
 
         /// <summary>
-        /// ISAPI Filters
+        /// ISAPI Filters.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ISAPI")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ISAPI", Justification = "Reviewed.")]
         ISAPIFilters,
 
         /// <summary>
-        /// .NET Framework Extensibility 3.5
+        /// .NET Framework Extensibility 3.5.
         /// </summary>
         NetFxExtensibility,
 
         /// <summary>
-        /// .NET Framework Extensibility 4.5
+        /// .NET Framework Extensibility 4.5.
         /// </summary>
         NetFxExtensibility45,
 
         /// <summary>
-        /// Server-Side Includes
+        /// Server-Side Includes.
         /// </summary>
         ServerSideIncludes,
 
         /// <summary>
-        /// WebSocket Protocol
+        /// WebSocket Protocol.
         /// </summary>
         WebSockets,
 
         /// <summary>
-        /// Default Document
+        /// Default Document.
         /// </summary>
         DefaultDocument,
 
         /// <summary>
-        /// Directory Browsing
+        /// Directory Browsing.
         /// </summary>
         DirectoryBrowsing,
 
         /// <summary>
-        /// HTTP Errors
+        /// HTTP Errors.
         /// </summary>
         HttpErrors,
 
         /// <summary>
-        /// HTTP Redirection
+        /// HTTP Redirection.
         /// </summary>
         HttpRedirection,
 
         /// <summary>
-        /// Static Content
+        /// Static Content.
         /// </summary>
         StaticContent,
 
         /// <summary>
-        /// Web Distributed Authoring and Versioning (WebDAV) publishing
+        /// Web Distributed Authoring and Versioning (WebDAV) publishing.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DAV")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DAV", Justification = "Reviewed.")]
         WebDAV,
 
         /// <summary>
-        /// Custom Logging
+        /// Custom Logging.
         /// </summary>
         CustomLogging,
 
         /// <summary>
-        /// HTTP Logging
+        /// HTTP Logging.
         /// </summary>
         HttpLogging,
 
         /// <summary>
-        /// Logging Tools
+        /// Logging Tools.
         /// </summary>
         LoggingTools,
 
         /// <summary>
-        /// ODBC Logging
+        /// ODBC Logging.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ODBC")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ODBC", Justification = "Reviewed.")]
         ODBCLogging,
 
         /// <summary>
-        /// Request Monitor
+        /// Request Monitor.
         /// </summary>
         RequestMonitor,
 
         /// <summary>
-        /// Tracing
+        /// Tracing.
         /// </summary>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1630:DocumentationTextMustContainWhitespace", Justification = "Reviewed.")]
         Tracing,
 
         /// <summary>
-        /// Dynamic Content Compression
+        /// Dynamic Content Compression.
         /// </summary>
         DynamicContentCompression,
 
         /// <summary>
-        /// Static Content Compression
+        /// Static Content Compression.
         /// </summary>
         StaticContentCompression,
 
         /// <summary>
-        /// URL Authorization
+        /// URL Authorization.
         /// </summary>
         Authorization,
 
         /// <summary>
-        /// Basic Authentication
+        /// Basic Authentication.
         /// </summary>
         BasicAuthentication,
 
         /// <summary>
-        /// Centralized SSL Certificate Support
+        /// Centralized SSL Certificate Support.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "SSL")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "SSL", Justification = "Reviewed.")]
         CentralizedSSLCertificateSupport,
 
         /// <summary>
-        /// Client Certificate Mapping Authentication
+        /// Client Certificate Mapping Authentication.
         /// </summary>
         ClientCertificateMappingAuthentication,
 
         /// <summary>
-        /// Digest Authentication
+        /// Digest Authentication.
         /// </summary>
         DigestAuthentication,
 
         /// <summary>
-        /// IIS Client Certificate Mapping Authentication
+        /// IIS Client Certificate Mapping Authentication.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "IIS")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "IIS", Justification = "Reviewed.")]
         IISCertificateMappingAuthentication,
 
         /// <summary>
-        /// IP Security
+        /// IP Security.
         /// </summary>
         IPSecurity,
 
         /// <summary>
-        /// Request filtering
+        /// Request filtering.
         /// </summary>
         RequestFiltering,
 
         /// <summary>
-        /// Windows Authentication
+        /// Windows Authentication.
         /// </summary>
         WindowsAuthentication,
 
         /// <summary>
-        /// IIS Management Console
+        /// IIS Management Console.
         /// </summary>
         ManagementConsole,
 
         /// <summary>
-        /// IIS Management Scripts and Tools
+        /// IIS Management Scripts and Tools.
         /// </summary>
         ManagementScriptingTools,
 
         /// <summary>
-        /// IIS Management Service
+        /// IIS Management Service.
         /// </summary>
         ManagementService,
 
         /// <summary>
-        /// IIS 6 Scripting Tools
+        /// IIS 6 Scripting Tools.
         /// </summary>
         LegacyScripts,
 
         /// <summary>
-        /// IIS 6 Management Console
+        /// IIS 6 Management Console.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Snapin")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Snapin", Justification = "Reviewed.")]
         LegacySnapin,
 
         /// <summary>
-        /// IIS <c>Metabase</c> and IIS 6 configuration compatibility
+        /// IIS <c>Metabase</c> and IIS 6 configuration compatibility.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Metabase")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Metabase", Justification = "Reviewed.")]
         MetabaseCompatibility,
 
         /// <summary>
-        /// IIS 6 WMI Compatibility
+        /// IIS 6 WMI Compatibility.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "WMI")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Compatability",
-            Justification = "Reviewed.")]
-        WMICompatability,
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "WMI", Justification = "Reviewed.")]
+        WMICompatibility,
 
         /// <summary>
-        /// FTP Extensibility
+        /// FTP Extensibility.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "FTP")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "FTP", Justification = "Reviewed.")]
         FTPExtensibility,
     }
 }

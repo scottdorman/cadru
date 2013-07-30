@@ -29,91 +29,91 @@ namespace Cadru
     public enum InternetInformationServicesSubcomponent
     {
         /// <summary>
-        /// Internet Information Services Common Files
+        /// Internet Information Services Common Files.
         /// </summary>
         Common,
 
         /// <summary>
-        /// Active Server Pages (ASP) for Internet Information Services
+        /// Active Server Pages (ASP) for Internet Information Services.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ASP")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ASP", Justification = "Reviewed.")]
         ASP,
 
         /// <summary>
-        /// File Transfer Protocol (FTP) service
+        /// File Transfer Protocol (FTP) service.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "FTP")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "FTP", Justification = "Reviewed.")]
         FTP,
 
         /// <summary>
-        /// Internet Information Services Manager (Microsoft Management Console [MMC] snap-in)
+        /// Internet Information Services Manager (Microsoft Management Console [MMC] snap-in).
         /// </summary>
         ManagementConsole,
 
         /// <summary>
-        /// Internet Data Connector
+        /// Internet Data Connector.
         /// </summary>
         InternetDataConnector,
 
         /// <summary>
-        /// Network News Transfer Protocol (NNTP) service
+        /// Network News Transfer Protocol (NNTP) service.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "NNTP")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "NNTP", Justification = "Reviewed.")]
         NNTP,
 
         /// <summary>
-        /// Server-Side Includes
+        /// Server-Side Includes.
         /// </summary>
         ServerSideIncludes,
 
         /// <summary>
-        /// Simple Mail Transfer Protocol (SMTP) service
+        /// Simple Mail Transfer Protocol (SMTP) service.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "SMTP")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "SMTP", Justification = "Reviewed.")]
         SMTP,
 
         /// <summary>
-        /// Web Distributed Authoring and Versioning (WebDAV) publishing
+        /// Web Distributed Authoring and Versioning (WebDAV) publishing.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DAV")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DAV", Justification = "Reviewed.")]
         WebDAV,
 
         /// <summary>
-        /// World Wide Web (WWW) service
+        /// World Wide Web (WWW) service.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "WWW")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "WWW", Justification = "Reviewed.")]
         WWW,
 
         /// <summary>
-        /// Remote administration (HTML)
+        /// Remote administration (HTML).
         /// </summary>
         RemoteAdmin,
 
         /// <summary>
         /// Internet Server Application Programming Interface (ISAPI) for
-        /// Background Intelligent Transfer Service (BITS) server extensions
+        /// Background Intelligent Transfer Service (BITS) server extensions.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ISAPI")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ISAPI", Justification = "Reviewed.")]
         BitsISAPI,
 
         /// <summary>
-        /// Background Intelligent Transfer Service (BITS) server extensions snap-in
+        /// Background Intelligent Transfer Service (BITS) server extensions snap-in.
         /// </summary>
         Bits,
 
         /// <summary>
-        /// FrontPage server extensions
+        /// FrontPage server extensions.
         /// </summary>
         FrontPageExtensions,
 
         /// <summary>
-        /// Internet printing
+        /// Internet printing.
         /// </summary>
         InternetPrinting,
 
         /// <summary>
         /// ActiveX control and sample pages for hosting Terminal Services
-        /// client connections over the web
+        /// client connections over the web.
         /// </summary>
         TSWebClient,
     }

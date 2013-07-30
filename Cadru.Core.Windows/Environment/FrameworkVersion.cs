@@ -23,57 +23,58 @@
 namespace Cadru
 {
     /// <summary>
-    /// Specifies the .NET Framework versions
+    /// Specifies the .NET Framework versions.
     /// </summary>
+    [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1628:DocumentationTextMustBeginWithACapitalLetter", Justification = "Reviewed.")]
     public enum FrameworkVersion
     {
         /// <summary>
-        /// .NET Framework 1.0
+        /// .NET Framework 1.0.
         /// </summary>
         Fx10,
 
         /// <summary>
-        /// .NET Framework 1.1
+        /// .NET Framework 1.1.
         /// </summary>
         Fx11,
 
         /// <summary>
-        /// .NET Framework 2.0
+        /// .NET Framework 2.0.
         /// </summary>
         Fx20,
 
         /// <summary>
-        /// .NET Framework 3.0
+        /// .NET Framework 3.0.
         /// </summary>
         Fx30,
 
         /// <summary>
-        /// .NET Framework 3.5
+        /// .NET Framework 3.5.
         /// </summary>
         Fx35,
 
         /// <summary>
-        /// .NET Framework 3.5 Client Profile
+        /// .NET Framework 3.5 Client Profile.
         /// </summary>
         Fx35ClientProfile,
 
         /// <summary>
-        /// .NET Framework 3.5 Server Core Profile
+        /// .NET Framework 3.5 Server Core Profile.
         /// </summary>
         Fx35ServerCoreProfile,
 
         /// <summary>
-        /// .NET Framework 4.0
+        /// .NET Framework 4.0.
         /// </summary>
         Fx40,
 
         /// <summary>
-        /// .NET Framework 4.0 Client Profile
+        /// .NET Framework 4.0 Client Profile.
         /// </summary>
         Fx40ClientProfile,
 
         /// <summary>
-        /// .NET Framework 4.5
+        /// .NET Framework 4.5.
         /// </summary>
         Fx45,
     }

@@ -22,18 +22,28 @@
 
 namespace Cadru.Extensions
 {
-    using Cadru.Internal;
-    using System;
     using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+    using Cadru.Internal;
 
     /// <summary>
     /// Provides basic routines for common sequence and collection manipulation.
     /// </summary>
     public static class EnumerableExtensions
     {
+        #region fields
+        #endregion
+
+        #region constructors
+        #endregion
+
+        #region events
+        #endregion
+
+        #region properties
+        #endregion
+
+        #region methods
+
         #region IsEmpty
         /// <summary>
         /// Determines if the collection contains values.
@@ -89,6 +99,8 @@ namespace Cadru.Extensions
         {
             return source.IsNull() || source.IsEmpty();
         }
+        #endregion
+
         #endregion
     }
 }

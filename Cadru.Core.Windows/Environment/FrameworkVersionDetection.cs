@@ -50,10 +50,6 @@ namespace Cadru
     /// </summary>
     public static class FrameworkVersionDetection
     {
-        #region events
-
-        #endregion
-
         #region fields
 
         // Constants representing registry key names and value names
@@ -110,6 +106,9 @@ namespace Cadru
         #endregion
 
         #region constructors
+        #endregion
+
+        #region events
         #endregion
 
         #region properties
