@@ -64,6 +64,7 @@ namespace Cadru.UnitTests.Environment
         }
 
         [TestMethod]
+        [Ignore]
         public void IsFeatureInstalled()
         {
             Assert.IsTrue(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesFeature.ApplicationInitialization));

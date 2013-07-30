@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Cadru.Text;
 using System.Diagnostics.CodeAnalysis;
+using Cadru.Extensions;
 
 namespace Cadru.UnitTest.Framework.UnitTests.Extensions
 {

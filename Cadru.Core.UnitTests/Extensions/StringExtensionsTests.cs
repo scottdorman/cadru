@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Cadru;
 using Cadru.Text;
 using System.Diagnostics.CodeAnalysis;
+using Cadru.Extensions;
 
 namespace Cadru.UnitTest.Framework.UnitTests.Extensions
 {
@@ -39,11 +40,11 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             string testValue = "abcdefg";
 
             string expected = "d";
-            string actual = StringExtensions.SubstringBetween(testValue, 'c', 'e');
+            string actual = testValue.SubstringBetween('c', 'e');
             Assert.AreEqual(expected, actual);
 
             expected = "d";
-            actual = StringExtensions.SubstringBetween(testValue, "c", "e");
+            actual = testValue.SubstringBetween("c", "e");
             Assert.AreEqual(expected, actual);
 
             expected = "cde";
@@ -1265,7 +1266,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             }
             catch (System.Exception e)
             {
-                Assert.Fail(e.Message);
+                Assert.Fail(String.Format("Type: {0}, Message: {1}", e.GetType().Name, e.Message));
             }
 
             try

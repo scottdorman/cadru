@@ -19,7 +19,8 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
-namespace Cadru
+
+namespace Cadru.Extensions
 {
     using System;
     using System.Collections.Generic;
@@ -34,9 +35,9 @@ namespace Cadru
     {
         #region Between
 
-        #region Between(Byte expression, Byte min, Byte max)
+        #region Between(byte expression, byte min, byte max)
 
-        #region Between(Byte expression, Byte min, Byte max)
+        #region Between(byte expression, byte min, byte max)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -47,13 +48,13 @@ namespace Cadru
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it 
         /// returns <see langword="false" />.</returns>
-        public static bool Between(this Byte expression, Byte min, Byte max)
+        public static bool Between(this byte expression, byte min, byte max)
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
         #endregion
 
-        #region Between(Byte expression, Byte min, Byte max, MinMaxCompareOptions options)
+        #region Between(byte expression, byte min, byte max, MinMaxCompareOptions options)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -66,17 +67,17 @@ namespace Cadru
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it 
         /// returns <see langword="false" />.</returns>
-        public static bool Between(this Byte expression, Byte min, Byte max, NumericComparisonOptions options)
+        public static bool Between(this byte expression, byte min, byte max, NumericComparisonOptions options)
         {
-            return Between(expression, min, max, options, Comparer<Byte>.Default);
+            return Between(expression, min, max, options, Comparer<byte>.Default);
         }
         #endregion
 
         #endregion
 
-        #region Between(Decimal expression, Decimal min, decimal max)
+        #region Between(decimal expression, decimal min, decimal max)
 
-        #region Between(Decimal expression, Decimal min, Decimal max)
+        #region Between(decimal expression, decimal min, decimal max)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -87,13 +88,13 @@ namespace Cadru
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it 
         /// returns <see langword="false" />.</returns>
-        public static bool Between(this Decimal expression, Decimal min, Decimal max)
+        public static bool Between(this decimal expression, decimal min, decimal max)
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
         #endregion
 
-        #region Between(Decimal expression, Decimal min, Decimal max, MinMaxCompareOptions options)
+        #region Between(decimal expression, decimal min, decimal max, MinMaxCompareOptions options)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -106,17 +107,17 @@ namespace Cadru
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it 
         /// returns <see langword="false" />.</returns>
-        public static bool Between(this Decimal expression, Decimal min, Decimal max, NumericComparisonOptions options)
+        public static bool Between(this decimal expression, decimal min, decimal max, NumericComparisonOptions options)
         {
-            return Between(expression, min, max, options, Comparer<Decimal>.Default);
+            return Between(expression, min, max, options, Comparer<decimal>.Default);
         }
         #endregion
 
         #endregion
 
-        #region Between(Double expression, Double min, Double max)
+        #region Between(double expression, double min, double max)
 
-        #region Between(Double expression, Double min, Double max)
+        #region Between(double expression, double min, double max)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -127,13 +128,13 @@ namespace Cadru
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it 
         /// returns <see langword="false" />.</returns>
-        public static bool Between(this Double expression, Double min, Double max)
+        public static bool Between(this double expression, double min, double max)
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
         #endregion
 
-        #region Between(Double expression, Double min, Double max, MinMaxCompareOptions options)
+        #region Between(double expression, double min, double max, MinMaxCompareOptions options)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -146,137 +147,137 @@ namespace Cadru
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it 
         /// returns <see langword="false" />.</returns>
-        public static bool Between(this Double expression, Double min, Double max, NumericComparisonOptions options)
+        public static bool Between(this double expression, double min, double max, NumericComparisonOptions options)
         {
-            return Between(expression, min, max, options, Comparer<Double>.Default);
+            return Between(expression, min, max, options, Comparer<double>.Default);
         }
         #endregion
 
         #endregion
 
-        #region Between(Int16 expression, Int16 min, Int16 max)
+        #region Between(short expression, short min, short max)
 
-        #region Between(Int16 expression, Int16 min, Int16 max)
+        #region Between(short expression, short min, short max)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
         /// </summary>
-        /// <param name="expression">Any Int16 value.</param>
-        /// <param name="min">The minimum Int16 value.</param>
-        /// <param name="max">The maximum Int16 value.</param>
+        /// <param name="expression">Any short value.</param>
+        /// <param name="min">The minimum short value.</param>
+        /// <param name="max">The maximum short value.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it 
         /// returns <see langword="false" />.</returns>
-        public static bool Between(this Int16 expression, Int16 min, Int16 max)
+        public static bool Between(this short expression, short min, short max)
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
         #endregion
 
-        #region Between(Int16 expression, Int16 min, Int16 max, MinMaxCompareOptions options)
+        #region Between(short expression, short min, short max, MinMaxCompareOptions options)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
         /// </summary>
-        /// <param name="expression">Any Int16 value.</param>
-        /// <param name="min">The minimum Int16 value.</param>
-        /// <param name="max">The maximum Int16 value.</param>
+        /// <param name="expression">Any short value.</param>
+        /// <param name="min">The minimum short value.</param>
+        /// <param name="max">The maximum short value.</param>
         /// <param name="options">A bitwise combination of enumeration values 
         /// that defines whether the comparison is inclusive.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it 
         /// returns <see langword="false" />.</returns>
-        public static bool Between(this Int16 expression, Int16 min, Int16 max, NumericComparisonOptions options)
+        public static bool Between(this short expression, short min, short max, NumericComparisonOptions options)
         {
-            return Between(expression, min, max, options, Comparer<Int16>.Default);
+            return Between(expression, min, max, options, Comparer<short>.Default);
         }
         #endregion
 
         #endregion
 
-        #region Between(Int32 expression, Int32 min, Int32 max)
+        #region Between(int expression, int min, int max)
 
-        #region Between(Int32 expression, Int32 min, Int32 max)
+        #region Between(int expression, int min, int max)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
         /// </summary>
-        /// <param name="expression">Any Int32 value.</param>
-        /// <param name="min">The minimum Int32 value.</param>
-        /// <param name="max">The maximum Int32 value.</param>
+        /// <param name="expression">Any int value.</param>
+        /// <param name="min">The minimum int value.</param>
+        /// <param name="max">The maximum int value.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it 
         /// returns <see langword="false" />.</returns>
-        public static bool Between(this Int32 expression, Int32 min, Int32 max)
+        public static bool Between(this int expression, int min, int max)
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
         #endregion
 
-        #region Between(Int32 expression, Int32 min, Int32 max, MinMaxCompareOptions options)
+        #region Between(int expression, int min, int max, MinMaxCompareOptions options)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
         /// </summary>
-        /// <param name="expression">Any Int32 value.</param>
-        /// <param name="min">The minimum Int32 value.</param>
-        /// <param name="max">The maximum Int32 value.</param>
+        /// <param name="expression">Any int value.</param>
+        /// <param name="min">The minimum int value.</param>
+        /// <param name="max">The maximum int value.</param>
         /// <param name="options">A bitwise combination of enumeration values 
         /// that defines whether the comparison is inclusive.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it 
         /// returns <see langword="false" />.</returns>
-        public static bool Between(this Int32 expression, Int32 min, Int32 max, NumericComparisonOptions options)
+        public static bool Between(this int expression, int min, int max, NumericComparisonOptions options)
         {
-            return Between(expression, min, max, options, Comparer<Int32>.Default);
+            return Between(expression, min, max, options, Comparer<int>.Default);
         }
         #endregion
 
         #endregion
 
-        #region Between(Int64 expression, Int64 min, Int64 max)
+        #region Between(long expression, long min, long max)
 
-        #region Between(Int64 expression, Int64 min, Int64 max)
+        #region Between(long expression, long min, long max)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
         /// </summary>
-        /// <param name="expression">Any Int64 value.</param>
-        /// <param name="min">The minimum Int64 value.</param>
-        /// <param name="max">The maximum Int64 value.</param>
+        /// <param name="expression">Any long value.</param>
+        /// <param name="min">The minimum long value.</param>
+        /// <param name="max">The maximum long value.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it 
         /// returns <see langword="false" />.</returns>
-        public static bool Between(this Int64 expression, Int64 min, Int64 max)
+        public static bool Between(this long expression, long min, long max)
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
         #endregion
 
-        #region Between(Int64 expression, Int64 min, Int64 max, MinMaxCompareOptions options)
+        #region Between(long expression, long min, long max, MinMaxCompareOptions options)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
         /// </summary>
-        /// <param name="expression">Any Int64 value.</param>
-        /// <param name="min">The minimum Int64 value.</param>
-        /// <param name="max">The maximum Int64 value.</param>
+        /// <param name="expression">Any long value.</param>
+        /// <param name="min">The minimum long value.</param>
+        /// <param name="max">The maximum long value.</param>
         /// <param name="options">A bitwise combination of enumeration values 
         /// that defines whether the comparison is inclusive.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it 
         /// returns <see langword="false" />.</returns>
-        public static bool Between(this Int64 expression, Int64 min, Int64 max, NumericComparisonOptions options)
+        public static bool Between(this long expression, long min, long max, NumericComparisonOptions options)
         {
-            return Between(expression, min, max, options, Comparer<Int64>.Default);
+            return Between(expression, min, max, options, Comparer<long>.Default);
         }
         #endregion
 
         #endregion
 
-        #region Between(Single expression, Single min, Single max)
+        #region Between(float expression, float min, float max)
 
-        #region Between(Single expression, Single min, Single max)
+        #region Between(float expression, float min, float max)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -287,13 +288,13 @@ namespace Cadru
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it 
         /// returns <see langword="false" />.</returns>
-        public static bool Between(this Single expression, Single min, Single max)
+        public static bool Between(this float expression, float min, float max)
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
         #endregion
 
-        #region Between(Single expression, Single min, Single max, MinMaxCompareOptions options)
+        #region Between(float expression, float min, float max, MinMaxCompareOptions options)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -306,9 +307,9 @@ namespace Cadru
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it 
         /// returns <see langword="false" />.</returns>
-        public static bool Between(this Single expression, Single min, Single max, NumericComparisonOptions options)
+        public static bool Between(this float expression, float min, float max, NumericComparisonOptions options)
         {
-            return Between(expression, min, max, options, Comparer<Single>.Default);
+            return Between(expression, min, max, options, Comparer<float>.Default);
         }
         #endregion
 
@@ -318,7 +319,7 @@ namespace Cadru
 
         #region GreaterThan
 
-        #region GreaterThan(Byte expression, Byte min)
+        #region GreaterThan(byte expression, byte min)
         /// <overloads>
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether 
@@ -335,13 +336,13 @@ namespace Cadru
         /// <see langword="true"/> if <paramref name="expression"/>
         /// is greater than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool GreaterThan(this Byte expression, Byte min)
+        public static bool GreaterThan(this byte expression, byte min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<Byte>.Default);
+            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<byte>.Default);
         }
         #endregion
 
-        #region GreaterThan(Decimal expression, Decimal min)
+        #region GreaterThan(decimal expression, decimal min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than the minimum indicated.
@@ -352,13 +353,13 @@ namespace Cadru
         /// <see langword="true"/> if <paramref name="expression"/>
         /// is greater than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool GreaterThan(this Decimal expression, Decimal min)
+        public static bool GreaterThan(this decimal expression, decimal min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<Decimal>.Default);
+            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<decimal>.Default);
         }
         #endregion
 
-        #region GreaterThan(Double expression, Double min)
+        #region GreaterThan(double expression, double min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than the minimum indicated.
@@ -369,13 +370,13 @@ namespace Cadru
         /// <see langword="true"/> if <paramref name="expression"/>
         /// is greater than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool GreaterThan(this Double expression, Double min)
+        public static bool GreaterThan(this double expression, double min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<Double>.Default);
+            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<double>.Default);
         }
         #endregion
 
-        #region GreaterThan(Int16 expression, Int16 min)
+        #region GreaterThan(short expression, short min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than the minimum indicated.
@@ -386,13 +387,13 @@ namespace Cadru
         /// <see langword="true"/> if <paramref name="expression"/>
         /// is greater than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool GreaterThan(this Int16 expression, Int16 min)
+        public static bool GreaterThan(this short expression, short min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<Int16>.Default);
+            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<short>.Default);
         }
         #endregion
 
-        #region GreaterThan(Int32 expression, Int32 min)
+        #region GreaterThan(int expression, int min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than the minimum indicated.
@@ -403,13 +404,13 @@ namespace Cadru
         /// <see langword="true"/> if <paramref name="expression"/>
         /// is greater than the minimum indicated; otherwise <see clangwordref="false"/>.
         /// </returns>
-        public static bool GreaterThan(this Int32 expression, Int32 min)
+        public static bool GreaterThan(this int expression, int min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<Int32>.Default);
+            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<int>.Default);
         }
         #endregion
 
-        #region GreaterThan(this Int64 expression, Int64 min)
+        #region GreaterThan(this long expression, long min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than the minimum indicated.
@@ -420,13 +421,13 @@ namespace Cadru
         /// <see langword="true"/> if <paramref name="expression"/>
         /// is greater than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool GreaterThan(this Int64 expression, Int64 min)
+        public static bool GreaterThan(this long expression, long min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<Int64>.Default);
+            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<long>.Default);
         }
         #endregion
 
-        #region GreaterThan(Single expression, Single min)
+        #region GreaterThan(float expression, float min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than the minimum indicated.
@@ -437,9 +438,9 @@ namespace Cadru
         /// <see langword="true"/> if <paramref name="expression"/>
         /// is greater than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool GreaterThan(this Single expression, Single min)
+        public static bool GreaterThan(this float expression, float min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<Single>.Default);
+            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<float>.Default);
         }
         #endregion
 
@@ -447,7 +448,7 @@ namespace Cadru
 
         #region GreaterThanOrEqualTo
 
-        #region GreaterThanOrEqualTo(Byte expression, Byte min)
+        #region GreaterThanOrEqualTo(byte expression, byte min)
         /// <overloads>
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether 
@@ -467,13 +468,13 @@ namespace Cadru
         /// is greater than or equal to the minimum indicated;
         /// otherwise <see langword="false"/>.
         /// </returns>
-        public static bool GreaterThanOrEqualTo(this Byte expression, Byte min)
+        public static bool GreaterThanOrEqualTo(this byte expression, byte min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<Byte>.Default);
+            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<byte>.Default);
         }
         #endregion
 
-        #region GreaterThanOrEqualTo(Decimal expression, Decimal min)
+        #region GreaterThanOrEqualTo(decimal expression, decimal min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than or equal to the
@@ -486,13 +487,13 @@ namespace Cadru
         /// is greater than or equal to the minimum indicated;
         /// otherwise <see langword="false"/>.
         /// </returns>
-        public static bool GreaterThanOrEqualTo(this Decimal expression, Decimal min)
+        public static bool GreaterThanOrEqualTo(this decimal expression, decimal min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<Decimal>.Default);
+            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<decimal>.Default);
         }
         #endregion
 
-        #region GreaterThanOrEqualTo(Double expression, Double min)
+        #region GreaterThanOrEqualTo(double expression, double min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than or equal to the
@@ -505,13 +506,13 @@ namespace Cadru
         /// is greater than or equal to the minimum indicated;
         /// otherwise <see langword="false"/>.
         /// </returns>
-        public static bool GreaterThanOrEqualTo(this Double expression, Double min)
+        public static bool GreaterThanOrEqualTo(this double expression, double min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<Double>.Default);
+            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<double>.Default);
         }
         #endregion
 
-        #region GreaterThanOrEqualTo(Int16 expression, Int16 min)
+        #region GreaterThanOrEqualTo(short expression, short min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than or equal to the
@@ -524,13 +525,13 @@ namespace Cadru
         /// is greater than or equal to the minimum indicated;
         /// otherwise <see langword="false"/>.
         /// </returns>
-        public static bool GreaterThanOrEqualTo(this Int16 expression, Int16 min)
+        public static bool GreaterThanOrEqualTo(this short expression, short min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<Int16>.Default);
+            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<short>.Default);
         }
         #endregion
 
-        #region GreaterThanOrEqualTo(Int32 expression, Int32 min)
+        #region GreaterThanOrEqualTo(int expression, int min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than or equal to the
@@ -543,13 +544,13 @@ namespace Cadru
         /// is greater than or equal to the minimum indicated;
         /// otherwise <see langword="false"/>.
         /// </returns>
-        public static bool GreaterThanOrEqualTo(this Int32 expression, Int32 min)
+        public static bool GreaterThanOrEqualTo(this int expression, int min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<Int32>.Default);
+            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<int>.Default);
         }
         #endregion
 
-        #region GreaterThanOrEqualTo(Int64 expression, Int64 min)
+        #region GreaterThanOrEqualTo(long expression, long min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than or equal to the
@@ -562,13 +563,13 @@ namespace Cadru
         /// is greater than or equal to the minimum indicated;
         /// otherwise <see langword="false"/>.
         /// </returns>
-        public static bool GreaterThanOrEqualTo(this Int64 expression, Int64 min)
+        public static bool GreaterThanOrEqualTo(this long expression, long min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<Int64>.Default);
+            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<long>.Default);
         }
         #endregion
 
-        #region GreaterThanOrEqualTo(Single expression, Single min)
+        #region GreaterThanOrEqualTo(float expression, float min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than or equal to the
@@ -581,9 +582,221 @@ namespace Cadru
         /// is greater than or equal to the minimum indicated;
         /// otherwise <see langword="false"/>.
         /// </returns>
-        public static bool GreaterThanOrEqualTo(this Single expression, Single min)
+        public static bool GreaterThanOrEqualTo(this float expression, float min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<Single>.Default);
+            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<float>.Default);
+        }
+        #endregion
+
+        #endregion
+
+        #region IsEven
+
+        #region IsEven(this int expression)
+        /// <overloads>
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// <paramref name="expression"/> is an even number.
+        /// </summary>
+        /// </overloads>
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// <paramref name="expression"/> is an even number.
+        /// </summary>
+        /// <param name="expression">The value to test.</param>
+        /// <returns>
+        /// <see langword="true"/> if <paramref name="expression"/>
+        /// is an even number; otherwise <see langword="false"/>.
+        /// </returns>
+        public static bool IsEven(this int expression)
+        {
+            return (expression % 2) == 0;
+        }
+        #endregion
+
+        #region IsEven(this short expression)
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// <paramref name="expression"/> is an even number.
+        /// </summary>
+        /// <param name="expression">The value to test.</param>
+        /// <returns>
+        /// <see langword="true"/> if <paramref name="expression"/>
+        /// is an even number; otherwise <see langword="false"/>.
+        /// </returns>
+        public static bool IsEven(this short expression)
+        {
+            return (expression % 2) == 0;
+        }
+        #endregion
+
+        #region IsEven(this long expression)
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// <paramref name="expression"/> is an even number.
+        /// </summary>
+        /// <param name="expression">The value to test.</param>
+        /// <returns>
+        /// <see langword="true"/> if <paramref name="expression"/>
+        /// is an even number; otherwise <see langword="false"/>.
+        /// </returns>
+        public static bool IsEven(this long expression)
+        {
+            return (expression % 2) == 0;
+        }
+        #endregion
+
+        #region IsEven(this decimal expression)
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// <paramref name="expression"/> is an even number.
+        /// </summary>
+        /// <param name="expression">The value to test.</param>
+        /// <returns>
+        /// <see langword="true"/> if <paramref name="expression"/>
+        /// is an even number; otherwise <see langword="false"/>.
+        /// </returns>
+        public static bool IsEven(this decimal expression)
+        {
+            return (expression % 2) == 0;
+        }
+        #endregion
+
+        #region IsEven(this double expression)
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// <paramref name="expression"/> is an even number.
+        /// </summary>
+        /// <param name="expression">The value to test.</param>
+        /// <returns>
+        /// <see langword="true"/> if <paramref name="expression"/>
+        /// is an even number; otherwise <see langword="false"/>.
+        /// </returns>
+        public static bool IsEven(this double expression)
+        {
+            return (expression % 2) == 0;
+        }
+        #endregion
+
+        #region IsEven(this float expression)
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// <paramref name="expression"/> is an even number.
+        /// </summary>
+        /// <param name="expression">The value to test.</param>
+        /// <returns>
+        /// <see langword="true"/> if <paramref name="expression"/>
+        /// is an even number; otherwise <see langword="false"/>.
+        /// </returns>
+        public static bool IsEven(this float expression)
+        {
+            return (expression % 2) == 0;
+        }
+        #endregion
+
+        #endregion
+
+        #region IsOdd
+
+        #region IsOdd(this int expression)
+        /// <overloads>
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// <paramref name="expression"/> is an odd number.
+        /// </summary>
+        /// </overloads>
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// <paramref name="expression"/> is an odd number.
+        /// </summary>
+        /// <param name="expression">The value to test.</param>
+        /// <returns>
+        /// <see langword="true"/> if <paramref name="expression"/>
+        /// is an odd number; otherwise <see langword="false"/>.
+        /// </returns>
+        public static bool IsOdd(this int expression)
+        {
+            return (expression % 2) != 0;
+        }
+        #endregion
+
+        #region IsOdd(this short expression)
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// <paramref name="expression"/> is an odd number.
+        /// </summary>
+        /// <param name="expression">The value to test.</param>
+        /// <returns>
+        /// <see langword="true"/> if <paramref name="expression"/>
+        /// is an odd number; otherwise <see langword="false"/>.
+        /// </returns>
+        public static bool IsOdd(this short expression)
+        {
+            return (expression % 2) != 0;
+        }
+        #endregion
+
+        #region IsOdd(this long expression)
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// <paramref name="expression"/> is an odd number.
+        /// </summary>
+        /// <param name="expression">The value to test.</param>
+        /// <returns>
+        /// <see langword="true"/> if <paramref name="expression"/>
+        /// is an odd number; otherwise <see langword="false"/>.
+        /// </returns>
+        public static bool IsOdd(this long expression)
+        {
+            return (expression % 2) != 0;
+        }
+        #endregion
+
+        #region IsOdd(this decimal expression)
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// <paramref name="expression"/> is an odd number.
+        /// </summary>
+        /// <param name="expression">The value to test.</param>
+        /// <returns>
+        /// <see langword="true"/> if <paramref name="expression"/>
+        /// is an odd number; otherwise <see langword="false"/>.
+        /// </returns>
+        public static bool IsOdd(this decimal expression)
+        {
+            return (expression % 2) != 0;
+        }
+        #endregion
+
+        #region IsOdd(this double expression)
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// <paramref name="expression"/> is an odd number.
+        /// </summary>
+        /// <param name="expression">The value to test.</param>
+        /// <returns>
+        /// <see langword="true"/> if <paramref name="expression"/>
+        /// is an odd number; otherwise <see langword="false"/>.
+        /// </returns>
+        public static bool IsOdd(this double expression)
+        {
+            return (expression % 2) != 0;
+        }
+        #endregion
+
+        #region IsOdd(this float expression)
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// <paramref name="expression"/> is an odd number.
+        /// </summary>
+        /// <param name="expression">The value to test.</param>
+        /// <returns>
+        /// <see langword="true"/> if <paramref name="expression"/>
+        /// is an odd number; otherwise <see langword="false"/>.
+        /// </returns>
+        public static bool IsOdd(this float expression)
+        {
+            return (expression % 2) != 0;
         }
         #endregion
 
@@ -591,7 +804,7 @@ namespace Cadru
 
         #region LessThan
 
-        #region LessThan(Byte expression, Byte min)
+        #region LessThan(byte expression, byte min)
         /// <overloads>
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether 
@@ -608,13 +821,13 @@ namespace Cadru
         /// <see langword="true"/> if <paramref name="expression"/>
         /// is less than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LessThan(this Byte expression, Byte min)
+        public static bool LessThan(this byte expression, byte min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<Byte>.Default);
+            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<byte>.Default);
         }
         #endregion
 
-        #region LessThan(Decimal expression, Decimal min)
+        #region LessThan(decimal expression, decimal min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than the minimum indicated.
@@ -625,13 +838,13 @@ namespace Cadru
         /// <see langword="true"/> if <paramref name="expression"/>
         /// is less than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LessThan(this Decimal expression, Decimal min)
+        public static bool LessThan(this decimal expression, decimal min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<Decimal>.Default);
+            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<decimal>.Default);
         }
         #endregion
 
-        #region LessThan(Double expression, Double min)
+        #region LessThan(double expression, double min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than the minimum indicated.
@@ -642,13 +855,13 @@ namespace Cadru
         /// <see langword="true"/> if <paramref name="expression"/>
         /// is less than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LessThan(this Double expression, Double min)
+        public static bool LessThan(this double expression, double min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<Double>.Default);
+            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<double>.Default);
         }
         #endregion
 
-        #region LessThan(Int16 expression, Int16 min)
+        #region LessThan(short expression, short min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than the minimum indicated.
@@ -659,13 +872,13 @@ namespace Cadru
         /// <see langword="true"/> if <paramref name="expression"/>
         /// is less than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LessThan(this Int16 expression, Int16 min)
+        public static bool LessThan(this short expression, short min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<Int16>.Default);
+            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<short>.Default);
         }
         #endregion
 
-        #region LessThan(Int32 expression, Int32 min)
+        #region LessThan(int expression, int min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than the minimum indicated.
@@ -676,13 +889,13 @@ namespace Cadru
         /// <see langword="true"/> if <paramref name="expression"/>
         /// is less than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LessThan(this Int32 expression, Int32 min)
+        public static bool LessThan(this int expression, int min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<Int32>.Default);
+            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<int>.Default);
         }
         #endregion
 
-        #region LessThan(this Int64 expression, Int64 min)
+        #region LessThan(this long expression, long min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than the minimum indicated.
@@ -693,13 +906,13 @@ namespace Cadru
         /// <see langword="true"/> if <paramref name="expression"/>
         /// is less than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LessThan(this Int64 expression, Int64 min)
+        public static bool LessThan(this long expression, long min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<Int64>.Default);
+            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<long>.Default);
         }
         #endregion
 
-        #region LessThan(Single expression, Single min)
+        #region LessThan(float expression, float min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than the minimum indicated.
@@ -710,9 +923,9 @@ namespace Cadru
         /// <see langword="true"/> if <paramref name="expression"/>
         /// is less than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LessThan(this Single expression, Single min)
+        public static bool LessThan(this float expression, float min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<Single>.Default);
+            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<float>.Default);
         }
         #endregion
 
@@ -720,7 +933,7 @@ namespace Cadru
 
         #region LessThanOrEqualTo
 
-        #region LessThanOrEqualTo(Byte expression, Byte min)
+        #region LessThanOrEqualTo(byte expression, byte min)
         /// <overloads>
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether 
@@ -740,13 +953,13 @@ namespace Cadru
         /// is less than or equal to the minimum indicated;
         /// otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LessThanOrEqualTo(this Byte expression, Byte min)
+        public static bool LessThanOrEqualTo(this byte expression, byte min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<Byte>.Default);
+            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<byte>.Default);
         }
         #endregion
 
-        #region LessThanOrEqualTo(Decimal expression, Decimal min)
+        #region LessThanOrEqualTo(decimal expression, decimal min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than or equal to the
@@ -759,13 +972,13 @@ namespace Cadru
         /// is less than or equal to the minimum indicated;
         /// otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LessThanOrEqualTo(this Decimal expression, Decimal min)
+        public static bool LessThanOrEqualTo(this decimal expression, decimal min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<Decimal>.Default);
+            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<decimal>.Default);
         }
         #endregion
 
-        #region LessThanOrEqualTo(Double expression, Double min)
+        #region LessThanOrEqualTo(double expression, double min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than or equal to the
@@ -778,13 +991,13 @@ namespace Cadru
         /// is less than or equal to the minimum indicated;
         /// otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LessThanOrEqualTo(this Double expression, Double min)
+        public static bool LessThanOrEqualTo(this double expression, double min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<Double>.Default);
+            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<double>.Default);
         }
         #endregion
 
-        #region LessThanOrEqualTo(Int16 expression, Int16 min)
+        #region LessThanOrEqualTo(short expression, short min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than or equal to the
@@ -797,13 +1010,13 @@ namespace Cadru
         /// is less than or equal to the minimum indicated;
         /// otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LessThanOrEqualTo(this Int16 expression, Int16 min)
+        public static bool LessThanOrEqualTo(this short expression, short min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<Int16>.Default);
+            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<short>.Default);
         }
         #endregion
 
-        #region LessThanOrEqualTo(Int32 expression, Int32 min)
+        #region LessThanOrEqualTo(int expression, int min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than or equal to the
@@ -816,13 +1029,13 @@ namespace Cadru
         /// is less than or equal to the minimum indicated;
         /// otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LessThanOrEqualTo(this Int32 expression, Int32 min)
+        public static bool LessThanOrEqualTo(this int expression, int min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<Int32>.Default);
+            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<int>.Default);
         }
         #endregion
 
-        #region LessThanOrEqualTo(Int64 expression, Int64 min)
+        #region LessThanOrEqualTo(long expression, long min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than or equal to the
@@ -835,13 +1048,13 @@ namespace Cadru
         /// is less than or equal to the minimum indicated;
         /// otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LessThanOrEqualTo(this Int64 expression, Int64 min)
+        public static bool LessThanOrEqualTo(this long expression, long min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<Int64>.Default);
+            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<long>.Default);
         }
         #endregion
 
-        #region LessThanOrEqualTo(Single expression, Single min)
+        #region LessThanOrEqualTo(float expression, float min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than or equal to the
@@ -854,9 +1067,9 @@ namespace Cadru
         /// is less than or equal to the minimum indicated;
         /// otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LessThanOrEqualTo(this Single expression, Single min)
+        public static bool LessThanOrEqualTo(this float expression, float min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<Single>.Default);
+            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<float>.Default);
         }
         #endregion
 

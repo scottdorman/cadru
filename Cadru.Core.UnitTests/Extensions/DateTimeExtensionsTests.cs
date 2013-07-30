@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Globalization;
 using System.Diagnostics.CodeAnalysis;
 using System.Collections;
+using Cadru.Extensions;
 
 namespace Cadru.UnitTest.Framework.UnitTests.Extensions
 {
@@ -18,6 +19,30 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
 
             GregorianCalendar gc = new GregorianCalendar(GregorianCalendarTypes.Localized);
             return gc.GetWeekOfYear(date, rule, firstDayOfWeek);
+        }
+
+        [TestMethod]
+        public void AddWeekdays()
+        {
+            var date = new DateTime(2013, 7, 26).Date;
+            Assert.AreEqual(new DateTime(2013, 7, 30), DateTimeExtensions.AddWeekdays(date, 2));
+            Assert.AreEqual(new DateTime(2013, 7, 24), DateTimeExtensions.AddWeekdays(date, -2));
+        }
+
+        [TestMethod]
+        public void AddQuarters()
+        {
+            var date = new DateTime(2013, 7, 26).Date;
+            Assert.AreEqual(new DateTime(2014, 1, 26), DateTimeExtensions.AddQuarters(date, 2));
+            Assert.AreEqual(new DateTime(2013, 1, 26), DateTimeExtensions.AddQuarters(date, -2));
+        }
+
+        [TestMethod]
+        public void AddWeeks()
+        {
+            var date = new DateTime(2013, 7, 26).Date;
+            Assert.AreEqual(new DateTime(2013, 8, 9), DateTimeExtensions.AddWeeks(date, 2));
+            Assert.AreEqual(new DateTime(2013, 7, 12), DateTimeExtensions.AddWeeks(date, -2));
         }
 
         [TestMethod]

@@ -20,7 +20,7 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru
+namespace Cadru.Extensions
 {
     using System;
     using System.Globalization;
@@ -34,6 +34,83 @@ namespace Cadru
     /// </summary>
     public static class DateTimeExtensions
     {
+        #region AddWeekdays
+        /// <summary>
+        /// Returns a new <see cref="DateTime"/> that adds the specified number of
+        /// weekdays to the value of this instance.
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="value">A number of whole and fractional weekdays.
+        /// The <paramref name="value"/> parameter can be negative or positive.</param>
+        /// <returns>A <see cref="DateTime"/> whose value is the sum of the
+        /// date and time represented by this instance and the number of weekdays
+        /// represented by <paramref name="value"/>.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// The resulting <see cref="DateTime"/> is less than 
+        /// <see cref="DateTime.MinValue"/> or greater than
+        /// <see cref="DateTime.MaxValue"/>.
+        /// </exception>
+        public static DateTime AddWeekdays(this DateTime date, double value)
+        {
+            int direction = value < 0 ? -1 : 1;
+
+            while (value != 0)
+            {
+                date = date.AddDays(direction);
+                if (!date.IsWeekend())
+                {
+                    value -= direction;
+                }
+            }
+
+            return date;
+        }
+        #endregion
+
+        #region AddQuarters
+        /// <summary>
+        /// Returns a new <see cref="DateTime"/> that adds the specified number of
+        /// quarters to the value of this instance.
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="value">A number of whole and fractional quarters.
+        /// The <paramref name="value"/> parameter can be negative or positive.</param>
+        /// <returns>A <see cref="DateTime"/> whose value is the sum of the
+        /// date and time represented by this instance and the number of quarters
+        /// represented by <paramref name="value"/>.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// The resulting <see cref="DateTime"/> is less than 
+        /// <see cref="DateTime.MinValue"/> or greater than
+        /// <see cref="DateTime.MaxValue"/>.
+        /// </exception>
+        public static DateTime AddQuarters(this DateTime date, double value)
+        {
+            return date.AddMonths(checked((int)value * 3));
+        }
+        #endregion
+
+        #region AddWeeks
+        /// <summary>
+        /// Returns a new <see cref="DateTime"/> that adds the specified number of
+        /// weeks to the value of this instance.
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="value">A number of whole and fractional weeks.
+        /// The <paramref name="value"/> parameter can be negative or positive.</param>
+        /// <returns>A <see cref="DateTime"/> whose value is the sum of the
+        /// date and time represented by this instance and the number of weeks
+        /// represented by <paramref name="value"/>.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// The resulting <see cref="DateTime"/> is less than 
+        /// <see cref="DateTime.MinValue"/> or greater than
+        /// <see cref="DateTime.MaxValue"/>.
+        /// </exception>
+        public static DateTime AddWeeks(this DateTime date, double value)
+        {
+            return date.AddDays(value * 7);
+        }
+        #endregion
+
         #region DaysInMonth
         /// <summary>
         /// Returns the number of days in the month for the date represented by this instance.
@@ -315,6 +392,32 @@ namespace Cadru
         public static bool IsLeapDay(this DateTime date)
         {
             return CultureInfo.CurrentCulture.Calendar.IsLeapDay(date.Year, date.Month, date.Day);
+        }
+        #endregion
+
+        #region IsWeekday
+        /// <summary>
+        /// Determines whether the specified date is a week day.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns><see langword="true"/> if the specified date is a week day;
+        /// otherwise, <see langword="false"/>.</returns>
+        public static bool IsWeekday(this DateTime date)
+        {
+            return !date.IsWeekend();
+        }
+        #endregion
+
+        #region IsWeekend
+        /// <summary>
+        /// Determines whether the specified date is a weekend.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns><see langword="true"/> if the specified date is a weekend;
+        /// otherwise, <see langword="false"/>.</returns>
+        public static bool IsWeekend(this DateTime date)
+        {
+            return (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday);
         }
         #endregion
 

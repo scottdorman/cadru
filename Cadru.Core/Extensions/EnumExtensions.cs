@@ -31,14 +31,17 @@ namespace Cadru.Extensions
     using System.Reflection;
     using System.Text;
 
+    /// <summary>
+    /// Provides basic routines for common enumerated type manipulation.
+    /// </summary>
     public static class EnumExtensions
     {
         #region GetDescription
         /// <summary>
-        /// Gets the <see cref="DescriptionAttribute"/> of an <see cref="Enum"/> type value.
+        /// Gets the <see cref="EnumDescriptionAttribute"/> of an <see cref="Enum"/> type value.
         /// </summary>
         /// <param name="value">The <see cref="Enum"/> type value.</param>
-        /// <returns>A string containing the text of the <see cref="DescriptionAttribute"/>.</returns>
+        /// <returns>A string containing the text of the <see cref="EnumDescriptionAttribute"/>.</returns>
         public static string GetDescription(this Enum value)
         {
             if (value == null)
@@ -47,8 +50,8 @@ namespace Cadru.Extensions
             }
 
             Type type = value.GetType();
-            string description = Enum.GetName(type, value);
-            FieldInfo fieldInfo = value.GetType().GetField(description);
+            string description = value.ToString();
+            FieldInfo fieldInfo = type.GetField(description);
             if (fieldInfo != null)
             {
                 EnumDescriptionAttribute attribute = ((EnumDescriptionAttribute[])fieldInfo.GetCustomAttributes(typeof(EnumDescriptionAttribute), false)).FirstOrDefault();

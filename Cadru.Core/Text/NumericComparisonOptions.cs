@@ -26,8 +26,8 @@ using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// Specifies the comparison rules to be used by certain overloads of the
-    /// <see cref="StringExtensions">StringExtensions.LengthBetween</see> and
-    /// <see cref="NumericExtensions">NumericExtensions.Between</see> methods. 
+    /// <see cref="Cadru.Extensions.StringExtensions">StringExtensions.LengthBetween</see> and
+    /// <see cref="Cadru.Extensions.NumericExtensions">NumericExtensions.Between</see> methods. 
     /// </summary>
     [Flags]
     public enum NumericComparisonOptions

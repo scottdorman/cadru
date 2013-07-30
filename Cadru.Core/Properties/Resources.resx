@@ -240,4 +240,61 @@
   <data name="ArgumentOutOfRange_Range" xml:space="preserve">
     <value>Valid values are between {0} and {1}, inclusive.</value>
   </data>
+  <data name="Arg_GuidArrayCtor" xml:space="preserve">
+    <value>Byte array for GUID must be exactly {0} bytes long.</value>
+  </data>
+  <data name="Format_GuidBrace" xml:space="preserve">
+    <value>Expected {0xdddddddd, etc}.</value>
+  </data>
+  <data name="Format_GuidBraceAfterLastNumber" xml:space="preserve">
+    <value>Could not find a brace, or the length between the previous token and the brace was zero (i.e., '0x,'etc.).</value>
+  </data>
+  <data name="Format_GuidComma" xml:space="preserve">
+    <value>Could not find a comma, or the length between the previous token and the comma was zero (i.e., '0x,'etc.).</value>
+  </data>
+  <data name="Format_GuidDashes" xml:space="preserve">
+    <value>Dashes are in the wrong position for GUID parsing.</value>
+  </data>
+  <data name="Format_GuidEndBrace" xml:space="preserve">
+    <value>Could not find the ending brace.</value>
+  </data>
+  <data name="Format_GuidHexPrefix" xml:space="preserve">
+    <value>Expected hex 0x in '{0}'.</value>
+  </data>
+  <data name="Format_GuidInvalidChar" xml:space="preserve">
+    <value>Guid string should only contain hexadecimal characters.</value>
+  </data>
+  <data name="Format_GuidInvLen" xml:space="preserve">
+    <value>Guid should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).</value>
+  </data>
+  <data name="Format_GuidUnrecognized" xml:space="preserve">
+    <value>Unrecognized Guid format.</value>
+  </data>
+  <data name="Arg_MustBeSequentialGuid" xml:space="preserve">
+    <value>Object must be of type SequentialGuid.</value>
+  </data>
+  <data name="Format_InvalidGuidFormatSpecification" xml:space="preserve">
+    <value>Format String can be only "D", "d", "N", "n", "P", "p", "B", "b", "X" or "x".</value>
+  </data>
+  <data name="ArgumentException_EmptyString" xml:space="preserve">
+    <value>{0} cannot be an empty string.</value>
+  </data>
+  <data name="Argument_NullElement" xml:space="preserve">
+    <value>{0} cannot contain a null (Nothing in Visual Basic) element.</value>
+  </data>
+  <data name="Assertion_CollectionFailure" xml:space="preserve">
+    <value>Expected a collection containing &lt;0&gt; items but actual was &lt;{0}&gt; items.</value>
+  </data>
+  <data name="Assertion_GenericFailure" xml:space="preserve">
+    <value>Expected &lt;{0}&gt; but actual was &lt;{1}&gt;.</value>
+  </data>
+  <data name="AssumptionException_EmptyMessage" xml:space="preserve">
+    <value>Assumption failed.</value>
+  </data>
+  <data name="AssumptionException_Message" xml:space="preserve">
+    <value>Assumption failed. {0}</value>
+  </data>
+  <data name="NotImplemented_NotOverriddenByDerived" xml:space="preserve">
+    <value>The {0} member must be overridden by a derived class.</value>
+  </data>
 </root>

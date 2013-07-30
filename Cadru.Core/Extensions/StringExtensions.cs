@@ -20,19 +20,41 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru
+namespace Cadru.Extensions
 {
     using System;
     using System.Globalization;
     using System.Text;
     using Cadru.Properties;
     using Cadru.Text;
+    using System.IO;
 
     /// <summary>
     /// Provides basic routines for common string manipulation.
     /// </summary>
     public static class StringExtensions
     {
+        #region Contains
+        /// <summary>
+        /// Returns a value indicating whether the specified <see cref="string"/> object occurs within this string.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="value">The string to seek.</param>
+        /// <param name="comparisonType">One of the enumeration values that specifies how the strings will be compared.</param>
+        /// <returns>
+        /// <see langword="true"/> if the <paramref name="value"/> parameter occurs within
+        /// this string, or if <paramref name="value"/> is the empty string (""); 
+        /// otherwise, <see langword="false"/>.
+        /// </returns>
+        public static bool Contains(this string source, string value, StringComparison comparisonType)
+        {
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(value, "value");
+
+            return source.IndexOf(value, comparisonType) >= 0;
+        }
+        #endregion
+
         #region LastCharacter
         /// <summary>
         /// Returns the last character in <paramref name="source"/>.
@@ -42,10 +64,7 @@ namespace Cadru
         /// string has a zero length.</returns>
         public static char LastCharacter(this string source)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
+            Contracts.Requires.NotNull(source, "source");
 
             char lastCharacter = '\0';
             if (source.Length > 0)
@@ -90,10 +109,7 @@ namespace Cadru
         /// </returns>
         public static string LeftSubstring(this string source, char value, int occurrence)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
+            Contracts.Requires.NotNull(source, "source");
 
             string substring = source;
             int index = source.IndexOf(value);
@@ -145,21 +161,10 @@ namespace Cadru
         /// </returns>
         public static string LeftSubstring(this string source, int endingIndex, bool inclusive)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
-
-            if (endingIndex <= 0)
-            {
-                throw new ArgumentOutOfRangeException("endingIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            }
-
-            if (endingIndex > source.Length)
-            {
-                throw new ArgumentOutOfRangeException("endingIndex", Resources.ArgumentOutOfRange_IndexLessThanLength);
-            }
-
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.ValidRange(endingIndex <= 0, "endingIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(endingIndex > source.Length, "endingIndex", Resources.ArgumentOutOfRange_IndexLessThanLength);
+     
             if (inclusive)
             {
                 endingIndex++;
@@ -180,7 +185,7 @@ namespace Cadru
         /// ends at the position of <paramref name="value"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="value"/> is not found in the string.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.StringExtensions.LeftSubstring(System.String,System.String,System.Int32)", Justification = "Reviewed.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.LeftSubstring(System.String,System.String,System.Int32)", Justification = "Reviewed.")]
         public static string LeftSubstring(this string source, string value)
         {
             return LeftSubstring(source, value, 1);
@@ -220,15 +225,8 @@ namespace Cadru
         /// </returns>
         public static string LeftSubstring(this string source, string value, int occurrence, StringComparison comparisonType)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
-
-            if (value == null)
-            {
-                throw new ArgumentNullException("value");
-            }
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(value, "value");
 
             string substring = source;
             int index = source.IndexOf(value, comparisonType);
@@ -252,45 +250,42 @@ namespace Cadru
 
         #region LengthBetween
 
-        #region LengthBetween(String expression, Int32 minimum, Int32 maximum)
+        #region LengthBetween(String source, Int32 minimum, Int32 maximum)
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether the length of <paramref name="expression"/>
+        /// Returns a <see cref="Boolean"/> expression indicating whether the length of <paramref name="source"/>
         /// is between the minimum and maximum indicated.
         /// </summary>
-        /// <param name="expression">Any string expression.</param>
+        /// <param name="source">Any string expression.</param>
         /// <param name="minimum">The minimum string length.</param>
         /// <param name="maximum">The maximum string length.</param>
-        /// <returns>MinMax returns <see langword="true" /> if <paramref name="expression"/> is greater than
+        /// <returns>MinMax returns <see langword="true" /> if <paramref name="source"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it 
         /// returns <see langword="false" />.</returns>
-        public static bool LengthBetween(this String expression, Int32 minimum, Int32 maximum)
+        public static bool LengthBetween(this String source, Int32 minimum, Int32 maximum)
         {
-            return LengthBetween(expression, minimum, maximum, NumericComparisonOptions.IncludeBoth);
+            return LengthBetween(source, minimum, maximum, NumericComparisonOptions.IncludeBoth);
         }
         #endregion
 
-        #region LengthBetween(String expression, Int32 minimum, Int32 maximum, MinMaxCompareOptions options)
+        #region LengthBetween(String source, Int32 minimum, Int32 maximum, MinMaxCompareOptions options)
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether the length of <paramref name="expression"/>
+        /// Returns a <see cref="Boolean"/> expression indicating whether the length of <paramref name="source"/>
         /// is between the minimum and maximum indicated.
         /// </summary>
-        /// <param name="expression">Any string expression.</param>
+        /// <param name="source">Any string expression.</param>
         /// <param name="minimum">The minimum string length.</param>
         /// <param name="maximum">The maximum string length.</param>
         /// <param name="options">A bitwise combination of enumeration values 
         /// that defines whether the comparison is inclusive.</param>
-        /// <returns>MinMax returns <see langword="true" /> if <paramref name="expression"/> is greater than
+        /// <returns>MinMax returns <see langword="true" /> if <paramref name="source"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it 
         /// returns <see langword="false" />.</returns>
-        public static bool LengthBetween(this String expression, Int32 minimum, Int32 maximum, NumericComparisonOptions options)
+        public static bool LengthBetween(this String source, Int32 minimum, Int32 maximum, NumericComparisonOptions options)
         {
-            if (expression == null)
-            {
-                throw new ArgumentNullException("expression");
-            }
+            Contracts.Requires.NotNull(source, "source");
 
             var success = false;
-            var length = expression.Length;
+            var length = source.Length;
 
             switch (options)
             {
@@ -320,92 +315,80 @@ namespace Cadru
         #region LengthGreaterThan
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
-        /// the length of <paramref name="expression"/> is greater than the
+        /// the length of <paramref name="source"/> is greater than the
         /// minimum indicated.
         /// </summary>
-        /// <param name="expression">The value to test.</param>
+        /// <param name="source">The value to test.</param>
         /// <param name="minimum">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true"/> if the length of <paramref name="expression"/>
+        /// <see langword="true"/> if the length of <paramref name="source"/>
         /// is greater than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LengthGreaterThan(this String expression, Int32 minimum)
+        public static bool LengthGreaterThan(this String source, Int32 minimum)
         {
-            if (expression == null)
-            {
-                throw new ArgumentNullException("expression");
-            }
+            Contracts.Requires.NotNull(source, "source");
 
-            return expression.Length > minimum;
+            return source.Length > minimum;
         }
         #endregion
 
         #region LengthGreaterThanOrEqualTo
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
-        /// the length of <paramref name="expression"/> is greater than or
+        /// the length of <paramref name="source"/> is greater than or
         /// equal to the minimum indicated.
         /// </summary>
-        /// <param name="expression">The value to test.</param>
+        /// <param name="source">The value to test.</param>
         /// <param name="minimum">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true"/> if the length of <paramref name="expression"/>
+        /// <see langword="true"/> if the length of <paramref name="source"/>
         /// is greater than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LengthGreaterThanOrEqualTo(this String expression, Int32 minimum)
+        public static bool LengthGreaterThanOrEqualTo(this String source, Int32 minimum)
         {
-            if (expression == null)
-            {
-                throw new ArgumentNullException("expression");
-            }
+            Contracts.Requires.NotNull(source, "source");
 
-            return expression.Length >= minimum;
+            return source.Length >= minimum;
         }
         #endregion
 
         #region LengthLessThan
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
-        /// the length of <paramref name="expression"/> is less than the
+        /// the length of <paramref name="source"/> is less than the
         /// minimum indicated.
         /// </summary>
-        /// <param name="expression">The value to test.</param>
+        /// <param name="source">The value to test.</param>
         /// <param name="maximum">The maximum value to compare against.</param>
         /// <returns>
-        /// <see langword="true"/> if the length of <paramref name="expression"/>
+        /// <see langword="true"/> if the length of <paramref name="source"/>
         /// is less than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LengthLessThan(this String expression, Int32 maximum)
+        public static bool LengthLessThan(this String source, Int32 maximum)
         {
-            if (expression == null)
-            {
-                throw new ArgumentNullException("expression");
-            }
+            Contracts.Requires.NotNull(source, "source");
 
-            return expression.Length < maximum;
+            return source.Length < maximum;
         }
         #endregion
 
         #region LengthLessThanOrEqualTo
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
-        /// the length of <paramref name="expression"/> is less than or
+        /// the length of <paramref name="source"/> is less than or
         /// equal to the minimum indicated.
         /// </summary>
-        /// <param name="expression">The value to test.</param>
+        /// <param name="source">The value to test.</param>
         /// <param name="maximum">The maximum value to compare against.</param>
         /// <returns>
-        /// <see langword="true"/> if the length of <paramref name="expression"/>
+        /// <see langword="true"/> if the length of <paramref name="source"/>
         /// is less than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LengthLessThanOrEqualTo(this String expression, Int32 maximum)
+        public static bool LengthLessThanOrEqualTo(this String source, Int32 maximum)
         {
-            if (expression == null)
-            {
-                throw new ArgumentNullException("expression");
-            }
+            Contracts.Requires.NotNull(source, "source");
 
-            return expression.Length <= maximum;
+            return source.Length <= maximum;
         }
         #endregion
 
@@ -500,10 +483,7 @@ namespace Cadru
         /// <returns>A new, normalized string.</returns>
         public static string Normalize(this string source, NormalizationOptions options)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
+            Contracts.Requires.NotNull(source, "source");
 
             if ((int)options < 0 || ((int)options & (int)~(NormalizationOptions.ControlCharacters | NormalizationOptions.Whitespace)) != 0)
             {
@@ -588,10 +568,7 @@ namespace Cadru
         /// or 0 if <paramref name="value"/> is not found in the string.</returns>
         public static int OccurrencesOf(this string source, char value)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
+            Contracts.Requires.NotNull(source, "source");
 
             int count = 0;
             foreach (char c in source)
@@ -631,15 +608,8 @@ namespace Cadru
         /// or 0 if <paramref name="value"/> is not found in the string.</returns>
         public static int OccurrencesOf(this string source, string value, StringComparison comparisonType)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
-
-            if (value == null)
-            {
-                throw new ArgumentNullException("value");
-            }
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(value, "value");
 
             int count = 0;
             int index = source.IndexOf(value, comparisonType);
@@ -678,10 +648,7 @@ namespace Cadru
         /// has been replaced by <paramref name="newValue"/>.</returns>
         public static string Replace(this string source, char oldValue, char newValue, int occurrences)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
+            Contracts.Requires.NotNull(source, "source");
 
             int count = 0;
             int index = 0;
@@ -733,20 +700,9 @@ namespace Cadru
         /// has been replaced by <paramref name="newValue"/>.</returns>
         public static string Replace(this string source, string oldValue, string newValue, int occurrences, StringComparison comparisonType)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
-
-            if (oldValue == null)
-            {
-                throw new ArgumentNullException("oldValue");
-            }
-
-            if (newValue == null)
-            {
-                throw new ArgumentNullException("newValue");
-            }
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(oldValue, "oldValue");
+            Contracts.Requires.NotNull(newValue, "newValue");
 
             string newString = source;
             int index = source.IndexOf(oldValue, comparisonType);
@@ -822,15 +778,8 @@ namespace Cadru
         /// <parameref name="end"/> has been replaced by <paramref name="newValue"/>.</returns>
         public static string ReplaceBetween(this string source, char start, char end, string newValue, bool inclusive)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
-
-            if (newValue == null)
-            {
-                throw new ArgumentNullException("newValue");
-            }
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(newValue, "newValue");
 
             string newString = source;
             int startIndex = source.IndexOf(start);
@@ -893,45 +842,14 @@ namespace Cadru
         /// <parameref name="end"/> has been replaced by <paramref name="newValue"/>.</returns>
         public static string ReplaceBetween(this string source, int start, int end, string newValue, bool inclusive)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
-
-            if (newValue == null)
-            {
-                throw new ArgumentNullException("newValue");
-            }
-
-            if (start < 0)
-            {
-                throw new ArgumentOutOfRangeException("start", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            }
-
-            if (start > source.Length)
-            {
-                throw new ArgumentOutOfRangeException("start", Resources.ArgumentOutOfRange_IndexLessThanLength);
-            }
-
-            if (end < 0)
-            {
-                throw new ArgumentOutOfRangeException("end", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            }
-
-            if (end > source.Length)
-            {
-                throw new ArgumentOutOfRangeException("end", Resources.ArgumentOutOfRange_IndexLessThanLength);
-            }
-
-            if (start > end)
-            {
-                throw new ArgumentException(Resources.Argument_StartIndexGreaterThanEndIndexString, "start");
-            }
-
-            if (start == end)
-            {
-                throw new ArgumentException(Resources.Argument_InvalidIndexValuesString, "start");
-            }
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(newValue, "newValue");
+            Contracts.Requires.ValidRange(start < 0, "start", Resources.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(start > source.Length, "start", Resources.ArgumentOutOfRange_IndexLessThanLength);
+            Contracts.Requires.ValidRange(end < 0, "end", Resources.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(end > source.Length, "end", Resources.ArgumentOutOfRange_IndexLessThanLength);
+            Contracts.Requires.ValidRange(start > end, "start", Resources.Argument_StartIndexGreaterThanEndIndexString);
+            Contracts.Requires.ValidRange(start == end, "start", Resources.Argument_InvalidIndexValuesString);
 
             string newString = source;
 
@@ -1003,25 +921,10 @@ namespace Cadru
         /// <parameref name="end"/> has been replaced by <paramref name="newValue"/>.</returns>
         public static string ReplaceBetween(this string source, string start, string end, string newValue, bool inclusive, StringComparison comparisonType)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
-
-            if (start == null)
-            {
-                throw new ArgumentNullException("start");
-            }
-
-            if (end == null)
-            {
-                throw new ArgumentNullException("end");
-            }
-
-            if (newValue == null)
-            {
-                throw new ArgumentNullException("newValue");
-            }
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(start, "start");
+            Contracts.Requires.NotNull(end, "end");
+            Contracts.Requires.NotNull(newValue, "newValue");
 
             string newString = source;
             int startIndex = source.IndexOf(start, comparisonType);
@@ -1128,10 +1031,7 @@ namespace Cadru
         /// </returns>
         public static string RightSubstring(this string source, char value, int occurrence)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
+            Contracts.Requires.NotNull(source, "source");
 
             string substring = source;
             int index = source.IndexOf(value);
@@ -1183,20 +1083,9 @@ namespace Cadru
         /// </returns>
         public static string RightSubstring(this string source, int endingIndex, bool inclusive)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
-
-            if (endingIndex <= 0)
-            {
-                throw new ArgumentOutOfRangeException("endingIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            }
-
-            if (endingIndex > source.Length)
-            {
-                throw new ArgumentOutOfRangeException("endingIndex", Resources.ArgumentOutOfRange_IndexLessThanLength);
-            }
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.ValidRange(endingIndex <= 0, "endingIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(endingIndex > source.Length, "endingIndex", Resources.ArgumentOutOfRange_IndexLessThanLength);
 
             if (inclusive)
             {
@@ -1218,7 +1107,7 @@ namespace Cadru
         /// ends at the position of <paramref name="value"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="value"/> is not found in the string.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.StringExtensions.RightSubstring(System.String,System.String,System.Int32)", Justification = "Reviewed.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.RightSubstring(System.String,System.String,System.Int32)", Justification = "Reviewed.")]
         public static string RightSubstring(this string source, string value)
         {
             return RightSubstring(source, value, 1);
@@ -1258,15 +1147,8 @@ namespace Cadru
         /// </returns>
         public static string RightSubstring(this string source, string value, int occurrence, StringComparison comparisonType)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
-
-            if (value == null)
-            {
-                throw new ArgumentNullException("value");
-            }
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(value, "value");
 
             string substring = source;
             int index = source.IndexOf(value, comparisonType);
@@ -1325,10 +1207,7 @@ namespace Cadru
         /// </returns>
         public static string SubstringBetween(this string source, char start, char end, bool inclusive)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
+            Contracts.Requires.NotNull(source, "source");
 
             string substring = String.Empty;
             int startIndex = source.IndexOf(start);
@@ -1415,20 +1294,9 @@ namespace Cadru
         /// </returns>
         public static string SubstringBetween(this string source, string start, string end, bool inclusive, StringComparison comparisonType)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException("source");
-            }
-
-            if (start == null)
-            {
-                throw new ArgumentNullException("start");
-            }
-
-            if (end == null)
-            {
-                throw new ArgumentNullException("end");
-            }
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(start, "start");
+            Contracts.Requires.NotNull(end, "end");
 
             string substring = String.Empty;
             int startIndex = source.IndexOf(start, comparisonType);
@@ -1461,6 +1329,37 @@ namespace Cadru
         }
         #endregion
 
+        #endregion
+
+        #region TrimWhiteSpaceAndNull
+        internal static string TrimWhiteSpaceAndNull(this string value)
+        {
+            int num = 0;
+            int length = value.Length - 1;
+            char chr = '\0';
+            while (true)
+            {
+                if (num < value.Length)
+                {
+                    if (!char.IsWhiteSpace(value[num]) && value[num] != chr)
+                    {
+                        break;
+                    }
+                    num++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            while (length >= num && (char.IsWhiteSpace(value[length]) || value[length] == chr))
+            {
+                length--;
+            }
+
+            return value.Substring(num, length - num + 1);
+        }
         #endregion
     }
 }

@@ -245,6 +245,7 @@ namespace Cadru.UnitTests.IO
         }
 
         [TestMethod]
+        [Ignore]
         public void GetAccessControl1()
         {
             string path = Path.Combine(Path.GetTempPath(), "CadruTest");
@@ -497,6 +498,7 @@ namespace Cadru.UnitTests.IO
         }
 
         [TestMethod]
+        [Ignore]
         public void SetAccessControl()
         {
             string path = Path.Combine(Path.GetTempPath(), "CadruTest");

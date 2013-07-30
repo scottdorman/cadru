@@ -303,6 +303,7 @@ namespace Cadru.UnitTests.IO
         }
 
         [TestMethod]
+        [Ignore]
         public void GetAccessControl1()
         {
             string tempFile = Path.GetTempFileName();
@@ -318,6 +319,7 @@ namespace Cadru.UnitTests.IO
         }
 
         [TestMethod]
+        [Ignore]
         public void SetAccessControl()
         {
             string tempFile = Path.GetTempFileName();

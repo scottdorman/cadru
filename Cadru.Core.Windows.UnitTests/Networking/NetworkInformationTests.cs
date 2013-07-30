@@ -23,6 +23,7 @@ namespace Cadru.UnitTests.Networking
         ///A test for GetDomains ()
         ///</summary>
         [TestMethod]
+        [Ignore]
         public void GetDomains()
         {
             ServerInfo[] actual;
@@ -38,6 +39,7 @@ namespace Cadru.UnitTests.Networking
         ///A test for GetServerList (ServerTypes, string)
         ///</summary>
         [TestMethod]
+        [Ignore]
         public void GetServerList()
         {
             ServerTypes serverType = ServerTypes.WindowsNT;

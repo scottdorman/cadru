@@ -341,6 +341,7 @@ namespace Cadru.Collections
         /// <description><i>x</i> is greater than <i>y</i>, with casing ignored.</description>
         /// </item>
         /// </list></returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         public int Compare(string x, string y)
         {
             if (String.IsNullOrEmpty(x) && String.IsNullOrEmpty(y))
