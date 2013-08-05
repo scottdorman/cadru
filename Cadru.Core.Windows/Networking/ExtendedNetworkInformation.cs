@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// <copyright file="NetworkInformation.cs" 
+// <copyright file="ExtendedNetworkInformation.cs" 
 //  company="Scott Dorman" 
 //  library="Cadru">
 //    Copyright (C) 2001-2013 Scott Dorman.
@@ -23,29 +23,27 @@
 namespace Cadru.Networking
 {
     using System;
-    using System.Collections.Generic;
-    using System.Collections;
     using System.ComponentModel;
     using System.Globalization;
-    using System.Net.NetworkInformation;
     using System.Net;
+    using System.Net.NetworkInformation;
     using System.Runtime.InteropServices;
-    using System.Security.Permissions;
-    using System.Text;
-    using Cadru.InteropServices;
     using System.Security;
+    using Cadru.InteropServices;
 
     /// <summary>
     /// Provides information about a computer or computers on a domain.
     /// </summary>
     public static class ExtendedNetworkInformation
     {
-        #region events
+        #region fields
 
         #endregion
 
-        #region class-wide fields
+        #region constructors
+        #endregion
 
+        #region events
         #endregion
 
         #region properties
@@ -72,8 +70,8 @@ namespace Cadru.Networking
         /// <summary>
         /// Gets the fully qualified hostname of the local computer.
         /// </summary>
-        /// <value>A <see cref="String"/> representing the fully qualified hostname of the local computer.</value>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
+        /// <returns>A <see cref="String"/> representing the fully qualified hostname of the local computer.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
         public static string GetHostName()
         {
             string hostName = Environment.MachineName;
@@ -130,10 +128,7 @@ namespace Cadru.Networking
         /// <returns>A <see cref="ServerInfo"/> instance representing the named computer.</returns>
         public static ServerInfo GetServerInfo(string serverName)
         {
-            if (serverName == null)
-            {
-                throw new ArgumentNullException("serverName");
-            }
+            Contracts.Requires.NotNull(serverName, "serverName");
 
             if (!serverName.StartsWith(@"\\", StringComparison.OrdinalIgnoreCase))
             {
@@ -158,6 +153,7 @@ namespace Cadru.Networking
         /// <returns>An array of <see cref="ServerInfo"/> instances of the
         /// specified server type for the given domain.</returns>
         [SecurityCritical]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
         public static ServerInfo[] GetServerList(ServerTypes serverType, string domain)
         {
             ServerInfo[] serverList;
@@ -173,6 +169,7 @@ namespace Cadru.Networking
                 {
                     throw new Win32Exception(result);
                 }
+
                 serverList = new ServerInfo[entriesRead];
                 int ptr = pBuf.ToInt32();
 
@@ -197,7 +194,8 @@ namespace Cadru.Networking
         /// <summary>
         /// Gets the IP addresses of the local computer. 
         /// </summary>
-        /// <value>An <see cref="IPAddress"/> array containing the IP addresses of the local computer.</value>
+        /// <returns>An <see cref="IPAddress"/> array containing the IP addresses of the local computer.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
         public static IPAddress[] GetIPAddresses()
         {
             IPAddress[] ipAddress = null;
@@ -235,6 +233,7 @@ namespace Cadru.Networking
         #endregion
 
         #region GetServerInfoInternal
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
         private static ServerInfo GetServerInfoInternal(string serverName)
         {
             ServerInfo server;
@@ -257,11 +256,13 @@ namespace Cadru.Networking
             {
                 FreeBuffer(ref pBuf);
             }
+
             return server;
         }
         #endregion
 
         #region GetIPAddressesFromDns
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
         private static IPAddress[] GetIPAddressesFromDns()
         {
             IPAddress[] ipAddress = null;

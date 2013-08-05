@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// <copyright file="DateComparer.cs" 
+// <copyright file="ExtendedFileInfo.cs" 
 //  company="Scott Dorman" 
 //  library="Cadru">
 //    Copyright (C) 2001-2013 Scott Dorman.
@@ -23,15 +23,13 @@
 namespace Cadru.IO
 {
     using System;
-    using System.ComponentModel;
     using System.Diagnostics;
-    using System.Diagnostics.CodeAnalysis;
     using System.IO;
-    using System.Runtime.Serialization;
     using System.Runtime.InteropServices;
+    using System.Runtime.Serialization;
     using System.Security;
-    using System.Security.Permissions;
     using System.Security.AccessControl;
+    using System.Security.Permissions;
     using System.Security.Principal;
     using Cadru.InteropServices;
 
@@ -44,11 +42,7 @@ namespace Cadru.IO
     [Serializable]
     public sealed class ExtendedFileInfo : MarshalByRefObject, ISerializable
     {
-        #region events
-
-        #endregion
-
-        #region class-wide fields
+        #region fields
         private ExecutableType executableType;
 
         private FileInfo fileInfo;
@@ -61,30 +55,30 @@ namespace Cadru.IO
 
         #region constructors
         /// <summary>
-        /// Initializes a new instance of the FileInfo class, which acts as a wrapper for a file path.
+        /// Initializes a new instance of the <see cref="ExtendedFileInfo"/> class, which acts as a wrapper for a file path.
         /// </summary>
         /// <param name="fileName">The fully qualified name of the new file, or the relative file name.</param>
-        /// <exception cref="ArgumentNullException">fileName is a null reference (Nothing in Visual Basic). </exception>
+        /// <exception cref="ArgumentNullException"><paramref name="fileName"/> is a <see langword="null" />. </exception>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         /// <exception cref="ArgumentException">The file name is empty, contains only white spaces, or contains invalid characters. </exception>
-        /// <exception cref="UnauthorizedAccessException">Access to fileName is denied.</exception>
+        /// <exception cref="UnauthorizedAccessException">Access to <paramref name="fileName"/> is denied.</exception>
         /// <exception cref="PathTooLongException">The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters. </exception>
-        /// <exception cref="NotSupportedException">fileName contains a colon (:) in the middle of the string.</exception>
+        /// <exception cref="NotSupportedException"><paramref name="fileName"/> contains a colon (:) in the middle of the string.</exception>
         /// <remarks>You can specify either the fully qualified or the relative file name, but the security check gets the fully qualified name.</remarks>
         public ExtendedFileInfo(string fileName)
         {
-            Initialize(fileName);
+            this.Initialize(fileName);
         } 
 
         private ExtendedFileInfo(SerializationInfo info, StreamingContext context)
         {
-            if (info == null)
-            {
-                throw new ArgumentNullException("info");
-            }
+            Contracts.Requires.NotNull(info, "info");
 
-            Initialize(info.GetString("originalFileName"));
+            this.Initialize(info.GetString("originalFileName"));
         } 
+        #endregion
+
+        #region events
         #endregion
 
         #region properties
@@ -107,11 +101,12 @@ namespace Cadru.IO
         {
             get
             {
-                return fileInfo.Attributes;
+                return this.fileInfo.Attributes;
             }
+
             set
             {
-                fileInfo.Attributes = value;
+                this.fileInfo.Attributes = value;
             }
         } 
         #endregion
@@ -120,13 +115,13 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the comments associated with the file. 
         /// </summary>
-        /// <value>The comments associated with the file or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>The comments associated with the file or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks>This property contains additional information that can be displayed for diagnostic purposes.</remarks>
         public string Comments
         {
             get
             {
-                return fileVersionInfo.Comments;
+                return this.fileVersionInfo.Comments;
             }
         } 
         #endregion
@@ -135,12 +130,12 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the name of the company that produced the file. 
         /// </summary>
-        /// <value>The name of the company that produced the file or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>The name of the company that produced the file or a <see langword="null" /> if the file did not contain version information.</value>
         public string CompanyName
         {
             get
             {
-                return fileVersionInfo.CompanyName;
+                return this.fileVersionInfo.CompanyName;
             }
         } 
         #endregion
@@ -157,7 +152,7 @@ namespace Cadru.IO
         /// <para>When first called, FileSystemInfo calls Refresh and returns the cached information on APIs to get attributes and so on. On subsequent calls, you must call Refresh to get the latest copy of the information.</para>
         /// <para>If the file described in the FileSystemInfo object does not exist, this property will return 12:00 midnight, January 1, 1601 A.D. (C.E.) Coordinated Universal Time (UTC), adjusted to local time.</para>
         /// <para>NTFS-formatted drives may cache file meta-info, such as file creation time, for a short period of time. This process is known as file tunneling. As a result, it may be necessary to explicitly set the creation time of a file if you are overwriting or replacing an existing file.</para>
-        /// <para>This property value is a null reference (Nothing in Visual Basic) if the file system containing the FileSystemInfo object does not support this information.</para>
+        /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// <para>Windows Mobile for Pocket PC, Windows Mobile for Smartphone, Windows CE Platform Note: This property is read-only.</para>
         /// </remarks>
@@ -165,18 +160,19 @@ namespace Cadru.IO
         {
             get
             {
-                return fileInfo.CreationTime;
+                return this.fileInfo.CreationTime;
             }
+
             set
             {
-                fileInfo.CreationTime = value;
+                this.fileInfo.CreationTime = value;
             }
         } 
         #endregion
 
         #region CreationTimeUtc
         /// <summary>
-        /// Gets or sets the creation time, in coordinated universal time (UTC), of the current FileSystemInfo object.
+        /// Gets the creation time, in coordinated universal time (UTC), of the current FileSystemInfo object.
         /// </summary>
         /// <value>The creation date and time in UTC format of the current FileSystemInfo object.</value>
         /// <exception cref="IOException">Refresh cannot initialize the data.</exception>
@@ -186,21 +182,21 @@ namespace Cadru.IO
         /// <para>When first called, FileSystemInfo calls Refresh and returns the cached information on APIs to get attributes and so on. On subsequent calls, you must call Refresh to get the latest copy of the information.</para>
         /// <para>If the file described in the FileSystemInfo object does not exist, this property will return 12:00 midnight, January 1, 1601 A.D. (C.E.) Coordinated Universal Time (UTC), adjusted to local time.</para>
         /// <para>NTFS-formatted drives may cache file meta-info, such as file creation time, for a short period of time. This process is known as file tunneling. As a result, it may be necessary to explicitly set the creation time of a file if you are overwriting or replacing an existing file.</para>
-        /// <para>This property value is a null reference (Nothing in Visual Basic) if the file system containing the FileSystemInfo object does not support this information.</para>
+        /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
         public DateTime CreateTimeUtc
         {
             get
             {
-                return fileInfo.CreationTimeUtc;
+                return this.fileInfo.CreationTimeUtc;
             }
         } 
         #endregion
 
         #region Directory
         /// <summary>
-        /// Gets an instance of teh parent directory.
+        /// Gets an instance of the parent directory.
         /// </summary>
         /// <value>A <see cref="DirectoryInfo"/> object representing the
         /// parent directory of this file.</value>
@@ -214,7 +210,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileInfo.Directory;
+                return this.fileInfo.Directory;
             }
         } 
         #endregion
@@ -239,7 +235,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileInfo.DirectoryName;
+                return this.fileInfo.DirectoryName;
             }
         } 
         #endregion
@@ -253,7 +249,7 @@ namespace Cadru.IO
         {
             get
             {
-                return executableType;
+                return this.executableType;
             }
         } 
         #endregion
@@ -273,7 +269,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileInfo.Exists;
+                return this.fileInfo.Exists;
             }
         } 
         #endregion
@@ -288,7 +284,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileInfo.Extension;
+                return this.fileInfo.Extension;
             }
         } 
         #endregion
@@ -297,7 +293,7 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the build number of the file. 
         /// </summary>
-        /// <value>A value representing the build number of the file or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>A value representing the build number of the file or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks><para>Typically, a version number is displayed as "major number.minor number.build number.private part number". A file version number is a 64-bit number that holds the version number for a file as follows:</para>
         /// <list type="bullet">
         /// <item>The first 16 bits are the FileMajorPart number.</item>
@@ -311,7 +307,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileVersionInfo.FileBuildPart;
+                return this.fileVersionInfo.FileBuildPart;
             }
         }
         #endregion
@@ -320,12 +316,12 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the description of the file.
         /// </summary>
-        /// <value>The description of the file or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>The description of the file or a <see langword="null" /> if the file did not contain version information.</value>
         public string FileDescription
         {
             get
             {
-                return fileVersionInfo.FileDescription;
+                return this.fileVersionInfo.FileDescription;
             }
         } 
         #endregion
@@ -334,7 +330,7 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the major part of the version number. 
         /// </summary>
-        /// <value>A value representing the major part of the version number or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>A value representing the major part of the version number or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks><para>Typically, a version number is displayed as "major number.minor number.build number.private part number". A file version number is a 64-bit number that holds the version number for a file as follows:</para>
         /// <list type="bullet">
         /// <item>The first 16 bits are the FileMajorPart number.</item>
@@ -348,7 +344,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileVersionInfo.FileMajorPart;
+                return this.fileVersionInfo.FileMajorPart;
             }
         } 
         #endregion
@@ -357,7 +353,7 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the minor part of the version number. 
         /// </summary>
-        /// <value>A value representing the minor part of the version number or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>A value representing the minor part of the version number or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks><para>Typically, a version number is displayed as "major number.minor number.build number.private part number". A file version number is a 64-bit number that holds the version number for a file as follows:</para>
         /// <list type="bullet">
         /// <item>The first 16 bits are the FileMajorPart number.</item>
@@ -371,7 +367,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileVersionInfo.FileMinorPart;
+                return this.fileVersionInfo.FileMinorPart;
             }
         } 
         #endregion
@@ -385,7 +381,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileVersionInfo.FileName;
+                return this.fileVersionInfo.FileName;
             }
         } 
         #endregion
@@ -399,7 +395,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileOwner;
+                return this.fileOwner;
             }
         } 
         #endregion
@@ -408,7 +404,7 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the private part number. 
         /// </summary>
-        /// <value>A value representing the file private part number or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>A value representing the file private part number or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks><para>Typically, a version number is displayed as "major number.minor number.build number.private part number". A file version number is a 64-bit number that holds the version number for a file as follows:</para>
         /// <list type="bullet">
         /// <item>The first 16 bits are the FileMajorPart number.</item>
@@ -422,7 +418,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileVersionInfo.FilePrivatePart;
+                return this.fileVersionInfo.FilePrivatePart;
             }
         } 
         #endregion
@@ -436,7 +432,7 @@ namespace Cadru.IO
         {
             get
             {
-                return shellFileInfo.szTypeName;
+                return this.shellFileInfo.szTypeName;
             }
         } 
         #endregion
@@ -445,7 +441,7 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the file version number.
         /// </summary>
-        /// <value>The version number of the file or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>The version number of the file or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks><para>Typically, a version number is displayed as "major number.minor number.build number.private part number". A file version number is a 64-bit number that holds the version number for a file as follows:</para>
         /// <list type="bullet">
         /// <item>The first 16 bits are the FileMajorPart number.</item>
@@ -458,7 +454,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileVersionInfo.FileVersion;
+                return this.fileVersionInfo.FileVersion;
             }
         } 
         #endregion
@@ -474,7 +470,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileInfo.FullName;
+                return this.fileInfo.FullName;
             }
         } 
         #endregion
@@ -488,16 +484,16 @@ namespace Cadru.IO
         {
             get
             {
-                return fileVersionInfo.InternalName;
+                return this.fileVersionInfo.InternalName;
             }
         } 
         #endregion
 
         #region IsDebug
         /// <summary>
-        /// Gets a value that specifies whether the file contains debugging information or is compiled with debugging features enabled.
+        /// Gets a value indicating whether the file contains debugging information or is compiled with debugging features enabled.
         /// </summary>
-        /// <value>true if the file contains debugging information or is compiled with debugging features enabled; otherwise, false.</value>
+        /// <value><see langword="true"/> if the file contains debugging information or is compiled with debugging features enabled; otherwise, <see langword="false"/>.</value>
         /// <remarks>
         /// <para>The FileVersionInfo properties are based on version resource information built into the file. Version resources are often built into binary files such as .exe or .dll files; text files do not have version resource information.</para>
         /// <para>Version resources are typically specified in a Win32 resource file, or in assembly attributes. The IsDebug property reflects the VS_FF_DEBUG flag value in the file's VS_FIXEDFILEINFO block, which is built from the VERSIONINFO resource in a Win32 resource file. For more information about specifying version resources in a Win32 resource file, see the Platform SDK About Resource Files topic and VERSIONINFO Resource topic topics.</para>
@@ -506,58 +502,58 @@ namespace Cadru.IO
         {
             get
             {
-                return fileVersionInfo.IsDebug;
+                return this.fileVersionInfo.IsDebug;
             }
         } 
         #endregion
 
         #region IsPatched
         /// <summary>
-        /// Gets a value that specifies whether the file has been modified and is not identical to the original shipping file of the same version number.
+        /// Gets a value indicating whether the file has been modified and is not identical to the original shipping file of the same version number.
         /// </summary>
-        /// <value>true if the file is patched; otherwise, false.</value>
+        /// <value><see langword="true"/> if the file is patched; otherwise, <see langword="false"/>.</value>
         public bool IsPatched
         {
             get
             {
-                return fileVersionInfo.IsPatched;
+                return this.fileVersionInfo.IsPatched;
             }
         } 
         #endregion
 
         #region IsPreRelease
         /// <summary>
-        /// Gets a value that specifies whether the file is a development version, rather than a commercially released product.
+        /// Gets a value indicating whether the file is a development version, rather than a commercially released product.
         /// </summary>
-        /// <value>true if the file is prerelease; otherwise, false.</value>
-        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "PreRelease", Justification = "This property follows the same naming convention as the underlying property in the FileVersionInfo class.")]
+        /// <value><see langword="true"/> if the file is prerelease; otherwise, <see langword="false"/>.</value>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "PreRelease", Justification = "This property follows the same naming convention as the underlying property in the FileVersionInfo class.")]
         public bool IsPreRelease
         {
             get
             {
-                return fileVersionInfo.IsPreRelease;
+                return this.fileVersionInfo.IsPreRelease;
             }
         } 
         #endregion
 
         #region IsPrivateBuild
         /// <summary>
-        /// Gets a value that specifies whether the file was built using standard release procedures.
+        /// Gets a value indicating whether the file was built using standard release procedures.
         /// </summary>
-        /// <value>true if the file is a private build; false if the file was built using standard release procedures or if the file did not contain version information.</value>
+        /// <value><see langword="true"/> if the file is a private build; <see langword="false"/> if the file was built using standard release procedures or if the file did not contain version information.</value>
         /// <remarks>If this value is true, PrivateBuild will describe how this version of the file differs from the standard version.</remarks>
         public bool IsPrivateBuild
         {
             get
             {
-                return fileVersionInfo.IsPrivateBuild;
+                return this.fileVersionInfo.IsPrivateBuild;
             }
         } 
         #endregion
 
         #region IsReadOnly
         /// <summary>
-        /// Gets or sets a value that determines if the file is read only.
+        /// Gets or sets a value indicating whether the file is read only.
         /// </summary>
         /// <value><see langword="true"/> if the current file is read only;
         /// otherwise <see langword="false"/>.</value>
@@ -586,26 +582,27 @@ namespace Cadru.IO
         {
             get
             {
-                return fileInfo.IsReadOnly;
+                return this.fileInfo.IsReadOnly;
             }
+
             set
             {
-                fileInfo.IsReadOnly = value;
+                this.fileInfo.IsReadOnly = value;
             }
         } 
         #endregion
 
         #region IsSpecialBuild
         /// <summary>
-        /// Gets a value that specifies whether the file is a special build. 
+        /// Gets a value indicating whether the file is a special build. 
         /// </summary>
-        /// <value>true if the file is a special build; otherwise, false.</value>
+        /// <value><see langword="true"/> if the file is a special build; otherwise, <see langword="false"/>.</value>
         /// <remarks>A file that is a special build was built using standard release procedures, but the file differs from a standard file of the same version number. If this value is true, the SpecialBuild property must specify how this file differs from the standard version.</remarks>
         public bool IsSpecialBuild
         {
             get
             {
-                return fileVersionInfo.IsSpecialBuild;
+                return this.fileVersionInfo.IsSpecialBuild;
             }
         } 
         #endregion
@@ -614,19 +611,19 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the default language string for the version info block.
         /// </summary>
-        /// <value>The description string for the Microsoft Language Identifier in the version resource or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>The description string for the Microsoft Language Identifier in the version resource or a <see langword="null" /> if the file did not contain version information.</value>
         public string Language
         {
             get
             {
-                return fileVersionInfo.Language;
+                return this.fileVersionInfo.Language;
             }
         } 
         #endregion
 
         #region LastAccessTime
         /// <summary>
-        /// Gets or sets the time the current file or directory was last accessed.
+        /// Gets the time the current file or directory was last accessed.
         /// </summary>
         /// <value>The time that the current file or directory was last accessed.</value>
         /// <exception cref="IOException">Refresh cannot initialize the data.</exception>
@@ -635,7 +632,7 @@ namespace Cadru.IO
         /// <para>When first called, FileSystemInfo calls Refresh and returns the cached information on APIs to get attributes and so on. On subsequent calls, you must call Refresh to get the latest copy of the information.</para>
         /// <para>If the file described in the FileSystemInfo object does not exist, this property will return 12:00 midnight, January 1, 1601 A.D. (C.E.) Coordinated Universal Time (UTC), adjusted to local time.</para>
         /// <para>NTFS-formatted drives may cache file meta-info, such as file creation time, for a short period of time. This process is known as file tunneling. As a result, it may be necessary to explicitly set the creation time of a file if you are overwriting or replacing an existing file.</para>
-        /// <para>This property value is a null reference (Nothing in Visual Basic) if the file system containing the FileSystemInfo object does not support this information.</para>
+        /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// <para>Windows Mobile for Pocket PC, Windows Mobile for Smartphone, Windows CE Platform Note: This property is read-only.</para>
         /// </remarks>
@@ -643,14 +640,14 @@ namespace Cadru.IO
         {
             get
             {
-                return fileInfo.LastAccessTime;
+                return this.fileInfo.LastAccessTime;
             }
         } 
         #endregion
 
         #region LastAccessTimeUtc
         /// <summary>
-        /// Gets or sets the time, in coordinated universal time (UTC), that the current file or directory was last accessed. 
+        /// Gets the time, in coordinated universal time (UTC), that the current file or directory was last accessed. 
         /// </summary>
         /// <value>The UTC time that the current file or directory was last accessed.</value>
         /// <exception cref="IOException">Refresh cannot initialize the data.</exception>
@@ -659,21 +656,21 @@ namespace Cadru.IO
         /// <para>When first called, FileSystemInfo calls Refresh and returns the cached information on APIs to get attributes and so on. On subsequent calls, you must call Refresh to get the latest copy of the information.</para>
         /// <para>If the file described in the FileSystemInfo object does not exist, this property will return 12:00 midnight, January 1, 1601 A.D. (C.E.) Coordinated Universal Time (UTC), adjusted to local time.</para>
         /// <para>NTFS-formatted drives may cache file meta-info, such as file creation time, for a short period of time. This process is known as file tunneling. As a result, it may be necessary to explicitly set the creation time of a file if you are overwriting or replacing an existing file.</para>
-        /// <para>This property value is a null reference (Nothing in Visual Basic) if the file system containing the FileSystemInfo object does not support this information.</para>
+        /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
         public DateTime LastAccessTimeUtc
         {
             get
             {
-                return fileInfo.LastAccessTimeUtc;
+                return this.fileInfo.LastAccessTimeUtc;
             }
         } 
         #endregion
 
         #region LastWriteTime
         /// <summary>
-        /// Gets or sets the time when the current file or directory was last written to.
+        /// Gets the time when the current file or directory was last written to.
         /// </summary>
         /// <value>The time the current file was last written.</value>
         /// <exception cref="IOException">Refresh cannot initialize the data.</exception>
@@ -682,7 +679,7 @@ namespace Cadru.IO
         /// <para>When first called, FileSystemInfo calls Refresh and returns the cached information on APIs to get attributes and so on. On subsequent calls, you must call Refresh to get the latest copy of the information.</para>
         /// <para>If the file described in the FileSystemInfo object does not exist, this property will return 12:00 midnight, January 1, 1601 A.D. (C.E.) Coordinated Universal Time (UTC), adjusted to local time.</para>
         /// <para>NTFS-formatted drives may cache file meta-info, such as file creation time, for a short period of time. This process is known as file tunneling. As a result, it may be necessary to explicitly set the creation time of a file if you are overwriting or replacing an existing file.</para>
-        /// <para>This property value is a null reference (Nothing in Visual Basic) if the file system containing the FileSystemInfo object does not support this information.</para>
+        /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// <para>Windows Mobile for Pocket PC, Windows Mobile for Smartphone, Windows CE Platform Note: This property is read-only.</para>
         /// </remarks>
@@ -690,14 +687,14 @@ namespace Cadru.IO
         {
             get
             {
-                return fileInfo.LastWriteTime;
+                return this.fileInfo.LastWriteTime;
             }
         } 
         #endregion
 
         #region LastWriteTimeUtc
         /// <summary>
-        /// Gets or sets the time, in coordinated universal time (UTC), when the current file or directory was last written to. 
+        /// Gets the time, in coordinated universal time (UTC), when the current file or directory was last written to. 
         /// </summary>
         /// <value>The UTC time when the current file was last written to.</value>
         /// <exception cref="IOException">Refresh cannot initialize the data.</exception>
@@ -706,14 +703,14 @@ namespace Cadru.IO
         /// <para>When first called, FileSystemInfo calls Refresh and returns the cached information on APIs to get attributes and so on. On subsequent calls, you must call Refresh to get the latest copy of the information.</para>
         /// <para>If the file described in the FileSystemInfo object does not exist, this property will return 12:00 midnight, January 1, 1601 A.D. (C.E.) Coordinated Universal Time (UTC), adjusted to local time.</para>
         /// <para>NTFS-formatted drives may cache file meta-info, such as file creation time, for a short period of time. This process is known as file tunneling. As a result, it may be necessary to explicitly set the creation time of a file if you are overwriting or replacing an existing file.</para>
-        /// <para>This property value is a null reference (Nothing in Visual Basic) if the file system containing the FileSystemInfo object does not support this information.</para>
+        /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
         public DateTime LastWriteTimUtc
         {
             get
             {
-                return fileInfo.LastWriteTimeUtc;
+                return this.fileInfo.LastWriteTimeUtc;
             }
         } 
         #endregion
@@ -723,12 +720,12 @@ namespace Cadru.IO
         /// Gets all copyright notices that apply to the specified file. 
         /// </summary>
         /// <value>The copyright notices that apply to the specified file.</value>
-        /// <remarks>This should include the full text of all notices, legal symbols, copyright dates, and so on or a null reference (Nothing in Visual Basic) if the file did not contain version information.</remarks>
+        /// <remarks>This should include the full text of all notices, legal symbols, copyright dates, and so on or a <see langword="null" /> if the file did not contain version information.</remarks>
         public string LegalCopyright
         {
             get
             {
-                return fileVersionInfo.LegalCopyright;
+                return this.fileVersionInfo.LegalCopyright;
             }
         } 
         #endregion
@@ -737,13 +734,13 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the trademarks and registered trademarks that apply to the file. 
         /// </summary>
-        /// <value>The trademarks and registered trademarks that apply to the file or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>The trademarks and registered trademarks that apply to the file or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks>The legal trademarks include the full text of all notices, legal symbols, and trademark numbers.</remarks>
         public string LegalTrademarks
         {
             get
             {
-                return fileVersionInfo.LegalTrademarks;
+                return this.fileVersionInfo.LegalTrademarks;
             }
         } 
         #endregion
@@ -773,7 +770,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileInfo.Length;
+                return this.fileInfo.Length;
             }
         } 
         #endregion
@@ -793,7 +790,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileInfo.Name;
+                return this.fileInfo.Name;
             }
         } 
         #endregion
@@ -802,14 +799,14 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the name the file was created with.
         /// </summary>
-        /// <value>The name the file was created with or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>The name the file was created with or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks>This property enables an application to determine whether a file has been renamed.</remarks>
-        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "Filename", Justification = "This property follows the same naming convention as the underlying property in the FileVersionInfo class.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "Filename", Justification = "This property follows the same naming convention as the underlying property in the FileVersionInfo class.")]
         public string OriginalFilename
         {
             get
             {
-                return fileVersionInfo.OriginalFilename;
+                return this.fileVersionInfo.OriginalFilename;
             }
         } 
         #endregion
@@ -818,13 +815,13 @@ namespace Cadru.IO
         /// <summary>
         /// Gets information about a private version of the file.
         /// </summary>
-        /// <value>Information about a private version of the file or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>Information about a private version of the file or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks>This information is present when IsPrivateBuild is true.</remarks>
         public string PrivateBuild
         {
             get
             {
-                return fileVersionInfo.PrivateBuild;
+                return this.fileVersionInfo.PrivateBuild;
             }
         } 
         #endregion
@@ -833,7 +830,7 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the build number of the product this file is associated with.
         /// </summary>
-        /// <value>A value representing the build number of the product this file is associated with or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>A value representing the build number of the product this file is associated with or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks><para>Typically, a version number is displayed as "major number.minor number.build number.private part number". A product version number is a 64-bit number that holds the version number for a file as follows:</para>
         /// <list type="bullet">
         /// <item>The first 16 bits are the ProductMajorPart number.</item>
@@ -847,7 +844,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileVersionInfo.ProductBuildPart;
+                return this.fileVersionInfo.ProductBuildPart;
             }
         } 
         #endregion
@@ -856,7 +853,7 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the major part of the version number for the product this file is associated with.
         /// </summary>
-        /// <value>A value representing the major part of the product version number or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>A value representing the major part of the product version number or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks><para>Typically, a version number is displayed as "major number.minor number.build number.private part number". A product version number is a 64-bit number that holds the version number for a file as follows:</para>
         /// <list type="bullet">
         /// <item>The first 16 bits are the ProductMajorPart number.</item>
@@ -870,7 +867,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileVersionInfo.ProductMajorPart;
+                return this.fileVersionInfo.ProductMajorPart;
             }
         } 
         #endregion
@@ -879,7 +876,7 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the minor part of the version number for the product this file is associated with.
         /// </summary>
-        /// <value>A value representing the minor part of the product version number or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>A value representing the minor part of the product version number or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks><para>Typically, a version number is displayed as "major number.minor number.build number.private part number". A product version number is a 64-bit number that holds the version number for a file as follows:</para>
         /// <list type="bullet">
         /// <item>The first 16 bits are the ProductMajorPart number.</item>
@@ -893,7 +890,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileVersionInfo.ProductMinorPart;
+                return this.fileVersionInfo.ProductMinorPart;
             }
         } 
         #endregion
@@ -902,12 +899,12 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the name of the product this file is distributed with.
         /// </summary>
-        /// <value>The name of the product this file is distributed with or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>The name of the product this file is distributed with or a <see langword="null" /> if the file did not contain version information.</value>
         public string ProductName
         {
             get
             {
-                return fileVersionInfo.ProductName;
+                return this.fileVersionInfo.ProductName;
             }
         } 
         #endregion
@@ -916,7 +913,7 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the private part number of the product this file is associated with..
         /// </summary>
-        /// <value>A value representing the private part number of the product this file is associated with or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>A value representing the private part number of the product this file is associated with or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks><para>Typically, a version number is displayed as "major number.minor number.build number.private part number". A product version number is a 64-bit number that holds the version number for a file as follows:</para>
         /// <list type="bullet">
         /// <item>The first 16 bits are the ProductMajorPart number.</item>
@@ -930,7 +927,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileVersionInfo.ProductPrivatePart;
+                return this.fileVersionInfo.ProductPrivatePart;
             }
         } 
         #endregion
@@ -939,7 +936,7 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the version of the product this file is distributed with.
         /// </summary>
-        /// <value>version of the product this file is distributed with or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>The version of the product this file is distributed with or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks><para>Typically, a version number is displayed as "major number.minor number.build number.private part number". A product version number is a 64-bit number that holds the version number for a file as follows:</para>
         /// <list type="bullet">
         /// <item>The first 16 bits are the ProductMajorPart number.</item>
@@ -952,7 +949,7 @@ namespace Cadru.IO
         {
             get
             {
-                return fileVersionInfo.ProductVersion;
+                return this.fileVersionInfo.ProductVersion;
             }
         } 
         #endregion
@@ -961,13 +958,13 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the special build information for the file. 
         /// </summary>
-        /// <value>The special build information for the file or a null reference (Nothing in Visual Basic) if the file did not contain version information.</value>
+        /// <value>The special build information for the file or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks>If IsSpecialBuild is true, SpecialBuild must specify how this file differs from the standard version of the file.</remarks>
         public string SpecialBuild
         {
             get
             {
-                return fileVersionInfo.SpecialBuild;
+                return this.fileVersionInfo.SpecialBuild;
             }
         } 
         #endregion
@@ -984,7 +981,7 @@ namespace Cadru.IO
         /// <returns>A new <see cref="StreamWriter"/>.</returns>
         public StreamWriter AppendText()
         {
-            return fileInfo.AppendText();
+            return this.fileInfo.AppendText();
         } 
         #endregion
 
@@ -1028,7 +1025,7 @@ namespace Cadru.IO
         /// </remarks>
         public FileInfo CopyTo(string destinationFileName)
         {
-            return fileInfo.CopyTo(destinationFileName);
+            return this.fileInfo.CopyTo(destinationFileName);
         } 
         #endregion
 
@@ -1081,7 +1078,7 @@ namespace Cadru.IO
         /// </remarks>
         public FileInfo CopyTo(string destinationFileName, bool overwrite)
         {
-            return fileInfo.CopyTo(destinationFileName, overwrite);
+            return this.fileInfo.CopyTo(destinationFileName, overwrite);
         }
         #endregion
 
@@ -1098,7 +1095,7 @@ namespace Cadru.IO
         /// <see cref="File.Create(string)"/>.</para></remarks>
         public FileStream Create()
         {
-            return fileInfo.Create();
+            return this.fileInfo.Create();
         } 
         #endregion
 
@@ -1130,7 +1127,7 @@ namespace Cadru.IO
         /// <remarks><para>The <see cref="Decrypt"/> method allows you to
         /// decrypt a file that was encrypted using the <see cref="Encrypt"/>
         /// method. THe <see cref="Decrypt"/> method can decrypt only files
-        /// that were encrypted usig the current user account.</para>
+        /// that were encrypted using the current user account.</para>
         /// <para>Both the <see cref="Encrypt"/> and <see cref="Decrypt"/>
         /// method use the cryptographic service provider (CSP) installed on
         /// the computer and the file encryption keys of the process calling
@@ -1140,7 +1137,7 @@ namespace Cadru.IO
         /// </para></remarks>
         public void Decrypt()
         {
-            fileInfo.Decrypt();
+            this.fileInfo.Decrypt();
         } 
         #endregion
 
@@ -1162,18 +1159,18 @@ namespace Cadru.IO
         /// that is memory-mapped.</para></remarks>
         public void Delete()
         {
-            fileInfo.Delete();
+            this.fileInfo.Delete();
         } 
         #endregion
 
         #region Encrypt
         /// <summary>
-        /// Encrypts a file so taht only the account used to encrypt the file
+        /// Encrypts a file so that only the account used to encrypt the file
         /// can decrypt it.
         /// </summary>
         /// <exception cref="DriveNotFoundException">An invalid drive was
         /// specified.</exception>
-        /// <exception cref="FileNotFoundException">THe file described by the
+        /// <exception cref="FileNotFoundException">The file described by the
         /// current <see cref="ExtendedFileInfo"/> object could not be 
         /// found.</exception>
         /// <exception cref="IOException">An I/O error occurred while opening
@@ -1194,7 +1191,7 @@ namespace Cadru.IO
         /// <remarks><para>The <see cref="Encrypt"/> method allows you to
         /// encrypt a file so that only the current account used to call this
         /// method can decrypt it. Use the <see cref="Decrypt"/> method to
-        /// decrypt a fle encrypted by the <see cref="Encrypt"/> method.</para>
+        /// decrypt a file encrypted by the <see cref="Encrypt"/> method.</para>
         /// <para>Both the <see cref="Encrypt"/> and <see cref="Decrypt"/>
         /// method use the cryptographic service provider (CSP) installed on
         /// the computer and the file encryption keys of the process calling
@@ -1204,7 +1201,7 @@ namespace Cadru.IO
         /// </para></remarks>
         public void Encrypt()
         {
-            fileInfo.Encrypt();
+            this.fileInfo.Encrypt();
         } 
         #endregion
 
@@ -1240,7 +1237,7 @@ namespace Cadru.IO
         /// </remarks>
         public FileSecurity GetAccessControl()
         {
-            return fileInfo.GetAccessControl();
+            return this.fileInfo.GetAccessControl();
         } 
         #endregion
 
@@ -1278,7 +1275,7 @@ namespace Cadru.IO
         /// </remarks>
         public FileSecurity GetAccessControl(AccessControlSections includeSections)
         {
-            return fileInfo.GetAccessControl(includeSections);
+            return this.fileInfo.GetAccessControl(includeSections);
         }
         #endregion
 
@@ -1292,110 +1289,14 @@ namespace Cadru.IO
         /// <param name="context">The StreamingContext that contains contextual information about the source or destination.</param>
         [ComVisible(false)]
         [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.SerializationFormatter)]
-        [SuppressMessage("Microsoft.Security", "CA2103:ReviewImperativeSecurity", Justification = "This security demand cannot be declaritve as the path is not known until runtime. The value of originalFileName cannot change once the class is instantiated, so there is no risk that the value will change while the demand is in effect.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2103:ReviewImperativeSecurity", Justification = "This security demand cannot be declaritve as the path is not known until runtime. The value of originalFileName cannot change once the class is instantiated, so there is no risk that the value will change while the demand is in effect.")]
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            if (info == null)
-            {
-                throw new ArgumentNullException("info");
-            }
+            Contracts.Requires.NotNull(info, "info");
 
-            new FileIOPermission(FileIOPermissionAccess.PathDiscovery, originalFileName).Demand();
+            new FileIOPermission(FileIOPermissionAccess.PathDiscovery, this.originalFileName).Demand();
 
-            info.AddValue("originalFileName", originalFileName, typeof(String));
-        } 
-        #endregion
-
-        #region Initialize
-        [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
-        private void Initialize(string fileName)
-        {
-            if (fileName == null)
-            {
-                throw new ArgumentNullException("fileName");
-            }
-
-            this.originalFileName = fileName;
-            this.fileInfo = new FileInfo(fileName);
-
-            string owner = null;
-            executableType = ExecutableType.Unknown;
-
-            if (this.fileInfo.Exists)
-            {
-                this.fileVersionInfo = FileVersionInfo.GetVersionInfo(fileName);
-
-                // Try to fill the SHFILEINFO struct for the file type, if the returned pointer is 0 then an error occurred.
-                IntPtr ptr = SafeNativeMethods.SHGetFileInfo(fileName, FileAttributes.Normal, ref this.shellFileInfo, Marshal.SizeOf(typeof(SHFILEINFO)), SHGFI.TYPENAME);
-                if (ptr == IntPtr.Zero)
-                {
-                    throw new IOException();
-                }
-                Marshal.FreeCoTaskMem(ptr);
-
-                //if (String.Compare(Path.GetExtension(fileName), ".exe", StringComparison.InvariantCultureIgnoreCase) == 0)
-                //{
-                    // Try to fill the same SHFILEINFO struct for the exe type. The returned pointer contains the encoded 
-                    // executable type data.
-                    ptr = IntPtr.Zero;
-                    ptr = SafeNativeMethods.SHGetFileInfo(fileName, FileAttributes.Normal, ref this.shellFileInfo, Marshal.SizeOf(typeof(SHFILEINFO)), SHGFI.EXETYPE);
-
-                    // We need to split the returned pointer up into the high and low order words. These are important
-                    // because they help distinguish some of the types. The possible values are:
-                    //
-                    // Value                                            Meaning
-                    // ----------------------------------------------------------------------------------------------
-                    // 0                                                Nonexecutable file or an error condition. 
-                    // LOWORD = NE or PE and HIWORD = Windows version   Microsoft Windows application.
-                    // LOWORD = MZ and HIWORD = 0                       Windows 95, Windows 98: Microsoft MS-DOS .exe, .com, or .bat file
-                    //                                                  Microsoft Windows NT, Windows 2000, Windows XP: MS-DOS .exe or .com file 
-                    // LOWORD = PE and HIWORD = 0                       Windows 95, Windows 98: Microsoft Win32 console application 
-                    //                                                  Windows NT, Windows 2000, Windows XP: Win32 console application or .bat file 
-                    // MZ = 0x5A4D - DOS signature.
-                    // NE = 0x454E - OS/2 signature.
-                    // LE = 0x454C - OS/2 LE or VXD signature.
-                    // PE = 0x4550 - Win32/NT signature.
-                    
-                    int wparam = ptr.ToInt32();
-                    int loWord = wparam & 0xffff;
-                    int hiWord = wparam >> 16;
-
-                    if (wparam == 0)
-                    {
-                        executableType = ExecutableType.Unknown;
-                    }
-                    else
-                    {
-                        if (hiWord == 0x0000)
-                        {
-                            if (loWord == 0x5A4D)
-                            {
-                                // The file is an MS-DOS .exe, .com, or .bat
-                                executableType = ExecutableType.DOS;
-                            }
-                            else if (loWord == 0x4550)
-                            {
-                                executableType = ExecutableType.Win32Console;
-                            }
-                        }
-                        else
-                        {
-                            if (loWord == 0x454E || loWord == 0x4550)
-                            {
-                                executableType = ExecutableType.Windows;
-                            }
-                            else if (loWord == 0x454C)
-                            {
-                                executableType = ExecutableType.Windows;
-                            }
-                        }
-                    }
-                //}
-
-                FileSecurity fs = File.GetAccessControl(this.originalFileName, AccessControlSections.Owner);
-                owner = fs.GetOwner(typeof(NTAccount)).ToString();
-            }
-            this.fileOwner = owner;
+            info.AddValue("originalFileName", this.originalFileName, typeof(String));
         } 
         #endregion
 
@@ -1437,11 +1338,11 @@ namespace Cadru.IO
         /// NewFile.txt.</para>
         /// <para><b>Windows Mobile for Pocket PC, Windows Mobile for
         /// Smartphone, Windows CE Platform Note:</b> Some device file systems
-        /// do not support relative paths. Specify absolute pth information.
+        /// do not support relative paths. Specify absolute path information.
         /// </para></remarks>
         public void MoveTo(string destinationFileName)
         {
-            fileInfo.MoveTo(destinationFileName);
+            this.fileInfo.MoveTo(destinationFileName);
         } 
         #endregion
 
@@ -1459,7 +1360,7 @@ namespace Cadru.IO
         /// <exception cref="IOException">The file is already open.</exception>
         public FileStream Open(FileMode mode)
         {
-            return fileInfo.Open(mode);
+            return this.fileInfo.Open(mode);
         } 
         #endregion
 
@@ -1479,7 +1380,7 @@ namespace Cadru.IO
         /// <exception cref="IOException">The file is already open.</exception>
         public FileStream Open(FileMode mode, FileAccess access)
         {
-            return fileInfo.Open(mode, access);
+            return this.fileInfo.Open(mode, access);
         } 
         #endregion
 
@@ -1500,7 +1401,7 @@ namespace Cadru.IO
         /// <exception cref="IOException">The file is already open.</exception>
         public FileStream Open(FileMode mode, FileAccess access, FileShare share)
         {
-            return fileInfo.Open(mode, access, share);
+            return this.fileInfo.Open(mode, access, share);
         } 
         #endregion
 
@@ -1511,13 +1412,13 @@ namespace Cadru.IO
         /// Creates a read-only FileStream.
         /// </summary>
         /// <returns>A new read-only FileStream object.</returns>
-        /// <exception cref="UnauthorizedAccessException">path is read-only or is a directory.</exception>
+        /// <exception cref="UnauthorizedAccessException">The path used to construct this <see cref="ExtendedFileInfo"/> instance is read-only or is a directory.</exception>
         /// <exception cref="DirectoryNotFoundException">The specified path is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="IOException">The file is already open.</exception>
-        /// <remarks>This method returns a read-only FileStream boject with the FileShare mode set to Read.</remarks>
+        /// <remarks>This method returns a read-only FileStream object with the FileShare mode set to Read.</remarks>
         public FileStream OpenRead()
         {
-            return fileInfo.OpenRead();
+            return this.fileInfo.OpenRead();
         } 
         #endregion
 
@@ -1532,7 +1433,7 @@ namespace Cadru.IO
         /// <exception cref="DirectoryNotFoundException">The specified path is invalid, such as being on an unmapped drive.</exception>
         public StreamReader OpenText()
         {
-            return fileInfo.OpenText();
+            return this.fileInfo.OpenText();
         } 
         #endregion
 
@@ -1541,11 +1442,11 @@ namespace Cadru.IO
         /// Creates a write-only FileStream. 
         /// </summary>
         /// <returns>A new write-only unshared FileStream object.</returns>
-        /// <exception cref="UnauthorizedAccessException">path is read-only or is a directory.</exception>
+        /// <exception cref="UnauthorizedAccessException">The path used to construct this <see cref="ExtendedFileInfo"/> instance is read-only or is a directory.</exception>
         /// <exception cref="DirectoryNotFoundException">The specified path is invalid, such as being on an unmapped drive.</exception>
         public FileStream OpenWrite()
         {
-            return fileInfo.OpenWrite();
+            return this.fileInfo.OpenWrite();
         } 
         #endregion
 
@@ -1553,15 +1454,14 @@ namespace Cadru.IO
         /// <summary>
         /// Refreshes the state of the object.
         /// </summary>
-        /// <exception cref="ArgumentException"></exception>
-        /// <exception cref="IOException"></exception>
+        /// <exception cref="IOException">A device such as a disk drive is not ready.</exception>
         /// <remarks><para>FileSystemInfo.Refresh takes a snapshot of the file from the current file system. Refresh cannot correct the underlying file system even if the file system returns incorrect or outdated information. This can happen on platforms such as Windows 98.
         /// </para>
         /// <para>Calls must be made to Refresh before attempting to get the attribute information, or the information will be outdated.</para>
         /// </remarks>
         public void Refresh()
         {
-            fileInfo.Refresh();
+            this.fileInfo.Refresh();
         } 
         #endregion
 
@@ -1569,31 +1469,42 @@ namespace Cadru.IO
 
         #region Replace(string destinationFileName, string destinationBackupFileName)
         /// <summary>
-        /// Replaces the contents of a specified file with the file described by the current FileInfo object, deleting the original file, and creating a backup of the replaced file.
+        /// Replaces the contents of a specified file with the file described
+        /// by the current FileInfo object, deleting the original file, and
+        /// creating a backup of the replaced file.
         /// </summary>
         /// <param name="destinationFileName">The name of a file to replace with the current file.</param>
-        /// <param name="destinationBackupFileName">The name of a file with which to create a backup of the file described by the destFileName parameter.</param>
-        /// <returns>A FileInfo object that encapsulates information about the file described by the destFileName parameter.</returns>
+        /// <param name="destinationBackupFileName">The name of a file with which to create a backup of the file described by the <paramref name="destinationFileName"/> parameter.</param>
+        /// <returns>A FileInfo object that encapsulates information about the file described by the <paramref name="destinationFileName"/> parameter.</returns>
         /// <exception cref="ArgumentException">
-        /// <para>The path described by the destFileName parameter was not of a legal form.</para>
+        /// <para>The path described by the <paramref name="destFileName"/> parameter was not of a legal form.</para>
         /// <para>-or-</para>
-        /// <para>The path described by the destBackupFileName parameter was not of a legal form.</para>
+        /// <para>The path described by the <paramref name="destinationBackupFileName"/> parameter was not of a legal form.</para>
         /// </exception>
-        /// <exception cref="ArgumentNullException">The destFileName parameter is a null reference (Nothing in Visual Basic).</exception>
+        /// <exception cref="ArgumentNullException">The <paramref name="destinationFileName"/> parameter is a <see langword="null" />.</exception>
         /// <exception cref="FileNotFoundException">
         /// <para>The file described by the current FileInfo object could not be found.</para>
         /// <para>-or-</para>
-        /// <para>The file described by the destinationFileName parameter could not be found.</para>
+        /// <para>The file described by the <paramref name="destinationFileName"/> parameter could not be found.</para>
         /// </exception>
         /// <exception cref="PlatformNotSupportedException">The current operating system is not Microsoft Windows NT or later.</exception>
         /// <remarks>
-        /// <para>The Replace method replaces the contents of a specified file with the contents of the file described by the current FileInfo object. It also creates a backup of the file that was replaced. Finally, it returns a new FileInfo object that describes the overwritten file.</para>
-        /// <para type="caution">This method will succeed in Windows 2000 environments if the destFileName is read-only and will not raise an exception. Use the IsReadOnly property to check if the destination file is read-only before attempting to replace it.</para>
-        /// <para>Pass a null reference (Nothing in Visual Basic) to the destBackupFileName parameter if you do not want to create a backup of the file being replaced.</para>
+        /// <para>The Replace method replaces the contents of a specified file
+        /// with the contents of the file described by the current FileInfo 
+        /// object. It also creates a backup of the file that was replaced. 
+        /// Finally, it returns a new FileInfo object that describes the
+        /// overwritten file.</para>
+        /// <para type="caution">This method will succeed in Windows 2000
+        /// environments if the <paramref name="destinationFileName"/>
+        /// is read-only and will not raise an exception. Use the 
+        /// IsReadOnly property to check if the 
+        /// destination file is read-only before attempting to replace it.</para>
+        /// <para>Pass a <see langword="null"/> to the <paramref name="destinationBackupFileName"/>
+        /// parameter if you do not want to create a backup of the file being replaced.</para>
         /// </remarks>
         public FileInfo Replace(string destinationFileName, string destinationBackupFileName)
         {
-            return fileInfo.Replace(destinationFileName, destinationBackupFileName);
+            return this.fileInfo.Replace(destinationFileName, destinationBackupFileName);
         } 
         #endregion
 
@@ -1602,29 +1513,29 @@ namespace Cadru.IO
         /// Replaces the contents of a specified file with the file described by the current FileInfo object, deleting the original file, and creating a backup of the replaced file. Also specifies whether to ignore merge errors.
         /// </summary>
         /// <param name="destinationFileName">The name of a file to replace with the current file.</param>
-        /// <param name="destinationBackupFileName">The name of a file with which to create a backup of the file described by the destFileName parameter.</param>
-        /// <param name="ignoreMetadataErrors">true to ignore merge errors (such as attributes and ACLs) from the replaced file to the replacement file; otherwise false.</param>
-        /// <returns>A FileInfo object that encapsulates information about the file described by the destFileName parameter.</returns>
+        /// <param name="destinationBackupFileName">The name of a file with which to create a backup of the file described by the <paramref name="destinationFileName"/> parameter.</param>
+        /// <param name="ignoreMetadataErrors"><see langword="true"/> to ignore merge errors (such as attributes and ACLs) from the replaced file to the replacement file; otherwise <see langword="false"/>.</param>
+        /// <returns>A FileInfo object that encapsulates information about the file described by the <paramref name="destinationFileName"/> parameter.</returns>
         /// <exception cref="ArgumentException">
-        /// <para>The path described by the destFileName parameter was not of a legal form.</para>
+        /// <para>The path described by the <paramref name="destinationFileName"/> parameter was not of a legal form.</para>
         /// <para>-or-</para>
-        /// <para>The path described by the destBackupFileName parameter was not of a legal form.</para>
+        /// <para>The path described by the <paramref name="destinationBackupFileName"/> parameter was not of a legal form.</para>
         /// </exception>
-        /// <exception cref="ArgumentNullException">The destFileName parameter is a null reference (Nothing in Visual Basic).</exception>
+        /// <exception cref="ArgumentNullException">The <paramref name="destinationFileName"/> parameter is a <see langword="null" />.</exception>
         /// <exception cref="FileNotFoundException">
         /// <para>The file described by the current FileInfo object could not be found.</para>
         /// <para>-or-</para>
-        /// <para>The file described by the destinationFileName parameter could not be found.</para>
+        /// <para>The file described by the <paramref name="destinationFileName"/> parameter could not be found.</para>
         /// </exception>
         /// <exception cref="PlatformNotSupportedException">The current operating system is not Microsoft Windows NT or later.</exception>
         /// <remarks>
         /// <para>The Replace method replaces the contents of a specified file with the contents of the file described by the current FileInfo object. It also creates a backup of the file that was replaced. Finally, it returns a new FileInfo object that describes the overwritten file.</para>
-        /// <para type="caution">This method will succeed in Windows 2000 environments if the destFileName is read-only and will not raise an exception. Use the IsReadOnly property to check if the destination file is read-only before attempting to replace it.</para>
-        /// <para>Pass a null reference (Nothing in Visual Basic) to the destBackupFileName parameter if you do not want to create a backup of the file being replaced.</para>
+        /// <para type="caution">This method will succeed in Windows 2000 environments if the <paramref name="destinationFileName"/> is read-only and will not raise an exception. Use the IsReadOnly property to check if the destination file is read-only before attempting to replace it.</para>
+        /// <para>Pass a <see langword="null" /> to the <paramref name="destinationBackupFileName"/> parameter if you do not want to create a backup of the file being replaced.</para>
         /// </remarks>
         public FileInfo Replace(string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors)
         {
-            return fileInfo.Replace(destinationFileName, destinationBackupFileName, ignoreMetadataErrors);
+            return this.fileInfo.Replace(destinationFileName, destinationBackupFileName, ignoreMetadataErrors);
         } 
         #endregion
 
@@ -1635,7 +1546,7 @@ namespace Cadru.IO
         /// Applies access control list (ACL) entries described by a FileSecurity object to the file described by the current FileInfo object. 
         /// </summary>
         /// <param name="fileSecurity">A FileSecurity object that describes an access control list (ACL) entry to apply to the current file.</param>
-        /// <exception cref="ArgumentNullException">The fileSecurity parameter is a null </exception>
+        /// <exception cref="ArgumentNullException">The <paramref name="fileSecurity"/> parameter is <see langword="null"/>.</exception>
         /// <exception cref="SystemException">The file could not be found or modified.</exception>
         /// <exception cref="UnauthorizedAccessException">The current process does not have access to open the file.</exception>
         /// <exception cref="PlatformNotSupportedException">The current operating system is not Microsoft Windows 2000 or later.</exception>
@@ -1656,7 +1567,7 @@ namespace Cadru.IO
         /// </remarks>
         public void SetAccessControl(FileSecurity fileSecurity)
         {
-            fileInfo.SetAccessControl(fileSecurity);
+            this.fileInfo.SetAccessControl(fileSecurity);
         } 
         #endregion
 
@@ -1668,8 +1579,97 @@ namespace Cadru.IO
         /// <remarks>The string returned by the ToString method represents path that was passed to the constructor. When you create a FileInfo object using the constructors, the ToString method returns the fully qualified path. However, there are cases where the string returned by the ToString method does not represent the fully qualified path. For example, when you create a FileInfo object using the GetFiles method, the ToString method does not represent the fully qualified path.</remarks>
         public override string ToString()
         {
-            return fileInfo.ToString();
+            return this.fileInfo.ToString();
         } 
+        #endregion
+
+        #region Initialize
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
+        [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
+        private void Initialize(string fileName)
+        {
+            Contracts.Requires.NotNull(fileName, "fileName");
+
+            this.originalFileName = fileName;
+            this.fileInfo = new FileInfo(fileName);
+
+            string owner = null;
+            this.executableType = ExecutableType.Unknown;
+
+            if (this.fileInfo.Exists)
+            {
+                this.fileVersionInfo = FileVersionInfo.GetVersionInfo(fileName);
+
+                // Try to fill the SHFILEINFO struct for the file type, if the returned pointer is 0 then an error occurred.
+                IntPtr ptr = SafeNativeMethods.SHGetFileInfo(fileName, FileAttributes.Normal, ref this.shellFileInfo, Marshal.SizeOf(typeof(SHFILEINFO)), SHGFI.TYPENAME);
+                if (ptr == IntPtr.Zero)
+                {
+                    throw new IOException();
+                }
+
+                Marshal.FreeCoTaskMem(ptr);
+
+                // Try to fill the same SHFILEINFO struct for the exe type. The returned pointer contains the encoded 
+                // executable type data.
+                ptr = IntPtr.Zero;
+                ptr = SafeNativeMethods.SHGetFileInfo(fileName, FileAttributes.Normal, ref this.shellFileInfo, Marshal.SizeOf(typeof(SHFILEINFO)), SHGFI.EXETYPE);
+
+                // We need to split the returned pointer up into the high and low order words. These are important
+                // because they help distinguish some of the types. The possible values are:
+                //
+                // Value                                            Meaning
+                // ----------------------------------------------------------------------------------------------
+                // 0                                                Nonexecutable file or an error condition. 
+                // LOWORD = NE or PE and HIWORD = Windows version   Microsoft Windows application.
+                // LOWORD = MZ and HIWORD = 0                       Windows 95, Windows 98: Microsoft MS-DOS .exe, .com, or .bat file
+                //                                                  Microsoft Windows NT, Windows 2000, Windows XP: MS-DOS .exe or .com file 
+                // LOWORD = PE and HIWORD = 0                       Windows 95, Windows 98: Microsoft Win32 console application 
+                //                                                  Windows NT, Windows 2000, Windows XP: Win32 console application or .bat file 
+                // MZ = 0x5A4D - DOS signature.
+                // NE = 0x454E - OS/2 signature.
+                // LE = 0x454C - OS/2 LE or VXD signature.
+                // PE = 0x4550 - Win32/NT signature.
+                int wparam = ptr.ToInt32();
+                int loWord = wparam & 0xffff;
+                int hiWord = wparam >> 16;
+
+                if (wparam == 0)
+                {
+                    this.executableType = ExecutableType.Unknown;
+                }
+                else
+                {
+                    if (hiWord == 0x0000)
+                    {
+                        if (loWord == 0x5A4D)
+                        {
+                            // The file is an MS-DOS .exe, .com, or .bat
+                            this.executableType = ExecutableType.DOS;
+                        }
+                        else if (loWord == 0x4550)
+                        {
+                            this.executableType = ExecutableType.Win32Console;
+                        }
+                    }
+                    else
+                    {
+                        if (loWord == 0x454E || loWord == 0x4550)
+                        {
+                            this.executableType = ExecutableType.Windows;
+                        }
+                        else if (loWord == 0x454C)
+                        {
+                            this.executableType = ExecutableType.Windows;
+                        }
+                    }
+                }
+
+                FileSecurity fs = File.GetAccessControl(this.originalFileName, AccessControlSections.Owner);
+                owner = fs.GetOwner(typeof(NTAccount)).ToString();
+            }
+
+            this.fileOwner = owner;
+        }
         #endregion
 
         #endregion

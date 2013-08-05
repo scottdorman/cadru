@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="EnumDescriptionAttribute.cs" 
+// <copyright file="IDisposablePattern.cs" 
 //  company="Scott Dorman" 
 //  library="Cadru">
 //    Copyright (C) 2001-2013 Scott Dorman.
@@ -23,20 +23,25 @@
 namespace Cadru
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
 
     /// <summary>
     /// Defines an extended method to release allocated resources.
     /// </summary>
     public interface IDisposablePattern : IDisposable
     {
+        #region events
+        #endregion
+
+        #region propeties
         /// <summary>
         /// Gets a value indicating whether the object has been disposed.
         /// </summary>
         /// <value><see langword="true"/> if the object has been disposed;
         /// otherwise, <see langword="false"/>.</value>
         bool Disposed { get; }
+        #endregion
+
+        #region methods
+        #endregion
     }
 }

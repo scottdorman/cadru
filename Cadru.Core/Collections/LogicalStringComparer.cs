@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// <copyright file="LogicalStringComparer.cs" 
-//  company="Scott Dorman" 
+// <copyright file="LogicalStringComparer.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2013 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -33,23 +33,23 @@ namespace Cadru.Collections
     /// Compares two strings for equivalence, ignoring case, in natural numeric order.
     /// </summary>
     /// <remarks>
-    /// <para>Windows implements natural numeric sorting inside the <c>StrCmpLogicalW</c> function in shlwapi.dll.
+    /// <para>Windows implements natural numeric sorting inside the 
+    /// <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb759947(v=vs.85).aspx">StrCmpLogicalW</see>
+    /// function in <seealso href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb759844(v=vs.85).aspx">Shell Lightweight Utility Functions</seealso>.
     /// This function is available on Windows XP or higher.</para>
-    /// <para>This implementation is not 100% compatible with StrCmpLogicalW. It gives the same results for the numeric sort, with the
-    /// exception of strings containing non-alphanumeric ASCII characters. The code relies on the current locale to find the
-    /// order of the characters.</para>
-    /// <para>The code here will order files that start with special characters based on the code table order. Windows Explorer
-    /// uses another order.</para>
+    /// <para>This implementation is not 100% compatible with 
+    /// <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb759947(v=vs.85).aspx">StrCmpLogicalW</see>. 
+    /// It gives the same results for the numeric sort, with the exception of strings containing non-alphanumeric ASCII
+    /// characters. The code relies on the current locale to find the order of the characters.</para>
+    /// <para>The code here will order files that start with special characters based on the code table order. 
+    /// Windows Explorer uses another order.</para>
     /// <para><example>Windows Explorer: (1.txt, [1.txt, _1.txt, =1.txt</example></para>
     /// <para><example>this code: (1.txt, =1.txt, [1.txt, _1.txt</example></para>
     /// </remarks>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
     public sealed class LogicalStringComparer : IComparer, IEqualityComparer, IComparer<string>, IEqualityComparer<string>
     {
-        #region events
-
-        #endregion
-
-        #region class-wide fields
+        #region fields
         private static LogicalStringComparer defaultInvariant;
         private CultureInfo cultureInfo;
         #endregion
@@ -62,12 +62,12 @@ namespace Cadru.Collections
         /// <see cref="CultureInfo.CurrentCulture"/> of the current thread.
         /// </summary>
         /// <remarks>When the <see cref="LogicalStringComparer"/> instance is created using
-        /// this constructor, the <see cref="CultureInfo.CurrentCulture"/> of the 
-        /// current thread is saved. Comparison procedures use the saved 
-        /// culture to determine the sort order and casing rules; therefore, 
-        /// string comparisons might have different results depending on the 
-        /// culture. For more information on culture-specific comparisons, see 
-        /// the <see cref="System.Globalization"/> namespace and 
+        /// this constructor, the <see cref="CultureInfo.CurrentCulture"/> of the
+        /// current thread is saved. Comparison procedures use the saved
+        /// culture to determine the sort order and casing rules; therefore,
+        /// string comparisons might have different results depending on the
+        /// culture. For more information on culture-specific comparisons, see
+        /// the <see cref="System.Globalization"/> namespace and
         /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </remarks>
         public LogicalStringComparer()
@@ -87,15 +87,12 @@ namespace Cadru.Collections
         /// <rermarks>Comparison procedures use the specified <see cref="CultureInfo"/> to determine
         /// the sort order and casing rules. String comparisons might have different results
         /// depending on the culture. For more information on culture-specific comparisons, see
-        /// the <see cref="System.Globalization"/> namespace and 
+        /// the <see cref="System.Globalization"/> namespace and
         /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </rermarks>
         public LogicalStringComparer(CultureInfo culture)
         {
-            if (culture == null)
-            {
-                throw new ArgumentNullException("culture");
-            }
+            Contracts.Requires.NotNull(culture, "culture");
 
             this.cultureInfo = culture;
         }
@@ -103,23 +100,27 @@ namespace Cadru.Collections
 
         #endregion
 
+        #region events
+        #endregion
+
         #region properties
 
         #region Default
         /// <summary>
-        /// Represents an instance of <see cref="LogicalStringComparer"/> that is 
+        /// Represents an instance of <see cref="LogicalStringComparer"/> that is
         /// associated with the <see cref="CultureInfo.CurrentCulture"/>.
         /// </summary>
         /// <value>The default <see cref="LogicalStringComparer"/></value>
-        /// <remarks>Comparison procedures use the 
-        /// <see cref="Thread.CurrentCulture"/> of the current thread to 
-        /// determine the sort order and casing rules. String comparisons 
-        /// might have different results depending on the culture. For more 
-        /// information on culture-specific comparisons, see the 
-        /// <see cref="System.Globalization"/> namespace and 
+        /// <remarks>Comparison procedures use the
+        /// <see cref="Thread.CurrentCulture"/> of the current thread to
+        /// determine the sort order and casing rules. String comparisons
+        /// might have different results depending on the culture. For more
+        /// information on culture-specific comparisons, see the
+        /// <see cref="System.Globalization"/> namespace and
         /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1304:SpecifyCultureInfo", MessageId = "Cadru.Collections.LogicalStringComparer.#ctor", Justification = "This constructor call implicitly passes a culture.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer Default
         {
             get
@@ -131,22 +132,23 @@ namespace Cadru.Collections
 
         #region DefaultInvariant
         /// <summary>
-        /// Represents an instance of <see cref="LogicalStringComparer"/> that is 
-        /// associated with the 
-        /// <see cref="CultureInfo.InvariantCulture"/> and that is always 
+        /// Represents an instance of <see cref="LogicalStringComparer"/> that is
+        /// associated with the
+        /// <see cref="CultureInfo.InvariantCulture"/> and that is always
         /// available.
         /// </summary>
-        /// <value>An instance of <see cref="LogicalStringComparer"/> that is 
+        /// <value>An instance of <see cref="LogicalStringComparer"/> that is
         /// associated with <see cref="CultureInfo.InvariantCulture"/>.
         /// </value>
-        /// <remarks>Comparison procedures use the 
-        /// <see cref="CultureInfo.InvariantCulture"/> to determine the sort 
+        /// <remarks>Comparison procedures use the
+        /// <see cref="CultureInfo.InvariantCulture"/> to determine the sort
         /// order and casing rules. String comparisons might have different
-        /// results depending on the culture. For more information on 
-        /// culture-specific comparisons, see the 
-        /// <see cref="System.Globalization"/> namespace and 
+        /// results depending on the culture. For more information on
+        /// culture-specific comparisons, see the
+        /// <see cref="System.Globalization"/> namespace and
         /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </remarks>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer DefaultInvariant
         {
             get
@@ -165,97 +167,17 @@ namespace Cadru.Collections
 
         #region methods
 
-        #region CompareNumbers
-        private static int CompareNumbers(string s1, int s1Length, ref int i1, string s2, int s2Length, ref int i2)
-        {
-            int nzStart1 = i1, nzStart2 = i2;
-            int end1 = i1, end2 = i2;
-
-            ScanNumber(s1, s1Length, i1, ref nzStart1, ref end1);
-            ScanNumber(s2, s2Length, i2, ref nzStart2, ref end2);
-
-            int start1 = i1;
-            i1 = end1 - 1;
-            int start2 = i2;
-            i2 = end2 - 1;
-
-            int length1 = end2 - nzStart2;
-            int length2 = end1 - nzStart1;
-
-            if (length1 == length2)
-            {
-                int r;
-                for (int j1 = nzStart1, j2 = nzStart2; j1 <= i1; j1++, j2++)
-                {
-                    r = s1[j1] - s2[j2];
-                    if (0 != r)
-                    {
-                        return r;
-                    }
-                }
-
-                length1 = end1 - start1;
-                length2 = end2 - start2;
-
-                if (length1 == length2)
-                {
-                    return 0;
-                }
-            }
-
-            if (length1 > length2)
-            {
-                return -1;
-            }
-
-            return 1;
-        }
-        #endregion
-
         #region IEqualityComparer.Equals(object x, object y)
+        /// <summary>
+        /// Returns a value indicating whether two string instances are equal.
+        /// </summary>
+        /// <param name="x">The first string to compare.</param>
+        /// <param name="y">The second string to compare.</param>
+        /// <returns><see langword="true"/> if the two string values are equal;
+        /// otherwise, <see langword="false"/>. </returns>
         bool IEqualityComparer.Equals(object x, object y)
         {
             return String.Equals(x, y);
-        }
-        #endregion
-
-        #region ScanNumber
-        private static void ScanNumber(string s, int length, int start, ref int nzStart, ref int end)
-        {
-            nzStart = start;
-            end = start;
-
-            bool countZeros = true;
-            char c = s[end];
-
-            while (true)
-            {
-                if (countZeros)
-                {
-                    if ('0' == c)
-                    {
-                        nzStart++;
-                    }
-                    else
-                    {
-                        countZeros = false;
-                    }
-                }
-
-                end++;
-
-                if (end >= length)
-                {
-                    break;
-                }
-
-                c = s[end];
-
-                if (!Char.IsDigit(c))
-                {
-                    break;
-                }
-            }
         }
         #endregion
 
@@ -276,15 +198,15 @@ namespace Cadru.Collections
         /// </listheader>
         /// <item>
         /// <term>Less than zero</term>
-        /// <description><i>x</i> is less than <i>y</i>, with casing ignored.</description>
+        /// <description><paramref name="x"/> is less than <paramref name="y"/>, with casing ignored.</description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
-        /// <description><i>x</i> equals <i>y</i>, with casing ignored.</description>
+        /// <description><paramref name="x"/> equals <paramref name="y"/>, with casing ignored.</description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
-        /// <description><i>x</i> is greater than <i>y</i>, with casing ignored.</description>
+        /// <description><paramref name="x"/> is greater than <paramref name="y"/>, with casing ignored.</description>
         /// </item>
         /// </list></returns>
         public int Compare(object x, object y)
@@ -330,18 +252,18 @@ namespace Cadru.Collections
         /// </listheader>
         /// <item>
         /// <term>Less than zero</term>
-        /// <description><i>x</i> is less than <i>y</i>, with casing ignored.</description>
+        /// <description><paramref name="x"/> is less than <paramref name="y"/>, with casing ignored.</description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
-        /// <description><i>x</i> equals <i>y</i>, with casing ignored.</description>
+        /// <description><paramref name="x"/> equals <paramref name="y"/>, with casing ignored.</description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
-        /// <description><i>x</i> is greater than <i>y</i>, with casing ignored.</description>
+        /// <description><paramref name="x"/> is greater than <paramref name="y"/>, with casing ignored.</description>
         /// </item>
         /// </list></returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Reviewed.")]
         public int Compare(string x, string y)
         {
             if (String.IsNullOrEmpty(x) && String.IsNullOrEmpty(y))
@@ -358,8 +280,8 @@ namespace Cadru.Collections
             }
             else
             {
-                int s1Length = x.Length;
-                int s2Length = y.Length;
+                int lengthOfX = x.Length;
+                int lengthOfY = y.Length;
 
                 bool sp1 = Char.IsLetterOrDigit(x[0]);
                 bool sp2 = Char.IsLetterOrDigit(y[0]);
@@ -425,7 +347,7 @@ namespace Cadru.Collections
                     }
                     else if (sp1 && sp2)
                     {
-                        r = CompareNumbers(x, s1Length, ref i1, y, s2Length, ref i2);
+                        r = CompareNumbers(x, lengthOfX, ref i1, y, lengthOfY, ref i2);
                         if (0 != r)
                         {
                             return r;
@@ -443,16 +365,16 @@ namespace Cadru.Collections
                     i1++;
                     i2++;
 
-                    if (i1 >= s1Length)
+                    if (i1 >= lengthOfX)
                     {
-                        if (i2 >= s2Length)
+                        if (i2 >= lengthOfY)
                         {
                             return 0;
                         }
 
                         return -1;
                     }
-                    else if (i2 >= s2Length)
+                    else if (i2 >= lengthOfY)
                     {
                         return 1;
                     }
@@ -469,8 +391,8 @@ namespace Cadru.Collections
         /// </summary>
         /// <param name="x">The first string to compare.</param>
         /// <param name="y">The second string to compare.</param>
-        /// <returns><c>true</c> if the two string values are equal; 
-        /// otherwise, <c>false</c>. </returns>
+        /// <returns><see langword="true"/> if the two string values are equal;
+        /// otherwise, <see langword="false"/>. </returns>
         public bool Equals(string x, string y)
         {
             return String.Equals(x, y);
@@ -483,18 +405,15 @@ namespace Cadru.Collections
         /// <summary>
         /// Returns a hash code for the specified object.
         /// </summary>
-        /// <param name="obj">The Object for which a hash code is to be 
+        /// <param name="obj">The Object for which a hash code is to be
         /// returned.</param>
         /// <returns>A hash code for the specified object.</returns>
-        /// <exception cref="ArgumentNullException">The type of obj is a 
-        /// reference type and obj is a <see langword="null"/>.
+        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a
+        /// reference type and <paramref name="obj"/> is a <see langword="null"/>.
         /// </exception>
         public int GetHashCode(object obj)
         {
-            if (obj == null)
-            {
-                throw new ArgumentNullException("obj");
-            }
+            Contracts.Requires.NotNull(obj, "obj");
 
             int hashCode;
             string s1 = obj as string;
@@ -516,23 +435,109 @@ namespace Cadru.Collections
         /// <summary>
         /// Returns a hash code for the specified string.
         /// </summary>
-        /// <param name="obj">The string for which a hash code is to be 
+        /// <param name="obj">The string for which a hash code is to be
         /// returned.</param>
         /// <returns>A hash code for the specified string.</returns>
-        /// <exception cref="ArgumentNullException">The type of obj is a 
-        /// reference type and obj is a <see langword="null"/>.
+        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a
+        /// reference type and <paramref name="obj"/> is a <see langword="null"/>.
         /// </exception>
         public int GetHashCode(string obj)
         {
-            if (obj == null)
-            {
-                throw new ArgumentNullException("obj");
-            }
+            Contracts.Requires.NotNull(obj, "obj");
 
             return obj.GetHashCode();
         }
         #endregion
 
+        #endregion GetHashCode
+
+        #region CompareNumbers
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
+        private static int CompareNumbers(string s1, int s1Length, ref int i1, string s2, int s2Length, ref int i2)
+        {
+            int nzStart1 = i1, nzStart2 = i2;
+            int end1 = i1, end2 = i2;
+
+            ScanNumber(s1, s1Length, i1, ref nzStart1, ref end1);
+            ScanNumber(s2, s2Length, i2, ref nzStart2, ref end2);
+
+            int start1 = i1;
+            i1 = end1 - 1;
+            int start2 = i2;
+            i2 = end2 - 1;
+
+            int length1 = end2 - nzStart2;
+            int length2 = end1 - nzStart1;
+
+            if (length1 == length2)
+            {
+                int r;
+                for (int j1 = nzStart1, j2 = nzStart2; j1 <= i1; j1++, j2++)
+                {
+                    r = s1[j1] - s2[j2];
+                    if (0 != r)
+                    {
+                        return r;
+                    }
+                }
+
+                length1 = end1 - start1;
+                length2 = end2 - start2;
+
+                if (length1 == length2)
+                {
+                    return 0;
+                }
+            }
+
+            if (length1 > length2)
+            {
+                return -1;
+            }
+
+            return 1;
+        }
+        #endregion
+
+        #region ScanNumber
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
+        private static void ScanNumber(string s, int length, int start, ref int nzStart, ref int end)
+        {
+            nzStart = start;
+            end = start;
+
+            bool countZeros = true;
+            char c = s[end];
+
+            while (true)
+            {
+                if (countZeros)
+                {
+                    if ('0' == c)
+                    {
+                        nzStart++;
+                    }
+                    else
+                    {
+                        countZeros = false;
+                    }
+                }
+
+                end++;
+
+                if (end >= length)
+                {
+                    break;
+                }
+
+                c = s[end];
+
+                if (!Char.IsDigit(c))
+                {
+                    break;
+                }
+            }
+        }
         #endregion
 
         #endregion

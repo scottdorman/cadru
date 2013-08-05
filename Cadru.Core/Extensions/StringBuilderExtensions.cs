@@ -23,9 +23,7 @@
 namespace Cadru.Extensions
 {
     using System;
-    using System.Collections.Generic;
     using System.Globalization;
-    using System.Linq;
     using System.Text;
 
     /// <summary>
@@ -33,6 +31,20 @@ namespace Cadru.Extensions
     /// </summary>
     public static class StringBuilderExtensions
     {
+        #region fields
+        #endregion
+
+        #region constructors
+        #endregion
+
+        #region events
+        #endregion
+
+        #region properties
+        #endregion
+
+        #region methods
+
         #region AppendIf
 
         #region AppendIf(this StringBuilder source, bool condition, bool value)
@@ -327,7 +339,7 @@ namespace Cadru.Extensions
 
         #region AppendIf(this StringBuilder source, bool condition, string value)
         /// <summary>
-        /// Appends the string representation of the specified 8-bit unsigned integerstring to this instance
+        /// Appends the string representation of the specified 8-bit unsigned integer to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
         /// </summary>
         /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
@@ -487,6 +499,7 @@ namespace Cadru.Extensions
         /// <para>-or-</para>
         /// <para>Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.</para>
         /// </exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, char[] value, int startIndex, int charCount)
         {
             Contracts.Requires.NotNull(source, "source");
@@ -587,7 +600,7 @@ namespace Cadru.Extensions
         /// replaced by the string representation of a corresponding argument in a parameter
         /// array using a specified format provider.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> object</param>
+        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
         /// <param name="provider">An object that supplies culture-specific formatting information.</param>
         /// <param name="format">A composite format string.</param>
         /// <param name="args">An array of objects to format.</param>
@@ -632,7 +645,7 @@ namespace Cadru.Extensions
         /// contains zero or more format items, followed by the default line terminator to
         /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> object</param>
+        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
         /// <param name="condition"><see langword="true"/> to append <paramref name="format"/>;
         /// otherwise, <see langword="false"/>.</param>
         /// <param name="format">A composite format string.</param>
@@ -674,7 +687,7 @@ namespace Cadru.Extensions
         /// Each format item is replaced by the string representation of a corresponding 
         /// argument in a parameter array using a specified format provider.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> object</param>
+        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
         /// <param name="condition"><see langword="true"/> to append <paramref name="format"/>;
         /// otherwise, <see langword="false"/>.</param>
         /// <param name="provider">An object that supplies culture-specific formatting information.</param>
@@ -722,7 +735,7 @@ namespace Cadru.Extensions
         /// Appends the default line terminator to the end of this instance if
         /// <paramref name="condition"/> is <see langword="true"/>.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> object</param>
+        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
         /// <param name="condition"><see langword="true"/> to append the default line terminator;
         /// otherwise, <see langword="false"/>.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
@@ -746,7 +759,7 @@ namespace Cadru.Extensions
         /// Appends a copy of the specified string followed by the default line terminator
         /// to the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> object</param>
+        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
         /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
         /// otherwise, <see langword="false"/>.</param>
         /// <param name="value">The string to append.</param>
@@ -848,6 +861,8 @@ namespace Cadru.Extensions
 
             return source;
         }
+        #endregion
+
         #endregion
     }
 }

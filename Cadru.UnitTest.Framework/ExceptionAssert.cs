@@ -23,6 +23,7 @@
 namespace Cadru.UnitTest.Framework
 {
     using System;
+    using Cadru.UnitTest.Framework.Properties;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
@@ -30,6 +31,20 @@ namespace Cadru.UnitTest.Framework
     /// </summary>
     public static class ExceptionAssert
     {
+        #region fields
+        #endregion
+
+        #region constructors
+        #endregion
+
+        #region events
+        #endregion
+
+        #region properties
+        #endregion
+
+        #region methods
+
         #region Throws<TException>(Action action)
         /// <summary>
         /// Checks to make sure that the input delegate throws a exception of type exceptionType.
@@ -44,11 +59,11 @@ namespace Cadru.UnitTest.Framework
             }
             catch (Exception ex)
             {
-                Assert.IsInstanceOfType(ex, typeof(TException), "Expected exception was not thrown. ");
+                Assert.IsInstanceOfType(ex, typeof(TException), Resources.Assertion_UnexpectedExceptionThrown);
                 return;
             }
 
-            Assert.Fail("Expected exception of type " + typeof(TException) + " but no exception was thrown.");
+            Assert.Fail(Resources.Assertion_ExceptionNotThrown, typeof(TException));
         }
         #endregion
 
@@ -67,13 +82,15 @@ namespace Cadru.UnitTest.Framework
             }
             catch (Exception ex)
             {
-                Assert.IsInstanceOfType(ex, typeof(TException), "Expected exception was not thrown. ");
-                Assert.AreEqual(expectedMessage, ex.Message, "Expected exception with a message of '" + expectedMessage + "' but exception with message of '" + ex.Message + "' was thrown instead.");
+                Assert.IsInstanceOfType(ex, typeof(TException), Resources.Assertion_UnexpectedExceptionThrown);
+                Assert.AreEqual(expectedMessage, ex.Message, Resources.Assertion_UnexceptedExceptionMessage, expectedMessage, ex.Message);
                 return;
             }
 
-            Assert.Fail("Expected exception of type " + typeof(TException) + " but no exception was thrown.");
+            Assert.Fail(Resources.Assertion_ExceptionNotThrown, typeof(TException));
         }
+        #endregion
+
         #endregion
     }
 }

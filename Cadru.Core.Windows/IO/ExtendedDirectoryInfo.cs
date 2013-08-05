@@ -22,7 +22,6 @@
 
 namespace Cadru.IO
 {
-    using Cadru.Properties;
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
@@ -32,6 +31,7 @@ namespace Cadru.IO
     using System.Security.AccessControl;
     using System.Security.Permissions;
     using System.Security.Principal;
+    using Cadru.Properties;
 
     /// <summary>
     /// Provides an encapsulated implementation of the standard .NET 
@@ -42,11 +42,7 @@ namespace Cadru.IO
     [Serializable]
     public sealed class ExtendedDirectoryInfo : MarshalByRefObject, ISerializable
     {
-        #region events
-
-        #endregion
-
-        #region class-wide fields
+        #region fields
 
         private DirectoryInfo directoryInfo;
         private string directoryOwner;
@@ -59,28 +55,28 @@ namespace Cadru.IO
         /// Initializes a new instance of the <see cref="ExtendedDirectoryInfo"/> class, which acts as a wrapper for a file path.
         /// </summary>
         /// <param name="path">The fully qualified name of the new file, or the relative file name.</param>
-        /// <exception cref="ArgumentNullException">fileName is a null reference (Nothing in Visual Basic). </exception>
+        /// <exception cref="ArgumentNullException"><paramref name="path"/> is a <see langword="null"/>.</exception>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
-        /// <exception cref="ArgumentException">The file name is empty, contains only white spaces, or contains invalid characters. </exception>
+        /// <exception cref="ArgumentException"><paramref name="path"/> is empty, contains only white spaces, or contains invalid characters.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to fileName is denied.</exception>
         /// <exception cref="PathTooLongException">The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters. </exception>
-        /// <exception cref="NotSupportedException">fileName contains a colon (:) in the middle of the string.</exception>
+        /// <exception cref="NotSupportedException"><paramref name="path"/> contains a colon (:) in the middle of the string.</exception>
         /// <remarks>You can specify either the fully qualified or the relative file name, but the security check gets the fully qualified name.</remarks>
         public ExtendedDirectoryInfo(string path)
         {
-            Initialize(path);
+            this.Initialize(path);
         } 
 
         private ExtendedDirectoryInfo(SerializationInfo info, StreamingContext context)
         {
-            if (info == null)
-            {
-                throw new ArgumentNullException("info");
-            }
+            Contracts.Requires.NotNull(info, "info");
 
             this.Initialize(info.GetString("originalPath"));
         } 
 
+        #endregion
+
+        #region events
         #endregion
 
         #region properties
@@ -103,12 +99,12 @@ namespace Cadru.IO
         {
             get
             {
-                return directoryInfo.Attributes;
+                return this.directoryInfo.Attributes;
             }
 
             set
             {
-                directoryInfo.Attributes = value;
+                this.directoryInfo.Attributes = value;
             }
         }
         #endregion
@@ -125,7 +121,7 @@ namespace Cadru.IO
         /// <para>When first called, FileSystemInfo calls Refresh and returns the cached information on APIs to get attributes and so on. On subsequent calls, you must call Refresh to get the latest copy of the information.</para>
         /// <para>If the file described in the FileSystemInfo object does not exist, this property will return 12:00 midnight, January 1, 1601 A.D. (C.E.) Coordinated Universal Time (UTC), adjusted to local time.</para>
         /// <para>NTFS-formatted drives may cache file meta-info, such as file creation time, for a short period of time. This process is known as file tunneling. As a result, it may be necessary to explicitly set the creation time of a file if you are overwriting or replacing an existing file.</para>
-        /// <para>This property value is a null reference (Nothing in Visual Basic) if the file system containing the FileSystemInfo object does not support this information.</para>
+        /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// <para>Windows Mobile for Pocket PC, Windows Mobile for Smartphone, Windows CE Platform Note: This property is read-only.</para>
         /// </remarks>
@@ -133,12 +129,12 @@ namespace Cadru.IO
         {
             get
             {
-                return directoryInfo.CreationTime;
+                return this.directoryInfo.CreationTime;
             }
 
             set
             {
-                directoryInfo.CreationTime = value;
+                this.directoryInfo.CreationTime = value;
             }
         }
         #endregion
@@ -155,14 +151,14 @@ namespace Cadru.IO
         /// <para>When first called, FileSystemInfo calls Refresh and returns the cached information on APIs to get attributes and so on. On subsequent calls, you must call Refresh to get the latest copy of the information.</para>
         /// <para>If the file described in the FileSystemInfo object does not exist, this property will return 12:00 midnight, January 1, 1601 A.D. (C.E.) Coordinated Universal Time (UTC), adjusted to local time.</para>
         /// <para>NTFS-formatted drives may cache file meta-info, such as file creation time, for a short period of time. This process is known as file tunneling. As a result, it may be necessary to explicitly set the creation time of a file if you are overwriting or replacing an existing file.</para>
-        /// <para>This property value is a null reference (Nothing in Visual Basic) if the file system containing the FileSystemInfo object does not support this information.</para>
+        /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
         public DateTime CreateTimeUtc
         {
             get
             {
-                return directoryInfo.CreationTimeUtc;
+                return this.directoryInfo.CreationTimeUtc;
             }
         }
         #endregion
@@ -177,7 +173,7 @@ namespace Cadru.IO
         {
             get
             {
-                return directoryInfo.Exists;
+                return this.directoryInfo.Exists;
             }
         } 
         #endregion
@@ -192,7 +188,7 @@ namespace Cadru.IO
         {
             get
             {
-                return directoryInfo.Extension;
+                return this.directoryInfo.Extension;
             }
         }
         #endregion
@@ -206,7 +202,7 @@ namespace Cadru.IO
         {
             get
             {
-                return directoryOwner;
+                return this.directoryOwner;
             }
         }
         #endregion
@@ -222,7 +218,7 @@ namespace Cadru.IO
         {
             get
             {
-                return directoryInfo.FullName;
+                return this.directoryInfo.FullName;
             }
         }
         #endregion
@@ -238,7 +234,7 @@ namespace Cadru.IO
         /// <para>When first called, FileSystemInfo calls Refresh and returns the cached information on APIs to get attributes and so on. On subsequent calls, you must call Refresh to get the latest copy of the information.</para>
         /// <para>If the file described in the FileSystemInfo object does not exist, this property will return 12:00 midnight, January 1, 1601 A.D. (C.E.) Coordinated Universal Time (UTC), adjusted to local time.</para>
         /// <para>NTFS-formatted drives may cache file meta-info, such as file creation time, for a short period of time. This process is known as file tunneling. As a result, it may be necessary to explicitly set the creation time of a file if you are overwriting or replacing an existing file.</para>
-        /// <para>This property value is a null reference (Nothing in Visual Basic) if the file system containing the FileSystemInfo object does not support this information.</para>
+        /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// <para>Windows Mobile for Pocket PC, Windows Mobile for Smartphone, Windows CE Platform Note: This property is read-only.</para>
         /// </remarks>
@@ -246,7 +242,7 @@ namespace Cadru.IO
         {
             get
             {
-                return directoryInfo.LastAccessTime;
+                return this.directoryInfo.LastAccessTime;
             }
         }
         #endregion
@@ -262,14 +258,14 @@ namespace Cadru.IO
         /// <para>When first called, FileSystemInfo calls Refresh and returns the cached information on APIs to get attributes and so on. On subsequent calls, you must call Refresh to get the latest copy of the information.</para>
         /// <para>If the file described in the FileSystemInfo object does not exist, this property will return 12:00 midnight, January 1, 1601 A.D. (C.E.) Coordinated Universal Time (UTC), adjusted to local time.</para>
         /// <para>NTFS-formatted drives may cache file meta-info, such as file creation time, for a short period of time. This process is known as file tunneling. As a result, it may be necessary to explicitly set the creation time of a file if you are overwriting or replacing an existing file.</para>
-        /// <para>This property value is a null reference (Nothing in Visual Basic) if the file system containing the FileSystemInfo object does not support this information.</para>
+        /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
         public DateTime LastAccessTimeUtc
         {
             get
             {
-                return directoryInfo.LastAccessTimeUtc;
+                return this.directoryInfo.LastAccessTimeUtc;
             }
         }
         #endregion
@@ -285,7 +281,7 @@ namespace Cadru.IO
         /// <para>When first called, FileSystemInfo calls Refresh and returns the cached information on APIs to get attributes and so on. On subsequent calls, you must call Refresh to get the latest copy of the information.</para>
         /// <para>If the file described in the FileSystemInfo object does not exist, this property will return 12:00 midnight, January 1, 1601 A.D. (C.E.) Coordinated Universal Time (UTC), adjusted to local time.</para>
         /// <para>NTFS-formatted drives may cache file meta-info, such as file creation time, for a short period of time. This process is known as file tunneling. As a result, it may be necessary to explicitly set the creation time of a file if you are overwriting or replacing an existing file.</para>
-        /// <para>This property value is a null reference (Nothing in Visual Basic) if the file system containing the FileSystemInfo object does not support this information.</para>
+        /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// <para>Windows Mobile for Pocket PC, Windows Mobile for Smartphone, Windows CE Platform Note: This property is read-only.</para>
         /// </remarks>
@@ -293,7 +289,7 @@ namespace Cadru.IO
         {
             get
             {
-                return directoryInfo.LastWriteTime;
+                return this.directoryInfo.LastWriteTime;
             }
         }
         #endregion
@@ -309,14 +305,14 @@ namespace Cadru.IO
         /// <para>When first called, FileSystemInfo calls Refresh and returns the cached information on APIs to get attributes and so on. On subsequent calls, you must call Refresh to get the latest copy of the information.</para>
         /// <para>If the file described in the FileSystemInfo object does not exist, this property will return 12:00 midnight, January 1, 1601 A.D. (C.E.) Coordinated Universal Time (UTC), adjusted to local time.</para>
         /// <para>NTFS-formatted drives may cache file meta-info, such as file creation time, for a short period of time. This process is known as file tunneling. As a result, it may be necessary to explicitly set the creation time of a file if you are overwriting or replacing an existing file.</para>
-        /// <para>This property value is a null reference (Nothing in Visual Basic) if the file system containing the FileSystemInfo object does not support this information.</para>
+        /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
         public DateTime LastWriteTimUtc
         {
             get
             {
-                return directoryInfo.LastWriteTimeUtc;
+                return this.directoryInfo.LastWriteTimeUtc;
             }
         }
         #endregion
@@ -334,7 +330,7 @@ namespace Cadru.IO
         {
             get
             {
-                return directoryInfo.Name;
+                return this.directoryInfo.Name;
             }
         } 
         #endregion
@@ -343,13 +339,13 @@ namespace Cadru.IO
         /// <summary>
         /// Gets the parent directory of a specified subdirectory.
         /// </summary>
-        /// <value>The parent directory, or a null reference (Nothing in Visual Basic) if the path is null or if the file path denotes a root (such as "\", "C:", or * "\\server\share").</value>
+        /// <value>The parent directory, or a <see langword="null" /> if the path is null or if the file path denotes a root (such as "\", "C:", or * "\\server\share").</value>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         public DirectoryInfo Parent
         {
             get
             {
-                return directoryInfo.Parent;
+                return this.directoryInfo.Parent;
             }
         }
         #endregion
@@ -364,7 +360,7 @@ namespace Cadru.IO
         {
             get
             {
-                return directoryInfo.Root;
+                return this.directoryInfo.Root;
             }
         }
         #endregion
@@ -383,7 +379,7 @@ namespace Cadru.IO
         /// <exception cref="IOException">The directory cannot be created.</exception>
         public void Create()
         {
-            directoryInfo.Create();
+            this.directoryInfo.Create();
         }
         #endregion
 
@@ -398,13 +394,13 @@ namespace Cadru.IO
         /// <exception cref="IOException">The directory specified by path is read-only or is not empty.</exception>
         /// <exception cref="UnauthorizedAccessException">The caller does not have the required permission.</exception>
         /// <exception cref="ArgumentException">path is a zero-length string, contains only white space, or contains one or more invalid characters as defined by InvalidPathChars.</exception>
-        /// <exception cref="ArgumentNullException">path is a null reference (Nothing in Visual Basic).</exception>
+        /// <exception cref="ArgumentNullException">path is a <see langword="null" />.</exception>
         /// <exception cref="PathTooLongException">The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.</exception>
         /// <exception cref="DirectoryNotFoundException">The specified path is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="NotSupportedException">Creating a directory with only the colon (:) character was attempted.</exception>
         public void Create(DirectorySecurity directorySecurity)
         {
-            directoryInfo.Create(directorySecurity);
+            this.directoryInfo.Create(directorySecurity);
         }
         #endregion
 
@@ -421,8 +417,8 @@ namespace Cadru.IO
         /// <remarks>
         /// <para>Any and all directories specified in path are created, unless some part of path is invalid. The path parameter specifies a directory path, not a file path. If the subdirectory already exists, this method does nothing.</para>
         /// <para type="note">Path names are limited to 248 characters.</para></remarks>
-        /// <exception cref="ArgumentException">path does not specify a valid file path or contains invalid DirectoryInfo characters.</exception>
-        /// <exception cref="ArgumentNullException">path is a null reference (Nothing in Visual Basic).</exception>
+        /// <exception cref="ArgumentException"><paramref name="path"/> does not specify a valid file path or contains invalid DirectoryInfo characters.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="path"/> is a <see langword="null" />.</exception>
         /// <exception cref="DirectoryNotFoundException">The specified path is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="IOException"><para>The subdirectory cannot be created.</para>
         /// <para>-or-</para>
@@ -433,7 +429,7 @@ namespace Cadru.IO
         /// <para>The caller does not have code access permission to read the directory described by the returned DirectoryInfo object. This can occur when the path parameter describes an existing directory.</para></exception>
         public DirectoryInfo CreateSubdirectory(string path)
         {
-            return directoryInfo.CreateSubdirectory(path);
+            return this.directoryInfo.CreateSubdirectory(path);
         }
         #endregion
 
@@ -447,8 +443,8 @@ namespace Cadru.IO
         /// <remarks>
         /// <para>Any and all directories specified in path are created, unless some part of path is invalid. The path parameter specifies a directory path, not a file path. If the subdirectory already exists, this method does nothing.</para>
         /// <para type="note">Path names are limited to 248 characters.</para></remarks>
-        /// <exception cref="ArgumentException">path does not specify a valid file path or contains invalid DirectoryInfo characters.</exception>
-        /// <exception cref="ArgumentNullException">path is a null reference (Nothing in Visual Basic).</exception>
+        /// <exception cref="ArgumentException"><paramref name="path"/> does not specify a valid file path or contains invalid DirectoryInfo characters.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="path"/> is a <see langword="null"/>.</exception>
         /// <exception cref="DirectoryNotFoundException">The specified path is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="IOException"><para>The subdirectory cannot be created.</para>
         /// <para>-or-</para>
@@ -459,7 +455,7 @@ namespace Cadru.IO
         /// <para>The caller does not have code access permission to read the directory described by the returned DirectoryInfo object. This can occur when the path parameter describes an existing directory.</para></exception>
         public DirectoryInfo CreateSubdirectory(string path, DirectorySecurity directorySecurity)
         {
-            return directoryInfo.CreateSubdirectory(path, directorySecurity);
+            return this.directoryInfo.CreateSubdirectory(path, directorySecurity);
         }
         #endregion
 
@@ -478,7 +474,7 @@ namespace Cadru.IO
         /// <para>The directory is the application's current working directory.</para></exception>
         public void Delete()
         {
-            directoryInfo.Delete();
+            this.directoryInfo.Delete();
         } 
         #endregion
 
@@ -486,18 +482,20 @@ namespace Cadru.IO
         /// <summary>
         /// Deletes this instance of a DirectoryInfo, specifying whether to delete subdirectories and files. 
         /// </summary>
-        /// <param name="recursive">true to delete this directory, its subdirectories, and all files; otherwise, false.</param>
+        /// <param name="recursive"><see langword="true"/> to delete this directory, its subdirectories, and all files;
+        /// otherwise, <see langword="false"/>.</param>
         /// <exception cref="SecurityException">The caller does not have
         /// the required permission.</exception>
         /// <exception cref="IOException"><para>The directory is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The directory contains one or more files or subdirectories and recursive is false.</para>
+        /// <para>The directory contains one or more files or subdirectories and 
+        /// <paramref name="recursive"/> is <see langword="false"/>.</para>
         /// <para>-or-</para>
         /// <para>The directory is the application's current working directory.</para></exception>
         /// <remarks>If the DirectoryInfo has no files or subdirectories, this method deletes the DirectoryInfo even if recursive is false. Attempting to delete a DirectoryInfo that is not empty when recursive is false throws an IOException.</remarks>
         public void Delete(bool recursive)
         {
-            directoryInfo.Delete(recursive);
+            this.directoryInfo.Delete(recursive);
         } 
         #endregion
 
@@ -531,7 +529,7 @@ namespace Cadru.IO
         /// </remarks>
         public DirectorySecurity GetAccessControl()
         {
-            return directoryInfo.GetAccessControl();
+            return this.directoryInfo.GetAccessControl();
         } 
         #endregion
 
@@ -563,7 +561,7 @@ namespace Cadru.IO
         /// </remarks>
         public DirectorySecurity GetAccessControl(AccessControlSections includeSections)
         {
-            return directoryInfo.GetAccessControl(includeSections);
+            return this.directoryInfo.GetAccessControl(includeSections);
         }
         #endregion
 
@@ -580,9 +578,9 @@ namespace Cadru.IO
         /// <exception cref="DirectoryNotFoundException">The path encapsulated in the DirectoryInfo object is invalid, such as being on an unmapped drive.</exception>
         public DirectoryInfo[] GetDirectories()
         {
-            return directoryInfo.GetDirectories();
+            return this.directoryInfo.GetDirectories();
         }
-                #endregion
+        #endregion
 
         #region GetDirectories(String searchPattern)
         /// <summary>
@@ -594,12 +592,12 @@ namespace Cadru.IO
         /// <para>The string ".." can only be used in searchPattern if it is specified as a part of a valid directory name, such as in the directory name "a..b". It cannot be used to move up the directory hierarchy.</para>
         /// <para>If there are no subdirectories, or no subdirectories match the searchPattern parameter, this method returns an empty array.</para>
         /// </remarks>
-        /// <exception cref="ArgumentNullException">searchPattern is a null reference (Nothing in Visual Basic).</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="searchPattern"/> is a <see langword="null"/>.</exception>
         /// <exception cref="DirectoryNotFoundException">The path encapsulated in the DirectoryInfo object is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         public DirectoryInfo[] GetDirectories(String searchPattern)
         {
-            return directoryInfo.GetDirectories(searchPattern);
+            return this.directoryInfo.GetDirectories(searchPattern);
         }
         #endregion
 
@@ -609,18 +607,17 @@ namespace Cadru.IO
         /// </summary>
         /// <param name="searchPattern">The search string, such as "System*", used to search for all directories beginning with the word "System".</param>
         /// <param name="searchOption">One of the values of the SearchOption enumeration that specifies whether the search operation should include only the current directory or should include all subdirectories.</param>
-        /// <returns></returns>
-        /// <returns>An array of type DirectoryInfo matching searchPattern.</returns>
+        /// <returns>An array of type DirectoryInfo matching <paramref name="searchPattern"/>.</returns>
         /// <remarks><para>Wildcards are permitted. For example, the searchPattern string "*t" searches for all directory names in path ending with the letter "t". The searchPattern string "s*" searches for all directory names in path beginning with the letter "s".</para>
-        /// <para>The string ".." can only be used in searchPattern if it is specified as a part of a valid directory name, such as in the directory name "a..b". It cannot be used to move up the directory hierarchy.</para>
+        /// <para>The string ".." can only be used in <paramref name="searchPattern"/> if it is specified as a part of a valid directory name, such as in the directory name "a..b". It cannot be used to move up the directory hierarchy.</para>
         /// <para>If there are no subdirectories, or no subdirectories match the searchPattern parameter, this method returns an empty array.</para>
         /// </remarks>
-        /// <exception cref="ArgumentNullException">searchPattern is a null reference (Nothing in Visual Basic).</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="searchPattern"/> is a <see langword="null"/>.</exception>
         /// <exception cref="DirectoryNotFoundException">The path encapsulated in the DirectoryInfo object is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         public DirectoryInfo[] GetDirectories(String searchPattern, SearchOption searchOption)
         {
-            return directoryInfo.GetDirectories(searchPattern, searchOption);
+            return this.directoryInfo.GetDirectories(searchPattern, searchOption);
         }
         #endregion
 
@@ -638,7 +635,7 @@ namespace Cadru.IO
         /// <exception cref="DirectoryNotFoundException">The path is invalid, such as being on an unmapped drive.</exception>
         public FileInfo[] GetFiles()
         {
-            return directoryInfo.GetFiles();
+            return this.directoryInfo.GetFiles();
         } 
         #endregion
 
@@ -670,12 +667,12 @@ namespace Cadru.IO
         /// </list>
         /// <para type="note">Because this method checks against file names with both the 8.3 file name format and the long file name format, a search pattern similar to "*1*.txt" may return unexpected file names. For example, using a search pattern of "*1*.txt" will return "longfilename.txt" because the equivalent 8.3 file name format would be "longf~1.txt".</para>
         /// </remarks>
-        /// <exception cref="ArgumentNullException">searchPattern is a null reference (Nothing in Visual Basic).</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="searchPattern"/> is a <see langword="null" />.</exception>
         /// <exception cref="DirectoryNotFoundException">The path is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         public FileInfo[] GetFiles(String searchPattern)
         {
-            return directoryInfo.GetFiles(searchPattern);
+            return this.directoryInfo.GetFiles(searchPattern);
         } 
         #endregion
 
@@ -708,12 +705,12 @@ namespace Cadru.IO
         /// </list>
         /// <para type="note">Because this method checks against file names with both the 8.3 file name format and the long file name format, a search pattern similar to "*1*.txt" may return unexpected file names. For example, using a search pattern of "*1*.txt" will return "longfilename.txt" because the equivalent 8.3 file name format would be "longf~1.txt".</para>
         /// </remarks>
-        /// <exception cref="ArgumentNullException">searchPattern is a null reference (Nothing in Visual Basic).</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="searchPattern"/> is a <see langword="null" />.</exception>
         /// <exception cref="DirectoryNotFoundException">The path is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         public FileInfo[] GetFiles(String searchPattern, SearchOption searchOption)
         {
-            return directoryInfo.GetFiles(searchPattern, searchOption);
+            return this.directoryInfo.GetFiles(searchPattern, searchOption);
         } 
         #endregion
 
@@ -733,7 +730,7 @@ namespace Cadru.IO
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Infos", Justification = "This is the spelling used in the underlying DirectoryInfo object and is preserved here for consistency.")]
         public FileSystemInfo[] GetFileSystemInfos()
         {
-            return directoryInfo.GetFileSystemInfos();
+            return this.directoryInfo.GetFileSystemInfos();
         } 
         #endregion
 
@@ -752,7 +749,7 @@ namespace Cadru.IO
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Infos", Justification = "This is the spelling used in the underlying DirectoryInfo object and is preserved here for consistency.")]
         public FileSystemInfo[] GetFileSystemInfos(String searchPattern)
         {
-            return directoryInfo.GetFileSystemInfos(searchPattern);
+            return this.directoryInfo.GetFileSystemInfos(searchPattern);
         } 
         #endregion
 
@@ -769,42 +766,11 @@ namespace Cadru.IO
         [SuppressMessage("Microsoft.Security", "CA2103:ReviewImperativeSecurity", Justification = "This security demand cannot be declaritve as the path is not known until runtime. The value of originalFileName cannot change once the class is instantiated, so there is no risk that the value will change while the demand is in effect.")]
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            if (info == null)
-            {
-                throw new ArgumentNullException("info");
-            }
+            Contracts.Requires.NotNull(info, "info");
 
-            new FileIOPermission(FileIOPermissionAccess.PathDiscovery, originalPath).Demand();
+            new FileIOPermission(FileIOPermissionAccess.PathDiscovery, this.originalPath).Demand();
 
-            info.AddValue("originalPath", originalPath, typeof(String));
-        } 
-        #endregion
-
-        #region Initialize
-        [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
-        private void Initialize(string path)
-        {
-            if (path == null)
-            {
-                throw new ArgumentNullException("path");
-            }
-
-            if (path.Length == 0)
-            {
-                throw new ArgumentException(Resources.Argument_StringZeroLength, "path");
-            }
-
-            this.originalPath = path;
-            this.directoryInfo = new DirectoryInfo(path);
-
-            string owner = null;
-            if (this.directoryInfo.Exists)
-            {
-                DirectorySecurity ds = this.directoryInfo.GetAccessControl(AccessControlSections.Owner);
-                owner = ds.GetOwner(typeof(NTAccount)).ToString();
-            }
-
-            this.directoryOwner = owner;
+            info.AddValue("originalPath", this.originalPath, typeof(String));
         } 
         #endregion
 
@@ -813,19 +779,19 @@ namespace Cadru.IO
         /// Moves a DirectoryInfo instance and its contents to a new path. 
         /// </summary>
         /// <param name="destinationDirectoryName">The name and path to which to move this directory. The destination cannot be another disk volume or a directory with the identical name. It can be an existing directory to which you want to add this directory as a subdirectory.</param>
-        /// <remarks><para>This method throws an IOException if, for example, you try to move c:\mydir to c:\public, and c:\public already exists. You must specify "c:\\public\\mydir" as the destDirName parameter, or specify a new directory name such as "c:\\newdir".</para>
+        /// <remarks><para>This method throws an IOException if, for example, you try to move c:\mydir to c:\public, and c:\public already exists. You must specify "c:\\public\\mydir" as the <paramref name="destinationDirectoryName"/> parameter, or specify a new directory name such as "c:\\newdir".</para>
         /// <para>This method permits moving a directory to a read-only directory. The read/write attribute of neither directory is affected.
         /// </para></remarks>
         /// <exception cref="ArgumentNullException">
-        /// <para>destDirName is a null reference (Nothing in Visual Basic).</para>
+        /// <para><paramref name="destinationDirectoryName"/> is a <see langword="null" />.</para>
         /// <para>-or-</para>
         /// <para>The directory being moved and the destination directory have the same name.</para>
         /// </exception>
-        /// <exception cref="ArgumentException">destDirName is an empty string (''").</exception>
+        /// <exception cref="ArgumentException"><paramref name="destinationDirectoryName"/> is an empty string ("").</exception>
         /// <exception cref="IOException">
         /// <para>An attempt was made to move a directory to a different volume.</para>
         /// <para>-or-</para>
-        /// <para>destDirName already exists.</para>
+        /// <para><paramref name="destinationDirectoryName"/> already exists.</para>
         /// <para>-or-</para>
         /// <para>You are not authorized to access this path.</para>
         /// </exception>
@@ -833,7 +799,7 @@ namespace Cadru.IO
         /// <exception cref="DirectoryNotFoundException">The destination directory cannot be found.</exception>
         public void MoveTo(string destinationDirectoryName)
         {
-            directoryInfo.MoveTo(destinationDirectoryName);
+            this.directoryInfo.MoveTo(destinationDirectoryName);
         } 
         #endregion
 
@@ -841,15 +807,14 @@ namespace Cadru.IO
         /// <summary>
         /// Refreshes the state of the object.
         /// </summary>
-        /// <exception cref="ArgumentException"></exception>
-        /// <exception cref="IOException"></exception>
+        /// <exception cref="IOException">A device such as a disk drive is not ready.</exception>
         /// <remarks><para>FileSystemInfo.Refresh takes a snapshot of the file from the current file system. Refresh cannot correct the underlying file system even if the file system returns incorrect or outdated information. This can happen on platforms such as Windows 98.
         /// </para>
         /// <para>Calls must be made to Refresh before attempting to get the attribute information, or the information will be outdated.</para>
         /// </remarks>
         public void Refresh()
         {
-            directoryInfo.Refresh();
+            this.directoryInfo.Refresh();
         } 
         #endregion
 
@@ -858,7 +823,7 @@ namespace Cadru.IO
         /// Applies access control list (ACL) entries described by a DirectorySecurity object to the directory described by the current DirectoryInfo object.  
         /// </summary>
         /// <param name="directorySecurity">A DirectorySecurity object that describes an ACL entry to apply to the directory described by the path parameter.</param>
-        /// <exception cref="ArgumentNullException">The directorySecurity parameter is a null </exception>
+        /// <exception cref="ArgumentNullException">The <paramref name="directorySecurity"/> parameter is <see langword="null"/>.</exception>
         /// <exception cref="SystemException">The file could not be found or modified.</exception>
         /// <exception cref="UnauthorizedAccessException">The current process does not have access to open the file.</exception>
         /// <exception cref="PlatformNotSupportedException">The current operating system is not Microsoft Windows 2000 or later.</exception>
@@ -879,7 +844,7 @@ namespace Cadru.IO
         /// </remarks>
         public void SetAccessControl(DirectorySecurity directorySecurity)
         {
-            directoryInfo.SetAccessControl(directorySecurity);
+            this.directoryInfo.SetAccessControl(directorySecurity);
         } 
         #endregion
 
@@ -891,8 +856,28 @@ namespace Cadru.IO
         /// <remarks>The string returned by the ToString method represents path that was passed to the constructor. When you create a FileInfo object using the constructors, the ToString method returns the fully qualified path. However, there are cases where the string returned by the ToString method does not represent the fully qualified path. For example, when you create a FileInfo object using the GetFiles method, the ToString method does not represent the fully qualified path.</remarks>
         public override string ToString()
         {
-            return directoryInfo.ToString();
+            return this.directoryInfo.ToString();
         } 
+        #endregion
+
+        #region Initialize
+        [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
+        private void Initialize(string path)
+        {
+            Contracts.Requires.NotNullOrEmpty(path, "path");
+
+            this.originalPath = path;
+            this.directoryInfo = new DirectoryInfo(path);
+
+            string owner = null;
+            if (this.directoryInfo.Exists)
+            {
+                DirectorySecurity ds = this.directoryInfo.GetAccessControl(AccessControlSections.Owner);
+                owner = ds.GetOwner(typeof(NTAccount)).ToString();
+            }
+
+            this.directoryOwner = owner;
+        }
         #endregion
 
         #endregion

@@ -26,7 +26,7 @@ namespace Cadru.InteropServices
 
     /// <summary>
     /// The attributes that the caller is requesting, when calling 
-    /// IShellFolder::GetAttributesOf
+    /// IShellFolder::GetAttributesOf.
     /// </summary>
     [Flags]
     internal enum SHGFI : uint

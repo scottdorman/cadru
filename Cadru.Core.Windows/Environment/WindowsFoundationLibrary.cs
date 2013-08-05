@@ -23,29 +23,29 @@
 namespace Cadru
 {
     /// <summary>
-    /// Specifies the .NET 3.0 Windows Foundation Library
+    /// Specifies the .NET 3.0 Windows Foundation Library.
     /// </summary>
     public enum WindowsFoundationLibrary
     {
         /// <summary>
-        /// Windows Communication Foundation
+        /// Windows Communication Foundation.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "WCF")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "WCF", Justification = "Reviewed.")]
         WCF,
 
         /// <summary>
-        /// Windows Presentation Foundation
+        /// Windows Presentation Foundation.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "WPF")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "WPF", Justification = "Reviewed.")]
         WPF,
 
         /// <summary>
-        /// Windows Workflow Foundation
+        /// Windows Workflow Foundation.
         /// </summary>
         WF,
 
         /// <summary>
-        /// Windows CardSpace
+        /// Windows CardSpace.
         /// </summary>
         CardSpace,
     }

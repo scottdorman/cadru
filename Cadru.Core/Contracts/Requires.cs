@@ -22,28 +22,24 @@
 
 namespace Cadru.Contracts
 {
-    using Cadru.Extensions;
-    using Cadru.Internal;
-    using Cadru.Properties;
     using System;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Diagnostics;
     using System.Globalization;
-    using System.Runtime.CompilerServices;
+    using Cadru.Internal;
+    using Cadru.Properties;
 
     /// <summary>
     /// Provides a set of methods to simplify code contract requirements.
     /// </summary>
-    internal static class Requires
+    public static class Requires
     {
-        #region events
-        #endregion
-
         #region fields
         #endregion
 
         #region constructors
+        #endregion
+
+        #region events
         #endregion
 
         #region properties
@@ -59,7 +55,8 @@ namespace Cadru.Contracts
         /// </summary>
         /// <param name="condition"><see langword="false"/> to prevent a message being displayed; otherwise, <see langword="true"/>.</param>
         /// <exception cref="InvalidOperationException">The condition is <see langword="true"/>.</exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode"), DebuggerStepThrough]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [DebuggerStepThrough]
         public static void IsFalse(bool condition)
         {
             Requires.IsFalse(condition, null);
@@ -73,7 +70,8 @@ namespace Cadru.Contracts
         /// <param name="condition"><see langword="false"/> to prevent a message being displayed; otherwise, <see langword="true"/>.</param>
         /// <param name="message">A message to be used in the resulting exception.</param>
         /// <exception cref="InvalidOperationException">The condition is <see langword="true"/>.</exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode"), DebuggerStepThrough]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [DebuggerStepThrough]
         public static void IsFalse(bool condition, string message)
         {
             if (condition)
@@ -91,7 +89,8 @@ namespace Cadru.Contracts
         /// <param name="parameterName">The name of the parameter being tested.</param>
         /// <param name="message">A message to be used in the resulting exception.</param>
         /// <exception cref="ArgumentException">The condition is <see langword="true"/>.</exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode"), DebuggerStepThrough]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [DebuggerStepThrough]
         public static void IsFalse(bool condition, string parameterName, string message)
         {
             if (condition)
@@ -111,7 +110,8 @@ namespace Cadru.Contracts
         /// </summary>
         /// <param name="condition"><see langword="true"/> to prevent a message being displayed; otherwise, <see langword="false"/>.</param>
         /// <exception cref="InvalidOperationException">The condition is <see langword="false"/>.</exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode"), DebuggerStepThrough]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [DebuggerStepThrough]
         public static void IsTrue(bool condition)
         {
             Requires.IsTrue(condition, null);
@@ -125,7 +125,8 @@ namespace Cadru.Contracts
         /// <param name="condition"><see langword="true"/> to prevent a message being displayed; otherwise, <see langword="false"/>.</param>
         /// <param name="message">A message to be used in the resulting exception.</param>
         /// <exception cref="InvalidOperationException">The condition is <see langword="false"/>.</exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode"), DebuggerStepThrough]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [DebuggerStepThrough]
         public static void IsTrue(bool condition, string message)
         {
             if (!condition)
@@ -143,7 +144,8 @@ namespace Cadru.Contracts
         /// <param name="parameterName">The name of the parameter being tested.</param>
         /// <param name="message">A message to be used in the resulting exception.</param>
         /// <exception cref="ArgumentException">The condition is <see langword="false"/>.</exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode"), DebuggerStepThrough]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [DebuggerStepThrough]
         public static void IsTrue(bool condition, string parameterName, string message)
         {
             if (!condition)
@@ -159,17 +161,21 @@ namespace Cadru.Contracts
         /// <summary>
         /// Requires that <paramref name="objectName"/> not be disposed.
         /// </summary>
-        /// <param name="disposable"></param>
+        /// <param name="disposable">The object to test.</param>
         /// <param name="objectName">A string containing the name of the object.</param>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode"), DebuggerStepThrough]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [DebuggerStepThrough]
         public static void NotDisposed(IDisposablePattern disposable, string objectName)
         {
             Assumes.NotNull(disposable);
             Assumes.NotNullOrEmpty(objectName);
 
-            if (disposable.Disposed)
+            if (disposable != null)
             {
-                throw ExceptionBuilder.CreateObjectDisposed(objectName);
+                if (disposable.Disposed)
+                {
+                    throw ExceptionBuilder.CreateObjectDisposed(objectName);
+                }
             }
         }
         #endregion
@@ -187,7 +193,7 @@ namespace Cadru.Contracts
         {
             if (value == null)
             {
-                throw new ArgumentNullException(parameterName);
+                throw ExceptionBuilder.CreateArgumentNullException(parameterName);
             }
         }
         #endregion
@@ -200,13 +206,14 @@ namespace Cadru.Contracts
         /// <param name="parameterName">The name of the parameter being tested.</param>
         /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
         /// <exception cref="ArgumentException"><paramref name="value"/> is a zero-length string.</exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode"), DebuggerStepThrough]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [DebuggerStepThrough]
         public static void NotNullOrEmpty([ValidatedNotNull]string value, string parameterName)
         {
             Requires.NotNull(value, parameterName);
             if (value.Length == 0)
             {
-                throw new ArgumentException(string.Format(CultureInfo.CurrentCulture, Resources.ArgumentException_EmptyString, parameterName), parameterName);
+                throw ExceptionBuilder.CreateArgumentException(parameterName, ExceptionBuilder.Format(Resources.ArgumentException_EmptyString, parameterName));
             }
         }
         #endregion
@@ -220,10 +227,11 @@ namespace Cadru.Contracts
         /// <param name="condition"><see langword="false"/> to prevent a message being displayed; otherwise, <see langword="true"/>.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
         /// <exception cref="ArgumentOutOfRangeException">The condition is <see langword="true"/>.</exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode"), DebuggerStepThrough]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [DebuggerStepThrough]
         public static void ValidRange(bool condition, string parameterName)
         {
-            ValidRange(condition, parameterName, String.Empty);
+            Requires.ValidRange(condition, parameterName, String.Empty);
         }
         #endregion
 
@@ -235,7 +243,8 @@ namespace Cadru.Contracts
         /// <param name="parameterName">The name of the parameter being tested.</param>
         /// <param name="message">A message to be used in the resulting exception.</param>
         /// <exception cref="ArgumentOutOfRangeException">The condition is <see langword="true"/>.</exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode"), DebuggerStepThrough]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [DebuggerStepThrough]
         public static void ValidRange(bool condition, string parameterName, string message)
         {
             Assumes.NotNullOrEmpty(parameterName);
@@ -243,14 +252,7 @@ namespace Cadru.Contracts
 
             if (condition)
             {
-                if (String.IsNullOrEmpty(message))
-                {
-                    throw new ArgumentOutOfRangeException(parameterName);
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(parameterName, message);
-                }
+                throw ExceptionBuilder.CreateArgumentOutOfRangeException(parameterName, message);
             }
         }
         #endregion

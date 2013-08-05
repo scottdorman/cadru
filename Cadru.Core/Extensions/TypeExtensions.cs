@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="NumericExtensions.cs" 
+// <copyright file="TypeExtensions.cs" 
 //  company="Scott Dorman" 
 //  library="Cadru">
 //    Copyright (C) 2001-2013 Scott Dorman.
@@ -22,32 +22,44 @@
 
 namespace Cadru.Extensions
 {
-    using Cadru.Properties;
     using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Linq.Expressions;
-    using System.Reflection;
-    using System.Text;
 
     /// <summary>
     /// Provides basic routines for common type manipulation.
     /// </summary>
     public static class TypeExtensions
     {
+        #region fields
+        #endregion
+
+        #region constructors
+        #endregion
+
+        #region events
+        #endregion
+
+        #region properties
+        #endregion
+
+        #region methods
+
+        #region IsNullable
         /// <summary>
         /// Determines whether the specified type is nullable.
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns>
-        ///   <c>true</c> if the specified type is nullable; otherwise, <c>false</c>.
+        ///   <see langword="true"/> if the specified type is nullable; otherwise, <see langword="false"/>.
         /// </returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         public static bool IsNullable(this Type type)
         {
             Contracts.Requires.NotNull(type, "type");
 
             return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
         }
+        #endregion
+
+        #endregion
     }
 }

@@ -23,6 +23,7 @@
 namespace Cadru.UnitTest.Framework
 {
     using System;
+    using Cadru.UnitTest.Framework.Properties;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
@@ -30,6 +31,20 @@ namespace Cadru.UnitTest.Framework
     /// </summary>
     public static class TypeAssert
     {
+        #region fields
+        #endregion
+
+        #region constructors
+        #endregion
+
+        #region events
+        #endregion
+
+        #region properties
+        #endregion
+
+        #region methods
+
         #region IsAssignableFrom
 
         #region IsAssignableFrom(object value, Type expectedType)
@@ -40,7 +55,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="expectedType">The expected <see cref="Type"/>.</param>
         public static void IsAssignableFrom(object value, Type expectedType)
         {
-            IsAssignableFrom(value, expectedType, "Expected {0} to be assignable from {1}", value, expectedType);
+            TypeAssert.IsAssignableFrom(value, expectedType, Resources.Assertion_ExpectedToBeAssignableFrom, value, expectedType);
         }
         #endregion
 
@@ -53,7 +68,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
         public static void IsAssignableFrom(object value, Type expectedType, string message)
         {
-            IsAssignableFrom(value, expectedType, message, null);
+            TypeAssert.IsAssignableFrom(value, expectedType, message, null);
         }
         #endregion
 
@@ -86,7 +101,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="expectedType">The expected <see cref="Type"/>.</param>
         public static void IsNotAssignableFrom(object value, Type expectedType)
         {
-            IsNotAssignableFrom(value, expectedType, "Expected {0} to be assignable from {1}", value, expectedType);
+            TypeAssert.IsNotAssignableFrom(value, expectedType, Resources.Assertion_ExpectedToBeAssignableFrom, value, expectedType);
         }
         #endregion
 
@@ -99,7 +114,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
         public static void IsNotAssignableFrom(object value, Type expectedType, string message)
         {
-            IsNotAssignableFrom(value, expectedType, message, null);
+            TypeAssert.IsNotAssignableFrom(value, expectedType, message, null);
         }
         #endregion
 
@@ -118,6 +133,8 @@ namespace Cadru.UnitTest.Framework
                 Assert.Fail(message, parameters);
             }
         }
+        #endregion
+
         #endregion
 
         #endregion

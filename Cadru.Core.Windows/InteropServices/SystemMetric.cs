@@ -23,8 +23,9 @@
 namespace Cadru.InteropServices
 {
     /// <summary>
-    /// Flags used with the Windows API GetSystemMetrics(SystemMetric smIndex)
+    /// Flags used with the <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms724385(v=vs.85).aspx">GetSystemMetrics</see> function.
     /// </summary>
+    [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
     internal enum SystemMetric : int
     {
         /// <summary>
@@ -85,7 +86,7 @@ namespace Cadru.InteropServices
         SM_CYDLGFRAME = 8,
 
         /// <summary>
-        /// Height of the thumb box in a vertical scroll bar, in pixels
+        /// Height of the thumb box in a vertical scroll bar, in pixels.
         /// </summary>
         SM_CYVTHUMB = 9,
 
@@ -97,7 +98,7 @@ namespace Cadru.InteropServices
         /// <summary>
         /// Default width of an icon, in pixels. The LoadIcon function can 
         /// load only icons with the dimensions specified by SM_CXICON and
-        /// SM_CYICON
+        /// SM_CYICON.
         /// </summary>
         SM_CXICON = 11,
 
@@ -149,7 +150,7 @@ namespace Cadru.InteropServices
         SM_CYKANJIWINDOW = 18,
 
         /// <summary>
-        /// Nonzero if a mouse with a wheel is installed; zero otherwise
+        /// Nonzero if a mouse with a wheel is installed; zero otherwise.
         /// </summary>
         SM_MOUSEWHEELPRESENT = 75,
 
@@ -176,22 +177,22 @@ namespace Cadru.InteropServices
         SM_SWAPBUTTON = 23,
 
         /// <summary>
-        /// Reserved for future use
+        /// Reserved for future use.
         /// </summary>
         SM_RESERVED1 = 24,
 
         /// <summary>
-        /// Reserved for future use
+        /// Reserved for future use.
         /// </summary>
         SM_RESERVED2 = 25,
 
         /// <summary>
-        /// Reserved for future use
+        /// Reserved for future use.
         /// </summary>
         SM_RESERVED3 = 26,
 
         /// <summary>
-        /// Reserved for future use
+        /// Reserved for future use.
         /// </summary>
         SM_RESERVED4 = 27,
 
@@ -242,7 +243,7 @@ namespace Cadru.InteropServices
         /// Minimum tracking height of a window, in pixels. The user cannot 
         /// drag the window frame to a size smaller than these dimensions. A 
         /// window can override this value by processing the WM_GETMINMAXINFO
-        /// message
+        /// message.
         /// </summary>
         SM_CYMINTRACK = 35,
 
@@ -250,7 +251,7 @@ namespace Cadru.InteropServices
         /// Width of the rectangle around the location of a first click in a 
         /// double-click sequence, in pixels. The second click must occur 
         /// within the rectangle defined by SM_CXDOUBLECLK and SM_CYDOUBLECLK 
-        /// for the system to consider the two clicks a double-click
+        /// for the system to consider the two clicks a double-click.
         /// </summary>
         SM_CXDOUBLECLK = 36,
 
@@ -258,8 +259,8 @@ namespace Cadru.InteropServices
         /// Height of the rectangle around the location of a first click in a
         /// double-click sequence, in pixels. The second click must occur 
         /// within the rectangle defined by SM_CXDOUBLECLK and SM_CYDOUBLECLK
-        /// for the system to consider the two clicks a double-click. (The two
-        /// clicks must also occur within a specified time.) 
+        /// for the system to consider the two clicks a double-click. The two
+        /// clicks must also occur within a specified time.
         /// </summary>
         SM_CYDOUBLECLK = 37,
 
@@ -267,7 +268,7 @@ namespace Cadru.InteropServices
         /// Width of a grid cell for items in large icon view, in pixels. Each
         /// item fits into a rectangle of size SM_CXICONSPACING by 
         /// SM_CYICONSPACING when arranged. This value is always greater 
-        /// than or equal to SM_CXICON
+        /// than or equal to SM_CXICON.
         /// </summary>
         SM_CXICONSPACING = 38,
 
@@ -293,7 +294,7 @@ namespace Cadru.InteropServices
 
         /// <summary>
         /// Nonzero if User32.dll supports DBCS; zero otherwise. 
-        /// (WinMe/95/98): Unicode
+        /// (WinMe/95/98): Unicode.
         /// </summary>
         SM_DBCSENABLED = 42,
 
@@ -303,22 +304,22 @@ namespace Cadru.InteropServices
         SM_CMOUSEBUTTONS = 43,
 
         /// <summary>
-        /// Identical Values Changed After Windows NT 4.0  
+        /// Identical Values Changed After Windows NT 4.0.
         /// </summary>
         SM_CXFIXEDFRAME = SM_CXDLGFRAME,
 
         /// <summary>
-        /// Identical Values Changed After Windows NT 4.0
+        /// Identical Values Changed After Windows NT 4.0.
         /// </summary>
         SM_CYFIXEDFRAME = SM_CYDLGFRAME,
 
         /// <summary>
-        /// Identical Values Changed After Windows NT 4.0
+        /// Identical Values Changed After Windows NT 4.0.
         /// </summary>
         SM_CXSIZEFRAME = SM_CXFRAME,
 
         /// <summary>
-        /// Identical Values Changed After Windows NT 4.0
+        /// Identical Values Changed After Windows NT 4.0.
         /// </summary>
         SM_CYSIZEFRAME = SM_CYFRAME,
 
@@ -355,7 +356,7 @@ namespace Cadru.InteropServices
 
         /// <summary>
         /// Recommended width of a small icon, in pixels. Small icons typically
-        /// appear in window captions and in small icon view
+        /// appear in window captions and in small icon view.
         /// </summary>
         SM_CXSMICON = 49,
 
@@ -366,9 +367,10 @@ namespace Cadru.InteropServices
         SM_CYSMICON = 50,
 
         /// <summary>
-        /// Height of a small caption, in pixels
+        /// Height of a small caption, in pixels.
         /// </summary>
         SM_CYSMCAPTION = 51,
+
         /// <summary>
         /// Width of small caption buttons, in pixels.
         /// </summary>
@@ -392,7 +394,7 @@ namespace Cadru.InteropServices
         SM_CYMENUSIZE = 55,
 
         /// <summary>
-        /// Flags specifying how the system arranged minimized windows
+        /// Flags specifying how the system arranged minimized windows.
         /// </summary>
         SM_ARRANGE = 56,
 
@@ -438,13 +440,13 @@ namespace Cadru.InteropServices
 
         /// <summary>
         /// Least significant bit is set if a network is present; otherwise, 
-        /// it is cleared. The other bits are reserved for future use
+        /// it is cleared. The other bits are reserved for future use.
         /// </summary>
         SM_NETWORK = 63,
 
         /// <summary>
         /// Value that specifies how the system was started: 0-normal, 
-        /// 1-failsafe, 2-failsafe /w net
+        /// 1-failsafe, 2-failsafe /w net.
         /// </summary>
         SM_CLEANBOOT = 67,
 
@@ -567,17 +569,17 @@ namespace Cadru.InteropServices
         SM_MEDIACENTER = 87,
 
         /// <summary>
-        /// Metrics Other
+        /// Metrics Other.
         /// </summary>
         SM_CMETRICS_OTHER = 76,
 
         /// <summary>
-        /// Metrics Windows 2000
+        /// Metrics Windows 2000.
         /// </summary>
         SM_CMETRICS_2000 = 83,
 
         /// <summary>
-        /// Metrics Windows NT
+        /// Metrics Windows NT.
         /// </summary>
         SM_CMETRICS_NT = 88,
 

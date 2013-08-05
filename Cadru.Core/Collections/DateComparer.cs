@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// <copyright file="DateComparer.cs" 
-//  company="Scott Dorman" 
+// <copyright file="DateComparer.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2013 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -30,19 +30,14 @@ namespace Cadru.Collections
     using Cadru.Properties;
 
     /// <summary>
-    /// Compares two dates or string date representations for equivalence, 
+    /// Compares two dates or string date representations for equivalence,
     /// ignoring case, in date order.
     /// </summary>
     public sealed class DateComparer : IComparer, IEqualityComparer, IComparer<DateTime>, IEqualityComparer<DateTime>, IComparer<string>, IEqualityComparer<string>
     {
-        #region events
-
-        #endregion
-
-        #region class-wide fields
+        #region fields
         private static DateComparer defaultInvariant;
         private CultureInfo cultureInfo;
-
         #endregion
 
         #region constructors
@@ -53,17 +48,17 @@ namespace Cadru.Collections
         /// <see cref="CultureInfo.CurrentCulture"/> of the current thread.
         /// </summary>
         /// <remarks>When the <see cref="DateComparer"/> instance is created using
-        /// this constructor, the <see cref="CultureInfo.CurrentCulture"/> of the 
-        /// current thread is saved. Comparison procedures use the saved 
-        /// culture to determine the sort order and casing rules; therefore, 
-        /// string comparisons might have different results depending on the 
-        /// culture. For more information on culture-specific comparisons, see 
-        /// the <see cref="System.Globalization"/> namespace and 
+        /// this constructor, the <see cref="CultureInfo.CurrentCulture"/> of the
+        /// current thread is saved. Comparison procedures use the saved
+        /// culture to determine the sort order and casing rules; therefore,
+        /// string comparisons might have different results depending on the
+        /// culture. For more information on culture-specific comparisons, see
+        /// the <see cref="System.Globalization"/> namespace and
         /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </remarks>
         public DateComparer()
+            : this(CultureInfo.CurrentCulture)
         {
-            this.cultureInfo = CultureInfo.CurrentCulture;
         }
         #endregion
 
@@ -78,15 +73,12 @@ namespace Cadru.Collections
         /// <rermarks>Comparison procedures use the specified <see cref="CultureInfo"/> to determine
         /// the sort order and casing rules. String comparisons might have different results
         /// depending on the culture. For more information on culture-specific comparisons, see
-        /// the <see cref="System.Globalization"/> namespace and 
+        /// the <see cref="System.Globalization"/> namespace and
         /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </rermarks>
         public DateComparer(CultureInfo culture)
         {
-            if (culture == null)
-            {
-                throw new ArgumentNullException("culture");
-            }
+            Contracts.Requires.NotNull(culture, "culture");
 
             this.cultureInfo = culture;
         }
@@ -94,49 +86,55 @@ namespace Cadru.Collections
 
         #endregion
 
+        #region events
+        #endregion
+
         #region properties
 
         #region Default
         /// <summary>
-        /// Represents an instance of <see cref="DateComparer"/> that is 
+        /// Represents an instance of <see cref="DateComparer"/> that is
         /// associated with the <see cref="CultureInfo.CurrentCulture"/>.
         /// </summary>
         /// <value>The default <see cref="DateComparer"/></value>
-        /// <remarks>Comparison procedures use the 
-        /// <see cref="Thread.CurrentCulture"/> of the current thread to 
-        /// determine the sort order and casing rules. String comparisons 
-        /// might have different results depending on the culture. For more 
-        /// information on culture-specific comparisons, see the 
-        /// <see cref="System.Globalization"/> namespace and 
+        /// <remarks>Comparison procedures use the
+        /// <see cref="Thread.CurrentCulture"/> of the current thread to
+        /// determine the sort order and casing rules. String comparisons
+        /// might have different results depending on the culture. For more
+        /// information on culture-specific comparisons, see the
+        /// <see cref="System.Globalization"/> namespace and
         /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </remarks>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1304:SpecifyCultureInfo", MessageId = "Cadru.Collections.DateComparer.#ctor", Justification = "This constructor call implicitly passes a culture.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer Default
         {
             get
             {
-                return new DateComparer(CultureInfo.CurrentCulture);
+                return new DateComparer();
             }
         }
         #endregion
 
         #region DefaultInvariant
         /// <summary>
-        /// Represents an instance of <see cref="DateComparer"/> that is 
-        /// associated with the 
-        /// <see cref="CultureInfo.InvariantCulture"/> and that is always 
+        /// Represents an instance of <see cref="DateComparer"/> that is
+        /// associated with the
+        /// <see cref="CultureInfo.InvariantCulture"/> and that is always
         /// available.
         /// </summary>
-        /// <value>An instance of <see cref="DateComparer"/> that is 
+        /// <value>An instance of <see cref="DateComparer"/> that is
         /// associated with <see cref="CultureInfo.InvariantCulture"/>.
         /// </value>
-        /// <remarks>Comparison procedures use the 
-        /// <see cref="CultureInfo.InvariantCulture"/> to determine the sort 
+        /// <remarks>Comparison procedures use the
+        /// <see cref="CultureInfo.InvariantCulture"/> to determine the sort
         /// order and casing rules. String comparisons might have different
-        /// results depending on the culture. For more information on 
-        /// culture-specific comparisons, see the 
-        /// <see cref="System.Globalization"/> namespace and 
+        /// results depending on the culture. For more information on
+        /// culture-specific comparisons, see the
+        /// <see cref="System.Globalization"/> namespace and
         /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </remarks>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer DefaultInvariant
         {
             get
@@ -293,15 +291,8 @@ namespace Cadru.Collections
         /// <remarks>The strings should be a valid date time format.</remarks>
         public int Compare(string x, string y)
         {
-            if (x == null)
-            {
-                throw new ArgumentNullException("x");
-            }
-
-            if (y == null)
-            {
-                throw new ArgumentNullException("y");
-            }
+            Contracts.Requires.NotNull(x, "x");
+            Contracts.Requires.NotNull(y, "y");
 
             DateTime t1;
             DateTime t2;
@@ -330,7 +321,7 @@ namespace Cadru.Collections
         /// </summary>
         /// <param name="x">The first <see cref="DateTime"/> to compare.</param>
         /// <param name="y">The second <see cref="DateTime"/> to compare.</param>
-        /// <returns><see langword="true"/> if the two <see cref="DateTime"/> values are equal; 
+        /// <returns><see langword="true"/> if the two <see cref="DateTime"/> values are equal;
         /// otherwise, <see langword="false"/>. </returns>
         public bool Equals(DateTime x, DateTime y)
         {
@@ -344,7 +335,7 @@ namespace Cadru.Collections
         /// </summary>
         /// <param name="x">The first <see cref="DateTime"/> to compare.</param>
         /// <param name="y">The second <see cref="DateTime"/> to compare.</param>
-        /// <returns><see langword="true"/> if the two <see cref="DateTime"/> values are equal; 
+        /// <returns><see langword="true"/> if the two <see cref="DateTime"/> values are equal;
         /// otherwise, <see langword="false"/>. </returns>
         public bool Equals(string x, string y)
         {
@@ -398,10 +389,10 @@ namespace Cadru.Collections
         /// <summary>
         /// Returns a hash code for the specified <see cref="DateTime"/>.
         /// </summary>
-        /// <param name="obj">The <see cref="DateTime"/> for which a hash code is to be 
+        /// <param name="obj">The <see cref="DateTime"/> for which a hash code is to be
         /// returned.</param>
         /// <returns>A hash code for the specified <see cref="DateTime"/>.</returns>
-        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a 
+        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a
         /// reference type and <paramref name="obj"/> is a <see langword="null"/>.
         /// </exception>
         public int GetHashCode(DateTime obj)
@@ -414,18 +405,15 @@ namespace Cadru.Collections
         /// <summary>
         /// Returns a hash code for the specified object.
         /// </summary>
-        /// <param name="obj">The <see cref="Object"/> for which a hash code is to be 
+        /// <param name="obj">The <see cref="Object"/> for which a hash code is to be
         /// returned.</param>
         /// <returns>A hash code for the specified <see cref="Object"/>.</returns>
-        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a 
+        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a
         /// reference type and <paramref name="obj"/> is a <see langword="null"/>.
         /// </exception>
         public int GetHashCode(object obj)
         {
-            if (obj == null)
-            {
-                throw new ArgumentNullException("obj");
-            }
+            Contracts.Requires.NotNull(obj, "obj");
 
             int hashCode;
 
@@ -464,18 +452,15 @@ namespace Cadru.Collections
         /// <summary>
         /// Returns a hash code for the specified string.
         /// </summary>
-        /// <param name="obj">The string for which a hash code is to be 
+        /// <param name="obj">The string for which a hash code is to be
         /// returned.</param>
         /// <returns>A hash code for the specified string.</returns>
-        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a 
+        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a
         /// reference type and <paramref name="obj"/> is a <see langword="null"/>.
         /// </exception>
         public int GetHashCode(string obj)
         {
-            if (obj == null)
-            {
-                throw new ArgumentNullException("obj");
-            }
+            Contracts.Requires.NotNull(obj, "obj");
 
             int hashCode;
 
@@ -509,7 +494,7 @@ namespace Cadru.Collections
         /// </summary>
         /// <param name="x">The first <see cref="Object"/> to compare.</param>
         /// <param name="y">The second <see cref="Object"/> to compare.</param>
-        /// <returns><see langword="true"/> if the two <see cref="Object"/> values are equal; 
+        /// <returns><see langword="true"/> if the two <see cref="Object"/> values are equal;
         /// otherwise, <see langword="false"/>. </returns>
         bool IEqualityComparer.Equals(object x, object y)
         {

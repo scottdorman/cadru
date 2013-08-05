@@ -129,6 +129,12 @@
   <data name="Assertion_GenericFailure" xml:space="preserve">
     <value>Expected &lt;{0}&gt; but actual was &lt;{1}&gt;.</value>
   </data>
+  <data name="Assertion_IsComparison" xml:space="preserve">
+    <value>{0} is {1} than {2}.</value>
+  </data>
+  <data name="Assertion_IsComparisonOrEqualTo" xml:space="preserve">
+    <value>{0} is {1} than or equal to {2}.</value>
+  </data>
   <data name="AssumptionException_EmptyMessage" xml:space="preserve">
     <value>Assumption failed.</value>
   </data>
@@ -137,5 +143,17 @@
   </data>
   <data name="NotImplemented_NotOverriddenByDerived" xml:space="preserve">
     <value>The {0} member must be overridden by a derived class.</value>
+  </data>
+  <data name="Assertion_ExpectedToBeAssignableFrom" xml:space="preserve">
+    <value>Expected {0} to be assignable from {1}</value>
+  </data>
+  <data name="Assertion_ExceptionNotThrown" xml:space="preserve">
+    <value>Expected exception of type {0} but no exception was thrown.</value>
+  </data>
+  <data name="Assertion_UnexceptedExceptionMessage" xml:space="preserve">
+    <value>Expected exception with a message of '{0}' but exception with message of '{1}' was thrown instead.</value>
+  </data>
+  <data name="Assertion_UnexpectedExceptionThrown" xml:space="preserve">
+    <value>Expected exception was not thrown.</value>
   </data>
 </root>

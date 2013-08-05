@@ -31,6 +31,8 @@ namespace Cadru.InteropServices
     /// specified server, including name, platform, type of server, 
     /// and associated software.
     /// </summary>
+    [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1307:AccessibleFieldsMustBeginWithUpperCaseLetter", Justification = "Reviewed.")]
+    [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1310:FieldNamesMustNotContainUnderscore", Justification = "Reviewed.")]
     [StructLayout(LayoutKind.Sequential)]
     internal struct SERVER_INFO_101
     {
@@ -38,13 +40,13 @@ namespace Cadru.InteropServices
         /// Specifies the information level to use for platform-specific information.
         /// </summary>
         [MarshalAs(UnmanagedType.U4)]
-        public UInt32 sv101_platform_id;
+        internal UInt32 sv101_platform_id;
 
         /// <summary>
         /// Pointer to a Unicode string specifying the name of a server.
         /// </summary>
         [MarshalAs(UnmanagedType.LPWStr)]
-        public String sv101_name;
+        internal String sv101_name;
 
         /// <summary>
         /// Specifies, in the least significant 4 bits of the byte, the major 
@@ -53,25 +55,25 @@ namespace Cadru.InteropServices
         /// be used to ensure correct results. 
         /// </summary>
         [MarshalAs(UnmanagedType.U4)]
-        public UInt32 sv101_version_major;
+        internal UInt32 sv101_version_major;
 
         /// <summary>
         /// Specifies the minor release version number of the operating system.
         /// </summary>
         [MarshalAs(UnmanagedType.U4)]
-        public UInt32 sv101_version_minor;
+        internal UInt32 sv101_version_minor;
 
         /// <summary>
         /// Specifies the type of software the computer is running.
         /// </summary>
         [MarshalAs(UnmanagedType.U4)]
-        public UInt32 sv101_type;
+        internal UInt32 sv101_type;
 
         /// <summary>
         /// Pointer to a Unicode string specifying a comment describing the server. 
         /// The comment can be null.
         /// </summary>
         [MarshalAs(UnmanagedType.LPWStr)]
-        public String sv101_comment;
+        internal String sv101_comment;
     }
 }

@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="EventArgs(Of T).cs" 
+// <copyright file="EventArgs{T}.cs" 
 //  company="Scott Dorman" 
 //  library="Cadru">
 //    Copyright (C) 2001-2013 Scott Dorman.
@@ -23,10 +23,7 @@
 namespace Cadru
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Runtime.Serialization;
-    using System.Text;
 
     /// <summary>
     /// <see cref="EventArgs{T}"/> is the base class for classes containing event data.
@@ -35,8 +32,11 @@ namespace Cadru
     [DataContract]
     public class EventArgs<T> : EventArgs
     {
+        #region fields
         private readonly T data;
+        #endregion
 
+        #region constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="EventArgs{T}"/> class.
         /// </summary>
@@ -45,7 +45,12 @@ namespace Cadru
         {
             this.data = data;
         }
+        #endregion
 
+        #region events
+        #endregion
+
+        #region properties
         /// <summary>
         /// Gets the event data.
         /// </summary>
@@ -55,5 +60,9 @@ namespace Cadru
         {
             get { return this.data; }
         }
+        #endregion
+
+        #region methods
+        #endregion
     }
 }

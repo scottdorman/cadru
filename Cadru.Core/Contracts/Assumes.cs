@@ -22,23 +22,24 @@
 
 namespace Cadru.Contracts
 {
-    using Cadru.Properties;
     using System;
     using System.Diagnostics;
     using System.Globalization;
+    using Cadru.Internal;
+    using Cadru.Properties;
 
     /// <summary>
     /// Provides a set of methods to simplify debugging your code.
     /// </summary>
-    internal static class Assumes
+    public static class Assumes
     {
-        #region events
-        #endregion
-
         #region fields
         #endregion
 
         #region constructors
+        #endregion
+
+        #region events
         #endregion
 
         #region properties
@@ -248,9 +249,10 @@ namespace Cadru.Contracts
         /// </summary>
         /// <param name="value">The value to test.</param>
         /// <exception cref="AssumptionException"><paramref name="value"/> is <see langword="null"/> or zero-length.</exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void NotNullOrEmpty(string value)
+        public static void NotNullOrEmpty([ValidatedNotNull]string value)
         {
             Assumes.NotNull(value);
             Assumes.IsTrue(value.Length > 0);

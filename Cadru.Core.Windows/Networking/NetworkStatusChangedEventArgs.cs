@@ -29,37 +29,36 @@ namespace Cadru.Networking
     /// </summary>
     public class NetworkStatusChangedEventArgs : EventArgs
     {
-        #region events
-
-        #endregion
-
-        #region class-wide fields
-        private ConnectionStatus _state;
+        #region fields
+        private ConnectionStatus connectionStatus;
         #endregion
 
         #region constructor
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="NetworkStatusChangedEventArgs"/> class.
         /// </summary>
-        /// <param name="state"></param>
-        public NetworkStatusChangedEventArgs(ConnectionStatus state)
+        /// <param name="status">The event data representing the current connection status.</param>
+        public NetworkStatusChangedEventArgs(ConnectionStatus status)
         {
-            this._state = state;
+            this.connectionStatus = status;
         }
+        #endregion
+
+        #region events
         #endregion
 
         #region properties
 
-        #region ConnectionState
+        #region ConnectionStatus
         /// <summary>
         /// Gets the current network connection status.
         /// </summary>
         /// <value>The current network connection status.</value>
-        public ConnectionStatus ConnectionState
+        public ConnectionStatus ConnectionStatus
         {
             get
             {
-                return _state;
+                return this.connectionStatus;
             }
         }
         #endregion

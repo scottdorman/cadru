@@ -52,6 +52,8 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\Debug\Cadru.UnitTest.Framework.XML</DocumentationFile>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -76,6 +78,7 @@
     <Compile Include="Internal\Contracts\AssumptionException.cs" />
     <Compile Include="Internal\Contracts\Requires.cs" />
     <Compile Include="Internal\ExceptionBuilder.cs" />
+    <Compile Include="Internal\ValidatedNotNullAttribute.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

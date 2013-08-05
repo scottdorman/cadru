@@ -20,63 +20,27 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.Internal.Contracts
+namespace Cadru.Contracts
 {
     using System;
     using System.Diagnostics;
     using System.Globalization;
-    using Cadru.UnitTest.Framework.Internal.Contracts;
+    using Cadru.Internal;
     using Cadru.UnitTest.Framework.Properties;
 
     /// <summary>
     /// Provides a set of methods to simplify debugging your code.
     /// </summary>
-    internal static class Assumes
+    public static class Assumes
     {
-        #region events
-        #endregion
-
-        #region class-wide fields
+        #region fields
         #endregion
 
         #region constructors
         #endregion
 
-        #region private and internal properties and methods
-
-        #region properties
+        #region events
         #endregion
-
-        #region methods
-
-        #region FailFast
-        /// <summary>
-        /// Throws a new <see cref="AssumptionException"/> and a <see cref="Debug.Assert(bool, string)"/> assertion failure.
-        /// </summary>
-        /// <param name="message">The message of the resulting AssumptionException.</param>
-        /// <exception cref="AssumptionException">An assumption failed.</exception>
-        private static void FailFast(string message)
-        {
-            if (String.IsNullOrEmpty(message))
-            {
-                message = Resources.AssumptionException_EmptyMessage;
-            }
-            else
-            {
-                message = String.Format(CultureInfo.CurrentUICulture, Resources.AssumptionException_Message, message);
-            }
-
-            // Need to use Debug.Assert instead of Debug.Fail because Silverlight doesn't contain Debug.Fail.
-            Debug.Assert(false, message);
-            throw new AssumptionException(message);
-        }
-        #endregion
-
-        #endregion
-
-        #endregion
-
-        #region public and protected properties and methods
 
         #region properties
         #endregion
@@ -93,7 +57,7 @@ namespace Cadru.Internal.Contracts
         [Conditional("DEBUG")]
         public static void Fail(string message)
         {
-            FailFast(message);
+            Assumes.FailFast(message);
         }
         #endregion
 
@@ -109,10 +73,7 @@ namespace Cadru.Internal.Contracts
         [Conditional("DEBUG")]
         public static void IsFalse(bool condition)
         {
-            if (condition)
-            {
-                Fail(null);
-            }
+            Assumes.IsFalse(condition, null);
         }
         #endregion
 
@@ -129,7 +90,7 @@ namespace Cadru.Internal.Contracts
         {
             if (condition)
             {
-                Fail(message);
+                Assumes.Fail(message);
             }
         }
         #endregion
@@ -148,10 +109,7 @@ namespace Cadru.Internal.Contracts
         [Conditional("DEBUG")]
         public static void IsTrue(bool condition)
         {
-            if (!condition)
-            {
-                Fail(null);
-            }
+            Assumes.IsTrue(condition, null);
         }
         #endregion
 
@@ -168,7 +126,7 @@ namespace Cadru.Internal.Contracts
         {
             if (!condition)
             {
-                Fail(message);
+                Assumes.Fail(message);
             }
         }
         #endregion
@@ -188,7 +146,7 @@ namespace Cadru.Internal.Contracts
         [Conditional("DEBUG")]
         public static void NotNull<T>(T value)
         {
-            IsTrue(value != null);
+            Assumes.IsTrue(value != null);
         }
         #endregion
 
@@ -211,8 +169,8 @@ namespace Cadru.Internal.Contracts
         [Conditional("DEBUG")]
         public static void NotNull<T1, T2>(T1 value1, T2 value2)
         {
-            NotNull(value1);
-            NotNull(value2);
+            Assumes.NotNull(value1);
+            Assumes.NotNull(value2);
         }
         #endregion
 
@@ -240,9 +198,9 @@ namespace Cadru.Internal.Contracts
         [Conditional("DEBUG")]
         public static void NotNull<T1, T2, T3>(T1 value1, T2 value2, T3 value3)
         {
-            NotNull(value1);
-            NotNull(value2);
-            NotNull(value3);
+            Assumes.NotNull(value1);
+            Assumes.NotNull(value2);
+            Assumes.NotNull(value3);
         }
         #endregion
 
@@ -276,10 +234,10 @@ namespace Cadru.Internal.Contracts
         [Conditional("DEBUG")]
         public static void NotNull<T1, T2, T3, T4>(T1 value1, T2 value2, T3 value3, T4 value4)
         {
-            NotNull(value1);
-            NotNull(value2);
-            NotNull(value3);
-            NotNull(value4);
+            Assumes.NotNull(value1);
+            Assumes.NotNull(value2);
+            Assumes.NotNull(value3);
+            Assumes.NotNull(value4);
         }
         #endregion
 
@@ -291,12 +249,13 @@ namespace Cadru.Internal.Contracts
         /// </summary>
         /// <param name="value">The value to test.</param>
         /// <exception cref="AssumptionException"><paramref name="value"/> is <see langword="null"/> or zero-length.</exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void NotNullOrEmpty(string value)
+        public static void NotNullOrEmpty([ValidatedNotNull]string value)
         {
-            NotNull(value);
-            IsTrue(value.Length > 0);
+            Assumes.NotNull(value);
+            Assumes.IsTrue(value.Length > 0);
         }
         #endregion
 
@@ -310,10 +269,31 @@ namespace Cadru.Internal.Contracts
         [Conditional("DEBUG")]
         public static void Null(object value)
         {
-            IsTrue(value == null);
+            Assumes.IsTrue(value == null);
         }
         #endregion
 
+        #region FailFast
+        /// <summary>
+        /// Throws a new <see cref="AssumptionException"/> and a <see cref="Debug.Assert(bool, string)"/> assertion failure.
+        /// </summary>
+        /// <param name="message">The message of the resulting AssumptionException.</param>
+        /// <exception cref="AssumptionException">An assumption failed.</exception>
+        private static void FailFast(string message)
+        {
+            if (String.IsNullOrEmpty(message))
+            {
+                message = Resources.AssumptionException_EmptyMessage;
+            }
+            else
+            {
+                message = String.Format(CultureInfo.CurrentUICulture, Resources.AssumptionException_Message, message);
+            }
+
+            // Need to use Debug.Assert instead of Debug.Fail because Silverlight doesn't contain Debug.Fail.
+            Debug.Assert(false, message);
+            throw new AssumptionException(message);
+        }
         #endregion
 
         #endregion

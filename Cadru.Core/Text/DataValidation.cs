@@ -30,6 +30,20 @@ namespace Cadru.Text
     /// </summary>
     public static class DataValidation
     {
+        #region fields
+        #endregion
+
+        #region constructors
+        #endregion
+
+        #region events
+        #endregion
+
+        #region properties
+        #endregion
+
+        #region methods
+
         #region Validate
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/> matches the
@@ -76,10 +90,7 @@ namespace Cadru.Text
         /// punctuation characters and the space character.</remarks>
         public static bool IsAlpha(this string expression) 
         {
-            if (expression == null)
-            {
-                throw new ArgumentNullException("expression");
-            }
+            Contracts.Requires.NotNull(expression, "expression");
 
             bool success = true;
 
@@ -130,10 +141,7 @@ namespace Cadru.Text
         /// Numeric characters are 0-9.</remarks>
         public static bool IsAlphanumeric(this string expression) 
         {
-            if (expression == null)
-            {
-                throw new ArgumentNullException("expression");
-            }
+            Contracts.Requires.NotNull(expression, "expression");
 
             bool success = true;
 
@@ -415,10 +423,7 @@ namespace Cadru.Text
         /// <remarks>Alphabetic characters are any letters A-Z or a-z.</remarks>
         public static bool IsStrictlyAlpha(this string expression) 
         {
-            if (expression == null)
-            {
-                throw new ArgumentNullException("expression");
-            }
+            Contracts.Requires.NotNull(expression, "expression");
 
             bool success = true;
 
@@ -467,10 +472,7 @@ namespace Cadru.Text
         /// Numeric characters are 0-9.</remarks>
         public static bool IsStrictlyAlphanumeric(this string expression) 
         {
-            if (expression == null)
-            {
-                throw new ArgumentNullException("expression");
-            }
+            Contracts.Requires.NotNull(expression, "expression");
 
             bool success = true;
 
@@ -526,6 +528,8 @@ namespace Cadru.Text
 
             return Validate(Convert.ToString(expression, CultureInfo.InvariantCulture), pattern);
         }
+        #endregion
+
         #endregion
 
         #endregion

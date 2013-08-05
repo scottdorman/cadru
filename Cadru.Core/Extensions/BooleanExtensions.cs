@@ -23,15 +23,26 @@
 namespace Cadru.Extensions
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
 
     /// <summary>
-    /// Provides basic routines for common boolean manipulation.
+    /// Provides basic routines for common Boolean manipulation.
     /// </summary>
     public static class BooleanExtensions
     {
+        #region fields
+        #endregion
+
+        #region constructors
+        #endregion
+
+        #region events
+        #endregion
+
+        #region properties
+        #endregion
+
+        #region methods
+
         #region ToBit
         /// <summary>
         /// Returns the binary representation of the boolean value.
@@ -150,6 +161,8 @@ namespace Cadru.Extensions
                 return false;
             }
         }
+        #endregion
+
         #endregion
 
         #endregion

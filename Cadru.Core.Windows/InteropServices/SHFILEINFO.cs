@@ -21,8 +21,8 @@
 //------------------------------------------------------------------------------
 namespace Cadru.InteropServices
 {
-    using System.Runtime.InteropServices;
     using System;
+    using System.Runtime.InteropServices;
 
     /// <summary>
     /// This structure contains information about a file object.
@@ -30,6 +30,8 @@ namespace Cadru.InteropServices
     /// <remarks>
     /// This structure is used with the SHGetFileInfo function.
     /// </remarks>
+    [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1307:AccessibleFieldsMustBeginWithUpperCaseLetter", Justification = "Reviewed.")]
+    [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
     internal struct SHFILEINFO
     {

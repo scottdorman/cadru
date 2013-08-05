@@ -1,5 +1,4 @@
-﻿using System;
-//------------------------------------------------------------------------------
+﻿//------------------------------------------------------------------------------
 // <copyright file="EnumExtensions.cs" 
 //  company="Scott Dorman" 
 //  library="Cadru">
@@ -23,19 +22,29 @@
 
 namespace Cadru.Extensions
 {
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Globalization;
+    using System;
     using System.Linq;
     using System.Reflection;
-    using System.Text;
 
     /// <summary>
     /// Provides basic routines for common enumerated type manipulation.
     /// </summary>
     public static class EnumExtensions
     {
+        #region fields
+        #endregion
+
+        #region constructors
+        #endregion
+
+        #region events
+        #endregion
+
+        #region properties
+        #endregion
+
+        #region methods
+
         #region GetDescription
         /// <summary>
         /// Gets the <see cref="EnumDescriptionAttribute"/> of an <see cref="Enum"/> type value.
@@ -44,10 +53,7 @@ namespace Cadru.Extensions
         /// <returns>A string containing the text of the <see cref="EnumDescriptionAttribute"/>.</returns>
         public static string GetDescription(this Enum value)
         {
-            if (value == null)
-            {
-                throw new ArgumentNullException("value");
-            }
+            Contracts.Requires.NotNull(value, "value");
 
             Type type = value.GetType();
             string description = value.ToString();
@@ -63,6 +69,8 @@ namespace Cadru.Extensions
 
             return description;
         }
+        #endregion
+
         #endregion
     }
 }

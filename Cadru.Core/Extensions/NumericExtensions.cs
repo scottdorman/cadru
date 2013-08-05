@@ -24,8 +24,6 @@ namespace Cadru.Extensions
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using Cadru.Text;
 
     /// <summary>
@@ -33,6 +31,20 @@ namespace Cadru.Extensions
     /// </summary>
     public static class NumericExtensions
     {
+        #region fields
+        #endregion
+
+        #region constructors
+        #endregion
+
+        #region events
+        #endregion
+
+        #region properties
+        #endregion
+
+        #region methods
+
         #region Between
 
         #region Between(byte expression, byte min, byte max)
@@ -202,9 +214,9 @@ namespace Cadru.Extensions
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
         /// </summary>
-        /// <param name="expression">Any int value.</param>
-        /// <param name="min">The minimum int value.</param>
-        /// <param name="max">The maximum int value.</param>
+        /// <param name="expression">Any integer value.</param>
+        /// <param name="min">The minimum integer value.</param>
+        /// <param name="max">The maximum integer value.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it 
         /// returns <see langword="false" />.</returns>
@@ -219,9 +231,9 @@ namespace Cadru.Extensions
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
         /// </summary>
-        /// <param name="expression">Any int value.</param>
-        /// <param name="min">The minimum int value.</param>
-        /// <param name="max">The maximum int value.</param>
+        /// <param name="expression">Any integer value.</param>
+        /// <param name="min">The minimum integer value.</param>
+        /// <param name="max">The maximum integer value.</param>
         /// <param name="options">A bitwise combination of enumeration values 
         /// that defines whether the comparison is inclusive.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
@@ -1143,6 +1155,8 @@ namespace Cadru.Extensions
 
             return success;
         }
+        #endregion
+
         #endregion
     }
 }

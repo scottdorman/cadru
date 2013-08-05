@@ -23,7 +23,7 @@
 namespace Cadru.Networking
 {
     /// <summary>
-    /// Represents the network connection state.
+    /// Represents the network connection connectionStatus.
     /// </summary>
     public enum ConnectionStatus
     {

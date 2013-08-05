@@ -44,10 +44,6 @@ namespace Cadru
     /// </summary>
     public static class InternetInformationServicesDetection
     {
-        #region events
-
-        #endregion
-
         #region fields
 
         private const string IISRegKeyName = "Software\\Microsoft\\InetStp";
@@ -63,6 +59,9 @@ namespace Cadru
         #endregion
 
         #region constructors
+        #endregion
+
+        #region events
         #endregion
 
         #region properties
@@ -454,7 +453,7 @@ namespace Cadru
                         ret = IsFeatureInstalled("Metabase");
                         break;
 
-                    case InternetInformationServicesFeature.WMICompatability:
+                    case InternetInformationServicesFeature.WMICompatibility:
                         ret = IsFeatureInstalled("WMICompatibility", "Metabase");
                         break;
 
