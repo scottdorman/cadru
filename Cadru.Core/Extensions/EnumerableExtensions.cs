@@ -60,7 +60,7 @@ namespace Cadru.Extensions
             ICollection collection = source as ICollection;
             if (collection != null)
             {
-                empty = collection.IsEmpty();
+                empty = collection.Count == 0;
             }
             else
             {
