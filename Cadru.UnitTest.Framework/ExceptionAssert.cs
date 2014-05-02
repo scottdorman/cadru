@@ -2,7 +2,7 @@
 // <copyright file="ExceptionAssert.cs" 
 //  company="Scott Dorman" 
 //  library="Cadru">
-//    Copyright (C) 2001-2013 Scott Dorman.
+//    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
 // 
 // <license>
@@ -54,6 +54,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
         /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static Exception Throws(Action code, string message, params object[] parameters)
         {
             return Throws(typeof(Exception), code, message, parameters);
@@ -66,6 +67,7 @@ namespace Cadru.UnitTest.Framework
         /// </summary>
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static Exception Throws(Action code, string message)
         {
             return Throws(typeof(Exception), code, message);
@@ -77,6 +79,7 @@ namespace Cadru.UnitTest.Framework
         /// Verifies that <paramref name="code"/> throws an exception when called.
         /// </summary>
         /// <param name="code">The code to test.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static Exception Throws(Action code)
         {
             return Throws(typeof(Exception), code);
@@ -87,10 +90,11 @@ namespace Cadru.UnitTest.Framework
         /// <summary>
         /// Verifies that <paramref name="code"/> throws a particular exception when called.
         /// </summary>
-        /// <param name="expectedExceptionType">The exception Type expected</param>
+        /// <param name="expectedExceptionType">The exception Type expected.</param>
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
         /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static Exception Throws(Type expectedExceptionType, Action code, string message, params object[] parameters)
         {
             Exception caughtException = null;
@@ -118,9 +122,10 @@ namespace Cadru.UnitTest.Framework
         /// <summary>
         /// Verifies that <paramref name="code"/> throws a particular exception when called.
         /// </summary>
-        /// <param name="expectedExceptionType">The exception Type expected</param>
+        /// <param name="expectedExceptionType">The exception Type expected.</param>
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static Exception Throws(Type expectedExceptionType, Action code, string message)
         {
             return Throws(expectedExceptionType, code, message, null);
@@ -131,8 +136,9 @@ namespace Cadru.UnitTest.Framework
         /// <summary>
         /// Verifies that <paramref name="code"/> throws a particular exception when called.
         /// </summary>
-        /// <param name="expectedExceptionType">The exception Type expected</param>
+        /// <param name="expectedExceptionType">The exception Type expected.</param>
         /// <param name="code">The code to test.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static Exception Throws(Type expectedExceptionType, Action code)
         {
             return Throws(expectedExceptionType, code, String.Empty, null);
@@ -143,10 +149,11 @@ namespace Cadru.UnitTest.Framework
         /// <summary>
         /// Verifies that <paramref name="code"/> throws a particular exception when called.
         /// </summary>
-        /// <typeparam name="T">Type of the expected exception</typeparam>
+        /// <typeparam name="T">Type of the expected exception.</typeparam>
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
         /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static T Throws<T>(Action code, string message, params object[] parameters) where T : Exception
         {
             return (T)Throws(typeof(T), code, message, parameters);
@@ -157,9 +164,10 @@ namespace Cadru.UnitTest.Framework
         /// <summary>
         /// Verifies that <paramref name="code"/> throws a particular exception when called.
         /// </summary>
-        /// <typeparam name="T">Type of the expected exception</typeparam>
+        /// <typeparam name="T">Type of the expected exception.</typeparam>
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static T Throws<T>(Action code, string message) where T : Exception
         {
             return Throws<T>(code, message, null);
@@ -170,8 +178,9 @@ namespace Cadru.UnitTest.Framework
         /// <summary>
         /// Verifies that <paramref name="code"/> throws a particular exception when called.
         /// </summary>
-        /// <typeparam name="T">Type of the expected exception</typeparam>
+        /// <typeparam name="T">Type of the expected exception.</typeparam>
         /// <param name="code">The code to test.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static T Throws<T>(Action code) where T : Exception
         {
             return Throws<T>(code, String.Empty, null);
@@ -190,6 +199,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
         /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static Exception Catch(Action code, string message, params object[] parameters)
         {
             return Catch(typeof(Exception), code, message, parameters);
@@ -203,6 +213,7 @@ namespace Cadru.UnitTest.Framework
         /// </summary>
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static Exception Catch(Action code, string message)
         {
             return Catch(typeof(Exception), code, message);
@@ -215,6 +226,7 @@ namespace Cadru.UnitTest.Framework
         /// and returns it.
         /// </summary>
         /// <param name="code">The code to test.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static Exception Catch(Action code)
         {
             return Catch(typeof(Exception), code);
@@ -226,10 +238,11 @@ namespace Cadru.UnitTest.Framework
         /// Verifies that <paramref name="code"/> throws an exception of a certain Type
         /// or one derived from it when called and returns it.
         /// </summary>
-        /// <param name="expectedExceptionType">The expected Exception Type</param>
+        /// <param name="expectedExceptionType">The expected exception type.</param>
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
         /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static Exception Catch(Type expectedExceptionType, Action code, string message, params object[] parameters)
         {
             Exception caughtException = null;
@@ -258,9 +271,10 @@ namespace Cadru.UnitTest.Framework
         /// Verifies that <paramref name="code"/> throws an exception of a certain Type
         /// or one derived from it when called and returns it.
         /// </summary>
-        /// <param name="expectedExceptionType">The expected Exception Type</param>
+        /// <param name="expectedExceptionType">The expected exception type.</param>
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static Exception Catch(Type expectedExceptionType, Action code, string message)
         {
             return Catch(expectedExceptionType, code, message, null);
@@ -272,8 +286,9 @@ namespace Cadru.UnitTest.Framework
         /// Verifies that <paramref name="code"/> throws an exception of a certain Type
         /// or one derived from it when called and returns it.
         /// </summary>
-        /// <param name="expectedExceptionType">The expected Exception Type</param>
+        /// <param name="expectedExceptionType">The expected exception type.</param>
         /// <param name="code">The code to test.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static Exception Catch(Type expectedExceptionType, Action code)
         {
             return Catch(expectedExceptionType, code, String.Empty, null);
@@ -285,10 +300,11 @@ namespace Cadru.UnitTest.Framework
         /// Verifies that <paramref name="code"/> throws an exception of a certain Type
         /// or one derived from it when called and returns it.
         /// </summary>
-        /// <typeparam name="T">The expected Exception Type</typeparam>
+        /// <typeparam name="T">The expected exception type.</typeparam>
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
         /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static T Catch<T>(Action code, string message, params object[] parameters) where T : System.Exception
         {
             return (T)Catch(typeof(T), code, message, parameters);
@@ -300,9 +316,10 @@ namespace Cadru.UnitTest.Framework
         /// Verifies that <paramref name="code"/> throws an exception of a certain Type
         /// or one derived from it when called and returns it.
         /// </summary>
-        /// <typeparam name="T">The expected Exception Type</typeparam>
+        /// <typeparam name="T">The expected exception type.</typeparam>
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static T Catch<T>(Action code, string message) where T : System.Exception
         {
             return (T)Catch(typeof(T), code, message);
@@ -314,8 +331,9 @@ namespace Cadru.UnitTest.Framework
         /// Verifies that <paramref name="code"/> throws an exception of a certain Type
         /// or one derived from it when called and returns it.
         /// </summary>
-        /// <typeparam name="T">The expected Exception Type</typeparam>
+        /// <typeparam name="T">The expected exception type.</typeparam>
         /// <param name="code">The code to test.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static T Catch<T>(Action code) where T : System.Exception
         {
             return (T)Catch(typeof(T), code);
@@ -328,7 +346,7 @@ namespace Cadru.UnitTest.Framework
 
         #region DoesNotThrow(Action code, string message, params object[] parameters)
         /// <summary>
-        /// Verifies that <paramref name="code"/> does not throw an exception
+        /// Verifies that <paramref name="code"/> does not throw an exception.
         /// </summary>
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
@@ -347,7 +365,6 @@ namespace Cadru.UnitTest.Framework
             }
 
             Assert.IsNull(caughtException, message, parameters);
-
         }
         #endregion
 
@@ -380,14 +397,17 @@ namespace Cadru.UnitTest.Framework
 
         #region WithMessage<T>(this T exception, string message, ExceptionMessageComparison comparison)
         /// <summary>
-        /// Verifies the exception message.
+        /// Verifies that the exception <see cref="Exception.Message"/>
+        /// contains the given text.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="exception"></param>
-        /// <param name="message"></param>
-        /// <param name="comparison"></param>
-        /// <returns></returns>
-        public static T WithMessage<T>(this T exception, string message, ExceptionMessageComparison comparison) where T: Exception
+        /// <typeparam name="T">The exception type.</typeparam>
+        /// <param name="exception">The exception whose <see cref="Exception.Message"/>
+        /// will be searched.</param>
+        /// <param name="message">The text to search for in the exception
+        /// <see cref="Exception.Message"/>.</param>
+        /// <param name="comparison">One of the <see cref="ExceptionMessageComparison"/> values.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        public static T WithMessage<T>(this T exception, string message, ExceptionMessageComparison comparison) where T : Exception
         {
             Assert.IsNotNull(exception);
 
@@ -416,12 +436,14 @@ namespace Cadru.UnitTest.Framework
 
         #region WithMessage<T>(this T exception, string message)
         /// <summary>
-        /// Verifies the exception message.
+        /// Verifies that the exception <see cref="Exception.Message"/>
+        /// is equal to the given text.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="exception"></param>
-        /// <param name="message"></param>
-        /// <returns></returns>
+        /// <typeparam name="T">The exception type.</typeparam>
+        /// <param name="exception">The exception whose <see cref="Exception.Message"/>
+        /// will be compared.</param>
+        /// <param name="message">The text to compare.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         public static T WithMessage<T>(this T exception, string message) where T : Exception
         {
             return exception.WithMessage(message, ExceptionMessageComparison.Exact);
@@ -432,13 +454,15 @@ namespace Cadru.UnitTest.Framework
 
         #region WithParameter
         /// <summary>
-        /// Verifies the exception ParamName.
+        /// Verifies that the exception <see cref="ArgumentException.ParamName"/> 
+        /// property is equal to the given text.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="exception"></param>
-        /// <param name="parameterName"></param>
-        /// <returns></returns>
-        public static T WithParameter<T>(this T exception, string parameterName) where T: ArgumentException
+        /// <typeparam name="T">The exception type.</typeparam>
+        /// <param name="exception">The exception whose <see cref="ArgumentException.ParamName"/>
+        /// property will be compared.</param>
+        /// <param name="parameterName">The text to compare.</param>
+        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        public static T WithParameter<T>(this T exception, string parameterName) where T : ArgumentException
         {
             Assert.IsNotNull(exception);
             Assert.AreEqual(exception.ParamName, parameterName);

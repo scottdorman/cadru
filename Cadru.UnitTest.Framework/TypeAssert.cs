@@ -2,7 +2,7 @@
 // <copyright file="TypeAssert.cs" 
 //  company="Scott Dorman" 
 //  library="Cadru">
-//    Copyright (C) 2001-2013 Scott Dorman.
+//    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
 // 
 // <license>
@@ -23,10 +23,10 @@
 namespace Cadru.UnitTest.Framework
 {
     using System;
-    using Cadru.UnitTest.Framework.Properties;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Cadru.Contracts;
     using Cadru.Extensions;
+    using Cadru.UnitTest.Framework.Properties;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
     /// Contains assertion types that are not provided with the standard MSTest assertions.

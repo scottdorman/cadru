@@ -2,7 +2,7 @@
 // <copyright file="ExceptionMessageComparison.cs" 
 //  company="Scott Dorman" 
 //  library="Cadru">
-//    Copyright (C) 2001-2013 Scott Dorman.
+//    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
 // 
 // <license>
@@ -31,7 +31,6 @@ namespace Cadru.UnitTest.Framework
     /// Options used by the <see cref="Cadru.UnitTest.Framework.ExceptionAssert.WithMessage{T}(T, string, ExceptionMessageComparison)"/>
     /// method to determine how to compare the exception message.
     /// </summary>
-
     public enum ExceptionMessageComparison
     {
         /// <summary>
