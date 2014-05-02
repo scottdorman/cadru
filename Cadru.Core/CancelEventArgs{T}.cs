@@ -1,8 +1,8 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="EventArgs{T}.cs" 
+// <copyright file="CancelEventArgs{T}.cs" 
 //  company="Scott Dorman" 
 //  library="Cadru">
-//    Copyright (C) 2001-2013 Scott Dorman.
+//    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
 // 
 // <license>

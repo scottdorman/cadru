@@ -2,7 +2,7 @@
 // <copyright file="TypeExtensions.cs" 
 //  company="Scott Dorman" 
 //  library="Cadru">
-//    Copyright (C) 2001-2013 Scott Dorman.
+//    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
 // 
 // <license>
@@ -47,7 +47,7 @@ namespace Cadru.Extensions
         /// <summary>
         /// Determines whether the specified type is nullable.
         /// </summary>
-        /// <param name="type">The type.</param>
+        /// <param name="type">The type to test.</param>
         /// <returns>
         ///   <see langword="true"/> if the specified type is nullable; otherwise, <see langword="false"/>.
         /// </returns>

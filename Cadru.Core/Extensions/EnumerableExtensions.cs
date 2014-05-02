@@ -2,7 +2,7 @@
 // <copyright file="EnumerableExtensions.cs" 
 //  company="Scott Dorman" 
 //  library="Cadru">
-//    Copyright (C) 2001-2013 Scott Dorman.
+//    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
 // 
 // <license>
@@ -22,11 +22,11 @@
 
 namespace Cadru.Extensions
 {
+    using System;
     using System.Collections;
-    using Cadru.Internal;
     using System.Collections.Generic;
     using System.Linq;
-    using System;
+    using Cadru.Internal;
 
     /// <summary>
     /// Provides basic routines for common sequence and collection manipulation.

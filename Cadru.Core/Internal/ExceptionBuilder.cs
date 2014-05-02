@@ -2,7 +2,7 @@
 // <copyright file="ExceptionBuilder.cs" 
 //  company="Scott Dorman" 
 //  library="Cadru">
-//    Copyright (C) 2001-2013 Scott Dorman.
+//    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
 // 
 // <license>
@@ -25,8 +25,8 @@ namespace Cadru.Internal
     using System;
     using System.Globalization;
     using Cadru.Contracts;
-    using Cadru.Properties;
     using Cadru.Extensions;
+    using Cadru.Properties;
 
     /// <summary>
     /// Provides methods to create specific exceptions.

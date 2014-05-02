@@ -2,7 +2,7 @@
 // <copyright file="DateComparer.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2013 Scott Dorman.
+//    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -27,9 +27,9 @@ namespace Cadru.Collections
     using System.Collections.Generic;
     using System.Globalization;
     using System.Threading;
-    using Cadru.Properties;
     using Cadru.Extensions;
     using Cadru.Internal;
+    using Cadru.Properties;
 
     /// <summary>
     /// Compares two dates or string date representations for equivalence,

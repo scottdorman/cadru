@@ -2,7 +2,7 @@
 // <copyright file="Requires.cs" 
 //  company="Scott Dorman" 
 //  library="Cadru">
-//    Copyright (C) 2001-2013 Scott Dorman.
+//    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
 // 
 // <license>
@@ -23,14 +23,13 @@
 namespace Cadru.Contracts
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Globalization;
+    using System.Linq;
+    using Cadru.Extensions;
     using Cadru.Internal;
     using Cadru.Properties;
-    using Cadru.Extensions;
-    using System.Collections;
-    using System.Linq;
-    using System.Collections.Generic;
 
     /// <summary>
     /// Provides a set of methods to simplify code contract requirements.
@@ -338,8 +337,9 @@ namespace Cadru.Contracts
         #region ValidElements
         /// <summary>
         /// Checks that <paramref name="values"/> is not <see langword="null"/> 
-        /// and contains valid elements based on the given predicate
+        /// and contains valid elements based on the given predicate.
         /// </summary>
+        /// <typeparam name="T">The type of the members of <paramref name="values"/>.</typeparam>
         /// <param name="values">The parameter to test.</param>
         /// <param name="match">The predicate used to test the elements.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>

@@ -2,7 +2,7 @@
 // <copyright file="Assumes.cs" 
 //  company="Scott Dorman" 
 //  library="Cadru">
-//    Copyright (C) 2001-2013 Scott Dorman.
+//    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
 // 
 // <license>
@@ -25,9 +25,9 @@ namespace Cadru.Contracts
     using System;
     using System.Diagnostics;
     using System.Globalization;
+    using Cadru.Extensions;
     using Cadru.Internal;
     using Cadru.Properties;
-    using Cadru.Extensions;
 
     /// <summary>
     /// Provides a set of methods to simplify debugging your code.

@@ -2,7 +2,7 @@
 // <copyright file="StringExtensions.cs" 
 //  company="Scott Dorman" 
 //  library="Cadru">
-//    Copyright (C) 2001-2013 Scott Dorman.
+//    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
 // 
 // <license>
@@ -25,11 +25,9 @@ namespace Cadru.Extensions
     using System;
     using System.Globalization;
     using System.Text;
+    using Cadru.Internal;
     using Cadru.Properties;
     using Cadru.Text;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Cadru.Internal;
 
     /// <summary>
     /// Provides basic routines for common string manipulation.
@@ -1380,6 +1378,29 @@ namespace Cadru.Extensions
 
         #endregion
 
+        #region Truncate
+        /// <summary>
+        /// Returns a new string whose textual value is <paramref name="source"/>
+        /// which has been truncated at <paramref name="length"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="length">The maximum number of characters to be included
+        /// in the new <see cref="string"/>.</param>
+        /// <returns>If <paramref name="source"/> is greater than
+        /// <paramref name="length"/>, a new string representing 
+        /// <paramref name="source"/> which has been truncated at
+        /// <paramref name="length"/>; otherwise, the original value.</returns>
+        public static string Truncate(this string source, int length)
+        {
+            if (!String.IsNullOrEmpty(source) && source.Length > length)
+            {
+                return source.Substring(0, length);
+            }
+
+            return source;
+        }
+        #endregion
+
         #region TrimWhiteSpaceAndNull
         internal static string TrimWhiteSpaceAndNull(this string source)
         {
@@ -1409,29 +1430,6 @@ namespace Cadru.Extensions
             }
 
             return source.Substring(num, length - num + 1);
-        }
-        #endregion
-
-        #region Truncate
-        /// <summary>
-        /// Returns a new string whose textual value is <paramref name="source"/>
-        /// which has been truncated at <paramref name="length"/>.
-        /// </summary>
-        /// <param name="source">The source <see cref="String"/>.</param>
-        /// <param name="length">The maximum number of characters to be included
-        /// in the new <see cref="string"/>.</param>
-        /// <returns>If <paramref name="source"/> is greater than
-        /// <paramref name="length"/>, a new string representing 
-        /// <paramref name="source"/> which has been truncated at
-        /// <paramref name="length"/>; otherwise, the original value.</returns>
-        public static string Truncate(this string source, int length)
-        {
-            if (!String.IsNullOrEmpty(source) && source.Length > length)
-            {
-                return source.Substring(0, length);
-            }
-
-            return source;
         }
         #endregion
 

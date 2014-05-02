@@ -22,11 +22,11 @@
 
 namespace Cadru.Extensions
 {
-    using Cadru.Internal;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using Cadru.Internal;
 
     /// <summary>
     /// Provides basic routines for determining if an instance is <see langword="null"/>.
@@ -43,7 +43,7 @@ namespace Cadru.Extensions
         /// otherwise, <see langword="false"/>.</returns>
         public static bool IsNull<T>(this T source) 
         {
-            return (source == null);
+            return source == null;
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Cadru.Extensions
         /// otherwise, <see langword="false"/>.</returns>
         public static bool IsNotNull<T>([ValidatedNotNull]this T source) 
         {
-            return (source != null);
+            return source != null;
         }
     }
 }
