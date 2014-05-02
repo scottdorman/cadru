@@ -24,7 +24,7 @@ namespace Cadru.Text
     using System;
 
     /// <summary>
-    /// Options used by the <see cref="Cadru.Extensions.StringExtensions.Normalize(string)"/> methods to
+    /// Options used by the <see cref="Cadru.Extensions.StringExtensions.Clean(string)"/> methods to
     /// determine how to normalize a string.
     /// </summary>
     [Flags]

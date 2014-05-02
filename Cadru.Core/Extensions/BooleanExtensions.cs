@@ -23,6 +23,7 @@
 namespace Cadru.Extensions
 {
     using System;
+    using System.Linq;
 
     /// <summary>
     /// Provides basic routines for common Boolean manipulation.
@@ -30,6 +31,9 @@ namespace Cadru.Extensions
     public static class BooleanExtensions
     {
         #region fields
+        private static readonly string[] FalseLiterals = { "false", "f", "no", "n" };
+        private static readonly string[] TrueLiterals = { "true", "t", "yes", "y", };
+
         #endregion
 
         #region constructors
@@ -67,9 +71,9 @@ namespace Cadru.Extensions
         }
         #endregion
 
-        #region TryParse
+        #region TryParseAsBoolean
 
-        #region TryParse(int value, out bool result)
+        #region TryParseAsBoolean(int value, out bool result)
         /// <overloads>
         /// <summary>
         /// Tries to convert the specified representation of a logical value to its 
@@ -87,7 +91,7 @@ namespace Cadru.Extensions
         /// If the conversion failed, contains <see langword="false"/>. The conversion fails if 
         /// <paramref name="value"/> is not equal to 1 (one) or 0 (zero).</param>
         /// <returns><see langword="true"/> if value was converted successfully; otherwise, <see langword="false"/>.</returns>
-        public static bool TryParse(int value, out bool result)
+        public static bool TryParseAsBoolean(this int value, out bool result)
         {
             result = false;
             if (value == 1 || value == 0)
@@ -100,7 +104,7 @@ namespace Cadru.Extensions
         }
         #endregion
 
-        #region TryParse(string value, out bool result)
+        #region TryParseAsBoolean(string value, out bool result)
         /// <summary>
         /// Tries to convert the specified string representation of a logical value to its 
         /// Boolean equivalent. A return value indicates whether the conversion succeeded or failed.
@@ -116,50 +120,39 @@ namespace Cadru.Extensions
         /// either <see cref="p:Boolean.TrueString"/>, the character 'T', the word "Yes", or the character 'Y',
         /// <see cref="p:Boolean.FalseString"/>, the character 'F', the word "No", or the character 'N'.</param>
         /// <returns><see langword="true"/> if value was converted successfully; otherwise, <see langword="false"/>.</returns>
-        public static bool TryParse(string value, out bool result)
+        public static bool TryParseAsBoolean(this string value, out bool result)
         {
             result = false;
-            if (value != null)
+            if (value.IsNotNull())
             {
-                if (!"True".Equals(value, StringComparison.OrdinalIgnoreCase) || !"T".Equals(value, StringComparison.OrdinalIgnoreCase) || !"Yes".Equals(value, StringComparison.OrdinalIgnoreCase) || !"Y".Equals(value, StringComparison.OrdinalIgnoreCase))
+                if (FalseLiterals.Any(s => s.Equals(value, StringComparison.OrdinalIgnoreCase)))
                 {
-                    if (!"False".Equals(value, StringComparison.OrdinalIgnoreCase)  || !"F".Equals(value, StringComparison.OrdinalIgnoreCase) || !"No".Equals(value, StringComparison.OrdinalIgnoreCase) || !"N".Equals(value, StringComparison.OrdinalIgnoreCase))
-                    {
-                        value = value.TrimWhiteSpaceAndNull();
-                        if (!"True".Equals(value, StringComparison.OrdinalIgnoreCase) || !"T".Equals(value, StringComparison.OrdinalIgnoreCase) || !"Yes".Equals(value, StringComparison.OrdinalIgnoreCase) || !"Y".Equals(value, StringComparison.OrdinalIgnoreCase))
-                        {
-                            if (!"False".Equals(value, StringComparison.OrdinalIgnoreCase) || !"F".Equals(value, StringComparison.OrdinalIgnoreCase) || !"No".Equals(value, StringComparison.OrdinalIgnoreCase) || !"N".Equals(value, StringComparison.OrdinalIgnoreCase))
-                            {
-                                return false;
-                            }
-                            else
-                            {
-                                result = false;
-                                return true;
-                            }
-                        }
-                        else
-                        {
-                            result = true;
-                            return true;
-                        }
-                    }
-                    else
-                    {
-                        result = false;
-                        return true;
-                    }
+                    result = false;
+                    return true;
                 }
-                else
+
+                if (TrueLiterals.Any(s => s.Equals(value, StringComparison.OrdinalIgnoreCase)))
+                {
+                    result = true;
+                    return true;
+                }
+
+                value = value.TrimWhiteSpaceAndNull();
+
+                if (FalseLiterals.Any(s => s.Equals(value, StringComparison.OrdinalIgnoreCase)))
+                {
+                    result = false;
+                    return true;
+                }
+
+                if (TrueLiterals.Any(s => s.Equals(value, StringComparison.OrdinalIgnoreCase)))
                 {
                     result = true;
                     return true;
                 }
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
         #endregion
 

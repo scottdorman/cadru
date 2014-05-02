@@ -284,6 +284,114 @@ namespace Cadru.UnitTest.Framework
 
         #endregion
 
+        #region IsFalse
+
+        #region IsFalse(bool? condition)
+        /// <summary>
+        /// Verifies that the specified condition is <see langword="false"/>.
+        /// The assertion fails if the condition is <see langword="true"/>.
+        /// </summary>
+        /// <param name="condition">The condition to verify is <see langword="false"/>.</param>
+        /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+        /// <paramref name="condition"/> evaluates to <see langword="true"/>.</exception>
+        public static void IsFalse(bool? condition)
+        {
+            ConditionAssert.IsFalse(condition, Resources.Assertion_GenericFailure, true, condition);
+        }
+        #endregion
+
+        #region IsFalse(bool? condition, string message)
+        /// <summary>
+        /// Verifies that the specified condition is <see langword="false"/>.
+        /// The assertion fails if the condition is <see langword="true"/>.
+        /// Displays a message if the assertion fails. 
+        /// </summary>
+        /// <param name="condition">The condition to verify is <see langword="false"/>.</param>
+        /// <param name="message">A message to display if the assertion fails. This message can be seen in the unit test results.</param>
+        /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+        /// <paramref name="condition"/> evaluates to <see langword="true"/>.</exception>
+        public static void IsFalse(bool? condition, string message)
+        {
+            ConditionAssert.IsFalse(condition, message, null);
+        }
+        #endregion
+
+        #region IsFalse(bool? condition, string message, params object[] parameters)
+        /// <summary>
+        /// Verifies that the specified condition is <see langword="false"/>.
+        /// The assertion fails if the condition is <see langword="true"/>.
+        /// Displays a message if the assertion fails, and applies the specified formatting to it. 
+        /// </summary>
+        /// <param name="condition">The condition to verify is <see langword="false"/>.</param>
+        /// <param name="message">A message to display if the assertion fails. This message can be seen in the unit test results.</param>
+        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
+        /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+        /// <paramref name="condition"/> evaluates to <see langword="true"/>.</exception>
+        public static void IsFalse(bool? condition, string message, params object[] parameters)
+        {
+            if (!condition.HasValue || condition.Value == true)
+            {
+                Assert.Fail(message, parameters);
+            }
+        }
+        #endregion
+
+        #endregion
+
+        #region IsTrue
+
+        #region IsTrue(bool? condition)
+        /// <summary>
+        /// Verifies that the specified condition is <see langword="true"/>.
+        /// The assertion fails if the condition is <see langword="false"/>.
+        /// </summary>
+        /// <param name="condition">The condition to verify is <see langword="true"/>.</param>
+        /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+        /// <paramref name="condition"/> evaluates to <see langword="false"/>.</exception>
+        public static void IsTrue(bool? condition)
+        {
+            ConditionAssert.IsTrue(condition, Resources.Assertion_GenericFailure, true, condition);
+        }
+        #endregion
+
+        #region IsTrue(bool? condition, string message)
+        /// <summary>
+        /// Verifies that the specified condition is <see langword="true"/>.
+        /// The assertion fails if the condition is <see langword="false"/>.
+        /// Displays a message if the assertion fails. 
+        /// </summary>
+        /// <param name="condition">The condition to verify is <see langword="true"/>.</param>
+        /// <param name="message">A message to display if the assertion fails. This message can be seen in the unit test results.</param>
+        /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+        /// <paramref name="condition"/> evaluates to <see langword="false"/>.</exception>
+        public static void IsTrue(bool? condition, string message)
+        {
+            ConditionAssert.IsTrue(condition, message, null);
+        }
+        #endregion
+
+        #region IsTrue(bool? condition, string message, params object[] parameters)
+        /// <summary>
+        /// Verifies that the specified condition is <see langword="true"/>.
+        /// The assertion fails if the condition is <see langword="false"/>.
+        /// Displays a message if the assertion fails, and applies the specified formatting to it. 
+        /// </summary>
+        /// <param name="condition">The condition to verify is <see langword="true"/>.</param>
+        /// <param name="message">A message to display if the assertion fails. This message can be seen in the unit test results.</param>
+        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
+        /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+        /// <paramref name="condition"/> evaluates to <see langword="false"/>.</exception>
+        public static void IsTrue(bool? condition, string message, params object[] parameters)
+        {
+            if (!condition.HasValue || condition.Value == false)
+            {
+                Assert.Fail(message, parameters);
+            }
+        }
+        #endregion
+
+        #endregion
+
         #endregion
     }
 }

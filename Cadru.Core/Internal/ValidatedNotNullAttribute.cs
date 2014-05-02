@@ -24,8 +24,11 @@ namespace Cadru.Internal
 {
     using System;
 
-    [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false)]
-    internal sealed class ValidatedNotNullAttribute : global::System.Attribute
+    /// <summary>
+    /// Indicates to Code Analysis that a method validates a particular parameter.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
+    internal sealed class ValidatedNotNullAttribute : Attribute
     {
         #region fields
         #endregion

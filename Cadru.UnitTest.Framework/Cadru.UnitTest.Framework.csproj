@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Cadru.UnitTest.Framework</RootNamespace>
     <AssemblyName>Cadru.UnitTest.Framework</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -74,11 +74,7 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="Internal\Contracts\Assumes.cs" />
-    <Compile Include="Internal\Contracts\AssumptionException.cs" />
-    <Compile Include="Internal\Contracts\Requires.cs" />
-    <Compile Include="Internal\ExceptionBuilder.cs" />
-    <Compile Include="Internal\ValidatedNotNullAttribute.cs" />
+    <Compile Include="ExceptionMessageComparison.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -107,6 +103,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cadru.Core\Cadru.Core.csproj">
+      <Project>{8a851d1e-9bd8-4caf-a341-0eccac69e53f}</Project>
+      <Name>Cadru.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

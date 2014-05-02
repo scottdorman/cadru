@@ -26,6 +26,7 @@ namespace Cadru.Internal
     using System.Globalization;
     using Cadru.Contracts;
     using Cadru.Properties;
+    using Cadru.Extensions;
 
     /// <summary>
     /// Provides methods to create specific exceptions.
@@ -75,7 +76,7 @@ namespace Cadru.Internal
         {
             Assumes.NotNull(parameterName);
 
-            if (message == null)
+            if (message.IsNull())
             {
                 return new ArgumentNullException(parameterName);
             }
@@ -96,12 +97,32 @@ namespace Cadru.Internal
         {
             Assumes.NotNull(parameterName);
 
-            if (message == null)
+            if (message.IsNull())
             {
                 return new ArgumentOutOfRangeException(parameterName);
             }
 
-            return new ArgumentOutOfRangeException(message, parameterName);
+            return new ArgumentOutOfRangeException(parameterName, message);
+        }
+        #endregion
+
+        #region CreateFormatException
+        /// <summary>
+        /// Create a new <see cref="FormatException"/>.
+        /// </summary>
+        /// <param name="message">The error message that explains the reason for the exception.</param>
+        /// <returns>A new <see cref="FormatException"/>.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        public static FormatException CreateFormatException(string message)
+        {
+            Assumes.NotNull(message);
+
+            if (message.IsNull())
+            {
+                return new FormatException();
+            }
+
+            return new FormatException(message);
         }
         #endregion
 

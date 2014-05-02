@@ -28,6 +28,8 @@ namespace Cadru.Collections
     using System.Globalization;
     using System.Threading;
     using Cadru.Properties;
+    using Cadru.Extensions;
+    using Cadru.Internal;
 
     /// <summary>
     /// Compares two strings for equivalence, ignoring case, in natural numeric order.
@@ -153,7 +155,7 @@ namespace Cadru.Collections
         {
             get
             {
-                if (defaultInvariant == null)
+                if (defaultInvariant.IsNull())
                 {
                     defaultInvariant = new LogicalStringComparer(CultureInfo.InvariantCulture);
                 }
@@ -418,9 +420,9 @@ namespace Cadru.Collections
             int hashCode;
             string s1 = obj as string;
 
-            if (s1 == null)
+            if (s1.IsNull())
             {
-                throw new ArgumentException(Resources.Argument_MustBeString);
+                throw ExceptionBuilder.CreateArgumentException("obj", Resources.Argument_MustBeString);
             }
             else
             {

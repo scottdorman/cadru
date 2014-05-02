@@ -4,6 +4,8 @@ using Cadru;
 using Cadru.Text;
 using System.Diagnostics.CodeAnalysis;
 using Cadru.Extensions;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Cadru.UnitTest.Framework.UnitTests.Extensions
 {
@@ -11,27 +13,54 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
     public class StringExtensionsTests
     {
         [TestMethod]
+        public void Contains()
+        {
+            Assert.IsTrue("this is a test".Contains("is", StringComparison.CurrentCultureIgnoreCase));
+            Assert.IsFalse("this is a test".Contains("not", StringComparison.CurrentCultureIgnoreCase));
+        }
+
+        [TestMethod]
+        public void Truncate()
+        {
+            Assert.AreEqual("this", "this is a test".Truncate(4));
+            Assert.AreEqual("this is a test", "this is a test".Truncate(15));
+            Assert.AreEqual("", "".Truncate(15));
+            Assert.AreEqual("", "".Truncate(0));
+            Assert.AreEqual("", "this is a test".Truncate(0));
+        }
+
+        [TestMethod]
+        public void RemoveWhiteSpace()
+        {
+            Assert.AreEqual("thisisatest.", "this  is  a  test.".RemoveWhiteSpace());
+            Assert.AreEqual("thisisatest.", "this is a test.".RemoveWhiteSpace());
+            Assert.AreEqual("thisisatest.", "thisisatest.".RemoveWhiteSpace());
+            Assert.AreEqual("", "".RemoveWhiteSpace());
+            Assert.AreEqual("a", "a".RemoveWhiteSpace());
+        }
+
+        [TestMethod]
         public void IsEmpty()
         {
-            Assert.IsTrue(StringExtensions.IsNullOrWhiteSpace(null));
-            Assert.IsTrue(StringExtensions.IsNullOrWhiteSpace(""));
-            Assert.IsTrue(StringExtensions.IsNullOrWhiteSpace("   "));
-            Assert.IsTrue(StringExtensions.IsNullOrWhiteSpace("\n"));
-            Assert.IsTrue(StringExtensions.IsNullOrWhiteSpace("\t"));
-            Assert.IsFalse(StringExtensions.IsNullOrWhiteSpace("abc"));
-            Assert.IsFalse(StringExtensions.IsNullOrWhiteSpace("\0"));
-            Assert.IsFalse(StringExtensions.IsNullOrWhiteSpace("\u1680d\u2004c\u205fb\u2028a\u00a0"));
-            Assert.IsTrue(StringExtensions.IsNullOrWhiteSpace("\u1680 \u2004 \u205f \u2028 \u00a0"));
+            Assert.IsTrue(((string)null).IsNullOrWhiteSpace());
+            Assert.IsTrue("".IsNullOrWhiteSpace());
+            Assert.IsTrue("   ".IsNullOrWhiteSpace());
+            Assert.IsTrue("\n".IsNullOrWhiteSpace());
+            Assert.IsTrue("\t".IsNullOrWhiteSpace());
+            Assert.IsFalse("abc".IsNullOrWhiteSpace());
+            Assert.IsFalse("\0".IsNullOrWhiteSpace());
+            Assert.IsFalse("\u1680d\u2004c\u205fb\u2028a\u00a0".IsNullOrWhiteSpace());
+            Assert.IsTrue("\u1680 \u2004 \u205f \u2028 \u00a0".IsNullOrWhiteSpace());
 
-            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace(null));
-            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace(""));
-            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace("   "));
-            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace("\n"));
-            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace("\t"));
-            Assert.IsTrue(StringExtensions.IsNotNullOrWhiteSpace("abc"));
-            Assert.IsTrue(StringExtensions.IsNotNullOrWhiteSpace("\0"));
-            Assert.IsTrue(StringExtensions.IsNotNullOrWhiteSpace("\u1680d\u2004c\u205fb\u2028a\u00a0"));
-            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace("\u1680 \u2004 \u205f \u2028 \u00a0"));
+            Assert.IsFalse(((string)null).IsNotNullOrWhiteSpace());
+            Assert.IsFalse("".IsNotNullOrWhiteSpace());
+            Assert.IsFalse("   ".IsNotNullOrWhiteSpace());
+            Assert.IsFalse("\n".IsNotNullOrWhiteSpace());
+            Assert.IsFalse("\t".IsNotNullOrWhiteSpace());
+            Assert.IsTrue("abc".IsNotNullOrWhiteSpace());
+            Assert.IsTrue("\0".IsNotNullOrWhiteSpace());
+            Assert.IsTrue("\u1680d\u2004c\u205fb\u2028a\u00a0".IsNotNullOrWhiteSpace());
+            Assert.IsFalse("\u1680 \u2004 \u205f \u2028 \u00a0".IsNotNullOrWhiteSpace());
         }
 
         [TestMethod]
@@ -39,153 +68,28 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         {
             string testValue = "abcdefg";
 
-            string expected = "d";
-            string actual = testValue.SubstringBetween('c', 'e');
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual("d", testValue.SubstringBetween('c', 'e'));
+            Assert.AreEqual("d", testValue.SubstringBetween("c", "e"));
+            Assert.AreEqual("cde", testValue.SubstringBetween('c', 'e', true));
+            Assert.AreEqual("cde", testValue.SubstringBetween("c", "e", true));
+            Assert.AreEqual("cde", testValue.SubstringBetween("c", "e", true, StringComparison.InvariantCultureIgnoreCase));
+            Assert.AreEqual("d", testValue.SubstringBetween('c', 'e', false));
+            Assert.AreEqual("d", testValue.SubstringBetween("c", "e", false));
+            Assert.AreEqual("d", testValue.SubstringBetween("c", "e", false, StringComparison.InvariantCultureIgnoreCase));
+            Assert.AreEqual("abcde", testValue.SubstringBetween(String.Empty, "e", true));
+            Assert.AreEqual("abcd", testValue.SubstringBetween(String.Empty, "e", false));
+            Assert.AreEqual("c", testValue.SubstringBetween("c", String.Empty, true));
+            Assert.AreEqual("", testValue.SubstringBetween("c", String.Empty, false));
+            Assert.AreEqual("a", testValue.SubstringBetween(String.Empty, String.Empty, true));
+            Assert.AreEqual("", testValue.SubstringBetween("h", "j", true));
+            Assert.AreEqual("", testValue.SubstringBetween("h", "j", false));
+            Assert.AreEqual("", testValue.SubstringBetween("c", "j", true));
+            Assert.AreEqual("", testValue.SubstringBetween("c", "j", false));
 
-            expected = "d";
-            actual = testValue.SubstringBetween("c", "e");
-            Assert.AreEqual(expected, actual);
-
-            expected = "cde";
-            actual = StringExtensions.SubstringBetween(testValue, 'c', 'e', true);
-            Assert.AreEqual(expected, actual);
-
-            expected = "cde";
-            actual = StringExtensions.SubstringBetween(testValue, "c", "e", true);
-            Assert.AreEqual(expected, actual);
-
-            expected = "cde";
-            actual = StringExtensions.SubstringBetween(testValue, "c", "e", true, StringComparison.InvariantCultureIgnoreCase);
-            Assert.AreEqual(expected, actual);
-
-            expected = "d";
-            actual = StringExtensions.SubstringBetween(testValue, 'c', 'e', false);
-            Assert.AreEqual(expected, actual);
-
-            expected = "d";
-            actual = StringExtensions.SubstringBetween(testValue, "c", "e", false);
-            Assert.AreEqual(expected, actual);
-
-            expected = "d";
-            actual = StringExtensions.SubstringBetween(testValue, "c", "e", false, StringComparison.InvariantCultureIgnoreCase);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcde";
-            actual = StringExtensions.SubstringBetween(testValue, String.Empty, "e", true);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcd";
-            actual = StringExtensions.SubstringBetween(testValue, String.Empty, "e", false);
-            Assert.AreEqual(expected, actual);
-
-            expected = "c";
-            actual = StringExtensions.SubstringBetween(testValue, "c", String.Empty, true);
-            Assert.AreEqual(expected, actual);
-
-            expected = "";
-            actual = StringExtensions.SubstringBetween(testValue, "c", String.Empty, false);
-            Assert.AreEqual(expected, actual);
-
-            expected = "a";
-            actual = StringExtensions.SubstringBetween(testValue, String.Empty, String.Empty, true);
-            Assert.AreEqual(expected, actual);
-
-            expected = "";
-            actual = StringExtensions.SubstringBetween(testValue, "h", "j", true);
-            Assert.AreEqual(expected, actual);
-
-            expected = "";
-            actual = StringExtensions.SubstringBetween(testValue, "h", "j", false);
-            Assert.AreEqual(expected, actual);
-
-            expected = "";
-            actual = StringExtensions.SubstringBetween(testValue, "c", "j", true);
-            Assert.AreEqual(expected, actual);
-
-            expected = "";
-            actual = StringExtensions.SubstringBetween(testValue, "c", "j", false);
-            Assert.AreEqual(expected, actual);
-
-            try
-            {
-                actual = StringExtensions.SubstringBetween(null, 'c', 'e', false);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "source")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.SubstringBetween(null, "c", "e", false);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "source")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.SubstringBetween(testValue, null, "e", false);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "start")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.SubstringBetween(testValue, "c", null, false);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "end")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).SubstringBetween('c', 'e', false)).WithParameter("source");
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).SubstringBetween("c", "e", false)).WithParameter("source");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.SubstringBetween(null, "e", false)).WithParameter("start");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.SubstringBetween("c", null, false)).WithParameter("end");
         }
 
         [TestMethod]
@@ -193,22 +97,8 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         {
             string testValue = "abcdefg";
 
-            char expected = 'g';
-            char actual = StringExtensions.LastCharacter(testValue);
-            Assert.AreEqual(expected, actual);
-
-            try
-            {
-                actual = StringExtensions.LastCharacter(null);
-            }
-            catch (System.ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+            Assert.AreEqual('g', testValue.LastCharacter());
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LastCharacter());
         }
 
         [TestMethod]
@@ -216,320 +106,80 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         {
             string testValue = "abcdefgabcdefg";
 
-            string expected = "abc";
-            string actual = StringExtensions.LeftSubstring(testValue, 'c');
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual("abc", testValue.LeftSubstring('c'));
+            Assert.AreEqual("abcd", testValue.LeftSubstring(3));
+            Assert.AreEqual("abc", testValue.LeftSubstring(3, false));
+            Assert.AreEqual("abcdefgabcdefg", testValue.RightSubstring("q"));
+            Assert.AreEqual("abcdefgabcdefg", testValue.RightSubstring("q", 1));
+            Assert.AreEqual("abcdefgabcdefg", testValue.RightSubstring("q", 2));
+            Assert.AreEqual("abcdefgabcdefg", testValue.RightSubstring('q'));
+            Assert.AreEqual("abcdefgabcdefg", testValue.RightSubstring('q', 1));
+            Assert.AreEqual("abcdefgabcdefg", testValue.RightSubstring('q', 2));
+            Assert.AreEqual("abc", testValue.LeftSubstring("c"));
+            Assert.AreEqual("abcdefgabcdefg", testValue.LeftSubstring('c', 3));
+            Assert.AreEqual("abc", testValue.LeftSubstring('c', 1));
+            Assert.AreEqual("abcdefgabc", testValue.LeftSubstring('c', 2));
+            Assert.AreEqual("abc", testValue.LeftSubstring("c", 1));
+            Assert.AreEqual("abcdefgabc", testValue.LeftSubstring("c", 2));
+            Assert.AreEqual("abcdefgabcdefg", testValue.LeftSubstring("c", 3));
+            Assert.AreEqual("abc", testValue.LeftSubstring("c", 1, StringComparison.InvariantCultureIgnoreCase));
 
-            expected = "abcd";
-            actual = StringExtensions.LeftSubstring(testValue, 3);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abc";
-            actual = StringExtensions.LeftSubstring(testValue, 3, false);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, "q");
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, "q", 1);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, "q", 2);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, 'q');
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, 'q', 1);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, 'q', 2);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abc";
-            actual = StringExtensions.LeftSubstring(testValue, "c");
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.LeftSubstring(testValue, 'c', 3);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abc";
-            actual = StringExtensions.LeftSubstring(testValue, 'c', 1);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabc";
-            actual = StringExtensions.LeftSubstring(testValue, 'c', 2);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abc";
-            actual = StringExtensions.LeftSubstring(testValue, "c", 1);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabc";
-            actual = StringExtensions.LeftSubstring(testValue, "c", 2);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.LeftSubstring(testValue, "c", 3);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abc";
-            actual = StringExtensions.LeftSubstring(testValue, "c", 1, StringComparison.InvariantCultureIgnoreCase);
-            Assert.AreEqual(expected, actual);
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LeftSubstring("c")).WithParameter("source");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.LeftSubstring(null)).WithParameter("value");
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LeftSubstring(null, 3)).WithParameter("source");
+            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.LeftSubstring(-1));
+            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.LeftSubstring(0));
+            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.LeftSubstring(20));
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LeftSubstring('c')).WithParameter("source");
         }
 
         [TestMethod]
-        public void LeftSubstringExceptions()
-        {
-            string testValue = "abcdefgabcdefg";
-            string actual;
-
-            try
-            {
-                actual = StringExtensions.LeftSubstring(null, "c");
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "source")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.LeftSubstring(testValue, null);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "value")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.LeftSubstring(null, 3);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "source")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.LeftSubstring(testValue, -1);
-            }
-            catch (System.ArgumentOutOfRangeException e)
-            {
-                if (e.ParamName == "endingIndex")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.LeftSubstring(testValue, 0);
-            }
-            catch (System.ArgumentOutOfRangeException e)
-            {
-                if (e.ParamName == "endingIndex")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.LeftSubstring(testValue, 20);
-            }
-            catch (System.ArgumentOutOfRangeException e)
-            {
-                if (e.ParamName == "endingIndex")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.LeftSubstring(null, 'c');
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "source")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-        }
-
-        [TestMethod]
-        public void Normalize()
+        public void Clean()
         {
             string testValue = " abc   defg abcdefg ";
 
-            string expected = "abc defg abcdefg";
-            string actual = StringExtensions.Normalize(testValue);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abc defg abcdefg";
-            actual = StringExtensions.Normalize(testValue, NormalizationOptions.Whitespace);
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual("abc defg abcdefg", testValue.Clean());
+            Assert.AreEqual("abc defg abcdefg", testValue.Clean(NormalizationOptions.Whitespace));
 
             testValue = " abc\tdefg\n\u001Fabcdefg ";
-            expected = " abcdefgabcdefg ";
-            actual = StringExtensions.Normalize(testValue, NormalizationOptions.ControlCharacters);
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(" abcdefgabcdefg ", testValue.Clean(NormalizationOptions.ControlCharacters));
+            Assert.AreEqual(testValue, testValue.Clean(NormalizationOptions.None));
+            Assert.AreEqual("abcdefgabcdefg", "abcdefgabcdefg ".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("abc defgabcdefg", "abc  defgabcdefg ".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("abc defgabcdefg", "  abc  defgabcdefg ".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("abc defga bcdefg", "  abc  defga\nbcdefg ".Clean(NormalizationOptions.Whitespace));
 
-            expected = testValue;
-            actual = StringExtensions.Normalize(testValue, NormalizationOptions.None);
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual("\ufeff", "\ufeff".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff", "\ufeff".Clean(NormalizationOptions.All));
+            Assert.AreEqual("", "".Clean(NormalizationOptions.None));
+            Assert.AreEqual("\0", "\0".Clean(NormalizationOptions.None));
+            Assert.AreEqual("\0", "\0".Clean(NormalizationOptions.ControlCharacters));
+            Assert.AreEqual("\0", "\0\0".Clean(NormalizationOptions.ControlCharacters));
+            Assert.AreEqual("\0", "\0".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\0\0", "\0\0".Clean(NormalizationOptions.None));
+            Assert.AreEqual("\0", "\0\0\0".Clean(NormalizationOptions.ControlCharacters));
+            Assert.AreEqual("\0\ufeff", "\0\ufeff".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff\ufeff \u0100\u0100\u0100 \b", "\ufeff\ufeff\u1680\u0100\u0100\u0100 \b".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff\ufeff \u0100\u0100\u0100\u0100\u0100\u0100 \0\0\0", "\ufeff\ufeff\u1680\u0100\u0100\u0100\u0100\u0100\u0100\t\n\0\0\0".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff\u0100\u0100\u0100\u0100\u0100\u0100 \0", "\ufeff\u0100\u0100\u0100\u0100\u0100\u0100\t\t\t\n\0".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual(" \u0100\u0100\u0100\u0100\ufeff\ufeff\ufeff\ufeff\ufeff\ufeff", "\u0019 \u0100\u0100\u0100\u0100\0\ufeff\ufeff\ufeff\ufeff\ufeff\ufeff".Clean(NormalizationOptions.All));
+            Assert.AreEqual("\ufeff\0", "\ufeff\0".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff", "\ufeff\u2000".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff\0\ufeff", "\ufeff\0\ufeff".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff\u0100", "\ufeff\u0100".Clean(NormalizationOptions.All));
+            Assert.AreEqual(" \0", "\0 \0".Clean(NormalizationOptions.ControlCharacters));
+            Assert.AreEqual("\ufeff \0", "\ufeff\u2000\0".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("!\0", "!\0".Clean(NormalizationOptions.All));
+            Assert.AreEqual("\0\ufeff\ufeff", "\0\ufeff\ufeff".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff \u0100\u0100\u0100 \0", "\ufeff\u2000\u0100\u0100\u0100\n\0".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff \u0100\0\0", "\ufeff\u2000\u1680\u0100\0\0".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("! !", "!\t\u0019\0!".Clean(NormalizationOptions.All));
+            Assert.AreEqual("\ufeff \u0100\u0100", "\ufeff\u2000\u1680\u1680\u0100\u0100".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("! \0", "!\t\t\u0019\0\0".Clean(NormalizationOptions.All));
 
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.Normalize("abcdefgabcdefg ", NormalizationOptions.Whitespace);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abc defgabcdefg";
-            actual = StringExtensions.Normalize("abc  defgabcdefg ", NormalizationOptions.Whitespace);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abc defgabcdefg";
-            actual = StringExtensions.Normalize("  abc  defgabcdefg ", NormalizationOptions.Whitespace);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abc defga bcdefg";
-            actual = StringExtensions.Normalize("  abc  defga\nbcdefg ", NormalizationOptions.Whitespace);
-            Assert.AreEqual(expected, actual);
-
-            Assert.AreEqual("\ufeff", StringExtensions.Normalize("\ufeff", NormalizationOptions.Whitespace));
-            Assert.AreEqual("\ufeff", StringExtensions.Normalize("\ufeff", NormalizationOptions.All));
-            Assert.AreEqual("", StringExtensions.Normalize("", NormalizationOptions.None));
-            Assert.AreEqual("\0", StringExtensions.Normalize("\0", NormalizationOptions.None));
-            Assert.AreEqual("\0", StringExtensions.Normalize("\0", NormalizationOptions.ControlCharacters));
-            Assert.AreEqual("\0", StringExtensions.Normalize("\0\0", NormalizationOptions.ControlCharacters));
-            Assert.AreEqual("\0", StringExtensions.Normalize("\0", NormalizationOptions.Whitespace));
-            Assert.AreEqual("\0\ufeff", StringExtensions.Normalize("\0\ufeff", NormalizationOptions.Whitespace));
-            Assert.AreEqual("\ufeff", StringExtensions.Normalize("\ufeff\u2000", NormalizationOptions.Whitespace));
-            Assert.AreEqual("\ufeff\0\ufeff", StringExtensions.Normalize("\ufeff\0\ufeff", NormalizationOptions.Whitespace));
-            Assert.AreEqual("\ufeff\u0100", StringExtensions.Normalize("\ufeff\u0100", NormalizationOptions.All));
-            Assert.AreEqual(" \0", StringExtensions.Normalize("\0 \0", NormalizationOptions.ControlCharacters));
-            Assert.AreEqual("\ufeff \0", StringExtensions.Normalize("\ufeff\u2000\0", NormalizationOptions.Whitespace));
-            Assert.AreEqual("!\0", StringExtensions.Normalize("!\0", NormalizationOptions.All));
-            Assert.AreEqual("\0\ufeff\ufeff", StringExtensions.Normalize("\0\ufeff\ufeff", NormalizationOptions.Whitespace));
-            Assert.AreEqual("\ufeff \u0100\u0100\u0100 \0", StringExtensions.Normalize("\ufeff\u2000\u0100\u0100\u0100\n\0", NormalizationOptions.Whitespace));
-            Assert.AreEqual("\ufeff \u0100\0\0", StringExtensions.Normalize("\ufeff\u2000\u1680\u0100\0\0", NormalizationOptions.Whitespace));
-            Assert.AreEqual("! !", StringExtensions.Normalize("!\t\u0019\0!", NormalizationOptions.All));
-            Assert.AreEqual("\ufeff \u0100\u0100", StringExtensions.Normalize("\ufeff\u2000\u1680\u1680\u0100\u0100", NormalizationOptions.Whitespace));
-            Assert.AreEqual("! \0", StringExtensions.Normalize("!\t\t\u0019\0\0", NormalizationOptions.All));
-
-            try
-            {
-                actual = StringExtensions.Normalize(null);
-            }
-            catch (System.ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.Normalize(testValue, (NormalizationOptions)30);
-            }
-            catch (System.ArgumentException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.Normalize(testValue, (NormalizationOptions)(-1));
-            }
-            catch (System.ArgumentException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).Clean());
+            ExceptionAssert.Throws<ArgumentException>(() => testValue.Clean((NormalizationOptions)30));
+            ExceptionAssert.Throws<ArgumentException>(() => testValue.Clean((NormalizationOptions)(-1)));
         }
 
         [TestMethod]
@@ -537,90 +187,18 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         {
             string testValue = "abcdefgabcdefgh";
 
-            int expected = 2;
-            int actual = StringExtensions.OccurrencesOf(testValue, 'c');
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(2, testValue.OccurrencesOf('c'));
+            Assert.AreEqual(2, testValue.OccurrencesOf("c"));
+            Assert.AreEqual(2, testValue.OccurrencesOf("c", StringComparison.InvariantCulture));
+            Assert.AreEqual(0, testValue.OccurrencesOf("C", StringComparison.InvariantCulture));
+            Assert.AreEqual(1, testValue.OccurrencesOf('h'));
+            Assert.AreEqual(1, testValue.OccurrencesOf("h"));
+            Assert.AreEqual(0, testValue.OccurrencesOf('q'));
+            Assert.AreEqual(0, testValue.OccurrencesOf("q"));
 
-            expected = 2;
-            actual = StringExtensions.OccurrencesOf(testValue, "c");
-            Assert.AreEqual(expected, actual);
-
-            expected = 2;
-            actual = StringExtensions.OccurrencesOf(testValue, "c", StringComparison.InvariantCulture);
-            Assert.AreEqual(expected, actual);
-
-            expected = 0;
-            actual = StringExtensions.OccurrencesOf(testValue, "C", StringComparison.InvariantCulture);
-            Assert.AreEqual(expected, actual);
-
-            expected = 1;
-            actual = StringExtensions.OccurrencesOf(testValue, 'h');
-            Assert.AreEqual(expected, actual);
-
-            expected = 1;
-            actual = StringExtensions.OccurrencesOf(testValue, "h");
-            Assert.AreEqual(expected, actual);
-
-            expected = 0;
-            actual = StringExtensions.OccurrencesOf(testValue, 'q');
-            Assert.AreEqual(expected, actual);
-
-            expected = 0;
-            actual = StringExtensions.OccurrencesOf(testValue, "q");
-            Assert.AreEqual(expected, actual);
-
-            try
-            {
-                actual = StringExtensions.OccurrencesOf(null, 'c');
-            }
-            catch (System.ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.OccurrencesOf(null, "c");
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "source")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.OccurrencesOf(testValue, null);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "value")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).OccurrencesOf('c'));
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).OccurrencesOf("c"));
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.OccurrencesOf(null)).WithParameter("value");
         }
 
         [TestMethod]
@@ -628,476 +206,59 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         {
             string testValue = "abcdefgabcdefg";
 
-            string expected = "abQdefgabcdefg";
-            string actual = StringExtensions.Replace(testValue, 'c', 'Q', 1);
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual("abQdefgabcdefg", testValue.Replace('c', 'Q', 1));
+            Assert.AreEqual("abcdefgabcdefg", testValue.Replace('h', 'Q', 2));
+            Assert.AreEqual("abQdefgabQdefg", testValue.Replace('c', 'Q', 3));
+            Assert.AreEqual("abQdefgabQdefg", testValue.Replace('c', 'Q', 2));
+            Assert.AreEqual(testValue, testValue.Replace('c', 'Q', 0));
+            Assert.AreEqual("abCDEfgabcdefg", testValue.Replace("cde", "CDE", 1));
+            Assert.AreEqual("abCDEfgabCDEfg", testValue.Replace("cde", "CDE", 2));
+            Assert.AreEqual(testValue, testValue.Replace("cde", "CDE", 0));
+            Assert.AreEqual("abCDEfgabCDEfg", testValue.Replace("cde", "CDE", 3));
+            Assert.AreEqual("abCDEfgabcdefg", testValue.Replace("cde", "CDE", 1, StringComparison.InvariantCulture));
+            Assert.AreEqual("abCDEfgabCDEfg", testValue.Replace("cde", "CDE", 2, StringComparison.InvariantCulture));
+            Assert.AreEqual(testValue, testValue.Replace("cde", "CDE", 0, StringComparison.InvariantCulture));
+            Assert.AreEqual(testValue, testValue.Replace("CDE", "CDE", 1, StringComparison.InvariantCulture));
+            Assert.AreEqual(testValue, testValue.Replace("CDE", "CDE", 2, StringComparison.InvariantCulture));
+            Assert.AreEqual(testValue, testValue.Replace("CDE", "CDE", 0, StringComparison.InvariantCulture));
 
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.Replace(testValue, 'h', 'Q', 2);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abQdefgabQdefg";
-            actual = StringExtensions.Replace(testValue, 'c', 'Q', 3);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abQdefgabQdefg";
-            actual = StringExtensions.Replace(testValue, 'c', 'Q', 2);
-            Assert.AreEqual(expected, actual);
-
-            expected = testValue;
-            actual = StringExtensions.Replace(testValue, 'c', 'Q', 0);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abCDEfgabcdefg";
-            actual = StringExtensions.Replace(testValue, "cde", "CDE", 1);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abCDEfgabCDEfg";
-            actual = StringExtensions.Replace(testValue, "cde", "CDE", 2);
-            Assert.AreEqual(expected, actual);
-
-            expected = testValue;
-            actual = StringExtensions.Replace(testValue, "cde", "CDE", 0);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abCDEfgabCDEfg";
-            actual = StringExtensions.Replace(testValue, "cde", "CDE", 3);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abCDEfgabcdefg";
-            actual = StringExtensions.Replace(testValue, "cde", "CDE", 1, StringComparison.InvariantCulture);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abCDEfgabCDEfg";
-            actual = StringExtensions.Replace(testValue, "cde", "CDE", 2, StringComparison.InvariantCulture);
-            Assert.AreEqual(expected, actual);
-
-            expected = testValue;
-            actual = StringExtensions.Replace(testValue, "cde", "CDE", 0, StringComparison.InvariantCulture);
-            Assert.AreEqual(expected, actual);
-
-            expected = testValue;
-            actual = StringExtensions.Replace(testValue, "CDE", "CDE", 1, StringComparison.InvariantCulture);
-            Assert.AreEqual(expected, actual);
-
-            expected = testValue;
-            actual = StringExtensions.Replace(testValue, "CDE", "CDE", 2, StringComparison.InvariantCulture);
-            Assert.AreEqual(expected, actual);
-
-            expected = testValue;
-            actual = StringExtensions.Replace(testValue, "CDE", "CDE", 0, StringComparison.InvariantCulture);
-            Assert.AreEqual(expected, actual);
-
-            try
-            {
-                actual = StringExtensions.Replace(null, 'c', 'Q', 0);
-            }
-            catch (System.ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.Replace(null, "CDE", "CDE", 0, StringComparison.InvariantCulture);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "source")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.Replace(testValue, null, "CDE", 0, StringComparison.InvariantCulture);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "oldValue")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.Replace(testValue, "CDE", null, 0, StringComparison.InvariantCulture);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "newValue")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).Replace('c', 'Q', 0));
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).Replace("CDE", "CDE", 0, StringComparison.InvariantCulture)).WithParameter("source");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.Replace(null, "CDE", 0, StringComparison.InvariantCulture)).WithParameter("oldValue");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.Replace("CDE", null, 0, StringComparison.InvariantCulture)).WithParameter("newValue");
         }
 
         [TestMethod]
         public void ReplaceBetween()
         {
             string testValue = "abcdefgabcdefg";
-            //string actual;
 
-            string expected = "abcXYZefgabcdefg";
-            string actual = StringExtensions.ReplaceBetween(testValue, 'c', 'e', "XYZ");
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual("abcXYZefgabcdefg", testValue.ReplaceBetween('c', 'e', "XYZ"));
+            Assert.AreEqual("abcdefgabcdefg", testValue.ReplaceBetween('h', 'Q', "XYZ"));
+            Assert.AreEqual("abcXYZefgabcdefg", testValue.ReplaceBetween(2, 4, "XYZ"));
+            Assert.AreEqual("abcXYZefgabcdefg", testValue.ReplaceBetween("c", "e", "XYZ"));
+            Assert.AreEqual("abXYZfgabcdefg", testValue.ReplaceBetween('c', 'e', "XYZ", true));
+            Assert.AreEqual("abXYZfgabcdefg", testValue.ReplaceBetween(2, 4, "XYZ", true));
+            Assert.AreEqual("abXYZfgabcdefg", testValue.ReplaceBetween("c", "e", "XYZ", true));
+            Assert.AreEqual("abXYZfgabcdefg", testValue.ReplaceBetween("c", "e", "XYZ", true, StringComparison.InvariantCulture));
+            Assert.AreEqual(testValue, testValue.ReplaceBetween("C", "E", "XYZ", true, StringComparison.InvariantCulture));
+            Assert.AreEqual("abcXYZefgabcdefg", testValue.ReplaceBetween("c", "e", "XYZ", false, StringComparison.InvariantCulture));
+            Assert.AreEqual(testValue, testValue.ReplaceBetween("C", "E", "XYZ", false, StringComparison.InvariantCulture));
 
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.ReplaceBetween(testValue, 'h', 'Q', "XYZ");
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcXYZefgabcdefg";
-            actual = StringExtensions.ReplaceBetween(testValue, 2, 4, "XYZ");
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcXYZefgabcdefg";
-            actual = StringExtensions.ReplaceBetween(testValue, "c", "e", "XYZ");
-            Assert.AreEqual(expected, actual);
-
-            expected = "abXYZfgabcdefg";
-            actual = StringExtensions.ReplaceBetween(testValue, 'c', 'e', "XYZ", true);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abXYZfgabcdefg";
-            actual = StringExtensions.ReplaceBetween(testValue, 2, 4, "XYZ", true);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abXYZfgabcdefg";
-            actual = StringExtensions.ReplaceBetween(testValue, "c", "e", "XYZ", true);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abXYZfgabcdefg";
-            actual = StringExtensions.ReplaceBetween(testValue, "c", "e", "XYZ", true, StringComparison.InvariantCulture);
-            Assert.AreEqual(expected, actual);
-
-            expected = testValue;
-            actual = StringExtensions.ReplaceBetween(testValue, "C", "E", "XYZ", true, StringComparison.InvariantCulture);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcXYZefgabcdefg";
-            actual = StringExtensions.ReplaceBetween(testValue, "c", "e", "XYZ", false, StringComparison.InvariantCulture);
-            Assert.AreEqual(expected, actual);
-
-            expected = testValue;
-            actual = StringExtensions.ReplaceBetween(testValue, "C", "E", "XYZ", false, StringComparison.InvariantCulture);
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void ReplaceBetween1()
-        {
-            string testValue = "abcdefgabcdefg";
-            string actual;
-
-            try
-            {
-                actual = StringExtensions.ReplaceBetween(null, 'C', 'E', "XYZ");
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "source")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.ReplaceBetween(testValue, 'C', 'E', null);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "newValue")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-        }
-
-        [TestMethod]
-        public void ReplaceBetween2()
-        {
-            string testValue = "abcdefgabcdefg";
-            string actual;
-
-            try
-            {
-                actual = StringExtensions.ReplaceBetween(null, "C", "E", "XYZ", true, StringComparison.InvariantCulture);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "source")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.ReplaceBetween(testValue, null, "E", "XYZ", true, StringComparison.InvariantCulture);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "start")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.ReplaceBetween(testValue, "C", null, "XYZ", true, StringComparison.InvariantCulture);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "end")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.ReplaceBetween(testValue, "C", "E", null, true, StringComparison.InvariantCulture);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "newValue")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-        }
-
-        [TestMethod]
-        public void ReplaceBetween3()
-        {
-            string testValue = "abcdefgabcdefg";
-            string actual;
-
-            try
-            {
-                actual = StringExtensions.ReplaceBetween(null, 2, 4, "XYZ", true);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "source")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.ReplaceBetween(testValue, 2, 4, null, true);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "newValue")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.ReplaceBetween(testValue, -1, 4, "XYZ", true);
-            }
-            catch (System.ArgumentOutOfRangeException e)
-            {
-                if (e.ParamName == "start")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.ReplaceBetween(testValue, 2, -1, "XYZ", true);
-            }
-            catch (System.ArgumentOutOfRangeException e)
-            {
-                if (e.ParamName == "end")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.ReplaceBetween(testValue, 2, 2, "XYZ", true);
-            }
-            catch (System.ArgumentException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.ReplaceBetween(testValue, 10, 2, "XYZ", true);
-            }
-            catch (System.ArgumentException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.ReplaceBetween(testValue, 20, 4, "XYZ", true);
-            }
-            catch (System.ArgumentOutOfRangeException e)
-            {
-                if (e.ParamName == "start")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.ReplaceBetween(testValue, 2, 20, "XYZ", true);
-            }
-            catch (System.ArgumentOutOfRangeException e)
-            {
-                if (e.ParamName == "end")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).ReplaceBetween('C', 'E', "XYZ")).WithParameter("source");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween('C', 'E', null)).WithParameter("newValue");
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).ReplaceBetween("C", "E", "XYZ", true, StringComparison.InvariantCulture)).WithParameter("source");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween(null, "E", "XYZ", true, StringComparison.InvariantCulture)).WithParameter("start");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween("C", null, "XYZ", true, StringComparison.InvariantCulture)).WithParameter("end");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween("C", "E", null, true, StringComparison.InvariantCulture)).WithParameter("newValue");
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).ReplaceBetween(2, 4, "XYZ", true)).WithParameter("source");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween(2, 4, null, true)).WithParameter("newValue");
+            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(-1, 4, "XYZ", true)).WithParameter("start");
+            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(2, -1, "XYZ", true)).WithParameter("end");
+            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(2, 2, "XYZ", true));
+            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(10, 2, "XYZ", true));
+            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(20, 4, "XYZ", true)).WithParameter("start");
+            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(2, 20, "XYZ", true)).WithParameter("end");
         }
 
         [TestMethod]
@@ -1105,229 +266,33 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         {
             string testValue = "abcdefgabcdefg";
 
-            string expected = "defgabcdefg";
-            string actual = StringExtensions.RightSubstring(testValue, 'c');
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual("defgabcdefg", testValue.RightSubstring('c'));
+            Assert.AreEqual("cdefgabcdefg", testValue.RightSubstring(3));
+            Assert.AreEqual("abcdefgabcdefg", testValue.RightSubstring("q"));
+            Assert.AreEqual("abcdefgabcdefg", testValue.RightSubstring("q", 1));
+            Assert.AreEqual("abcdefgabcdefg", testValue.RightSubstring("q", 2));
+            Assert.AreEqual("abcdefgabcdefg", testValue.RightSubstring('q'));
+            Assert.AreEqual("abcdefgabcdefg", testValue.RightSubstring('q', 1));
+            Assert.AreEqual("abcdefgabcdefg", testValue.RightSubstring('q', 2));
+            Assert.AreEqual("defgabcdefg", testValue.RightSubstring("c"));
+            Assert.AreEqual("defgabcdefg", testValue.RightSubstring('c', 1));
+            Assert.AreEqual("defg", testValue.RightSubstring('c', 2));
+            Assert.AreEqual("abcdefgabcdefg", testValue.RightSubstring('c', 3));
+            Assert.AreEqual("cdefgabcdefg", testValue.RightSubstring(3, true));
+            Assert.AreEqual("defgabcdefg", testValue.RightSubstring(3, false));
+            Assert.AreEqual("defgabcdefg", testValue.RightSubstring("c", 1));
+            Assert.AreEqual("defg", testValue.RightSubstring("c", 2));
+            Assert.AreEqual("abcdefgabcdefg", testValue.RightSubstring("c", 3));
+            Assert.AreEqual("defgabcdefg", testValue.RightSubstring("c", 1, StringComparison.InvariantCultureIgnoreCase));
+            Assert.AreEqual("defg", testValue.RightSubstring("c", 2, StringComparison.InvariantCultureIgnoreCase));
 
-            expected = "cdefgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, 3);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, "q");
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, "q", 1);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, "q", 2);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, 'q');
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, 'q', 1);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, 'q', 2);
-            Assert.AreEqual(expected, actual);
-
-            expected = "defgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, "c");
-            Assert.AreEqual(expected, actual);
-
-            expected = "defgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, 'c', 1);
-            Assert.AreEqual(expected, actual);
-
-            expected = "defg";
-            actual = StringExtensions.RightSubstring(testValue, 'c', 2);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, 'c', 3);
-            Assert.AreEqual(expected, actual);
-
-            expected = "cdefgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, 3, true);
-            Assert.AreEqual(expected, actual);
-
-            expected = "defgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, 3, false);
-            Assert.AreEqual(expected, actual);
-
-            expected = "defgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, "c", 1);
-            Assert.AreEqual(expected, actual);
-
-            expected = "defg";
-            actual = StringExtensions.RightSubstring(testValue, "c", 2);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, "c", 3);
-            Assert.AreEqual(expected, actual);
-
-            expected = "defgabcdefg";
-            actual = StringExtensions.RightSubstring(testValue, "c", 1, StringComparison.InvariantCultureIgnoreCase);
-            Assert.AreEqual(expected, actual);
-
-            expected = "defg";
-            actual = StringExtensions.RightSubstring(testValue, "c", 2, StringComparison.InvariantCultureIgnoreCase);
-            Assert.AreEqual(expected, actual);
-
-        }
-
-        [TestMethod]
-        public void RightSubstringExceptions()
-        {
-            string testValue = "abcdefgabcdefg";
-            string actual;
-
-            try
-            {
-                actual = StringExtensions.RightSubstring(null, "c");
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "source")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.RightSubstring(testValue, null);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "value")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.RightSubstring(null, 3);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "source")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.RightSubstring(testValue, -1);
-            }
-            catch (System.ArgumentOutOfRangeException e)
-            {
-                if (e.ParamName == "endingIndex")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(String.Format("Type: {0}, Message: {1}", e.GetType().Name, e.Message));
-            }
-
-            try
-            {
-                actual = StringExtensions.RightSubstring(testValue, 0);
-            }
-            catch (System.ArgumentOutOfRangeException e)
-            {
-                if (e.ParamName == "endingIndex")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.RightSubstring(testValue, 20);
-            }
-            catch (System.ArgumentOutOfRangeException e)
-            {
-                if (e.ParamName == "endingIndex")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                actual = StringExtensions.RightSubstring(null, 'c', 1);
-            }
-            catch (System.ArgumentNullException e)
-            {
-                if (e.ParamName == "source")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).RightSubstring("c")).WithParameter("source");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.RightSubstring(null)).WithParameter("value");
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).RightSubstring(3)).WithParameter("source");
+            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.RightSubstring(-1)).WithParameter("endingIndex");
+            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.RightSubstring(0)).WithParameter("endingIndex");
+            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.RightSubstring(20)).WithParameter("endingIndex");
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).RightSubstring('c', 1)).WithParameter("source");
         }
 
         [TestMethod]
@@ -1335,155 +300,85 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         {
             string testValue = "abcdefg";
 
-            string expected = "abc";
-            string actual = StringExtensions.ResizeString(testValue, 3);
-            Assert.AreEqual(expected, actual);
-
-            expected = "abcdefg     ";
-            actual = StringExtensions.ResizeString(testValue, 12);
-            Assert.AreEqual(expected, actual);
-
-            expected = "            ";
-            actual = StringExtensions.ResizeString(String.Empty, 12);
-            Assert.AreEqual(expected, actual);
-
-            expected = "            ";
-            actual = StringExtensions.ResizeString(null, 12);
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual("abc", testValue.ResizeString(3));
+            Assert.AreEqual("abcdefg     ", testValue.ResizeString(12));
+            Assert.AreEqual("            ", String.Empty.ResizeString(12));
+            Assert.AreEqual("            ", ((string)null).ResizeString(12));
         }
-        
+
         [TestMethod]
         public void LengthLessThan()
         {
-            Assert.IsTrue(StringExtensions.LengthLessThan("ABCD", 5));
-            Assert.IsFalse(StringExtensions.LengthLessThan("ABCDE", 5));
-            Assert.IsFalse(StringExtensions.LengthLessThan("ABCDEF", 5));
-            Assert.IsTrue(StringExtensions.LengthLessThan(String.Empty, 5));
-
-            try
-            {
-                Assert.IsFalse(StringExtensions.LengthLessThan(null, 5));
-            }
-            catch (System.ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+            Assert.IsTrue("ABCD".LengthLessThan(5));
+            Assert.IsFalse("ABCDE".LengthLessThan(5));
+            Assert.IsFalse("ABCDEF".LengthLessThan(5));
+            Assert.IsTrue(String.Empty.LengthLessThan(5));
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthLessThan(5));
         }
 
         [TestMethod]
         public void LengthLessThanOrEqual()
         {
-            Assert.IsTrue(StringExtensions.LengthLessThanOrEqualTo("ABCD", 5));
-            Assert.IsTrue(StringExtensions.LengthLessThanOrEqualTo("ABCDE", 5));
-            Assert.IsFalse(StringExtensions.LengthLessThanOrEqualTo("ABCDEF", 5));
-            Assert.IsTrue(StringExtensions.LengthLessThanOrEqualTo(String.Empty, 5));
-
-            try
-            {
-                Assert.IsFalse(StringExtensions.LengthLessThanOrEqualTo(null, 5));
-            }
-            catch (System.ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+            Assert.IsTrue("ABCD".LengthLessThanOrEqualTo(5));
+            Assert.IsTrue("ABCDE".LengthLessThanOrEqualTo(5));
+            Assert.IsFalse("ABCDEF".LengthLessThanOrEqualTo(5));
+            Assert.IsTrue(String.Empty.LengthLessThanOrEqualTo(5));
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthLessThanOrEqualTo(5));
         }
 
         [TestMethod]
         public void LengthGreaterThan()
         {
-            Assert.IsTrue(StringExtensions.LengthGreaterThan("ABCDEFGHIJ", 5));
-            Assert.IsFalse(StringExtensions.LengthGreaterThan("ABCDE", 5));
-            Assert.IsFalse(StringExtensions.LengthGreaterThan("ABCD", 5));
-            Assert.IsFalse(StringExtensions.LengthGreaterThan(String.Empty, 5));
-
-            try
-            {
-                Assert.IsFalse(StringExtensions.LengthGreaterThan(null, 5));
-            }
-            catch (System.ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+            Assert.IsTrue("ABCDEFGHIJ".LengthGreaterThan(5));
+            Assert.IsFalse("ABCDE".LengthGreaterThan(5));
+            Assert.IsFalse("ABCD".LengthGreaterThan(5));
+            Assert.IsFalse(String.Empty.LengthGreaterThan(5));
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthGreaterThan(5));
         }
 
         [TestMethod]
         public void LengthGreaterThanOrEqualTo()
         {
-            Assert.IsTrue(StringExtensions.LengthGreaterThanOrEqualTo("ABCDEFGHIJ", 5));
-            Assert.IsTrue(StringExtensions.LengthGreaterThanOrEqualTo("ABCDE", 5));
-            Assert.IsFalse(StringExtensions.LengthGreaterThanOrEqualTo("ABCD", 5));
-            Assert.IsFalse(StringExtensions.LengthGreaterThanOrEqualTo(String.Empty, 5));
-            
-            try
-            {
-                Assert.IsFalse(StringExtensions.LengthGreaterThanOrEqualTo(null, 5));
-            }
-            catch (System.ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+            Assert.IsTrue("ABCDEFGHIJ".LengthGreaterThanOrEqualTo(5));
+            Assert.IsTrue("ABCDE".LengthGreaterThanOrEqualTo(5));
+            Assert.IsFalse("ABCD".LengthGreaterThanOrEqualTo(5));
+            Assert.IsFalse(String.Empty.LengthGreaterThanOrEqualTo(5));
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthGreaterThanOrEqualTo(5));
         }
 
         [TestMethod]
         public void LengthBetween()
         {
-            Assert.IsTrue(StringExtensions.LengthBetween("ABCDE", 5, 10));
-            Assert.IsTrue(StringExtensions.LengthBetween("ABCDEFGHIJ", 5, 10));
-            Assert.IsTrue(StringExtensions.LengthBetween("ABCDEF", 5, 10));
-            Assert.IsFalse(StringExtensions.LengthBetween("ABCD", 5, 10));
-            Assert.IsFalse(StringExtensions.LengthBetween("ABCDEFGHIJK", 5, 10));
+            Assert.IsTrue("ABCDE".LengthBetween(5, 10));
+            Assert.IsTrue("ABCDEFGHIJ".LengthBetween(5, 10));
+            Assert.IsTrue("ABCDEF".LengthBetween(5, 10));
+            Assert.IsFalse("ABCD".LengthBetween(5, 10));
+            Assert.IsFalse("ABCDEFGHIJK".LengthBetween(5, 10));
 
-            Assert.IsFalse(StringExtensions.LengthBetween("ABCDE", 5, 10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue(StringExtensions.LengthBetween("ABCDEFGHIJ", 5, 10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue(StringExtensions.LengthBetween("ABCDEF", 5, 10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(StringExtensions.LengthBetween("ABCD", 5, 10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(StringExtensions.LengthBetween("ABCDEFGHIJK", 5, 10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse("ABCDE".LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue("ABCDEFGHIJ".LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue("ABCDEF".LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse("ABCD".LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse("ABCDEFGHIJK".LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
 
-            Assert.IsTrue(StringExtensions.LengthBetween("ABCDE", 5, 10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(StringExtensions.LengthBetween("ABCDEFGHIJ", 5, 10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsTrue(StringExtensions.LengthBetween("ABCDEF", 5, 10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(StringExtensions.LengthBetween("ABCD", 5, 10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(StringExtensions.LengthBetween("ABCDEFGHIJK", 5, 10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsTrue("ABCDE".LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse("ABCDEFGHIJ".LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsTrue("ABCDEF".LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse("ABCD".LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse("ABCDEFGHIJK".LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
 
-            Assert.IsFalse(StringExtensions.LengthBetween("ABCDE", 5, 10, NumericComparisonOptions.None));
-            Assert.IsFalse(StringExtensions.LengthBetween("ABCDEFGHIJ", 5, 10, NumericComparisonOptions.None));
-            Assert.IsTrue(StringExtensions.LengthBetween("ABCDEF", 5, 10, NumericComparisonOptions.None));
-            Assert.IsFalse(StringExtensions.LengthBetween("ABCD", 5, 10, NumericComparisonOptions.None));
-            Assert.IsFalse(StringExtensions.LengthBetween("ABCDEFGHIJK", 5, 10, NumericComparisonOptions.None));
+            Assert.IsFalse("ABCDE".LengthBetween(5, 10, NumericComparisonOptions.None));
+            Assert.IsFalse("ABCDEFGHIJ".LengthBetween(5, 10, NumericComparisonOptions.None));
+            Assert.IsTrue("ABCDEF".LengthBetween(5, 10, NumericComparisonOptions.None));
+            Assert.IsFalse("ABCD".LengthBetween(5, 10, NumericComparisonOptions.None));
+            Assert.IsFalse("ABCDEFGHIJK".LengthBetween(5, 10, NumericComparisonOptions.None));
 
-            Assert.IsFalse(StringExtensions.LengthBetween(String.Empty, 5, 10));
-            Assert.IsFalse(StringExtensions.LengthBetween(String.Empty, 5, 10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(StringExtensions.LengthBetween(String.Empty, 5, 10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(StringExtensions.LengthBetween(String.Empty, 5, 10, NumericComparisonOptions.None));
+            Assert.IsFalse(String.Empty.LengthBetween(5, 10));
+            Assert.IsFalse(String.Empty.LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(String.Empty.LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(String.Empty.LengthBetween(5, 10, NumericComparisonOptions.None));
 
-            try
-            {
-                Assert.IsFalse(StringExtensions.LengthBetween(null, 5, 10));
-            }
-            catch (System.ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthBetween(5, 10));
         }
     }
 }

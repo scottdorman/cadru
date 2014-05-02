@@ -28,6 +28,8 @@ namespace Cadru.Collections
     using System.Globalization;
     using System.Threading;
     using Cadru.Properties;
+    using Cadru.Extensions;
+    using Cadru.Internal;
 
     /// <summary>
     /// Compares two dates or string date representations for equivalence,
@@ -139,7 +141,7 @@ namespace Cadru.Collections
         {
             get
             {
-                if (defaultInvariant == null)
+                if (defaultInvariant.IsNull())
                 {
                     defaultInvariant = new DateComparer(CultureInfo.InvariantCulture);
                 }
@@ -299,12 +301,12 @@ namespace Cadru.Collections
 
             if (!DateTime.TryParse(x, this.cultureInfo, DateTimeStyles.None, out t1))
             {
-                throw new FormatException(Resources.Format_BadDateTime);
+                throw ExceptionBuilder.CreateFormatException(Resources.Format_BadDateTime);
             }
 
             if (!DateTime.TryParse(y, this.cultureInfo, DateTimeStyles.None, out t2))
             {
-                throw new FormatException(Resources.Format_BadDateTime);
+                throw ExceptionBuilder.CreateFormatException(Resources.Format_BadDateTime);
             }
 
             return this.Compare(t1, t2);
@@ -339,11 +341,11 @@ namespace Cadru.Collections
         /// otherwise, <see langword="false"/>. </returns>
         public bool Equals(string x, string y)
         {
-            if (x == null && y == null)
+            if (x.IsNull() && y.IsNull())
             {
                 return true;
             }
-            else if (x == null || y == null)
+            else if (x.IsNull() || y.IsNull())
             {
                 return false;
             }
@@ -425,7 +427,7 @@ namespace Cadru.Collections
             {
                 string s1 = obj as string;
 
-                if (s1 == null)
+                if (s1.IsNull())
                 {
                     hashCode = obj.GetHashCode();
                 }

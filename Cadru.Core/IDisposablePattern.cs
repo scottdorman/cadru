@@ -32,7 +32,7 @@ namespace Cadru
         #region events
         #endregion
 
-        #region propeties
+        #region properties
         /// <summary>
         /// Gets a value indicating whether the object has been disposed.
         /// </summary>

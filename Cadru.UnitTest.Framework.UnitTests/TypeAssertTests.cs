@@ -6,20 +6,6 @@ namespace Cadru.UnitTest.Framework.UnitTests
     [TestClass, ExcludeFromCodeCoverage]
     public class TypeAssertTests
     {
-        private TestContext testContextInstance;
-
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
         [TestMethod]
         public void IsAssignableFrom()
         {
@@ -31,16 +17,16 @@ namespace Cadru.UnitTest.Framework.UnitTests
             TypeAssert.IsAssignableFrom(array10, array2.GetType(), "Type Failure Message", null);
         }
 
-        [TestMethod]
+        [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void IsAssignableFromFails()
         {
             int[] array10 = new int[10];
             int[,] array2 = new int[2, 2];
 
-            TypeAssert.IsNotAssignableFrom(array10, array2.GetType());
+            TypeAssert.IsAssignableFrom(array10, array2.GetType());
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void IsNotAssignableFrom()
         {
             int[] array10 = new int[10];
@@ -51,7 +37,7 @@ namespace Cadru.UnitTest.Framework.UnitTests
             TypeAssert.IsNotAssignableFrom(array10, array2.GetType(), "Type Failure Message", null);
         }
 
-        [TestMethod(), ExpectedException(typeof(AssertFailedException))]
+        [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void IsNotAssignableFromFails()
         {
             int[] array10 = new int[10];

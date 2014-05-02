@@ -8,6 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Cadru.Collections;
 using System.Net;
 using System.Diagnostics.CodeAnalysis;
+using Cadru.UnitTest.Framework;
 
 namespace Cadru.UnitTests.Collections
 {
@@ -70,97 +71,12 @@ namespace Cadru.UnitTests.Collections
         {
             DateComparer comparer = DateComparer.Default as DateComparer;
 
-            try
-            {
-                comparer.Compare("10/31/2006", "abc123");
-            }
-            catch (FormatException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                comparer.Compare("abc123", "10/31/2006");
-            }
-            catch (FormatException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                comparer.Compare("10/31/2006", String.Empty);
-            }
-            catch (FormatException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                comparer.Compare(String.Empty, "10/31/2006");
-            }
-            catch (FormatException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                comparer.Compare("10/31/2006", null);
-            }
-            catch (ArgumentNullException e)
-            {
-                if (e.ParamName == "y")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                comparer.Compare(null, "10/31/2006");
-            }
-            catch (ArgumentNullException e)
-            {
-                if (e.ParamName == "x")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+            ExceptionAssert.Throws<FormatException>(() => comparer.Compare("10/31/2006", "abc123"));
+            ExceptionAssert.Throws<FormatException>(() => comparer.Compare("abc123", "10/31/2006"));
+            ExceptionAssert.Throws<FormatException>(() => comparer.Compare("10/31/2006", String.Empty));
+            ExceptionAssert.Throws<FormatException>(() => comparer.Compare(String.Empty, "10/31/2006"));
+            ExceptionAssert.Throws<ArgumentNullException>(() => comparer.Compare("10/31/2006", null));
+            ExceptionAssert.Throws<ArgumentNullException>(() => comparer.Compare(null, "10/31/2006"));
         }
 
         [TestMethod]
@@ -212,114 +128,14 @@ namespace Cadru.UnitTests.Collections
         {
             DateComparer comparer = DateComparer.DefaultInvariant as DateComparer;
 
-            try
-            {
-                comparer.Compare("10/31/2006", "abc123");
-            }
-            catch (FormatException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+            ExceptionAssert.Throws<FormatException>(() => comparer.Compare("10/31/2006", "abc123"));
+            ExceptionAssert.Throws<FormatException>(() => comparer.Compare("abc123", "10/31/2006"));
+            ExceptionAssert.Throws<FormatException>(() => comparer.Compare("10/31/2006", String.Empty));
+            ExceptionAssert.Throws<FormatException>(() => comparer.Compare(String.Empty, "10/31/2006"));
+            ExceptionAssert.Throws<ArgumentNullException>(() => comparer.Compare("10/31/2006", null)).WithParameter("y");
+            ExceptionAssert.Throws<ArgumentNullException>(() => comparer.Compare(null, "10/31/2006")).WithParameter("x");
 
-            try
-            {
-                comparer.Compare("abc123", "10/31/2006");
-            }
-            catch (FormatException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                comparer.Compare("10/31/2006", String.Empty);
-            }
-            catch (FormatException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                comparer.Compare(String.Empty, "10/31/2006");
-            }
-            catch (FormatException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                comparer.Compare("10/31/2006", null);
-            }
-            catch (ArgumentNullException e)
-            {
-                if (e.ParamName == "y")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                comparer.Compare(null, "10/31/2006");
-            }
-            catch (ArgumentNullException e)
-            {
-                if (e.ParamName == "x")
-                {
-                    Assert.IsTrue(true);
-                }
-                else
-                {
-                    Assert.Fail(e.Message);
-                }
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-        }
-
-        [TestMethod]
-        public void Compare8()
-        {
-            try
-            {
-                DateComparer comparer = new DateComparer(null);
-            }
-            catch (ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+            ExceptionAssert.Throws<ArgumentNullException>(() => new DateComparer(null));
         }
 
         [TestMethod]
@@ -457,45 +273,17 @@ namespace Cadru.UnitTests.Collections
 
             object c = "abc";
             Assert.AreEqual(c.GetHashCode(), comparer.GetHashCode(c));
+
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((DateComparer)DateComparer.Default).GetHashCode(((object)null)));
         }
 
-        [TestMethod]
-        public void GetHashCode2()
-        {
-            DateComparer comparer = DateComparer.Default as DateComparer;
-            try
-            {
-                object x = null;
-                int hash = comparer.GetHashCode(x);
-            }
-            catch (ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-        }
 
         [TestMethod]
         public void GetHashCode3()
         {
             DateComparer comparer = DateComparer.Default as DateComparer;
-            try
-            {
-                string x = null;
-                int hash = comparer.GetHashCode(x);
-            }
-            catch (ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
 
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((DateComparer)DateComparer.Default).GetHashCode(((string)null)));
             Assert.AreEqual(String.Empty.GetHashCode(), comparer.GetHashCode(String.Empty));
 
             string c = "abc";
@@ -530,43 +318,12 @@ namespace Cadru.UnitTests.Collections
         public void GetHashCode5()
         {
             DateComparer comparer = DateComparer.DefaultInvariant as DateComparer;
-            try
-            {
-                object x = null;
-                int hash = comparer.GetHashCode(x);
-            }
-            catch (ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-        }
-
-        [TestMethod]
-        public void GetHashCode6()
-        {
-            DateComparer comparer = DateComparer.DefaultInvariant as DateComparer;
-            try
-            {
-                string x = null;
-                int hash = comparer.GetHashCode(x);
-            }
-            catch (ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
+            ExceptionAssert.Throws<ArgumentNullException>(() => comparer.GetHashCode(((object)null)));
+            ExceptionAssert.Throws<ArgumentNullException>(() => comparer.GetHashCode(((string)null)));
             Assert.AreEqual(String.Empty.GetHashCode(), comparer.GetHashCode(String.Empty));
 
             string c = "abc";
-            Assert.AreEqual(c.GetHashCode(), comparer.GetHashCode(c));
+            Assert.AreEqual(c.GetHashCode(), comparer.GetHashCode(c)); 
         }
     }
 }

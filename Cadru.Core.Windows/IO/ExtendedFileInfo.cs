@@ -1477,7 +1477,7 @@ namespace Cadru.IO
         /// <param name="destinationBackupFileName">The name of a file with which to create a backup of the file described by the <paramref name="destinationFileName"/> parameter.</param>
         /// <returns>A FileInfo object that encapsulates information about the file described by the <paramref name="destinationFileName"/> parameter.</returns>
         /// <exception cref="ArgumentException">
-        /// <para>The path described by the <paramref name="destFileName"/> parameter was not of a legal form.</para>
+        /// <para>The path described by the <paramref name="destinationFileName"/> parameter was not of a legal form.</para>
         /// <para>-or-</para>
         /// <para>The path described by the <paramref name="destinationBackupFileName"/> parameter was not of a legal form.</para>
         /// </exception>

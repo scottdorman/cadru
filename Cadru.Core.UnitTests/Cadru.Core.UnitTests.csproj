@@ -73,10 +73,19 @@
     <Compile Include="Collections\DateComparerTests.cs" />
     <Compile Include="Collections\LogicalStringComparerTests.cs" />
     <Compile Include="Collections\NameValuePairTests.cs" />
+    <Compile Include="Contracts\RequiresTests.cs" />
+    <Compile Include="Contracts\AssumesTests.cs" />
+    <Compile Include="EventArgsTests.cs" />
+    <Compile Include="Extensions\DateTimeOffsetExtensionsTests.cs" />
+    <Compile Include="Extensions\EnumerableExtensionsTests.cs" />
+    <Compile Include="Extensions\EnumExtensionsTests.cs" />
+    <Compile Include="Extensions\NullExtensionsTests.cs" />
+    <Compile Include="Extensions\StringBuilderExtensionsTests.cs" />
     <Compile Include="Extensions\StringExtensionsTests.cs" />
     <Compile Include="Extensions\NumericExtensionsTests.cs" />
     <Compile Include="Extensions\DateTimeExtensionsTests.cs" />
-    <Compile Include="Extensions\BooleanExtensions.cs" />
+    <Compile Include="Extensions\BooleanExtensionsTests.cs" />
+    <Compile Include="Extensions\TypeExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Text\DataValidationTests.cs">
       <SubType>Code</SubType>
@@ -126,7 +135,6 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

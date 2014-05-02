@@ -7,312 +7,342 @@ using Cadru.Extensions;
 namespace Cadru.UnitTest.Framework.UnitTests.Extensions
 {
     [TestClass, ExcludeFromCodeCoverage]
-    public class NumericExtensionsTests
+    public class Tests
     {
         [TestMethod]
         public void Between()
         {
-            Assert.IsTrue(NumericExtensions.Between((byte)5, (byte)5, (byte)10));
-            Assert.IsTrue(NumericExtensions.Between((byte)10, (byte)5, (byte)10));
-            Assert.IsTrue(NumericExtensions.Between((byte)6, (byte)5, (byte)10));
-            Assert.IsFalse(NumericExtensions.Between((byte)4, (byte)5, (byte)10));
-            Assert.IsFalse(NumericExtensions.Between((byte)11, (byte)5, (byte)10));
+            Assert.IsTrue(((byte)5).Between((byte)5, (byte)10));
+            Assert.IsTrue(((byte)10).Between((byte)5, (byte)10));
+            Assert.IsTrue(((byte)6).Between((byte)5, (byte)10));
+            Assert.IsFalse(((byte)4).Between((byte)5, (byte)10));
+            Assert.IsFalse(((byte)11).Between((byte)5, (byte)10));
 
-            Assert.IsFalse(NumericExtensions.Between((byte)5, (byte)5, (byte)10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue(NumericExtensions.Between((byte)10, (byte)5, (byte)10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue(NumericExtensions.Between((byte)6, (byte)5, (byte)10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(NumericExtensions.Between((byte)4, (byte)5, (byte)10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(NumericExtensions.Between((byte)11, (byte)5, (byte)10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(((byte)5).Between((byte)5, (byte)10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue(((byte)10).Between((byte)5, (byte)10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue(((byte)6).Between((byte)5, (byte)10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(((byte)4).Between((byte)5, (byte)10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(((byte)1).Between((byte)5, (byte)10, NumericComparisonOptions.IncludeMaximum));
 
-            Assert.IsTrue(NumericExtensions.Between((byte)5, (byte)5, (byte)10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between((byte)10, (byte)5, (byte)10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsTrue(NumericExtensions.Between((byte)6, (byte)5, (byte)10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between((byte)4, (byte)5, (byte)10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between((byte)11, (byte)5, (byte)10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsTrue(((byte)5).Between((byte)5, (byte)10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(((byte)10).Between((byte)5, (byte)10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsTrue(((byte)6).Between((byte)5, (byte)10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(((byte)4).Between((byte)5, (byte)10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(((byte)1).Between((byte)5, (byte)10, NumericComparisonOptions.IncludeMinimum));
 
-            Assert.IsFalse(NumericExtensions.Between((byte)5, (byte)5, (byte)10, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between((byte)10, (byte)5, (byte)10, NumericComparisonOptions.None));
-            Assert.IsTrue(NumericExtensions.Between((byte)6, (byte)5, (byte)10, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between((byte)4, (byte)5, (byte)10, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between((byte)11, (byte)5, (byte)10, NumericComparisonOptions.None));
+            Assert.IsFalse(((byte)5).Between((byte)5, (byte)10, NumericComparisonOptions.None));
+            Assert.IsFalse(((byte)10).Between((byte)5, (byte)10, NumericComparisonOptions.None));
+            Assert.IsTrue(((byte)6).Between((byte)5, (byte)10, NumericComparisonOptions.None));
+            Assert.IsFalse(((byte)4).Between((byte)5, (byte)10, NumericComparisonOptions.None));
+            Assert.IsFalse(((byte)11).Between((byte)5, (byte)10, NumericComparisonOptions.None));
 
-            Assert.IsTrue(NumericExtensions.Between(5m, 5m, 10m));
-            Assert.IsTrue(NumericExtensions.Between(10m, 5m, 10m));
-            Assert.IsTrue(NumericExtensions.Between(6m, 5m, 10m));
-            Assert.IsFalse(NumericExtensions.Between(4m, 5m, 10m));
-            Assert.IsFalse(NumericExtensions.Between(11m, 5m, 10m));
+            Assert.IsTrue(5m.Between(5m, 10m));
+            Assert.IsTrue(10m.Between(5m, 10m));
+            Assert.IsTrue(6m.Between(5m, 10m));
+            Assert.IsFalse(4m.Between(5m, 10m));
+            Assert.IsFalse(11m.Between(5m, 10m));
 
-            Assert.IsFalse(NumericExtensions.Between(5m, 5m, 10m, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue(NumericExtensions.Between(10m, 5m, 10m, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue(NumericExtensions.Between(6m, 5m, 10m, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(NumericExtensions.Between(4m, 5m, 10m, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(NumericExtensions.Between(11m, 5m, 10m, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(5m.Between(5m, 10m, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue(10m.Between(5m, 10m, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue(6m.Between(5m, 10m, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(4m.Between(5m, 10m, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(11m.Between(5m, 10m, NumericComparisonOptions.IncludeMaximum));
 
-            Assert.IsTrue(NumericExtensions.Between(5m, 5m, 10m, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between(10m, 5m, 10m, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsTrue(NumericExtensions.Between(6m, 5m, 10m, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between(4m, 5m, 10m, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between(11m, 5m, 10m, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsTrue(5m.Between(5m, 10m, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(10m.Between(5m, 10m, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsTrue(6m.Between(5m, 10m, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(4m.Between(5m, 10m, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(11m.Between(5m, 10m, NumericComparisonOptions.IncludeMinimum));
 
-            Assert.IsFalse(NumericExtensions.Between(5m, 5m, 10m, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between(10m, 5m, 10m, NumericComparisonOptions.None));
-            Assert.IsTrue(NumericExtensions.Between(6m, 5m, 10m, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between(4m, 5m, 10m, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between(11m, 5m, 10m, NumericComparisonOptions.None));
+            Assert.IsFalse(5m.Between(5m, 10m, NumericComparisonOptions.None));
+            Assert.IsFalse(10m.Between(5m, 10m, NumericComparisonOptions.None));
+            Assert.IsTrue(6m.Between(5m, 10m, NumericComparisonOptions.None));
+            Assert.IsFalse(4m.Between(5m, 10m, NumericComparisonOptions.None));
+            Assert.IsFalse(11m.Between(5m, 10m, NumericComparisonOptions.None));
 
+            Assert.IsTrue(5d.Between(5d, 10d));
+            Assert.IsTrue(10d.Between(5d, 10d));
+            Assert.IsTrue(6d.Between(5d, 10d));
+            Assert.IsFalse(4d.Between(5d, 10d));
+            Assert.IsFalse(11d.Between(5d, 10d));
 
-            Assert.IsTrue(NumericExtensions.Between(5d, 5d, 10d));
-            Assert.IsTrue(NumericExtensions.Between(10d, 5d, 10d));
-            Assert.IsTrue(NumericExtensions.Between(6d, 5d, 10d));
-            Assert.IsFalse(NumericExtensions.Between(4d, 5d, 10d));
-            Assert.IsFalse(NumericExtensions.Between(11d, 5d, 10d));
+            Assert.IsFalse(5d.Between(5d, 10d, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue(10d.Between(5d, 10d, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue(6d.Between(5d, 10d, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(4d.Between(5d, 10d, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(11d.Between(5d, 10d, NumericComparisonOptions.IncludeMaximum));
 
-            Assert.IsFalse(NumericExtensions.Between(5d, 5d, 10d, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue(NumericExtensions.Between(10d, 5d, 10d, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue(NumericExtensions.Between(6d, 5d, 10d, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(NumericExtensions.Between(4d, 5d, 10d, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(NumericExtensions.Between(11d, 5d, 10d, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue(5d.Between(5d, 10d, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(10d.Between(5d, 10d, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsTrue(6d.Between(5d, 10d, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(4d.Between(5d, 10d, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(11d.Between(5d, 10d, NumericComparisonOptions.IncludeMinimum));
 
-            Assert.IsTrue(NumericExtensions.Between(5d, 5d, 10d, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between(10d, 5d, 10d, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsTrue(NumericExtensions.Between(6d, 5d, 10d, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between(4d, 5d, 10d, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between(11d, 5d, 10d, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(5d.Between(5d, 10d, NumericComparisonOptions.None));
+            Assert.IsFalse(10d.Between(5d, 10d, NumericComparisonOptions.None));
+            Assert.IsTrue(6d.Between(5d, 10d, NumericComparisonOptions.None));
+            Assert.IsFalse(4d.Between(5d, 10d, NumericComparisonOptions.None));
+            Assert.IsFalse(11d.Between(5d, 10d, NumericComparisonOptions.None));
 
-            Assert.IsFalse(NumericExtensions.Between(5d, 5d, 10d, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between(10d, 5d, 10d, NumericComparisonOptions.None));
-            Assert.IsTrue(NumericExtensions.Between(6d, 5d, 10d, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between(4d, 5d, 10d, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between(11d, 5d, 10d, NumericComparisonOptions.None));
+            Assert.IsTrue(5f.Between(5f, 10f));
+            Assert.IsTrue(10f.Between(5f, 10f));
+            Assert.IsTrue(6f.Between(5f, 10f));
+            Assert.IsFalse(4f.Between(5f, 10f));
+            Assert.IsFalse(11f.Between(5f, 10f));
 
+            Assert.IsFalse(5f.Between(5f, 10f, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue(10f.Between(5f, 10f, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue(6f.Between(5f, 10f, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(4f.Between(5f, 10f, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(11f.Between(5f, 10f, NumericComparisonOptions.IncludeMaximum));
 
-            Assert.IsTrue(NumericExtensions.Between(5f, 5f, 10f));
-            Assert.IsTrue(NumericExtensions.Between(10f, 5f, 10f));
-            Assert.IsTrue(NumericExtensions.Between(6f, 5f, 10f));
-            Assert.IsFalse(NumericExtensions.Between(4f, 5f, 10f));
-            Assert.IsFalse(NumericExtensions.Between(11f, 5f, 10f));
+            Assert.IsTrue(5f.Between(5f, 10f, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(10f.Between(5f, 10f, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsTrue(6f.Between(5f, 10f, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(4f.Between(5f, 10f, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(11f.Between(5f, 10f, NumericComparisonOptions.IncludeMinimum));
 
-            Assert.IsFalse(NumericExtensions.Between(5f, 5f, 10f, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue(NumericExtensions.Between(10f, 5f, 10f, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue(NumericExtensions.Between(6f, 5f, 10f, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(NumericExtensions.Between(4f, 5f, 10f, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(NumericExtensions.Between(11f, 5f, 10f, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(5f.Between(5f, 10f, NumericComparisonOptions.None));
+            Assert.IsFalse(10f.Between(5f, 10f, NumericComparisonOptions.None));
+            Assert.IsTrue(6f.Between(5f, 10f, NumericComparisonOptions.None));
+            Assert.IsFalse(4f.Between(5f, 10f, NumericComparisonOptions.None));
+            Assert.IsFalse(11f.Between(5f, 10f, NumericComparisonOptions.None));
 
-            Assert.IsTrue(NumericExtensions.Between(5f, 5f, 10f, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between(10f, 5f, 10f, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsTrue(NumericExtensions.Between(6f, 5f, 10f, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between(4f, 5f, 10f, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between(11f, 5f, 10f, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsTrue(5.Between(5, 10));
+            Assert.IsTrue(10.Between(5, 10));
+            Assert.IsTrue(6.Between(5, 10));
+            Assert.IsFalse(4.Between(5, 10));
+            Assert.IsFalse(11.Between(5, 10));
 
-            Assert.IsFalse(NumericExtensions.Between(5f, 5f, 10f, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between(10f, 5f, 10f, NumericComparisonOptions.None));
-            Assert.IsTrue(NumericExtensions.Between(6f, 5f, 10f, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between(4f, 5f, 10f, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between(11f, 5f, 10f, NumericComparisonOptions.None));
+            Assert.IsFalse(5.Between(5, 10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue(10.Between(5, 10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue(6.Between(5, 10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(4.Between(5, 10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(11.Between(5, 10, NumericComparisonOptions.IncludeMaximum));
 
+            Assert.IsTrue(5.Between(5, 10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(10.Between(5, 10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsTrue(6.Between(5, 10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(4.Between(5, 10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(11.Between(5, 10, NumericComparisonOptions.IncludeMinimum));
 
-            Assert.IsTrue(NumericExtensions.Between(5, 5, 10));
-            Assert.IsTrue(NumericExtensions.Between(10, 5, 10));
-            Assert.IsTrue(NumericExtensions.Between(6, 5, 10));
-            Assert.IsFalse(NumericExtensions.Between(4, 5, 10));
-            Assert.IsFalse(NumericExtensions.Between(11, 5, 10));
+            Assert.IsFalse(5.Between(5, 10, NumericComparisonOptions.None));
+            Assert.IsFalse(10.Between(5, 10, NumericComparisonOptions.None));
+            Assert.IsTrue(6.Between(5, 10, NumericComparisonOptions.None));
+            Assert.IsFalse(4.Between(5, 10, NumericComparisonOptions.None));
+            Assert.IsFalse(11.Between(5, 10, NumericComparisonOptions.None));
 
-            Assert.IsFalse(NumericExtensions.Between(5, 5, 10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue(NumericExtensions.Between(10, 5, 10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue(NumericExtensions.Between(6, 5, 10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(NumericExtensions.Between(4, 5, 10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(NumericExtensions.Between(11, 5, 10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue(5L.Between(5L, 10L));
+            Assert.IsTrue(10L.Between(5L, 10L));
+            Assert.IsTrue(6L.Between(5L, 10L));
+            Assert.IsFalse(4L.Between(5L, 10L));
+            Assert.IsFalse(11L.Between(5L, 10L));
 
-            Assert.IsTrue(NumericExtensions.Between(5, 5, 10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between(10, 5, 10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsTrue(NumericExtensions.Between(6, 5, 10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between(4, 5, 10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between(11, 5, 10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(5L.Between(5L, 10L, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue(10L.Between(5L, 10L, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue(6L.Between(5L, 10L, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(4L.Between(5L, 10L, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(11L.Between(5L, 10L, NumericComparisonOptions.IncludeMaximum));
 
-            Assert.IsFalse(NumericExtensions.Between(5, 5, 10, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between(10, 5, 10, NumericComparisonOptions.None));
-            Assert.IsTrue(NumericExtensions.Between(6, 5, 10, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between(4, 5, 10, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between(11, 5, 10, NumericComparisonOptions.None));
+            Assert.IsTrue(5L.Between(5L, 10L, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(10L.Between(5L, 10L, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsTrue(6L.Between(5L, 10L, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(4L.Between(5L, 10L, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(11L.Between(5L, 10L, NumericComparisonOptions.IncludeMinimum));
 
+            Assert.IsFalse(5L.Between(5L, 10L, NumericComparisonOptions.None));
+            Assert.IsFalse(10L.Between(5L, 10L, NumericComparisonOptions.None));
+            Assert.IsTrue(6L.Between(5L, 10L, NumericComparisonOptions.None));
+            Assert.IsFalse(4L.Between(5L, 10L, NumericComparisonOptions.None));
+            Assert.IsFalse(11L.Between(5L, 10L, NumericComparisonOptions.None));
 
-            Assert.IsTrue(NumericExtensions.Between(5L, 5L, 10L));
-            Assert.IsTrue(NumericExtensions.Between(10L, 5L, 10L));
-            Assert.IsTrue(NumericExtensions.Between(6L, 5L, 10L));
-            Assert.IsFalse(NumericExtensions.Between(4L, 5L, 10L));
-            Assert.IsFalse(NumericExtensions.Between(11L, 5L, 10L));
+            Assert.IsTrue(((short)5).Between((short)5, (short)10));
+            Assert.IsTrue(((short)10).Between((short)5, (short)10));
+            Assert.IsTrue(((short)6).Between((short)5, (short)10));
+            Assert.IsFalse(((short)4).Between((short)5, (short)10));
+            Assert.IsFalse(((short)11).Between((short)5, (short)10));
 
-            Assert.IsFalse(NumericExtensions.Between(5L, 5L, 10L, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue(NumericExtensions.Between(10L, 5L, 10L, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue(NumericExtensions.Between(6L, 5L, 10L, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(NumericExtensions.Between(4L, 5L, 10L, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(NumericExtensions.Between(11L, 5L, 10L, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(((short)5).Between((short)5, (short)10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue(((short)10).Between((short)5, (short)10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue(((short)6).Between((short)5, (short)10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(((short)4).Between((short)5, (short)10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(((short)11).Between((short)5, (short)10, NumericComparisonOptions.IncludeMaximum));
 
-            Assert.IsTrue(NumericExtensions.Between(5L, 5L, 10L, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between(10L, 5L, 10L, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsTrue(NumericExtensions.Between(6L, 5L, 10L, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between(4L, 5L, 10L, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between(11L, 5L, 10L, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsTrue(((short)5).Between((short)5, (short)10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(((short)10).Between((short)5, (short)10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsTrue(((short)6).Between((short)5, (short)10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(((short)4).Between((short)5, (short)10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(((short)11).Between((short)5, (short)10, NumericComparisonOptions.IncludeMinimum));
 
-            Assert.IsFalse(NumericExtensions.Between(5L, 5L, 10L, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between(10L, 5L, 10L, NumericComparisonOptions.None));
-            Assert.IsTrue(NumericExtensions.Between(6L, 5L, 10L, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between(4L, 5L, 10L, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between(11L, 5L, 10L, NumericComparisonOptions.None));
-
-
-            Assert.IsTrue(NumericExtensions.Between((short)5, (short)5, (short)10));
-            Assert.IsTrue(NumericExtensions.Between((short)10, (short)5, (short)10));
-            Assert.IsTrue(NumericExtensions.Between((short)6, (short)5, (short)10));
-            Assert.IsFalse(NumericExtensions.Between((short)4, (short)5, (short)10));
-            Assert.IsFalse(NumericExtensions.Between((short)11, (short)5, (short)10));
-
-            Assert.IsFalse(NumericExtensions.Between((short)5, (short)5, (short)10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue(NumericExtensions.Between((short)10, (short)5, (short)10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue(NumericExtensions.Between((short)6, (short)5, (short)10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(NumericExtensions.Between((short)4, (short)5, (short)10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(NumericExtensions.Between((short)11, (short)5, (short)10, NumericComparisonOptions.IncludeMaximum));
-
-            Assert.IsTrue(NumericExtensions.Between((short)5, (short)5, (short)10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between((short)10, (short)5, (short)10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsTrue(NumericExtensions.Between((short)6, (short)5, (short)10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between((short)4, (short)5, (short)10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(NumericExtensions.Between((short)11, (short)5, (short)10, NumericComparisonOptions.IncludeMinimum));
-
-            Assert.IsFalse(NumericExtensions.Between((short)5, (short)5, (short)10, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between((short)10, (short)5, (short)10, NumericComparisonOptions.None));
-            Assert.IsTrue(NumericExtensions.Between((short)6, (short)5, (short)10, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between((short)4, (short)5, (short)10, NumericComparisonOptions.None));
-            Assert.IsFalse(NumericExtensions.Between((short)11, (short)5, (short)10, NumericComparisonOptions.None));
+            Assert.IsFalse(((short)5).Between((short)5, (short)10, NumericComparisonOptions.None));
+            Assert.IsFalse(((short)10).Between((short)5, (short)10, NumericComparisonOptions.None));
+            Assert.IsTrue(((short)6).Between((short)5, (short)10, NumericComparisonOptions.None));
+            Assert.IsFalse(((short)4).Between((short)5, (short)10, NumericComparisonOptions.None));
+            Assert.IsFalse(((short)11).Between((short)5, (short)10, NumericComparisonOptions.None));
         }
+
         [TestMethod]
         public void GreaterThanOrEqualTo()
         {
-            Assert.IsTrue(NumericExtensions.GreaterThanOrEqualTo((byte)5, (byte)5));
-            Assert.IsTrue(NumericExtensions.GreaterThanOrEqualTo((byte)10, (byte)5));
-            Assert.IsFalse(NumericExtensions.GreaterThanOrEqualTo((byte)4, (byte)5));
+            Assert.IsTrue(((byte)5).GreaterThanOrEqualTo((byte)5));
+            Assert.IsTrue(((byte)10).GreaterThanOrEqualTo((byte)5));
+            Assert.IsFalse(((byte)4).GreaterThanOrEqualTo((byte)5));
 
-            Assert.IsTrue(NumericExtensions.GreaterThanOrEqualTo(5m, 5m));
-            Assert.IsTrue(NumericExtensions.GreaterThanOrEqualTo(10m, 5m));
-            Assert.IsFalse(NumericExtensions.GreaterThanOrEqualTo(4m, 5m));
+            Assert.IsTrue(5m.GreaterThanOrEqualTo(5m));
+            Assert.IsTrue(10m.GreaterThanOrEqualTo(5m));
+            Assert.IsFalse(4m.GreaterThanOrEqualTo(5m));
 
-            Assert.IsTrue(NumericExtensions.GreaterThanOrEqualTo(5d, 5d));
-            Assert.IsTrue(NumericExtensions.GreaterThanOrEqualTo(10d, 5d));
-            Assert.IsFalse(NumericExtensions.GreaterThanOrEqualTo(4d, 5d));
+            Assert.IsTrue(5d.GreaterThanOrEqualTo(5d));
+            Assert.IsTrue(10d.GreaterThanOrEqualTo(5d));
+            Assert.IsFalse(4d.GreaterThanOrEqualTo(5d));
 
-            Assert.IsTrue(NumericExtensions.GreaterThanOrEqualTo(5f, 5f));
-            Assert.IsTrue(NumericExtensions.GreaterThanOrEqualTo(10f, 5f));
-            Assert.IsFalse(NumericExtensions.GreaterThanOrEqualTo(4f, 5f));
+            Assert.IsTrue(5f.GreaterThanOrEqualTo(5f));
+            Assert.IsTrue(10f.GreaterThanOrEqualTo(5f));
+            Assert.IsFalse(4f.GreaterThanOrEqualTo(5f));
 
-            Assert.IsTrue(NumericExtensions.GreaterThanOrEqualTo(5, 5));
-            Assert.IsTrue(NumericExtensions.GreaterThanOrEqualTo(10, 5));
-            Assert.IsFalse(NumericExtensions.GreaterThanOrEqualTo(4, 5));
+            Assert.IsTrue(5.GreaterThanOrEqualTo(5));
+            Assert.IsTrue(10.GreaterThanOrEqualTo(5));
+            Assert.IsFalse(4.GreaterThanOrEqualTo(5));
 
-            Assert.IsTrue(NumericExtensions.GreaterThanOrEqualTo(5L, 5L));
-            Assert.IsTrue(NumericExtensions.GreaterThanOrEqualTo(10L, 5L));
-            Assert.IsFalse(NumericExtensions.GreaterThanOrEqualTo(4L, 5L));
+            Assert.IsTrue(5L.GreaterThanOrEqualTo(5L));
+            Assert.IsTrue(10L.GreaterThanOrEqualTo(5L));
+            Assert.IsFalse(4L.GreaterThanOrEqualTo(5L));
 
-            Assert.IsTrue(NumericExtensions.GreaterThanOrEqualTo((short)5, (short)5));
-            Assert.IsTrue(NumericExtensions.GreaterThanOrEqualTo((short)10, (short)5));
-            Assert.IsFalse(NumericExtensions.GreaterThanOrEqualTo((short)4, (short)5));
+            Assert.IsTrue(((short)5).GreaterThanOrEqualTo((short)5));
+            Assert.IsTrue(((short)10).GreaterThanOrEqualTo((short)5));
+            Assert.IsFalse(((short)4).GreaterThanOrEqualTo((short)5));
         }
 
         [TestMethod]
         public void GreaterThan()
         {
-            Assert.IsFalse(NumericExtensions.GreaterThan((byte)5, (byte)5));
-            Assert.IsTrue(NumericExtensions.GreaterThan((byte)10, (byte)5));
-            Assert.IsFalse(NumericExtensions.GreaterThan((byte)4, (byte)5));
+            Assert.IsFalse(((byte)5).GreaterThan((byte)5));
+            Assert.IsTrue(((byte)10).GreaterThan((byte)5));
+            Assert.IsFalse(((byte)4).GreaterThan((byte)5));
 
-            Assert.IsFalse(NumericExtensions.GreaterThan(5m, 5m));
-            Assert.IsTrue(NumericExtensions.GreaterThan(10m, 5m));
-            Assert.IsFalse(NumericExtensions.GreaterThan(4m, 5m));
+            Assert.IsFalse(5m.GreaterThan(5m));
+            Assert.IsTrue(10m.GreaterThan(5m));
+            Assert.IsFalse(4m.GreaterThan(5m));
 
-            Assert.IsFalse(NumericExtensions.GreaterThan(5d, 5d));
-            Assert.IsTrue(NumericExtensions.GreaterThan(10d, 5d));
-            Assert.IsFalse(NumericExtensions.GreaterThan(4d, 5d));
+            Assert.IsFalse(5d.GreaterThan(5d));
+            Assert.IsTrue(10d.GreaterThan(5d));
+            Assert.IsFalse(4d.GreaterThan(5d));
 
-            Assert.IsFalse(NumericExtensions.GreaterThan(5f, 5f));
-            Assert.IsTrue(NumericExtensions.GreaterThan(10f, 5f));
-            Assert.IsFalse(NumericExtensions.GreaterThan(4f, 5f));
+            Assert.IsFalse(5f.GreaterThan(5f));
+            Assert.IsTrue(10f.GreaterThan(5f));
+            Assert.IsFalse(4f.GreaterThan(5f));
 
-            Assert.IsFalse(NumericExtensions.GreaterThan(5, 5));
-            Assert.IsTrue(NumericExtensions.GreaterThan(10, 5));
-            Assert.IsFalse(NumericExtensions.GreaterThan(4, 5));
+            Assert.IsFalse(5.GreaterThan(5));
+            Assert.IsTrue(10.GreaterThan(5));
+            Assert.IsFalse(4.GreaterThan(5));
 
-            Assert.IsFalse(NumericExtensions.GreaterThan(5L, 5L));
-            Assert.IsTrue(NumericExtensions.GreaterThan(10L, 5L));
-            Assert.IsFalse(NumericExtensions.GreaterThan(4L, 5L));
+            Assert.IsFalse(5L.GreaterThan(5L));
+            Assert.IsTrue(10L.GreaterThan(5L));
+            Assert.IsFalse(4L.GreaterThan(5L));
 
-            Assert.IsFalse(NumericExtensions.GreaterThan((short)5, (short)5));
-            Assert.IsTrue(NumericExtensions.GreaterThan((short)10, (short)5));
-            Assert.IsFalse(NumericExtensions.GreaterThan((short)4, (short)5));
+            Assert.IsFalse(((short)5).GreaterThan((short)5));
+            Assert.IsTrue(((short)10).GreaterThan((short)5));
+            Assert.IsFalse(((short)4).GreaterThan((short)5));
         }
 
         [TestMethod]
         public void LessThanOrEqualTo()
         {
-            Assert.IsTrue(NumericExtensions.LessThanOrEqualTo((byte)5, (byte)5));
-            Assert.IsFalse(NumericExtensions.LessThanOrEqualTo((byte)10, (byte)5));
-            Assert.IsTrue(NumericExtensions.LessThanOrEqualTo((byte)4, (byte)5));
+            Assert.IsTrue(((byte)5).LessThanOrEqualTo((byte)5));
+            Assert.IsFalse(((byte)10).LessThanOrEqualTo((byte)5));
+            Assert.IsTrue(((byte)4).LessThanOrEqualTo((byte)5));
 
-            Assert.IsTrue(NumericExtensions.LessThanOrEqualTo(5m, 5m));
-            Assert.IsFalse(NumericExtensions.LessThanOrEqualTo(10m, 5m));
-            Assert.IsTrue(NumericExtensions.LessThanOrEqualTo(4m, 5m));
+            Assert.IsTrue(5m.LessThanOrEqualTo(5m));
+            Assert.IsFalse(10m.LessThanOrEqualTo(5m));
+            Assert.IsTrue(4m.LessThanOrEqualTo(5m));
 
-            Assert.IsTrue(NumericExtensions.LessThanOrEqualTo(5d, 5d));
-            Assert.IsFalse(NumericExtensions.LessThanOrEqualTo(10d, 5d));
-            Assert.IsTrue(NumericExtensions.LessThanOrEqualTo(4d, 5d));
+            Assert.IsTrue(5d.LessThanOrEqualTo(5d));
+            Assert.IsFalse(10d.LessThanOrEqualTo(5d));
+            Assert.IsTrue(4d.LessThanOrEqualTo(5d));
 
-            Assert.IsTrue(NumericExtensions.LessThanOrEqualTo(5f, 5f));
-            Assert.IsFalse(NumericExtensions.LessThanOrEqualTo(10f, 5f));
-            Assert.IsTrue(NumericExtensions.LessThanOrEqualTo(4f, 5f));
+            Assert.IsTrue(5f.LessThanOrEqualTo(5f));
+            Assert.IsFalse(10f.LessThanOrEqualTo(5f));
+            Assert.IsTrue(4f.LessThanOrEqualTo(5f));
 
-            Assert.IsTrue(NumericExtensions.LessThanOrEqualTo(5, 5));
-            Assert.IsFalse(NumericExtensions.LessThanOrEqualTo(10, 5));
-            Assert.IsTrue(NumericExtensions.LessThanOrEqualTo(4, 5));
+            Assert.IsTrue(5.LessThanOrEqualTo(5));
+            Assert.IsFalse(10.LessThanOrEqualTo(5));
+            Assert.IsTrue(4.LessThanOrEqualTo(5));
 
-            Assert.IsTrue(NumericExtensions.LessThanOrEqualTo(5L, 5L));
-            Assert.IsFalse(NumericExtensions.LessThanOrEqualTo(10L, 5L));
-            Assert.IsTrue(NumericExtensions.LessThanOrEqualTo(4L, 5L));
+            Assert.IsTrue(5L.LessThanOrEqualTo(5L));
+            Assert.IsFalse(10L.LessThanOrEqualTo(5L));
+            Assert.IsTrue(4L.LessThanOrEqualTo(5L));
 
-            Assert.IsTrue(NumericExtensions.LessThanOrEqualTo((short)5, (short)5));
-            Assert.IsFalse(NumericExtensions.LessThanOrEqualTo((short)10, (short)5));
-            Assert.IsTrue(NumericExtensions.LessThanOrEqualTo((short)4, (short)5));
+            Assert.IsTrue(((short)5).LessThanOrEqualTo((short)5));
+            Assert.IsFalse(((short)10).LessThanOrEqualTo((short)5));
+            Assert.IsTrue(((short)4).LessThanOrEqualTo((short)5));
         }
 
         [TestMethod]
         public void LessThan()
         {
-            Assert.IsFalse(NumericExtensions.LessThan((byte)5, (byte)5));
-            Assert.IsFalse(NumericExtensions.LessThan((byte)10, (byte)5));
-            Assert.IsTrue(NumericExtensions.LessThan((byte)4, (byte)5));
+            Assert.IsFalse(((byte)5).LessThan((byte)5));
+            Assert.IsFalse(((byte)10).LessThan((byte)5));
+            Assert.IsTrue(((byte)4).LessThan((byte)5));
 
-            Assert.IsFalse(NumericExtensions.LessThan(5m, 5m));
-            Assert.IsFalse(NumericExtensions.LessThan(10m, 5m));
-            Assert.IsTrue(NumericExtensions.LessThan(4m, 5m));
+            Assert.IsFalse(5m.LessThan(5m));
+            Assert.IsFalse(10m.LessThan(5m));
+            Assert.IsTrue(4m.LessThan(5m));
 
-            Assert.IsFalse(NumericExtensions.LessThan(5d, 5d));
-            Assert.IsFalse(NumericExtensions.LessThan(10d, 5d));
-            Assert.IsTrue(NumericExtensions.LessThan(4d, 5d));
+            Assert.IsFalse(5d.LessThan(5d));
+            Assert.IsFalse(10d.LessThan(5d));
+            Assert.IsTrue(4d.LessThan(5d));
 
-            Assert.IsFalse(NumericExtensions.LessThan(5f, 5f));
-            Assert.IsFalse(NumericExtensions.LessThan(10f, 5f));
-            Assert.IsTrue(NumericExtensions.LessThan(4f, 5f));
+            Assert.IsFalse(5f.LessThan(5f));
+            Assert.IsFalse(10f.LessThan(5f));
+            Assert.IsTrue(4f.LessThan(5f));
 
-            Assert.IsFalse(NumericExtensions.LessThan(5, 5));
-            Assert.IsFalse(NumericExtensions.LessThan(10, 5));
-            Assert.IsTrue(NumericExtensions.LessThan(4, 5));
+            Assert.IsFalse(5.LessThan(5));
+            Assert.IsFalse(10.LessThan(5));
+            Assert.IsTrue(4.LessThan(5));
 
-            Assert.IsFalse(NumericExtensions.LessThan(5L, 5L));
-            Assert.IsFalse(NumericExtensions.LessThan(10L, 5L));
-            Assert.IsTrue(NumericExtensions.LessThan(4L, 5L));
+            Assert.IsFalse(5L.LessThan(5L));
+            Assert.IsFalse(10L.LessThan(5L));
+            Assert.IsTrue(4L.LessThan(5L));
 
-            Assert.IsFalse(NumericExtensions.LessThan((short)5, (short)5));
-            Assert.IsFalse(NumericExtensions.LessThan((short)10, (short)5));
-            Assert.IsTrue(NumericExtensions.LessThan((short)4, (short)5));
+            Assert.IsFalse(((short)5).LessThan((short)5));
+            Assert.IsFalse(((short)10).LessThan((short)5));
+            Assert.IsTrue(((short)4).LessThan((short)5));
         }
 
+        [TestMethod]
+        public void IsEven()
+        {
+            Assert.IsTrue(((decimal)4).IsEven());
+            Assert.IsTrue(((double)4).IsEven());
+            Assert.IsTrue(((float)4).IsEven());
+            Assert.IsTrue(((int)4).IsEven());
+            Assert.IsTrue(((long)4).IsEven());
+            Assert.IsTrue(((short)4).IsEven());
 
+            Assert.IsFalse(((decimal)3).IsEven());
+            Assert.IsFalse(((double)3).IsEven());
+            Assert.IsFalse(((float)3).IsEven());
+            Assert.IsFalse(((int)3).IsEven());
+            Assert.IsFalse(((long)3).IsEven());
+            Assert.IsFalse(((short)3).IsEven());
+        }
+
+        [TestMethod]
+        public void IsOdd()
+        {
+            Assert.IsFalse(((decimal)4).IsOdd());
+            Assert.IsFalse(((double)4).IsOdd());
+            Assert.IsFalse(((float)4).IsOdd());
+            Assert.IsFalse(((int)4).IsOdd());
+            Assert.IsFalse(((long)4).IsOdd());
+            Assert.IsFalse(((short)4).IsOdd());
+
+            Assert.IsTrue(((decimal)3).IsOdd());
+            Assert.IsTrue(((double)3).IsOdd());
+            Assert.IsTrue(((float)3).IsOdd());
+            Assert.IsTrue(((int)3).IsOdd());
+            Assert.IsTrue(((long)3).IsOdd());
+            Assert.IsTrue(((short)3).IsOdd());
+        }
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Cadru.Collections;
 using System.Diagnostics.CodeAnalysis;
+using Cadru.UnitTest.Framework;
 
 namespace Cadru.UnitTests.Collections
 {
@@ -136,6 +137,8 @@ namespace Cadru.UnitTests.Collections
 
             Assert.IsFalse(comparer.Compare("abc", "a†bcd") < 0);
             Assert.IsFalse(comparer.Compare("a†bcd", "abc") > 0);
+
+            ExceptionAssert.Throws<ArgumentNullException>(() => new LogicalStringComparer(null));
         }
 
         /// <summary>
@@ -293,23 +296,6 @@ namespace Cadru.UnitTests.Collections
         }
 
         [TestMethod]
-        public void CompareExceptions()
-        {
-            try
-            {
-                LogicalStringComparer comparer = new LogicalStringComparer(null);
-            }
-            catch (ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-        }
-
-        [TestMethod]
         public void Equals()
         {
             LogicalStringComparer comparer = LogicalStringComparer.Default as LogicalStringComparer;
@@ -336,53 +322,10 @@ namespace Cadru.UnitTests.Collections
 
             object y = "def";
             Assert.AreEqual(y.GetHashCode(), comparer.GetHashCode(y));
-        }
 
-        [TestMethod]
-        public void HashCodeExceptions()
-        {
-            LogicalStringComparer comparer = LogicalStringComparer.Default as LogicalStringComparer;
-            try
-            {
-                object x = null;
-                int hash = comparer.GetHashCode(x);
-            }
-            catch (ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                object x = DateTime.Today;
-                int hash = comparer.GetHashCode(x);
-            }
-            catch (ArgumentException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-
-            try
-            {
-                string x = null;
-                int hash = comparer.GetHashCode(x);
-            }
-            catch (ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+            ExceptionAssert.Throws<ArgumentNullException>(() => comparer.GetHashCode(((object)null)));
+            ExceptionAssert.Throws<ArgumentException>(() => comparer.GetHashCode(((object)DateTime.Today)));
+            ExceptionAssert.Throws<ArgumentNullException>(() => comparer.GetHashCode(((string)null)));
         }
     }
 }

@@ -25,6 +25,7 @@ namespace Cadru.Collections
     using System;
     using System.Collections.Generic;
     using System.Text;
+    using Cadru.Extensions;
 
     /// <summary>Defines a key/value pair that can be set or retrieved.</summary>
     /// <typeparam name="TValue">The type of the value.</typeparam>
@@ -115,7 +116,7 @@ namespace Cadru.Collections
 
         #region Equals
 
-        #region Equals(Server other)
+        #region Equals(NameValuePair<TValue> other)
         /// <summary>
         /// Returns a value indicating whether this instance is equal to the specified <see cref="NameValuePair{TValue}"/> instance.
         /// </summary>
@@ -135,33 +136,23 @@ namespace Cadru.Collections
         }
         #endregion
 
-        #region Equals(Object obj)
+        #region Equals(object obj)
         /// <summary>
         /// Returns a value indicating whether this instance is equal to a specified object.
         /// </summary>
         /// <param name="obj">An object to compare to this instance.</param>
         /// <returns><see langword="true"/> if value is an instance of <see cref="NameValuePair{TValue}"/>
         /// equals the value of this instance; otherwise, <see langword="false"/>. </returns>
-        public override bool Equals(Object obj)
+        public override bool Equals(object obj)
         {
-            NameValuePair<TValue> s;
-
-            // Check that o is a Server first
-            if (obj == null || !(obj is NameValuePair<TValue>))
+            if (obj.IsNull() || !(obj is NameValuePair<TValue>))
             {
                 return false;
             }
             else
             {
-                s = (NameValuePair<TValue>)obj;
+                return ((NameValuePair<TValue>)obj).Equals(this);
             }
-
-            if (s.key != this.key)
-            {
-                return false;
-            }
-
-            return true;
         }
         #endregion
 
@@ -185,7 +176,7 @@ namespace Cadru.Collections
         {
             StringBuilder stringBuilder = new StringBuilder(16);
             stringBuilder.Append("[");
-            if (this.Key != null)
+            if (this.Key.IsNotNull())
             {
                 stringBuilder.Append(this.Key.ToString());
             }
@@ -196,7 +187,7 @@ namespace Cadru.Collections
             for (int i = 0; i < total; i++)
             {
                 TValue v = this.Value[i];
-                if (v != null)
+                if (v.IsNotNull())
                 {
                     stringBuilder.Append(v);
                     if (i < total - 1)

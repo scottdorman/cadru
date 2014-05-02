@@ -1,12 +1,9 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-
+﻿using Cadru.Text;
+using Cadru.UnitTest.Framework;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using Cadru.Text;
-using System.Globalization;
+using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 
 namespace CadruUnitTests.Text
 {
@@ -23,45 +20,18 @@ namespace CadruUnitTests.Text
         [TestMethod]
         public void IsAlpha()
         {
-            Assert.IsTrue(DataValidation.IsAlpha('a'));
-            Assert.IsTrue(DataValidation.IsAlpha('A'));
-            Assert.IsTrue(DataValidation.IsAlpha('.'));
-            Assert.IsTrue(DataValidation.IsAlpha('/'));
-            Assert.IsTrue(DataValidation.IsAlpha(';'));
+            Assert.IsTrue('a'.IsAlpha());
+            Assert.IsTrue('A'.IsAlpha());
+            Assert.IsTrue('.'.IsAlpha());
+            Assert.IsTrue('/'.IsAlpha());
+            Assert.IsTrue(';'.IsAlpha());
 
-            Assert.IsFalse(DataValidation.IsAlpha('1'));
-        }
+            Assert.IsFalse('1'.IsAlpha());
+            Assert.IsTrue("ADZerdfd".IsAlpha());
+            Assert.IsTrue("ADZ./;".IsAlpha());
+            Assert.IsFalse("ADZe321".IsAlpha());
 
-        /// <summary>
-        ///A test for IsAlpha (string)
-        ///</summary>
-        [TestMethod]
-        public void IsAlpha1()
-        {
-            Assert.IsTrue(DataValidation.IsAlpha("ADZerdfd"));
-            Assert.IsTrue(DataValidation.IsAlpha("ADZ./;"));
-
-            Assert.IsFalse(DataValidation.IsAlpha("ADZe321"));
-        }
-
-        /// <summary>
-        /// A test for IsAlpha (string), where string is null
-        /// </summary>
-        [TestMethod]
-        public void IsAlpha2()
-        {
-            try
-            {
-                DataValidation.IsAlpha(null);
-            }
-            catch (ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            catch (System.Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).IsAlpha());
         }
 
         /// <summary>
@@ -70,40 +40,25 @@ namespace CadruUnitTests.Text
         [TestMethod]
         public void IsAlphanumeric()
         {
-            Assert.IsTrue(DataValidation.IsAlphanumeric('a'));
-            Assert.IsTrue(DataValidation.IsAlphanumeric('A'));
-            Assert.IsTrue(DataValidation.IsAlphanumeric('.'));
-            Assert.IsTrue(DataValidation.IsAlphanumeric('/'));
-            Assert.IsTrue(DataValidation.IsAlphanumeric(';'));
-            Assert.IsTrue(DataValidation.IsAlphanumeric('1'));
+            Assert.IsTrue('a'.IsAlphanumeric());
+            Assert.IsTrue('A'.IsAlphanumeric());
+            Assert.IsTrue('.'.IsAlphanumeric());
+            Assert.IsTrue('/'.IsAlphanumeric());
+            Assert.IsTrue(';'.IsAlphanumeric());
+            Assert.IsTrue('1'.IsAlphanumeric());
 
             // This is a high ASCII character.
-            Assert.IsFalse(DataValidation.IsAlphanumeric('×'));
-        }
+            Assert.IsFalse('×'.IsAlphanumeric());
 
-        /// <summary>
-        ///A test for IsAlphanumeric (string)
-        ///</summary>
-        [TestMethod]
-        public void IsAlphanumeric1()
-        {
-            Assert.IsTrue(DataValidation.IsAlphanumeric("ADZerdfd"));
-            Assert.IsTrue(DataValidation.IsAlphanumeric("ADZ./;"));
-            Assert.IsTrue(DataValidation.IsAlphanumeric("ADZe321"));
-            Assert.IsTrue(DataValidation.IsAlphanumeric("321./;"));
+            Assert.IsTrue("ADZerdfd".IsAlphanumeric());
+            Assert.IsTrue("ADZ./;".IsAlphanumeric());
+            Assert.IsTrue("ADZe321".IsAlphanumeric());
+            Assert.IsTrue("321./;".IsAlphanumeric());
 
             // This is a high ASCII character.
-            Assert.IsFalse(DataValidation.IsAlphanumeric("×"));
-        }
+            Assert.IsFalse("×".IsAlphanumeric());
 
-        /// <summary>
-        /// A test for IsAlphanumeric (string), where string is null
-        /// </summary>
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void IsAlphanumeric2()
-        {
-            DataValidation.IsAlphanumeric(null);
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).IsAlphanumeric());
         }
 
         /// <summary>
@@ -112,15 +67,15 @@ namespace CadruUnitTests.Text
         [TestMethod]
         public void IsCurrency()
         {
-            Assert.IsTrue(DataValidation.IsCurrency("45454.15"));
-            Assert.IsTrue(DataValidation.IsCurrency("454545.1"));
-            Assert.IsTrue(DataValidation.IsCurrency("454545"));
-            Assert.IsTrue(DataValidation.IsCurrency("454545.45"));
+            Assert.IsTrue("45454.15".IsCurrency());
+            Assert.IsTrue("454545.1".IsCurrency());
+            Assert.IsTrue("454545".IsCurrency());
+            Assert.IsTrue("454545.45".IsCurrency());
 
-            Assert.IsFalse(DataValidation.IsCurrency("123.34r"));
-            Assert.IsFalse(DataValidation.IsCurrency("ADZe321"));
-            Assert.IsFalse(DataValidation.IsCurrency("ADZe"));
-            Assert.IsTrue(DataValidation.IsCurrency("456.248"));
+            Assert.IsFalse("123.34r".IsCurrency());
+            Assert.IsFalse("ADZe321".IsCurrency());
+            Assert.IsFalse("ADZe".IsCurrency());
+            Assert.IsTrue("456.248".IsCurrency());
         }
 
         /// <summary>
@@ -129,30 +84,23 @@ namespace CadruUnitTests.Text
         [TestMethod]
         public void IsDate()
         {
-            Assert.IsTrue(DataValidation.IsDate("2004-12-25"));
-            Assert.IsTrue(DataValidation.IsDate("2004-12-12"));
-            Assert.IsTrue(DataValidation.IsDate("12/12/2004"));
-            Assert.IsTrue(DataValidation.IsDate("2001-05-02T00:00:00"));
+            Assert.IsTrue("2004-12-25".IsDate());
+            Assert.IsTrue("2004-12-12".IsDate());
+            Assert.IsTrue("12/12/2004".IsDate());
+            Assert.IsTrue("2001-05-02T00:00:00".IsDate());
 
-            Assert.IsFalse(DataValidation.IsDate("123"));
-            Assert.IsFalse(DataValidation.IsDate("ADZe321"));
-            Assert.IsFalse(DataValidation.IsDate("ADZe"));
-        }
+            Assert.IsFalse("123".IsDate());
+            Assert.IsFalse("ADZe321".IsDate());
+            Assert.IsFalse("ADZe".IsDate());
 
-        /// <summary>
-        ///A test for IsDate (string, IFormatProvider)
-        ///</summary>
-        [TestMethod]
-        public void IsDate2()
-        {
-            Assert.IsTrue(DataValidation.IsDate("2004-12-25", DateTimeFormatInfo.CurrentInfo));
-            Assert.IsTrue(DataValidation.IsDate("2004-12-12", DateTimeFormatInfo.CurrentInfo));
-            Assert.IsTrue(DataValidation.IsDate("12/12/2004", DateTimeFormatInfo.CurrentInfo));
-            Assert.IsTrue(DataValidation.IsDate("2001-05-02T00:00:00", DateTimeFormatInfo.CurrentInfo));
+            Assert.IsTrue("2004-12-25".IsDate(DateTimeFormatInfo.CurrentInfo));
+            Assert.IsTrue("2004-12-12".IsDate(DateTimeFormatInfo.CurrentInfo));
+            Assert.IsTrue("12/12/2004".IsDate(DateTimeFormatInfo.CurrentInfo));
+            Assert.IsTrue("2001-05-02T00:00:00".IsDate(DateTimeFormatInfo.CurrentInfo));
 
-            Assert.IsFalse(DataValidation.IsDate("123", DateTimeFormatInfo.CurrentInfo));
-            Assert.IsFalse(DataValidation.IsDate("ADZe321", DateTimeFormatInfo.CurrentInfo));
-            Assert.IsFalse(DataValidation.IsDate("ADZe", DateTimeFormatInfo.CurrentInfo));
+            Assert.IsFalse("123".IsDate(DateTimeFormatInfo.CurrentInfo));
+            Assert.IsFalse("ADZe321".IsDate(DateTimeFormatInfo.CurrentInfo));
+            Assert.IsFalse("ADZe".IsDate(DateTimeFormatInfo.CurrentInfo));
         }
 
         ///// <summary>
@@ -191,110 +139,110 @@ namespace CadruUnitTests.Text
         //[TestMethod]
         //public void IsEmailAddress2()
         //{
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joecool@xyz.com"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe.cool@xyz.com"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe_cool@xyz.com"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe-cool@xyz.com"));
+        //    Assert.IsTrue("joecool@xyz.com".IsEmailAddress());
+        //    Assert.IsTrue("joe.cool@xyz.com".IsEmailAddress());
+        //    Assert.IsTrue("joe_cool@xyz.com".IsEmailAddress());
+        //    Assert.IsTrue("joe-cool@xyz.com".IsEmailAddress());
 
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joecool@[123.123.123.134]"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe.cool@[123.123.123.134]"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe_cool@[123.123.123.134]"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe-cool@[123.123.123.134]"));
+        //    Assert.IsTrue("joecool@[123.123.123.134]".IsEmailAddress());
+        //    Assert.IsTrue("joe.cool@[123.123.123.134]".IsEmailAddress());
+        //    Assert.IsTrue("joe_cool@[123.123.123.134]".IsEmailAddress());
+        //    Assert.IsTrue("joe-cool@[123.123.123.134]".IsEmailAddress());
 
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joecool@xyz.com.us"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe.cool@xyz.com.us"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe_cool@xyz.com.us"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe-cool@xyz.com.us"));
+        //    Assert.IsTrue("joecool@xyz.com.us".IsEmailAddress());
+        //    Assert.IsTrue("joe.cool@xyz.com.us".IsEmailAddress());
+        //    Assert.IsTrue("joe_cool@xyz.com.us".IsEmailAddress());
+        //    Assert.IsTrue("joe-cool@xyz.com.us".IsEmailAddress());
 
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joecool@xyz.def.com.us"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe.cool@xyz.def.com.us"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe_cool@xyz.def.com.us"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe-cool@xyz.def.com.us"));
-            
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joecool@xyz"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe.cool@xyz"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe_cool@xyz"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe-cool@xyz"));
+        //    Assert.IsTrue("joecool@xyz.def.com.us".IsEmailAddress());
+        //    Assert.IsTrue("joe.cool@xyz.def.com.us".IsEmailAddress());
+        //    Assert.IsTrue("joe_cool@xyz.def.com.us".IsEmailAddress());
+        //    Assert.IsTrue("joe-cool@xyz.def.com.us".IsEmailAddress());
 
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joecool@"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe.cool@"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe_cool@"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe-cool@"));
+        //    Assert.IsFalse("joecool@xyz".IsEmailAddress());
+        //    Assert.IsFalse("joe.cool@xyz".IsEmailAddress());
+        //    Assert.IsFalse("joe_cool@xyz".IsEmailAddress());
+        //    Assert.IsFalse("joe-cool@xyz".IsEmailAddress());
 
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joecool"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe.cool"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe_cool"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe-cool"));
+        //    Assert.IsFalse("joecool@".IsEmailAddress());
+        //    Assert.IsFalse("joe.cool@".IsEmailAddress());
+        //    Assert.IsFalse("joe_cool@".IsEmailAddress());
+        //    Assert.IsFalse("joe-cool@".IsEmailAddress());
 
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joecool@123.123.123.123.123.123"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe.cool@123.123.123.123.123.123"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe_cool@123.123.123.123.123.123"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe-cool@123.123.123.123.123.123"));
+        //    Assert.IsFalse("joecool".IsEmailAddress());
+        //    Assert.IsFalse("joe.cool".IsEmailAddress());
+        //    Assert.IsFalse("joe_cool".IsEmailAddress());
+        //    Assert.IsFalse("joe-cool".IsEmailAddress());
 
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joecool@123.123"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe.cool@123.123"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe_cool@123.123"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe-cool@123.123"));
+        //    Assert.IsFalse("joecool@123.123.123.123.123.123".IsEmailAddress());
+        //    Assert.IsFalse("joe.cool@123.123.123.123.123.123".IsEmailAddress());
+        //    Assert.IsFalse("joe_cool@123.123.123.123.123.123".IsEmailAddress());
+        //    Assert.IsFalse("joe-cool@123.123.123.123.123.123".IsEmailAddress());
 
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joecool@[123.123.123.134].com"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe.cool@[123.123.123.134].com"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe_cool@[123.123.123.134].com"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe-cool@[123.123.123.134].com"));
+        //    Assert.IsTrue("joecool@123.123".IsEmailAddress());
+        //    Assert.IsTrue("joe.cool@123.123".IsEmailAddress());
+        //    Assert.IsTrue("joe_cool@123.123".IsEmailAddress());
+        //    Assert.IsTrue("joe-cool@123.123".IsEmailAddress());
 
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joecool@[123.123.123.123.123.123]"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe.cool@[123.123.123.123.123.123]"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe_cool@[123.123.123.123.123.123]"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe-cool@[123.123.123.123.123.123]"));
+        //    Assert.IsFalse("joecool@[123.123.123.134].com".IsEmailAddress());
+        //    Assert.IsFalse("joe.cool@[123.123.123.134].com".IsEmailAddress());
+        //    Assert.IsFalse("joe_cool@[123.123.123.134].com".IsEmailAddress());
+        //    Assert.IsFalse("joe-cool@[123.123.123.134].com".IsEmailAddress());
 
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joecool@[123.123]"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe.cool@[123.123]"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe_cool@[123.123]"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("joe-cool@[123.123]"));
+        //    Assert.IsFalse("joecool@[123.123.123.123.123.123]".IsEmailAddress());
+        //    Assert.IsFalse("joe.cool@[123.123.123.123.123.123]".IsEmailAddress());
+        //    Assert.IsFalse("joe_cool@[123.123.123.123.123.123]".IsEmailAddress());
+        //    Assert.IsFalse("joe-cool@[123.123.123.123.123.123]".IsEmailAddress());
 
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joecool@[123.123"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe.cool@[123.123"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe_cool@123.123]"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joe-cool@123.123]"));
+        //    Assert.IsTrue("joecool@[123.123]".IsEmailAddress());
+        //    Assert.IsTrue("joe.cool@[123.123]".IsEmailAddress());
+        //    Assert.IsTrue("joe_cool@[123.123]".IsEmailAddress());
+        //    Assert.IsTrue("joe-cool@[123.123]".IsEmailAddress());
+
+        //    Assert.IsFalse("joecool@[123.123".IsEmailAddress());
+        //    Assert.IsFalse("joe.cool@[123.123".IsEmailAddress());
+        //    Assert.IsFalse("joe_cool@123.123]".IsEmailAddress());
+        //    Assert.IsFalse("joe-cool@123.123]".IsEmailAddress());
         //}
 
         //[TestMethod]
         //public void IsEmailAddress3()
         //{
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("jdoe@example.com"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("John Doe <jdoe@example.com>"));
-        //    //Assert.IsFalse(DataValidation.IsEmailAddress("John Doe <jdoe@example.com"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("John Doe [john@example.com]"));
-        //    //Assert.IsFalse(DataValidation.IsEmailAddress("John Doe [john@example.com"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("John Doe john@example.com"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("John (M) Doe john@example.com"));
-        //    //Assert.IsFalse(DataValidation.IsEmailAddress("John (M Doe john@example.com"));
-        //    //Assert.IsTrue(DataValidation.IsEmailAddress("John Doe john@example.com (R&D)"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("John [M] Doe john@example.com"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("\"John Doe\" john@example.com"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("John (J @ Home) Doe john@example.com"));
-        //    //Assert.IsTrue(DataValidation.IsEmailAddress("John Mc'Connell Doe john.m.doe@example.com"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("\"John Doe: Personal\" john@example.com"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("\"John Doe: Personal john@example.com"));
-        //    Assert.IsTrue(DataValidation.IsEmailAddress("John (Dr.) Doe <john(personal account)@example.com(personal domain)>"));
+        //    Assert.IsTrue("jdoe@example.com".IsEmailAddress());
+        //    Assert.IsTrue("John Doe <jdoe@example.com>".IsEmailAddress());
+        //    //Assert.IsFalse("John Doe <jdoe@example.com".IsEmailAddress());
+        //    Assert.IsTrue("John Doe [john@example.com]".IsEmailAddress());
+        //    //Assert.IsFalse("John Doe [john@example.com".IsEmailAddress());
+        //    Assert.IsTrue("John Doe john@example.com".IsEmailAddress());
+        //    Assert.IsTrue("John (M) Doe john@example.com".IsEmailAddress());
+        //    //Assert.IsFalse("John (M Doe john@example.com".IsEmailAddress());
+        //    //Assert.IsTrue("John Doe john@example.com (R&D)".IsEmailAddress());
+        //    Assert.IsTrue("John [M] Doe john@example.com".IsEmailAddress());
+        //    Assert.IsTrue("\"John Doe\" john@example.com".IsEmailAddress());
+        //    Assert.IsTrue("John (J @ Home) Doe john@example.com".IsEmailAddress());
+        //    //Assert.IsTrue("John Mc'Connell Doe john.m.doe@example.com".IsEmailAddress());
+        //    Assert.IsTrue("\"John Doe: Personal\" john@example.com".IsEmailAddress());
+        //    Assert.IsFalse("\"John Doe: Personal john@example.com".IsEmailAddress());
+        //    Assert.IsTrue("John (Dr.) Doe <john(personal account)@example.com(personal domain)>".IsEmailAddress());
         //}
 
         //[TestMethod]
         //public void IsEmailAddress4()
         //{
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("John Doe john@example.com (R\\D)"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("jdoe@example..com"));
-        //    //Assert.IsFalse(DataValidation.IsEmailAddress(".jdoe@example.com"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress(".@example.com"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("jdoe@example,com"));
-        //    //Assert.IsTrue(DataValidation.IsEmailAddress("John Doe john@example.com (R/D)"));
-        //    //Assert.IsTrue(DataValidation.IsEmailAddress("John Doe john@example.com (dept = R&D)"));
-        //    //Assert.IsTrue(DataValidation.IsEmailAddress("John Doe john@example.com (R?D)"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("joecool@example.[123.123]"));
-        //    //Assert.IsTrue(DataValidation.IsEmailAddress("John Mc^Connell Doe john.m.doe@example.com"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("jdoe@example_domain.com"));
-        //    //Assert.IsTrue(DataValidation.IsEmailAddress("John Doe {john@example.com}"));
-        //    Assert.IsFalse(DataValidation.IsEmailAddress("John Doe {john@example.com"));
-        //    //Assert.IsTrue(DataValidation.IsEmailAddress("John~Doe <john@example.com>"));
+        //    Assert.IsFalse("John Doe john@example.com (R\\D)".IsEmailAddress());
+        //    Assert.IsFalse("jdoe@example..com".IsEmailAddress());
+        //    //Assert.IsFalse(".jdoe@example.com".IsEmailAddress());
+        //    Assert.IsFalse(".@example.com".IsEmailAddress());
+        //    Assert.IsFalse("jdoe@example,com".IsEmailAddress());
+        //    //Assert.IsTrue("John Doe john@example.com (R/D)".IsEmailAddress());
+        //    //Assert.IsTrue("John Doe john@example.com (dept = R&D)".IsEmailAddress());
+        //    //Assert.IsTrue("John Doe john@example.com (R?D)".IsEmailAddress());
+        //    Assert.IsFalse("joecool@example.[123.123]".IsEmailAddress());
+        //    //Assert.IsTrue("John Mc^Connell Doe john.m.doe@example.com".IsEmailAddress());
+        //    Assert.IsFalse("jdoe@example_domain.com".IsEmailAddress());
+        //    //Assert.IsTrue("John Doe {john@example.com}".IsEmailAddress());
+        //    Assert.IsFalse("John Doe {john@example.com".IsEmailAddress());
+        //    //Assert.IsTrue("John~Doe <john@example.com>".IsEmailAddress());
         //}
 
         /// <summary>
@@ -303,35 +251,27 @@ namespace CadruUnitTests.Text
         [TestMethod]
         public void IsHexadecimal()
         {
-            Assert.IsTrue(DataValidation.IsHexadecimal('0'));
-            Assert.IsTrue(DataValidation.IsHexadecimal('a'));
-            Assert.IsTrue(DataValidation.IsHexadecimal('A'));
-            Assert.IsTrue(DataValidation.IsHexadecimal('f'));
-            Assert.IsTrue(DataValidation.IsHexadecimal('F'));
+            Assert.IsTrue('0'.IsHexadecimal());
+            Assert.IsTrue('a'.IsHexadecimal());
+            Assert.IsTrue('A'.IsHexadecimal());
+            Assert.IsTrue('f'.IsHexadecimal());
+            Assert.IsTrue('F'.IsHexadecimal());
 
-            Assert.IsFalse(DataValidation.IsHexadecimal('h'));
-            Assert.IsFalse(DataValidation.IsHexadecimal('H'));
+            Assert.IsFalse('h'.IsHexadecimal());
+            Assert.IsFalse('H'.IsHexadecimal());
 
-        }
+            Assert.IsTrue("0".IsHexadecimal());
+            Assert.IsTrue("a".IsHexadecimal());
+            Assert.IsTrue("A".IsHexadecimal());
+            Assert.IsTrue("f".IsHexadecimal());
+            Assert.IsTrue("F".IsHexadecimal());
+            Assert.IsTrue("0AF".IsHexadecimal());
+            Assert.IsTrue("0af".IsHexadecimal());
 
-        /// <summary>
-        ///A test for IsHexadecimal (string)
-        ///</summary>
-        [TestMethod]
-        public void IsHexadecimal1()
-        {
-            Assert.IsTrue(DataValidation.IsHexadecimal("0"));
-            Assert.IsTrue(DataValidation.IsHexadecimal("a"));
-            Assert.IsTrue(DataValidation.IsHexadecimal("A"));
-            Assert.IsTrue(DataValidation.IsHexadecimal("f"));
-            Assert.IsTrue(DataValidation.IsHexadecimal("F"));
-            Assert.IsTrue(DataValidation.IsHexadecimal("0AF"));
-            Assert.IsTrue(DataValidation.IsHexadecimal("0af"));
-
-            Assert.IsFalse(DataValidation.IsHexadecimal("h"));
-            Assert.IsFalse(DataValidation.IsHexadecimal("H"));
-            Assert.IsFalse(DataValidation.IsHexadecimal("0Ah"));
-            Assert.IsFalse(DataValidation.IsHexadecimal("0AH"));
+            Assert.IsFalse("h".IsHexadecimal());
+            Assert.IsFalse("H".IsHexadecimal());
+            Assert.IsFalse("0Ah".IsHexadecimal());
+            Assert.IsFalse("0AH".IsHexadecimal());
         }
 
         /// <summary>
@@ -340,22 +280,14 @@ namespace CadruUnitTests.Text
         [TestMethod]
         public void IsNumeric()
         {
-            Assert.IsTrue(DataValidation.IsNumeric('1'));
+            Assert.IsTrue('1'.IsNumeric());
 
-            Assert.IsFalse(DataValidation.IsNumeric('A'));
-            Assert.IsFalse(DataValidation.IsNumeric('e'));
-        }
+            Assert.IsFalse('A'.IsNumeric());
+            Assert.IsFalse('e'.IsNumeric());
+            Assert.IsTrue("123".IsNumeric());
 
-        /// <summary>
-        ///A test for IsNumeric (string)
-        ///</summary>
-        [TestMethod]
-        public void IsNumeric1()
-        {
-            Assert.IsTrue(DataValidation.IsNumeric("123"));
-
-            Assert.IsFalse(DataValidation.IsNumeric("ADZe321"));
-            Assert.IsFalse(DataValidation.IsNumeric("ADZe"));
+            Assert.IsFalse("ADZe321".IsNumeric());
+            Assert.IsFalse("ADZe".IsNumeric());
         }
 
         /// <summary>
@@ -364,36 +296,21 @@ namespace CadruUnitTests.Text
         [TestMethod]
         public void IsStrictlyAlpha()
         {
-            Assert.IsTrue(DataValidation.IsStrictlyAlpha('a'));
-            Assert.IsTrue(DataValidation.IsStrictlyAlpha('A'));
+            Assert.IsTrue('a'.IsStrictlyAlpha());
+            Assert.IsTrue('A'.IsStrictlyAlpha());
 
-            Assert.IsFalse(DataValidation.IsStrictlyAlpha('.'));
-            Assert.IsFalse(DataValidation.IsStrictlyAlpha('/'));
-            Assert.IsFalse(DataValidation.IsStrictlyAlpha(';'));
-            Assert.IsFalse(DataValidation.IsStrictlyAlpha('1'));
-        }
+            Assert.IsFalse('.'.IsStrictlyAlpha());
+            Assert.IsFalse('/'.IsStrictlyAlpha());
+            Assert.IsFalse(';'.IsStrictlyAlpha());
+            Assert.IsFalse('1'.IsStrictlyAlpha());
 
-        /// <summary>
-        ///A test for IsStrictlyAlpha (string)
-        ///</summary>
-        [TestMethod]
-        public void IsStrictlyAlpha1()
-        {
-            Assert.IsTrue(DataValidation.IsStrictlyAlpha("ADZerdfd"));
+            Assert.IsTrue("ADZerdfd".IsStrictlyAlpha());
 
-            Assert.IsFalse(DataValidation.IsStrictlyAlpha("ADZe321"));
-            Assert.IsFalse(DataValidation.IsStrictlyAlpha("ADZ./;"));
-            Assert.IsFalse(DataValidation.IsStrictlyAlpha("321./;"));
-        }
+            Assert.IsFalse("ADZe321".IsStrictlyAlpha());
+            Assert.IsFalse("ADZ./;".IsStrictlyAlpha());
+            Assert.IsFalse("321./;".IsStrictlyAlpha());
 
-        /// <summary>
-        /// A test for IsStrictlyAlpha (string), where string is null
-        /// </summary>
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void IsStrictlyAlpha2()
-        {
-            DataValidation.IsStrictlyAlpha(null);
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).IsStrictlyAlpha());
         }
 
         /// <summary>
@@ -402,36 +319,21 @@ namespace CadruUnitTests.Text
         [TestMethod]
         public void IsStrictlyAlphanumeric()
         {
-            Assert.IsTrue(DataValidation.IsStrictlyAlphanumeric('a'));
-            Assert.IsTrue(DataValidation.IsStrictlyAlphanumeric('A'));
-            Assert.IsTrue(DataValidation.IsStrictlyAlphanumeric('1'));
+            Assert.IsTrue('a'.IsStrictlyAlphanumeric());
+            Assert.IsTrue('A'.IsStrictlyAlphanumeric());
+            Assert.IsTrue('1'.IsStrictlyAlphanumeric());
 
-            Assert.IsFalse(DataValidation.IsStrictlyAlphanumeric('.'));
-            Assert.IsFalse(DataValidation.IsStrictlyAlphanumeric('/'));
-            Assert.IsFalse(DataValidation.IsStrictlyAlphanumeric(';'));
-        }
+            Assert.IsFalse('.'.IsStrictlyAlphanumeric());
+            Assert.IsFalse('/'.IsStrictlyAlphanumeric());
+            Assert.IsFalse(';'.IsStrictlyAlphanumeric());
+ 
+            Assert.IsTrue("ADZerdfd".IsStrictlyAlphanumeric());
+            Assert.IsTrue("ADZe321".IsStrictlyAlphanumeric());
 
-        /// <summary>
-        ///A test for IsStrictlyAlphanumeric (string)
-        ///</summary>
-        [TestMethod]
-        public void IsStrictlyAlphanumeric1()
-        {
-            Assert.IsTrue(DataValidation.IsStrictlyAlphanumeric("ADZerdfd"));
-            Assert.IsTrue(DataValidation.IsStrictlyAlphanumeric("ADZe321"));
-
-            Assert.IsFalse(DataValidation.IsStrictlyAlphanumeric("ADZ./;"));
-            Assert.IsFalse(DataValidation.IsStrictlyAlphanumeric("321./;"));
-        }
-
-        /// <summary>
-        /// A test for IsStrictlyAlphanumeric (string), where string is null
-        /// </summary>
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void IsStrictlyAlphanumeric2()
-        {
-            DataValidation.IsStrictlyAlphanumeric(null);
+            Assert.IsFalse("ADZ./;".IsStrictlyAlphanumeric());
+            Assert.IsFalse("321./;".IsStrictlyAlphanumeric());
+ 
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).IsStrictlyAlphanumeric());
         }
 
         /// <summary>
@@ -440,21 +342,14 @@ namespace CadruUnitTests.Text
         [TestMethod]
         public void IsValidFileName()
         {
-            string expression = "testfile.txt"; // TODO: Initialize to an appropriate value
+            string expression = "testfile.txt";
 
-            Assert.IsTrue(DataValidation.IsValidFileName(expression));
-        }
+            Assert.IsTrue(expression.IsValidFileName());
 
-        /// <summary>
-        ///A test for IsValidFileName (string, bool)
-        ///</summary>
-        [TestMethod]
-        public void IsValidFileName1()
-        {
-            string expression = "\testfile.txt";
+            expression = "\testfile.txt";
 
-            Assert.IsTrue(DataValidation.IsValidFileName(expression, true));
-            Assert.IsFalse(DataValidation.IsValidFileName(expression, false));
+            Assert.IsTrue(expression.IsValidFileName(true));
+            Assert.IsFalse(expression.IsValidFileName(false));
         }
     }
 }

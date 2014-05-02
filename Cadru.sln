@@ -1,11 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30324.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{C41A993A-E442-4011-8F03-FAC93E87EFBC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{0183DA92-D49F-40CF-8AF1-3116530A9C64}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4EBFADED-DC6E-4D0F-B367-6EB7BD09EF2E}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadru.Core", "Cadru.Core\Cadru.Core.csproj", "{8A851D1E-9BD8-4CAF-A341-0ECCAC69E53F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadru.Core.Windows", "Cadru.Core.Windows\Cadru.Core.Windows.csproj", "{F2554B39-00C0-4553-8736-912C2053B6D2}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{C41A993A-E442-4011-8F03-FAC93E87EFBC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadru.Core.UnitTests", "Cadru.Core.UnitTests\Cadru.Core.UnitTests.csproj", "{0BED0473-C90D-4C16-98D1-14D76D13FB17}"
 EndProject
@@ -17,18 +28,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadru.UnitTest.Framework.Un
 EndProject
 Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "Cadru.Core.Documentation", "Cadru.Core.Documentation\Cadru.Core.Documentation.shfbproj", "{E6541290-4A07-4F81-B13F-20AC30D71E59}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{0183DA92-D49F-40CF-8AF1-3116530A9C64}"
-EndProject
 Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "Cadru.Core.Windows.Documentation", "Cadru.Core.Windows.Documentation\Cadru.Core.Windows.Documentation.shfbproj", "{AB5527B7-7B06-4B34-AC32-DB7DB901C189}"
 EndProject
 Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "Cadru.UnitTest.Framework.Documentation", "Cadru.UnitTest.Framework.Documentation\Cadru.UnitTest.Framework.Documentation.shfbproj", "{C55E58B7-9029-4B3A-BD2F-D5B737DABDD9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4EBFADED-DC6E-4D0F-B367-6EB7BD09EF2E}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

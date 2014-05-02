@@ -27,6 +27,9 @@ namespace Cadru.Extensions
     using System.Text;
     using Cadru.Properties;
     using Cadru.Text;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Cadru.Internal;
 
     /// <summary>
     /// Provides basic routines for common string manipulation.
@@ -420,7 +423,7 @@ namespace Cadru.Extensions
         /// method as a white-space character.</remarks>
         public static bool IsNullOrWhiteSpace(this string value)
         {
-            if (value != null)
+            if (value.IsNotNull())
             {
                 int num = 0;
                 while (num < value.Length)
@@ -463,9 +466,9 @@ namespace Cadru.Extensions
         }
         #endregion
 
-        #region Normalize
+        #region Clean
 
-        #region Normalize(string source)
+        #region Clean(string source)
         /// <summary>
         /// Returns a new string whose textual value is the normalized form of
         /// <paramref name="source"/>.
@@ -473,19 +476,19 @@ namespace Cadru.Extensions
         /// <param name="source">The <see cref="String"/> to normalize.
         /// </param>
         /// <returns>A new, normalized string.</returns>
-        /// <remarks><para>The <see cref="Normalize(string)"/> method removes 
+        /// <remarks><para>The <see cref="Clean(string)"/> method removes 
         /// all occurrences of white space and control characters from the 
         /// beginning and end of the given string as well as collapsing all 
         /// internal white space characters to a single white space character.
         /// </para>
         /// </remarks>
-        public static string Normalize(this string source)
+        public static string Clean(this string source)
         {
-            return Normalize(source, NormalizationOptions.All);
+            return Clean(source, NormalizationOptions.All);
         }
         #endregion
 
-        #region Normalize(string source, NormalizationOptions options)
+        #region Clean(string source, NormalizationOptions options)
         /// <summary>
         /// Returns a new string whose textual value is the normalized form of
         /// <paramref name="source"/>.
@@ -495,13 +498,13 @@ namespace Cadru.Extensions
         /// <param name="options">One of the 
         /// <see cref="NormalizationOptions"/> values.</param>
         /// <returns>A new, normalized string.</returns>
-        public static string Normalize(this string source, NormalizationOptions options)
+        public static string Clean(this string source, NormalizationOptions options)
         {
             Contracts.Requires.NotNull(source, "source");
 
             if ((int)options < 0 || ((int)options & (int)~(NormalizationOptions.ControlCharacters | NormalizationOptions.Whitespace)) != 0)
             {
-                throw new ArgumentException(String.Format(CultureInfo.CurrentUICulture, Resources.Argument_EnumIllegalVal, (int)options), "options");
+                throw ExceptionBuilder.CreateArgumentException("options", String.Format(CultureInfo.CurrentUICulture, Resources.Argument_EnumIllegalVal, (int)options));
             }
 
             char[] normalized;
@@ -646,6 +649,38 @@ namespace Cadru.Extensions
         }
         #endregion
 
+        #endregion
+
+        #region RemoveWhiteSpace
+        /// <summary>
+        /// Returns a new string whose textual value is <paramref name="source"/>
+        /// with all whitespace characters removed.
+        /// </summary>
+        /// <param name="source">The <see cref="String"/> from which whitespace characters will be removed.
+        /// </param>
+        /// <returns>A new string representing <paramref name="source"/> with all of the
+        /// whitespace characters removed.</returns>
+        public static string RemoveWhiteSpace(this string source)
+        {
+            Contracts.Requires.NotNull(source, "source");
+            char[] buffer = new char[source.Trim().Length];
+
+            int index = 0;
+            int position = index;
+            while (index < source.Length)
+            {
+                if (!char.IsWhiteSpace(source[index]))
+                {
+                    buffer[position++] = source[index++];
+                }
+                else
+                {
+                    index++;
+                }
+            }
+
+            return new string(buffer, 0, position);
+        }
         #endregion
 
         #region Replace
@@ -1346,16 +1381,16 @@ namespace Cadru.Extensions
         #endregion
 
         #region TrimWhiteSpaceAndNull
-        internal static string TrimWhiteSpaceAndNull(this string value)
+        internal static string TrimWhiteSpaceAndNull(this string source)
         {
             int num = 0;
-            int length = value.Length - 1;
+            int length = source.Length - 1;
             char chr = '\0';
             while (true)
             {
-                if (num < value.Length)
+                if (num < source.Length)
                 {
-                    if (!char.IsWhiteSpace(value[num]) && value[num] != chr)
+                    if (!char.IsWhiteSpace(source[num]) && source[num] != chr)
                     {
                         break;
                     }
@@ -1368,12 +1403,35 @@ namespace Cadru.Extensions
                 }
             }
 
-            while (length >= num && (char.IsWhiteSpace(value[length]) || value[length] == chr))
+            while (length >= num && (char.IsWhiteSpace(source[length]) || source[length] == chr))
             {
                 length--;
             }
 
-            return value.Substring(num, length - num + 1);
+            return source.Substring(num, length - num + 1);
+        }
+        #endregion
+
+        #region Truncate
+        /// <summary>
+        /// Returns a new string whose textual value is <paramref name="source"/>
+        /// which has been truncated at <paramref name="length"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="length">The maximum number of characters to be included
+        /// in the new <see cref="string"/>.</param>
+        /// <returns>If <paramref name="source"/> is greater than
+        /// <paramref name="length"/>, a new string representing 
+        /// <paramref name="source"/> which has been truncated at
+        /// <paramref name="length"/>; otherwise, the original value.</returns>
+        public static string Truncate(this string source, int length)
+        {
+            if (!String.IsNullOrEmpty(source) && source.Length > length)
+            {
+                return source.Substring(0, length);
+            }
+
+            return source;
         }
         #endregion
 

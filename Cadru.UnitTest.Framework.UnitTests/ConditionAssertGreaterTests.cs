@@ -19,51 +19,7 @@ namespace Cadru.UnitTest.Framework.UnitTests
         private readonly System.Enum e1 = System.Data.CommandType.TableDirect;
         private readonly System.Enum e2 = System.Data.CommandType.StoredProcedure;
 
-        private TestContext testContextInstance;
-
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
-        #region Additional TestMethod() attributes
-        // 
-        //You can use the following additional attributes as you write your TestMethod()s:
-        //
-        //Use ClassInitialize to run code before running the first TestMethod() in the class
-        //[ClassInitialize()]
-        //public static void MyClassInitialize(TestMethod()Context TestMethod()Context)
-        //{
-        //}
-        //
-        //Use ClassCleanup to run code after all TestMethod()s in a class have run
-        //[ClassCleanup()]
-        //public static void MyClassCleanup()
-        //{
-        //}
-        //
-        //Use TestMethod()Initialize to run code before running each TestMethod()
-        //[TestMethod()Initialize()]
-        //public void MyTestMethod()Initialize()
-        //{
-        //}
-        //
-        //Use TestMethod()Cleanup to run code after each TestMethod() has run
-        //[TestMethod()Cleanup()]
-        //public void MyTestMethod()Cleanup()
-        //{
-        //}
-        //
-        #endregion
-
-        [TestMethod()]
+        [TestMethod]
         public void Greater()
         {
             ConditionAssert.Greater(i1, i2);
@@ -73,25 +29,25 @@ namespace Cadru.UnitTest.Framework.UnitTests
             ConditionAssert.Greater(f1, f2, "float");
         }
 
-        [TestMethod(), ExpectedException(typeof(AssertFailedException))]
+        [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void NotGreaterWhenEqual()
         {
             ConditionAssert.Greater(i1, i1);
         }
 
-        [TestMethod(), ExpectedException(typeof(AssertFailedException))]
+        [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void NotGreater()
         {
             ConditionAssert.Greater(i2, i1);
         }
 
-        [TestMethod(), ExpectedException(typeof(AssertFailedException))]
+        [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void NotGreaterIComparable()
         {
             ConditionAssert.Greater(e2, e1);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void FailureMessage()
         {
             string msg = null;

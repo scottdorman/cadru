@@ -58,10 +58,10 @@ namespace Cadru.Extensions
             Type type = value.GetType();
             string description = value.ToString();
             FieldInfo fieldInfo = type.GetField(description);
-            if (fieldInfo != null)
+            if (fieldInfo.IsNotNull())
             {
                 EnumDescriptionAttribute attribute = ((EnumDescriptionAttribute[])fieldInfo.GetCustomAttributes(typeof(EnumDescriptionAttribute), false)).FirstOrDefault();
-                if (attribute != null)
+                if (attribute.IsNotNull())
                 {
                     description = attribute.Description;
                 }

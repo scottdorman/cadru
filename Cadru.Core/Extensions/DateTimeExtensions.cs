@@ -276,9 +276,23 @@ namespace Cadru.Extensions
         /// day of the week from the date represented by this instance.</returns>
         public static DateTime GetDayOfWeek(this DateTime date, DayOfWeek day)
         {
-            DayOfWeek firstDayOfWeek = DateTimeFormatInfo.CurrentInfo.FirstDayOfWeek;
-            int current = DaysBetween(date.DayOfWeek, firstDayOfWeek);
-            int resultday = DaysBetween(day, firstDayOfWeek);
+            return date.GetDayOfWeek(day, DateTimeFormatInfo.CurrentInfo.FirstDayOfWeek);
+        }
+
+        /// <summary>
+        /// Returns a <see cref="DateTime"/> representing the
+        /// day of the week from the date represented by this instance.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <param name="day">An enumeration value that represents the day of
+        /// the week for which the date is to be calculated.</param>
+        /// <param name="startOfWeek">An enumeration value that represents the first day of the week.</param>
+        /// <returns>A <see cref="DateTime"/> representing the
+        /// day of the week from the date represented by this instance.</returns>
+        public static DateTime GetDayOfWeek(this DateTime date, DayOfWeek day, DayOfWeek startOfWeek)
+        {
+            int current = DaysBetween(date.DayOfWeek, startOfWeek);
+            int resultday = DaysBetween(day, startOfWeek);
             return date.AddDays(resultday - current);
         }
         #endregion

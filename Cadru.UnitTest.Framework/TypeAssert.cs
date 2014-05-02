@@ -25,6 +25,8 @@ namespace Cadru.UnitTest.Framework
     using System;
     using Cadru.UnitTest.Framework.Properties;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Cadru.Contracts;
+    using Cadru.Extensions;
 
     /// <summary>
     /// Contains assertion types that are not provided with the standard MSTest assertions.
@@ -128,9 +130,66 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
         public static void IsNotAssignableFrom(object value, Type expectedType, string message, params object[] parameters)
         {
+            Requires.NotNull(value, "value");
             if (value.GetType().IsAssignableFrom(expectedType))
             {
                 Assert.Fail(message, parameters);
+            }
+        }
+        #endregion
+
+        #endregion
+
+        #region IsType
+
+        #region IsType(object value, Type expectedType)
+        /// <summary>
+        /// Asserts that an object is of the given <see cref="Type"/>.
+        /// </summary>
+        /// <param name="value">The value to be tested.</param>
+        /// <param name="expectedType">The expected <see cref="Type"/>.</param>
+        public static void IsType(object value, Type expectedType)
+        {
+            Requires.NotNull(value, "value");
+            TypeAssert.IsType(value, expectedType, Resources.Assertion_WrongType, expectedType, value.GetType());
+        }
+        #endregion
+
+        #region IsType(object value, Type expectedType, string message)
+        /// <summary>
+        /// Asserts that an object is of the given <see cref="Type"/>.
+        /// </summary>
+        /// <param name="value">The value to be tested.</param>
+        /// <param name="expectedType">The expected <see cref="Type"/>.</param>
+        /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
+        public static void IsType(object value, Type expectedType, string message)
+        {
+            TypeAssert.IsType(value, expectedType, message, null);
+        }
+        #endregion
+
+        #region IsType(object value, Type expectedType, string message, params object[] parameters)
+        /// <summary>
+        /// Asserts that an object is of the given <see cref="Type"/>.
+        /// </summary>
+        /// <param name="value">The value to be tested.</param>
+        /// <param name="expectedType">The expected <see cref="Type"/>.</param>
+        /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
+        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
+        public static void IsType(object value, Type expectedType, string message, params object[] parameters)
+        {
+            Requires.NotNull(value, "value");
+            Type actualType = value.GetType();
+            if (actualType != expectedType)
+            {
+                if (message.IsNullOrWhiteSpace())
+                {
+                    Assert.Fail(Resources.Assertion_WrongType, expectedType, actualType);
+                }
+                else
+                {
+                    Assert.Fail(message, parameters);
+                }
             }
         }
         #endregion

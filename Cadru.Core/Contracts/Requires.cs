@@ -27,6 +27,10 @@ namespace Cadru.Contracts
     using System.Globalization;
     using Cadru.Internal;
     using Cadru.Properties;
+    using Cadru.Extensions;
+    using System.Collections;
+    using System.Linq;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Provides a set of methods to simplify code contract requirements.
@@ -170,7 +174,7 @@ namespace Cadru.Contracts
             Assumes.NotNull(disposable);
             Assumes.NotNullOrEmpty(objectName);
 
-            if (disposable != null)
+            if (disposable.IsNotNull())
             {
                 if (disposable.Disposed)
                 {
@@ -181,6 +185,8 @@ namespace Cadru.Contracts
         #endregion
 
         #region NotNull
+
+        #region NotNull<T>([ValidatedNotNull]T value, string parameterName)
         /// <summary>
         /// Checks that <paramref name="value"/> is not <see langword="null"/>.
         /// </summary>
@@ -191,14 +197,34 @@ namespace Cadru.Contracts
         [DebuggerStepThrough]
         public static void NotNull<T>([ValidatedNotNull]T value, string parameterName) where T : class
         {
-            if (value == null)
+            Requires.NotNull(value, parameterName, null);
+        }
+        #endregion
+
+        #region NotNull<T>([ValidatedNotNull]T value, string parameterName, string message)
+        /// <summary>
+        /// Checks that <paramref name="value"/> is not <see langword="null"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of the value to test.</typeparam>
+        /// <param name="value">The parameter to test.</param>
+        /// <param name="parameterName">The name of the parameter being tested.</param>
+        /// <param name="message">A message to be used in the resulting exception.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
+        [DebuggerStepThrough]
+        public static void NotNull<T>([ValidatedNotNull]T value, string parameterName, string message) where T : class
+        {
+            if (value.IsNull())
             {
-                throw ExceptionBuilder.CreateArgumentNullException(parameterName);
+                throw ExceptionBuilder.CreateArgumentNullException(parameterName, message);
             }
         }
         #endregion
 
+        #endregion
+
         #region NotNullOrEmpty
+
+        #region NotNullOrEmpty([ValidatedNotNull]string value, string parameterName)
         /// <summary>
         /// Checks that <paramref name="value"/> is not <see langword="null"/> or a zero-length string.
         /// </summary>
@@ -210,10 +236,123 @@ namespace Cadru.Contracts
         [DebuggerStepThrough]
         public static void NotNullOrEmpty([ValidatedNotNull]string value, string parameterName)
         {
+            Requires.NotNullOrEmpty(value, parameterName, ExceptionBuilder.Format(Resources.ArgumentException_EmptyString, parameterName));
+        }
+        #endregion
+
+        #region NotNullOrEmpty([ValidatedNotNull]string value, string parameterName, string message)
+        /// <summary>
+        /// Checks that <paramref name="value"/> is not <see langword="null"/> or a zero-length string.
+        /// </summary>
+        /// <param name="value">The parameter to test.</param>
+        /// <param name="parameterName">The name of the parameter being tested.</param>
+        /// <param name="message">A message to be used in the resulting exception.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value"/> is a zero-length string.</exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [DebuggerStepThrough]
+        public static void NotNullOrEmpty([ValidatedNotNull]string value, string parameterName, string message)
+        {
             Requires.NotNull(value, parameterName);
             if (value.Length == 0)
             {
-                throw ExceptionBuilder.CreateArgumentException(parameterName, ExceptionBuilder.Format(Resources.ArgumentException_EmptyString, parameterName));
+                throw ExceptionBuilder.CreateArgumentException(parameterName, message);
+            }
+        }
+        #endregion
+
+        #region NotNullOrEmpty(IEnumerable values, string parameterName)
+        /// <summary>
+        /// Checks that <paramref name="values"/> is not <see langword="null"/> or empty.
+        /// </summary>
+        /// <param name="values">The parameter to test.</param>
+        /// <param name="parameterName">The name of the parameter being tested.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="values"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentException"><paramref name="values"/> is empty.</exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [DebuggerStepThrough]
+        public static void NotNullOrEmpty(IEnumerable values, string parameterName)
+        {
+            if (values.IsNull())
+            {
+                throw ExceptionBuilder.CreateArgumentNullException(parameterName);
+            }
+
+            if (values.IsEmpty())
+            {
+                throw ExceptionBuilder.CreateArgumentException(parameterName, String.Empty);
+            }
+        }
+        #endregion
+
+        #region NotNullOrEmpty(IEnumerable values, string parameterName, string message)
+        /// <summary>
+        /// Checks that <paramref name="values"/> is not <see langword="null"/> or empty.
+        /// </summary>
+        /// <param name="values">The parameter to test.</param>
+        /// <param name="parameterName">The name of the parameter being tested.</param>
+        /// <param name="message">A message to be used in the resulting exception.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="values"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentException"><paramref name="values"/> is empty.</exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [DebuggerStepThrough]
+        public static void NotNullOrEmpty(IEnumerable values, string parameterName, string message)
+        {
+            if (values.IsNull())
+            {
+                throw ExceptionBuilder.CreateArgumentNullException(parameterName, message);
+            }
+
+            if (values.IsEmpty())
+            {
+                throw ExceptionBuilder.CreateArgumentException(parameterName, message);
+            }
+        }
+        #endregion
+
+        #endregion
+
+        #region NotNullElements
+        /// <summary>
+        /// Checks that <paramref name="values"/> is not <see langword="null"/> 
+        /// and contains no <see langword="null"/> elements.
+        /// </summary>
+        /// <param name="values">The parameter to test.</param>
+        /// <param name="parameterName">The name of the parameter being tested.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="values"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentException"><paramref name="values"/> contains a <see langword="null"/> element.</exception>
+        [DebuggerStepThrough]
+        public static void NotNullElements(IEnumerable values, string parameterName)
+        {
+            Requires.NotNull(values, "values");
+            foreach (var value in values)
+            {
+                if (value.IsNull())
+                {
+                    throw ExceptionBuilder.CreateContainsNullElement(parameterName);
+                }
+            }
+        }
+        #endregion
+
+        #region ValidElements
+        /// <summary>
+        /// Checks that <paramref name="values"/> is not <see langword="null"/> 
+        /// and contains valid elements based on the given predicate
+        /// </summary>
+        /// <param name="values">The parameter to test.</param>
+        /// <param name="match">The predicate used to test the elements.</param>
+        /// <param name="parameterName">The name of the parameter being tested.</param>
+        /// <param name="message">A message to be used in the resulting exception.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="values"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentException"><paramref name="values"/> contains an element which does not match the given predicate.</exception>
+        [DebuggerStepThrough]
+        public static void ValidElements<T>(IEnumerable<T> values, Predicate<T> match, string parameterName, string message)
+        {
+            Requires.NotNull(values, "values");
+            if (values.Any(x => !match(x)))
+            {
+                    throw ExceptionBuilder.CreateArgumentException(parameterName, message);
             }
         }
         #endregion
@@ -248,7 +387,6 @@ namespace Cadru.Contracts
         public static void ValidRange(bool condition, string parameterName, string message)
         {
             Assumes.NotNullOrEmpty(parameterName);
-            Assumes.NotNull(message);
 
             if (condition)
             {

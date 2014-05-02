@@ -27,6 +27,7 @@ namespace Cadru.Contracts
     using System.Globalization;
     using Cadru.Internal;
     using Cadru.Properties;
+    using Cadru.Extensions;
 
     /// <summary>
     /// Provides a set of methods to simplify debugging your code.
@@ -146,7 +147,7 @@ namespace Cadru.Contracts
         [Conditional("DEBUG")]
         public static void NotNull<T>(T value)
         {
-            Assumes.IsTrue(value != null);
+            Assumes.IsTrue(value.IsNotNull());
         }
         #endregion
 
@@ -269,7 +270,7 @@ namespace Cadru.Contracts
         [Conditional("DEBUG")]
         public static void Null(object value)
         {
-            Assumes.IsTrue(value == null);
+            Assumes.IsTrue(value.IsNull());
         }
         #endregion
 
