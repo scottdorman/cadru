@@ -406,7 +406,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">The text to search for in the exception
         /// <see cref="Exception.Message"/>.</param>
         /// <param name="comparison">One of the <see cref="ExceptionMessageComparison"/> values.</param>
-        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        /// <returns>The original <see cref="Exception"/>.</returns>
         public static T WithMessage<T>(this T exception, string message, ExceptionMessageComparison comparison) where T : Exception
         {
             Assert.IsNotNull(exception);
@@ -443,7 +443,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="exception">The exception whose <see cref="Exception.Message"/>
         /// will be compared.</param>
         /// <param name="message">The text to compare.</param>
-        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        /// <returns>The original <see cref="Exception"/>.</returns>
         public static T WithMessage<T>(this T exception, string message) where T : Exception
         {
             return exception.WithMessage(message, ExceptionMessageComparison.Exact);
@@ -461,7 +461,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="exception">The exception whose <see cref="ArgumentException.ParamName"/>
         /// property will be compared.</param>
         /// <param name="parameterName">The text to compare.</param>
-        /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        /// <returns>The original <see cref="Exception"/>.</returns>
         public static T WithParameter<T>(this T exception, string parameterName) where T : ArgumentException
         {
             Assert.IsNotNull(exception);
