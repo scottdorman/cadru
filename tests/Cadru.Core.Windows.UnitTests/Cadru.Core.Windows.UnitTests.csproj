@@ -70,6 +70,10 @@
       <Project>{f2554b39-00c0-4553-8736-912c2053b6d2}</Project>
       <Name>Cadru.Core.Windows</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\src\Cadru.Core\Cadru.Core.csproj">
+      <Project>{8a851d1e-9bd8-4caf-a341-0eccac69e53f}</Project>
+      <Name>Cadru.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\Cadru.UnitTest.Framework\Cadru.UnitTest.Framework.csproj">
       <Project>{233e823a-1925-44d0-a00b-c0b7bd40a306}</Project>
       <Name>Cadru.UnitTest.Framework</Name>

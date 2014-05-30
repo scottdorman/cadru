@@ -68,6 +68,7 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>SolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="Collections\ComparisonComparer{T}.cs" />
     <Compile Include="Collections\NameValuePair.cs" />
     <Compile Include="Collections\DateComparer.cs">
       <SubType>Code</SubType>

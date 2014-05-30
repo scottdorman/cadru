@@ -11,6 +11,7 @@ using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Globalization;
+using Cadru.Collections;
 using Cadru.IO;
 using Cadru.UnitTest.Framework;
 using System.Diagnostics.CodeAnalysis;
@@ -273,8 +274,7 @@ namespace Cadru.UnitTests.IO
             DirectoryInfo[] actual = edi.GetDirectories();
             DirectoryInfo[] expected = di.GetDirectories();
 
-            CustomAssert.IsNotEmpty(actual);
-            CollectionAssert.AllItemsAreNotNull(actual);
+            CollectionAssert.AreEqual(expected, actual, ComparisonComparer<DirectoryInfo>.Create((a, b) => a.FullName.CompareTo(b.FullName)));
 
             foreach (DirectoryInfo d in actual)
             {
@@ -298,9 +298,8 @@ namespace Cadru.UnitTests.IO
             DirectoryInfo[] actual = edi.GetDirectories("*");
             DirectoryInfo[] expected = di.GetDirectories("*");
 
-            CustomAssert.IsNotEmpty(actual);
-            CollectionAssert.AllItemsAreNotNull(actual);
-
+            CollectionAssert.AreEqual(expected, actual, ComparisonComparer<DirectoryInfo>.Create((a, b) => a.FullName.CompareTo(b.FullName)));
+ 
             foreach (DirectoryInfo d in actual)
             {
                 Assert.IsTrue(Array.Exists(expected,
@@ -323,8 +322,7 @@ namespace Cadru.UnitTests.IO
             DirectoryInfo[] actual = edi.GetDirectories("*", SearchOption.TopDirectoryOnly);
             DirectoryInfo[] expected = di.GetDirectories("*", SearchOption.TopDirectoryOnly);
 
-            CustomAssert.IsNotEmpty(actual);
-            CollectionAssert.AllItemsAreNotNull(actual);
+            CollectionAssert.AreEqual(expected, actual, ComparisonComparer<DirectoryInfo>.Create((a, b) => a.FullName.CompareTo(b.FullName)));
 
             foreach (DirectoryInfo d in actual)
             {

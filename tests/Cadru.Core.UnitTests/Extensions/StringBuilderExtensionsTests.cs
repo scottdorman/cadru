@@ -88,19 +88,15 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void AppendFormatLine()
         {
-            Assert.AreEqual(@"test 2
-", new StringBuilder().AppendFormatLine("test {0}", 2).ToString());
-            Assert.AreEqual(@"test 2
-", new StringBuilder().AppendFormatLine(CultureInfo.CurrentCulture, "test {0}", 2).ToString());
+            Assert.AreEqual(@"test 2" + Environment.NewLine, new StringBuilder().AppendFormatLine("test {0}", 2).ToString());
+            Assert.AreEqual(@"test 2" + Environment.NewLine, new StringBuilder().AppendFormatLine(CultureInfo.CurrentCulture, "test {0}", 2).ToString());
         }
 
         [TestMethod]
         public void AppendFormatLineIf()
         {
-            Assert.AreEqual(@"test 2
-", new StringBuilder().AppendFormatLineIf(true, "test {0}", 2).ToString());
-            Assert.AreEqual(@"test 2
-", new StringBuilder().AppendFormatLineIf(true, CultureInfo.CurrentCulture, "test {0}", 2).ToString());
+            Assert.AreEqual(@"test 2" + Environment.NewLine, new StringBuilder().AppendFormatLineIf(true, "test {0}", 2).ToString());
+            Assert.AreEqual(@"test 2" + Environment.NewLine, new StringBuilder().AppendFormatLineIf(true, CultureInfo.CurrentCulture, "test {0}", 2).ToString());
             Assert.AreEqual("", new StringBuilder().AppendFormatLineIf(false, "test {0}", 2).ToString());
             Assert.AreEqual("", new StringBuilder().AppendFormatLineIf(false, CultureInfo.CurrentCulture, "test {0}", 2).ToString());
         }
@@ -108,12 +104,10 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void AppendLineIf()
         {
-            Assert.AreEqual(@"test
-", new StringBuilder().AppendLineIf(true, "test").ToString());
+            Assert.AreEqual(@"test" + Environment.NewLine, new StringBuilder().AppendLineIf(true, "test").ToString());
             Assert.AreEqual("", new StringBuilder().AppendLineIf(false, "test").ToString());
 
-            Assert.AreEqual(@"
-", new StringBuilder().AppendLineIf(true).ToString());
+            Assert.AreEqual("" + Environment.NewLine, new StringBuilder().AppendLineIf(true).ToString());
             Assert.AreEqual("", new StringBuilder().AppendLineIf(false).ToString());
         }
     }

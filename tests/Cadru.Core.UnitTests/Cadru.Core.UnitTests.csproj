@@ -70,6 +70,7 @@
     <Reference Include="System.Runtime.Remoting" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\ComparisonComparerTests.cs" />
     <Compile Include="Collections\DateComparerTests.cs" />
     <Compile Include="Collections\LogicalStringComparerTests.cs" />
     <Compile Include="Collections\NameValuePairTests.cs" />
