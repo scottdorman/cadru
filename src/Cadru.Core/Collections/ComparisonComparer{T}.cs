@@ -24,14 +24,13 @@ namespace Cadru.Collections
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+    using Cadru.Contracts;
 
     /// <summary>
     /// Represents a <see cref="Comparer{T}"/> which uses a 
     /// <see cref="Comparison{T}"/> as the basis for the comparison.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">The type of the objects to compare.</typeparam>
     public class ComparisonComparer<T> : Comparer<T>
     {
         private readonly Comparison<T> comparison;
@@ -50,12 +49,12 @@ namespace Cadru.Collections
         /// Creates a comparer by using the specified comparison.
         /// </summary>
         /// <param name="comparison">The comparison to use.</param>
-        /// <returns>The new comparer</returns>
+        /// <returns>The new comparer.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="comparison"/> is <see langword="null"/>.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "The type must be generic but the Create method shouldn't be.")]
         public static Comparer<T> Create(Comparison<T> comparison)
         {
-            if (comparison == null)
-                throw new ArgumentNullException("comparison");
+            Requires.NotNull(comparison, "comparison");
 
             return new ComparisonComparer<T>(comparison);
         }
@@ -66,7 +65,7 @@ namespace Cadru.Collections
         /// greater than the other.
         /// </summary>
         /// <param name="x">The first object to compare.</param>
-        /// <param name="y">The first object to compare.</param>
+        /// <param name="y">The second object to compare.</param>
         /// <returns>
         /// A signed integer that indicates the relative values of x and y, as
         /// shown in the following table.
@@ -95,8 +94,9 @@ namespace Cadru.Collections
         /// </item>
         /// </list>
         /// </returns>
-        public override int Compare(T x, T y) {
-            return comparison(x, y);
+        public override int Compare(T x, T y) 
+        {
+            return this.comparison(x, y);
         }
     }
 }
