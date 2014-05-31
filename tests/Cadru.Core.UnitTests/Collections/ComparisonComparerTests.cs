@@ -28,6 +28,8 @@ namespace Cadru.UnitTest.Framework.UnitTests.Collections
             Assert.IsTrue(comparer.Compare(x, y) < 0);
             Assert.IsTrue(comparer.Compare(y, x) > 0);
             Assert.IsTrue(comparer.Compare(x, x) == 0);
+
+            ExceptionAssert.Throws<ArgumentNullException>(() => ComparisonComparer<string>.Create(null));
         }
     }
 }
