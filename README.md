@@ -1,3 +1,4 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/3t0p4d04fyqtiun5)](https://ci.appveyor.com/project/scottdorman/cadru)
 # Cadru
 
 ## What is Cadru?
