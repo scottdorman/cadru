@@ -8,6 +8,10 @@ using System.Globalization;
 
 namespace Cadru.UnitTest.Framework.UnitTests.Contracts
 {
+
+    // These tests will always fail in a non-debug build since all of the
+    // Assumes methods are marked with [Conditional("Debug")].
+#if DEBUG
     [TestClass, ExcludeFromCodeCoverage]
     public class AssumesTests
     {
@@ -81,4 +85,5 @@ namespace Cadru.UnitTest.Framework.UnitTests.Contracts
             Assumes.Null(o1);
         }
     }
+#endif
 }
