@@ -8,9 +8,10 @@ to help complete your developer toolbox. Cadru is designed to be portable first,
 of the library is available as a Portable Class Library (PCL) targeting the following frameworks:
 
 * .NET Framework 4 and higher
-* Silverlight 4 and higher
-* Windows Phone 7 and higher
-* .NET for Windows Store apps
+* Silverlight 5 and higher
+* Windows 8
+* Windows Phone 8.1 and higher
+* Windows Phone Silverlight 8
 
 This set of target frameworks was chosen to provide Cadru with the broadest reach possible. Any platform specific
 functionality is exposed as more narrowly focused portable class libraries or as a non portable library if that’s
