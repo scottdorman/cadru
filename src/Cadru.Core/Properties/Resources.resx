@@ -297,4 +297,31 @@
   <data name="NotImplemented_NotOverriddenByDerived" xml:space="preserve">
     <value>The {0} member must be overridden by a derived class.</value>
   </data>
+  <data name="Arg_MustBeUnixTimestamp" xml:space="preserve">
+    <value>Object must be of type UnixTimestamp.</value>
+  </data>
+  <data name="ArgumentOutOfRange_UnixTimestampBadYears" xml:space="preserve">
+    <value>Years value must be between +/-10000.</value>
+  </data>
+  <data name="ArgumentOutOfRange_DateArithmetic" xml:space="preserve">
+    <value>The added or subtracted value results in an un-representable DateTime.</value>
+  </data>
+  <data name="ArgumentOutOfRange_UnixTimestampBadMonths" xml:space="preserve">
+    <value>Months value must be between +/-120000.</value>
+  </data>
+  <data name="ArgumentOutOfRange_UnixTimestampBadSeconds" xml:space="preserve">
+    <value>Seconds must be between UnixTimestamp.MinValue.Seconds and UnixTimestamp.MaxValue.Seconds.</value>
+  </data>
+  <data name="ArgumentOutOfRange_Day" xml:space="preserve">
+    <value>Day must be between 1 and {0} for month {1}.</value>
+  </data>
+  <data name="ArgumentOutOfRange_DayOfWeek" xml:space="preserve">
+    <value>The DayOfWeek enumeration must be in the range 0 through 6.</value>
+  </data>
+  <data name="Argument_UnixTimestampIsInvalid" xml:space="preserve">
+    <value>The supplied UnixTimestamp represents an invalid time.  For example, when the clock is adjusted forward, any time in the period that is skipped is invalid.</value>
+  </data>
+  <data name="Arg_UnixTimestampRange" xml:space="preserve">
+    <value>Combination of arguments to the UnixTimestamp constructor is out of the legal range.</value>
+  </data>
 </root>

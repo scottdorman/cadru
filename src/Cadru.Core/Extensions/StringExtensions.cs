@@ -69,6 +69,266 @@ namespace Cadru.Extensions
         }
         #endregion
 
+        /// <summary>
+        /// Reports the zero-based index of the nth occurrence of the 
+        /// specified character in <paramref name="source"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="value">The character to seek.</param>
+        /// <param name="occurrence">The occurrence to find.</param>
+        /// <returns>The index position of <paramref name="value"/> if that 
+        /// character is found, or -1 if it is not. If <paramref name="value"/> is
+        /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <para><paramref name="source"/> is <see langword="null"/>.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="value"/> is <see langword="null"/>.</para>
+        /// </exception>
+        public static int IndexOfOccurrence(this string source, char value, int occurrence)
+        {
+            Contracts.Requires.NotNull(source, "source");
+            
+            return source.IndexOfOccurrence(value, 0, occurrence);
+        }
+
+        /// <summary>
+        /// Reports the zero-based index of the nth occurrence of the 
+        /// specified string in <paramref name="source"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="value">The string to seek.</param>
+        /// <param name="occurrence">The occurrence to find.</param>
+        /// <returns>The index position of <paramref name="value"/> if that 
+        /// string is found, or -1 if it is not. If <paramref name="value"/> is
+        /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <para><paramref name="source"/> is <see langword="null"/>.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="value"/> is <see langword="null"/>.</para>
+        /// </exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.IndexOfOccurrence(System.String,System.String,System.Int32,System.Int32)", Justification = "This ultimately calls an overload which provides the comparison.")]
+        public static int IndexOfOccurrence(this string source, string value, int occurrence)
+        {
+            Contracts.Requires.NotNull(source, "source");
+            
+            return source.IndexOfOccurrence(value, 0, occurrence);
+        }
+
+        /// <summary>
+        /// Reports the zero-based index of the nth occurrence of the 
+        /// specified character in <paramref name="source"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="value">The string to seek.</param>
+        /// <param name="startIndex">The search starting position.</param>
+        /// <param name="occurrence">The occurrence to find.</param>
+        /// <returns>The index position of <paramref name="value"/> if that 
+        /// character is found, or -1 if it is not. If <paramref name="value"/> is
+        /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <para><paramref name="source"/> is <see langword="null"/>.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="value"/> is <see langword="null"/>.</para>
+        /// </exception>
+        public static int IndexOfOccurrence(this string source, char value, int startIndex, int occurrence)
+        {
+            Contracts.Requires.NotNull(source, "source");
+            
+            return source.IndexOfOccurrence(value, startIndex, source.Length - startIndex, occurrence);
+        }
+
+        /// <summary>
+        /// Reports the zero-based index of the nth occurrence of the 
+        /// specified string in <paramref name="source"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="value">The string to seek.</param>
+        /// <param name="startIndex">The search starting position.</param>
+        /// <param name="occurrence">The occurrence to find.</param>
+        /// <returns>The index position of <paramref name="value"/> if that 
+        /// string is found, or -1 if it is not. If <paramref name="value"/> is
+        /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <para><paramref name="source"/> is <see langword="null"/>.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="value"/> is <see langword="null"/>.</para>
+        /// </exception>
+        public static int IndexOfOccurrence(this string source, string value, int startIndex, int occurrence)
+        {
+            Contracts.Requires.NotNull(source, "source");
+            
+            return source.IndexOfOccurrence(value, startIndex, source.Length - startIndex, occurrence, StringComparison.Ordinal);
+        }
+
+        /// <summary>
+        /// Reports the zero-based index of the nth occurrence of the 
+        /// specified string in <paramref name="source"/> using the
+        /// specified string comparison.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="value">The string to seek.</param>
+        /// <param name="occurrence">The occurrence to find.</param>
+        /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param>
+        /// <returns>The index position of <paramref name="value"/> if that 
+        /// string is found, or -1 if it is not. If <paramref name="value"/> is
+        /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <para><paramref name="source"/> is <see langword="null"/>.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="value"/> is <see langword="null"/>.</para>
+        /// </exception>
+        /// <exception cref="ArgumentException">
+        /// <paramref name="comparisonType"/> is not a valid 
+        /// <see cref="System.StringComparison"/>System.StringComparison value.
+        /// </exception>
+        public static int IndexOfOccurrence(this string source, string value, int occurrence, StringComparison comparisonType)
+        {
+            Contracts.Requires.NotNull(source, "source");
+            
+            return source.IndexOfOccurrence(value, 0, source.Length, occurrence, comparisonType);
+        }
+
+        /// <summary>
+        /// Reports the zero-based index of the nth occurrence of the 
+        /// specified string in <paramref name="source"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="value">The string to seek.</param>
+        /// <param name="startIndex">The search starting position.</param>
+        /// <param name="count">The number of character positions to examine.</param>
+        /// <param name="occurrence">The occurrence to find.</param>
+        /// <returns>The index position of <paramref name="value"/> if that 
+        /// string is found, or -1 if it is not. If <paramref name="value"/> is
+        /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <para><paramref name="source"/> is <see langword="null"/>.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="value"/> is <see langword="null"/>.</para>
+        /// </exception>
+        public static int IndexOfOccurrence(this string source, char value, int startIndex, int count, int occurrence)
+        {
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.ValidRange(startIndex < 0, "startIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(startIndex > source.Length, "startIndex", Resources.ArgumentOutOfRange_IndexLessThanLength);
+
+            int index = source.IndexOf(value, startIndex, count);
+            if (index == -1)
+            {
+                return -1;
+            }
+
+            for (int i = 1; i < occurrence; i++)
+            {
+                index = source.IndexOf(value, index + 1, source.Length - index - 1);
+                if (index == -1)
+                {
+                    return -1;
+                }
+            }
+
+            return index;
+        }
+
+        /// <summary>
+        /// Reports the zero-based index of the nth occurrence of the 
+        /// specified string in <paramref name="source"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="value">The string to seek.</param>
+        /// <param name="startIndex">The search starting position.</param>
+        /// <param name="count">The number of character positions to examine.</param>
+        /// <param name="occurrence">The occurrence to find.</param>
+        /// <returns>The index position of <paramref name="value"/> if that 
+        /// string is found, or -1 if it is not. If <paramref name="value"/> is
+        /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <para><paramref name="source"/> is <see langword="null"/>.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="value"/> is <see langword="null"/>.</para>
+        /// </exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.IndexOfOccurrence(System.String,System.String,System.Int32,System.Int32,System.Int32)", Justification = "This ultimately calls an overload which provides the comparison.")]
+        public static int IndexOfOccurrence(this string source, string value, int startIndex, int count, int occurrence)
+        {
+            Contracts.Requires.NotNull(source, "source");
+            
+            return source.IndexOfOccurrence(value, startIndex, count, occurrence, StringComparison.Ordinal);
+        }
+
+        /// <summary>
+        /// Reports the zero-based index of the nth occurrence of the 
+        /// specified string in <paramref name="source"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="value">The string to seek.</param>
+        /// <param name="startIndex">The search starting position.</param>
+        /// <param name="occurrence">The occurrence to find.</param>
+        /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param>
+        /// <returns>The index position of <paramref name="value"/> if that 
+        /// string is found, or -1 if it is not. If <paramref name="value"/> is
+        /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <para><paramref name="source"/> is <see langword="null"/>.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="value"/> is <see langword="null"/>.</para>
+        /// </exception>
+        public static int IndexOfOccurrence(this string source, string value, int startIndex, int occurrence, StringComparison comparisonType)
+        {
+            Contracts.Requires.NotNull(source, "source");
+            
+            return source.IndexOfOccurrence(value, startIndex, source.Length - startIndex, occurrence, comparisonType);
+        }
+
+        /// <summary>
+        /// Reports the zero-based index of the nth occurrence of the 
+        /// specified string in <paramref name="source"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="value">The string to seek.</param>
+        /// <param name="startIndex">The search starting position.</param>
+        /// <param name="count">The number of character positions to examine.</param>
+        /// <param name="occurrence">The occurrence to find.</param>
+        /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param>
+        /// <returns>The index position of <paramref name="value"/> if that 
+        /// string is found, or -1 if it is not. If <paramref name="value"/> is
+        /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <para><paramref name="source"/> is <see langword="null"/>.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="value"/> is <see langword="null"/>.</para>
+        /// </exception>
+        public static int IndexOfOccurrence(this string source, string value, int startIndex, int count, int occurrence, StringComparison comparisonType)
+        {
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.ValidRange(startIndex < 0, "startIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(startIndex > source.Length, "startIndex", Resources.ArgumentOutOfRange_IndexLessThanLength);
+
+            int index = source.IndexOf(value, startIndex, count, comparisonType);
+            if (index == -1)
+            {
+                return -1;
+            }
+
+            for (int i = 1; i < occurrence; i++)
+            {
+                index = source.IndexOf(value, index + 1, source.Length - index - 1, comparisonType);
+                if (index == -1)
+                {
+                    return -1;
+                }
+            }
+
+            return index;
+        }
+
         #region LastCharacter
         /// <summary>
         /// Returns the last character in <paramref name="source"/>.
@@ -661,19 +921,16 @@ namespace Cadru.Extensions
         public static string RemoveWhiteSpace(this string source)
         {
             Contracts.Requires.NotNull(source, "source");
-            char[] buffer = new char[source.Trim().Length];
-
-            int index = 0;
-            int position = index;
-            while (index < source.Length)
+            int position = 0;
+            int length = source.Length;
+            char[] buffer = new char[length];
+            char current;
+            for (int i = 0; i < length; i++)
             {
-                if (!char.IsWhiteSpace(source[index]))
+                current = source[i];
+                if (!Char.IsWhiteSpace(current))
                 {
-                    buffer[position++] = source[index++];
-                }
-                else
-                {
-                    index++;
+                    buffer[position++] = current;
                 }
             }
 

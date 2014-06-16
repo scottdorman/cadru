@@ -91,6 +91,8 @@
     <Compile Include="Text\DataValidationTests.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="WeakReferenceTests.cs" />
+    <Compile Include="UnixTimestampTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

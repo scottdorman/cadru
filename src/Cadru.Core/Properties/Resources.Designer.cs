@@ -88,6 +88,24 @@ namespace Cadru.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Object must be of type UnixTimestamp..
+        /// </summary>
+        internal static string Arg_MustBeUnixTimestamp {
+            get {
+                return ResourceManager.GetString("Arg_MustBeUnixTimestamp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Combination of arguments to the UnixTimestamp constructor is out of the legal range..
+        /// </summary>
+        internal static string Arg_UnixTimestampRange {
+            get {
+                return ResourceManager.GetString("Arg_UnixTimestampRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Illegal enum value: {0}..
         /// </summary>
         internal static string Argument_EnumIllegalVal {
@@ -196,6 +214,15 @@ namespace Cadru.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The supplied UnixTimestamp represents an invalid time.  For example, when the clock is adjusted forward, any time in the period that is skipped is invalid..
+        /// </summary>
+        internal static string Argument_UnixTimestampIsInvalid {
+            get {
+                return ResourceManager.GetString("Argument_UnixTimestampIsInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} cannot be an empty string..
         /// </summary>
         internal static string ArgumentException_EmptyString {
@@ -219,6 +246,33 @@ namespace Cadru.Properties {
         internal static string ArgumentNull_String {
             get {
                 return ResourceManager.GetString("ArgumentNull_String", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The added or subtracted value results in an un-representable DateTime..
+        /// </summary>
+        internal static string ArgumentOutOfRange_DateArithmetic {
+            get {
+                return ResourceManager.GetString("ArgumentOutOfRange_DateArithmetic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Day must be between 1 and {0} for month {1}..
+        /// </summary>
+        internal static string ArgumentOutOfRange_Day {
+            get {
+                return ResourceManager.GetString("ArgumentOutOfRange_Day", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The DayOfWeek enumeration must be in the range 0 through 6..
+        /// </summary>
+        internal static string ArgumentOutOfRange_DayOfWeek {
+            get {
+                return ResourceManager.GetString("ArgumentOutOfRange_DayOfWeek", resourceCulture);
             }
         }
         
@@ -255,6 +309,33 @@ namespace Cadru.Properties {
         internal static string ArgumentOutOfRange_Range {
             get {
                 return ResourceManager.GetString("ArgumentOutOfRange_Range", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Months value must be between +/-120000..
+        /// </summary>
+        internal static string ArgumentOutOfRange_UnixTimestampBadMonths {
+            get {
+                return ResourceManager.GetString("ArgumentOutOfRange_UnixTimestampBadMonths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seconds must be between UnixTimestamp.MinValue.Seconds and UnixTimestamp.MaxValue.Seconds..
+        /// </summary>
+        internal static string ArgumentOutOfRange_UnixTimestampBadSeconds {
+            get {
+                return ResourceManager.GetString("ArgumentOutOfRange_UnixTimestampBadSeconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Years value must be between +/-10000..
+        /// </summary>
+        internal static string ArgumentOutOfRange_UnixTimestampBadYears {
+            get {
+                return ResourceManager.GetString("ArgumentOutOfRange_UnixTimestampBadYears", resourceCulture);
             }
         }
         

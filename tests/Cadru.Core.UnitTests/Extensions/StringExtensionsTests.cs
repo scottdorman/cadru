@@ -40,6 +40,52 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         }
 
         [TestMethod]
+        public void IndexOfOccurrence()
+        {
+            Assert.AreEqual(10, "abc abc abc".IndexOfOccurrence('c', 3));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence('c', 4));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence('d', 1));
+
+            Assert.AreEqual(10, "abc abc abc".IndexOfOccurrence('c', 8, 1));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence('c', 8, 2));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence('d', 8, 1));
+
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence('c', 3, 2, 1));
+            Assert.AreEqual(2, "abc abc abc".IndexOfOccurrence('c', 0, 11, 1));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence('d', 0, 11, 1));
+
+            Assert.AreEqual(0, "abc abc abc".IndexOfOccurrence("ab", 1));
+            Assert.AreEqual(8, "abc abc abc".IndexOfOccurrence("ab", 3));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence("ab", 4));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence("de", 1));
+
+            Assert.AreEqual(0, "abc abc abc".IndexOfOccurrence("ab", 1, StringComparison.CurrentCulture));
+            Assert.AreEqual(8, "abc abc abc".IndexOfOccurrence("ab", 3, StringComparison.CurrentCulture));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence("ab", 4, StringComparison.CurrentCulture));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence("de", 1, StringComparison.CurrentCulture));
+
+            Assert.AreEqual(4, "abc abc abc".IndexOfOccurrence("ab", 1, 1));
+            Assert.AreEqual(4, "abc abc abc".IndexOfOccurrence("ab", 4, 1));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence("ab", 8, 2));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence("de", 1, 2));
+
+            Assert.AreEqual(4, "abc abc abc".IndexOfOccurrence("ab", 1, 1, StringComparison.CurrentCulture));
+            Assert.AreEqual(4, "abc abc abc".IndexOfOccurrence("ab", 4, 1, StringComparison.CurrentCulture));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence("ab", 8, 2, StringComparison.CurrentCulture));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence("de", 1, 2, StringComparison.CurrentCulture));
+
+            Assert.AreEqual(0, "abc abc abc".IndexOfOccurrence("ab", 0, 11, 1));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence("ab", 4, 7, 3));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence("ab", 0, 11, 4));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence("de", 0, 11, 4));
+
+            Assert.AreEqual(0, "abc abc abc".IndexOfOccurrence("ab", 0, 11, 1, StringComparison.CurrentCulture));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence("ab", 4, 7, 3, StringComparison.CurrentCulture));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence("ab", 0, 11, 4, StringComparison.CurrentCulture));
+            Assert.AreEqual(-1, "abc abc abc".IndexOfOccurrence("de", 0, 11, 4, StringComparison.CurrentCulture));
+        }
+
+        [TestMethod]
         public void IsEmpty()
         {
             Assert.IsTrue(((string)null).IsNullOrWhiteSpace());

@@ -26,6 +26,7 @@ namespace Cadru.Contracts
     using System.Collections;
     using System.Collections.Generic;
     using System.Diagnostics;
+    using System.Diagnostics.Contracts;
     using System.Linq;
     using Cadru.Extensions;
     using Cadru.Internal;
@@ -60,9 +61,11 @@ namespace Cadru.Contracts
         /// <exception cref="InvalidOperationException">The condition is <see langword="true"/>.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
         public static void IsFalse(bool condition)
         {
             Requires.IsFalse(condition, null);
+            Contract.EndContractBlock();
         }
         #endregion
 
@@ -75,12 +78,15 @@ namespace Cadru.Contracts
         /// <exception cref="InvalidOperationException">The condition is <see langword="true"/>.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
         public static void IsFalse(bool condition, string message)
         {
             if (condition)
             {
                 throw ExceptionBuilder.CreateInvalidOperation(message);
             }
+
+            Contract.EndContractBlock();
         }
         #endregion
 
@@ -94,12 +100,15 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException">The condition is <see langword="true"/>.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
         public static void IsFalse(bool condition, string parameterName, string message)
         {
             if (condition)
             {
                 throw ExceptionBuilder.CreateArgumentException(parameterName, message);
             }
+
+            Contract.EndContractBlock();
         }
         #endregion
 
@@ -115,9 +124,11 @@ namespace Cadru.Contracts
         /// <exception cref="InvalidOperationException">The condition is <see langword="false"/>.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
         public static void IsTrue(bool condition)
         {
             Requires.IsTrue(condition, null);
+            Contract.EndContractBlock();
         }
         #endregion
 
@@ -130,12 +141,15 @@ namespace Cadru.Contracts
         /// <exception cref="InvalidOperationException">The condition is <see langword="false"/>.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
         public static void IsTrue(bool condition, string message)
         {
             if (!condition)
             {
                 throw ExceptionBuilder.CreateInvalidOperation(message);
             }
+
+            Contract.EndContractBlock();
         }
         #endregion
 
@@ -149,12 +163,15 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException">The condition is <see langword="false"/>.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
         public static void IsTrue(bool condition, string parameterName, string message)
         {
             if (!condition)
             {
                 throw ExceptionBuilder.CreateArgumentException(parameterName, message);
             }
+
+            Contract.EndContractBlock();
         }
         #endregion
 
@@ -168,6 +185,7 @@ namespace Cadru.Contracts
         /// <param name="objectName">A string containing the name of the object.</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
         public static void NotDisposed(IDisposablePattern disposable, string objectName)
         {
             Assumes.NotNull(disposable);
@@ -180,6 +198,8 @@ namespace Cadru.Contracts
                     throw ExceptionBuilder.CreateObjectDisposed(objectName);
                 }
             }
+
+            Contract.EndContractBlock();
         }
         #endregion
 
@@ -194,9 +214,11 @@ namespace Cadru.Contracts
         /// <param name="parameterName">The name of the parameter being tested.</param>
         /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
         [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
         public static void NotNull<T>([ValidatedNotNull]T value, string parameterName) where T : class
         {
             Requires.NotNull(value, parameterName, null);
+            Contract.EndContractBlock();
         }
         #endregion
 
@@ -210,12 +232,15 @@ namespace Cadru.Contracts
         /// <param name="message">A message to be used in the resulting exception.</param>
         /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
         [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
         public static void NotNull<T>([ValidatedNotNull]T value, string parameterName, string message) where T : class
         {
             if (value.IsNull())
             {
                 throw ExceptionBuilder.CreateArgumentNullException(parameterName, message);
             }
+
+            Contract.EndContractBlock();
         }
         #endregion
 
@@ -233,9 +258,11 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException"><paramref name="value"/> is a zero-length string.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
         public static void NotNullOrEmpty([ValidatedNotNull]string value, string parameterName)
         {
             Requires.NotNullOrEmpty(value, parameterName, ExceptionBuilder.Format(Resources.ArgumentException_EmptyString, parameterName));
+            Contract.EndContractBlock();
         }
         #endregion
 
@@ -250,6 +277,7 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException"><paramref name="value"/> is a zero-length string.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
         public static void NotNullOrEmpty([ValidatedNotNull]string value, string parameterName, string message)
         {
             Requires.NotNull(value, parameterName);
@@ -257,6 +285,8 @@ namespace Cadru.Contracts
             {
                 throw ExceptionBuilder.CreateArgumentException(parameterName, message);
             }
+
+            Contract.EndContractBlock();
         }
         #endregion
 
@@ -270,6 +300,7 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException"><paramref name="values"/> is empty.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
         public static void NotNullOrEmpty(IEnumerable values, string parameterName)
         {
             if (values.IsNull())
@@ -281,6 +312,8 @@ namespace Cadru.Contracts
             {
                 throw ExceptionBuilder.CreateArgumentException(parameterName, String.Empty);
             }
+
+            Contract.EndContractBlock();
         }
         #endregion
 
@@ -295,6 +328,7 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException"><paramref name="values"/> is empty.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
         public static void NotNullOrEmpty(IEnumerable values, string parameterName, string message)
         {
             if (values.IsNull())
@@ -306,6 +340,8 @@ namespace Cadru.Contracts
             {
                 throw ExceptionBuilder.CreateArgumentException(parameterName, message);
             }
+
+            Contract.EndContractBlock();
         }
         #endregion
 
@@ -321,6 +357,7 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentNullException"><paramref name="values"/> is <see langword="null"/>.</exception>
         /// <exception cref="ArgumentException"><paramref name="values"/> contains a <see langword="null"/> element.</exception>
         [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
         public static void NotNullElements(IEnumerable values, string parameterName)
         {
             Requires.NotNull(values, "values");
@@ -331,6 +368,8 @@ namespace Cadru.Contracts
                     throw ExceptionBuilder.CreateContainsNullElement(parameterName);
                 }
             }
+
+            Contract.EndContractBlock();
         }
         #endregion
 
@@ -347,6 +386,7 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentNullException"><paramref name="values"/> is <see langword="null"/>.</exception>
         /// <exception cref="ArgumentException"><paramref name="values"/> contains an element which does not match the given predicate.</exception>
         [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
         public static void ValidElements<T>(IEnumerable<T> values, Predicate<T> match, string parameterName, string message)
         {
             Requires.NotNull(values, "values");
@@ -354,6 +394,8 @@ namespace Cadru.Contracts
             {
                     throw ExceptionBuilder.CreateArgumentException(parameterName, message);
             }
+
+            Contract.EndContractBlock();
         }
         #endregion
 
@@ -368,9 +410,11 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentOutOfRangeException">The condition is <see langword="true"/>.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
         public static void ValidRange(bool condition, string parameterName)
         {
             Requires.ValidRange(condition, parameterName, String.Empty);
+            Contract.EndContractBlock();
         }
         #endregion
 
@@ -384,6 +428,7 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentOutOfRangeException">The condition is <see langword="true"/>.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
         public static void ValidRange(bool condition, string parameterName, string message)
         {
             Assumes.NotNullOrEmpty(parameterName);
@@ -392,6 +437,8 @@ namespace Cadru.Contracts
             {
                 throw ExceptionBuilder.CreateArgumentOutOfRangeException(parameterName, message);
             }
+        
+            Contract.EndContractBlock();
         }
         #endregion
 
