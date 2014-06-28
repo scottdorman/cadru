@@ -501,5 +501,16 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             Assert.AreEqual(new DateTime(2009, 12, 28), new DateTime(2010, 01, 01).FirstDayOfWeek(DayOfWeek.Monday));
             Assert.AreEqual(new DateTime(2014, 4, 25), new DateTime(2014, 04, 30).FirstDayOfWeek(DayOfWeek.Friday));
         }
+
+        [TestMethod]
+        public void IsUtcDateTime()
+        {
+            Assert.IsTrue(DateTime.UtcNow.IsUtcDateTime());
+            Assert.IsFalse(DateTime.Now.IsUtcDateTime());
+
+            Assert.IsTrue(new DateTime(2004, 4, 28, 9, 13, 0, DateTimeKind.Utc).IsUtcDateTime());
+            Assert.IsFalse(new DateTime(2004, 4, 28, 9, 13, 0, DateTimeKind.Local).IsUtcDateTime());
+            Assert.IsFalse(new DateTime(2004, 4, 28, 9, 13, 0, DateTimeKind.Unspecified).IsUtcDateTime());
+        }
     }
 }

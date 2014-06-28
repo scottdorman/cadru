@@ -115,11 +115,6 @@ namespace Cadru
         /// <param name="year">The year (0 through 9999).</param>
         /// <param name="month">The month (0 through 12).</param>
         /// <param name="day">The day (1 through the number of days in <paramref name="month"/>).</param>
-        /// <exception cref="ArgumentOutOfRangeException">
-        /// <paramref name="seconds"/> is less than 
-        /// <see cref="UnixTimestamp.MinValue"/> or greater than
-        /// <see cref="UnixTimestamp.MaxValue"/>.
-        /// </exception>
         public UnixTimestamp(int year, int month, int day)
             : this(year, month, day, 0, 0, 0)
         {
@@ -139,7 +134,7 @@ namespace Cadru
         /// <param name="minute">The minutes (0 through 59).</param>
         /// <param name="second">The seconds (0 through 59).</param>
         /// <exception cref="ArgumentException">
-        /// <paramref name="seconds"/> is less than 
+        /// <paramref name="second"/> is less than 
         /// <see cref="UnixTimestamp.MinValue"/> or greater than
         /// <see cref="UnixTimestamp.MaxValue"/>.
         /// </exception>

@@ -1,4 +1,7 @@
-﻿<Dictionary>
+﻿<!--
+Sample license text.
+-->
+<Dictionary>
   <Words>
     <Unrecognized>
     </Unrecognized>
@@ -14,9 +17,15 @@
       <Word>Prebeta</Word>
       <Word>Metabase</Word>
       <Word>Snapin</Word>
+      <Word>Specifier</Word>
+      <Word>specifiers</Word>
+      <Word>NewComb</Word>
     </Recognized>
     <Deprecated>
     </Deprecated>
+    <Compound>
+      <Term>NewComb</Term>
+    </Compound>
   </Words>
   <Acronyms>
     <CasingExceptions>

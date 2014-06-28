@@ -64,10 +64,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Mono.Security">
+      <HintPath>..\..\src\packages\Mono.Security.3.2.3.0\lib\net45\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLCrypto">
+      <HintPath>..\..\src\packages\PCLCrypto.0.5.1.14165\lib\net40-Client\PCLCrypto.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLCrypto.Abstractions">
+      <HintPath>..\..\src\packages\PCLCrypto.0.5.1.14165\lib\net40-Client\PCLCrypto.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="Validation">
+      <HintPath>..\..\src\packages\Validation.2.0.4.14103\lib\portable-windows8+net40+sl5+wp8+wpa81+wp81+MonoAndroid+MonoTouch\Validation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\ComparisonComparerTests.cs" />
@@ -77,6 +89,7 @@
     <Compile Include="Contracts\RequiresTests.cs" />
     <Compile Include="Contracts\AssumesTests.cs" />
     <Compile Include="EventArgsTests.cs" />
+    <Compile Include="Extensions\ArrayExtensionsTests.cs" />
     <Compile Include="Extensions\DateTimeOffsetExtensionsTests.cs" />
     <Compile Include="Extensions\EnumerableExtensionsTests.cs" />
     <Compile Include="Extensions\EnumExtensionsTests.cs" />
@@ -88,6 +101,7 @@
     <Compile Include="Extensions\BooleanExtensionsTests.cs" />
     <Compile Include="Extensions\TypeExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CombTests.cs" />
     <Compile Include="Text\DataValidationTests.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -137,6 +151,9 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -77,6 +77,7 @@
     <Compile Include="Collections\LogicalStringComparer.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Comb.cs" />
     <Compile Include="Contracts\Assumes.cs" />
     <Compile Include="Contracts\AssumptionException.cs" />
     <Compile Include="Contracts\ContractArgumentValidatorAttribute.cs" />
@@ -84,6 +85,9 @@
     <Compile Include="EnumDescriptionAttribute.cs" />
     <Compile Include="CancelEventArgs{T}.cs" />
     <Compile Include="EventArgs{T}.cs" />
+    <Compile Include="Extensions\ArrayExtensions.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Extensions\BooleanExtensions.cs" />
     <Compile Include="Extensions\DateTimeOffsetExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
@@ -95,6 +99,7 @@
     <Compile Include="Globalization\CountryCode.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Comb+CombParser.cs" />
     <Compile Include="IDisposablePattern.cs" />
     <Compile Include="Internal\ExceptionBuilder.cs" />
     <Compile Include="Internal\ValidatedNotNullAttribute.cs" />
@@ -125,6 +130,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Cadru.Core.licenseheader" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="PCLCrypto">
+      <HintPath>..\packages\PCLCrypto.0.5.1.14165\lib\portable-net40+sl50+win+wpa81+wp80\PCLCrypto.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLCrypto.Abstractions">
+      <HintPath>..\packages\PCLCrypto.0.5.1.14165\lib\portable-net40+sl50+win+wpa81+wp80\PCLCrypto.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Validation">
+      <HintPath>..\packages\Validation.2.0.4.14103\lib\portable-windows8+net40+sl5+wp8+wpa81+wp81+MonoAndroid+MonoTouch\Validation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="..\CustomDictionary.xml">
+      <Link>CustomDictionary.xml</Link>
+    </CodeAnalysisDictionary>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

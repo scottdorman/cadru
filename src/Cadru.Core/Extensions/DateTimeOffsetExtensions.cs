@@ -33,6 +33,7 @@ namespace Cadru.Extensions
     public static class DateTimeOffsetExtensions
     {
         #region fields
+        private static readonly TimeSpan UtcOffset = new TimeSpan(0, 0, 0);
         #endregion
 
         #region constructors
@@ -444,6 +445,19 @@ namespace Cadru.Extensions
         public static bool IsWeekend(this DateTimeOffset date)
         {
             return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
+        }
+        #endregion
+
+        #region IsUtcDateTime
+        /// <summary>
+        /// Determines whether he specified date is a UTC date.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
+        /// <returns><see langword="true"/> if the specified date is a UTC date;
+        /// otherwise, <see langword="false"/>.</returns>
+        public static bool IsUtcDateTime(this DateTimeOffset date)
+        {
+            return date.UtcDateTime == date.DateTime && date.Offset == UtcOffset && date.Offset == TimeZoneInfo.Utc.GetUtcOffset(date);
         }
         #endregion
 

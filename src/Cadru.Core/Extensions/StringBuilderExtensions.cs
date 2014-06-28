@@ -45,6 +45,368 @@ namespace Cadru.Extensions
 
         #region methods
 
+        #region AppendAsHexadecimal
+
+        #region AppendAsHexadecimal(this StringBuilder source, int value)
+        /// <summary>
+        /// Appends the hexadecimal string representation of a specified
+        /// <see cref="Int32"/> value to this instance.
+        /// </summary>
+        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
+        /// <param name="value">The <see cref="Int32"/> value to append.</param>
+        /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// </exception>
+        public static StringBuilder AppendAsHexadecimal(this StringBuilder source, int value)
+        {
+            Contracts.Requires.NotNull(source, "source");
+
+            source.Append(ToHex((value >> 28) & 0xf));
+            source.Append(ToHex((value >> 24) & 0xf));
+            source.Append(ToHex((value >> 20) & 0xf));
+            source.Append(ToHex((value >> 16) & 0xf));
+            source.Append(ToHex((value >> 12) & 0xf));
+            source.Append(ToHex((value >> 8) & 0xf));
+            source.Append(ToHex((value >> 4) & 0xf));
+            source.Append(ToHex(value & 0xf));
+
+            return source;
+        }
+        #endregion
+
+        #region AppendAsHexadecimal(this StringBuilder source, short value)
+        /// <summary>
+        /// Appends the hexadecimal string representation of a specified
+        /// <see cref="Int16"/> value to this instance.
+        /// </summary>
+        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
+        /// <param name="value">The <see cref="Int16"/> value to append.</param>
+        /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// </exception>
+        public static StringBuilder AppendAsHexadecimal(this StringBuilder source, short value)
+        {
+            Contracts.Requires.NotNull(source, "source");
+
+            source.Append(ToHex((value >> 12) & 0xf));
+            source.Append(ToHex((value >> 8) & 0xf));
+            source.Append(ToHex((value >> 4) & 0xf));
+            source.Append(ToHex(value & 0xf));
+
+            return source;
+        }
+        #endregion
+
+        #region AppendAsHexadecimal(this StringBuilder source, byte value)
+        /// <summary>
+        /// Appends the hexadecimal string representation of a specified
+        /// <see cref="Byte"/> value to this instance.
+        /// </summary>
+        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
+        /// <param name="value">The <see cref="Byte"/> value to append.</param>
+        /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// </exception>
+        public static StringBuilder AppendAsHexadecimal(this StringBuilder source, byte value)
+        {
+            Contracts.Requires.NotNull(source, "source");
+
+            source.Append(ToHex((value >> 4) & 0xf));
+            source.Append(ToHex(value & 0xf));
+
+            return source;
+        }
+        #endregion
+
+        #region AppendAsHexadecimal(this StringBuilder source, params byte[] values)
+        /// <summary>
+        /// Appends the hexadecimal string representation of a specified
+        /// <see cref="Byte"/> array to this instance.
+        /// </summary>
+        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
+        /// <param name="values">The <see cref="Byte"/> array to append.</param>
+        /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// </exception>
+        public static StringBuilder AppendAsHexadecimal(this StringBuilder source, params byte[] values)
+        {
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(values, "values");
+
+            foreach (var value in values)
+            {
+                source.AppendAsHexadecimal(value);
+            }
+
+            return source;
+        }
+        #endregion
+
+        #endregion
+
+        #region AppendFormatIf
+
+        #region AppendFormatIf(this StringBuilder source, bool condition, string format, params object[] args)
+        /// <overloads>
+        /// <summary>
+        /// Appends the string returned by processing a composite format string, which
+        /// contains zero or more format items, followed by the default line terminator to
+        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
+        /// </summary>
+        /// </overloads>
+        /// <summary>
+        /// Appends the string returned by processing a composite format string, which
+        /// contains zero or more format items, followed by the default line terminator to
+        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
+        /// <param name="condition"><see langword="true"/> to append <paramref name="format"/>;
+        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="format">A composite format string.</param>
+        /// <param name="args">An array of objects to format.</param>
+        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
+        /// appended. Each format item in <paramref name="format"/> is replaced by the
+        /// string representation of the corresponding object argument.</returns>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="format"/> or <paramref name="args"/> is <see langword="null"/>.
+        /// </exception>
+        /// <exception cref="System.FormatException">
+        /// <para><paramref name="format"/> is invalid.</para>
+        /// <para>-or-</para>
+        /// <para>The index of a format item is less than 0 (zero), or greater than or
+        /// equal to the length of the args array.</para>
+        /// </exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// The length of the expanded string would exceed 
+        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// </exception>
+        public static StringBuilder AppendFormatIf(this StringBuilder source, bool condition, string format, params object[] args)
+        {
+            return source.AppendFormatIf(condition, CultureInfo.CurrentCulture, format, args);
+        }
+        #endregion
+
+        #region AppendFormatIf(this StringBuilder source, bool condition, IFormatProvider provider, string format, params object[] args)
+        /// <summary>
+        /// Appends the string returned by processing a composite format string, which
+        /// contains zero or more format items, followed by the default line terminator to
+        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
+        /// Each format item is replaced by the string representation of a corresponding 
+        /// argument in a parameter array using a specified format provider.
+        /// </summary>
+        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
+        /// <param name="condition"><see langword="true"/> to append <paramref name="format"/>;
+        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="provider">An object that supplies culture-specific formatting information.</param>
+        /// <param name="format">A composite format string.</param>
+        /// <param name="args">An array of objects to format.</param>
+        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
+        /// appended, if <paramref name="condition"/> is <see langword="true"/>. Each format item in <paramref name="format"/> is replaced by the
+        /// string representation of the corresponding object argument.</returns>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="format"/> is <see langword="null"/>.
+        /// </exception>
+        /// <exception cref="System.FormatException">
+        /// <para><paramref name="format"/> is invalid.</para>
+        /// <para>-or-</para>
+        /// <para>The index of a format item is less than 0 (zero), or greater than or
+        /// equal to the length of the args array.</para>
+        /// </exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// The length of the expanded string would exceed 
+        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// </exception>
+        public static StringBuilder AppendFormatIf(this StringBuilder source, bool condition, IFormatProvider provider, string format, params object[] args)
+        {
+            Contracts.Requires.NotNull(source, "source");
+
+            if (condition)
+            {
+                source.AppendFormat(provider, format, args);
+            }
+
+            return source;
+        }
+        #endregion
+
+        #endregion
+
+        #region AppendFormatLine
+
+        #region AppendFormatLine(this StringBuilder source, string format, params object[] args)
+        /// <overoads>
+        /// <summary>
+        /// Appends the string returned by processing a composite format string, which
+        /// contains zero or more format items, followed by the default line terminator to
+        /// the end of this instance.
+        /// </summary>
+        /// </overoads>
+        /// <summary>
+        /// Appends the string returned by processing a composite format string, which
+        /// contains zero or more format items, followed by the default line terminator to
+        /// the end of this instance.
+        /// </summary>
+        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
+        /// <param name="format">A composite format string.</param>
+        /// <param name="args">An array of objects to format.</param>
+        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
+        /// appended. Each format item in <paramref name="format"/> is replaced by the
+        /// string representation of the corresponding object argument.</returns>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="format"/> or <paramref name="args"/> is <see langword="null"/>.
+        /// </exception>
+        /// <exception cref="System.FormatException">
+        /// <para><paramref name="format"/> is invalid.</para>
+        /// <para>-or-</para>
+        /// <para>The index of a format item is less than 0 (zero), or greater than or
+        /// equal to the length of the args array.</para>
+        /// </exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// The length of the expanded string would exceed 
+        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// </exception>
+        public static StringBuilder AppendFormatLine(this StringBuilder source, string format, params object[] args)
+        {
+            return source.AppendFormatLine(CultureInfo.CurrentCulture, format, args);
+        }
+        #endregion
+
+        #region AppendFormatLine(this StringBuilder source, IFormatProvider provider, string format, params object[] args)
+        /// <summary>
+        /// Appends the string returned by processing a composite format string, which
+        /// contains zero or more format items, followed by the default line terminator to
+        /// the end of this instance. Each format item is
+        /// replaced by the string representation of a corresponding argument in a parameter
+        /// array using a specified format provider.
+        /// </summary>
+        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
+        /// <param name="provider">An object that supplies culture-specific formatting information.</param>
+        /// <param name="format">A composite format string.</param>
+        /// <param name="args">An array of objects to format.</param>
+        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
+        /// appended. Each format item in <paramref name="format"/> is replaced by the
+        /// string representation of the corresponding object argument.</returns>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="format"/> or <paramref name="args"/> is <see langword="null"/>.
+        /// </exception>
+        /// <exception cref="System.FormatException">
+        /// <para><paramref name="format"/> is invalid.</para>
+        /// <para>-or-</para>
+        /// <para>The index of a format item is less than 0 (zero), or greater than or
+        /// equal to the length of the args array.</para>
+        /// </exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// The length of the expanded string would exceed 
+        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// </exception>
+        public static StringBuilder AppendFormatLine(this StringBuilder source, IFormatProvider provider, string format, params object[] args)
+        {
+            Contracts.Requires.NotNull(source, "source");
+
+            return source.AppendLine(String.Format(provider, format, args));
+        }
+        #endregion
+
+        #endregion
+
+        #region AppendFormatLineIf
+
+        #region AppendFormatLineIf(this StringBuilder source, bool condition, string format, params object[] args)
+        /// <overloads>
+        /// <summary>
+        /// Appends the string returned by processing a composite format string, which
+        /// contains zero or more format items, followed by the default line terminator to
+        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
+        /// </summary>
+        /// </overloads>
+        /// <summary>
+        /// Appends the string returned by processing a composite format string, which
+        /// contains zero or more format items, followed by the default line terminator to
+        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
+        /// <param name="condition"><see langword="true"/> to append <paramref name="format"/>;
+        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="format">A composite format string.</param>
+        /// <param name="args">An array of objects to format.</param>
+        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
+        /// appended. Each format item in <paramref name="format"/> is replaced by the
+        /// string representation of the corresponding object argument.</returns>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="format"/> or <paramref name="args"/> is <see langword="null"/>.
+        /// </exception>
+        /// <exception cref="System.FormatException">
+        /// <para><paramref name="format"/> is invalid.</para>
+        /// <para>-or-</para>
+        /// <para>The index of a format item is less than 0 (zero), or greater than or
+        /// equal to the length of the args array.</para>
+        /// </exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// The length of the expanded string would exceed 
+        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// </exception>
+        public static StringBuilder AppendFormatLineIf(this StringBuilder source, bool condition, string format, params object[] args)
+        {
+            Contracts.Requires.NotNull(source, "source");
+
+            if (condition)
+            {
+                source.AppendFormatLine(format, args);
+            }
+
+            return source;
+        }
+        #endregion
+
+        #region AppendFormatLineIf(this StringBuilder source, IFormatProvider provider, bool condition, string format, params object[] args)
+        /// <summary>
+        /// Appends the string returned by processing a composite format string, which
+        /// contains zero or more format items, followed by the default line terminator to
+        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
+        /// Each format item is replaced by the string representation of a corresponding 
+        /// argument in a parameter array using a specified format provider.
+        /// </summary>
+        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
+        /// <param name="condition"><see langword="true"/> to append <paramref name="format"/>;
+        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="provider">An object that supplies culture-specific formatting information.</param>
+        /// <param name="format">A composite format string.</param>
+        /// <param name="args">An array of objects to format.</param>
+        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
+        /// appended. Each format item in <paramref name="format"/> is replaced by the
+        /// string representation of the corresponding object argument.</returns>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="format"/> or <paramref name="args"/> is <see langword="null"/>.
+        /// </exception>
+        /// <exception cref="System.FormatException">
+        /// <para><paramref name="format"/> is invalid.</para>
+        /// <para>-or-</para>
+        /// <para>The index of a format item is less than 0 (zero), or greater than or
+        /// equal to the length of the args array.</para>
+        /// </exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// The length of the expanded string would exceed 
+        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// </exception>
+        public static StringBuilder AppendFormatLineIf(this StringBuilder source, bool condition, IFormatProvider provider, string format, params object[] args)
+        {
+            Contracts.Requires.NotNull(source, "source");
+
+            if (condition)
+            {
+                source.AppendFormatLine(provider, format, args);
+            }
+
+            return source;
+        }
+        #endregion
+
+        #endregion
+
         #region AppendIf
 
         #region AppendIf(this StringBuilder source, bool condition, bool value)
@@ -552,179 +914,9 @@ namespace Cadru.Extensions
 
         #endregion
 
-        #region AppendFormatLine
-
-        #region AppendFormatLine(this StringBuilder source, string format, params object[] args)
-        /// <overoads>
-        /// <summary>
-        /// Appends the string returned by processing a composite format string, which
-        /// contains zero or more format items, followed by the default line terminator to
-        /// the end of this instance.
-        /// </summary>
-        /// </overoads>
-        /// <summary>
-        /// Appends the string returned by processing a composite format string, which
-        /// contains zero or more format items, followed by the default line terminator to
-        /// the end of this instance.
-        /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="format">A composite format string.</param>
-        /// <param name="args">An array of objects to format.</param>
-        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
-        /// appended. Each format item in <paramref name="format"/> is replaced by the
-        /// string representation of the corresponding object argument.</returns>
-        /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="format"/> or <paramref name="args"/> is <see langword="null"/>.
-        /// </exception>
-        /// <exception cref="System.FormatException">
-        /// <para><paramref name="format"/> is invalid.</para>
-        /// <para>-or-</para>
-        /// <para>The index of a format item is less than 0 (zero), or greater than or
-        /// equal to the length of the args array.</para>
-        /// </exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The length of the expanded string would exceed 
-        /// <see cref="p:StringBuilder.MaxCapacity"/>.
-        /// </exception>
-        public static StringBuilder AppendFormatLine(this StringBuilder source, string format, params object[] args)
-        {
-            return source.AppendFormatLine(CultureInfo.CurrentCulture, format, args);
-        }
-        #endregion
-
-        #region AppendFormatLine(this StringBuilder source, IFormatProvider provider, string format, params object[] args)
-        /// <summary>
-        /// Appends the string returned by processing a composite format string, which
-        /// contains zero or more format items, followed by the default line terminator to
-        /// the end of this instance. Each format item is
-        /// replaced by the string representation of a corresponding argument in a parameter
-        /// array using a specified format provider.
-        /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
-        /// <param name="provider">An object that supplies culture-specific formatting information.</param>
-        /// <param name="format">A composite format string.</param>
-        /// <param name="args">An array of objects to format.</param>
-        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
-        /// appended. Each format item in <paramref name="format"/> is replaced by the
-        /// string representation of the corresponding object argument.</returns>
-        /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="format"/> or <paramref name="args"/> is <see langword="null"/>.
-        /// </exception>
-        /// <exception cref="System.FormatException">
-        /// <para><paramref name="format"/> is invalid.</para>
-        /// <para>-or-</para>
-        /// <para>The index of a format item is less than 0 (zero), or greater than or
-        /// equal to the length of the args array.</para>
-        /// </exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The length of the expanded string would exceed 
-        /// <see cref="p:StringBuilder.MaxCapacity"/>.
-        /// </exception>
-        public static StringBuilder AppendFormatLine(this StringBuilder source, IFormatProvider provider, string format, params object[] args)
-        {
-            Contracts.Requires.NotNull(source, "source");
-
-            return source.AppendLine(String.Format(provider, format, args));
-        }
-        #endregion
-
-        #endregion
-
-        #region AppendFormatLineIf
-
-        #region AppendFormatLineIf(this StringBuilder source, bool condition, string format, params object[] args)
-        /// <overloads>
-        /// <summary>
-        /// Appends the string returned by processing a composite format string, which
-        /// contains zero or more format items, followed by the default line terminator to
-        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
-        /// </summary>
-        /// </overloads>
-        /// <summary>
-        /// Appends the string returned by processing a composite format string, which
-        /// contains zero or more format items, followed by the default line terminator to
-        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
-        /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="format"/>;
-        /// otherwise, <see langword="false"/>.</param>
-        /// <param name="format">A composite format string.</param>
-        /// <param name="args">An array of objects to format.</param>
-        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
-        /// appended. Each format item in <paramref name="format"/> is replaced by the
-        /// string representation of the corresponding object argument.</returns>
-        /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="format"/> or <paramref name="args"/> is <see langword="null"/>.
-        /// </exception>
-        /// <exception cref="System.FormatException">
-        /// <para><paramref name="format"/> is invalid.</para>
-        /// <para>-or-</para>
-        /// <para>The index of a format item is less than 0 (zero), or greater than or
-        /// equal to the length of the args array.</para>
-        /// </exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The length of the expanded string would exceed 
-        /// <see cref="p:StringBuilder.MaxCapacity"/>.
-        /// </exception>
-        public static StringBuilder AppendFormatLineIf(this StringBuilder source, bool condition, string format, params object[] args)
-        {
-            Contracts.Requires.NotNull(source, "source");
-
-            if (condition)
-            {
-                source.AppendFormatLine(format, args);
-            }
-
-            return source;
-        }
-        #endregion
-
-        #region AppendFormatLineIf(this StringBuilder source, IFormatProvider provider, bool condition, string format, params object[] args)
-        /// <summary>
-        /// Appends the string returned by processing a composite format string, which
-        /// contains zero or more format items, followed by the default line terminator to
-        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
-        /// Each format item is replaced by the string representation of a corresponding 
-        /// argument in a parameter array using a specified format provider.
-        /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="format"/>;
-        /// otherwise, <see langword="false"/>.</param>
-        /// <param name="provider">An object that supplies culture-specific formatting information.</param>
-        /// <param name="format">A composite format string.</param>
-        /// <param name="args">An array of objects to format.</param>
-        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
-        /// appended. Each format item in <paramref name="format"/> is replaced by the
-        /// string representation of the corresponding object argument.</returns>
-        /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="format"/> or <paramref name="args"/> is <see langword="null"/>.
-        /// </exception>
-        /// <exception cref="System.FormatException">
-        /// <para><paramref name="format"/> is invalid.</para>
-        /// <para>-or-</para>
-        /// <para>The index of a format item is less than 0 (zero), or greater than or
-        /// equal to the length of the args array.</para>
-        /// </exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The length of the expanded string would exceed 
-        /// <see cref="p:StringBuilder.MaxCapacity"/>.
-        /// </exception>
-        public static StringBuilder AppendFormatLineIf(this StringBuilder source, bool condition, IFormatProvider provider, string format, params object[] args)
-        {
-            Contracts.Requires.NotNull(source, "source");
-
-            if (condition)
-            {
-                source.AppendFormatLine(provider, format, args);
-            }
-
-            return source;
-        }
-        #endregion
-
-        #endregion
-
         #region AppendLineIf
+
+        #region AppendLineIf(this StringBuilder source, bool condition)
         /// <overloads>
         /// <summary>
         /// Appends the default line terminator to the end of this instance if
@@ -754,7 +946,9 @@ namespace Cadru.Extensions
 
             return source;
         }
+        #endregion
 
+        #region AppendLineIf(this StringBuilder source, bool condition, string value)
         /// <summary>
         /// Appends a copy of the specified string followed by the default line terminator
         /// to the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
@@ -779,87 +973,14 @@ namespace Cadru.Extensions
 
             return source;
         }
+        #endregion
 
         #endregion
 
-        #region AppendFormatIf
-        /// <overloads>
-        /// <summary>
-        /// Appends the string returned by processing a composite format string, which
-        /// contains zero or more format items, followed by the default line terminator to
-        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
-        /// </summary>
-        /// </overloads>
-        /// <summary>
-        /// Appends the string returned by processing a composite format string, which
-        /// contains zero or more format items, followed by the default line terminator to
-        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
-        /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="format"/>;
-        /// otherwise, <see langword="false"/>.</param>
-        /// <param name="format">A composite format string.</param>
-        /// <param name="args">An array of objects to format.</param>
-        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
-        /// appended. Each format item in <paramref name="format"/> is replaced by the
-        /// string representation of the corresponding object argument.</returns>
-        /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="format"/> or <paramref name="args"/> is <see langword="null"/>.
-        /// </exception>
-        /// <exception cref="System.FormatException">
-        /// <para><paramref name="format"/> is invalid.</para>
-        /// <para>-or-</para>
-        /// <para>The index of a format item is less than 0 (zero), or greater than or
-        /// equal to the length of the args array.</para>
-        /// </exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The length of the expanded string would exceed 
-        /// <see cref="p:StringBuilder.MaxCapacity"/>.
-        /// </exception>
-        public static StringBuilder AppendFormatIf(this StringBuilder source, bool condition, string format, params object[] args)
+        #region ToHex
+        internal static char ToHex(int b)
         {
-            return source.AppendFormatIf(condition, CultureInfo.CurrentCulture, format, args);
-        }
-
-        /// <summary>
-        /// Appends the string returned by processing a composite format string, which
-        /// contains zero or more format items, followed by the default line terminator to
-        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
-        /// Each format item is replaced by the string representation of a corresponding 
-        /// argument in a parameter array using a specified format provider.
-        /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="format"/>;
-        /// otherwise, <see langword="false"/>.</param>
-        /// <param name="provider">An object that supplies culture-specific formatting information.</param>
-        /// <param name="format">A composite format string.</param>
-        /// <param name="args">An array of objects to format.</param>
-        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
-        /// appended, if <paramref name="condition"/> is <see langword="true"/>. Each format item in <paramref name="format"/> is replaced by the
-        /// string representation of the corresponding object argument.</returns>
-        /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="format"/> is <see langword="null"/>.
-        /// </exception>
-        /// <exception cref="System.FormatException">
-        /// <para><paramref name="format"/> is invalid.</para>
-        /// <para>-or-</para>
-        /// <para>The index of a format item is less than 0 (zero), or greater than or
-        /// equal to the length of the args array.</para>
-        /// </exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The length of the expanded string would exceed 
-        /// <see cref="p:StringBuilder.MaxCapacity"/>.
-        /// </exception>
-        public static StringBuilder AppendFormatIf(this StringBuilder source, bool condition, IFormatProvider provider, string format, params object[] args)
-        {
-            Contracts.Requires.NotNull(source, "source");
-
-            if (condition)
-            {
-                source.AppendFormat(provider, format, args);
-            }
-
-            return source;
+            return (char)((b < 0xA) ? ('0' + b) : ('a' + b - 0xA));
         }
         #endregion
 

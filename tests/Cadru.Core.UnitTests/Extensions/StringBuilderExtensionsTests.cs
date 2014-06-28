@@ -12,6 +12,21 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
     public class StringBuilderExtensionsTests
     {
         [TestMethod]
+        public void AppendAsHexadecimal()
+        {
+            Assert.AreEqual("04", new StringBuilder().AppendAsHexadecimal((byte)4).ToString());
+            Assert.AreEqual("4b", new StringBuilder().AppendAsHexadecimal((byte)75).ToString());
+
+            Assert.AreEqual("00000004", new StringBuilder().AppendAsHexadecimal(4).ToString());
+            Assert.AreEqual("0000004b", new StringBuilder().AppendAsHexadecimal(75).ToString());
+
+            Assert.AreEqual("0004", new StringBuilder().AppendAsHexadecimal((short)4).ToString());
+            Assert.AreEqual("004b", new StringBuilder().AppendAsHexadecimal((short)75).ToString());
+
+            Assert.AreEqual("044b", new StringBuilder().AppendAsHexadecimal(new byte[] { 4, 75 }).ToString());
+        }
+
+        [TestMethod]
         public void AppendIf()
         {
             Assert.AreEqual("True", new StringBuilder().AppendIf(true, true).ToString());
