@@ -506,12 +506,15 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         public void IsUtcDateTime()
         {
             var localOffset = DateTimeOffset.Now.Offset;
+            System.Console.WriteLine("Local offset is ", localOffset);
+            System.Console.WriteLine("Local DateTime is ", DateTimeOffset.Now);
+            System.Console.WriteLine("UTC DateTime is ", DateTimeOffset.UtcNow);
 
             // The AppVeyor CI server is setup such that it's timezone is
             // already UTC, so we have to test a different way to see if local
             // time is not UTC; otherwise, the tests fail when the tests are run
             // under the CI builds.
-            if (TimeZoneInfo.Local == TimeZoneInfo.Utc)
+            if (TimeZoneInfo.Local == TimeZoneInfo.Utc || localOffset == TimeSpan.Zero)
             {
                 localOffset = new TimeSpan(4, 0, 0);
             }
