@@ -505,11 +505,8 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void IsUtcDateTime()
         {
-            Assert.IsTrue(DateTimeOffset.UtcNow.IsUtcDateTime());
-            Assert.IsFalse(DateTimeOffset.Now.IsUtcDateTime());
-
             Assert.IsTrue(new DateTimeOffset(2004, 4, 28, 0, 0, 0, TimeSpan.Zero).IsUtcDateTime());
-            Assert.IsFalse(new DateTimeOffset(2004, 4, 28, 0, 0, 0, DateTimeOffset.Now.Offset).IsUtcDateTime());
+            Assert.IsFalse(new DateTimeOffset(2004, 4, 28, 0, 0, 0, new TimeSpan(4, 0, 0)).IsUtcDateTime());
 
             Assert.IsTrue(new DateTimeOffset(new DateTime(2004, 4, 28, 9, 13, 0, DateTimeKind.Utc)).IsUtcDateTime());
             Assert.IsFalse(new DateTimeOffset(new DateTime(2004, 4, 28, 9, 13, 0, DateTimeKind.Local)).IsUtcDateTime());
