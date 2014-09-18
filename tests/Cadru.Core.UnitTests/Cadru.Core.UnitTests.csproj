@@ -102,6 +102,8 @@
     <Compile Include="Extensions\DateTimeExtensionsTests.cs" />
     <Compile Include="Extensions\BooleanExtensionsTests.cs" />
     <Compile Include="Extensions\TypeExtensionsTests.cs" />
+    <Compile Include="Net\Http\UrlBuilderTests.cs" />
+    <Compile Include="Net\Http\UriSchemeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CombTests.cs" />
     <Compile Include="Text\DataValidationTests.cs">

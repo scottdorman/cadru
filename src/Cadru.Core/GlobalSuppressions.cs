@@ -26,6 +26,7 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope = "namespace", Target = "Cadru", Justification = "We want this namespace, but don't have enough types to satisfy the rule.")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope = "namespace", Target = "Cadru.Extensions", Justification = "We want this namespace, but don't have enough types to satisfy the rule.")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope = "namespace", Target = "Cadru.Contracts", Justification = "We want this namespace, but don't have enough types to satisfy the rule.")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope = "namespace", Target = "Cadru.Net.Http", Justification = "We want this namespace, but don't have enough types to satisfy the rule.")]
 
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1703:ResourceStringsShouldBeSpelledCorrectly", MessageId = "non-parsable", Scope = "resource", Target = "Cadru.Core.Properties.Resources.resources", Justification = "Reviewed.")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1703:ResourceStringsShouldBeSpelledCorrectly", MessageId = "Iso", Scope = "resource", Target = "Cadru.Core.Properties.Resources.resources", Justification = "Reviewed.")]
@@ -40,4 +41,5 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Cadru", Scope = "namespace", Target = "Cadru", Justification = "Reviewed.")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Cadru", Scope = "namespace", Target = "Cadru.Extensions", Justification = "Reviewed.")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Cadru", Scope = "namespace", Target = "Cadru.Contracts", Justification = "Reviewed.")]
+
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA2210:AssembliesShouldHaveValidStrongNames", Justification = "Reviewed.")]
