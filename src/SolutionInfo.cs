@@ -43,9 +43,9 @@ using System.Resources;
 #region Informational attributes
 
 [assembly: AssemblyCompany("Scott Dorman")]
-[assembly: AssemblyCopyright("Copyright © 2001-2013 Scott Dorman.")]
+[assembly: AssemblyCopyright("Copyright © 2001-2014 Scott Dorman.")]
 [assembly: AssemblyTrademark(@"")]
-[assembly: AssemblyProduct("Cadru for .NET 2.0")]
+[assembly: AssemblyProduct("Cadru Framework")]
 #endregion
 
 #region Assembly manifest attributes
