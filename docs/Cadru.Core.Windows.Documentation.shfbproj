@@ -21,7 +21,8 @@
     <Language>en-US</Language>
     <DocumentationSources>
       <DocumentationSource sourceFile="..\Cadru.Core.Windows\bin\Debug\Cadru.Core.Windows.dll" />
-<DocumentationSource sourceFile="..\Cadru.Core.Windows\bin\Debug\Cadru.Core.Windows.xml" /></DocumentationSources>
+      <DocumentationSource sourceFile="..\Cadru.Core.Windows\bin\Debug\Cadru.Core.Windows.xml" />
+    </DocumentationSources>
     <ApiFilter />
     <ComponentConfigurations />
     <HelpAttributes />
@@ -32,6 +33,7 @@
     <HtmlHelp2xCompilerPath />
     <WorkingPath />
     <ComponentPath />
+    <MissingTags>AutoDocumentCtors, AutoDocumentDispose</MissingTags>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in
        order for Visual Studio to perform the build.  The others are optional
