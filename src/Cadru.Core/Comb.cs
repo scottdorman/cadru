@@ -850,8 +850,8 @@ namespace Cadru
             }
             else
             {
-                var c = (Comb)obj;
-                return this.Equals(c);
+                var comb = (Comb)obj;
+                return this.Equals(comb);
             }
         }
         #endregion
@@ -866,7 +866,6 @@ namespace Cadru
         /// same value as this instance; otherwise, <see langword="false"/>.</returns>
         public bool Equals(Comb other)
         {
-            //return (this.IsNull || other.IsNull) ? false : Compare(this, other) == 0;
             return Compare(this, other) == 0;
         }
         #endregion
@@ -880,7 +879,7 @@ namespace Cadru
         /// <returns>The hash code for this instance.</returns>
         public override int GetHashCode()
         {
-            return a ^ (((int)b << 16) | (int)(ushort)c) ^ (((int)f << 24) | k);
+            return this.a ^ (((int)this.b << 16) | (int)(ushort)this.c) ^ (((int)this.f << 24) | this.k);
         }
         #endregion
 
@@ -978,159 +977,109 @@ namespace Cadru
                 case "B":
                     res = new StringBuilder(38)
                         .Append('{')
-                        .AppendAsHexadecimal(a)
+                        .AppendAsHexadecimal(this.a)
                         .Append('-')
-                        .AppendAsHexadecimal(b)
+                        .AppendAsHexadecimal(this.b)
                         .Append('-')
-                        .AppendAsHexadecimal(c)
+                        .AppendAsHexadecimal(this.c)
                         .Append('-')
-                        .AppendAsHexadecimal(d)
-                        .AppendAsHexadecimal(e)
+                        .AppendAsHexadecimal(this.d)
+                        .AppendAsHexadecimal(this.e)
                         .Append('-')
-                        .AppendAsHexadecimal(f)
-                        .AppendAsHexadecimal(g)
-                        .AppendAsHexadecimal(h)
-                        .AppendAsHexadecimal(i)
-                        .AppendAsHexadecimal(j)
-                        .AppendAsHexadecimal(k)
+                        .AppendAsHexadecimal(this.f)
+                        .AppendAsHexadecimal(this.g)
+                        .AppendAsHexadecimal(this.h)
+                        .AppendAsHexadecimal(this.i)
+                        .AppendAsHexadecimal(this.j)
+                        .AppendAsHexadecimal(this.k)
                         .Append('}');
                     break;
  
                 case "P":
                     res = new StringBuilder(38)
                         .Append('(')
-                        .AppendAsHexadecimal(a)
+                        .AppendAsHexadecimal(this.a)
                         .Append('-')
-                        .AppendAsHexadecimal(b)
+                        .AppendAsHexadecimal(this.b)
                         .Append('-')
-                        .AppendAsHexadecimal(c)
+                        .AppendAsHexadecimal(this.c)
                         .Append('-')
-                        .AppendAsHexadecimal(d)
-                        .AppendAsHexadecimal(e)
+                        .AppendAsHexadecimal(this.d)
+                        .AppendAsHexadecimal(this.e)
                         .Append('-')
-                        .AppendAsHexadecimal(f)
-                        .AppendAsHexadecimal(g)
-                        .AppendAsHexadecimal(h)
-                        .AppendAsHexadecimal(i)
-                        .AppendAsHexadecimal(j)
-                        .AppendAsHexadecimal(k)
+                        .AppendAsHexadecimal(this.f)
+                        .AppendAsHexadecimal(this.g)
+                        .AppendAsHexadecimal(this.h)
+                        .AppendAsHexadecimal(this.i)
+                        .AppendAsHexadecimal(this.j)
+                        .AppendAsHexadecimal(this.k)
                         .Append(')');
                     break;
             
                 case "D":
                     res = new StringBuilder(36)
-                        .AppendAsHexadecimal(a)
+                        .AppendAsHexadecimal(this.a)
                         .Append('-')
-                        .AppendAsHexadecimal(b)
+                        .AppendAsHexadecimal(this.b)
                         .Append('-')
-                        .AppendAsHexadecimal(c)
+                        .AppendAsHexadecimal(this.c)
                         .Append('-')
-                        .AppendAsHexadecimal(d)
-                        .AppendAsHexadecimal(e)
+                        .AppendAsHexadecimal(this.d)
+                        .AppendAsHexadecimal(this.e)
                         .Append('-')
-                        .AppendAsHexadecimal(f)
-                        .AppendAsHexadecimal(g)
-                        .AppendAsHexadecimal(h)
-                        .AppendAsHexadecimal(i)
-                        .AppendAsHexadecimal(j)
-                        .AppendAsHexadecimal(k);
+                        .AppendAsHexadecimal(this.f)
+                        .AppendAsHexadecimal(this.g)
+                        .AppendAsHexadecimal(this.h)
+                        .AppendAsHexadecimal(this.i)
+                        .AppendAsHexadecimal(this.j)
+                        .AppendAsHexadecimal(this.k);
                     break;
                 
                 case "N":
                     res = new StringBuilder(32)
-                        .AppendAsHexadecimal(a)
-                        .AppendAsHexadecimal(b)
-                        .AppendAsHexadecimal(c)
-                        .AppendAsHexadecimal(d)
-                        .AppendAsHexadecimal(e)
-                        .AppendAsHexadecimal(f)
-                        .AppendAsHexadecimal(g)
-                        .AppendAsHexadecimal(h)
-                        .AppendAsHexadecimal(i)
-                        .AppendAsHexadecimal(j)
-                        .AppendAsHexadecimal(k);
+                        .AppendAsHexadecimal(this.a)
+                        .AppendAsHexadecimal(this.b)
+                        .AppendAsHexadecimal(this.c)
+                        .AppendAsHexadecimal(this.d)
+                        .AppendAsHexadecimal(this.e)
+                        .AppendAsHexadecimal(this.f)
+                        .AppendAsHexadecimal(this.g)
+                        .AppendAsHexadecimal(this.h)
+                        .AppendAsHexadecimal(this.i)
+                        .AppendAsHexadecimal(this.j)
+                        .AppendAsHexadecimal(this.k);
                     break;
                 
                 case "X":
                     res = new StringBuilder(68)
                         .Append(new[] { '{', '0', 'x' })
-                        .AppendAsHexadecimal(a)
+                        .AppendAsHexadecimal(this.a)
                         .Append(new[] { ',', '0', 'x' })
-                        .AppendAsHexadecimal(b)
+                        .AppendAsHexadecimal(this.b)
                         .Append(new[] { ',', '0', 'x' })
-                        .AppendAsHexadecimal(c)
+                        .AppendAsHexadecimal(this.c)
                         .Append(new[] { ',', '{', '0', 'x' })
-                        .AppendAsHexadecimal(d)
+                        .AppendAsHexadecimal(this.d)
                         .Append(new[] { ',', '0', 'x' })
-                        .AppendAsHexadecimal(e)
+                        .AppendAsHexadecimal(this.e)
                         .Append(new[] { ',', '0', 'x' })
-                        .AppendAsHexadecimal(f)
+                        .AppendAsHexadecimal(this.f)
                         .Append(new[] { ',', '0', 'x' })
-                        .AppendAsHexadecimal(g)
+                        .AppendAsHexadecimal(this.g)
                         .Append(new[] { ',', '0', 'x' })
-                        .AppendAsHexadecimal(h)
+                        .AppendAsHexadecimal(this.h)
                         .Append(new[] { ',', '0', 'x' })
-                        .AppendAsHexadecimal(i)
+                        .AppendAsHexadecimal(this.i)
                         .Append(new[] { ',', '0', 'x' })
-                        .AppendAsHexadecimal(j)
+                        .AppendAsHexadecimal(this.j)
                         .Append(new[] { ',', '0', 'x' })
-                        .AppendAsHexadecimal(k)
+                        .AppendAsHexadecimal(this.k)
                         .Append(new[] { '}', '}' });
                     break;
                 
                 default:
                     throw new NotImplementedException(Resources.Format_InvalidGuidFormatSpecification);
             }
-
-            //bool hasHyphen = CombParser.FormatHasHyphen(format);
-            //var hexSeperators = new[] { ',', '0', 'x' };
-
-            //res.AppendIf(format == "P", '(');
-            //res.AppendIf(format == "B", '{');
-            //res.AppendIf(format == "X", new[] { '{', '0', 'x' });
-            //res.AppendAsHexadecimal(a);
-            //res.AppendIf(hasHyphen, '-');
-            //res.AppendIf(format == "X", hexSeperators);
-            //res.AppendAsHexadecimal(b);
-            //res.AppendIf(hasHyphen, '-');
-            //res.AppendIf(format == "X", hexSeperators);
-            //res.AppendAsHexadecimal(c);
-            //res.AppendIf(hasHyphen, '-');
-
-            //if (format == "X")
-            //{
-            //    res.Append(new[] { ',', '{', '0', 'x' });
-            //    res.AppendAsHexadecimal(d);
-            //    res.Append(hexSeperators);
-            //    res.AppendAsHexadecimal(e);
-            //    res.Append(hexSeperators);
-            //    res.AppendAsHexadecimal(f);
-            //    res.Append(hexSeperators);
-            //    res.AppendAsHexadecimal(g);
-            //    res.Append(hexSeperators);
-            //    res.AppendAsHexadecimal(h);
-            //    res.Append(hexSeperators);
-            //    res.AppendAsHexadecimal(i);
-            //    res.Append(hexSeperators);
-            //    res.AppendAsHexadecimal(j);
-            //    res.Append(hexSeperators);
-            //    res.AppendAsHexadecimal(k);
-            //    res.Append(new[] { '}', '}' });
-            //}
-            //else
-            //{
-            //    res.AppendAsHexadecimal(d);
-            //    res.AppendAsHexadecimal(e);
-            //    res.AppendIf(hasHyphen, '-');
-            //    res.AppendAsHexadecimal(f);
-            //    res.AppendAsHexadecimal(g);
-            //    res.AppendAsHexadecimal(h);
-            //    res.AppendAsHexadecimal(i);
-            //    res.AppendAsHexadecimal(j);
-            //    res.AppendAsHexadecimal(k);
-            //    res.AppendIf(format == "P", ')');
-            //    res.AppendIf(format == "B", '}');
-            //}
 
             return res.ToString();
         }
@@ -1235,11 +1184,11 @@ namespace Cadru
             buffer[0] = (byte)(this.a >> 24);
             buffer[1] = (byte)(this.a >> 16);
             buffer[2] = (byte)(this.a >> 8);
-            buffer[3] = (byte)(this.a);
+            buffer[3] = (byte)this.a;
             buffer[4] = (byte)(this.b >> 8);
-            buffer[5] = (byte)(this.b);
+            buffer[5] = (byte)this.b;
             buffer[6] = (byte)(this.c >> 8);
-            buffer[7] = (byte)(this.c);
+            buffer[7] = (byte)this.c;
             buffer[8] = this.d;
             buffer[9] = this.e;
             buffer[10] = this.f;
@@ -1254,6 +1203,7 @@ namespace Cadru
         #endregion ToByteArray
 
         #region Compare
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
         private static int Compare(Comb x, Comb y)
         {
             var xBuffer = x.ToByteArray();
