@@ -27,7 +27,7 @@ using System.Runtime.CompilerServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Cadru.Core")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("The main Cadru library, packaged as a Portable Class Library.")]
 
 [assembly: AssemblyFileVersion("1.0.0")]
 [assembly: AssemblyInformationalVersion("1.0.0")]
