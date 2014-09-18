@@ -20,36 +20,27 @@
     <HtmlHelpName>Cadru.Core.Documentation</HtmlHelpName>
     <Language>en-US</Language>
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
-    <HelpFileFormat>HtmlHelp1, Website</HelpFileFormat>
+    <HelpFileFormat>HtmlHelp1</HelpFileFormat>
     <IndentHtml>False</IndentHtml>
     <KeepLogFile>True</KeepLogFile>
     <DisableCodeBlockComponent>False</DisableCodeBlockComponent>
     <CppCommentsFixup>False</CppCommentsFixup>
-    <CleanIntermediates>False</CleanIntermediates>
+    <CleanIntermediates>True</CleanIntermediates>
     <SyntaxFilters>C#, Visual Basic, Visual Basic Usage, Managed C++, F#</SyntaxFilters>
     <SdkLinkTarget>Blank</SdkLinkTarget>
     <RootNamespaceContainer>True</RootNamespaceContainer>
-    <PresentationStyle>VS2010</PresentationStyle>
+    <PresentationStyle>VS2013</PresentationStyle>
     <Preliminary>False</Preliminary>
     <NamingMethod>MemberName</NamingMethod>
     <HelpTitle>Cadru.Core</HelpTitle>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
-    <MissingTags>Summary, Parameter, Returns, Value, Remarks, AutoDocumentCtors, Namespace, TypeParameter, IncludeTargets, AutoDocumentDispose</MissingTags>
+    <MissingTags>AutoDocumentCtors, AutoDocumentDispose</MissingTags>
     <DocumentationSources>
-      <DocumentationSource sourceFile="..\Cadru.Core\bin\Debug\Cadru.Core.dll" />
-      <DocumentationSource sourceFile="..\Cadru.Core\bin\Debug\Cadru.Core.xml" />
+      <DocumentationSource sourceFile="..\..\src\Cadru.Core\bin\Debug\Cadru.Core.dll" />
+      <DocumentationSource sourceFile="..\..\src\Cadru.Core\bin\Debug\Cadru.Core.xml" />
     </DocumentationSources>
     <ApiFilter />
     <ComponentConfigurations>
-      <ComponentConfig id="Syntax Component" enabled="True">
-        <component id="Syntax Component">
-  <syntax input="/document/reference" output="/document/syntax" renderReferenceLinks="true" />
-  <generators>
-    {@SyntaxFilters}
-</generators>
-  <configurations />
-</component>
-      </ComponentConfig>
     </ComponentConfigurations>
     <HelpAttributes />
     <NamespaceSummaries />
