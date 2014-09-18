@@ -1,4 +1,4 @@
-# Cadru [![Build status](https://ci.appveyor.com/api/projects/status/3t0p4d04fyqtiun5)](https://ci.appveyor.com/project/scottdorman/cadru)
+# Cadru [![Build status](https://ci.appveyor.com/api/projects/status/3t0p4d04fyqtiun5?svg=true&retina=true)](https://ci.appveyor.com/project/scottdorman/cadru)
 
 ## What is Cadru?
 
@@ -6,10 +6,10 @@ Cadru is (hopefully) a helpful utility framework containing new APIs and extensi
 to help complete your developer toolbox. Cadru is designed to be portable first, which means that the majority
 of the library is available as a Portable Class Library (PCL) targeting the following frameworks:
 
-* .NET Framework 4 and higher
-* Silverlight 5 and higher
+* .NET Framework 4
+* Silverlight 5
 * Windows 8
-* Windows Phone 8.1 and higher
+* Windows Phone 8.1
 * Windows Phone Silverlight 8
 
 This set of target frameworks was chosen to provide Cadru with the broadest reach possible. Any platform specific
@@ -34,8 +34,13 @@ So far, Cadru includes:
 
 ## How do I get Cadru?
 
-I’ve tried to make it easy to get Cadru for your own use. Right now, it’s available in source code form on 
-GitHub but I’m working on making it available in binary form through NuGet and the Visual Studio Gallery.
+I’ve tried to make it easy to get Cadru for your own use.
+
+* If you want the source code, you can simply [fork the repository](https://github.com/scottdorman/cadru/fork).
+* You can install one of the NuGet packages:
+   * [Cadru.Core](https://www.nuget.org/packages/Cadru.Core/)
+   * Cadru.Core.Windows (coming soon)
+   * Cadru.UnitTest.Framework (coming soon)
 
 ## I found an issue
 
