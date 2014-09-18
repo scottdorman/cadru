@@ -364,11 +364,11 @@ namespace Cadru.Net.Http
         /// </summary>
         /// <value>The scheme of the URI.</value>
         /// <exception cref="System.ArgumentException">The scheme cannot be set to an invalid scheme name.</exception>
-        public string Scheme
+        public UriScheme Scheme
         {
             get
             {
-                return this.builder.Scheme;
+                return new UriScheme(this.builder.Scheme);
             }
 
             set

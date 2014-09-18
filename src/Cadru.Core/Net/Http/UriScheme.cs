@@ -44,7 +44,7 @@ namespace Cadru.Net.Http
         #endregion
 
         #region constructors
-        private UriScheme(string scheme)
+        internal UriScheme(string scheme)
         {
             Requires.NotNullOrEmpty(scheme, "scheme");
             this.scheme = scheme;

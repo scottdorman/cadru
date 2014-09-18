@@ -21,7 +21,7 @@ namespace Cadru.Core.UnitTests.Net.Http
             Assert.AreEqual(-1, builder.Port);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.Query));
             Assert.AreEqual(0, builder.QueryParameters.Count);
-            Assert.AreEqual("http", builder.Scheme);
+            Assert.AreEqual(UriScheme.Http, builder.Scheme);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.UserName));
             Assert.IsNotNull(builder.Uri);
 
@@ -34,7 +34,7 @@ namespace Cadru.Core.UnitTests.Net.Http
             Assert.AreEqual(80, builder.Port);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.Query));
             Assert.AreEqual(0, builder.QueryParameters.Count);
-            Assert.AreEqual("http", builder.Scheme);
+            Assert.AreEqual(UriScheme.Http, builder.Scheme);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.UserName));
             Assert.IsNotNull(builder.Uri);
 
@@ -47,7 +47,7 @@ namespace Cadru.Core.UnitTests.Net.Http
             Assert.AreEqual(8080, builder.Port);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.Query));
             Assert.AreEqual(0, builder.QueryParameters.Count);
-            Assert.AreEqual("http", builder.Scheme);
+            Assert.AreEqual(UriScheme.Http, builder.Scheme);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.UserName));
             Assert.IsNotNull(builder.Uri);
 
@@ -60,7 +60,7 @@ namespace Cadru.Core.UnitTests.Net.Http
             Assert.AreEqual(80, builder.Port);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.Query));
             Assert.AreEqual(0, builder.QueryParameters.Count);
-            Assert.AreEqual("http", builder.Scheme);
+            Assert.AreEqual(UriScheme.Http, builder.Scheme);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.UserName));
             Assert.IsNotNull(builder.Uri);
         }
@@ -77,7 +77,7 @@ namespace Cadru.Core.UnitTests.Net.Http
             Assert.AreEqual(80, builder.Port);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.Query));
             Assert.AreEqual(0, builder.QueryParameters.Count);
-            Assert.AreEqual("http", builder.Scheme);
+            Assert.AreEqual(UriScheme.Http, builder.Scheme);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.UserName));
             Assert.IsNotNull(builder.Uri);
 
@@ -90,7 +90,7 @@ namespace Cadru.Core.UnitTests.Net.Http
             Assert.AreEqual(80, builder.Port);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.Query));
             Assert.AreEqual(0, builder.QueryParameters.Count);
-            Assert.AreEqual("http", builder.Scheme);
+            Assert.AreEqual(UriScheme.Http, builder.Scheme);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.UserName));
             Assert.IsNotNull(builder.Uri);
 
@@ -109,7 +109,7 @@ namespace Cadru.Core.UnitTests.Net.Http
             Assert.AreEqual(-1, builder.Port);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.Query));
             Assert.AreEqual(0, builder.QueryParameters.Count);
-            Assert.AreEqual("http", builder.Scheme);
+            Assert.AreEqual(UriScheme.Http, builder.Scheme);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.UserName));
             Assert.IsNotNull(builder.Uri);
 
@@ -122,7 +122,7 @@ namespace Cadru.Core.UnitTests.Net.Http
             Assert.AreEqual(8080, builder.Port);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.Query));
             Assert.AreEqual(0, builder.QueryParameters.Count);
-            Assert.AreEqual("http", builder.Scheme);
+            Assert.AreEqual(UriScheme.Http, builder.Scheme);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.UserName));
             Assert.IsNotNull(builder.Uri);
             
@@ -135,7 +135,7 @@ namespace Cadru.Core.UnitTests.Net.Http
             Assert.AreEqual(8080, builder.Port);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.Query));
             Assert.AreEqual(0, builder.QueryParameters.Count);
-            Assert.AreEqual("http", builder.Scheme);
+            Assert.AreEqual(UriScheme.Http, builder.Scheme);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.UserName));
             Assert.IsNotNull(builder.Uri);
 
@@ -148,7 +148,7 @@ namespace Cadru.Core.UnitTests.Net.Http
             Assert.AreEqual(8080, builder.Port);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.Query));
             Assert.AreEqual(0, builder.QueryParameters.Count);
-            Assert.AreEqual("http", builder.Scheme);
+            Assert.AreEqual(UriScheme.Http, builder.Scheme);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.UserName));
             Assert.IsNotNull(builder.Uri);
         }
@@ -172,7 +172,7 @@ namespace Cadru.Core.UnitTests.Net.Http
             Assert.AreEqual(8080, builder.Port);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.Query));
             Assert.AreEqual(0, builder.QueryParameters.Count);
-            Assert.AreEqual("http", builder.Scheme);
+            Assert.AreEqual(UriScheme.Http, builder.Scheme);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.UserName));
             Assert.IsNotNull(builder.Uri);
 
@@ -238,9 +238,11 @@ namespace Cadru.Core.UnitTests.Net.Http
             var builder1 = new UrlBuilder();
             var builder2 = new UrlBuilder();
             var builder3 = new UrlBuilder("example.com");
+            var builder4 = new UrlBuilder("example.com");
 
             Assert.AreEqual(builder1, builder2);
             Assert.AreNotEqual(builder1, builder3);
+            Assert.AreEqual(builder3, builder4);
         }
     }
 }
