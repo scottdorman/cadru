@@ -130,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Cadru.Core.licenseheader" />
+    <None Include="Cadru.Core.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
