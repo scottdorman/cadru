@@ -1,10 +1,11 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Cadru.UnitTest.Framework;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Cadru.Core.UnitTests
 {
-    [TestClass]
+    [TestClass, ExcludeFromCodeCoverage]
     public class UnixTimestampTests
     {
         private static DateTime date = new DateTime(2014, 03, 18, 21, 0, 0, 0);
