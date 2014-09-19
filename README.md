@@ -24,7 +24,7 @@ So far, Cadru includes:
 Documentation is available as .chm files hosted in the GitHub repository.
 
 * [Cadru.Core](https://github.com/scottdorman/cadru/blob/master/docs/Help/Cadru.Core.Documentation.chm?raw=true)
-* [Cadru.Core.Windows](https://github.com/scottdorman/cadru/blob/master/docs/Help/Cadru.Core.Documentation.chm?raw=true)
+* [Cadru.Core.Windows](https://github.com/scottdorman/cadru/blob/master/docs/Help/Cadru.Core.Windows.Documentation.chm?raw=true)
 * [Cadru.UnitTest.Framework](https://github.com/scottdorman/cadru/blob/master/docs/Help/Cadru.UnitTest.Framework.Documentation.chm?raw=true)
 
 There are also a lot of unit tests that show how to use the APIs which can be a good starting place as well. (My goal is to as be as close to 100% code coverage as possible. Obviously, that will always be a work in progress.) 
