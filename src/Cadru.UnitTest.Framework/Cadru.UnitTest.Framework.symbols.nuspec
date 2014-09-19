@@ -3,7 +3,7 @@
   <metadata>
     <id>$id$</id>
     <version>$version$</version>
-    <title>Cadru.Core.Windows</title>
+    <title>Cadru.UnitTest.Framework</title>
     <authors>Scott Dorman</authors>
     <owners>scottdorman</owners>
     <projectUrl>https://github.com/scottdorman/cadru</projectUrl>
