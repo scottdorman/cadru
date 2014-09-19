@@ -18,7 +18,7 @@ Cadru is made up of the following assemblies:
 
 * **Cadru.Core** - A portable class library which provides the majority of the framework.
 * **Cadru.Core.Windows** - A non-portable class library (targeting .NET Framework 4) meant for Windows desktop applications.
-* **Cadru.UnitTest.Framework** - A non-portable class library (targeting .NET Framework 3.5) which adds additional assert capabilities for MSTest.
+* **Cadru.UnitTest.Framework** - A non-portable class library (targeting .NET Framework 4) which adds additional assert capabilities for MSTest.
 
 ##Documentation
 Documentation is available as .chm files hosted in the GitHub repository.
