@@ -14,7 +14,7 @@ of the library is available as a Portable Class Library (PCL) targeting the foll
 Any platform specific functionality is exposed as more narrowly focused portable class libraries or as a non portable library if that’s the only option.
 
 ## What's in it?
-So far, Cadru includes:
+Cadru is made up of the following assemblies:
 
 * **Cadru.Core** - A portable class library which provides the majority of the framework.
 * **Cadru.Core.Windows** - A non-portable class library (targeting .NET Framework 4) meant for Windows desktop applications.
