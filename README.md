@@ -37,8 +37,8 @@ I’ve tried to make it easy to get Cadru for your own use.
 * If you want the source code, you can [fork the repository](https://github.com/scottdorman/cadru/fork) or just browse it on GitHub.
 * You can install one of the NuGet packages:
    * [Cadru.Core](https://www.nuget.org/packages/Cadru.Core/)
-   * Cadru.Core.Windows (coming soon)
-   * Cadru.UnitTest.Framework (coming soon)
+   * [Cadru.Core.Windows](https://www.nuget.org/packages/Cadru.Core.Windows/)
+   * [Cadru.UnitTest.Framework](https://www.nuget.org/packages/Cadru.UnitTest.Framework/)
 
 ## Why another library?
 Although Cadru was released as an open source framework in July 2013, some of the APIs it contains have 10 years of real world use behind them. These are things that I kept having to rewrite in the apps I was building. Rather than continuing to rewrite them, I decided to encapsulate them in a library and make it broadly available. Although Cadru grew from app development, I have rewritten everything with a focus on being an API rather than a jumbled collection of utilities. That means everything is (hopefully) well documented, cleanly written, and easy to use.
