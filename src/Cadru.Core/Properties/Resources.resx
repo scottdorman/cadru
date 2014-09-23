@@ -324,4 +324,7 @@
   <data name="Arg_UnixTimestampRange" xml:space="preserve">
     <value>Combination of arguments to the UnixTimestamp constructor is out of the legal range.</value>
   </data>
+  <data name="InvalidOperation_QueryStringParameterDictionaryParsing" xml:space="preserve">
+    <value>The query string is not in a correct format.</value>
+  </data>
 </root>

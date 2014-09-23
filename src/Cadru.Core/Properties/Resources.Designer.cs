@@ -655,6 +655,15 @@ namespace Cadru.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The query string is not in a correct format..
+        /// </summary>
+        internal static string InvalidOperation_QueryStringParameterDictionaryParsing {
+            get {
+                return ResourceManager.GetString("InvalidOperation_QueryStringParameterDictionaryParsing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cannot apply format &quot;{0}&quot; to the date &quot;{1}&quot; as the date is already in local time..
         /// </summary>
         internal static string MDA_InvalidFormatForLocal {

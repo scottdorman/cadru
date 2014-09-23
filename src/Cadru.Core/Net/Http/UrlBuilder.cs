@@ -27,6 +27,7 @@ namespace Cadru.Net.Http
     using System.Linq;
     using System.Text;
     using Cadru.Collections;
+    using Cadru.Contracts;
 
     /// <summary>
     /// Provides a custom constructor for uniform resource identifiers (URIs) 
@@ -77,7 +78,7 @@ namespace Cadru.Net.Http
         public UrlBuilder(string uri)
         {
             this.builder = new UriBuilder(uri);
-            this.queryParameters = new QueryStringParametersDictionary();
+            this.queryParameters = new QueryStringParametersDictionary(this.builder.Query);
         }
         #endregion
 
@@ -107,8 +108,8 @@ namespace Cadru.Net.Http
         public UrlBuilder(string uri, string path)
         {
             this.builder = new UriBuilder(uri);
+            this.queryParameters = new QueryStringParametersDictionary(this.builder.Query);
             this.builder.Path = path;
-            this.queryParameters = new QueryStringParametersDictionary();
         }
         #endregion
 
@@ -123,8 +124,10 @@ namespace Cadru.Net.Http
         /// </exception>
         public UrlBuilder(Uri uri)
         {
+            Requires.NotNull(uri, "uri");
+
             this.builder = new UriBuilder(uri);
-            this.queryParameters = new QueryStringParametersDictionary();
+            this.queryParameters = new QueryStringParametersDictionary(uri.Query);
         }
         #endregion
 
@@ -140,9 +143,11 @@ namespace Cadru.Net.Http
         /// </exception>
         public UrlBuilder(Uri uri, string path)
         {
+            Requires.NotNull(uri, "uri");
+
             this.builder = new UriBuilder(uri);
+            this.queryParameters = new QueryStringParametersDictionary(uri.Query);
             this.builder.Path = path;
-            this.queryParameters = new QueryStringParametersDictionary();
         }
         #endregion
 
@@ -219,7 +224,7 @@ namespace Cadru.Net.Http
         public UrlBuilder(UriScheme scheme, string host, int port, string path, string extraValue)
         {
             this.builder = new UriBuilder(scheme, host, port, path, extraValue);
-            this.queryParameters = new QueryStringParametersDictionary();
+            this.queryParameters = new QueryStringParametersDictionary(this.builder.Query);
         }
         #endregion
 
@@ -332,7 +337,7 @@ namespace Cadru.Net.Http
 
         #region Query
         /// <summary>
-        /// Gets any query information included in the URI.
+        /// Gets or sets any query information included in the URI.
         /// </summary>
         /// <value>The query information included in the URI.</value>
         public string Query
@@ -340,6 +345,11 @@ namespace Cadru.Net.Http
             get
             {
                 return this.queryParameters.ToQueryString();
+            }
+
+            set
+            {
+                this.queryParameters.FillFromString(value);
             }
         }
         #endregion

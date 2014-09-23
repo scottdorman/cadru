@@ -28,6 +28,8 @@ namespace Cadru.Collections
     using System.Linq;
     using System.Text;
     using Cadru.Extensions;
+    using Cadru.Internal;
+    using Cadru.Properties;
 
     /// <summary>
     /// Represents a collection of query string parameters and values.
@@ -38,6 +40,80 @@ namespace Cadru.Collections
         #endregion
 
         #region constructors
+
+        #region QueryStringParametersDictionary()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QueryStringParametersDictionary"/>
+        /// class that is empty and has the default initial capacity.
+        /// </summary>
+        public QueryStringParametersDictionary()
+            : base()
+        {
+        }
+        #endregion
+
+        #region QueryStringParametersDictionary(int capacity)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QueryStringParametersDictionary"/>
+        /// class that is empty and has the specified initial capacity.
+        /// </summary>
+        /// <param name="capacity">The initial number of elements that the 
+        /// <see cref="QueryStringParametersDictionary"/> can contain.</param>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// <paramref name="capacity"/> is less than 0.</exception>
+        public QueryStringParametersDictionary(int capacity)
+            : base(capacity)
+        {
+        }
+        #endregion
+
+        #region QueryStringParametersDictionary(IDictionary<string, string> dictionary)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QueryStringParametersDictionary"/>
+        /// class that contains elements copied from the specified 
+        /// <see cref="System.Collections.Generic.IDictionary{TKey,TValue}"/>.
+        /// </summary>
+        /// <param name="dictionary">
+        /// The <see cref="System.Collections.Generic.IDictionary{TKey,TValue}"/> 
+        /// whose elements are copied to the new 
+        /// <see cref="QueryStringParametersDictionary"/>.
+        /// </param>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="dictionary"/> is <see langword="null"/>.
+        /// </exception>
+        /// <exception cref="System.ArgumentException">
+        /// <paramref name="dictionary"/> contains one or more duplicate keys.
+        /// </exception>
+        public QueryStringParametersDictionary(IDictionary<string, string> dictionary)
+            : base(dictionary)
+        {
+        }
+        #endregion
+
+        #region QueryStringParametersDictionary(string query)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QueryStringParametersDictionary"/>
+        /// class that contains elements parsed from the given query.
+        /// </summary>
+        /// <remarks>Multiple occurrences of the same query string variable are not supported.</remarks>
+        /// <param name="query">The string to be parsed.</param>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="query"/> contains one or more keys whose value
+        /// is <see langword="null"/>.
+        /// </exception>
+        /// <exception cref="System.ArgumentException">
+        /// <paramref name="query"/> contains one or more duplicate keys.
+        /// </exception>
+        /// <exception cref="System.InvalidOperationException">
+        /// <paramref name="query"/> is not properly formed.
+        /// </exception>
+        public QueryStringParametersDictionary(string query)
+            : base()
+        {
+            this.FillFromString(query);
+        }
+        #endregion
+
         #endregion
 
         #region events
@@ -76,6 +152,33 @@ namespace Cadru.Collections
         }
         #endregion
 
+        internal void FillFromString(string query)
+        {
+            int length = (query != null) ? query.Length : 0;
+
+            if (length > 0)
+            {
+                if (query[0] == '?')
+                {
+                    query = query.Substring(1);
+                }
+
+                foreach (var pair in query.Split(new[] { '&' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    int pairLength = pair.Length;
+                    var index = pair.IndexOf('=');
+                    if (index == -1)
+                    {
+                        throw ExceptionBuilder.CreateInvalidOperation(Resources.InvalidOperation_QueryStringParameterDictionaryParsing);
+                    }
+                    else
+                    {
+                        this.Add(pair.Substring(0, index), pair.Substring(index + 1, pairLength - index - 1));
+                    }
+                }
+            }
+        }
+ 
         #endregion
     }
 }

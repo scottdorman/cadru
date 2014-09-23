@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Cadru.Net.Http;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using Cadru.Net.Http;
+using Cadru.UnitTest.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Cadru.Core.UnitTests.Net.Http
 {
@@ -93,9 +94,7 @@ namespace Cadru.Core.UnitTests.Net.Http
             Assert.AreEqual(UriScheme.Http, builder.Scheme);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.UserName));
             Assert.IsNotNull(builder.Uri);
-
         }
-
 
         [TestMethod]
         public void PropertyConstructors()
@@ -209,6 +208,61 @@ namespace Cadru.Core.UnitTests.Net.Http
             builder.QueryParameters.Clear();
             Assert.AreEqual(0, builder.QueryParameters.Count);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.Query));
+        }
+
+        [TestMethod]
+        public void QueryStringParsing()
+        {
+            var builder = new UrlBuilder("http://example.com");
+            Assert.IsNotNull(builder);
+            Assert.IsTrue(String.IsNullOrWhiteSpace(builder.Fragment));
+            Assert.AreEqual("example.com", builder.Host);
+            Assert.IsTrue(String.IsNullOrWhiteSpace(builder.Password));
+            Assert.AreEqual("/", builder.Path);
+            Assert.AreEqual(80, builder.Port);
+            Assert.IsTrue(String.IsNullOrWhiteSpace(builder.Query));
+            Assert.AreEqual(0, builder.QueryParameters.Count);
+            Assert.AreEqual(UriScheme.Http, builder.Scheme);
+            Assert.IsTrue(String.IsNullOrWhiteSpace(builder.UserName));
+            Assert.IsNotNull(builder.Uri);
+
+            builder.Query = "foo=bar";
+            Assert.AreNotEqual(0, builder.QueryParameters.Count);
+            Assert.AreEqual(1, builder.QueryParameters.Keys.Count);
+            Assert.AreEqual(1, builder.QueryParameters.Values.Count);
+            Assert.AreEqual("foo", builder.QueryParameters.Keys.First());
+            Assert.AreEqual("bar", builder.QueryParameters["foo"]);
+            Assert.AreEqual("foo=bar", builder.Query);
+
+            builder.QueryParameters.Clear();
+            builder.Query = "foo=bar&baz=fuzz";
+            Assert.AreNotEqual(0, builder.QueryParameters.Count);
+            Assert.AreEqual(2, builder.QueryParameters.Keys.Count);
+            Assert.AreEqual(2, builder.QueryParameters.Values.Count);
+            Assert.AreEqual("baz", builder.QueryParameters.Keys.Skip(1).First());
+            Assert.AreEqual("fuzz", builder.QueryParameters["baz"]);
+            Assert.AreEqual("foo=bar&baz=fuzz", builder.Query);
+
+            builder.QueryParameters.Clear();
+            builder.Query = "foo=bar";
+            Assert.AreEqual(1, builder.QueryParameters.Count);
+            Assert.AreEqual(1, builder.QueryParameters.Keys.Count);
+            Assert.AreEqual(1, builder.QueryParameters.Values.Count);
+            Assert.AreEqual("foo", builder.QueryParameters.Keys.First());
+            Assert.AreEqual("bar", builder.QueryParameters["foo"]);
+            Assert.AreEqual("foo=bar", builder.Query);
+            builder.Query = "baz=fuzz";
+            Assert.AreEqual(2, builder.QueryParameters.Count);
+            Assert.AreEqual(2, builder.QueryParameters.Keys.Count);
+            Assert.AreEqual(2, builder.QueryParameters.Values.Count);
+            Assert.AreEqual("baz", builder.QueryParameters.Keys.Skip(1).First());
+            Assert.AreEqual("fuzz", builder.QueryParameters["baz"]);
+            Assert.AreEqual("foo=bar&baz=fuzz", builder.Query);
+
+            ExceptionAssert.Throws<ArgumentException>(() => builder.Query = "foo=bar&baz=fuzz");
+
+            builder.QueryParameters.Clear();
+            ExceptionAssert.Throws<InvalidOperationException>(() => builder.Query = "foo");
         }
 
         [TestMethod]
