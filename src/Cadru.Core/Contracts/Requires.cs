@@ -290,7 +290,7 @@ namespace Cadru.Contracts
         }
         #endregion
 
-        #region NotNullOrEmpty(IEnumerable values, string parameterName)
+        #region NotNullOrEmpty([ValidatedNotNull]IEnumerable values, string parameterName)
         /// <summary>
         /// Checks that <paramref name="values"/> is not <see langword="null"/> or empty.
         /// </summary>
@@ -301,7 +301,7 @@ namespace Cadru.Contracts
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNullOrEmpty(IEnumerable values, string parameterName)
+        public static void NotNullOrEmpty([ValidatedNotNull]IEnumerable values, string parameterName)
         {
             if (values.IsNull())
             {
@@ -317,7 +317,7 @@ namespace Cadru.Contracts
         }
         #endregion
 
-        #region NotNullOrEmpty(IEnumerable values, string parameterName, string message)
+        #region NotNullOrEmpty([ValidatedNotNull]IEnumerable values, string parameterName, string message)
         /// <summary>
         /// Checks that <paramref name="values"/> is not <see langword="null"/> or empty.
         /// </summary>
@@ -329,7 +329,7 @@ namespace Cadru.Contracts
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNullOrEmpty(IEnumerable values, string parameterName, string message)
+        public static void NotNullOrEmpty([ValidatedNotNull]IEnumerable values, string parameterName, string message)
         {
             if (values.IsNull())
             {
@@ -358,7 +358,7 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException"><paramref name="values"/> contains a <see langword="null"/> element.</exception>
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNullElements(IEnumerable values, string parameterName)
+        public static void NotNullElements([ValidatedNotNull]IEnumerable values, string parameterName)
         {
             Requires.NotNull(values, "values");
             foreach (var value in values)
@@ -387,7 +387,7 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException"><paramref name="values"/> contains an element which does not match the given predicate.</exception>
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void ValidElements<T>(IEnumerable<T> values, Predicate<T> match, string parameterName, string message)
+        public static void ValidElements<T>([ValidatedNotNull]IEnumerable<T> values, Predicate<T> match, string parameterName, string message)
         {
             Requires.NotNull(values, "values");
             if (values.Any(x => !match(x)))
