@@ -195,6 +195,7 @@ namespace Cadru.Extensions
         #endregion
 
         #region EndsWithAny(this string source, IEnumerable<string> values, StringComparison comparisonType)
+        /// <summary>
         /// Determines whether the end of this string instance matches any of the
         /// specified strings.
         /// </summary>
@@ -1594,6 +1595,7 @@ namespace Cadru.Extensions
         #region StartsWithAny
 
         #region StartsWithAny(this string source, IEnumerable<string> values)
+        /// <summary>
         /// Determines whether the start of this string instance matches any of the
         /// specified strings.
         /// </summary>
@@ -1608,6 +1610,7 @@ namespace Cadru.Extensions
         #endregion
 
         #region StartsWithAny(this string source, IEnumerable<string> values, StringComparison comparisonType)
+        /// <summary>
         /// Determines whether the start of this string instance matches any of the
         /// specified strings.
         /// </summary>
