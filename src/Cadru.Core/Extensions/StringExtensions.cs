@@ -23,6 +23,7 @@
 namespace Cadru.Extensions
 {
     using System;
+    using System.Collections.Generic;
     using System.Globalization;
     using System.Text;
     using Cadru.Internal;
@@ -48,6 +49,113 @@ namespace Cadru.Extensions
 
         #region methods
 
+        #region Clean
+
+        #region Clean(string source)
+        /// <summary>
+        /// Returns a new string whose textual value is the normalized form of
+        /// <paramref name="source"/>.
+        /// </summary>
+        /// <param name="source">The <see cref="String"/> to normalize.
+        /// </param>
+        /// <returns>A new, normalized string.</returns>
+        /// <remarks><para>The <see cref="Clean(string)"/> method removes 
+        /// all occurrences of white space and control characters from the 
+        /// beginning and end of the given string as well as collapsing all 
+        /// internal white space characters to a single white space character.
+        /// </para>
+        /// </remarks>
+        public static string Clean(this string source)
+        {
+            return Clean(source, NormalizationOptions.All);
+        }
+        #endregion
+
+        #region Clean(string source, NormalizationOptions options)
+        /// <summary>
+        /// Returns a new string whose textual value is the normalized form of
+        /// <paramref name="source"/>.
+        /// </summary>
+        /// <param name="source">The <see cref="String"/> to normalize.
+        /// </param>
+        /// <param name="options">One of the 
+        /// <see cref="NormalizationOptions"/> values.</param>
+        /// <returns>A new, normalized string.</returns>
+        public static string Clean(this string source, NormalizationOptions options)
+        {
+            Contracts.Requires.NotNull(source, "source");
+
+            if ((int)options < 0 || ((int)options & (int)~(NormalizationOptions.ControlCharacters | NormalizationOptions.Whitespace)) != 0)
+            {
+                throw ExceptionBuilder.CreateArgumentException("options", String.Format(CultureInfo.CurrentUICulture, Resources.Argument_EnumIllegalVal, (int)options));
+            }
+
+            char[] normalized;
+
+            if ((options & NormalizationOptions.Whitespace) == NormalizationOptions.Whitespace)
+            {
+                normalized = source.Trim().ToCharArray();
+            }
+            else
+            {
+                normalized = source.ToCharArray();
+            }
+
+            int index = 0;
+            int whitespaceCount = 0;
+            int controlCount = 0;
+            StringBuilder builder = new StringBuilder(source.Length);
+            while (index < normalized.Length)
+            {
+                if ((options & NormalizationOptions.Whitespace) == NormalizationOptions.Whitespace)
+                {
+                    int position = index;
+                    if (Char.IsWhiteSpace(normalized[position]))
+                    {
+                        while ((position + 1) < normalized.Length && Char.IsWhiteSpace(normalized[++position]))
+                        {
+                            // we found a whitespace character, so look ahead until we
+                            // find the next non-whitespace character.
+                            whitespaceCount++;
+                        }
+
+                        if (whitespaceCount >= 0)
+                        {
+                            builder.Append(" ");
+                        }
+
+                        whitespaceCount = 0;
+                        index = position;
+                    }
+                }
+
+                if ((options & NormalizationOptions.ControlCharacters) == NormalizationOptions.ControlCharacters)
+                {
+                    if (Char.IsControl(normalized[index]))
+                    {
+                        int position = index;
+                        while ((position + 1) < normalized.Length && Char.IsControl(normalized[++position]))
+                        {
+                            // we found a control character, so look ahead until we
+                            // find the next non-control character.
+                            controlCount++;
+                        }
+
+                        controlCount = 0;
+                        index = position;
+                    }
+                }
+
+                builder.Append(normalized[index]);
+                index++;
+            }
+
+            return builder.ToString();
+        }
+        #endregion
+
+        #endregion
+
         #region Contains
         /// <summary>
         /// Returns a value indicating whether the specified <see cref="string"/> object occurs within this string.
@@ -69,6 +177,102 @@ namespace Cadru.Extensions
         }
         #endregion
 
+        #region EndsWithAny
+
+        #region EndsWithAny(this string source, IEnumerable<string> values)
+        /// <summary>
+        /// Determines whether the end of this string instance matches any of the
+        /// specified strings.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="values">A collection of string instances.</param>
+        /// <returns><see langword="true"/> if the end of this string instance matches
+        /// any of the specified strings; otherwise, <see langword="false"/>.</returns>
+        public static bool EndsWithAny(this string source, IEnumerable<string> values)
+        {
+            return source.EndsWithAny(values, StringComparison.CurrentCulture);
+        }
+        #endregion
+
+        #region EndsWithAny(this string source, IEnumerable<string> values, StringComparison comparisonType)
+        /// Determines whether the end of this string instance matches any of the
+        /// specified strings.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="values">A collection of string instances.</param>
+        /// <param name="comparisonType">One of the enumeration values that
+        /// specifies the rules for the comparison.</param>
+        /// <returns><see langword="true"/> if the end of this string instance matches
+        /// any of the specified strings; otherwise, <see langword="false"/>.</returns>
+        public static bool EndsWithAny(this string source, IEnumerable<string> values, StringComparison comparisonType)
+        {
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNullOrEmpty(values, "values");
+
+            foreach (var value in values)
+            {
+                if (source.EndsWith(value, comparisonType))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        #endregion
+
+        #endregion
+
+        #region EqualsAny
+
+        #region EqualsAny(this string source, IEnumerable<string> values)
+        /// <summary>
+        /// Determines whether this string instance is equal to any of the
+        /// specified strings.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="values">A collection of string instances.</param>
+        /// <returns><see langword="true"/> if the string instance is equal to
+        /// any of the specified strings; otherwise, <see langword="false"/>.</returns>
+        public static bool EqualsAny(this string source, IEnumerable<string> values)
+        {
+            return source.EqualsAny(values, StringComparison.CurrentCulture);
+        }
+        #endregion
+
+        #region EqualsAny(this string source, IEnumerable<string> values, StringComparison comparisonType)
+        /// <summary>
+        /// Determines whether this string instance is equal to any of the
+        /// specified strings.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="values">A collection of string instances.</param>
+        /// <param name="comparisonType">One of the enumeration values that
+        /// specifies the rules for the comparison.</param>
+        /// <returns><see langword="true"/> if the string instance is equal to
+        /// any of the specified strings; otherwise, <see langword="false"/>.</returns>
+        public static bool EqualsAny(this string source, IEnumerable<string> values, StringComparison comparisonType)
+        {
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNullOrEmpty(values, "values");
+
+            foreach (var value in values)
+            {
+                if (String.Equals(source, value, comparisonType))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        #endregion
+
+        #endregion
+
+        #region IndexOfOccurrence
+
+        #region IndexOfOccurrence(this string source, char value, int occurrence)
         /// <summary>
         /// Reports the zero-based index of the nth occurrence of the 
         /// specified character in <paramref name="source"/>.
@@ -91,7 +295,9 @@ namespace Cadru.Extensions
             
             return source.IndexOfOccurrence(value, 0, occurrence);
         }
+        #endregion
 
+        #region IndexOfOccurrence(this string source, string value, int occurrence)
         /// <summary>
         /// Reports the zero-based index of the nth occurrence of the 
         /// specified string in <paramref name="source"/>.
@@ -115,7 +321,9 @@ namespace Cadru.Extensions
             
             return source.IndexOfOccurrence(value, 0, occurrence);
         }
+        #endregion
 
+        #region IndexOfOccurrence(this string source, char value, int startIndex, int occurrence)
         /// <summary>
         /// Reports the zero-based index of the nth occurrence of the 
         /// specified character in <paramref name="source"/>.
@@ -139,7 +347,9 @@ namespace Cadru.Extensions
             
             return source.IndexOfOccurrence(value, startIndex, source.Length - startIndex, occurrence);
         }
+        #endregion
 
+        #region IndexOfOccurrence(this string source, string value, int startIndex, int occurrence)
         /// <summary>
         /// Reports the zero-based index of the nth occurrence of the 
         /// specified string in <paramref name="source"/>.
@@ -163,7 +373,9 @@ namespace Cadru.Extensions
             
             return source.IndexOfOccurrence(value, startIndex, source.Length - startIndex, occurrence, StringComparison.Ordinal);
         }
+        #endregion
 
+        #region IndexOfOccurrence(this string source, string value, int occurrence, StringComparison comparisonType)
         /// <summary>
         /// Reports the zero-based index of the nth occurrence of the 
         /// specified string in <paramref name="source"/> using the
@@ -192,7 +404,9 @@ namespace Cadru.Extensions
             
             return source.IndexOfOccurrence(value, 0, source.Length, occurrence, comparisonType);
         }
+        #endregion
 
+        #region IndexOfOccurrence(this string source, char value, int startIndex, int count, int occurrence)
         /// <summary>
         /// Reports the zero-based index of the nth occurrence of the 
         /// specified string in <paramref name="source"/>.
@@ -234,7 +448,9 @@ namespace Cadru.Extensions
 
             return index;
         }
+        #endregion
 
+        #region IndexOfOccurrence(this string source, string value, int startIndex, int count, int occurrence)
         /// <summary>
         /// Reports the zero-based index of the nth occurrence of the 
         /// specified string in <paramref name="source"/>.
@@ -260,7 +476,9 @@ namespace Cadru.Extensions
             
             return source.IndexOfOccurrence(value, startIndex, count, occurrence, StringComparison.Ordinal);
         }
+        #endregion
 
+        #region IndexOfOccurrence(this string source, string value, int startIndex, int occurrence, StringComparison comparisonType)
         /// <summary>
         /// Reports the zero-based index of the nth occurrence of the 
         /// specified string in <paramref name="source"/>.
@@ -286,6 +504,9 @@ namespace Cadru.Extensions
             return source.IndexOfOccurrence(value, startIndex, source.Length - startIndex, occurrence, comparisonType);
         }
 
+        #endregion
+
+        #region IndexOfOccurrence(this string source, string value, int startIndex, int count, int occurrence, StringComparison comparisonType)
         /// <summary>
         /// Reports the zero-based index of the nth occurrence of the 
         /// specified string in <paramref name="source"/>.
@@ -328,6 +549,9 @@ namespace Cadru.Extensions
 
             return index;
         }
+        #endregion
+
+        #endregion
 
         #region LastCharacter
         /// <summary>
@@ -722,113 +946,6 @@ namespace Cadru.Extensions
         {
             return !value.IsNullOrWhiteSpace();
         }
-        #endregion
-
-        #region Clean
-
-        #region Clean(string source)
-        /// <summary>
-        /// Returns a new string whose textual value is the normalized form of
-        /// <paramref name="source"/>.
-        /// </summary>
-        /// <param name="source">The <see cref="String"/> to normalize.
-        /// </param>
-        /// <returns>A new, normalized string.</returns>
-        /// <remarks><para>The <see cref="Clean(string)"/> method removes 
-        /// all occurrences of white space and control characters from the 
-        /// beginning and end of the given string as well as collapsing all 
-        /// internal white space characters to a single white space character.
-        /// </para>
-        /// </remarks>
-        public static string Clean(this string source)
-        {
-            return Clean(source, NormalizationOptions.All);
-        }
-        #endregion
-
-        #region Clean(string source, NormalizationOptions options)
-        /// <summary>
-        /// Returns a new string whose textual value is the normalized form of
-        /// <paramref name="source"/>.
-        /// </summary>
-        /// <param name="source">The <see cref="String"/> to normalize.
-        /// </param>
-        /// <param name="options">One of the 
-        /// <see cref="NormalizationOptions"/> values.</param>
-        /// <returns>A new, normalized string.</returns>
-        public static string Clean(this string source, NormalizationOptions options)
-        {
-            Contracts.Requires.NotNull(source, "source");
-
-            if ((int)options < 0 || ((int)options & (int)~(NormalizationOptions.ControlCharacters | NormalizationOptions.Whitespace)) != 0)
-            {
-                throw ExceptionBuilder.CreateArgumentException("options", String.Format(CultureInfo.CurrentUICulture, Resources.Argument_EnumIllegalVal, (int)options));
-            }
-
-            char[] normalized;
-
-            if ((options & NormalizationOptions.Whitespace) == NormalizationOptions.Whitespace)
-            {
-                normalized = source.Trim().ToCharArray();
-            }
-            else
-            {
-                normalized = source.ToCharArray();
-            }
-
-            int index = 0;
-            int whitespaceCount = 0;
-            int controlCount = 0;
-            StringBuilder builder = new StringBuilder(source.Length);
-            while (index < normalized.Length)
-            {
-                if ((options & NormalizationOptions.Whitespace) == NormalizationOptions.Whitespace)
-                {
-                    int position = index;
-                    if (Char.IsWhiteSpace(normalized[position]))
-                    {
-                        while ((position + 1) < normalized.Length && Char.IsWhiteSpace(normalized[++position]))
-                        {
-                            // we found a whitespace character, so look ahead until we
-                            // find the next non-whitespace character.
-                            whitespaceCount++;
-                        }
-
-                        if (whitespaceCount >= 0)
-                        {
-                            builder.Append(" ");
-                        }
-
-                        whitespaceCount = 0;
-                        index = position;
-                    }
-                }
-
-                if ((options & NormalizationOptions.ControlCharacters) == NormalizationOptions.ControlCharacters)
-                {
-                    if (Char.IsControl(normalized[index]))
-                    {
-                        int position = index;
-                        while ((position + 1) < normalized.Length && Char.IsControl(normalized[++position]))
-                        {
-                            // we found a control character, so look ahead until we
-                            // find the next non-control character.
-                            controlCount++;
-                        }
-
-                        controlCount = 0;
-                        index = position;
-                    }
-                }
-
-                builder.Append(normalized[index]);
-                index++;
-            }
-
-            return builder.ToString();
-        }
-        #endregion
-
         #endregion
 
         #region OccurrencesOf
@@ -1469,6 +1586,51 @@ namespace Cadru.Extensions
             }
 
             return substring;
+        }
+        #endregion
+
+        #endregion
+
+        #region StartsWithAny
+
+        #region StartsWithAny(this string source, IEnumerable<string> values)
+        /// Determines whether the start of this string instance matches any of the
+        /// specified strings.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="values">A collection of string instances.</param>
+        /// <returns><see langword="true"/> if the start of this string instance matches
+        /// any of the specified strings; otherwise, <see langword="false"/>.</returns>
+        public static bool StartsWithAny(this string source, IEnumerable<string> values)
+        {
+            return source.StartsWithAny(values, StringComparison.CurrentCulture);
+        }
+        #endregion
+
+        #region StartsWithAny(this string source, IEnumerable<string> values, StringComparison comparisonType)
+        /// Determines whether the start of this string instance matches any of the
+        /// specified strings.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="values">A collection of string instances.</param>
+        /// <param name="comparisonType">One of the enumeration values that
+        /// specifies the rules for the comparison.</param>
+        /// <returns><see langword="true"/> if the start of this string instance matches
+        /// any of the specified strings; otherwise, <see langword="false"/>.</returns>
+        public static bool StartsWithAny(this string source, IEnumerable<string> values, StringComparison comparisonType)
+        {
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNullOrEmpty(values, "values");
+
+            foreach (var value in values)
+            {
+                if (source.StartsWith(value, comparisonType))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
         #endregion
 

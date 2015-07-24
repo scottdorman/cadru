@@ -426,5 +426,71 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
 
             ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthBetween(5, 10));
         }
+
+        [TestMethod]
+        public void EndsWithAny()
+        {
+            string testValue = "this is a test";
+
+            Assert.IsTrue(testValue.EndsWithAny(new string[] { "test", "fox", "hat" }));
+            Assert.IsTrue(testValue.EndsWithAny(new string[] { "fox", "test", "hat" }));
+            Assert.IsTrue(testValue.EndsWithAny(new string[] { "fox", "hat", "test" }));
+
+            Assert.IsFalse(testValue.EndsWithAny(new string[] { "cat", "fox", "hat" }));
+            Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "cat", "hat" }));
+            Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "hat", "cat" }));
+
+            Assert.IsTrue(testValue.EndsWithAny(new string[] { "test", "fox", "hat" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsTrue(testValue.EndsWithAny(new string[] { "fox", "test", "hat" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsTrue(testValue.EndsWithAny(new string[] { "fox", "hat", "test" }, StringComparison.OrdinalIgnoreCase));
+
+            Assert.IsFalse(testValue.EndsWithAny(new string[] { "cat", "fox", "hat" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "cat", "hat" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "hat", "cat" }, StringComparison.OrdinalIgnoreCase));
+        }
+
+        [TestMethod]
+        public void StartsWithAny()
+        {
+            string testValue = "this is a test";
+
+            Assert.IsTrue(testValue.StartsWithAny(new string[] { "this", "fox", "hat" }));
+            Assert.IsTrue(testValue.StartsWithAny(new string[] { "fox", "this", "hat" }));
+            Assert.IsTrue(testValue.StartsWithAny(new string[] { "fox", "hat", "this" }));
+
+            Assert.IsFalse(testValue.StartsWithAny(new string[] { "cat", "fox", "hat" }));
+            Assert.IsFalse(testValue.StartsWithAny(new string[] { "fox", "cat", "hat" }));
+            Assert.IsFalse(testValue.StartsWithAny(new string[] { "fox", "hat", "cat" }));
+
+            Assert.IsTrue(testValue.StartsWithAny(new string[] { "this", "fox", "hat" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsTrue(testValue.StartsWithAny(new string[] { "fox", "this", "hat" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsTrue(testValue.StartsWithAny(new string[] { "fox", "hat", "this" }, StringComparison.OrdinalIgnoreCase));
+
+            Assert.IsFalse(testValue.StartsWithAny(new string[] { "cat", "fox", "hat" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsFalse(testValue.StartsWithAny(new string[] { "fox", "cat", "hat" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsFalse(testValue.StartsWithAny(new string[] { "fox", "hat", "cat" }, StringComparison.OrdinalIgnoreCase));
+        }
+
+        [TestMethod]
+        public void EqualsAny()
+        {
+            string testValue = "ABCD";
+
+            Assert.IsTrue(testValue.EqualsAny(new string[] { "ABCD", "fox", "hat" }));
+            Assert.IsTrue(testValue.EqualsAny(new string[] { "fox", "ABCD", "hat" }));
+            Assert.IsTrue(testValue.EqualsAny(new string[] { "fox", "hat", "ABCD" }));
+
+            Assert.IsFalse(testValue.EqualsAny(new string[] { "cat", "fox", "hat" }));
+            Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "cat", "hat" }));
+            Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "hat", "cat" }));
+
+            Assert.IsTrue(testValue.EqualsAny(new string[] { "ABCD", "fox", "hat" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsTrue(testValue.EqualsAny(new string[] { "fox", "ABCD", "hat" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsTrue(testValue.EqualsAny(new string[] { "fox", "hat", "ABCD" }, StringComparison.OrdinalIgnoreCase));
+
+            Assert.IsFalse(testValue.EqualsAny(new string[] { "cat", "fox", "hat" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "cat", "hat" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "hat", "cat" }, StringComparison.OrdinalIgnoreCase));
+        }
     }
 }
