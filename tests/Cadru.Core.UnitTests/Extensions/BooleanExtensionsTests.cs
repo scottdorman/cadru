@@ -35,24 +35,56 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
            ConditionAssert.IsTrue(TryParse("TRUE"));
            ConditionAssert.IsTrue(TryParse("T"));
            ConditionAssert.IsTrue(TryParse("t"));
+           ConditionAssert.IsTrue(TryParse("Y"));
+           ConditionAssert.IsTrue(TryParse("y"));
+           ConditionAssert.IsTrue(TryParse("YES"));
+           ConditionAssert.IsTrue(TryParse("Yes"));
+           ConditionAssert.IsTrue(TryParse("yes"));
 
            ConditionAssert.IsFalse(TryParse("false"));
            ConditionAssert.IsFalse(TryParse("False"));
            ConditionAssert.IsFalse(TryParse("FALSE"));
            ConditionAssert.IsFalse(TryParse("F"));
            ConditionAssert.IsFalse(TryParse("f"));
+           ConditionAssert.IsFalse(TryParse("N"));
+           ConditionAssert.IsFalse(TryParse("n"));
+           ConditionAssert.IsFalse(TryParse("NO"));
+           ConditionAssert.IsFalse(TryParse("No"));
+           ConditionAssert.IsFalse(TryParse("no"));
+           ConditionAssert.IsFalse(TryParse("NA"));
+           ConditionAssert.IsFalse(TryParse("Na"));
+           ConditionAssert.IsFalse(TryParse("na"));
+           ConditionAssert.IsFalse(TryParse("N/A"));
+           ConditionAssert.IsFalse(TryParse("N/a"));
+           ConditionAssert.IsFalse(TryParse("n/a"));
 
            ConditionAssert.IsTrue(TryParse("true "));
            ConditionAssert.IsTrue(TryParse(" True"));
            ConditionAssert.IsTrue(TryParse("TRUE "));
            ConditionAssert.IsTrue(TryParse("T "));
            ConditionAssert.IsTrue(TryParse(" t"));
+           ConditionAssert.IsTrue(TryParse("Y "));
+           ConditionAssert.IsTrue(TryParse(" y"));
+           ConditionAssert.IsTrue(TryParse("YES "));
+           ConditionAssert.IsTrue(TryParse(" Yes"));
+           ConditionAssert.IsTrue(TryParse(" yes "));
 
            ConditionAssert.IsFalse(TryParse(" false"));
            ConditionAssert.IsFalse(TryParse("False "));
            ConditionAssert.IsFalse(TryParse("FALSE "));
            ConditionAssert.IsFalse(TryParse(" F"));
            ConditionAssert.IsFalse(TryParse("f "));
+           ConditionAssert.IsFalse(TryParse("N "));
+           ConditionAssert.IsFalse(TryParse(" n"));
+           ConditionAssert.IsFalse(TryParse("NO "));
+           ConditionAssert.IsFalse(TryParse(" No"));
+           ConditionAssert.IsFalse(TryParse("no "));
+           ConditionAssert.IsFalse(TryParse("NA "));
+           ConditionAssert.IsFalse(TryParse(" Na"));
+           ConditionAssert.IsFalse(TryParse("na "));
+           ConditionAssert.IsFalse(TryParse(" N/A "));
+           ConditionAssert.IsFalse(TryParse(" N/a"));
+           ConditionAssert.IsFalse(TryParse("n/a "));
 
            ConditionAssert.IsTrue(TryParse(1));
            ConditionAssert.IsFalse(TryParse(0));

@@ -31,8 +31,8 @@ namespace Cadru.Extensions
     public static class BooleanExtensions
     {
         #region fields
-        private static readonly string[] FalseLiterals = { "false", "f", "no", "n" };
-        private static readonly string[] TrueLiterals = { "true", "t", "yes", "y", };
+        private static readonly string[] FalseLiterals = { "false", "f", "no", "n", "0", "na", "n/a" };
+        private static readonly string[] TrueLiterals = { "true", "t", "yes", "y", "1", };
 
         #endregion
 
