@@ -327,4 +327,22 @@
   <data name="InvalidOperation_QueryStringParameterDictionaryParsing" xml:space="preserve">
     <value>The query string is not in a correct format.</value>
   </data>
+  <data name="RelativeDateFormatStringDaysAgo" xml:space="preserve">
+    <value>{0} days ago</value>
+  </data>
+  <data name="RelativeDateFormatStringDaysFromNow" xml:space="preserve">
+    <value>{0} days from now</value>
+  </data>
+  <data name="RelativeDateFormatStringDefault" xml:space="preserve">
+    <value>{0:MMM d, yyyy}</value>
+  </data>
+  <data name="RelativeDateFormatStringToday" xml:space="preserve">
+    <value>Today, {0:h':'mm' 'tt}</value>
+  </data>
+  <data name="RelativeDateFormatStringTomorrow" xml:space="preserve">
+    <value>Tomorrow</value>
+  </data>
+  <data name="RelativeDateFormatStringYesterday" xml:space="preserve">
+    <value>Yesterday</value>
+  </data>
 </root>

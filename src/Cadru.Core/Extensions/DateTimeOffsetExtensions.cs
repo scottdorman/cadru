@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="DateTimeOffsetExtensions.cs" 
-//  company="Scott Dorman" 
+// <copyright file="DateTimeOffsetExtensions.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ namespace Cadru.Extensions
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
-
+    using Cadru.Properties;
+    using Cadru.Text;
     /// <summary>
     /// Provides basic routines for common DateTimeOffset manipulation.
     /// </summary>
@@ -59,7 +60,7 @@ namespace Cadru.Extensions
         /// date and time represented by this instance and the number of weekdays
         /// represented by <paramref name="value"/>.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The resulting <see cref="DateTimeOffset"/> is less than 
+        /// The resulting <see cref="DateTimeOffset"/> is less than
         /// <see cref="DateTimeOffset.MinValue"/> or greater than
         /// <see cref="DateTimeOffset.MaxValue"/>.
         /// </exception>
@@ -92,7 +93,7 @@ namespace Cadru.Extensions
         /// date and time represented by this instance and the number of quarters
         /// represented by <paramref name="value"/>.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The resulting <see cref="DateTimeOffset"/> is less than 
+        /// The resulting <see cref="DateTimeOffset"/> is less than
         /// <see cref="DateTimeOffset.MinValue"/> or greater than
         /// <see cref="DateTimeOffset.MaxValue"/>.
         /// </exception>
@@ -114,7 +115,7 @@ namespace Cadru.Extensions
         /// date and time represented by this instance and the number of weeks
         /// represented by <paramref name="value"/>.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The resulting <see cref="DateTimeOffset"/> is less than 
+        /// The resulting <see cref="DateTimeOffset"/> is less than
         /// <see cref="DateTimeOffset.MinValue"/> or greater than
         /// <see cref="DateTimeOffset.MaxValue"/>.
         /// </exception>
@@ -168,11 +169,11 @@ namespace Cadru.Extensions
 
         #region FirstDayOfNextQuarter
         /// <summary>
-        /// Returns a <see cref="DateTimeOffset"/> which represents the 
+        /// Returns a <see cref="DateTimeOffset"/> which represents the
         /// first day of the next quarter of the date represented by this instance.
         /// </summary>
         /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
-        /// <returns>A <see cref="DateTimeOffset"/> which represents the 
+        /// <returns>A <see cref="DateTimeOffset"/> which represents the
         /// first day of the next quarter of the date represented by this instance.</returns>
         public static DateTimeOffset FirstDayOfNextQuarter(this DateTimeOffset date)
         {
@@ -182,11 +183,11 @@ namespace Cadru.Extensions
 
         #region FirstDayOfQuarter
         /// <summary>
-        /// Returns a <see cref="DateTimeOffset"/> which represents the 
+        /// Returns a <see cref="DateTimeOffset"/> which represents the
         /// first day of the quarter of the date represented by this instance.
         /// </summary>
         /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
-        /// <returns>A <see cref="DateTimeOffset"/> which represents the 
+        /// <returns>A <see cref="DateTimeOffset"/> which represents the
         /// first day of the quarter of the date represented by this instance.</returns>
         public static DateTimeOffset FirstDayOfQuarter(this DateTimeOffset date)
         {
@@ -196,11 +197,11 @@ namespace Cadru.Extensions
 
         #region FirstDayOfWeek
         /// <summary>
-        /// Returns a <see cref="DateTimeOffset"/> which represents the 
+        /// Returns a <see cref="DateTimeOffset"/> which represents the
         /// first day of the week of the date represented by this instance.
         /// </summary>
         /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
-        /// <returns>A <see cref="DateTimeOffset"/> which represents the 
+        /// <returns>A <see cref="DateTimeOffset"/> which represents the
         /// first day of the week of the date represented by this instance.</returns>
         public static DateTimeOffset FirstDayOfWeek(this DateTimeOffset date)
         {
@@ -208,12 +209,12 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="DateTimeOffset"/> which represents the 
+        /// Returns a <see cref="DateTimeOffset"/> which represents the
         /// first day of the week of the date represented by this instance.
         /// </summary>
         /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
         /// <param name="startOfWeek">An enumeration value that represents the first day of the week.</param>
-        /// <returns>A <see cref="DateTimeOffset"/> which represents the 
+        /// <returns>A <see cref="DateTimeOffset"/> which represents the
         /// first day of the week of the date represented by this instance.</returns>
         public static DateTimeOffset FirstDayOfWeek(this DateTimeOffset date, DayOfWeek startOfWeek)
         {
@@ -344,7 +345,7 @@ namespace Cadru.Extensions
         /// Returns the week of the year that includes the date in the specified DateTimeOffset value.
         /// </summary>
         /// <param name="time">A date and time value.</param>
-        /// <returns>A positive integer that represents the week of the year 
+        /// <returns>A positive integer that represents the week of the year
         /// that includes the date in the <paramref name="time"/> parameter.</returns>
         public static int GetWeekOfYear(this DateTimeOffset time)
         {
@@ -358,7 +359,7 @@ namespace Cadru.Extensions
         /// </summary>
         /// <param name="time">A date and time value.</param>
         /// <param name="rule">An enumeration value that defines a calendar week.</param>
-        /// <returns>A positive integer that represents the week of the year 
+        /// <returns>A positive integer that represents the week of the year
         /// that includes the date in the <paramref name="time"/> parameter.</returns>
         public static int GetWeekOfYear(this DateTimeOffset time, CalendarWeekRule rule)
         {
@@ -373,7 +374,7 @@ namespace Cadru.Extensions
         /// <param name="time">A date and time value.</param>
         /// <param name="rule">An enumeration value that defines a calendar week.</param>
         /// <param name="firstDayOfWeek">An enumeration value that represents the first day of the week.</param>
-        /// <returns>A positive integer that represents the week of the year 
+        /// <returns>A positive integer that represents the week of the year
         /// that includes the date in the <paramref name="time"/> parameter.</returns>
         public static int GetWeekOfYear(this DateTimeOffset time, CalendarWeekRule rule, DayOfWeek firstDayOfWeek)
         {
@@ -477,11 +478,11 @@ namespace Cadru.Extensions
 
         #region LastDayOfQuarter
         /// <summary>
-        /// Returns a <see cref="DateTimeOffset"/> which represents the 
+        /// Returns a <see cref="DateTimeOffset"/> which represents the
         /// last day of the quarter of the date represented by this instance.
         /// </summary>
         /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
-        /// <returns>A <see cref="DateTimeOffset"/> which represents the 
+        /// <returns>A <see cref="DateTimeOffset"/> which represents the
         /// last day of the quarter of the date represented by this instance.</returns>
         public static DateTimeOffset LastDayOfQuarter(this DateTimeOffset date)
         {
@@ -491,11 +492,11 @@ namespace Cadru.Extensions
 
         #region LastDayOfWeek
         /// <summary>
-        /// Returns a <see cref="DateTimeOffset"/> which represents the 
+        /// Returns a <see cref="DateTimeOffset"/> which represents the
         /// last day of the week of the date represented by this instance.
         /// </summary>
         /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
-        /// <returns>A <see cref="DateTimeOffset"/> which represents the 
+        /// <returns>A <see cref="DateTimeOffset"/> which represents the
         /// last day of the week of the date represented by this instance.</returns>
         public static DateTimeOffset LastDayOfWeek(this DateTimeOffset date)
         {
@@ -503,12 +504,12 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="DateTimeOffset"/> which represents the 
+        /// Returns a <see cref="DateTimeOffset"/> which represents the
         /// last day of the week of the date represented by this instance.
         /// </summary>
         /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
         /// <param name="firstDayOfWeek">An enumeration value that represents the first day of the week.</param>
-        /// <returns>A <see cref="DateTimeOffset"/> which represents the 
+        /// <returns>A <see cref="DateTimeOffset"/> which represents the
         /// last day of the week of the date represented by this instance.</returns>
         public static DateTimeOffset LastDayOfWeek(this DateTimeOffset date, DayOfWeek firstDayOfWeek)
         {
@@ -540,6 +541,74 @@ namespace Cadru.Extensions
         {
             return ((date.Month - 1) / 3) + 1;
         }
+        #endregion
+
+        #region ToRelativeDateString
+
+        #region ToRelativeDateString(this DateTimeOffset value)
+        /// <summary>
+        /// Convert a <see cref="DateTimeOffset"/> object to a relative date
+        /// (e.g., Today, tomorrow, yesterday) string format.
+        /// </summary>
+        /// <param name="value">The <see cref="DateTimeOffset"/> object to convert.</param>
+        /// <returns>A relative date/time formatted string.</returns>
+        public static string ToRelativeDateString(this DateTimeOffset value)
+        {
+            return ToRelativeDateString(value, RelativeDateFormattingOptions.DayNames);
+        }
+        #endregion
+
+        #region ToRelativeDateString(this DateTimeOffset value, RelativeDateFormattingOptions options)
+        /// <summary>
+        /// Convert a <see cref="DateTimeOffset"/> object to a relative date
+        /// (e.g., Today, tomorrow, yesterday) string format.
+        /// </summary>
+        /// <param name="value">The <see cref="DateTimeOffset"/> object to convert.</param>
+        /// <param name="options">One of the <see cref="RelativeDateFormattingOptions"/> values.</param>
+        /// <returns>A relative date/time formatted string.</returns>
+        public static string ToRelativeDateString(this DateTimeOffset value, RelativeDateFormattingOptions options)
+        {
+            var diff = value.Date - DateTimeOffset.Now.Date;
+            var days = diff.Days;
+            string format;
+
+            switch (days)
+            {
+                case 0:
+                    format = String.Format(Resources.RelativeDateFormatStringToday, value);
+                    break;
+
+                case 1:
+                    format = Resources.RelativeDateFormatStringTomorrow;
+                    break;
+
+                case -1:
+                    format = Resources.RelativeDateFormatStringYesterday;
+                    break;
+
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    format = options == RelativeDateFormattingOptions.DayNames ? value.ToString("dddd") : String.Format(Resources.RelativeDateFormatStringDaysFromNow, days);
+                    break;
+
+                case -2:
+                case -3:
+                case -4:
+                case -5:
+                    format = options == RelativeDateFormattingOptions.DayNames ? value.ToString("dddd") : String.Format(Resources.RelativeDateFormatStringDaysAgo, Math.Abs(days));
+                    break;
+
+                default:
+                    format = String.Format(Resources.RelativeDateFormatStringDefault, value);
+                    break;
+            }
+
+            return format;
+        }
+        #endregion
+
         #endregion
 
         #region DaysBetween

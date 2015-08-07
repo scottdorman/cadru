@@ -512,5 +512,43 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             Assert.IsFalse(new DateTime(2004, 4, 28, 9, 13, 0, DateTimeKind.Local).IsUtcDateTime());
             Assert.IsFalse(new DateTime(2004, 4, 28, 9, 13, 0, DateTimeKind.Unspecified).IsUtcDateTime());
         }
+
+        [TestMethod]
+        public void ToRelativeDateTimeString()
+        {
+            Assert.AreEqual("Today, 12:00 AM", DateTime.Today.ToRelativeDateString(Text.RelativeDateFormattingOptions.DayNames));
+            Assert.AreEqual("Tomorrow", DateTime.Today.AddDays(1).ToRelativeDateString(Text.RelativeDateFormattingOptions.DayNames));
+            Assert.AreEqual("Yesterday", DateTime.Today.AddDays(-1).ToRelativeDateString(Text.RelativeDateFormattingOptions.DayNames));
+
+            Assert.AreEqual(DateTime.Today.AddDays(2).DayOfWeek.ToString(), DateTime.Today.AddDays(2).ToRelativeDateString());
+            Assert.AreEqual(DateTime.Today.AddDays(-2).DayOfWeek.ToString(), DateTime.Today.AddDays(-2).ToRelativeDateString());
+            Assert.AreEqual(DateTime.Today.AddDays(3).DayOfWeek.ToString(), DateTime.Today.AddDays(3).ToRelativeDateString());
+            Assert.AreEqual(DateTime.Today.AddDays(-3).DayOfWeek.ToString(), DateTime.Today.AddDays(-3).ToRelativeDateString());
+            Assert.AreEqual(DateTime.Today.AddDays(4).DayOfWeek.ToString(), DateTime.Today.AddDays(4).ToRelativeDateString());
+            Assert.AreEqual(DateTime.Today.AddDays(-4).DayOfWeek.ToString(), DateTime.Today.AddDays(-4).ToRelativeDateString());
+            Assert.AreEqual(DateTime.Today.AddDays(5).DayOfWeek.ToString(), DateTime.Today.AddDays(5).ToRelativeDateString());
+            Assert.AreEqual(DateTime.Today.AddDays(-5).DayOfWeek.ToString(), DateTime.Today.AddDays(-5).ToRelativeDateString());
+
+            Assert.AreEqual(DateTime.Today.AddDays(2).DayOfWeek.ToString(), DateTime.Today.AddDays(2).ToRelativeDateString(Text.RelativeDateFormattingOptions.DayNames));
+            Assert.AreEqual(DateTime.Today.AddDays(-2).DayOfWeek.ToString(), DateTime.Today.AddDays(-2).ToRelativeDateString(Text.RelativeDateFormattingOptions.DayNames));
+            Assert.AreEqual(DateTime.Today.AddDays(3).DayOfWeek.ToString(), DateTime.Today.AddDays(3).ToRelativeDateString(Text.RelativeDateFormattingOptions.DayNames));
+            Assert.AreEqual(DateTime.Today.AddDays(-3).DayOfWeek.ToString(), DateTime.Today.AddDays(-3).ToRelativeDateString(Text.RelativeDateFormattingOptions.DayNames));
+            Assert.AreEqual(DateTime.Today.AddDays(4).DayOfWeek.ToString(), DateTime.Today.AddDays(4).ToRelativeDateString(Text.RelativeDateFormattingOptions.DayNames));
+            Assert.AreEqual(DateTime.Today.AddDays(-4).DayOfWeek.ToString(), DateTime.Today.AddDays(-4).ToRelativeDateString(Text.RelativeDateFormattingOptions.DayNames));
+            Assert.AreEqual(DateTime.Today.AddDays(5).DayOfWeek.ToString(), DateTime.Today.AddDays(5).ToRelativeDateString(Text.RelativeDateFormattingOptions.DayNames));
+            Assert.AreEqual(DateTime.Today.AddDays(-5).DayOfWeek.ToString(), DateTime.Today.AddDays(-5).ToRelativeDateString(Text.RelativeDateFormattingOptions.DayNames));
+
+            Assert.AreEqual("2 days from now", DateTime.Today.AddDays(2).ToRelativeDateString(Text.RelativeDateFormattingOptions.Days));
+            Assert.AreEqual("2 days ago", DateTime.Today.AddDays(-2).ToRelativeDateString(Text.RelativeDateFormattingOptions.Days));
+            Assert.AreEqual("3 days from now", DateTime.Today.AddDays(3).ToRelativeDateString(Text.RelativeDateFormattingOptions.Days));
+            Assert.AreEqual("3 days ago", DateTime.Today.AddDays(-3).ToRelativeDateString(Text.RelativeDateFormattingOptions.Days));
+            Assert.AreEqual("4 days from now", DateTime.Today.AddDays(4).ToRelativeDateString(Text.RelativeDateFormattingOptions.Days));
+            Assert.AreEqual("4 days ago", DateTime.Today.AddDays(-4).ToRelativeDateString(Text.RelativeDateFormattingOptions.Days));
+            Assert.AreEqual("5 days from now", DateTime.Today.AddDays(5).ToRelativeDateString(Text.RelativeDateFormattingOptions.Days));
+            Assert.AreEqual("5 days ago", DateTime.Today.AddDays(-5).ToRelativeDateString(Text.RelativeDateFormattingOptions.Days));
+
+            Assert.AreEqual(DateTime.Today.AddDays(9).ToString("MMM d, yyyy"), DateTime.Today.AddDays(9).ToRelativeDateString(Text.RelativeDateFormattingOptions.DayNames));
+            Assert.AreEqual(DateTime.Today.AddDays(-9).ToString("MMM d, yyyy"), DateTime.Today.AddDays(-9).ToRelativeDateString(Text.RelativeDateFormattingOptions.DayNames));
+        }
     }
 }
