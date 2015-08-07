@@ -462,6 +462,24 @@ namespace Cadru.Extensions
         }
         #endregion
 
+        #region Last
+        /// <summary>
+        /// Return a <see cref="DateTimeOffset"/> representing the previous day of
+        /// the week.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
+        /// <param name="day">The <see cref="DayOfWeek"/> whose <see cref="DateTime"/>
+        /// representation should be returned.</param>
+        /// <returns>A <see cref="DateTimeOffset"/> representing the
+        /// previous day of the week.</returns>
+        public static DateTimeOffset Last(this DateTimeOffset date, DayOfWeek day)
+        {
+            var yesterday = date.Yesterday();
+            var diff = (day - yesterday.DayOfWeek - 7) % 7;
+            return yesterday.AddDays(diff);
+        }
+        #endregion
+
         #region LastDayOfMonth
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> representing the
@@ -531,6 +549,24 @@ namespace Cadru.Extensions
         }
         #endregion
 
+        #region Next
+        /// <summary>
+        /// Return a <see cref="DateTimeOffset"/> representing the next day of
+        /// the week.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
+        /// <param name="day">The <see cref="DayOfWeek"/> whose <see cref="DateTime"/>
+        /// representation should be returned.</param>
+        /// <returns>A <see cref="DateTimeOffset"/> representing the
+        /// next day of the week.</returns>
+        public static DateTimeOffset Next(this DateTimeOffset date, DayOfWeek day)
+        {
+            var tomorrow = date.Tomorrow();
+            var diff = (day - tomorrow.DayOfWeek + 7) % 7;
+            return tomorrow.AddDays(diff <= 0 ? diff + 7 : diff);
+        }
+        #endregion
+
         #region Quarter
         /// <summary>
         /// Returns the quarter component of the date represented by this instance.
@@ -540,6 +576,20 @@ namespace Cadru.Extensions
         public static int Quarter(this DateTimeOffset date)
         {
             return ((date.Month - 1) / 3) + 1;
+        }
+        #endregion
+
+        #region Tomorrow
+        /// <summary>
+        /// Returns a <see cref="DateTimeOffset"/> representing the day after
+        /// the date represented by this instance.
+        /// </summary>
+        /// <param name="value">A valid <see cref="DateTimeOffset"/> instance.</param>
+        /// <returns>A <see cref="DateTimeOffset"/> representing the day after
+        /// the date represented by this instance.</returns>
+        public static DateTimeOffset Tomorrow(this DateTimeOffset value)
+        {
+            return value.AddDays(1);
         }
         #endregion
 
@@ -609,6 +659,20 @@ namespace Cadru.Extensions
         }
         #endregion
 
+        #endregion
+
+        #region Yesterday
+        /// <summary>
+        /// Returns a <see cref="DateTimeOffset"/> representing the day before
+        /// the date represented by this instance.
+        /// </summary>
+        /// <param name="value">A valid <see cref="DateTimeOffset"/> instance.</param>
+        /// <returns>A <see cref="DateTimeOffset"/> representing the day before
+        /// the date represented by this instance.</returns>
+        public static DateTimeOffset Yesterday(this DateTimeOffset value)
+        {
+            return value.AddDays(-1);
+        }
         #endregion
 
         #region DaysBetween

@@ -561,5 +561,28 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             Assert.AreEqual(DateTimeOffset.Now.AddDays(-9).ToString("MMM d, yyyy"), DateTimeOffset.Now.AddDays(-9).ToRelativeDateString(Text.RelativeDateFormattingOptions.DayNames));
         }
 
+        [TestMethod]
+        public void YesterdayTomorrow()
+        {
+            Assert.AreEqual(DateTimeOffset.Now.AddDays(1), DateTimeOffset.Now.Tomorrow());
+            Assert.AreEqual(DateTimeOffset.Now.AddDays(-1), DateTimeOffset.Now.Yesterday());
+            Assert.AreNotEqual(DateTimeOffset.Now.AddDays(2), DateTimeOffset.Now.Tomorrow());
+            Assert.AreNotEqual(DateTimeOffset.Now.AddDays(-2), DateTimeOffset.Now.Yesterday());
+        }
+
+        [TestMethod]
+        public void NextLast()
+        {
+            var date = new DateTimeOffset(2015, 8, 7, 0, 0, 0, TimeSpan.Zero);
+            Assert.AreEqual(new DateTimeOffset(2015, 8, 10, 0, 0, 0, TimeSpan.Zero), date.Next(DayOfWeek.Monday));
+            Assert.AreEqual(new DateTimeOffset(2015, 8, 14, 0, 0, 0, TimeSpan.Zero), date.Next(DayOfWeek.Friday));
+            Assert.AreEqual(new DateTimeOffset(2015, 8, 9, 0, 0, 0, TimeSpan.Zero), date.Next(DayOfWeek.Sunday));
+            Assert.AreEqual(new DateTimeOffset(2015, 8, 15, 0, 0, 0, TimeSpan.Zero), date.Next(DayOfWeek.Saturday));
+
+            Assert.AreEqual(new DateTimeOffset(2015, 8, 3, 0, 0, 0, TimeSpan.Zero), date.Last(DayOfWeek.Monday));
+            Assert.AreEqual(new DateTimeOffset(2015, 7, 31, 0, 0, 0, TimeSpan.Zero), date.Last(DayOfWeek.Friday));
+            Assert.AreEqual(new DateTimeOffset(2015, 8, 2, 0, 0, 0, TimeSpan.Zero), date.Last(DayOfWeek.Sunday));
+            Assert.AreEqual(new DateTimeOffset(2015, 8, 1, 0, 0, 0, TimeSpan.Zero), date.Last(DayOfWeek.Saturday));
+        }
     }
 }
