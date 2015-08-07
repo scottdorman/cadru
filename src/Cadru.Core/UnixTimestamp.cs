@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="UnixTimestamp.cs" 
-//  company="Scott Dorman" 
+// <copyright file="UnixTimestamp.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -30,8 +30,8 @@ namespace Cadru
     using Cadru.Properties;
 
     /// <summary>
-    /// Represents an instant in time, defined as the number of seconds that 
-    /// have elapsed since 00:00:00 Coordinated Universal Time (UTC), 
+    /// Represents an instant in time, defined as the number of seconds that
+    /// have elapsed since 00:00:00 Coordinated Universal Time (UTC),
     /// Thursday, 1 January 1970, not counting leap seconds.
     /// </summary>
     /// <remarks>The date and time range that can be represented by a
@@ -55,9 +55,6 @@ namespace Cadru
 
         private const long MaxSeconds = 253402300799L;
         private const long MinSeconds = -62135596800L;
-        private const int SecondsPerMinute = 60;
-        private const int SecondsPerHour = SecondsPerMinute * 60;
-        private const int SecondsPerDay = SecondsPerHour * 24;
         private static readonly DateTime Epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
         private long seconds;
         #endregion
@@ -66,14 +63,14 @@ namespace Cadru
 
         #region UnixTimestamp(long seconds)
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnixTimestamp"/> 
+        /// Initializes a new instance of the <see cref="UnixTimestamp"/>
         /// structure to the specified number of seconds.
         /// </summary>
-        /// <param name="seconds">A date and time expressed in the number of 
-        /// seconds that have elapsed since January 1, 1970 at 00:00:00.000 
+        /// <param name="seconds">A date and time expressed in the number of
+        /// seconds that have elapsed since January 1, 1970 at 00:00:00.000
         /// in the Gregorian calendar.</param>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// <paramref name="seconds"/> is less than 
+        /// <paramref name="seconds"/> is less than
         /// <see cref="UnixTimestamp.MinValue"/> or greater than
         /// <see cref="UnixTimestamp.MaxValue"/>.
         /// </exception>
@@ -92,12 +89,12 @@ namespace Cadru
 
         #region UnixTimestamp(DateTime date)
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnixTimestamp"/> 
+        /// Initializes a new instance of the <see cref="UnixTimestamp"/>
         /// structure to the specified <see cref="DateTime"/> value.
         /// </summary>
         /// <param name="date">A date and time.</param>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// <paramref name="date"/> is less than 
+        /// <paramref name="date"/> is less than
         /// <see cref="UnixTimestamp.MinValue"/> or greater than
         /// <see cref="UnixTimestamp.MaxValue"/>.
         /// </exception>
@@ -123,7 +120,7 @@ namespace Cadru
 
         #region UnixTimestamp(int year, int month, int day, int hour, int minute, int second)
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnixTimestamp"/> 
+        /// Initializes a new instance of the <see cref="UnixTimestamp"/>
         /// structure to the specified year, month, day, hour, minute,
         /// and second.
         /// </summary>
@@ -134,7 +131,7 @@ namespace Cadru
         /// <param name="minute">The minutes (0 through 59).</param>
         /// <param name="second">The seconds (0 through 59).</param>
         /// <exception cref="ArgumentException">
-        /// <paramref name="second"/> is less than 
+        /// <paramref name="second"/> is less than
         /// <see cref="UnixTimestamp.MinValue"/> or greater than
         /// <see cref="UnixTimestamp.MaxValue"/>.
         /// </exception>
@@ -175,7 +172,7 @@ namespace Cadru
 
         #region DateTime
         /// <summary>
-        /// Gets a <see cref="DateTime"/> value that represents the date and 
+        /// Gets a <see cref="DateTime"/> value that represents the date and
         /// time of the current <see cref="UnixTimestamp"/> object.
         /// </summary>
         /// <value>
@@ -195,32 +192,32 @@ namespace Cadru
 
         #region Days
         /// <summary>
-        /// Gets the number of days since 00:00:00 Coordinated Universal Time (UTC), 
-        /// Thursday, 1 January 1970 represented by current 
+        /// Gets the number of days since 00:00:00 Coordinated Universal Time (UTC),
+        /// Thursday, 1 January 1970 represented by current
         /// <see cref="UnixTimestamp"/>.
         /// </summary>
         /// <value>
-        /// The number of days since 00:00:00 Coordinated Universal Time (UTC), 
-        /// Thursday, 1 January 1970 represented by current 
+        /// The number of days since 00:00:00 Coordinated Universal Time (UTC),
+        /// Thursday, 1 January 1970 represented by current
         /// <see cref="UnixTimestamp"/>.
         /// </value>
         public long Days
         {
             get
             {
-                return this.seconds / UnixTimestamp.SecondsPerDay;
+                return this.seconds / Constants.SecondsPerDay;
             }
         }
         #endregion
 
         #region Seconds
         /// <summary>
-        /// Gets the number of seconds that represent the date and time of 
+        /// Gets the number of seconds that represent the date and time of
         /// this instance.
         /// </summary>
         /// <value>The number of seconds that represent the date and time of
         /// this instance. The value is between
-        /// <see cref="P:UnixTimestamp.MinValue.Seconds"/> and 
+        /// <see cref="P:UnixTimestamp.MinValue.Seconds"/> and
         /// <see cref="P:UnixTimestamp.MaxValue.Seconds"/>.</value>
         public long Seconds
         {
@@ -318,14 +315,14 @@ namespace Cadru
         #region GreaterThanOrEqual
         /// <summary>
         /// Determines whether one specified <see cref="UnixTimestamp"/> object
-        /// is the same as or earlier than another specified 
+        /// is the same as or earlier than another specified
         /// <see cref="UnixTimestamp"/> object.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
         /// <see langword="true"/> if <paramref name="left"/> is the same as or
-        /// earlier than <paramref name="right"/>; otherwise, 
+        /// earlier than <paramref name="right"/>; otherwise,
         /// <see langword="false"/>.
         /// </returns>
         public static bool operator <=(UnixTimestamp left, UnixTimestamp right)
@@ -354,14 +351,14 @@ namespace Cadru
         #region LessThanOrEqual
         /// <summary>
         /// Determines whether one specified <see cref="UnixTimestamp"/> object
-        /// is the same as or later than another specified 
+        /// is the same as or later than another specified
         /// <see cref="UnixTimestamp"/> object.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
         /// <see langword="true"/> if <paramref name="left"/> is the same as or
-        /// later than <paramref name="right"/>; otherwise, 
+        /// later than <paramref name="right"/>; otherwise,
         /// <see langword="false"/>.
         /// </returns>
         public static bool operator >=(UnixTimestamp left, UnixTimestamp right)
@@ -381,7 +378,7 @@ namespace Cadru
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
-        /// <returns><see langword="true"/> if the two 
+        /// <returns><see langword="true"/> if the two
         /// values are equal; otherwise, <see langword="false"/>.
         /// </returns>
         public static bool Equals(UnixTimestamp left, UnixTimestamp right)
@@ -392,7 +389,7 @@ namespace Cadru
 
         #region Add
         /// <summary>
-        /// Returns a new <see cref="UnixTimestamp"/> that adds the value of 
+        /// Returns a new <see cref="UnixTimestamp"/> that adds the value of
         /// the specified <see cref="TimeSpan"/> to the value of this instance.
         /// </summary>
         /// <param name="value">The valueA positive or negative time interval.</param>
@@ -400,7 +397,7 @@ namespace Cadru
         /// represented by this instance and the time interval represented by
         /// <paramref name="value"/>.</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// The resulting <see cref="UnixTimestamp"/> is less than 
+        /// The resulting <see cref="UnixTimestamp"/> is less than
         /// <see cref="UnixTimestamp.MinValue"/> or greater than
         /// <see cref="UnixTimestamp.MaxValue"/>.
         /// </exception>
@@ -415,19 +412,19 @@ namespace Cadru
         /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
         /// number of days to the value of this instance.
         /// </summary>
-        /// <param name="value">A number of whole and fractional days. 
+        /// <param name="value">A number of whole and fractional days.
         /// The <paramref name="value"/> parameter can be negative or positive.</param>
-        /// <returns>An object whose value is the sum of the date and time 
+        /// <returns>An object whose value is the sum of the date and time
         /// represented by this instance and the number of days represented by
         /// <paramref name="value"/>.</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// The resulting <see cref="UnixTimestamp"/> is less than 
+        /// The resulting <see cref="UnixTimestamp"/> is less than
         /// <see cref="UnixTimestamp.MinValue"/> or greater than
         /// <see cref="UnixTimestamp.MaxValue"/>.
         /// </exception>
         public UnixTimestamp AddDays(double value)
         {
-            return this.AddSeconds(value * UnixTimestamp.SecondsPerDay);
+            return this.AddSeconds(value * Constants.SecondsPerDay);
         }
         #endregion
 
@@ -436,19 +433,19 @@ namespace Cadru
         /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
         /// number of hours to the value of this instance.
         /// </summary>
-        /// <param name="value">A number of whole and fractional hours. 
+        /// <param name="value">A number of whole and fractional hours.
         /// The <paramref name="value"/> parameter can be negative or positive.</param>
-        /// <returns>An object whose value is the sum of the date and time 
+        /// <returns>An object whose value is the sum of the date and time
         /// represented by this instance and the number of hours represented by
         /// <paramref name="value"/>.</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// The resulting <see cref="UnixTimestamp"/> is less than 
+        /// The resulting <see cref="UnixTimestamp"/> is less than
         /// <see cref="UnixTimestamp.MinValue"/> or greater than
         /// <see cref="UnixTimestamp.MaxValue"/>.
         /// </exception>
         public UnixTimestamp AddHours(double value)
         {
-            return this.AddSeconds(value * UnixTimestamp.SecondsPerHour);
+            return this.AddSeconds(value * Constants.SecondsPerHour);
         }
         #endregion
 
@@ -457,19 +454,19 @@ namespace Cadru
         /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
         /// number of minutes to the value of this instance.
         /// </summary>
-        /// <param name="value">A number of whole and fractional minutes. 
+        /// <param name="value">A number of whole and fractional minutes.
         /// The <paramref name="value"/> parameter can be negative or positive.</param>
-        /// <returns>An object whose value is the sum of the date and time 
+        /// <returns>An object whose value is the sum of the date and time
         /// represented by this instance and the number of minutes represented by
         /// <paramref name="value"/>.</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// The resulting <see cref="UnixTimestamp"/> is less than 
+        /// The resulting <see cref="UnixTimestamp"/> is less than
         /// <see cref="UnixTimestamp.MinValue"/> or greater than
         /// <see cref="UnixTimestamp.MaxValue"/>.
         /// </exception>
         public UnixTimestamp AddMinutes(double value)
         {
-            return this.AddSeconds(value * UnixTimestamp.SecondsPerMinute);
+            return this.AddSeconds(value * Constants.SecondsPerMinute);
         }
         #endregion
 
@@ -478,13 +475,13 @@ namespace Cadru
         /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
         /// number of months to the value of this instance.
         /// </summary>
-        /// <param name="months">A number of months. 
+        /// <param name="months">A number of months.
         /// The <paramref name="months"/> parameter can be negative or positive.</param>
-        /// <returns>An object whose value is the sum of the date and time 
+        /// <returns>An object whose value is the sum of the date and time
         /// represented by this instance and the number of months represented by
         /// <paramref name="months"/>.</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// The resulting <see cref="UnixTimestamp"/> is less than 
+        /// The resulting <see cref="UnixTimestamp"/> is less than
         /// <see cref="UnixTimestamp.MinValue"/> or greater than
         /// <see cref="UnixTimestamp.MaxValue"/>.
         /// </exception>
@@ -496,7 +493,7 @@ namespace Cadru
             }
 
             Contract.EndContractBlock();
-            
+
             var datePart = this.DateTime;
 
             int y = datePart.Year;
@@ -518,7 +515,7 @@ namespace Cadru
             {
                 throw new ArgumentOutOfRangeException("months", Resources.ArgumentOutOfRange_DateArithmetic);
             }
-            
+
             int daysInMonth = DateTime.DaysInMonth(y, m);
             if (d > daysInMonth)
             {
@@ -534,13 +531,13 @@ namespace Cadru
         /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
         /// number of seconds to the value of this instance.
         /// </summary>
-        /// <param name="value">A number of whole and fractional seconds. 
+        /// <param name="value">A number of whole and fractional seconds.
         /// The <paramref name="value"/> parameter can be negative or positive.</param>
-        /// <returns>An object whose value is the sum of the date and time 
+        /// <returns>An object whose value is the sum of the date and time
         /// represented by this instance and the number of seconds represented by
         /// <paramref name="value"/>.</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// The resulting <see cref="UnixTimestamp"/> is less than 
+        /// The resulting <see cref="UnixTimestamp"/> is less than
         /// <see cref="UnixTimestamp.MinValue"/> or greater than
         /// <see cref="UnixTimestamp.MaxValue"/>.
         /// </exception>
@@ -555,13 +552,13 @@ namespace Cadru
         /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
         /// number of years to the value of this instance.
         /// </summary>
-        /// <param name="years">A number of years. 
+        /// <param name="years">A number of years.
         /// The <paramref name="years"/> parameter can be negative or positive.</param>
-        /// <returns>An object whose value is the sum of the date and time 
+        /// <returns>An object whose value is the sum of the date and time
         /// represented by this instance and the number of years represented by
         /// <paramref name="years"/>.</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// <para>The resulting <see cref="UnixTimestamp"/> is less than 
+        /// <para>The resulting <see cref="UnixTimestamp"/> is less than
         /// <see cref="UnixTimestamp.MinValue"/> or greater than
         /// <see cref="UnixTimestamp.MaxValue"/>.</para>
         /// <para>-or-</para>
@@ -586,12 +583,12 @@ namespace Cadru
         /// <summary>
         /// Compares the value of this instance to a specified object that
         /// contains a specified <see cref="UnixTimestamp"/> value, and returns
-        /// an integer that indicates whether this instance is earlier than, 
+        /// an integer that indicates whether this instance is earlier than,
         /// the same as, or later than the specified <see cref="UnixTimestamp"/> value.
         /// </summary>
         /// <param name="obj">A boxed object to compare, or <see langword="null"/>.</param>
         /// <returns>
-        /// A signed number indicating the relative values of this instance and the 
+        /// A signed number indicating the relative values of this instance and the
         /// <paramref name="obj"/> parameter.
         /// <list type="table">
         /// <listheader>
@@ -640,14 +637,14 @@ namespace Cadru
 
         #region CompareTo(UnixTimestamp value)
         /// <summary>
-        /// Compares the value of this instance to a specified 
-        /// <see cref="UnixTimestamp"/> value and returns an integer that 
+        /// Compares the value of this instance to a specified
+        /// <see cref="UnixTimestamp"/> value and returns an integer that
         /// indicates whether this instance is earlier than, the same as, or
-        /// later than the specified <see cref="UnixTimestamp"/> value. 
+        /// later than the specified <see cref="UnixTimestamp"/> value.
         /// </summary>
         /// <param name="other">The object to compare to the current instance.</param>
         /// <returns>
-        /// A signed number indicating the relative values of this instance and the 
+        /// A signed number indicating the relative values of this instance and the
         /// <paramref name="other"/> parameter.
         /// <list type="table">
         /// <listheader>
@@ -686,16 +683,16 @@ namespace Cadru
 
         #region Equals(Object obj)
         /// <summary>
-        /// Returns a value indicating whether the value of this instance is 
-        /// equal to the value of the specified <see cref="UnixTimestamp"/> 
+        /// Returns a value indicating whether the value of this instance is
+        /// equal to the value of the specified <see cref="UnixTimestamp"/>
         /// instance.
         /// </summary>
         /// <param name="obj">The object to compare to this instance.</param>
         /// <returns>
-        /// <see langword="true"/> if the <paramref name="obj"/> parameter 
+        /// <see langword="true"/> if the <paramref name="obj"/> parameter
         /// equals the value of this instance; otherwise, <see langword="false"/>.
         /// </returns>
-        /// <remarks>The current instance and <paramref name="obj"/> are equal 
+        /// <remarks>The current instance and <paramref name="obj"/> are equal
         /// if their <see cref="Seconds"/> property values are equal.</remarks>
         public override bool Equals(Object obj)
         {
@@ -716,10 +713,10 @@ namespace Cadru
         /// </summary>
         /// <param name="other">The object to compare to this instance.</param>
         /// <returns>
-        /// <see langword="true"/> if the <paramref name="other"/> parameter 
+        /// <see langword="true"/> if the <paramref name="other"/> parameter
         /// equals the value of this instance; otherwise, <see langword="false"/>.
         /// </returns>
-        /// <remarks>The current instance and <paramref name="other"/> are equal 
+        /// <remarks>The current instance and <paramref name="other"/> are equal
         /// if their <see cref="Seconds"/> property values are equal.</remarks>
         public bool Equals(UnixTimestamp other)
         {
@@ -734,7 +731,7 @@ namespace Cadru
         /// Returns the hash code for this instance.
         /// </summary>
         /// <returns>
-        /// A 32-bit signed integer hash code. 
+        /// A 32-bit signed integer hash code.
         /// </returns>
         public override int GetHashCode()
         {
@@ -762,7 +759,7 @@ namespace Cadru
         /// Subtracts the specified date and time from this instance.
         /// </summary>
         /// <param name="value">The date and time value to subtract.</param>
-        /// <returns>A time interval that is equal to the date and time 
+        /// <returns>A time interval that is equal to the date and time
         /// represented by this instance minus the date and time represented
         /// by <paramref name="value"/>.</returns>
         /// <remarks>
@@ -772,7 +769,7 @@ namespace Cadru
         /// (such as Days or Ticks) is negative.
         /// </remarks>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The result is less than <see cref="MinValue"/> or greater than 
+        /// The result is less than <see cref="MinValue"/> or greater than
         /// <see cref="MaxValue"/>.</exception>
         public TimeSpan Subtract(UnixTimestamp value)
         {
@@ -786,10 +783,10 @@ namespace Cadru
         /// </summary>
         /// <param name="value">The time interval to subtract.</param>
         /// <returns>An object that is equal to the date and time represented
-        /// by this instance minus the time interval represented by 
+        /// by this instance minus the time interval represented by
         /// <paramref name="value"/>.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The result is less than <see cref="MinValue"/> or greater than 
+        /// The result is less than <see cref="MinValue"/> or greater than
         /// <see cref="MaxValue"/>.</exception>
         public UnixTimestamp Subtract(TimeSpan value)
         {
@@ -840,12 +837,12 @@ namespace Cadru
 
         #region IConvertible.ToBoolean
         /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to 
+        /// Infrastructure. This conversion is not supported. Attempting to
         /// use this method throws an <see cref="InvalidCastException"/>.
         /// </summary>
         /// <param name="provider">
-        /// An object that implements the 
-        /// <see cref="T:System.IFormatProvider" /> interface. 
+        /// An object that implements the
+        /// <see cref="T:System.IFormatProvider" /> interface.
         /// (This parameter is not used; specify <see langword="null"/>.)
         /// </param>
         /// <returns>
@@ -861,12 +858,12 @@ namespace Cadru
 
         #region IConvertible.ToByte
         /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to 
+        /// Infrastructure. This conversion is not supported. Attempting to
         /// use this method throws an <see cref="InvalidCastException"/>.
         /// </summary>
         /// <param name="provider">
-        /// An object that implements the 
-        /// <see cref="T:System.IFormatProvider" /> interface. 
+        /// An object that implements the
+        /// <see cref="T:System.IFormatProvider" /> interface.
         /// (This parameter is not used; specify <see langword="null"/>.)
         /// </param>
         /// <returns>
@@ -882,12 +879,12 @@ namespace Cadru
 
         #region IConvertible.ToChar
         /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to 
+        /// Infrastructure. This conversion is not supported. Attempting to
         /// use this method throws an <see cref="InvalidCastException"/>.
         /// </summary>
         /// <param name="provider">
-        /// An object that implements the 
-        /// <see cref="T:System.IFormatProvider" /> interface. 
+        /// An object that implements the
+        /// <see cref="T:System.IFormatProvider" /> interface.
         /// (This parameter is not used; specify <see langword="null"/>.)
         /// </param>
         /// <returns>
@@ -906,8 +903,8 @@ namespace Cadru
         /// Returns a <see cref="DateTime"/> object representing the current instance.
         /// </summary>
         /// <param name="provider">
-        /// An object that implements the 
-        /// <see cref="T:System.IFormatProvider" /> interface. 
+        /// An object that implements the
+        /// <see cref="T:System.IFormatProvider" /> interface.
         /// (This parameter is not used; specify <see langword="null"/>.)
         /// </param>
         /// <returns>
@@ -922,12 +919,12 @@ namespace Cadru
 
         #region IConvertible.ToDecimal
         /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to 
+        /// Infrastructure. This conversion is not supported. Attempting to
         /// use this method throws an <see cref="InvalidCastException"/>.
         /// </summary>
         /// <param name="provider">
-        /// An object that implements the 
-        /// <see cref="T:System.IFormatProvider" /> interface. 
+        /// An object that implements the
+        /// <see cref="T:System.IFormatProvider" /> interface.
         /// (This parameter is not used; specify <see langword="null"/>.)
         /// </param>
         /// <returns>
@@ -943,12 +940,12 @@ namespace Cadru
 
         #region IConvertible.ToDouble
         /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to 
+        /// Infrastructure. This conversion is not supported. Attempting to
         /// use this method throws an <see cref="InvalidCastException"/>.
         /// </summary>
         /// <param name="provider">
-        /// An object that implements the 
-        /// <see cref="T:System.IFormatProvider" /> interface. 
+        /// An object that implements the
+        /// <see cref="T:System.IFormatProvider" /> interface.
         /// (This parameter is not used; specify <see langword="null"/>.)
         /// </param>
         /// <returns>
@@ -964,12 +961,12 @@ namespace Cadru
 
         #region IConvertible.ToInt16
         /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to 
+        /// Infrastructure. This conversion is not supported. Attempting to
         /// use this method throws an <see cref="InvalidCastException"/>.
         /// </summary>
         /// <param name="provider">
-        /// An object that implements the 
-        /// <see cref="T:System.IFormatProvider" /> interface. 
+        /// An object that implements the
+        /// <see cref="T:System.IFormatProvider" /> interface.
         /// (This parameter is not used; specify <see langword="null"/>.)
         /// </param>
         /// <returns>
@@ -985,12 +982,12 @@ namespace Cadru
 
         #region IConvertible.ToInt32
         /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to 
+        /// Infrastructure. This conversion is not supported. Attempting to
         /// use this method throws an <see cref="InvalidCastException"/>.
         /// </summary>
         /// <param name="provider">
-        /// An object that implements the 
-        /// <see cref="T:System.IFormatProvider" /> interface. 
+        /// An object that implements the
+        /// <see cref="T:System.IFormatProvider" /> interface.
         /// (This parameter is not used; specify <see langword="null"/>.)
         /// </param>
         /// <returns>
@@ -1009,8 +1006,8 @@ namespace Cadru
         /// Returns a <see cref="T:System.Int64"/> representing the seconds of the current instance.
         /// </summary>
         /// <param name="provider">
-        /// An object that implements the 
-        /// <see cref="T:System.IFormatProvider" /> interface. 
+        /// An object that implements the
+        /// <see cref="T:System.IFormatProvider" /> interface.
         /// (This parameter is not used; specify <see langword="null"/>.)
         /// </param>
         /// <returns>
@@ -1025,12 +1022,12 @@ namespace Cadru
 
         #region IConvertible.ToSByte
         /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to 
+        /// Infrastructure. This conversion is not supported. Attempting to
         /// use this method throws an <see cref="InvalidCastException"/>.
         /// </summary>
         /// <param name="provider">
-        /// An object that implements the 
-        /// <see cref="T:System.IFormatProvider" /> interface. 
+        /// An object that implements the
+        /// <see cref="T:System.IFormatProvider" /> interface.
         /// (This parameter is not used; specify <see langword="null"/>.)
         /// </param>
         /// <returns>
@@ -1047,12 +1044,12 @@ namespace Cadru
 
         #region IConvertible.ToSingle
         /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to 
+        /// Infrastructure. This conversion is not supported. Attempting to
         /// use this method throws an <see cref="InvalidCastException"/>.
         /// </summary>
         /// <param name="provider">
-        /// An object that implements the 
-        /// <see cref="T:System.IFormatProvider" /> interface. 
+        /// An object that implements the
+        /// <see cref="T:System.IFormatProvider" /> interface.
         /// (This parameter is not used; specify <see langword="null"/>.)
         /// </param>
         /// <returns>
@@ -1068,12 +1065,12 @@ namespace Cadru
 
         #region IConvertible.ToString
         /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to 
+        /// Infrastructure. This conversion is not supported. Attempting to
         /// use this method throws an <see cref="InvalidCastException"/>.
         /// </summary>
         /// <param name="provider">
-        /// An object that implements the 
-        /// <see cref="T:System.IFormatProvider" /> interface. 
+        /// An object that implements the
+        /// <see cref="T:System.IFormatProvider" /> interface.
         /// (This parameter is not used; specify <see langword="null"/>.)
         /// </param>
         /// <returns>
@@ -1093,8 +1090,8 @@ namespace Cadru
         /// </summary>
         /// <param name="type">The desired type.</param>
         /// <param name="provider">
-        /// An object that implements the 
-        /// <see cref="T:System.IFormatProvider" /> interface. 
+        /// An object that implements the
+        /// <see cref="T:System.IFormatProvider" /> interface.
         /// (This parameter is not used; specify <see langword="null"/>.)
         /// </param>
         /// <returns>
@@ -1112,12 +1109,12 @@ namespace Cadru
 
         #region IConvertible.ToUInt16
         /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to 
+        /// Infrastructure. This conversion is not supported. Attempting to
         /// use this method throws an <see cref="InvalidCastException"/>.
         /// </summary>
         /// <param name="provider">
-        /// An object that implements the 
-        /// <see cref="T:System.IFormatProvider" /> interface. 
+        /// An object that implements the
+        /// <see cref="T:System.IFormatProvider" /> interface.
         /// (This parameter is not used; specify <see langword="null"/>.)
         /// </param>
         /// <returns>
@@ -1133,12 +1130,12 @@ namespace Cadru
 
         #region IConvertible.ToUInt32
         /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to 
+        /// Infrastructure. This conversion is not supported. Attempting to
         /// use this method throws an <see cref="InvalidCastException"/>.
         /// </summary>
         /// <param name="provider">
-        /// An object that implements the 
-        /// <see cref="T:System.IFormatProvider" /> interface. 
+        /// An object that implements the
+        /// <see cref="T:System.IFormatProvider" /> interface.
         /// (This parameter is not used; specify <see langword="null"/>.)
         /// </param>
         /// <returns>
@@ -1154,12 +1151,12 @@ namespace Cadru
 
         #region IConvertible.ToUInt64
         /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to 
+        /// Infrastructure. This conversion is not supported. Attempting to
         /// use this method throws an <see cref="InvalidCastException"/>.
         /// </summary>
         /// <param name="provider">
-        /// An object that implements the 
-        /// <see cref="T:System.IFormatProvider" /> interface. 
+        /// An object that implements the
+        /// <see cref="T:System.IFormatProvider" /> interface.
         /// (This parameter is not used; specify <see langword="null"/>.)
         /// </param>
         /// <returns>

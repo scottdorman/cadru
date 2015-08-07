@@ -743,5 +743,131 @@ namespace Cadru.Properties {
                 return ResourceManager.GetString("RelativeDateFormatStringYesterday", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to day.
+        /// </summary>
+        internal static string RelativeTimeFormatStringDay {
+            get {
+                return ResourceManager.GetString("RelativeTimeFormatStringDay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to days.
+        /// </summary>
+        internal static string RelativeTimeFormatStringDays {
+            get {
+                return ResourceManager.GetString("RelativeTimeFormatStringDays", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} {1} from now.
+        /// </summary>
+        internal static string RelativeTimeFormatStringFuture {
+            get {
+                return ResourceManager.GetString("RelativeTimeFormatStringFuture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to hour.
+        /// </summary>
+        internal static string RelativeTimeFormatStringHour {
+            get {
+                return ResourceManager.GetString("RelativeTimeFormatStringHour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to hours.
+        /// </summary>
+        internal static string RelativeTimeFormatStringHours {
+            get {
+                return ResourceManager.GetString("RelativeTimeFormatStringHours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to minute.
+        /// </summary>
+        internal static string RelativeTimeFormatStringMinute {
+            get {
+                return ResourceManager.GetString("RelativeTimeFormatStringMinute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to minutes.
+        /// </summary>
+        internal static string RelativeTimeFormatStringMinutes {
+            get {
+                return ResourceManager.GetString("RelativeTimeFormatStringMinutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to month.
+        /// </summary>
+        internal static string RelativeTimeFormatStringMonth {
+            get {
+                return ResourceManager.GetString("RelativeTimeFormatStringMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to months.
+        /// </summary>
+        internal static string RelativeTimeFormatStringMonths {
+            get {
+                return ResourceManager.GetString("RelativeTimeFormatStringMonths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} {1} ago.
+        /// </summary>
+        internal static string RelativeTimeFormatStringPast {
+            get {
+                return ResourceManager.GetString("RelativeTimeFormatStringPast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to second.
+        /// </summary>
+        internal static string RelativeTimeFormatStringSecond {
+            get {
+                return ResourceManager.GetString("RelativeTimeFormatStringSecond", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to seconds.
+        /// </summary>
+        internal static string RelativeTimeFormatStringSeconds {
+            get {
+                return ResourceManager.GetString("RelativeTimeFormatStringSeconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to year.
+        /// </summary>
+        internal static string RelativeTimeFormatStringYear {
+            get {
+                return ResourceManager.GetString("RelativeTimeFormatStringYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to years.
+        /// </summary>
+        internal static string RelativeTimeFormatStringYears {
+            get {
+                return ResourceManager.GetString("RelativeTimeFormatStringYears", resourceCulture);
+            }
+        }
     }
 }

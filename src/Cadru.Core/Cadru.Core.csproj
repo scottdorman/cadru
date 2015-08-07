@@ -102,6 +102,7 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Comb+CombParser.cs" />
     <Compile Include="IDisposablePattern.cs" />
+    <Compile Include="Internal\Constants.cs" />
     <Compile Include="Internal\ExceptionBuilder.cs" />
     <Compile Include="Internal\ValidatedNotNullAttribute.cs" />
     <Compile Include="Net\Http\UriScheme.cs" />

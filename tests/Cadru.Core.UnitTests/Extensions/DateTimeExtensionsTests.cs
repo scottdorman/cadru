@@ -574,5 +574,61 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             Assert.AreEqual(new DateTime(2015, 8, 2), date.Last(DayOfWeek.Sunday));
             Assert.AreEqual(new DateTime(2015, 8, 1), date.Last(DayOfWeek.Saturday));
         }
+
+        [TestMethod()]
+        public void ToRelativeTimeTest()
+        {
+            var date = new DateTime(2015, 8, 7, 13, 26, 30);
+            var now = DateTime.Now;
+
+            Assert.AreEqual("now", now.ToRelativeTimeString());
+            Assert.AreEqual("now", now.ToRelativeTimeString(now));
+
+            Assert.AreEqual("1 second ago", date.AddSeconds(-1).ToRelativeTimeString(date));
+            Assert.AreEqual("10 seconds ago", date.AddSeconds(-10).ToRelativeTimeString(date));
+            Assert.AreEqual("1 minute ago", date.AddSeconds(-90).ToRelativeTimeString(date));
+            Assert.AreEqual("1 minute ago", date.AddSeconds(-100).ToRelativeTimeString(date));
+            Assert.AreEqual("2 minutes ago", date.AddSeconds(-120).ToRelativeTimeString(date));
+            Assert.AreEqual("7 minutes ago", date.AddMinutes(-7).ToRelativeTimeString(date));
+            Assert.AreEqual("59 minutes ago", date.AddMinutes(-59).ToRelativeTimeString(date));
+            Assert.AreEqual("1 hour ago", date.AddMinutes(-60).ToRelativeTimeString(date));
+            Assert.AreEqual("1 hour ago", date.AddHours(-1).ToRelativeTimeString(date));
+            Assert.AreEqual("9 hours ago", date.AddHours(-9).ToRelativeTimeString(date));
+            Assert.AreEqual("1 day ago", date.AddHours(-24).ToRelativeTimeString(date));
+            Assert.AreEqual("1 day ago", date.AddHours(-30).ToRelativeTimeString(date));
+            Assert.AreEqual("2 days ago", date.AddHours(-48).ToRelativeTimeString(date));
+            Assert.AreEqual("1 day ago", date.AddDays(-1).ToRelativeTimeString(date));
+            Assert.AreEqual("12 days ago", date.AddDays(-12).ToRelativeTimeString(date));
+            Assert.AreEqual("29 days ago", date.AddDays(-29).ToRelativeTimeString(date));
+            Assert.AreEqual("1 month ago", date.AddDays(-30).ToRelativeTimeString(date));
+            Assert.AreEqual("1 month ago", date.AddMonths(-1).ToRelativeTimeString(date));
+            Assert.AreEqual("3 months ago", date.AddMonths(-3).ToRelativeTimeString(date));
+            Assert.AreEqual("11 months ago", date.AddMonths(-11).ToRelativeTimeString(date));
+            Assert.AreEqual("1 year ago", date.AddMonths(-12).ToRelativeTimeString(date));
+            Assert.AreEqual("1 year ago", date.AddYears(-1).ToRelativeTimeString(date));
+            Assert.AreEqual("3 years ago", date.AddYears(-3).ToRelativeTimeString(date));
+
+            Assert.AreEqual("1 second from now", date.AddSeconds(1).ToRelativeTimeString(date));
+            Assert.AreEqual("10 seconds from now", date.AddSeconds(10).ToRelativeTimeString(date));
+            Assert.AreEqual("1 minute from now", date.AddSeconds(90).ToRelativeTimeString(date));
+            Assert.AreEqual("1 minute from now", date.AddSeconds(100).ToRelativeTimeString(date));
+            Assert.AreEqual("2 minutes from now", date.AddSeconds(120).ToRelativeTimeString(date));
+            Assert.AreEqual("7 minutes from now", date.AddMinutes(7).ToRelativeTimeString(date));
+            Assert.AreEqual("59 minutes from now", date.AddMinutes(59).ToRelativeTimeString(date));
+            Assert.AreEqual("1 hour from now", date.AddMinutes(60).ToRelativeTimeString(date));
+            Assert.AreEqual("1 hour from now", date.AddHours(1).ToRelativeTimeString(date));
+            Assert.AreEqual("9 hours from now", date.AddHours(9).ToRelativeTimeString(date));
+            Assert.AreEqual("1 day from now", date.AddDays(1).ToRelativeTimeString(date));
+            Assert.AreEqual("1 day from now", date.AddHours(24).ToRelativeTimeString(date));
+            Assert.AreEqual("12 days from now", date.AddDays(12).ToRelativeTimeString(date));
+            Assert.AreEqual("29 days from now", date.AddDays(29).ToRelativeTimeString(date));
+            Assert.AreEqual("1 month from now", date.AddDays(30).ToRelativeTimeString(date));
+            Assert.AreEqual("1 month from now", date.AddMonths(1).ToRelativeTimeString(date));
+            Assert.AreEqual("3 months from now", date.AddMonths(3).ToRelativeTimeString(date));
+            Assert.AreEqual("11 months from now", date.AddMonths(11).ToRelativeTimeString(date));
+            Assert.AreEqual("1 year from now", date.AddMonths(12).ToRelativeTimeString(date));
+            Assert.AreEqual("1 year from now", date.AddYears(1).ToRelativeTimeString(date));
+            Assert.AreEqual("3 years from now", date.AddYears(3).ToRelativeTimeString(date));
+        }
     }
 }

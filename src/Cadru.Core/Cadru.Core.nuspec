@@ -13,7 +13,7 @@
     <summary>A utility framework containing new APIs and extensions to the .NET Framework.</summary>
     <copyright>Copyright © Scott Dorman</copyright>
     <tags>cadru PCL universal utility</tags>
-    <releaseNotes>Added ToRelativeDateString. Added methods for Yesterday, Tomorrow, Next and Last.</releaseNotes>
+    <releaseNotes>Added additional DateTime/DateTimeOffset extensions - ToRelativeDateString(), ToRelativeTimeString(), Yesterday(), Tomorrow(), Next(DayOfWeek) and Last(DayOfWeek).</releaseNotes>
     <dependencies>
       <group targetFramework=".NETPortable0.0-net40+sl50+win+wpa81+wp80">
         <dependency id="PCLCrypto" version="0.5.1.14165" />

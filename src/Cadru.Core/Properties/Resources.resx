@@ -345,4 +345,46 @@
   <data name="RelativeDateFormatStringYesterday" xml:space="preserve">
     <value>Yesterday</value>
   </data>
+  <data name="RelativeTimeFormatStringDay" xml:space="preserve">
+    <value>day</value>
+  </data>
+  <data name="RelativeTimeFormatStringDays" xml:space="preserve">
+    <value>days</value>
+  </data>
+  <data name="RelativeTimeFormatStringFuture" xml:space="preserve">
+    <value>{0} {1} from now</value>
+  </data>
+  <data name="RelativeTimeFormatStringHour" xml:space="preserve">
+    <value>hour</value>
+  </data>
+  <data name="RelativeTimeFormatStringHours" xml:space="preserve">
+    <value>hours</value>
+  </data>
+  <data name="RelativeTimeFormatStringMinute" xml:space="preserve">
+    <value>minute</value>
+  </data>
+  <data name="RelativeTimeFormatStringMinutes" xml:space="preserve">
+    <value>minutes</value>
+  </data>
+  <data name="RelativeTimeFormatStringMonth" xml:space="preserve">
+    <value>month</value>
+  </data>
+  <data name="RelativeTimeFormatStringMonths" xml:space="preserve">
+    <value>months</value>
+  </data>
+  <data name="RelativeTimeFormatStringPast" xml:space="preserve">
+    <value>{0} {1} ago</value>
+  </data>
+  <data name="RelativeTimeFormatStringSecond" xml:space="preserve">
+    <value>second</value>
+  </data>
+  <data name="RelativeTimeFormatStringSeconds" xml:space="preserve">
+    <value>seconds</value>
+  </data>
+  <data name="RelativeTimeFormatStringYear" xml:space="preserve">
+    <value>year</value>
+  </data>
+  <data name="RelativeTimeFormatStringYears" xml:space="preserve">
+    <value>years</value>
+  </data>
 </root>

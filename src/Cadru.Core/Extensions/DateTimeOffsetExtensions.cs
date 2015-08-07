@@ -28,6 +28,8 @@ namespace Cadru.Extensions
     using System.Linq;
     using Cadru.Properties;
     using Cadru.Text;
+    using Cadru.Internal;
+
     /// <summary>
     /// Provides basic routines for common DateTimeOffset manipulation.
     /// </summary>
@@ -653,6 +655,91 @@ namespace Cadru.Extensions
                 default:
                     format = String.Format(Resources.RelativeDateFormatStringDefault, value);
                     break;
+            }
+
+            return format;
+        }
+        #endregion
+
+        #endregion
+
+        #region ToRelativeTimeString
+
+        #region ToRelativeTimeString(this DateTimeOffset value)
+        /// <summary>
+        /// Convert a <see cref="DateTimeOffset"/> object to a relative time
+        /// (e.g., now, 2 days ago, 3 days from now) string format.
+        /// </summary>
+        /// <param name="value">The <see cref="DateTimeOffset"/> object to convert.</param>
+        /// <returns>A relative date/time formatted string.</returns>
+        public static string ToRelativeTimeString(this DateTimeOffset value)
+        {
+            return ToRelativeTimeString(value, DateTimeOffset.Now);
+        }
+        #endregion
+
+        #region ToRelativeTimeString(this DateTimeOffset value, DateTimeOffset baseDate)
+        /// <summary>
+        /// Convert a <see cref="DateTimeOffset"/> object to a relative time
+        /// (e.g., now, 2 days ago, 3 days from now) string format.
+        /// </summary>
+        /// <param name="value">The <see cref="DateTimeOffset"/> object to convert.</param>
+        /// <param name="baseDate">The <see cref="DateTimeOffset"/> object to use as the relative date.</param>
+        /// <returns>A relative date/time formatted string.</returns>
+        public static string ToRelativeTimeString(this DateTimeOffset value, DateTimeOffset baseDate)
+        {
+            var diff = baseDate - value;
+            var delta = Math.Round(diff.TotalSeconds, 0);
+            var format = "now";
+
+            if (Math.Sign(delta) != 0)
+            {
+                var baseFormat = Resources.RelativeTimeFormatStringPast;
+                if (delta < -0.1)
+                {
+                    baseFormat = Resources.RelativeTimeFormatStringFuture;
+                    delta = -delta;
+                    diff = -diff;
+                }
+
+                if (delta < Constants.SecondsPerMinute)
+                {
+                    format = String.Format(baseFormat, diff.Seconds, diff.Seconds == 1 ? Resources.RelativeTimeFormatStringSecond : Resources.RelativeTimeFormatStringSeconds);
+                }
+                else if (delta < Constants.SecondsPerMinute * 2)
+                {
+                    format = String.Format(baseFormat, diff.Minutes, Resources.RelativeTimeFormatStringMinute);
+                }
+                else if (delta < Constants.SecondsPerHour)
+                {
+                    format = String.Format(baseFormat, diff.Minutes, Resources.RelativeTimeFormatStringMinutes);
+                }
+                else if (delta < Constants.SecondsPerHour * 2)
+                {
+                    format = String.Format(baseFormat, diff.Hours, Resources.RelativeTimeFormatStringHour);
+                }
+                else if (delta < Constants.SecondsPerDay)
+                {
+                    format = String.Format(baseFormat, diff.Hours, Resources.RelativeTimeFormatStringHours);
+                }
+                else if (delta < Constants.SecondsPerDay * 2)
+                {
+                    format = String.Format(baseFormat, diff.Days, Resources.RelativeTimeFormatStringDay);
+                }
+                else if (delta < Constants.ApproximateSecondsPerMonth)
+                {
+                    format = String.Format(baseFormat, diff.Days, Resources.RelativeTimeFormatStringDays);
+                }
+                else if (delta < Constants.ApproximateSecondsPerYear)
+                {
+                    var months = Convert.ToInt32(Math.Floor((double)diff.Days / 30));
+                    format = String.Format(baseFormat, months, months <= 1 ? Resources.RelativeTimeFormatStringMonth : Resources.RelativeTimeFormatStringMonths);
+                }
+                else
+                {
+                    var years = Convert.ToInt32(Math.Floor((double)diff.Days / 365));
+                    format = String.Format(baseFormat, years, years <= 1 ? Resources.RelativeTimeFormatStringYear : Resources.RelativeTimeFormatStringYears);
+                }
             }
 
             return format;
