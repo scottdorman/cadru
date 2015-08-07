@@ -1,6 +1,6 @@
 # Cadru [![Build status](https://ci.appveyor.com/api/projects/status/3t0p4d04fyqtiun5?svg=true&retina=true)](https://ci.appveyor.com/project/scottdorman/cadru) 
 
-|Project| |
+| | |
 |-------|------|
 |Cadru.Core|[![NuGet downloads](https://img.shields.io/nuget/dt/cadru.core.svg)](http://www.nuget.org/packages/cadru.core.windows) [![NuGet version](https://img.shields.io/nuget/v/cadru.core.svg)](http://www.nuget.org/packages/cadru.core)|
 |Cadru.Core.Windows|[![NuGet downloads](https://img.shields.io/nuget/dt/cadru.core.windows.svg)](http://www.nuget.org/packages/cadru.core.windows) [![NuGet version](https://img.shields.io/nuget/v/cadru.core.windows.svg)](http://www.nuget.org/packages/cadru.core.windows)|
