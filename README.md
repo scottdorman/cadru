@@ -2,7 +2,7 @@
 
 | | |
 |-------|------|
-|Cadru.Core|[![NuGet downloads](https://img.shields.io/nuget/dt/cadru.core.svg)](http://www.nuget.org/packages/cadru.core.windows) [![NuGet version](https://img.shields.io/nuget/v/cadru.core.svg)](http://www.nuget.org/packages/cadru.core)|
+|Cadru.Core|[![NuGet downloads](https://img.shields.io/nuget/dt/cadru.core.svg)](http://www.nuget.org/packages/cadru.core) [![NuGet version](https://img.shields.io/nuget/v/cadru.core.svg)](http://www.nuget.org/packages/cadru.core)|
 |Cadru.Core.Windows|[![NuGet downloads](https://img.shields.io/nuget/dt/cadru.core.windows.svg)](http://www.nuget.org/packages/cadru.core.windows) [![NuGet version](https://img.shields.io/nuget/v/cadru.core.windows.svg)](http://www.nuget.org/packages/cadru.core.windows)|
 |Cadru.UnitTest.Framework|[![NuGet downloads](https://img.shields.io/nuget/dt/cadru.unittest.framework.svg)](http://www.nuget.org/packages/cadru.unittest.framework) [![NuGet version](https://img.shields.io/nuget/v/cadru.unittest.framework.svg)](http://www.nuget.org/packages/cadru.unittest.framework)|
 
