@@ -387,4 +387,7 @@
   <data name="RelativeTimeFormatStringYears" xml:space="preserve">
     <value>years</value>
   </data>
+  <data name="Argument_StartIndexGreaterThanEndIndex" xml:space="preserve">
+    <value>The starting index refers to a location that is after the ending index.</value>
+  </data>
 </root>

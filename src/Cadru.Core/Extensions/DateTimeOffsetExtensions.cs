@@ -127,6 +127,50 @@ namespace Cadru.Extensions
         }
         #endregion
 
+        #region Between
+
+        #region Between(this DateTimeOffset date, DateTimeOffset start, DateTimeOffset end)
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// the current <see cref="DateTimeOffset"/> instance is between the
+        /// start and end indicated.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
+        /// <param name="start">The starting <see cref="DateTimeOffset"/>.</param>
+        /// <param name="end">The ending <see cref="DateTimeOffset"/>.</param>
+        /// <returns><see langword="true"/> if the current instance is between
+        /// <paramref name="start"/> and <paramref name="end"/>; otherwise,
+        /// <see langword="false"/>.</returns>
+        public static bool Between(this DateTimeOffset date, DateTimeOffset start, DateTimeOffset end)
+        {
+            return Between(date, start, end, true);
+        }
+        #endregion
+
+        #region Between(this DateTimeOffset date, DateTimeOffset start, DateTimeOffset end, bool includeTime)
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// the current <see cref="DateTimeOffset"/> instance is between the
+        /// start and end indicated.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
+        /// <param name="start">The starting <see cref="DateTimeOffset"/>.</param>
+        /// <param name="end">The ending <see cref="DateTimeOffset"/>.</param>
+        /// <param name="includeTime"><see langword="true"/> to compare
+        /// the time portion of the date; otherwise, <see langword="false"/>.</param>
+        /// <returns><see langword="true"/> if the current instance is between
+        /// <paramref name="start"/> and <paramref name="end"/>; otherwise,
+        /// <see langword="false"/>.</returns>
+        public static bool Between(this DateTimeOffset date, DateTimeOffset start, DateTimeOffset end, bool includeTime)
+        {
+            return includeTime ?
+               date >= start && date <= end :
+               date.Date >= start.Date && date.Date <= end.Date;
+        }
+        #endregion
+
+        #endregion
+
         #region DaysInMonth
         /// <summary>
         /// Returns the number of days in the month for the date represented by this instance.

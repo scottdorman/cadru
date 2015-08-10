@@ -196,6 +196,15 @@ namespace Cadru.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The starting index refers to a location that is after the ending index..
+        /// </summary>
+        internal static string Argument_StartIndexGreaterThanEndIndex {
+            get {
+                return ResourceManager.GetString("Argument_StartIndexGreaterThanEndIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The starting index refers to a location in the string that is after the ending index..
         /// </summary>
         internal static string Argument_StartIndexGreaterThanEndIndexString {

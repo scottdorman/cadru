@@ -630,5 +630,22 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             Assert.AreEqual("1 year from now", date.AddYears(1).ToRelativeTimeString(date));
             Assert.AreEqual("3 years from now", date.AddYears(3).ToRelativeTimeString(date));
         }
+
+        [TestMethod]
+        public void Between()
+        {
+            var date = new DateTime(2015, 8, 7, 13, 26, 30);
+
+            Assert.IsTrue(date.Between(date.AddMonths(-3), date.AddMonths(3)));
+            Assert.IsTrue(date.AddHours(36).Between(date.AddMonths(-3), date.AddMonths(3)));
+            Assert.IsFalse(date.AddMonths(6).Between(date.AddMonths(-3), date.AddMonths(3)));
+            Assert.IsFalse(date.AddHours(-2).Between(date, date.AddMonths(3)));
+
+            Assert.IsTrue(date.Between(date.AddMonths(-3), date.AddMonths(3), false));
+            Assert.IsTrue(date.AddHours(36).Between(date.AddMonths(-3), date.AddMonths(3), false));
+            Assert.IsFalse(date.AddMonths(6).Between(date.AddMonths(-3), date.AddMonths(3), false));
+            Assert.IsTrue(date.AddHours(-2).Between(date, date.AddMonths(3), false));
+            Assert.IsFalse(date.AddHours(-24).Between(date, date.AddMonths(3), false));
+        }
     }
 }

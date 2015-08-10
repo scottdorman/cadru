@@ -59,7 +59,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
 
             var test1 = new List<string>()
             {
-                "this", "is", "a", "test" 
+                "this", "is", "a", "test"
             };
 
             Assert.AreEqual("this,is,a,test", test1.Join());
@@ -71,13 +71,38 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             Assert.AreEqual("this,is,a,test", test2.Join());
             Assert.AreEqual("this, is, a, test", test2.Join(", "));
 
-            var test3 = new List<int>() 
+            var test3 = new List<int>()
             {
-                1, 2, 3 
+                1, 2, 3
             }.Select(i => i);
 
             Assert.AreEqual("1,2,3", test3.Join());
             Assert.AreEqual("1, 2, 3", test3.Join(", "));
+        }
+
+        [TestMethod]
+        public void Slice()
+        {
+            var test = new [] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            CollectionAssert.AreEqual(new [] { 0, 1, 2, 3 }, test.Slice(0, 3).ToArray());
+            CollectionAssert.AreEqual(new[] { 4, 5, 6, 7, 8, 9 }, test.Slice(4, 9).ToArray());
+            CollectionAssert.AreEqual(new[] { 9 }, test.Slice(9, 9).ToArray());
+
+            var test2 = new[] { 'a', 'b', 'c', 'd' };
+            CollectionAssert.AreEqual(new[] { 'a', 'b', 'c', 'd' }, test2.Slice(0, 3).ToArray());
+            CollectionAssert.AreEqual(new[] { 'b', 'c' }, test2.Slice(1, 2).ToArray());
+        }
+
+        [TestMethod]
+        public void WhereIf()
+        {
+            int[] numbers = { 0, 30, 20, 15, 90, 85, 40, 75 };
+
+            CollectionAssert.AreEqual(numbers, numbers.WhereIf(false, c => c < 40).ToArray());
+            CollectionAssert.AreEqual(new [] { 0, 30, 20, 15 }, numbers.WhereIf(true, c => c < 40).ToArray());
+
+            CollectionAssert.AreEqual(numbers, numbers.WhereIf(false, (number, index) => number <= index * 10).ToArray());
+            CollectionAssert.AreEqual(new[] { 0, 20, 15, 40 }, numbers.WhereIf(true, (number, index) => number <= index * 10).ToArray());
         }
     }
 }

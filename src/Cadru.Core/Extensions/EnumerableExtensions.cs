@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="EnumerableExtensions.cs" 
-//  company="Scott Dorman" 
+// <copyright file="EnumerableExtensions.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -27,6 +27,8 @@ namespace Cadru.Extensions
     using System.Collections.Generic;
     using System.Linq;
     using Cadru.Internal;
+    using Cadru.Properties;
+
 
     /// <summary>
     /// Provides basic routines for common sequence and collection manipulation.
@@ -57,7 +59,7 @@ namespace Cadru.Extensions
         public static bool IsEmpty(this IEnumerable source)
         {
             Contracts.Requires.NotNull(source, "source");
- 
+
             bool empty = false;
 
             ICollection collection = source as ICollection;
@@ -225,6 +227,89 @@ namespace Cadru.Extensions
         public static string Join<T>(this IEnumerable<T> values, string separator)
         {
             return String.Join(separator, values);
+        }
+        #endregion
+
+        #endregion
+
+        #region Slice
+        /// <summary>Returns a segment of the specified collection.</summary>
+        /// <typeparam name="T">The type of the members of <paramref name="values"/>.</typeparam>
+        /// <param name="values">A collection that contains the objects to segment.</param>
+        /// <param name="startIndex">The starting index of the collection.</param>
+        /// <param name="endIndex">The ending index of the collection.</param>
+        /// <returns>A new <see cref="IEnumerable{T}"/> containing the segment
+        /// of the specified collection.</returns>
+        /// <exception cref="System.ArgumentException">
+        /// <paramref name="startIndex"/> must be less than or equal to
+        /// <paramref name="endIndex"/>.</exception>
+        public static IEnumerable<T> Slice<T>(this IEnumerable<T> values, int startIndex, int endIndex)
+        {
+            Contracts.Requires.NotNull(values, "values");
+            Contracts.Requires.ValidRange(startIndex > endIndex, "startIndex", Resources.Argument_StartIndexGreaterThanEndIndex);
+            Contracts.Requires.ValidRange(startIndex < 0, "startIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(endIndex < 0, "endIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
+
+            var index = 0;
+            foreach (var item in values)
+            {
+                if (index >= startIndex && index <= endIndex)
+                {
+                    yield return item;
+                }
+
+                ++index;
+            }
+        }
+        #endregion
+
+        #region WhereIf
+
+        #region WhereIf<T>(this IEnumerable<TSource> source, bool condition, Func<T, bool> predicate)
+        /// <summary>
+        /// Filters a sequence of values based on a predicate. Each element's
+        /// index is used in the logic of the predicate function.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+        /// <param name="source">An <see cref="IEnumerable{T}"/> to filter.</param>
+        /// <param name="condition">The condition used to determine if the
+        /// sequence should be filtered.</param>
+        /// <param name="predicate">A function to test each source element for
+        /// a condition; the second parameter of the function represents the
+        /// index of the source element.</param>
+        /// <returns>If <paramref name="condition"/> is <see langword="true"/>,
+        /// an <see cref="IEnumerable{T}"/> that contains elements from the input
+        /// sequence that satisfy the condition; otherwise, the original input
+        /// sequence.</returns>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="source"/> or <paramref name="predicate"/> is
+        /// <see langword="null"/>.</exception>
+        public static IEnumerable<T> WhereIf<T>(this IEnumerable<T> source, bool condition, Func<T, bool> predicate)
+        {
+            return condition ? source.Where(predicate) : source;
+        }
+        #endregion
+
+        #region WhereIf<T>(this IEnumerable<TSource> source, bool condition, Func<T, int, bool> predicate)
+        /// <summary>
+        /// Filters a sequence of values based on a predicate.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+        /// <param name="source">An <see cref="IEnumerable{T}"/> to filter.</param>
+        /// <param name="condition">The condition used to determine if the
+        /// sequence should be filtered.</param>
+        /// <param name="predicate">A function to test each source element for
+        /// a condition.</param>
+        /// <returns>If <paramref name="condition"/> is <see langword="true"/>,
+        /// an <see cref="IEnumerable{T}"/> that contains elements from the input
+        /// sequence that satisfy the condition; otherwise, the original input
+        /// sequence.</returns>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="source"/> or <paramref name="predicate"/> is
+        /// <see langword="null"/>.</exception>
+        public static IEnumerable<T> WhereIf<T>(this IEnumerable<T> source, bool condition, Func<T, int, bool> predicate)
+        {
+            return condition ? source.Where(predicate) : source;
         }
         #endregion
 
