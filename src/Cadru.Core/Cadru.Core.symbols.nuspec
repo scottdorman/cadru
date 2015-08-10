@@ -16,6 +16,7 @@
     <releaseNotes>
       Add a Between extension for DateTime and DateTimeOffset.
       Add Slice and WhereIf extensions for enumerables.
+      Add a strongly typed Enum class.
     </releaseNotes>
     <dependencies>
       <group targetFramework=".NETPortable0.0-net40+sl50+win+wpa81+wp80">
