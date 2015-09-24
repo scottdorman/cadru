@@ -83,7 +83,7 @@
     <Compile Include="Contracts\AssumptionException.cs" />
     <Compile Include="Contracts\ContractArgumentValidatorAttribute.cs" />
     <Compile Include="Contracts\Requires.cs" />
-    <Compile Include="Enum%28T%29.cs" />
+    <Compile Include="Enum{T}.cs" />
     <Compile Include="EnumDescriptionAttribute.cs" />
     <Compile Include="CancelEventArgs{T}.cs" />
     <Compile Include="EventArgs{T}.cs" />
