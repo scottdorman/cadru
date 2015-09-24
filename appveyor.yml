@@ -1,0 +1,119 @@
+# Notes:
+#   - Indent each level of configuration with 2 spaces. Do not use tabs!
+#   - All section names are case-sensitive.
+#   - Section names should be unique on each level.
+
+#---------------------------------#
+#      general configuration      #
+#---------------------------------#
+
+# version format
+version: 1.0.{build}
+
+# branches to build
+branches:
+  # whitelist
+  only:
+    - master
+
+  # blacklist
+  except:
+    - gh-pages
+
+#---------------------------------#
+#    environment configuration    #
+#---------------------------------#
+
+# Operating system (build VM template)
+os: Windows Server 2012
+
+# scripts that run after cloning repository
+install:
+- ps: >-
+    (new-object net.webclient).DownloadFile('http://stylecop.codeplex.com/downloads/get/323236', 'stylecop.msi')
+    msiexec /i stylecop.msi /quiet /qn /norestart /log stylecop.log
+
+    $env:BUILD_DAYS = ((Get-Date) - (Get-Date "2000-01-01 00:00:00")).Days
+    $NUGET_PACKAGE_VERSION = "1.0.$($env:BUILD_DAYS).$($env:APPVEYOR_BUILD_NUMBER)"
+    Write-Output ("NUGET_PACKAGE_VERSION set to " + $NUGET_PACKAGE_VERSION)
+    Write-Output Ensuring latest nuget.exe version
+    C:\Tools\nuget\nuget.exe update -self
+
+# enable patching of AssemblyInfo.* files
+assembly_info:
+  patch: true
+  file: AssemblyInfo.*
+  assembly_version: 1.0.0.0
+  assembly_file_version: 1.0.$(BUILD_DAYS).{build}
+  assembly_informational_version: 1.0.$(BUILD_DAYS).{build}
+
+#---------------------------------#
+#       build configuration       #
+#---------------------------------#
+
+# build platform, i.e. x86, x64, Any CPU. This setting is optional.
+platform: Any CPU
+
+# build Configuration, i.e. Debug, Release, etc.
+configuration:
+  - Debug
+  - Release
+
+#build:
+#  parallel: true                  # enable MSBuild parallel builds
+#  project: MyTestAzureCS.sln      # path to Visual Studio solution or project
+#  publish_wap: true               # package Web Application Projects (WAP) for Web Deploy
+#  publish_wap_xcopy: true         # package Web Application Projects (WAP) for XCopy deployment
+#  publish_azure: true             # package Azure Cloud Service projects and push to artifacts
+#  publish_nuget: true             # package projects with .nuspec files and push to artifacts
+#  publish_nuget_symbols: true     # generate and publish NuGet symbol packages
+#  include_nuget_references: true  # add -IncludeReferencedProjects option while packaging NuGet artifacts
+
+  # MSBuild verbosity level
+  verbosity: minimal
+
+# scripts to run before build
+before_build:
+  -nuget restore src\Cadrul.sln
+
+# scripts to run after build
+after_build:
+- ps: >-
+    # Cadru.Core is a PCL and nuget.exe isn't able to properly extract the version number so we have to override it here.
+    nuget pack $env:APPVEYOR_BUILD_FOLDER\src\cadru.core\cadru.core.csproj -properties "Configuration=$env:configuration;Platform=AnyCPU" -version $NUGET_PACKAGE_VERSION -symbols
+    nuget pack $env:APPVEYOR_BUILD_FOLDER\src\cadru.core.windows\cadru.core.windows.csproj -properties "Configuration=$env:configuration;Platform=AnyCPU" -symbols
+    nuget pack $env:APPVEYOR_BUILD_FOLDER\src\cadru.unittest.framework\cadru.unittest.framework.csproj -properties "Configuration=$env:configuration;Platform=AnyCPU" -symbols
+    nuget pack $env:APPVEYOR_BUILD_FOLDER\src\cadru.data.dapper\cadru.data.dapper.csproj -properties "Configuration=$env:configuration;Platform=AnyCPU" -symbols
+
+#---------------------------------#
+#       tests configuration       #
+#---------------------------------#
+
+test:
+  assemblies: '**\*.UnitTests.dll'
+
+#---------------------------------#
+#      artifacts configuration    #
+#---------------------------------#
+
+artifacts:
+- path: '*.nupkg'
+  name: Nuget Packages
+- path: '**\*.chm'
+  name: CHM Documentation
+
+
+#---------------------------------#
+#        global handlers          #
+#---------------------------------#
+
+# on successful build
+on_success:
+
+# on build failure
+on_failure:
+
+# after build failure or success
+on_finish:
+
+
