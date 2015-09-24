@@ -59,7 +59,7 @@ configuration:
   - Debug
   - Release
 
-#build:
+build:
 #  parallel: true                  # enable MSBuild parallel builds
 #  project: MyTestAzureCS.sln      # path to Visual Studio solution or project
 #  publish_wap: true               # package Web Application Projects (WAP) for Web Deploy
