@@ -38,6 +38,7 @@ install:
     Write-Output ("NUGET_PACKAGE_VERSION set to " + $NUGET_PACKAGE_VERSION)
     Write-Output Ensuring latest nuget.exe version
     C:\Tools\nuget\nuget.exe update -self
+-
 
 # enable patching of AssemblyInfo.* files
 assembly_info:
@@ -74,7 +75,7 @@ build:
 
 # scripts to run before build
 before_build:
-  -nuget restore src\Cadrul.sln
+  -nuget restore src\Cadru.sln
 
 # scripts to run after build
 after_build:
@@ -84,6 +85,7 @@ after_build:
     nuget pack $env:APPVEYOR_BUILD_FOLDER\src\cadru.core.windows\cadru.core.windows.csproj -properties "Configuration=$env:configuration;Platform=AnyCPU" -symbols
     nuget pack $env:APPVEYOR_BUILD_FOLDER\src\cadru.unittest.framework\cadru.unittest.framework.csproj -properties "Configuration=$env:configuration;Platform=AnyCPU" -symbols
     nuget pack $env:APPVEYOR_BUILD_FOLDER\src\cadru.data.dapper\cadru.data.dapper.csproj -properties "Configuration=$env:configuration;Platform=AnyCPU" -symbols
+-
 
 #---------------------------------#
 #       tests configuration       #
