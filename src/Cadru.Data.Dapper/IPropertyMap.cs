@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="%FileName%"
+// <copyright file="IPropertyMap.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2015 Scott Dorman.
@@ -41,7 +41,7 @@ namespace Cadru.Data.Dapper
         bool IsIdentity { get; }
 
         /// <summary>
-        /// Gets the read-only status of the current property. 
+        /// Gets the read-only status of the current property.
         /// If read-only, the current property will not be included in INSERT and UPDATE queries.
         /// </summary>
         bool IsReadOnly { get; }
