@@ -23,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\Cadru.Data.Dapper.XML</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>Cadru.Data.Dapper.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\Cadru.Data.Dapper.XML</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>Cadru.Data.Dapper.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cadru.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -93,7 +95,7 @@
     <Compile Include="Predicates\Internal\PropertyPredicate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyMap.cs" />
-    <Compile Include="Table%28Of TEntity%29.cs" />
+    <Compile Include="Table{TEntity}.cs" />
     <Compile Include="TableMap.cs" />
     <Compile Include="TrackedEntity.cs" />
   </ItemGroup>
@@ -101,7 +103,7 @@
     <None Include="app.config" />
     <None Include="Cadru.Data.Dapper.licenseheader" />
     <None Include="Cadru.Data.Dapper.nuspec" />
-    <None Include="Cadru.Data.Dapper.symbols.nuspec" />
+    <None Include="Cadru.Data.Dapper.ruleset" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

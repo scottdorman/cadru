@@ -11,6 +11,8 @@ namespace Cadru
     /// Provides a class for working with enumerations.
     /// </summary>
     /// <typeparam name="TEnum">The enumeration type.</typeparam>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix", Justification = "Reviewed.")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", Justification = "Reviewed.")]
     public static class Enum<TEnum> where TEnum : struct
     {
         #region GetName
@@ -33,6 +35,7 @@ namespace Cadru
         /// <typeparamref name="TEnum"/> nor does it have the same underlying
         /// type as <typeparamref name="TEnum"/>.</p>
         /// </exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static string GetName(object value)
         {
             return Enum.GetName(typeof(TEnum), value);
@@ -47,6 +50,8 @@ namespace Cadru
         /// <typeparamref name="TEnum"/>.</returns>
         /// <exception cref="System.ArgumentException">
         /// <typeparamref name="TEnum"/> is not an <see cref="System.Enum"/>.</exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
         public static IEnumerable<string> GetNames()
         {
             return Enum.GetNames(typeof(TEnum));
@@ -60,6 +65,8 @@ namespace Cadru
         /// <returns>The underlying type of <typeparamref name="TEnum"/>.</returns>
         /// <exception cref="System.ArgumentException">
         /// <typeparamref name="TEnum"/> is not an <see cref="System.Enum"/>.</exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
         public static Type GetUnderlyingType()
         {
             return Enum.GetUnderlyingType(typeof(TEnum));
@@ -81,6 +88,8 @@ namespace Cadru
         /// <p><typeparamref name="TEnum"/> is a type from an assembly loaded
         /// in a reflection-only context.</p>
         /// </exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
         public static IEnumerable<TEnum> GetValues()
         {
             return Enum.GetValues(typeof(TEnum)).OfType<TEnum>();
@@ -115,6 +124,7 @@ namespace Cadru
         /// <see cref="System.UInt16"/>, <see cref="System.UInt32"/>,
         /// <see cref="System.UInt64"/>, or <see cref="System.String"/>.
         /// </exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static bool IsDefined(object value)
         {
             return Enum.IsDefined(typeof(TEnum), value);
@@ -146,6 +156,7 @@ namespace Cadru
         /// <exception cref="System.OverflowException"><paramref name="value"/>
         /// is outside the range of the underlying type of
         /// <typeparamref name="TEnum"/>.</exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static TEnum Parse(string value)
         {
             return Parse(value, true);
@@ -178,6 +189,7 @@ namespace Cadru
         /// <exception cref="System.OverflowException"><paramref name="value"/>
         /// is outside the range of the underlying type of
         /// <typeparamref name="TEnum"/>.</exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static TEnum Parse(string value, bool ignoreCase)
         {
             return (TEnum)Enum.Parse(typeof(TEnum), value, ignoreCase);
@@ -203,6 +215,7 @@ namespace Cadru
         /// <see cref="System.UInt16"/>, <see cref="System.UInt32"/>,
         /// <see cref="System.UInt64"/>, or <see cref="System.String"/>.</p>
         /// </exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static TEnum ToEnum(object value)
         {
             return (TEnum)Enum.ToObject(typeof(TEnum), value);
@@ -226,6 +239,7 @@ namespace Cadru
         /// converted successfully; otherwise, <see langword="false"/>.</returns>
         /// <exception cref="System.ArgumentException">
         /// <typeparamref name="TEnum"/> is not an enumeration type.</exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static bool TryParse(string value, out TEnum result)
         {
             return TryParse(value, true, out result);
@@ -250,6 +264,7 @@ namespace Cadru
         /// converted successfully; otherwise, <see langword="false"/>.</returns>
         /// <exception cref="System.ArgumentException">
         /// <typeparamref name="TEnum"/> is not an enumeration type.</exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static bool TryParse(string value, bool ignoreCase, out TEnum result)
         {
             return Enum.TryParse<TEnum>(value, ignoreCase, out result);

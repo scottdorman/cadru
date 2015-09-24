@@ -347,9 +347,9 @@ namespace Cadru.Contracts
 
         #endregion
 
-        #region NotNullOrWhitespace
+        #region NotNullOrWhiteSpace
 
-        #region NotNullOrWhitespace([ValidatedNotNull]string value, string parameterName)
+        #region NotNullOrWhiteSpace([ValidatedNotNull]string value, string parameterName)
         /// <summary>
         /// Checks that <paramref name="value"/> is not <see langword="null"/> or a zero-length string.
         /// </summary>
@@ -360,14 +360,14 @@ namespace Cadru.Contracts
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNullOrWhitespace([ValidatedNotNull]string value, string parameterName)
+        public static void NotNullOrWhiteSpace([ValidatedNotNull]string value, string parameterName)
         {
-            Requires.NotNullOrWhitespace(value, parameterName, ExceptionBuilder.Format(Resources.ArgumentException_EmptyString, parameterName));
+            Requires.NotNullOrWhiteSpace(value, parameterName, ExceptionBuilder.Format(Resources.ArgumentException_EmptyString, parameterName));
             Contract.EndContractBlock();
         }
         #endregion
 
-        #region NotNullOrWhitespace([ValidatedNotNull]string value, string parameterName, string message)
+        #region NotNullOrWhiteSpace([ValidatedNotNull]string value, string parameterName, string message)
         /// <summary>
         /// Checks that <paramref name="value"/> is not <see langword="null"/> or a zero-length string.
         /// </summary>
@@ -379,7 +379,7 @@ namespace Cadru.Contracts
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNullOrWhitespace([ValidatedNotNull]string value, string parameterName, string message)
+        public static void NotNullOrWhiteSpace([ValidatedNotNull]string value, string parameterName, string message)
         {
             Requires.NotNull(value, parameterName);
             if (String.IsNullOrWhiteSpace(value))
