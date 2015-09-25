@@ -83,7 +83,7 @@ before_build:
 
 # scripts to run after build
 after_build:
-  - ps: Get-ChildItem -Path $env:APPVEYOR_BUILD_FOLDER\src -filter *.csproj | foreach {nuget pack $($_.FullName) -properties "Configuration=$env:configuration;Platform=AnyCPU" -version $NUGET_PACKAGE_VERSION -symbols }
+  - ps: Get-ChildItem -Path $env:APPVEYOR_BUILD_FOLDER\src -filter *.csproj -rec | foreach {nuget pack $($_.FullName) -properties "Configuration=$env:configuration;Platform=AnyCPU" -version $NUGET_PACKAGE_VERSION -symbols }
 #
 #- ps: >-
 #    # Cadru.Core is a PCL and nuget.exe isn't able to properly extract the version number so we have to override it here.
