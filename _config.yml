@@ -1,0 +1,13 @@
+baseurl: /cadru
+
+# Dependencies
+markdown:         kramdown
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+
+# Custom vars
+current_version:  1.0.5745.84 
+repo:             https://github.com/scottdorman/cadru
+
