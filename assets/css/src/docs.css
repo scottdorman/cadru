@@ -19,7 +19,8 @@
  */
 
 body {
-  position: relative; /* For scrollspy */
+    position: relative; /* For scrollspy */
+    padding-top: 50px; /* Account for fixed navbar */
 }
 
 /* Keep code small in tables on account of limited space */

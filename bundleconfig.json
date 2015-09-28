@@ -1,14 +1,14 @@
 [
   {
-    "outputFileName": "assets/css/docs.css",
-    "inputFiles": [
-      "assets/css/src/docs.css"
-    ]
-  },
-  {
     "outputFileName": "assets/css/docs-flat.css",
     "inputFiles": [
       "assets/css/src/docs-flat.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/css/docs.css",
+    "inputFiles": [
+      "assets/css/src/docs.css"
     ]
   }
 ]
