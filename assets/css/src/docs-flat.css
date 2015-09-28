@@ -1,3 +1,8 @@
+body {
+    padding-top: 0;
+    margin-top: -20px;
+}
+
 .btn-outline {
     color: rgba(148, 189, 225, 1);
     border-color: rgba(148, 189, 225, 1);
