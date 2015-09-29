@@ -38,7 +38,7 @@ namespace Cadru.Data.Dapper.Predicates.Internal
 
         internal static string GetColumnName<T>(string propertyName, bool alias) where T : class
         {
-            Contracts.Requires.NotNullOrWhitespace(propertyName, nameof(propertyName));
+            Contracts.Requires.NotNullOrWhiteSpace(propertyName, nameof(propertyName));
 
             var columnName = String.Empty;
             ITableMap classMap;
@@ -64,7 +64,7 @@ namespace Cadru.Data.Dapper.Predicates.Internal
 
         private static string GetColumnName(string prefix, string columnName, string alias)
         {
-            Contracts.Requires.NotNullOrWhitespace(columnName, nameof(columnName));
+            Contracts.Requires.NotNullOrWhiteSpace(columnName, nameof(columnName));
 
             var result = new StringBuilder();
             result.AppendFormatIf(!string.IsNullOrWhiteSpace(prefix), $"{prefix}.");
@@ -75,7 +75,7 @@ namespace Cadru.Data.Dapper.Predicates.Internal
 
         private static string GetTableName(string schemaName, string tableName, string alias)
         {
-            Contracts.Requires.NotNullOrWhitespace(tableName, nameof(tableName));
+            Contracts.Requires.NotNullOrWhiteSpace(tableName, nameof(tableName));
 
             var result = new StringBuilder();
             result.AppendFormatIf(!string.IsNullOrWhiteSpace(schemaName), $"{schemaName}.");
