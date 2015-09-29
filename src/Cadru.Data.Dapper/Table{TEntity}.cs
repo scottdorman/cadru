@@ -22,6 +22,7 @@
 
 namespace Cadru.Data.Dapper
 {
+    using Contracts;
     using Cadru.Data.Dapper.Predicates;
     using global::Dapper;
     using System;
@@ -118,6 +119,7 @@ namespace Cadru.Data.Dapper
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
+        [Obsolete("Use Delete(IPredicate) instead.")]
         public bool Delete(dynamic data)
         {
             var paramNames = GetParamNames((object)data);
@@ -130,10 +132,23 @@ namespace Cadru.Data.Dapper
         }
 
         /// <summary>
+        /// Deletes all records which match the given predicate.
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public TEntity Delete(IPredicate predicate)
+        {
+            Requires.NotNull(predicate, "predicate");
+            var parameters = new DynamicParameters();
+            return database.Query<TEntity>($"delete from {TableName} where {predicate.GetSql(parameters)}", parameters).FirstOrDefault();
+        }
+
+        /// <summary>
         /// Grab a record with a particular Id from the DB
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
+        [Obsolete("Use Get(IPredicate) instead.")]
         public TEntity Get(dynamic data)
         {
             var paramNames = GetParamNames((object)data);
@@ -144,14 +159,58 @@ namespace Cadru.Data.Dapper
             return database.Query<TEntity>(builder.ToString(), parameters).FirstOrDefault();
         }
 
+        /// <summary>
+        /// Gets the first record which matches the given predicate.
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public TEntity Get(IPredicate predicate)
+        {
+            Requires.NotNull(predicate, "predicate");
+            var parameters = new DynamicParameters();
+            return database.Query<TEntity>($"select * from {TableName} where {predicate.GetSql(parameters)}", parameters).FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Gets the first record.
+        /// </summary>
+        /// <returns></returns>
         public virtual TEntity First()
         {
             return database.Query<TEntity>($"select top 1 * from {TableName}").FirstOrDefault();
         }
 
+        /// <summary>
+        /// Gets the first record which matches the given predicate.
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public virtual TEntity First(IPredicate predicate)
+        {
+            Requires.NotNull(predicate, "predicate");
+            var parameters = new DynamicParameters();
+            return database.Query<TEntity>($"select top 1 * from {TableName} where {predicate.GetSql(parameters)}").FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Gets all of the records.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<TEntity> All()
         {
             return database.Query<TEntity>($"select * from {TableName}");
+        }
+
+        /// <summary>
+        /// Gets all of the records which match the given predicate.
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public IEnumerable<TEntity> All(IPredicate predicate)
+        {
+            Requires.NotNull(predicate, "predicate");
+            var parameters = new DynamicParameters();
+            return database.Query<TEntity>($"select * from {TableName} where {predicate.GetSql(parameters)}", parameters);
         }
 
         private static List<string> GetPrimaryKeys()
