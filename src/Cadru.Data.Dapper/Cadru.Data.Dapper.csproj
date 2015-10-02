@@ -95,7 +95,6 @@
     <Compile Include="PropertyMap.cs" />
     <Compile Include="TableMap{T}.cs" />
     <Compile Include="Table{TEntity}.cs" />
-    <Compile Include="IClassMap.cs" />
     <Compile Include="TrackedEntity.cs" />
   </ItemGroup>
   <ItemGroup>
