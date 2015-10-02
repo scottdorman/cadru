@@ -117,7 +117,7 @@ namespace Cadru.Data.Dapper
             transaction = null;
         }
 
-        internal ITableMap DetermineTableName<T>() where T : class
+        internal ITableMap MapTable<T>() where T : class
         {
             string tableName;
             string schemaName;
@@ -126,17 +126,7 @@ namespace Cadru.Data.Dapper
 
             if (!mappings.TryGetValue(tableType, out map))
             {
-                tableName = tableType.Name;
-                schemaName = String.Empty;
-
-                var attr = tableType.GetCustomAttribute<TableAttribute>(inherit: true);
-                if (attr != null)
-                {
-                    schemaName = String.IsNullOrWhiteSpace(attr.Schema) ? "" : $"{attr.Schema}.";
-                    tableName = $"{schemaName}{attr.Name}";
-                }
-
-                map = new TableMap<T>(schemaName, tableName);
+                map = new TableMap<T>();
                 mappings[tableType] = map;
             }
 

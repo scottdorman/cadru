@@ -41,10 +41,10 @@ namespace Cadru.Data.Dapper.Predicates.Internal
             Contracts.Requires.NotNullOrWhiteSpace(propertyName, nameof(propertyName));
 
             var columnName = String.Empty;
-            ITableMap classMap;
-            if (Database.Mappings.TryGetValue(typeof(T), out classMap))
+            ITableMap tableMap;
+            if (Database.Mappings.TryGetValue(typeof(T), out tableMap))
             {
-                var propertyMap = classMap.ClassMap.Properties.SingleOrDefault(p => p.Name == propertyName);
+                var propertyMap = tableMap.Properties.SingleOrDefault(p => p.Name == propertyName);
                 if (propertyMap == null)
                 {
                     throw new NullReferenceException($"{propertyName} was not found for {typeof(T)}");
@@ -56,7 +56,7 @@ namespace Cadru.Data.Dapper.Predicates.Internal
                     columnAlias = propertyMap.Name;
                 }
 
-                columnName = GetColumnName(GetTableName(classMap.SchemaName, classMap.TableName, null), propertyMap.ColumnName, columnAlias);
+                columnName = GetColumnName(GetTableName(tableMap.SchemaName, tableMap.TableName, null), propertyMap.ColumnName, columnAlias);
             }
 
             return columnName;

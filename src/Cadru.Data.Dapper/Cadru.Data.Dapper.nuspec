@@ -14,6 +14,10 @@
     <copyright>Copyright © Scott Dorman</copyright>
     <tags>cadru data dapper utility</tags>
     <releaseNotes>
+      Merged TableMap{T} and ClassMap{T} to simplify and consolidate the mapping logic. Updated PropertyMap
+      so that it looks for DataAnnotation attributes to help determine table name, schema, column name, if
+      the column is a key and if the column is computed or an identity. Updated Table{TEntity} so insert and
+      update make better use of the property mappings.
     </releaseNotes>
     <dependencies>
       <group targetFramework=".NETPortable0.0-net40+sl50+win+wpa81+wp80">

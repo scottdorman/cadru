@@ -22,6 +22,7 @@
 
 namespace Cadru.Data.Dapper
 {
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Reflection;
 
     public interface IPropertyMap
@@ -36,9 +37,9 @@ namespace Cadru.Data.Dapper
         /// </summary>
         bool Ignored { get; }
 
-        bool IsCalculated { get; }
+        DatabaseGeneratedOption DatabaseGeneratedOption { get; }
 
-        bool IsIdentity { get; }
+        bool IsKey { get; }
 
         /// <summary>
         /// Gets the read-only status of the current property.
@@ -47,11 +48,6 @@ namespace Cadru.Data.Dapper
         bool IsReadOnly { get; }
 
         bool IsUpdatable { get; }
-
-        /// <summary>
-        /// Gets the key type for the current property.
-        /// </summary>
-        KeyType KeyType { get; }
 
         /// <summary>
         /// Gets the name of the property by using the specified <see cref="PropertyInfo"/>.

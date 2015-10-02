@@ -20,16 +20,27 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+
 namespace Cadru.Data.Dapper
 {
     public interface ITableMap
     {
-        IClassMap ClassMap { get; }
-
         string FullyQualifiedTableName { get; }
 
         string TableName { get; }
 
         string SchemaName { get; }
+
+        Type EntityType { get; }
+
+        /// <summary>
+        /// A collection of properties that will map to columns in the database table.
+        /// </summary>
+        IList<IPropertyMap> Properties { get; }
+
+        void Map();
+
     }
 }

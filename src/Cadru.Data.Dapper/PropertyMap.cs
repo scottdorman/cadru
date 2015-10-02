@@ -24,6 +24,7 @@ namespace Cadru.Data.Dapper
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using System.Reflection;
@@ -37,15 +38,15 @@ namespace Cadru.Data.Dapper
     {
         public PropertyMap(PropertyInfo propertyInfo)
         {
-            PropertyInfo = propertyInfo;
-            ColumnName = PropertyInfo.Name;
+            this.PropertyInfo = propertyInfo;
+            this.Ignored = propertyInfo.GetCustomAttribute<NotMappedAttribute>() != null;
+            this.IsKey = propertyInfo.GetCustomAttribute<KeyAttribute>() != null;
 
-            var attr = propertyInfo.GetCustomAttribute<DatabaseGeneratedAttribute>();
-            if (attr != null)
-            {
-                this.IsCalculated = attr.DatabaseGeneratedOption == DatabaseGeneratedOption.Computed;
-                this.IsIdentity = attr.DatabaseGeneratedOption == DatabaseGeneratedOption.Identity;
-            }
+            var columnAttribute = propertyInfo.GetCustomAttribute<ColumnAttribute>();
+            this.ColumnName = columnAttribute?.Name ?? PropertyInfo.Name;
+
+            var databaseGeneratedAttribute = propertyInfo.GetCustomAttribute<DatabaseGeneratedAttribute>();
+            this.DatabaseGeneratedOption = databaseGeneratedAttribute?.DatabaseGeneratedOption ?? DatabaseGeneratedOption.None;
         }
 
         /// <summary>
@@ -58,21 +59,16 @@ namespace Cadru.Data.Dapper
         /// </summary>
         public bool Ignored { get; private set; }
 
-        public bool IsCalculated { get; private set; }
-
-        public bool IsIdentity { get; internal set; }
+        public DatabaseGeneratedOption DatabaseGeneratedOption { get; private set; }
 
         /// <summary>
         /// Gets the read-only status of the current property. If read-only, the current property will not be included in INSERT and UPDATE queries.
         /// </summary>
         public bool IsReadOnly { get; internal set; }
 
-        public bool IsUpdatable { get { return !(this.Ignored || this.IsReadOnly || this.IsCalculated || this.KeyType == KeyType.Identity); } }
+        public bool IsUpdatable { get { return !(this.Ignored || this.IsReadOnly || this.DatabaseGeneratedOption != DatabaseGeneratedOption.None); } }
 
-        /// <summary>
-        /// Gets the key type for the current property.
-        /// </summary>
-        public KeyType KeyType { get; internal set; }
+        public bool IsKey { get; private set; }
 
         /// <summary>
         /// Gets the name of the property by using the specified propertyInfo.

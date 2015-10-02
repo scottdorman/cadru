@@ -37,22 +37,20 @@ namespace Cadru.Data.Dapper
     public partial class Table<TEntity> : ITable where TEntity : class
     {
         internal Database database;
-        internal List<string> keys;
         internal ITableMap tableMap;
         static ConcurrentDictionary<Type, List<string>> paramNameCache = new ConcurrentDictionary<Type, List<string>>();
 
         public Table(Database database)
         {
             this.database = database;
-            this.tableMap = database.DetermineTableName<TEntity>();
-            this.keys = GetPrimaryKeys();
+            this.tableMap = database.MapTable<TEntity>();
         }
 
         public string Schema => tableMap.SchemaName;
 
         public string TableName => tableMap.TableName;
 
-        internal static List<string> GetParamNames(object o)
+        internal IList<string> GetParamNames(object o)
         {
             List<string> paramNames;
             if (!paramNameCache.TryGetValue(o.GetType(), out paramNames))
@@ -60,10 +58,13 @@ namespace Cadru.Data.Dapper
                 paramNames = new List<string>();
                 foreach (var prop in o.GetType().GetRuntimeProperties())
                 {
-                    var attr = prop.GetCustomAttribute<NotMappedAttribute>(inherit: true);
-                    if (attr == null)
+                    var mappedProperty = this.tableMap.Properties.SingleOrDefault(p => p.Name == prop.Name);
+                    if (mappedProperty != null)
                     {
-                        paramNames.Add(prop.Name);
+                        if (mappedProperty.IsUpdatable)
+                        {
+                            paramNames.Add(mappedProperty.ColumnName);
+                        }
                     }
                 }
 
@@ -80,7 +81,7 @@ namespace Cadru.Data.Dapper
         /// <returns></returns>
         public virtual void Insert(dynamic data)
         {
-            var paramNames = GetParamNames((object)data);
+            List<string> paramNames = GetParamNames(data);
             var parameters = new DynamicParameters(data);
 
             var cols = string.Join(",", paramNames);
@@ -98,7 +99,7 @@ namespace Cadru.Data.Dapper
         /// <returns></returns>
         public int Update(dynamic data, IPredicate predicate)
         {
-            var paramNames = tableMap.ClassMap.Properties.Where(p => p.IsUpdatable).Select(c => c.ColumnName).ToList();
+            List<string> paramNames = this.GetParamNames(data);
             var parameters = new DynamicParameters(data);
 
             var builder = new StringBuilder();
@@ -115,48 +116,15 @@ namespace Cadru.Data.Dapper
         }
 
         /// <summary>
-        /// Delete a record for the DB
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        [Obsolete("Use Delete(IPredicate) instead.")]
-        public bool Delete(dynamic data)
-        {
-            var paramNames = GetParamNames((object)data);
-            var parameters = new DynamicParameters(data);
-
-            var builder = new StringBuilder();
-            builder.Append($"delete from {TableName}");
-            AppendWhere(builder, null, parameters);
-            return database.Execute(builder.ToString(), parameters) > 0;
-        }
-
-        /// <summary>
         /// Deletes all records which match the given predicate.
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        public TEntity Delete(IPredicate predicate)
+        public int Delete(IPredicate predicate)
         {
             Requires.NotNull(predicate, "predicate");
             var parameters = new DynamicParameters();
-            return database.Query<TEntity>($"delete from {TableName} where {predicate.GetSql(parameters)}", parameters).FirstOrDefault();
-        }
-
-        /// <summary>
-        /// Grab a record with a particular Id from the DB
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        [Obsolete("Use Get(IPredicate) instead.")]
-        public TEntity Get(dynamic data)
-        {
-            var paramNames = GetParamNames((object)data);
-            var parameters = new DynamicParameters(data);
-            var builder = new StringBuilder();
-            builder.Append($"select * from {TableName}");
-            AppendWhere(builder, null, parameters);
-            return database.Query<TEntity>(builder.ToString(), parameters).FirstOrDefault();
+            return database.Execute($"delete from {TableName} where {predicate.GetSql(parameters)}", parameters);
         }
 
         /// <summary>
@@ -211,21 +179,6 @@ namespace Cadru.Data.Dapper
             Requires.NotNull(predicate, "predicate");
             var parameters = new DynamicParameters();
             return database.Query<TEntity>($"select * from {TableName} where {predicate.GetSql(parameters)}", parameters);
-        }
-
-        private static List<string> GetPrimaryKeys()
-        {
-            var keys = new List<string>();
-            foreach (var prop in typeof(TEntity).GetRuntimeProperties())
-            {
-                var attr = prop.GetCustomAttribute<KeyAttribute>(inherit: true);
-                if (attr != null)
-                {
-                    keys.Add(prop.Name);
-                }
-            }
-
-            return keys;
         }
     }
 }
