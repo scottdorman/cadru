@@ -93,7 +93,7 @@
     <Compile Include="Predicates\Internal\PropertyPredicate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyMap.cs" />
-    <Compile Include="TableMap.cs" />
+    <Compile Include="TableMap{T}.cs" />
     <Compile Include="Table{TEntity}.cs" />
     <Compile Include="IClassMap.cs" />
     <Compile Include="TrackedEntity.cs" />
