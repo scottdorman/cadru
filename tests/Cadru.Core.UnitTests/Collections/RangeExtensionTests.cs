@@ -21,7 +21,6 @@ namespace Cadru.UnitTest.Framework.UnitTests.Collections
         {
             TestHelper(new Range<char>('a', 'e').SetDefaultEnumerator());
             TestHelper(new Range<byte>(0, 255).SetDefaultEnumerator());
-            TestHelper(new Range<int>(0, 9).SetDefaultEnumerator());
             TestHelper(new Range<short>(0, 9).SetDefaultEnumerator());
             TestHelper(new Range<int>(0, 9).SetDefaultEnumerator());
             TestHelper(new Range<long>(0, 9).SetDefaultEnumerator());
@@ -32,6 +31,23 @@ namespace Cadru.UnitTest.Framework.UnitTests.Collections
             TestHelper(new Range<ulong>(0, 9).SetDefaultEnumerator());
             TestHelper(new Range<DateTime>(new DateTime(2015, 11, 7), new DateTime(2015, 11, 11)).SetDefaultEnumerator());
             TestHelper(new Range<DateTimeOffset>(new DateTime(2015, 11, 7), new DateTime(2015, 11, 11)).SetDefaultEnumerator());
+        }
+
+        [TestMethod]
+        public void DefaultEnumeration()
+        {
+            Assert.IsTrue(new[] { 'a', 'b', 'c', 'd', 'e' }.SequenceEqual(new Range<char>('a', 'e').SetDefaultEnumerator()));
+            Assert.IsTrue(new byte[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }.SequenceEqual(new Range<byte>(0, 9).SetDefaultEnumerator()));
+            Assert.IsTrue(new short[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }.SequenceEqual(new Range<short>(0, 9).SetDefaultEnumerator()));
+            Assert.IsTrue(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }.SequenceEqual(new Range<int>(0, 9).SetDefaultEnumerator()));
+            Assert.IsTrue(new long[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }.SequenceEqual(new Range<long>(0, 9).SetDefaultEnumerator()));
+            Assert.IsTrue(new float[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }.SequenceEqual(new Range<float>(0, 9).SetDefaultEnumerator()));
+            Assert.IsTrue(new double[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }.SequenceEqual(new Range<double>(0, 9).SetDefaultEnumerator()));
+            Assert.IsTrue(new decimal[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }.SequenceEqual(new Range<decimal>(0, 9).SetDefaultEnumerator()));
+            Assert.IsTrue(new uint[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }.SequenceEqual(new Range<uint>(0, 9).SetDefaultEnumerator()));
+            Assert.IsTrue(new ulong[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }.SequenceEqual(new Range<ulong>(0, 9).SetDefaultEnumerator()));
+            Assert.IsTrue(new DateTime[] { new DateTime(2015, 11, 7), new DateTime(2015, 11, 8), new DateTime(2015, 11, 9), new DateTime(2015, 11, 10), new DateTime(2015, 11, 11) }.SequenceEqual(new Range<DateTime>(new DateTime(2015, 11, 7), new DateTime(2015, 11, 11)).SetDefaultEnumerator()));
+            Assert.IsTrue(new DateTimeOffset[] { new DateTime(2015, 11, 7), new DateTime(2015, 11, 8), new DateTime(2015, 11, 9), new DateTime(2015, 11, 10), new DateTime(2015, 11, 11) }.SequenceEqual(new Range<DateTimeOffset>(new DateTime(2015, 11, 7), new DateTime(2015, 11, 11)).SetDefaultEnumerator()));
         }
 
         private void TestHelper<T>(Range<T> range)
