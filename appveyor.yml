@@ -7,10 +7,12 @@
 #      general configuration      #
 #---------------------------------#
 
-semver: 2.0
+#environment variables
+environment:
+   majorminor: 2.0
 
 # version format
-version: {semver}.{build}
+version: $(majorminor).{build}
 
 # branches to build
 branches:
