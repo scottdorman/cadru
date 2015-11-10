@@ -40,7 +40,7 @@ install:
 
     $env:BUILD_DAYS = ((Get-Date) - (Get-Date "2000-01-01 00:00:00")).Days
 
-    $NUGET_PACKAGE_VERSION = "$(majorminor).$($env:BUILD_DAYS).$($env:APPVEYOR_BUILD_NUMBER)"
+    $NUGET_PACKAGE_VERSION = "$($env:majorminor).$($env:BUILD_DAYS).$($env:APPVEYOR_BUILD_NUMBER)"
 
     Write-Output ('NUGET_PACKAGE_VERSION set to ' + $NUGET_PACKAGE_VERSION)
 
