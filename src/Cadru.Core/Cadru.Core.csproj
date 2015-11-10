@@ -78,6 +78,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Collections\QueryStringParametersDictionary.cs" />
+    <Compile Include="Collections\Range%28T%29.cs" />
+    <Compile Include="Collections\RangeEndpointOption.cs" />
+    <Compile Include="Collections\RangeExtensions.cs" />
+    <Compile Include="Collections\RangeIterator%28T%29.cs" />
     <Compile Include="Collections\ReverseComparisonComparer%28T%29.cs" />
     <Compile Include="Comb.cs" />
     <Compile Include="Contracts\Assumes.cs" />

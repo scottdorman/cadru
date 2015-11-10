@@ -89,6 +89,8 @@
     <Compile Include="Collections\LogicalStringComparerTests.cs" />
     <Compile Include="Collections\NameValuePairTests.cs" />
     <Compile Include="Collections\QueryStringParametersDictionaryTests.cs" />
+    <Compile Include="Collections\RangeExtensionTests.cs" />
+    <Compile Include="Collections\RangeTests.cs" />
     <Compile Include="Collections\ReverseComparisonComparerTests.cs" />
     <Compile Include="Contracts\RequiresTests.cs" />
     <Compile Include="Contracts\AssumesTests.cs" />
