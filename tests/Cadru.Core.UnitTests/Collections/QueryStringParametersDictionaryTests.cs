@@ -4,10 +4,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Cadru.Collections;
 using Cadru.UnitTest.Framework;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Cadru.Core.UnitTests.Collections
 {
-    [TestClass]
+    [TestClass, ExcludeFromCodeCoverage]
     public class QueryStringParametersDictionaryTests
     {
         [TestMethod]
