@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="Requires.cs" 
-//  company="Scott Dorman" 
+// <copyright file="Requires.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -428,9 +428,55 @@ namespace Cadru.Contracts
 
         #endregion
 
+        #region NotNullOrWhiteSpace
+
+        #region NotNullOrWhiteSpace([ValidatedNotNull]string value, string parameterName)
+        /// <summary>
+        /// Checks that <paramref name="value"/> is not <see langword="null"/> or a zero-length string.
+        /// </summary>
+        /// <param name="value">The parameter to test.</param>
+        /// <param name="parameterName">The name of the parameter being tested.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value"/> is a zero-length string.</exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
+        public static void NotNullOrWhiteSpace([ValidatedNotNull]string value, string parameterName)
+        {
+            Requires.NotNullOrWhiteSpace(value, parameterName, ExceptionBuilder.Format(Resources.ArgumentException_EmptyString, parameterName));
+            Contract.EndContractBlock();
+        }
+        #endregion
+
+        #region NotNullOrWhiteSpace([ValidatedNotNull]string value, string parameterName, string message)
+        /// <summary>
+        /// Checks that <paramref name="value"/> is not <see langword="null"/> or a zero-length string.
+        /// </summary>
+        /// <param name="value">The parameter to test.</param>
+        /// <param name="parameterName">The name of the parameter being tested.</param>
+        /// <param name="message">A message to be used in the resulting exception.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value"/> is a zero-length string.</exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
+        public static void NotNullOrWhiteSpace([ValidatedNotNull]string value, string parameterName, string message)
+        {
+            Requires.NotNull(value, parameterName);
+            if (String.IsNullOrWhiteSpace(value))
+            {
+                throw ExceptionBuilder.CreateArgumentException(parameterName, message);
+            }
+
+            Contract.EndContractBlock();
+        }
+        #endregion
+
+        #endregion
+
         #region NotNullElements
         /// <summary>
-        /// Checks that <paramref name="values"/> is not <see langword="null"/> 
+        /// Checks that <paramref name="values"/> is not <see langword="null"/>
         /// and contains no <see langword="null"/> elements.
         /// </summary>
         /// <param name="values">The parameter to test.</param>
@@ -456,7 +502,7 @@ namespace Cadru.Contracts
 
         #region ValidElements
         /// <summary>
-        /// Checks that <paramref name="values"/> is not <see langword="null"/> 
+        /// Checks that <paramref name="values"/> is not <see langword="null"/>
         /// and contains valid elements based on the given predicate.
         /// </summary>
         /// <typeparam name="T">The type of the members of <paramref name="values"/>.</typeparam>
@@ -518,7 +564,7 @@ namespace Cadru.Contracts
             {
                 throw ExceptionBuilder.CreateArgumentOutOfRangeException(parameterName, message);
             }
-        
+
             Contract.EndContractBlock();
         }
         #endregion

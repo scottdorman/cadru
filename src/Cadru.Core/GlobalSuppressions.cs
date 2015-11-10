@@ -33,6 +33,8 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1703:ResourceStringsShouldBeSpelledCorrectly", MessageId = "Iso", Scope = "resource", Target = "Cadru.Properties.Resources.resources", Justification = "Reviewed.")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1703:ResourceStringsShouldBeSpelledCorrectly", MessageId = "non-parsable", Scope = "resource", Target = "Cadru.Properties.Resources.resources", Justification = "Reviewed.")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1703:ResourceStringsShouldBeSpelledCorrectly", MessageId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", Scope = "resource", Target = "Cadru.Properties.Resources.resources", Justification = "Reviewed.")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1703:ResourceStringsShouldBeSpelledCorrectly", MessageId = "tt", Scope = "resource", Target = "Cadru.Properties.Resources.resources", Justification = "Reviewed.")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1703:ResourceStringsShouldBeSpelledCorrectly", MessageId = "yyyy", Scope = "resource", Target = "Cadru.Properties.Resources.resources", Justification = "Reviewed.")]
 
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Cadru", Justification = "Reviewed.")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Cadru", Scope = "namespace", Target = "Cadru.Collections", Justification = "Reviewed.")]

@@ -12,7 +12,7 @@ namespace Cadru
     /// </summary>
     /// <typeparam name="TEnum">The enumeration type.</typeparam>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix", Justification = "Reviewed.")]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", MessageId = "Enum", Justification = "Reviewed.")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", Justification = "Reviewed.")]
     public static class Enum<TEnum> where TEnum : struct
     {
         #region GetDescription
@@ -197,8 +197,8 @@ namespace Cadru
         /// <p><typeparamref name="TEnum"/> is a type from an assembly loaded
         /// in a reflection-only context.</p>
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
         public static IEnumerable<TEnum> GetValues()
         {
             return Enum.GetValues(typeof(TEnum)).OfType<TEnum>();

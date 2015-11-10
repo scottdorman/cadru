@@ -3,29 +3,30 @@
   <metadata>
     <id>$id$</id>
     <version>$version$</version>
-    <title>Cadru.Core</title>
+    <title>Cadru.Data.Dapper</title>
     <authors>Scott Dorman</authors>
     <owners>scottdorman</owners>
     <projectUrl>https://github.com/scottdorman/cadru</projectUrl>
     <licenseUrl>http://opensource.org/licenses/Ms-PL.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>This is the main Cadru library, packaged as a Portable Class Library (PCL) targeting .NET Framework 4, Silverlight 5, Windows Phone 8.1, Windows Phone Silverlight 8, and Windows 8.</description>
+    <description>This is a non-portable class library to provide a common database context and predicates for use with Dapper.</description>
     <summary>A utility framework containing new APIs and extensions to the .NET Framework.</summary>
     <copyright>Copyright © Scott Dorman</copyright>
-    <tags>cadru PCL universal utility</tags>
+    <tags>cadru data dapper utility</tags>
     <releaseNotes>
-      **(Breaking change)** Renamed RelativeDateFormattingOptions to RelativeDateFormatting.
-      Added GetDescription and GetDescriptions to Enum(T).
-      Updated EnumExtensions.GetDescription to behave like Enum(T).GetDescription.
-      Added a ReverseComparisonComparer.
-      Added IsEnum and IsType to Requires and Assumes.
-      Added a Partition method for enumerables.
+      Merged TableMap{T} and ClassMap{T} to simplify and consolidate the mapping logic. Updated PropertyMap
+      so that it looks for DataAnnotation attributes to help determine table name, schema, column name, if
+      the column is a key and if the column is computed or an identity. Updated Table{TEntity} so insert and
+      update make better use of the property mappings.
     </releaseNotes>
     <dependencies>
       <group targetFramework=".NETPortable0.0-net40+sl50+win+wpa81+wp80">
         <dependency id="PCLCrypto" version="0.5.1.14165" />
         <dependency id="Validation" version="2.0.4.14103" />
       </group>
+           <group>
+                <dependency id="Dapper" version="1.42" />
+            </group>
     </dependencies>
   </metadata>
 </package>

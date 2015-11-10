@@ -15,7 +15,6 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -46,7 +45,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Cadru.Core.ruleset</CodeAnalysisRuleSet>
     <DocumentationFile>bin\Debug\Cadru.Core.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -57,6 +56,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\Cadru.Core.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>Cadru.Core.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
@@ -88,7 +88,7 @@
     <Compile Include="Contracts\AssumptionException.cs" />
     <Compile Include="Contracts\ContractArgumentValidatorAttribute.cs" />
     <Compile Include="Contracts\Requires.cs" />
-    <Compile Include="Enum%28T%29.cs" />
+    <Compile Include="Enum{T}.cs" />
     <Compile Include="EnumDescriptionAttribute.cs" />
     <Compile Include="CancelEventArgs{T}.cs" />
     <Compile Include="EventArgs{T}.cs" />
@@ -140,9 +140,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Cadru.Core.symbols.nuspec" />
     <None Include="Cadru.Core.licenseheader" />
     <None Include="Cadru.Core.nuspec" />
+    <None Include="Cadru.Core.ruleset" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -162,7 +162,6 @@
     </CodeAnalysisDictionary>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Import Project="$(MSBuildExtensionsPath32)\StyleCop\v4.7\StyleCop.targets" Condition="Exists('$(MSBuildExtensionsPath32)\StyleCop\v4.7\StyleCop.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
