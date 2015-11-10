@@ -30,7 +30,7 @@ namespace Cadru.Text
     /// Specifies how a relative date within the current week
     /// (+/- 5 days from today) should be formatted.
     /// </summary>
-    public enum RelativeDateFormattingOptions
+    public enum RelativeDateFormatting
     {
         /// <summary>
         /// Format the relative date as a number of days ago if earlier

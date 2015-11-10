@@ -118,7 +118,7 @@
     <Compile Include="Text\NumericComparisonOptions.cs" />
     <Compile Include="Text\NormalizationOptions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="Text\RelativeDateFormattingOptions.cs" />
+    <Compile Include="Text\RelativeDateFormatting.cs" />
     <Compile Include="UnixTimestamp.cs" />
     <Compile Include="WeakReference{T}.cs" />
   </ItemGroup>
