@@ -14,9 +14,12 @@
     <copyright>Copyright © Scott Dorman</copyright>
     <tags>cadru PCL universal utility</tags>
     <releaseNotes>
-      (Breaking change) Renamed RelativeDateFormattingOptions to RelativeDateFormattingOption since it's not a flags enum.
-      Added GetDescription and GetDescriptions to Enum(Of T).
+      **(Breaking change)** Renamed RelativeDateFormattingOptions to RelativeDateFormatting.
+      Added GetDescription and GetDescriptions to Enum(T).
+      Updated EnumExtensions.GetDescription to behave like Enum(T).GetDescription.
+      Added a ReverseComparisonComparer.
       Added IsEnum and IsType to Requires and Assumes.
+      Added a Partition method for enumerables.
     </releaseNotes>
     <dependencies>
       <group targetFramework=".NETPortable0.0-net40+sl50+win+wpa81+wp80">

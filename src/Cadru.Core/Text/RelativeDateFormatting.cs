@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="RelativeDateFormattingOptions.cs"
+// <copyright file="RelativeDateFormatting.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2015 Scott Dorman.
