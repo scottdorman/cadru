@@ -7,8 +7,10 @@
 #      general configuration      #
 #---------------------------------#
 
+semver: 2.0
+
 # version format
-version: 2.0.{build}
+version: {semver}.{build}
 
 # branches to build
 branches:
