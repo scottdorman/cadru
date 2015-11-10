@@ -104,5 +104,24 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             CollectionAssert.AreEqual(numbers, numbers.WhereIf(false, (number, index) => number <= index * 10).ToArray());
             CollectionAssert.AreEqual(new[] { 0, 20, 15, 40 }, numbers.WhereIf(true, (number, index) => number <= index * 10).ToArray());
         }
+
+        [TestMethod]
+        public void Partition()
+        {
+            int[] numbers = { 0, 30, 20, 15, 90, 85, 40, 75 };
+            var partitions = numbers.Partition(3).ToArray();
+            Assert.AreEqual(3, partitions.Length);
+            CollectionAssert.AreEqual(new[] { 0, 30, 20 }, partitions[0].ToArray());
+            CollectionAssert.AreEqual(new[] { 15, 90, 85 }, partitions[1].ToArray());
+            CollectionAssert.AreEqual(new[] { 40, 75 }, partitions[2].ToArray());
+
+            partitions = numbers.Partition(10).ToArray();
+            Assert.AreEqual(1, partitions.Length);
+            CollectionAssert.AreEqual(numbers, partitions[0].ToArray());
+
+            numbers = new int[] { };
+            partitions = numbers.Partition(3).ToArray();
+            Assert.AreEqual(0, partitions.Length);
+        }
     }
 }
