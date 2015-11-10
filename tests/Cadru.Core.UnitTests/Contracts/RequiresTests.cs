@@ -21,6 +21,30 @@ namespace Cadru.UnitTest.Framework.UnitTests.Contracts
         }
 
         [TestMethod]
+        public void IsEnum()
+        {
+            ExceptionAssert.Throws<ArgumentNullException>(() => Requires.IsEnum(null, "foo"));
+            ExceptionAssert.Throws<InvalidOperationException>(() => Requires.IsEnum(2, "foo"));
+            Requires.IsEnum(DayOfWeek.Friday, "foo");
+
+            ExceptionAssert.Throws<ArgumentNullException>(() => Requires.IsEnum((object)null, "foo"));
+            ExceptionAssert.Throws<InvalidOperationException>(() => Requires.IsEnum((object)2, "foo"));
+            Requires.IsEnum((object)DayOfWeek.Friday, "foo");
+        }
+
+        [TestMethod]
+        public void IsType()
+        {
+            ExceptionAssert.Throws<ArgumentNullException>(() => Requires.IsType(null, typeof(string), "foo"));
+            ExceptionAssert.Throws<InvalidOperationException>(() => Requires.IsType(2, typeof(string), "foo"));
+            Requires.IsType(String.Empty, typeof(string), "foo");
+
+            ExceptionAssert.Throws<ArgumentNullException>(() => Requires.IsType<string>(null, "foo"));
+            ExceptionAssert.Throws<InvalidOperationException>(() => Requires.IsType<string>(2, "foo"));
+            Requires.IsType<string>(String.Empty, "foo");
+        }
+
+        [TestMethod]
         public void IsFalse()
         {
             ExceptionAssert.Throws<InvalidOperationException>(() => Requires.IsFalse(true));
@@ -28,6 +52,8 @@ namespace Cadru.UnitTest.Framework.UnitTests.Contracts
             ExceptionAssert.Throws<ArgumentException>(() => Requires.IsFalse(true, "param", "test.")).WithMessage("test.", ExceptionMessageComparison.StartsWith).WithParameter("param");
 
             Requires.IsFalse(false);
+            Requires.IsFalse(false, "param");
+            Requires.IsFalse(false, "param", "test");
         }
 
         [TestMethod]
@@ -38,6 +64,8 @@ namespace Cadru.UnitTest.Framework.UnitTests.Contracts
             ExceptionAssert.Throws<ArgumentException>(() => Requires.IsTrue(false, "param", "test.")).WithMessage("test.", ExceptionMessageComparison.StartsWith).WithParameter("param");
 
             Requires.IsTrue(true);
+            Requires.IsTrue(true, "param");
+            Requires.IsTrue(true, "param", "test");
         }
 
         [TestMethod]
@@ -60,6 +88,10 @@ namespace Cadru.UnitTest.Framework.UnitTests.Contracts
             ExceptionAssert.Throws<ArgumentException>(() => Requires.NotNullOrEmpty(String.Empty, "param")).WithParameter("param");
 
             Requires.NotNullOrEmpty("test", "param");
+            Requires.NotNullOrEmpty("test", "param", "test");
+
+            Requires.NotNullOrEmpty(new[] { 0, 1, 2 }, "param", "test");
+            Requires.NotNullOrEmpty(new[] { "A", "B", "C" }, "param", "test");
 
             ExceptionAssert.Throws<ArgumentException>(() => Requires.NotNullOrEmpty(Enumerable.Empty<string>(), "param"));
             ExceptionAssert.Throws<ArgumentException>(() => Requires.NotNullOrEmpty(Enumerable.Empty<string>(), "param", "test"));

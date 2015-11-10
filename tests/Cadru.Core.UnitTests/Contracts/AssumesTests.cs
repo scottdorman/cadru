@@ -22,6 +22,37 @@ namespace Cadru.UnitTest.Framework.UnitTests.Contracts
         }
 
         [TestMethod]
+        public void AssumptionException()
+        {
+            ExceptionAssert.Throws<AssumptionException>(() => { throw new AssumptionException(); }).WithMessage("Assumption failed.");
+            ExceptionAssert.Throws<AssumptionException>(() => { throw new AssumptionException("Assumption failed.", new InvalidOperationException()); }).WithMessage("Assumption failed.").WithInnerException(typeof(InvalidOperationException));
+        }
+
+        [TestMethod]
+        public void IsEnum()
+        {
+            ExceptionAssert.Throws<ArgumentNullException>(() => Assumes.IsEnum(null, "foo"));
+            ExceptionAssert.Throws<AssumptionException>(() => Assumes.IsEnum(2, "foo"));
+            Assumes.IsEnum(DayOfWeek.Friday, "foo");
+
+            ExceptionAssert.Throws<ArgumentNullException>(() => Assumes.IsEnum((object)null, "foo"));
+            ExceptionAssert.Throws<AssumptionException>(() => Assumes.IsEnum((object)2, "foo"));
+            Assumes.IsEnum((object)DayOfWeek.Friday, "foo");
+        }
+
+        [TestMethod]
+        public void IsType()
+        {
+            ExceptionAssert.Throws<ArgumentNullException>(() => Assumes.IsType(null, typeof(string), "foo"));
+            ExceptionAssert.Throws<AssumptionException>(() => Assumes.IsType(2, typeof(string), "foo"));
+            Assumes.IsType(String.Empty, typeof(string), "foo");
+
+            ExceptionAssert.Throws<ArgumentNullException>(() => Assumes.IsType<string>(null, "foo"));
+            ExceptionAssert.Throws<AssumptionException>(() => Assumes.IsType<string>(2, "foo"));
+            Assumes.IsType<string>(String.Empty, "foo");
+        }
+
+        [TestMethod]
         public void Fail()
         {
             ExceptionAssert.Throws<AssumptionException>(() => { Assumes.Fail(String.Empty); }).WithMessage("Assumption failed.");
@@ -35,6 +66,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Contracts
             ExceptionAssert.Throws<AssumptionException>(() => { Assumes.IsFalse(true, "test."); }).WithMessage("Assumption failed. test.");
 
             Assumes.IsFalse(false);
+            Assumes.IsFalse(false, "test");
         }
 
         [TestMethod]
@@ -44,6 +76,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Contracts
             ExceptionAssert.Throws<AssumptionException>(() => { Assumes.IsTrue(false, "test."); }).WithMessage("Assumption failed. test.");
 
             Assumes.IsTrue(true);
+            Assumes.IsTrue(true, "test");
         }
 
         [TestMethod]
