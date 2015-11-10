@@ -30,6 +30,7 @@ namespace Cadru.Collections
     /// <summary>
     /// Supports iteration over a <see cref="Range{T}"/>.
     /// </summary>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix", Justification = "Reviewed. Ending in Collection does not make semantic sense in this case.")]
     public class RangeIterator<T> : IEnumerable<T>
     {
         private readonly Range<T> range;

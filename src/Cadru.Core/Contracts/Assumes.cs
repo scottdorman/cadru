@@ -200,6 +200,7 @@ namespace Cadru.Contracts
         /// <param name="parameterName">The name of the parameter being tested.</param>
         /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
         /// <exception cref="ArgumentException"><paramref name="value"/>  is not an enumerated type.</exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
         public static void IsType<T>([ValidatedNotNull]object value, string parameterName)

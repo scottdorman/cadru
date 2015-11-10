@@ -29,6 +29,7 @@ namespace Cadru.Extensions
     using Cadru.Internal;
     using Cadru.Properties;
     using Cadru.Text;
+    using Contracts;
 
     /// <summary>
     /// Provides basic routines for common string manipulation.

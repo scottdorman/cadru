@@ -242,6 +242,7 @@ namespace Cadru.Extensions
         /// <param name="size">The size of each partition.</param>
         /// <returns>A new <see cref="IEnumerable{T}"/> containing one or more
         /// <see cref="IEnumerable{T}"/> collections.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures", Justification = "Reviewed.")]
         public static IEnumerable<IEnumerable<T>> Partition<T>(this IEnumerable<T> source, int size)
         {
             Contracts.Requires.NotNull(source, "source");

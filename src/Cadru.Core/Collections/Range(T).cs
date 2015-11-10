@@ -34,6 +34,7 @@ namespace Cadru.Collections
     /// Represents a range, or interval, of values.
     /// </summary>
     /// <typeparam name="T">The type of the objects in the range.</typeparam>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix", Justification = "Reviewed. Ending in Collection does not make semantic sense in this case.")]
     public sealed class Range<T> : IEnumerable<T>
     {
         #region fields
@@ -397,11 +398,11 @@ namespace Cadru.Collections
         /// <summary>
         /// Sets an enumerator that iterates through the <see cref="Range{T}"/>.
         /// </summary>
-        /// <param name="enumerator">An <see cref="IEnumerator"/> object that
+        /// <param name="iterator">An <see cref="RangeIterator{T}"/> object that
         /// can be used to iterate through the <see cref="Range{T}"/>.</param>
-        public void SetEnumerator(RangeIterator<T> enumerator)
+        public void SetEnumerator(RangeIterator<T> iterator)
         {
-            this.enumerator = enumerator;
+            this.enumerator = iterator;
         }
         #endregion
 
@@ -414,7 +415,11 @@ namespace Cadru.Collections
         /// </returns>
         public override string ToString()
         {
-            return $"{(this.IncludesLowerBound ? "[" : "(")}{this.LowerBound}, {this.UpperBound}{(this.IncludesUpperBound ? "]" : ")")}";
+            var builder = new StringBuilder();
+            builder.Append(this.IncludesLowerBound ? "[" : "(");
+            builder.AppendFormat(CultureInfo.CurrentCulture, "{0}, {1}", this.LowerBound, this.UpperBound);
+            builder.Append(this.IncludesUpperBound ? "]" : ")");
+            return builder.ToString();
         }
         #endregion
 
