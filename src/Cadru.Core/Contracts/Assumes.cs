@@ -62,6 +62,44 @@ namespace Cadru.Contracts
         }
         #endregion
 
+        #region IsEnum
+
+        #region IsEnum(Enum value, string parameterName)
+        /// <summary>
+        /// Checks that <paramref name="value"/> is an enumerated type.
+        /// </summary>
+        /// <param name="value">The parameter to test.</param>
+        /// <param name="parameterName">The name of the parameter being tested.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value"/>  is not an enumerated type.</exception>
+        [DebuggerStepThrough]
+        [Conditional("DEBUG")]
+        public static void IsEnum([ValidatedNotNull]Enum value, string parameterName)
+        {
+            Requires.NotNull(value, parameterName);
+            Assumes.IsTrue(value.GetType().IsEnum);
+        }
+        #endregion
+
+        #region IsEnum(object value, string parameterName)
+        /// <summary>
+        /// Checks that <paramref name="value"/> is an enumerated type.
+        /// </summary>
+        /// <param name="value">The parameter to test.</param>
+        /// <param name="parameterName">The name of the parameter being tested.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value"/>  is not an enumerated type.</exception>
+        [DebuggerStepThrough]
+        [Conditional("DEBUG")]
+        public static void IsEnum([ValidatedNotNull]object value, string parameterName)
+        {
+            Requires.NotNull(value, parameterName);
+            Assumes.IsTrue(value.GetType().IsEnum);
+        }
+        #endregion
+
+        #endregion
+
         #region IsFalse
 
         #region IsFalse(bool condition)
@@ -129,6 +167,44 @@ namespace Cadru.Contracts
             {
                 Assumes.Fail(message);
             }
+        }
+        #endregion
+
+        #endregion
+
+        #region IsType
+
+        #region IsType(object value, Type expectedType, string parameterName)
+        /// <summary>
+        /// Checks that <paramref name="value"/> is an enumerated type.
+        /// </summary>
+        /// <param name="value">The parameter to test.</param>
+        /// <param name="expectedType">The type <paramref name="value"/> is expected to be.</param>
+        /// <param name="parameterName">The name of the parameter being tested.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value"/>  is not an enumerated type.</exception>
+        [DebuggerStepThrough]
+        [Conditional("DEBUG")]
+        public static void IsType([ValidatedNotNull]object value, Type expectedType, string parameterName)
+        {
+            Requires.NotNull(value, parameterName);
+            Assumes.IsTrue(value.GetType() == expectedType);
+        }
+        #endregion
+
+        #region IsType<T>(object value, string parameterName)
+        /// <summary>
+        /// Checks that <paramref name="value"/> is an enumerated type.
+        /// </summary>
+        /// <param name="value">The parameter to test.</param>
+        /// <param name="parameterName">The name of the parameter being tested.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value"/>  is not an enumerated type.</exception>
+        [DebuggerStepThrough]
+        [Conditional("DEBUG")]
+        public static void IsType<T>([ValidatedNotNull]object value, string parameterName)
+        {
+            Assumes.IsType(value, typeof(T), parameterName);
         }
         #endregion
 
