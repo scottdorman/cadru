@@ -39,5 +39,5 @@ using System.Runtime.CompilerServices;
 #endif
 
 [assembly: CLSCompliant(true)]
-[assembly: InternalsVisibleTo("Cadru.Core.Tests")]
+[assembly: InternalsVisibleTo("Cadru.Core.UnitTests")]
 [assembly: InternalsVisibleTo("Cadru.Core.Explorables")]

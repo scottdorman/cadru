@@ -238,7 +238,7 @@
     <value>Type provided must be an Enum.</value>
   </data>
   <data name="ArgumentOutOfRange_Range" xml:space="preserve">
-    <value>Valid values are between {0} and {1}, inclusive.</value>
+    <value>Valid values are between {0} and {1}.</value>
   </data>
   <data name="Arg_GuidArrayCtor" xml:space="preserve">
     <value>Byte array for GUID must be exactly {0} bytes long.</value>
@@ -389,5 +389,11 @@
   </data>
   <data name="Argument_StartIndexGreaterThanEndIndex" xml:space="preserve">
     <value>The starting index refers to a location that is after the ending index.</value>
+  </data>
+  <data name="ArgumentOutOfRange_RangeInclusive" xml:space="preserve">
+    <value>Valid values are between {0} and {1}, inclusive.</value>
+  </data>
+  <data name="ArgumentOutOfRange_UpperBound" xml:space="preserve">
+    <value>The upper bound must be greater than the lower bound.</value>
   </data>
 </root>

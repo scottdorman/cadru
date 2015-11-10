@@ -313,11 +313,20 @@ namespace Cadru.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Valid values are between {0} and {1}, inclusive..
+        ///   Looks up a localized string similar to Valid values are between {0} and {1}..
         /// </summary>
         internal static string ArgumentOutOfRange_Range {
             get {
                 return ResourceManager.GetString("ArgumentOutOfRange_Range", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valid values are between {0} and {1}, inclusive..
+        /// </summary>
+        internal static string ArgumentOutOfRange_RangeInclusive {
+            get {
+                return ResourceManager.GetString("ArgumentOutOfRange_RangeInclusive", resourceCulture);
             }
         }
         
@@ -345,6 +354,15 @@ namespace Cadru.Properties {
         internal static string ArgumentOutOfRange_UnixTimestampBadYears {
             get {
                 return ResourceManager.GetString("ArgumentOutOfRange_UnixTimestampBadYears", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The upper bound must be greater than the lower bound..
+        /// </summary>
+        internal static string ArgumentOutOfRange_UpperBound {
+            get {
+                return ResourceManager.GetString("ArgumentOutOfRange_UpperBound", resourceCulture);
             }
         }
         
