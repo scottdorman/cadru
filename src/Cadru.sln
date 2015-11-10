@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30324.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4EBFADED-DC6E-4D0F-B367-6EB7BD09EF2E}"
 	ProjectSection(SolutionItems) = preProject
@@ -23,6 +23,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadru.Core.Windows.UnitTests", "..\tests\Cadru.Core.Windows.UnitTests\Cadru.Core.Windows.UnitTests.csproj", "{4CF19882-32E4-47B9-A6D8-4B7AB653C1B5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadru.UnitTest.Framework.UnitTests", "..\tests\Cadru.UnitTest.Framework.UnitTests\Cadru.UnitTest.Framework.UnitTests.csproj", "{AA0905EF-55D8-455E-9523-9D7DB42B2B0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadru.Data.Dapper", "Cadru.Data.Dapper\Cadru.Data.Dapper.csproj", "{E78F58AE-D510-4ADF-A04C-7BBEECC9175F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +56,10 @@ Global
 		{AA0905EF-55D8-455E-9523-9D7DB42B2B0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA0905EF-55D8-455E-9523-9D7DB42B2B0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA0905EF-55D8-455E-9523-9D7DB42B2B0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E78F58AE-D510-4ADF-A04C-7BBEECC9175F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E78F58AE-D510-4ADF-A04C-7BBEECC9175F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E78F58AE-D510-4ADF-A04C-7BBEECC9175F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E78F58AE-D510-4ADF-A04C-7BBEECC9175F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
