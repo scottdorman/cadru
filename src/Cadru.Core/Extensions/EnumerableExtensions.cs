@@ -28,6 +28,7 @@ namespace Cadru.Extensions
     using System.Linq;
     using Cadru.Internal;
     using Cadru.Properties;
+    using System.Collections.ObjectModel;
 
 
     /// <summary>
@@ -232,10 +233,50 @@ namespace Cadru.Extensions
 
         #endregion
 
+        #region Partition
+        /// <summary>
+        /// Partitions the specified collection into a collection of smaller collections.
+        /// </summary>
+        /// <typeparam name="T">The type of the members of <paramref name="source"/>.</typeparam>
+        /// <param name="source">A collection that contains the objects to partition.</param>
+        /// <param name="size">The size of each partition.</param>
+        /// <returns>A new <see cref="IEnumerable{T}"/> containing one or more
+        /// <see cref="IEnumerable{T}"/> collections.</returns>
+        public static IEnumerable<IEnumerable<T>> Partition<T>(this IEnumerable<T> source, int size)
+        {
+            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.ValidRange(size < 0, "size", Resources.ArgumentOutOfRange_IndexLessThanZero);
+
+            T[] array = null;
+            int count = 0;
+            foreach (T item in source)
+            {
+                if (array == null)
+                {
+                    array = new T[size];
+                }
+
+                array[count++] = item;
+                if (count == size)
+                {
+                    yield return new ReadOnlyCollection<T>(array);
+                    array = null;
+                    count = 0;
+                }
+            }
+
+            if (array != null)
+            {
+                Array.Resize(ref array, count);
+                yield return new ReadOnlyCollection<T>(array);
+            }
+        }
+        #endregion
+
         #region Slice
         /// <summary>Returns a segment of the specified collection.</summary>
-        /// <typeparam name="T">The type of the members of <paramref name="values"/>.</typeparam>
-        /// <param name="values">A collection that contains the objects to segment.</param>
+        /// <typeparam name="T">The type of the members of <paramref name="source"/>.</typeparam>
+        /// <param name="source">A collection that contains the objects to segment.</param>
         /// <param name="startIndex">The starting index of the collection.</param>
         /// <param name="endIndex">The ending index of the collection.</param>
         /// <returns>A new <see cref="IEnumerable{T}"/> containing the segment
@@ -243,15 +284,15 @@ namespace Cadru.Extensions
         /// <exception cref="System.ArgumentException">
         /// <paramref name="startIndex"/> must be less than or equal to
         /// <paramref name="endIndex"/>.</exception>
-        public static IEnumerable<T> Slice<T>(this IEnumerable<T> values, int startIndex, int endIndex)
+        public static IEnumerable<T> Slice<T>(this IEnumerable<T> source, int startIndex, int endIndex)
         {
-            Contracts.Requires.NotNull(values, "values");
+            Contracts.Requires.NotNull(source, "source");
             Contracts.Requires.ValidRange(startIndex > endIndex, "startIndex", Resources.Argument_StartIndexGreaterThanEndIndex);
             Contracts.Requires.ValidRange(startIndex < 0, "startIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
             Contracts.Requires.ValidRange(endIndex < 0, "endIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
 
             var index = 0;
-            foreach (var item in values)
+            foreach (var item in source)
             {
                 if (index >= startIndex && index <= endIndex)
                 {
