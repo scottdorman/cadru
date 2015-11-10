@@ -46,6 +46,8 @@ namespace Cadru.Extensions
         #region methods
 
         #region GetDescription
+
+        #region GetDescription(this Enum value)
         /// <summary>
         /// Gets the <see cref="EnumDescriptionAttribute"/> of an <see cref="Enum"/> type value.
         /// </summary>
@@ -53,22 +55,29 @@ namespace Cadru.Extensions
         /// <returns>A string containing the text of the <see cref="EnumDescriptionAttribute"/>.</returns>
         public static string GetDescription(this Enum value)
         {
-            Contracts.Requires.NotNull(value, "value");
-
-            Type type = value.GetType();
-            string description = value.ToString();
-            FieldInfo fieldInfo = type.GetField(description);
-            if (fieldInfo.IsNotNull())
-            {
-                EnumDescriptionAttribute attribute = ((EnumDescriptionAttribute[])fieldInfo.GetCustomAttributes(typeof(EnumDescriptionAttribute), false)).FirstOrDefault();
-                if (attribute.IsNotNull())
-                {
-                    description = attribute.Description;
-                }
-            }
-
-            return description;
+            return value.GetDescription(useNameAsFallback: true);
         }
+        #endregion
+
+        #region GetDescription(this Enum value, bool useNameAsFallback)
+        /// <summary>
+        /// Gets the <see cref="EnumDescriptionAttribute"/> of an <see cref="Enum"/> type value.
+        /// </summary>
+        /// <param name="value">The <see cref="Enum"/> type value.</param>
+        /// <param name="useNameAsFallback">If <see langword="true"/>, the
+        /// name of the enumerated constant is used if no description is found;
+        /// otherwise, <see langword="null"/>.</param>
+        /// <returns>A string containing the text of the <see cref="EnumDescriptionAttribute"/>.</returns>
+        public static string GetDescription(this Enum value, bool useNameAsFallback)
+        {
+            Contracts.Requires.IsEnum(value, "value");
+
+            var fieldValue = value.ToString();
+            var attribute = ((EnumDescriptionAttribute[])value.GetType().GetField(fieldValue)?.GetCustomAttributes(typeof(EnumDescriptionAttribute), false)).FirstOrDefault();
+            return attribute?.Description ?? (useNameAsFallback ? fieldValue : null);
+        }
+        #endregion
+
         #endregion
 
         #endregion

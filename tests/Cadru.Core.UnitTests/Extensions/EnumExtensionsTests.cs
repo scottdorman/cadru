@@ -21,33 +21,68 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         {
             Enum value = null;
 
-            string expected = null;
             string actual;
             ExceptionAssert.Throws<ArgumentNullException>(() => actual = value.GetDescription()).WithParameter("value");
 
             // This enum has the Flags and ComVisible(true) attributes,
             // but not a Description attribute, so the description should
             // be the enum value.
-            value = System.AppDomainManagerInitializationOptions.None;
-            actual = value.GetDescription();
-            expected = "None";
-
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual("None", System.AppDomainManagerInitializationOptions.None.GetDescription());
+            Assert.AreEqual(null, System.AppDomainManagerInitializationOptions.None.GetDescription(false));
 
             // This enum has no attributes, so the description should be the enum value.
-            value = System.UriFormat.SafeUnescaped;
-            actual = value.GetDescription();
-            expected = "SafeUnescaped";
-
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual("SafeUnescaped", System.UriFormat.SafeUnescaped.GetDescription());
+            Assert.AreEqual(null, System.UriFormat.SafeUnescaped.GetDescription(false));
 
             // This enum value has two attributes that match the prototype.
-            value = TestEnum.TestValue1;
+            Assert.AreEqual(".NET Framework 1.0", TestEnum.TestValue1.GetDescription());
+            Assert.AreEqual(".NET Framework 1.0", TestEnum.TestValue1.GetDescription(false));
+        }
 
-            expected = ".NET Framework 1.0";
-            actual = value.GetDescription();
+        [TestMethod]
+        public void EnumTGetDescription()
+        {
+            Enum value = null;
 
-            Assert.AreEqual(expected, actual);
+            string actual;
+            ExceptionAssert.Throws<ArgumentNullException>(() => actual = value.GetDescription()).WithParameter("value");
+
+            // This enum has the Flags and ComVisible(true) attributes,
+            // but not a Description attribute, so the description should
+            // be the enum value.
+            Assert.AreEqual("None", Enum<AppDomainManagerInitializationOptions>.GetDescription(AppDomainManagerInitializationOptions.None));
+            Assert.AreEqual(null, Enum<AppDomainManagerInitializationOptions>.GetDescription(AppDomainManagerInitializationOptions.None, false));
+
+            // This enum has no attributes, so the description should be the enum value.
+            Assert.AreEqual("SafeUnescaped", Enum<UriFormat>.GetDescription(UriFormat.SafeUnescaped));
+            Assert.AreEqual(null, Enum<UriFormat>.GetDescription(UriFormat.SafeUnescaped, false));
+
+            // This enum value has two attributes that match the prototype.
+            Assert.AreEqual(".NET Framework 1.0", Enum<TestEnum>.GetDescription(TestEnum.TestValue1));
+            Assert.AreEqual(".NET Framework 1.0", Enum<TestEnum>.GetDescription(TestEnum.TestValue1, false));
+        }
+
+        [TestMethod]
+        public void EnumTGetDescriptions()
+        {
+            Enum value = null;
+
+            string actual;
+            ExceptionAssert.Throws<ArgumentNullException>(() => actual = value.GetDescription()).WithParameter("value");
+
+            // This enum has the Flags and ComVisible(true) attributes,
+            // but not a Description attribute, so the description should
+            // be the enum value.
+            CollectionAssert.AreEqual(new[] { "None", "RegisterWithHost" } , Enum<AppDomainManagerInitializationOptions>.GetDescriptions().ToArray());
+            CollectionAssert.AreEqual(new string[] { null, null }, Enum<AppDomainManagerInitializationOptions>.GetDescriptions(false).ToArray());
+
+            // This enum has no attributes, so the description should be the enum value.
+            CollectionAssert.AreEqual(new[] { "UriEscaped", "Unescaped", "SafeUnescaped" }, Enum<UriFormat>.GetDescriptions().ToArray());
+            CollectionAssert.AreEqual(new string[] { null, null, null }, Enum<UriFormat>.GetDescriptions(false).ToArray());
+
+            // This enum value has two attributes that match the prototype.
+            CollectionAssert.AreEqual(new[] { ".NET Framework 1.0" }, Enum<TestEnum>.GetDescriptions().ToArray());
+            CollectionAssert.AreEqual(new[] { ".NET Framework 1.0" }, Enum<TestEnum>.GetDescriptions(false).ToArray());
         }
 
         [TestMethod]
