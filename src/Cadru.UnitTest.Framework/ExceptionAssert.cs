@@ -393,6 +393,23 @@ namespace Cadru.UnitTest.Framework
 
         #endregion
 
+        #region WithInnerException
+        /// <summary>
+        /// Verifies that the exception <see cref="Exception.InnerException"/>
+        /// is of the specified type.
+        /// </summary>
+        /// <typeparam name="T">The source exception type.</typeparam>
+        /// <param name="exception">The exception whose <see cref="Exception.InnerException"/>
+        /// will be tested.</param>
+        /// <param name="innerException">The expected type of the inner exception.</param>
+        /// <returns>The original <see cref="Exception"/>.</returns>
+        public static T WithInnerException<T>(this T exception, Type innerException) where T : Exception
+        {
+            TypeAssert.IsType(exception.InnerException, innerException);
+            return exception;
+        }
+        #endregion
+
         #region WithMessage
 
         #region WithMessage<T>(this T exception, string message, ExceptionMessageComparison comparison)
