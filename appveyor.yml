@@ -40,7 +40,7 @@ install:
 
     $env:BUILD_DAYS = ((Get-Date) - (Get-Date "2000-01-01 00:00:00")).Days
 
-    $NUGET_PACKAGE_VERSION = "2.0.$($env:BUILD_DAYS).$($env:APPVEYOR_BUILD_NUMBER)"
+    $NUGET_PACKAGE_VERSION = "$(majorminor).$($env:BUILD_DAYS).$($env:APPVEYOR_BUILD_NUMBER)"
 
     Write-Output ('NUGET_PACKAGE_VERSION set to ' + $NUGET_PACKAGE_VERSION)
 
@@ -52,9 +52,9 @@ install:
 assembly_info:
   patch: true
   file: AssemblyInfo.*
-  assembly_version: 2.0.0.0
-  assembly_file_version: 2.0.$(BUILD_DAYS).{build}
-  assembly_informational_version: 2.0.$(BUILD_DAYS).{build}
+  assembly_version: $(majorminor).0.0
+  assembly_file_version: $(majorminor).$(BUILD_DAYS).{build}
+  assembly_informational_version: $(majorminor).$(BUILD_DAYS).{build}
 
 #---------------------------------#
 #       build configuration       #
