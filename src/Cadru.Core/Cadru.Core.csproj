@@ -78,6 +78,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Collections\QueryStringParametersDictionary.cs" />
+    <Compile Include="Collections\ReverseComparisonComparer%28T%29.cs" />
     <Compile Include="Comb.cs" />
     <Compile Include="Contracts\Assumes.cs" />
     <Compile Include="Contracts\AssumptionException.cs" />
