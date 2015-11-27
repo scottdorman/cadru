@@ -23,7 +23,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         {
             Assert.IsFalse(typeof(string).HasInterface<IDisposable>());
             Assert.IsTrue(typeof(StringComparer).HasInterface<IComparer>());
-            Assert.IsTrue(typeof(StringComparer).HasInterface<EqualityComparer<string>>());
+            Assert.IsTrue(typeof(StringComparer).HasInterface<IEqualityComparer<string>>());
         }
     }
 }
