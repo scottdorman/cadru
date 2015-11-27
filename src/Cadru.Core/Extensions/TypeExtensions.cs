@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="TypeExtensions.cs" 
-//  company="Scott Dorman" 
+// <copyright file="TypeExtensions.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -22,7 +22,11 @@
 
 namespace Cadru.Extensions
 {
+    using Contracts;
+    using Properties;
     using System;
+    using System.Linq;
+    using System.Reflection;
 
     /// <summary>
     /// Provides basic routines for common type manipulation.
@@ -42,6 +46,34 @@ namespace Cadru.Extensions
         #endregion
 
         #region methods
+
+        #region HasInterface
+        /// <summary>
+        /// Determines whether the specified type implements an interface
+        /// </summary>
+        /// <typeparam name="TInterface">The interface for which the type will be tested.</typeparam>
+        /// <param name="type">The type to test.</param>
+        /// <returns><see langword="true"/> if the specified type implements the interface;
+        /// otherwise, <see langword="false"/>.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
+        public static bool HasInterface<TInterface>(this Type type)
+        {
+            Requires.NotNull(type, nameof(type));
+
+            var result = false;
+            var interfaceType = typeof(TInterface);
+            try
+            {
+                result = type.GetInterfaces().SingleOrDefault(t => t == interfaceType) != null;
+            }
+            catch (InvalidOperationException)
+            {
+                throw new AmbiguousMatchException(Resources.Arg_AmbiguousMatchException);
+            }
+
+            return result;
+        }
+        #endregion
 
         #region IsNullable
         /// <summary>
