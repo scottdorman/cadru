@@ -396,4 +396,10 @@
   <data name="ArgumentOutOfRange_UpperBound" xml:space="preserve">
     <value>The upper bound must be greater than the lower bound.</value>
   </data>
+  <data name="InvalidOperation_LocalizationFailed" xml:space="preserve">
+    <value>Cannot retrieve property "{0}" because localization failed.  Type "{1}" is not public or does not contain a public static string property with the name "{2}".</value>
+  </data>
+  <data name="Arg_AmbiguousMatchException" xml:space="preserve">
+    <value>Ambiguous match found.</value>
+  </data>
 </root>

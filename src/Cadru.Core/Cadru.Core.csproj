@@ -70,6 +70,7 @@
       <Link>SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="Collections\ComparisonComparer{T}.cs" />
+    <Compile Include="Collections\Equality%28T%29.cs" />
     <Compile Include="Collections\NameValuePair.cs" />
     <Compile Include="Collections\DateComparer.cs">
       <SubType>Code</SubType>
@@ -105,6 +106,7 @@
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Globalization\CountryCode.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Globalization\LocalizableString.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Comb+CombParser.cs" />
     <Compile Include="IDisposablePattern.cs" />

@@ -70,6 +70,15 @@ namespace Cadru.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ambiguous match found..
+        /// </summary>
+        internal static string Arg_AmbiguousMatchException {
+            get {
+                return ResourceManager.GetString("Arg_AmbiguousMatchException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Byte array for GUID must be exactly {0} bytes long..
         /// </summary>
         internal static string Arg_GuidArrayCtor {
@@ -678,6 +687,15 @@ namespace Cadru.Properties {
         internal static string InvalidCast_FromTo {
             get {
                 return ResourceManager.GetString("InvalidCast_FromTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot retrieve property &quot;{0}&quot; because localization failed.  Type &quot;{1}&quot; is not public or does not contain a public static string property with the name &quot;{2}&quot;..
+        /// </summary>
+        internal static string InvalidOperation_LocalizationFailed {
+            get {
+                return ResourceManager.GetString("InvalidOperation_LocalizationFailed", resourceCulture);
             }
         }
         
