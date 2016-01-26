@@ -9,7 +9,7 @@
 
 #environment variables
 environment:
-   majorminor: 2.0
+   majorminor: 3.0
 
 # version format
 version: $(majorminor).{build}
