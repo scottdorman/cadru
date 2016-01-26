@@ -88,7 +88,7 @@ namespace Cadru.Data.Dapper
             var type = typeof(T);
             foreach (var propertyInfo in type.GetProperties())
             {
-                if (Properties.Any(p => p.Name.Equals(propertyInfo.Name, StringComparison.OrdinalIgnoreCase)))
+                if (Properties.Any(p => p.PropertyName.Equals(propertyInfo.Name, StringComparison.OrdinalIgnoreCase)))
                 {
                     continue;
                 }

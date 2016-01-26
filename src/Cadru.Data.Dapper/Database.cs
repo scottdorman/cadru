@@ -31,6 +31,7 @@ namespace Cadru.Data.Dapper
     using System.Data.Common;
     using System.Linq;
     using System.Reflection;
+    using Cadru.Extensions;
 
     public abstract partial class Database : IDatabase
     {
@@ -40,6 +41,8 @@ namespace Cadru.Data.Dapper
         DbTransaction transaction;
 
         public static ConcurrentDictionary<Type, ITableMap> Mappings => mappings;
+
+        public DbTransaction Transaction => this.transaction;
 
         public DbConnection Connection => this.connection;
 
@@ -139,10 +142,10 @@ namespace Cadru.Data.Dapper
             this.commandTimeout = commandTimeout;
         }
 
-        protected void InitializeTableProperties(Type tableType)
+        protected void InitializeTableProperties()
         {
             var setters = GetType().GetProperties()
-                .Where(p => p.PropertyType.IsGenericType && p.PropertyType.GetGenericTypeDefinition() == tableType)
+                .Where(p => p.PropertyType.HasInterface<ITable>())
                 .Select(p => Tuple.Create(
                         p.GetSetMethod(true),
                         p.PropertyType
@@ -166,7 +169,7 @@ namespace Cadru.Data.Dapper
         {
             var db = new TDatabase();
             db.InitializeDatabase(connection, commandTimeout);
-            db.InitializeTableProperties(typeof(Table<>));
+            db.InitializeTableProperties();
             return db;
         }
     }

@@ -27,10 +27,37 @@ namespace Cadru.Data.Dapper
 
     public interface IPropertyMap
     {
+        bool IsExportable { get; }
+
+        /// <summary>
+        /// Gets a value that can be used to display a description in the UI.
+        /// </summary>
+        string Description { get; }
+
+        /// <summary>
+        /// Gets a value that can be used to set the watermark for prompts in the UI.
+        /// </summary>
+        string Prompt { get; }
+
+        /// <summary>
+        /// Gets a value that can be used for the grid column label.
+        /// </summary>
+        string Caption { get; }
+
+        /// <summary>
+        /// Gets the order weight of the column.
+        /// </summary>
+        int? Order { get; }
+
         /// <summary>
         /// Gets the column name for the current property.
         /// </summary>
         string ColumnName { get; }
+
+        /// <summary>
+        /// Gets a value that is used for field display in the UI.
+        /// </summary>
+        string Name { get; }
 
         /// <summary>
         /// Gets the ignore status of the current property. If ignored, the current property will not be included in queries.
@@ -52,7 +79,7 @@ namespace Cadru.Data.Dapper
         /// <summary>
         /// Gets the name of the property by using the specified <see cref="PropertyInfo"/>.
         /// </summary>
-        string Name { get; }
+        string PropertyName { get; }
 
         /// <summary>
         /// Gets the <see cref="System.Reflection.PropertyInfo"/> for the current property.

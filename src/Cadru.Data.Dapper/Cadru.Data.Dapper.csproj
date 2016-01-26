@@ -38,7 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cadru.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cadru.Core.1.0.5750.94\lib\portable-net40+sl50+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10\Cadru.Core.dll</HintPath>
+      <HintPath>..\packages\Cadru.Core.2.0.5809.109\lib\portable-net40+sl50+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10\Cadru.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -72,6 +72,7 @@
       <Link>SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="ExportableAttribute.cs" />
     <Compile Include="IDatabase.cs" />
     <Compile Include="Internal\TypeHelpers.cs" />
     <Compile Include="IPropertyMap.cs" />
@@ -106,7 +107,6 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\StyleCop\v4.7\StyleCop.targets" Condition="Exists('$(MSBuildExtensionsPath32)\StyleCop\v4.7\StyleCop.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

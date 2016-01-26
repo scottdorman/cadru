@@ -39,15 +39,61 @@ namespace Cadru.Data.Dapper
         public PropertyMap(PropertyInfo propertyInfo)
         {
             this.PropertyInfo = propertyInfo;
-            this.Ignored = propertyInfo.GetCustomAttribute<NotMappedAttribute>() != null;
-            this.IsKey = propertyInfo.GetCustomAttribute<KeyAttribute>() != null;
 
-            var columnAttribute = propertyInfo.GetCustomAttribute<ColumnAttribute>();
+            var attributes = propertyInfo.GetCustomAttributes();
+
+            this.Ignored = attributes.OfType<NotMappedAttribute>().SingleOrDefault() != null;
+            this.IsKey = attributes.OfType<KeyAttribute>().SingleOrDefault() != null;
+
+            var columnAttribute = attributes.OfType<ColumnAttribute>().SingleOrDefault();
             this.ColumnName = columnAttribute?.Name ?? PropertyInfo.Name;
 
-            var databaseGeneratedAttribute = propertyInfo.GetCustomAttribute<DatabaseGeneratedAttribute>();
+            var databaseGeneratedAttribute = attributes.OfType<DatabaseGeneratedAttribute>().SingleOrDefault();
             this.DatabaseGeneratedOption = databaseGeneratedAttribute?.DatabaseGeneratedOption ?? DatabaseGeneratedOption.None;
+
+            var displayAttribute = attributes.OfType<DisplayAttribute>().SingleOrDefault();
+            if (displayAttribute != null)
+            {
+                this.Name = displayAttribute.GetName();
+                this.Caption = displayAttribute.GetShortName();
+                this.Prompt = displayAttribute.GetPrompt();
+                this.Description = displayAttribute.GetDescription();
+                this.Order = displayAttribute.GetOrder();
+            }
+
+            var editableAttribute = attributes.OfType<EditableAttribute>().SingleOrDefault();
+            this.IsReadOnly = (!editableAttribute?.AllowEdit) ?? false;
+
+            var exportAttribute = attributes.OfType<ExportableAttribute>().SingleOrDefault();
+            this.IsExportable = exportAttribute?.AllowExport ?? true;
         }
+
+        public bool IsExportable { get; private set; }
+
+        /// <summary>
+        /// Gets a value that can be used to display a description in the UI.
+        /// </summary>
+        public string Description { get; private set; }
+
+        /// <summary>
+        /// Gets a value that can be used to set the watermark for prompts in the UI.
+        /// </summary>
+        public string Prompt { get; private set; }
+
+        /// <summary>
+        /// Gets a value that can be used for the grid column label.
+        /// </summary>
+        public string Caption { get; private set; }
+
+        /// <summary>
+        /// Gets a value that is used for field display in the UI.
+        /// </summary>
+        public string Name { get; private set; }
+
+        /// <summary>
+        /// Gets the order weight of the column.
+        /// </summary>
+        public int? Order { get; private set; }
 
         /// <summary>
         /// Gets the column name for the current property.
@@ -64,7 +110,7 @@ namespace Cadru.Data.Dapper
         /// <summary>
         /// Gets the read-only status of the current property. If read-only, the current property will not be included in INSERT and UPDATE queries.
         /// </summary>
-        public bool IsReadOnly { get; internal set; }
+        public bool IsReadOnly { get; private set; }
 
         public bool IsUpdatable { get { return !(this.Ignored || this.IsReadOnly || this.DatabaseGeneratedOption != DatabaseGeneratedOption.None); } }
 
@@ -73,7 +119,7 @@ namespace Cadru.Data.Dapper
         /// <summary>
         /// Gets the name of the property by using the specified propertyInfo.
         /// </summary>
-        public string Name
+        public string PropertyName
         {
             get { return PropertyInfo.Name; }
         }

@@ -36,8 +36,9 @@ namespace Cadru.Data.Dapper
 
     public partial class Table<TEntity> : ITable where TEntity : class
     {
-        internal Database database;
-        internal ITableMap tableMap;
+        private Database database;
+        private ITableMap tableMap;
+        private Type underlyingType = typeof(TEntity);
         static ConcurrentDictionary<Type, List<string>> paramNameCache = new ConcurrentDictionary<Type, List<string>>();
 
         public Table(Database database)
@@ -46,9 +47,11 @@ namespace Cadru.Data.Dapper
             this.tableMap = database.MapTable<TEntity>();
         }
 
-        public string Schema => tableMap.SchemaName;
+        public string Schema => this.tableMap.SchemaName;
 
-        public string TableName => tableMap.TableName;
+        public string TableName => this.tableMap.TableName;
+
+        protected Database Database => this.database;
 
         internal IList<string> GetParamNames(object o)
         {
@@ -58,7 +61,7 @@ namespace Cadru.Data.Dapper
                 paramNames = new List<string>();
                 foreach (var prop in o.GetType().GetRuntimeProperties())
                 {
-                    var mappedProperty = this.tableMap.Properties.SingleOrDefault(p => p.Name == prop.Name);
+                    var mappedProperty = this.tableMap.Properties.SingleOrDefault(p => p.PropertyName == prop.Name);
                     if (mappedProperty != null)
                     {
                         if (mappedProperty.IsUpdatable)
@@ -81,7 +84,7 @@ namespace Cadru.Data.Dapper
         /// <returns></returns>
         public virtual void Insert(dynamic data)
         {
-            List<string> paramNames = GetParamNames(data);
+            IList<string> paramNames = GetParamNames(data);
             var parameters = new DynamicParameters(data);
 
             var cols = string.Join(",", paramNames);
@@ -91,15 +94,37 @@ namespace Cadru.Data.Dapper
             database.Query<int?>(sql, parameters);
         }
 
+        public virtual void Insert(TEntity data)
+        {
+            IList<string> paramNames = GetParamNames(data);
+            var parameters = new DynamicParameters(data);
+            var cols = string.Join(",", paramNames);
+            var cols_params = string.Join(",", paramNames.Select(p => $"@{p}"));
+            var sql = $"set nocount on insert {TableName} ({cols}) values ({cols_params})";
+            database.Query<int?>(sql, parameters);
+        }
+
+        public virtual int Update(TEntity data, IPredicate predicate)
+        {
+            IList<string> paramNames = this.GetParamNames(data);
+            var parameters = new DynamicParameters(data);
+
+            var builder = new StringBuilder();
+            builder.Append($"update {TableName} set ");
+            builder.AppendLine(string.Join(", ", paramNames.Select(p => $"{p} = @{p}")));
+            AppendWhere(builder, predicate, parameters);
+            return database.Execute(builder.ToString(), parameters);
+        }
+
         /// <summary>
         /// Update a record in the DB
         /// </summary>
         /// <param name="data"></param>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        public int Update(dynamic data, IPredicate predicate)
+        public virtual int Update(dynamic data, IPredicate predicate)
         {
-            List<string> paramNames = this.GetParamNames(data);
+            IList<string> paramNames = this.GetParamNames(data);
             var parameters = new DynamicParameters(data);
 
             var builder = new StringBuilder();
@@ -120,7 +145,7 @@ namespace Cadru.Data.Dapper
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        public int Delete(IPredicate predicate)
+        public virtual int Delete(IPredicate predicate)
         {
             Requires.NotNull(predicate, "predicate");
             var parameters = new DynamicParameters();
@@ -132,7 +157,7 @@ namespace Cadru.Data.Dapper
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        public TEntity Get(IPredicate predicate)
+        public virtual TEntity Get(IPredicate predicate)
         {
             Requires.NotNull(predicate, "predicate");
             var parameters = new DynamicParameters();
@@ -164,7 +189,7 @@ namespace Cadru.Data.Dapper
         /// Gets all of the records.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<TEntity> All()
+        public virtual IEnumerable<TEntity> All()
         {
             return database.Query<TEntity>($"select * from {TableName}");
         }
@@ -174,7 +199,7 @@ namespace Cadru.Data.Dapper
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        public IEnumerable<TEntity> All(IPredicate predicate)
+        public virtual IEnumerable<TEntity> All(IPredicate predicate)
         {
             Requires.NotNull(predicate, "predicate");
             var parameters = new DynamicParameters();

@@ -44,16 +44,16 @@ namespace Cadru.Data.Dapper.Predicates.Internal
             ITableMap tableMap;
             if (Database.Mappings.TryGetValue(typeof(T), out tableMap))
             {
-                var propertyMap = tableMap.Properties.SingleOrDefault(p => p.Name == propertyName);
+                var propertyMap = tableMap.Properties.SingleOrDefault(p => p.PropertyName == propertyName);
                 if (propertyMap == null)
                 {
                     throw new NullReferenceException($"{propertyName} was not found for {typeof(T)}");
                 }
 
                 string columnAlias = null;
-                if (propertyMap.ColumnName != propertyMap.Name && alias)
+                if (propertyMap.ColumnName != propertyMap.PropertyName && alias)
                 {
-                    columnAlias = propertyMap.Name;
+                    columnAlias = propertyMap.PropertyName;
                 }
 
                 columnName = GetColumnName(GetTableName(tableMap.SchemaName, tableMap.TableName, null), propertyMap.ColumnName, columnAlias);
