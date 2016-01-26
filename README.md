@@ -63,5 +63,5 @@ For transparency and to maintain backward compatibility (as much as possible), C
 * [Scott Dorman](http://about.me/scottdorman) ([@sdorman](http://twitter.com/sdorman)) - for the initial conception of the toolkit and core contributor.
 
 ## Copyright and license
-Code and documentation copyright 2001-2014 Scott Dorman. Code is licensed under the [Microsoft Public License](http://opensource.org/licenses/Ms-PL.html), use it as you wish (but please 
+Code and documentation copyright 2001-2016 Scott Dorman. Code is licensed under the [Microsoft Public License](http://opensource.org/licenses/Ms-PL.html), use it as you wish (but please 
 provide some credit somewhere in your app.) Documentation is released under [Creative Commons](https://github.com/scottdorman/cadru/blob/master/docs/LICENSE).
