@@ -2,7 +2,7 @@
 // <copyright file="Database.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2015 Scott Dorman.
+//    Copyright (C) 2001-2016 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -48,9 +48,25 @@ namespace Cadru.Data.Dapper
 
         public bool HasActiveTransaction => this.transaction != null;
 
+        /// <summary>
+        /// Starts a database transaction.
+        /// </summary>
+        /// <param name="ensureOpenConnection"></param>
+        /// <param name="isolation">Specifies the isolation level for the transaction.</param>
+        /// <remarks>If you do not specify an isolation level, the isolation level for <see cref="IsolationLevel.ReadCommitted"/> is used.</remarks>
+        public void BeginTransaction(bool ensureOpenConnection, IsolationLevel isolation = IsolationLevel.ReadCommitted)
+        {
+            if (this.connection.State != ConnectionState.Open && ensureOpenConnection)
+            {
+                this.connection.Open();
+            }
+
+            this.transaction = connection.BeginTransaction(isolation);
+        }
+
         public void BeginTransaction(IsolationLevel isolation = IsolationLevel.ReadCommitted)
         {
-            transaction = connection.BeginTransaction(isolation);
+            BeginTransaction(false, isolation);
         }
 
         public void CommitTransaction()

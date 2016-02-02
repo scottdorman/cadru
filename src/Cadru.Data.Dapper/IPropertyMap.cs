@@ -68,6 +68,10 @@ namespace Cadru.Data.Dapper
 
         bool IsKey { get; }
 
+        bool AllowEmptyStrings { get; }
+
+        bool IsRequired { get; }
+
         /// <summary>
         /// Gets the read-only status of the current property.
         /// If read-only, the current property will not be included in INSERT and UPDATE queries.

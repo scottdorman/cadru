@@ -44,6 +44,12 @@ namespace Cadru.Data.Dapper
 
             this.Ignored = attributes.OfType<NotMappedAttribute>().SingleOrDefault() != null;
             this.IsKey = attributes.OfType<KeyAttribute>().SingleOrDefault() != null;
+            var requiredAttribute = attributes.OfType<RequiredAttribute>().SingleOrDefault();
+            if (requiredAttribute != null)
+            {
+                this.IsRequired = true;
+                this.AllowEmptyStrings = requiredAttribute.AllowEmptyStrings;
+            }
 
             var columnAttribute = attributes.OfType<ColumnAttribute>().SingleOrDefault();
             this.ColumnName = columnAttribute?.Name ?? PropertyInfo.Name;
@@ -107,6 +113,10 @@ namespace Cadru.Data.Dapper
 
         public DatabaseGeneratedOption DatabaseGeneratedOption { get; private set; }
 
+        public bool AllowEmptyStrings { get; private set; }
+
+        public bool IsRequired { get; private set; }
+
         /// <summary>
         /// Gets the read-only status of the current property. If read-only, the current property will not be included in INSERT and UPDATE queries.
         /// </summary>
@@ -128,6 +138,5 @@ namespace Cadru.Data.Dapper
         /// Gets the property info for the current property.
         /// </summary>
         public PropertyInfo PropertyInfo { get; private set; }
-
     }
 }
