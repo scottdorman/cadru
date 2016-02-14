@@ -65,23 +65,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cadru.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\src\packages\Cadru.Contracts.4.0.0-beta-26\lib\net45\Cadru.Contracts.dll</HintPath>
+      <HintPath>..\..\src\packages\Cadru.Contracts.4.0.0-beta-27\lib\net45\Cadru.Contracts.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Cadru.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\src\packages\Cadru.Core.4.0.0-beta-26\lib\net45\Cadru.Core.dll</HintPath>
+      <HintPath>..\..\src\packages\Cadru.Core.4.0.0-beta-27\lib\net45\Cadru.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Cadru.Introspection, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\src\packages\Cadru.Introspection.4.0.0-beta-26\lib\net45\Cadru.Introspection.dll</HintPath>
+      <HintPath>..\..\src\packages\Cadru.Introspection.4.0.0-beta-27\lib\net45\Cadru.Introspection.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Cadru.Net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\src\packages\Cadru.Net.4.0.0-beta-26\lib\net45\Cadru.Net.dll</HintPath>
+      <HintPath>..\..\src\packages\Cadru.Net.4.0.0-beta-27\lib\net45\Cadru.Net.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Cadru.TransientFaultHandling, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\src\packages\Cadru.TransientFaultHandling.4.0.0-beta-26\lib\net45\Cadru.TransientFaultHandling.dll</HintPath>
+      <HintPath>..\..\src\packages\Cadru.TransientFaultHandling.4.0.0-beta-27\lib\net45\Cadru.TransientFaultHandling.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -214,6 +214,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.es-ES.resx">
