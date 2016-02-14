@@ -64,9 +64,46 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Cadru.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\src\packages\Cadru.Contracts.4.0.0-beta-26\lib\net45\Cadru.Contracts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Cadru.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\src\packages\Cadru.Core.4.0.0-beta-26\lib\net45\Cadru.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Cadru.Introspection, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\src\packages\Cadru.Introspection.4.0.0-beta-26\lib\net45\Cadru.Introspection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Cadru.Net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\src\packages\Cadru.Net.4.0.0-beta-26\lib\net45\Cadru.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Cadru.TransientFaultHandling, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\src\packages\Cadru.TransientFaultHandling.4.0.0-beta-26\lib\net45\Cadru.TransientFaultHandling.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\src\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\src\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\src\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Mono.Security">
       <HintPath>..\..\src\packages\Mono.Security.3.2.3.0\lib\net45\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\src\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PCLCrypto">
       <HintPath>..\..\src\packages\PCLCrypto.0.5.1.14165\lib\net40-Client\PCLCrypto.dll</HintPath>
@@ -76,6 +113,19 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Linq" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\src\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\src\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="Validation">
@@ -92,6 +142,7 @@
     <Compile Include="Collections\RangeExtensionTests.cs" />
     <Compile Include="Collections\RangeTests.cs" />
     <Compile Include="Collections\ReverseComparisonComparerTests.cs" />
+    <Compile Include="CombTests.cs" />
     <Compile Include="Contracts\RequiresTests.cs" />
     <Compile Include="Contracts\AssumesTests.cs" />
     <Compile Include="EventArgsTests.cs" />
@@ -110,7 +161,6 @@
     <Compile Include="Net\Http\UrlBuilderTests.cs" />
     <Compile Include="Net\Http\UriSchemeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CombTests.cs" />
     <Compile Include="Properties\Resources.es-ES.Designer.cs">
       <DependentUpon>Resources.es-ES.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -124,6 +174,7 @@
     <Compile Include="Text\DataValidationTests.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="UnitTest1.cs" />
     <Compile Include="WeakReferenceTests.cs" />
     <Compile Include="UnixTimestampTests.cs" />
   </ItemGroup>
@@ -138,16 +189,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\Cadru.Core\Cadru.Core.csproj">
-      <Project>{8a851d1e-9bd8-4caf-a341-0eccac69e53f}</Project>
-      <Name>Cadru.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\src\Cadru.UnitTest.Framework\Cadru.UnitTest.Framework.csproj">
-      <Project>{233e823a-1925-44d0-a00b-c0b7bd40a306}</Project>
-      <Name>Cadru.UnitTest.Framework</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
@@ -184,7 +225,18 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Cadru.UnitTest.Framework\Cadru.UnitTest.Framework.csproj">
+      <Project>{233e823a-1925-44d0-a00b-c0b7bd40a306}</Project>
+      <Name>Cadru.UnitTest.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\src\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\src\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\src\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\src\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

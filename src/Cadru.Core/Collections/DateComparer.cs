@@ -29,7 +29,7 @@ namespace Cadru.Collections
     using System.Threading;
     using Cadru.Extensions;
     using Cadru.Internal;
-    using Cadru.Properties;
+ 
 
     /// <summary>
     /// Compares two dates or string date representations for equivalence,
@@ -301,12 +301,12 @@ namespace Cadru.Collections
 
             if (!DateTime.TryParse(x, this.cultureInfo, DateTimeStyles.None, out t1))
             {
-                throw ExceptionBuilder.CreateFormatException(Resources.Format_BadDateTime);
+                throw ExceptionBuilder.CreateFormatException(Core.Resources.Strings.Format_BadDateTime);
             }
 
             if (!DateTime.TryParse(y, this.cultureInfo, DateTimeStyles.None, out t2))
             {
-                throw ExceptionBuilder.CreateFormatException(Resources.Format_BadDateTime);
+                throw ExceptionBuilder.CreateFormatException(Core.Resources.Strings.Format_BadDateTime);
             }
 
             return this.Compare(t1, t2);

@@ -25,7 +25,7 @@ namespace Cadru
     using System;
 
     /// <summary>
-    /// Defines an extended method to release allocated resources.
+    /// Defines an extended method to release allocated Core.Resources.Strings.
     /// </summary>
     public interface IDisposablePattern : IDisposable
     {

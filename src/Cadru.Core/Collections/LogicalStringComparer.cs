@@ -29,21 +29,21 @@ namespace Cadru.Collections
     using System.Threading;
     using Cadru.Extensions;
     using Cadru.Internal;
-    using Cadru.Properties;
+
 
     /// <summary>
     /// Compares two strings for equivalence, ignoring case, in natural numeric order.
     /// </summary>
     /// <remarks>
-    /// <para>Windows implements natural numeric sorting inside the 
+    /// <para>Windows implements natural numeric sorting inside the
     /// <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb759947(v=vs.85).aspx">StrCmpLogicalW</see>
     /// function in <seealso href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb759844(v=vs.85).aspx">Shell Lightweight Utility Functions</seealso>.
     /// This function is available on Windows XP or higher.</para>
-    /// <para>This implementation is not 100% compatible with 
-    /// <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb759947(v=vs.85).aspx">StrCmpLogicalW</see>. 
+    /// <para>This implementation is not 100% compatible with
+    /// <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb759947(v=vs.85).aspx">StrCmpLogicalW</see>.
     /// It gives the same results for the numeric sort, with the exception of strings containing non-alphanumeric ASCII
     /// characters. The code relies on the current locale to find the order of the characters.</para>
-    /// <para>The code here will order files that start with special characters based on the code table order. 
+    /// <para>The code here will order files that start with special characters based on the code table order.
     /// Windows Explorer uses another order.</para>
     /// <para><example>Windows Explorer: (1.txt, [1.txt, _1.txt, =1.txt</example></para>
     /// <para><example>this code: (1.txt, =1.txt, [1.txt, _1.txt</example></para>
@@ -320,9 +320,10 @@ namespace Cadru.Collections
 
                             if (letter1 && letter2)
                             {
-                                c1 = Char.ToUpper(c1, this.cultureInfo);
-                                c2 = Char.ToUpper(c2, this.cultureInfo);
-
+                                //c1 = Char.ToUpper(c1, this.cultureInfo);
+                                //c2 = Char.ToUpper(c2, this.cultureInfo);
+                                c1 = Char.ToUpper(c1);
+                                c2 = Char.ToUpper(c2);
                                 r = c1 - c2;
                                 if (0 != r)
                                 {
@@ -422,7 +423,7 @@ namespace Cadru.Collections
 
             if (s1.IsNull())
             {
-                throw ExceptionBuilder.CreateArgumentException("obj", Resources.Argument_MustBeString);
+                throw ExceptionBuilder.CreateArgumentException("obj", Core.Resources.Strings.Argument_MustBeString);
             }
             else
             {

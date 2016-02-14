@@ -1,0 +1,100 @@
+﻿{
+  "version": "4.0.0-beta-27",
+  "summary": "Provides extensions for enabling introspection (reflection) on types in a way that's agnostic to the target framework.",
+  "description": "Provides extensions for enabling introspection (reflection) on types in a way that's agnostic to the target framework. This is particularly useful when targeting multiple frameworks/platforms from a single project.",
+  "authors": [ "Scott Dorman" ],
+  "owners": [ "scottdorman" ],
+  "requireLicenseAcceptance": false,
+  "copyright": "Copyright © Scott Dorman",
+  "licenseUrl": "http://opensource.org/licenses/Ms-PL.html",
+  "projectUrl": "https://github.com/scottdorman/cadru",
+  "tags": [ "cadru", "PCL", "universal", "utility", "reflection", "introspection" ],
+  "compile": [ "../shared/**/*.cs" ],
+  "frameworks": {
+    ".NETPortable,Version=v4.0,Profile=Profile328": {
+      "compilationOptions": {
+        "define": [ "PCL" ]
+      },
+      "frameworkAssemblies": {
+        "mscorlib": { },
+        "System": { },
+        "System.Core": { }
+      },
+      "dependencies": {
+      }
+    },
+    "sl50": {
+      "frameworkAssemblies": {
+        "mscorlib": { },
+        "System": { },
+        "System.Core": { }
+      }
+    },
+    "wpa81": {
+      "compilationOptions": {
+        "define": [ "WP", "INTROSPECTIONSHIM" ]
+      },
+      "frameworkAssemblies": {
+        "mscorlib": "4.0.0.0",
+        "System": "4.0.0.0",
+        "System.Core": "4.0.0.0",
+        "System.Reflection": "4.0.0.0",
+        "System.Reflection.Extensions": "4.0.0.0",
+        "System.Runtime": "4.0.10.0",
+        "System.Linq": "4.0.0.0",
+        "System.Resources.ResourceManager": "4.0.0.0"
+      },
+      "dependencies": {
+        "System.Runtime.InteropServices": "4.0.21-beta-23516"
+      }
+    },
+    "wp80": {
+      "compilationOptions": {
+        "define": [ "WP", "INTROSPECTIONSHIM" ]
+      },
+      "frameworkAssemblies": {
+        "mscorlib": "2.0.5.0",
+        "System": "2.0.5.0",
+        "System.Core": "2.0.5.0",
+        "System.Reflection": "4.0.0.0",
+        "System.Reflection.Extensions": "4.0.0.0",
+        "System.Resources.ResourceManager": "4.0.0.0"
+      }
+    },
+    "net40": {
+    },
+    "net45": {
+      "compilationOptions": {
+        "define": [ "INTROSPECTIONSHIM" ]
+      }
+    },
+    "dotnet5.1": {
+      "compilationOptions": {
+        "define": [ "DOTNET", "INTROSPECTIONSHIM" ]
+      },
+      "frameworkAssemblies": {
+      },
+      "dependencies": {
+        "System.Runtime": "4.0.21-beta-23516",
+        "System.Reflection": "4.1.0-beta-23516",
+        "System.Linq": "4.0.1-beta-23516",
+        "System.Runtime.InteropServices": "4.0.0",
+        "System.Resources.ResourceManager": "4.0.1-beta-23516"
+      }
+    },
+    "dnxcore50": {
+      "compilationOptions": {
+        "define": [ "NETCORE", "DNX", "INTROSPECTIONSHIM" ]
+      },
+      "frameworkAssemblies": {
+      },
+      "dependencies": {
+        "System.Runtime": "4.0.21-beta-23516",
+        "System.Reflection": "4.1.0-beta-23516",
+        "System.Linq": "4.0.1-beta-23516",
+        "System.Runtime.InteropServices": "4.0.21-beta-23516",
+        "System.Resources.ResourceManager": "4.0.1-beta-23516"
+      }
+    }
+  }
+}

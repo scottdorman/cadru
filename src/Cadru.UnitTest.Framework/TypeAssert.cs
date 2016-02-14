@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="TypeAssert.cs" 
-//  company="Scott Dorman" 
+// <copyright file="TypeAssert.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ namespace Cadru.UnitTest.Framework
 {
     using System;
     using Cadru.Contracts;
-    using Cadru.Extensions;
+    //using Cadru.Extensions;
     using Cadru.UnitTest.Framework.Properties;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -182,7 +182,7 @@ namespace Cadru.UnitTest.Framework
             Type actualType = value.GetType();
             if (actualType != expectedType)
             {
-                if (message.IsNullOrWhiteSpace())
+                if (!String.IsNullOrWhiteSpace(message))
                 {
                     Assert.Fail(Resources.Assertion_WrongType, expectedType, actualType);
                 }

@@ -27,7 +27,7 @@ namespace Cadru.Extensions
     using System.Collections.Generic;
     using System.Linq;
     using Cadru.Internal;
-    using Cadru.Properties;
+ 
     using System.Collections.ObjectModel;
 
 
@@ -246,7 +246,7 @@ namespace Cadru.Extensions
         public static IEnumerable<IEnumerable<T>> Partition<T>(this IEnumerable<T> source, int size)
         {
             Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.ValidRange(size < 0, "size", Resources.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(size < 0, "size", Core.Resources.Strings.ArgumentOutOfRange_IndexLessThanZero);
 
             T[] array = null;
             int count = 0;
@@ -288,9 +288,9 @@ namespace Cadru.Extensions
         public static IEnumerable<T> Slice<T>(this IEnumerable<T> source, int startIndex, int endIndex)
         {
             Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.ValidRange(startIndex > endIndex, "startIndex", Resources.Argument_StartIndexGreaterThanEndIndex);
-            Contracts.Requires.ValidRange(startIndex < 0, "startIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            Contracts.Requires.ValidRange(endIndex < 0, "endIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(startIndex > endIndex, "startIndex", Core.Resources.Strings.Argument_StartIndexGreaterThanEndIndex);
+            Contracts.Requires.ValidRange(startIndex < 0, "startIndex", Core.Resources.Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(endIndex < 0, "endIndex", Core.Resources.Strings.ArgumentOutOfRange_IndexLessThanZero);
 
             var index = 0;
             foreach (var item in source)

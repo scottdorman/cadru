@@ -27,14 +27,14 @@ namespace Cadru.Collections
     using Cadru.Contracts;
 
     /// <summary>
-    /// Represents a <see cref="Comparer{T}"/> which uses a 
+    /// Represents a <see cref="Comparer{T}"/> which uses a
     /// <see cref="Comparison{T}"/> as the basis for the comparison.
     /// </summary>
     /// <typeparam name="T">The type of the objects to compare.</typeparam>
     public class ComparisonComparer<T> : Comparer<T>
     {
         private readonly Comparison<T> comparison;
- 
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ComparisonComparer{T}"/>
         /// class.
@@ -52,7 +52,11 @@ namespace Cadru.Collections
         /// <returns>The new comparer.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="comparison"/> is <see langword="null"/>.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "The type must be generic but the Create method shouldn't be.")]
+#if !(NET40 || PCL || SL50)
+        public new static Comparer<T> Create(Comparison<T> comparison)
+#else
         public static Comparer<T> Create(Comparison<T> comparison)
+#endif
         {
             Requires.NotNull(comparison, "comparison");
 
@@ -61,7 +65,7 @@ namespace Cadru.Collections
 
         /// <summary>
         /// Performs a comparison of two objects of the same type and returns
-        /// a value indicating whether one object is less than, equal to, or 
+        /// a value indicating whether one object is less than, equal to, or
         /// greater than the other.
         /// </summary>
         /// <param name="x">The first object to compare.</param>
@@ -94,7 +98,7 @@ namespace Cadru.Collections
         /// </item>
         /// </list>
         /// </returns>
-        public override int Compare(T x, T y) 
+        public override int Compare(T x, T y)
         {
             return this.comparison(x, y);
         }

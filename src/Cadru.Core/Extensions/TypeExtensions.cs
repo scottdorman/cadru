@@ -23,10 +23,10 @@
 namespace Cadru.Extensions
 {
     using Contracts;
-    using Properties;
     using System;
     using System.Linq;
     using System.Reflection;
+    using Cadru.Introspection;
 
     /// <summary>
     /// Provides basic routines for common type manipulation.
@@ -68,7 +68,7 @@ namespace Cadru.Extensions
             }
             catch (InvalidOperationException)
             {
-                throw new AmbiguousMatchException(Resources.Arg_AmbiguousMatchException);
+                throw new AmbiguousMatchException(Core.Resources.Strings.Arg_AmbiguousMatchException);
             }
 
             return result;
@@ -88,7 +88,7 @@ namespace Cadru.Extensions
         {
             Contracts.Requires.NotNull(type, "type");
 
-            return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
+            return type.IsGenericType() && type.GetGenericTypeDefinition() == typeof(Nullable<>);
         }
         #endregion
 

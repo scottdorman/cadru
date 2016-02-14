@@ -1,0 +1,1 @@
+﻿To see the issues with `PCLCrypto`, try to add a dependency on `PCLCrypto v0.5.2.14286` to the PCL profile target and add a `PCLCrypto` compiler define.

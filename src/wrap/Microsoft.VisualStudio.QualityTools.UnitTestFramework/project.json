@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net40": {
+      "bin": {
+        "assembly": "../../lib/net40/Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll"
+      }
+    },
+    "dnxcore50": {
+      "bin": {
+        "assembly": "../../lib/dnxcore50/Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll"
+      }
+    }
+  }
+}

@@ -1,12 +1,13 @@
-﻿using Cadru.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-
-namespace Cadru
+﻿namespace Cadru
 {
+    using Cadru.Extensions;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Reflection;
+    using System.Text;
+    using Cadru.Introspection;
+
     /// <summary>
     /// Provides a class for working with enumerations.
     /// </summary>
@@ -76,7 +77,7 @@ namespace Cadru
             var type = value.GetType();
 
             var fieldValue = value.ToString();
-            var attribute = ((EnumDescriptionAttribute[])type.GetField(fieldValue)?.GetCustomAttributes(typeof(EnumDescriptionAttribute), false)).FirstOrDefault();
+            var attribute = ((EnumDescriptionAttribute[])type.GetDeclaredField(fieldValue)?.GetCustomAttributes(typeof(EnumDescriptionAttribute), false)).FirstOrDefault();
             return attribute?.Description ?? (useNameAsFallback ? fieldValue : null);
         }
         #endregion
@@ -111,8 +112,8 @@ namespace Cadru
         {
             var type = typeof(TEnum);
 
-            Contracts.Requires.IsTrue(type.IsEnum);
-            var fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
+            Contracts.Requires.IsTrue(type.IsEnum());
+            var fields = type.GetDeclaredFields();
             var descriptions = new string[fields.Length];
             for (int i = 0; i < fields.Length; i++)
             {

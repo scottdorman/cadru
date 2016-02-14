@@ -23,10 +23,11 @@
 namespace Cadru.Globalization
 {
     using Contracts;
-    using Cadru.Properties;
+
     using System;
     using System.Globalization;
     using System.Reflection;
+    using Cadru.Introspection;
 
     /// <summary>
     /// A helper class for providing a localizable string property.
@@ -114,7 +115,7 @@ namespace Cadru.Globalization
             bool badlyConfigured = false;
 
             // Make sure we found the property and it's the correct type, and that the type itself is public
-            if (!resourceType.IsVisible || property == null || property.PropertyType != typeof(string))
+            if (!resourceType.IsVisible() || property == null || property.PropertyType != typeof(string))
             {
                 badlyConfigured = true;
             }
@@ -167,11 +168,11 @@ namespace Cadru.Globalization
                 }
                 else
                 {
-                    PropertyInfo property = this.resourceType.GetProperty(this.propertyValue);
+                    PropertyInfo property = this.resourceType.GetDeclaredProperty(this.propertyValue);
 
                     if (IsBadlyConfigured(this.resourceType, property))
                     {
-                        string exceptionMessage = String.Format(CultureInfo.CurrentCulture, Resources.InvalidOperation_LocalizationFailed,
+                        string exceptionMessage = String.Format(CultureInfo.CurrentCulture, Core.Resources.Strings.InvalidOperation_LocalizationFailed,
                             this.propertyName, this.resourceType.FullName, this.propertyValue);
                         this.cachedResult = () => { throw new InvalidOperationException(exceptionMessage); };
                     }

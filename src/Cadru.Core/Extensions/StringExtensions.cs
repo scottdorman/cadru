@@ -27,7 +27,7 @@ namespace Cadru.Extensions
     using System.Globalization;
     using System.Text;
     using Cadru.Internal;
-    using Cadru.Properties;
+ 
     using Cadru.Text;
     using Contracts;
 
@@ -88,7 +88,7 @@ namespace Cadru.Extensions
 
             if ((int)options < 0 || ((int)options & (int)~(NormalizationOptions.ControlCharacters | NormalizationOptions.Whitespace)) != 0)
             {
-                throw ExceptionBuilder.CreateArgumentException("options", String.Format(CultureInfo.CurrentUICulture, Resources.Argument_EnumIllegalVal, (int)options));
+                throw ExceptionBuilder.CreateArgumentException("options", String.Format(CultureInfo.CurrentUICulture, Core.Resources.Strings.Argument_EnumIllegalVal, (int)options));
             }
 
             char[] normalized;
@@ -430,8 +430,8 @@ namespace Cadru.Extensions
         public static int IndexOfOccurrence(this string source, char value, int startIndex, int count, int occurrence)
         {
             Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.ValidRange(startIndex < 0, "startIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            Contracts.Requires.ValidRange(startIndex > source.Length, "startIndex", Resources.ArgumentOutOfRange_IndexLessThanLength);
+            Contracts.Requires.ValidRange(startIndex < 0, "startIndex", Core.Resources.Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(startIndex > source.Length, "startIndex", Core.Resources.Strings.ArgumentOutOfRange_IndexLessThanLength);
 
             int index = source.IndexOf(value, startIndex, count);
             if (index == -1)
@@ -531,8 +531,8 @@ namespace Cadru.Extensions
         public static int IndexOfOccurrence(this string source, string value, int startIndex, int count, int occurrence, StringComparison comparisonType)
         {
             Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.ValidRange(startIndex < 0, "startIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            Contracts.Requires.ValidRange(startIndex > source.Length, "startIndex", Resources.ArgumentOutOfRange_IndexLessThanLength);
+            Contracts.Requires.ValidRange(startIndex < 0, "startIndex", Core.Resources.Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(startIndex > source.Length, "startIndex", Core.Resources.Strings.ArgumentOutOfRange_IndexLessThanLength);
 
             int index = source.IndexOf(value, startIndex, count, comparisonType);
             if (index == -1)
@@ -662,8 +662,8 @@ namespace Cadru.Extensions
         public static string LeftSubstring(this string source, int endingIndex, bool inclusive)
         {
             Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.ValidRange(endingIndex <= 0, "endingIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            Contracts.Requires.ValidRange(endingIndex > source.Length, "endingIndex", Resources.ArgumentOutOfRange_IndexLessThanLength);
+            Contracts.Requires.ValidRange(endingIndex <= 0, "endingIndex", Core.Resources.Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(endingIndex > source.Length, "endingIndex", Core.Resources.Strings.ArgumentOutOfRange_IndexLessThanLength);
      
             if (inclusive)
             {
@@ -1267,12 +1267,12 @@ namespace Cadru.Extensions
         {
             Contracts.Requires.NotNull(source, "source");
             Contracts.Requires.NotNull(newValue, "newValue");
-            Contracts.Requires.ValidRange(start < 0, "start", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            Contracts.Requires.ValidRange(start > source.Length, "start", Resources.ArgumentOutOfRange_IndexLessThanLength);
-            Contracts.Requires.ValidRange(end < 0, "end", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            Contracts.Requires.ValidRange(end > source.Length, "end", Resources.ArgumentOutOfRange_IndexLessThanLength);
-            Contracts.Requires.ValidRange(start > end, "start", Resources.Argument_StartIndexGreaterThanEndIndexString);
-            Contracts.Requires.ValidRange(start == end, "start", Resources.Argument_InvalidIndexValuesString);
+            Contracts.Requires.ValidRange(start < 0, "start", Core.Resources.Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(start > source.Length, "start", Core.Resources.Strings.ArgumentOutOfRange_IndexLessThanLength);
+            Contracts.Requires.ValidRange(end < 0, "end", Core.Resources.Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(end > source.Length, "end", Core.Resources.Strings.ArgumentOutOfRange_IndexLessThanLength);
+            Contracts.Requires.ValidRange(start > end, "start", Core.Resources.Strings.Argument_StartIndexGreaterThanEndIndexString);
+            Contracts.Requires.ValidRange(start == end, "start", Core.Resources.Strings.Argument_InvalidIndexValuesString);
 
             string newString = source;
 
@@ -1507,8 +1507,8 @@ namespace Cadru.Extensions
         public static string RightSubstring(this string source, int endingIndex, bool inclusive)
         {
             Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.ValidRange(endingIndex <= 0, "endingIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            Contracts.Requires.ValidRange(endingIndex > source.Length, "endingIndex", Resources.ArgumentOutOfRange_IndexLessThanLength);
+            Contracts.Requires.ValidRange(endingIndex <= 0, "endingIndex", Core.Resources.Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(endingIndex > source.Length, "endingIndex", Core.Resources.Strings.ArgumentOutOfRange_IndexLessThanLength);
 
             if (inclusive)
             {

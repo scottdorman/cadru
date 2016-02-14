@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="EnumExtensions.cs" 
-//  company="Scott Dorman" 
+// <copyright file="EnumExtensions.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ namespace Cadru.Extensions
     using System;
     using System.Linq;
     using System.Reflection;
+    using Cadru.Introspection;
 
     /// <summary>
     /// Provides basic routines for common enumerated type manipulation.
@@ -73,7 +74,7 @@ namespace Cadru.Extensions
             Contracts.Requires.IsEnum(value, "value");
 
             var fieldValue = value.ToString();
-            var attribute = ((EnumDescriptionAttribute[])value.GetType().GetField(fieldValue)?.GetCustomAttributes(typeof(EnumDescriptionAttribute), false)).FirstOrDefault();
+            var attribute = ((EnumDescriptionAttribute[])value.GetType().GetDeclaredField(fieldValue).GetCustomAttributes(typeof(EnumDescriptionAttribute), false)).FirstOrDefault();
             return attribute?.Description ?? (useNameAsFallback ? fieldValue : null);
         }
         #endregion

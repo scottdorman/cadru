@@ -26,7 +26,7 @@ namespace Cadru.Extensions
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
-    using Cadru.Properties;
+ 
     using Cadru.Text;
     using Cadru.Internal;
 
@@ -671,33 +671,33 @@ namespace Cadru.Extensions
             switch (days)
             {
                 case 0:
-                    format = String.Format(CultureInfo.CurrentCulture, Resources.RelativeDateFormatStringToday, value);
+                    format = String.Format(CultureInfo.CurrentCulture, Core.Resources.Strings.RelativeDateFormatStringToday, value);
                     break;
 
                 case 1:
-                    format = Resources.RelativeDateFormatStringTomorrow;
+                    format = Core.Resources.Strings.RelativeDateFormatStringTomorrow;
                     break;
 
                 case -1:
-                    format = Resources.RelativeDateFormatStringYesterday;
+                    format = Core.Resources.Strings.RelativeDateFormatStringYesterday;
                     break;
 
                 case 2:
                 case 3:
                 case 4:
                 case 5:
-                    format = options == RelativeDateFormatting.DayNames ? value.ToString("dddd", CultureInfo.CurrentCulture) : String.Format(CultureInfo.CurrentCulture, Resources.RelativeDateFormatStringDaysFromNow, days);
+                    format = options == RelativeDateFormatting.DayNames ? value.ToString("dddd", CultureInfo.CurrentCulture) : String.Format(CultureInfo.CurrentCulture, Core.Resources.Strings.RelativeDateFormatStringDaysFromNow, days);
                     break;
 
                 case -2:
                 case -3:
                 case -4:
                 case -5:
-                    format = options == RelativeDateFormatting.DayNames ? value.ToString("dddd", CultureInfo.CurrentCulture) : String.Format(CultureInfo.CurrentCulture, Resources.RelativeDateFormatStringDaysAgo, Math.Abs(days));
+                    format = options == RelativeDateFormatting.DayNames ? value.ToString("dddd", CultureInfo.CurrentCulture) : String.Format(CultureInfo.CurrentCulture, Core.Resources.Strings.RelativeDateFormatStringDaysAgo, Math.Abs(days));
                     break;
 
                 default:
-                    format = String.Format(CultureInfo.CurrentCulture, Resources.RelativeDateFormatStringDefault, value);
+                    format = String.Format(CultureInfo.CurrentCulture, Core.Resources.Strings.RelativeDateFormatStringDefault, value);
                     break;
             }
 
@@ -738,51 +738,51 @@ namespace Cadru.Extensions
 
             if (Math.Sign(delta) != 0)
             {
-                var baseFormat = Resources.RelativeTimeFormatStringPast;
+                var baseFormat = Core.Resources.Strings.RelativeTimeFormatStringPast;
                 if (delta < -0.1)
                 {
-                    baseFormat = Resources.RelativeTimeFormatStringFuture;
+                    baseFormat = Core.Resources.Strings.RelativeTimeFormatStringFuture;
                     delta = -delta;
                     diff = -diff;
                 }
 
                 if (delta < Constants.SecondsPerMinute)
                 {
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Seconds, diff.Seconds == 1 ? Resources.RelativeTimeFormatStringSecond : Resources.RelativeTimeFormatStringSeconds);
+                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Seconds, diff.Seconds == 1 ? Core.Resources.Strings.RelativeTimeFormatStringSecond : Core.Resources.Strings.RelativeTimeFormatStringSeconds);
                 }
                 else if (delta < Constants.SecondsPerMinute * 2)
                 {
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Minutes, Resources.RelativeTimeFormatStringMinute);
+                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Minutes, Core.Resources.Strings.RelativeTimeFormatStringMinute);
                 }
                 else if (delta < Constants.SecondsPerHour)
                 {
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Minutes, Resources.RelativeTimeFormatStringMinutes);
+                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Minutes, Core.Resources.Strings.RelativeTimeFormatStringMinutes);
                 }
                 else if (delta < Constants.SecondsPerHour * 2)
                 {
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Hours, Resources.RelativeTimeFormatStringHour);
+                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Hours, Core.Resources.Strings.RelativeTimeFormatStringHour);
                 }
                 else if (delta < Constants.SecondsPerDay)
                 {
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Hours, Resources.RelativeTimeFormatStringHours);
+                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Hours, Core.Resources.Strings.RelativeTimeFormatStringHours);
                 }
                 else if (delta < Constants.SecondsPerDay * 2)
                 {
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Days, Resources.RelativeTimeFormatStringDay);
+                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Days, Core.Resources.Strings.RelativeTimeFormatStringDay);
                 }
                 else if (delta < Constants.ApproximateSecondsPerMonth)
                 {
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Days, Resources.RelativeTimeFormatStringDays);
+                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Days, Core.Resources.Strings.RelativeTimeFormatStringDays);
                 }
                 else if (delta < Constants.ApproximateSecondsPerYear)
                 {
                     var months = Convert.ToInt32(Math.Floor((double)diff.Days / 30));
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, months, months <= 1 ? Resources.RelativeTimeFormatStringMonth : Resources.RelativeTimeFormatStringMonths);
+                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, months, months <= 1 ? Core.Resources.Strings.RelativeTimeFormatStringMonth : Core.Resources.Strings.RelativeTimeFormatStringMonths);
                 }
                 else
                 {
                     var years = Convert.ToInt32(Math.Floor((double)diff.Days / 365));
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, years, years <= 1 ? Resources.RelativeTimeFormatStringYear : Resources.RelativeTimeFormatStringYears);
+                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, years, years <= 1 ? Core.Resources.Strings.RelativeTimeFormatStringYear : Core.Resources.Strings.RelativeTimeFormatStringYears);
                 }
             }
 

@@ -1,0 +1,124 @@
+{
+  "version": "4.0.0-beta-27",
+  "summary": "Provides static classes for representing program contracts as preconditions in a way that's compatible with System.Diagnostics.Contracts.",
+  "description": "Provides static classes for representing program contracts as preconditions in a way that's compatible with System.Diagnostics.Contracts.\r\nCommonly Used Types: \r\n  Cadru.Contracts.Requires\r\n  Cadru.Contracts.Assumes",
+  "authors": [ "Scott Dorman" ],
+  "owners": [ "scottdorman" ],
+  "requireLicenseAcceptance": false,
+  "copyright": "Copyright © Scott Dorman",
+  "licenseUrl": "http://opensource.org/licenses/Ms-PL.html",
+  "projectUrl": "https://github.com/scottdorman/cadru",
+  "tags": [ "cadru", "PCL", "universal", "utility", "code", "contracts" ],
+  "compile": [ "../shared/**/*.cs" ],
+  "dependencies": {
+    "Cadru.Introspection": "4.0.0-beta-27"
+  },
+  "frameworks": {
+    ".NETPortable,Version=v4.0,Profile=Profile328": {
+      "compilationOptions": {
+        "define": [ "PCL" ]
+      },
+      "frameworkAssemblies": {
+        "mscorlib": { },
+        "System": { },
+        "System.Core": { },
+        "System.Runtime.Serialization": { }
+      },
+      "dependencies": {
+      }
+    },
+    "sl50": {
+      "frameworkAssemblies": {
+        "mscorlib": { },
+        "System": { },
+        "System.Core": { },
+        "System.Runtime.Serialization": { }
+      }
+    },
+    "wpa81": {
+      "compilationOptions": {
+        "define": [ "WP" ]
+      },
+      "frameworkAssemblies": {
+        "mscorlib": "4.0.0.0",
+        "System": "4.0.0.0",
+        "System.Core": "4.0.0.0",
+        "System.Globalization": "4.0.0.0",
+        "System.Linq": "4.0.0.0",
+        "System.Diagnostics.Contracts": "4.0.0.0",
+        "System.Diagnostics.Tools": "4.0.0.0",
+        "System.Diagnostics.Debug": "4.0.0.0",
+        "System.Runtime.Serialization.Primitives": "4.0.0.0",
+        "System.Resources.ResourceManager": "4.0.0.0"
+      },
+      "dependencies": {
+        "System.Runtime.InteropServices": "4.0.21-beta-23516"
+      }
+    },
+    "wp80": {
+      "compilationOptions": {
+        "define": [ "WP" ]
+      },
+      "frameworkAssemblies": {
+        "mscorlib": "2.0.5.0",
+        "System": "2.0.5.0",
+        "System.Core": "2.0.5.0",
+        "System.Globalization": "4.0.0.0",
+        "System.Linq": "4.0.0.0",
+        "System.Diagnostics.Contracts": "4.0.0.0",
+        "System.Diagnostics.Tools": "4.0.0.0",
+        "System.Diagnostics.Debug": "4.0.0.0",
+        "System.Resources.ResourceManager": "4.0.0.0",
+        "System.Runtime.Serialization": "2.0.5.0"
+      }
+    },
+    "net40": {
+      "frameworkAssemblies": {
+        "System.Linq": "4.0.0.0",
+        "System.Runtime.Serialization": "4.0.0.0"
+      }
+    },
+    "net45": {
+      "frameworkAssemblies": {
+        "System.Linq": "4.0.0.0",
+        "System.Runtime.Serialization": "4.0.0.0"
+      }
+    },
+    "dotnet5.1": {
+      "compilationOptions": {
+        "define": [ "DOTNET" ]
+      },
+      "frameworkAssemblies": {
+      },
+      "dependencies": {
+        "System.Globalization": "4.0.11-beta-23516",
+        "System.Runtime": "4.0.21-beta-23516",
+        "System.Reflection": "4.1.0-beta-23516",
+        "System.Linq": "4.0.1-beta-23516",
+        "System.Diagnostics.Debug": "4.0.11-beta-23516",
+        "System.Diagnostics.Tools": "4.0.1-beta-23516",
+        "System.Diagnostics.Contracts": "4.0.1-beta-23516",
+        "System.Runtime.Serialization.Primitives": "4.1.0-beta-23516",
+        "System.Resources.ResourceManager": "4.0.1-beta-23516"
+      }
+    },
+    "dnxcore50": {
+      "compilationOptions": {
+        "define": [ "NETCORE", "DNX" ]
+      },
+      "frameworkAssemblies": {
+      },
+      "dependencies": {
+        "System.Globalization": "4.0.11-beta-23516",
+        "System.Runtime": "4.0.21-beta-23516",
+        "System.Reflection": "4.1.0-beta-23516",
+        "System.Linq": "4.0.1-beta-23516",
+        "System.Diagnostics.Debug": "4.0.11-beta-23516",
+        "System.Diagnostics.Tools": "4.0.1-beta-23516",
+        "System.Diagnostics.Contracts": "4.0.1-beta-23516",
+        "System.Runtime.Serialization.Primitives": "4.1.0-beta-23516",
+        "System.Resources.ResourceManager": "4.0.1-beta-23516"
+      }
+    }
+  }
+}

@@ -129,31 +129,31 @@ namespace Cadru.UnitTest.Framework.UnitTests.Contracts
             ExceptionAssert.DoesNotThrow(() => Requires.ValidElements(values, x => !String.IsNullOrWhiteSpace(x), "param", "test"));
         }
 
-        internal class DisposeTester : IDisposablePattern
-        {
-            public DisposeTester(bool flag)
-            {
-                Disposed = flag;
-            }
+        //internal class DisposeTester : IDisposablePattern
+        //{
+        //    public DisposeTester(bool flag)
+        //    {
+        //        Disposed = flag;
+        //    }
 
-            public bool Disposed
-            {
-                get;
-                private set;
-            }
+        //    public bool Disposed
+        //    {
+        //        get;
+        //        private set;
+        //    }
 
-            public void Dispose()
-            {
-                
-            }
-        }
+        //    public void Dispose()
+        //    {
 
-        [TestMethod]
-        public void NotDisposed()
-        {
-            ExceptionAssert.Throws<ObjectDisposedException>(() => Requires.NotDisposed(new DisposeTester(true), "test")).WithMessage("Object name: 'test'.", ExceptionMessageComparison.EndsWith);
-            ExceptionAssert.DoesNotThrow(() => Requires.NotDisposed(new DisposeTester(false), "test"));
-        }
+        //    }
+        //}
+
+        //[TestMethod]
+        //public void NotDisposed()
+        //{
+        //    ExceptionAssert.Throws<ObjectDisposedException>(() => Requires.NotDisposed(new DisposeTester(true), "test")).WithMessage("Object name: 'test'.", ExceptionMessageComparison.EndsWith);
+        //    ExceptionAssert.DoesNotThrow(() => Requires.NotDisposed(new DisposeTester(false), "test"));
+        //}
 
     }
 }

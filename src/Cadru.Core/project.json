@@ -1,20 +1,23 @@
 {
-  "version": "3.0.0-beta1",
+  "version": "4.0.0-beta-27",
+  "summary": "A utility framework containing new APIs and extensions to the .NET Framework.",
+  "description": "A utility framework containing new APIs and extensions to the .NET Framework.\r\n Commonly Used Types:\r\n Comb\r\n Enum<T>\r\n EventArgs<T>\r\n UnixTimesamp\r\n WeakReference<T>\r\n ComparisonComparer<T>\r\n DateComparer\r\n Equality<T>\r\n LogicalStringComparer\r\n NameValuePair\r\n Range<T>\r\n DataValidation\r\n \r\n Various extension methos on arrays, Booleans, DateTime, DateTimeOffset, dictionaries, enumerables, enums, strings and types are also provided.",
   "authors": [ "Scott Dorman" ],
   "owners": [ "scottdorman" ],
-  "tags": [ "cadru", "PCL", "universal", "utility" ],
-  "releaseNotes": "core-clr support",
+  "requireLicenseAcceptance": false,
   "copyright": "Copyright © Scott Dorman",
   "licenseUrl": "http://opensource.org/licenses/Ms-PL.html",
   "projectUrl": "https://github.com/scottdorman/cadru",
-  "description": "This is the main Cadru library, packaged as a Portable Class Library (PCL) targeting .NET Framework 4, Silverlight 5, Windows Phone 8.1, Windows Phone Silverlight 8, and Windows 8.",
-  "summary": "A utility framework containing new APIs and extensions to the .NET Framework.",
+  "tags": [ "cadru", "PCL", "universal", "utility" ],
+  "compile": [ "../shared/**/*.cs" ],
   "dependencies": {
-    "PCLCrypto": "0.5.1.14165"
+    "Cadru.Contracts": "4.0.0-beta-27",
+    "Cadru.Introspection": "4.0.0-beta-27"
   },
   "frameworks": {
-     ".NETPortable,Version=v4.0,Profile=Profile328": {
+    ".NETPortable,Version=v4.0,Profile=Profile328": {
       "compilationOptions": {
+        "define": [ "PCL" ]
       },
       "frameworkAssemblies": {
         "mscorlib": { },
@@ -25,11 +28,142 @@
       },
       "dependencies": {
       }
+    },
+    "sl50": {
+      "frameworkAssemblies": {
+        "mscorlib": { },
+        "System": { },
+        "System.Core": { },
+        "System.Net": { },
+        "System.Runtime.Serialization": { }
+      }
+    },
+    "wpa81": {
+      "compilationOptions": {
+        "define": [ "WP" ]
+      },
+      "frameworkAssemblies": {
+        "mscorlib": "4.0.0.0",
+        "System": "4.0.0.0",
+        "System.Core": "4.0.0.0",
+        "System.Runtime": "4.0.10.0",
+        "System.Globalization": "4.0.0.0",
+        "System.Diagnostics.Contracts": "4.0.0.0",
+        "System.Diagnostics.Tools": "4.0.0.0",
+        "System.Diagnostics.Debug": "4.0.0.0",
+        "System.Runtime.Serialization": "4.0.0.0",
+        "System.Runtime.Serialization.Primitives": "4.0.0.0",
+        "System.Linq": "4.0.0.0",
+        "System.Runtime.Extensions": "4.0.0.0",
+        "System.Collections": "4.0.0.0",
+        "System.Text.RegularExpressions": "4.0.0.0",
+        "System.Reflection": "4.0.0.0",
+        "System.Reflection.Extensions": "4.0.0.0",
+        "System.Resources.ResourceManager": "4.0.0.0",
+        "System.ComponentModel": "4.0.0.0"
+      },
+      "dependencies": {
+      }
+    },
+    "wp80": {
+      "compilationOptions": {
+        "define": [ "WP" ]
+      },
+      "frameworkAssemblies": {
+        "mscorlib": "2.0.5.0",
+        "System": "2.0.5.0",
+        "System.Core": "2.0.5.0",
+        "System.Net": "2.0.5.0",
+        "System.Runtime.Serialization": "2.0.5.0",
+        "System.Globalization": "4.0.0.0",
+        "System.Diagnostics.Contracts": "4.0.0.0",
+        "System.Diagnostics.Tools": "4.0.0.0",
+        "System.Diagnostics.Debug": "4.0.0.0",
+        "System.Runtime.Serialization.Primitives": "4.0.0.0",
+        "System.Linq": "4.0.0.0",
+        "System.Runtime.Extensions": "4.0.0.0",
+        "System.Collections": "4.0.0.0",
+        "System.Text.RegularExpressions": "4.0.0.0",
+        "System.Reflection": "4.0.0.0",
+        "System.Reflection.Extensions": "4.0.0.0",
+        "System.Resources.ResourceManager": "4.0.0.0",
+        "System.ComponentModel": "4.0.0.0"
+      }
+    },
+    "net40": {
+      "frameworkAssemblies": {
+        "mscorlib": "4.0.0.0",
+        "System": "4.0.0.0",
+        "System.Core": "4.0.0.0",
+        "System.Net": "4.0.0.0",
+        "System.Runtime.Serialization": "4.0.0.0"
+      },
+      "dependencies": {
+      }
+    },
+    "net45": {
+      "frameworkAssemblies": {
+        "mscorlib": "4.0.0.0",
+        "System": "4.0.0.0",
+        "System.Core": "4.0.0.0",
+        "System.Net": "4.0.0.0",
+        "System.Runtime.Serialization": "4.0.0.0"
+      },
+      "dependencies": {
+      }
+    },
+    "dotnet5.2": {
+      "compilationOptions": {
+        "define": [ "DOTNET" ]
+      },
+      "frameworkAssemblies": {
+      },
+      "dependencies": {
+        "System.Collections": "4.0.11-beta-23516",
+        "System.Linq": "4.0.1-beta-23516",
+        "System.Runtime": "4.0.21-beta-23516",
+        "System.Net.Http": "4.0.1-beta-23516",
+        "System.Reflection": "4.1.0-beta-23516",
+        "System.Globalization": "4.0.11-beta-23516",
+        "System.Diagnostics.Debug": "4.0.11-beta-23516",
+        "System.Diagnostics.Tools": "4.0.1-beta-23516",
+        "System.Runtime.Serialization.Primitives": "4.1.0-beta-23516",
+        "System.Reflection.Primitives": "4.0.1-beta-23516",
+        "System.Net.Primitives": "4.0.11-beta-23516",
+        "System.ComponentModel.TypeConverter": "4.0.1-beta-23516",
+        "System.Security.Cryptography.Algorithms": "4.0.0-beta-23516",
+        "System.Text.RegularExpressions": "4.0.11-beta-23516",
+        "System.Runtime.Extensions": "4.0.11-beta-23516",
+        "System.Diagnostics.Contracts": "4.0.1-beta-23516",
+        "System.Resources.ResourceManager": "4.0.1-beta-23516"
+      }
+    },
+    "dnxcore50": {
+      "compilationOptions": {
+        "define": [ "NETCORE", "DNX" ]
+      },
+      "frameworkAssemblies": {
+      },
+      "dependencies": {
+        "System.Collections": "4.0.11-beta-23516",
+        "System.Linq": "4.0.1-beta-23516",
+        "System.Runtime": "4.0.21-beta-23516",
+        "System.Net.Http": "4.0.1-beta-23516",
+        "System.Reflection": "4.1.0-beta-23516",
+        "System.Globalization": "4.0.11-beta-23516",
+        "System.Diagnostics.Debug": "4.0.11-beta-23516",
+        "System.Diagnostics.Tools": "4.0.1-beta-23516",
+        "System.Runtime.Serialization.Primitives": "4.1.0-beta-23516",
+        "System.Reflection.Primitives": "4.0.1-beta-23516",
+        "System.Net.Primitives": "4.0.11-beta-23516",
+        "System.ComponentModel.TypeConverter": "4.0.1-beta-23516",
+        "System.Security.Cryptography.Algorithms": "4.0.0-beta-23516",
+        "System.Text.RegularExpressions": "4.0.11-beta-23516",
+        "System.Runtime.Extensions": "4.0.11-beta-23516",
+        "System.Diagnostics.Contracts": "4.0.1-beta-23516",
+        "System.Resources.ResourceManager": "4.0.1-beta-23516"
+      }
     }
   },
-  "supports": { },
-  "exclude": [
-    "Comb.cs",
-    "Comb+CombParser.cs"
-  ]
+  "supports": { }
 }

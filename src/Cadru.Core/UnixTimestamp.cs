@@ -22,12 +22,11 @@
 namespace Cadru
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using System.Diagnostics.Contracts;
     using System.Globalization;
     using System.Runtime.InteropServices;
     using Cadru.Internal;
-    using Cadru.Properties;
+ 
 
     /// <summary>
     /// Represents an instant in time, defined as the number of seconds that
@@ -38,7 +37,7 @@ namespace Cadru
     /// <see cref="UnixTimestamp"/> is constrained to the same date and
     /// time range as <see cref="DateTime"/>.</remarks>
     [StructLayout(LayoutKind.Auto)]
-    public struct UnixTimestamp : IComparable, IFormattable, IConvertible, IComparable<UnixTimestamp>, IEquatable<UnixTimestamp>
+    public partial struct UnixTimestamp : IFormattable, IComparable, IComparable<UnixTimestamp>, IEquatable<UnixTimestamp>
     {
         #region fields
         /// <summary>
@@ -78,7 +77,7 @@ namespace Cadru
         {
             if (seconds < UnixTimestamp.MinSeconds || seconds > UnixTimestamp.MaxSeconds)
             {
-                throw new ArgumentOutOfRangeException("seconds", Resources.ArgumentOutOfRange_UnixTimestampBadSeconds);
+                throw new ArgumentOutOfRangeException("seconds", Core.Resources.Strings.ArgumentOutOfRange_UnixTimestampBadSeconds);
             }
 
             Contract.EndContractBlock();
@@ -140,7 +139,7 @@ namespace Cadru
             var seconds = DateToSeconds(year, month, day, hour, minute, second);
             if (seconds < UnixTimestamp.MinSeconds || seconds > UnixTimestamp.MaxSeconds)
             {
-                throw new ArgumentException(Resources.Arg_UnixTimestampRange);
+                throw new ArgumentException(Core.Resources.Strings.Arg_UnixTimestampRange);
             }
 
             this.seconds = DateToSeconds(year, month, day, hour, minute, second);
@@ -489,7 +488,7 @@ namespace Cadru
         {
             if (months < -120000 || months > 120000)
             {
-                throw new ArgumentOutOfRangeException("months", Resources.ArgumentOutOfRange_UnixTimestampBadMonths);
+                throw new ArgumentOutOfRangeException("months", Core.Resources.Strings.ArgumentOutOfRange_UnixTimestampBadMonths);
             }
 
             Contract.EndContractBlock();
@@ -513,7 +512,7 @@ namespace Cadru
 
             if (y < 1 || y > 9999)
             {
-                throw new ArgumentOutOfRangeException("months", Resources.ArgumentOutOfRange_DateArithmetic);
+                throw new ArgumentOutOfRangeException("months", Core.Resources.Strings.ArgumentOutOfRange_DateArithmetic);
             }
 
             int daysInMonth = DateTime.DaysInMonth(y, m);
@@ -568,7 +567,7 @@ namespace Cadru
         {
             if (years < -10000 || years > 10000)
             {
-                throw ExceptionBuilder.CreateArgumentOutOfRangeException("years", Resources.ArgumentOutOfRange_UnixTimestampBadYears);
+                throw ExceptionBuilder.CreateArgumentOutOfRangeException("years", Core.Resources.Strings.ArgumentOutOfRange_UnixTimestampBadYears);
             }
 
             Contract.EndContractBlock();
@@ -631,7 +630,7 @@ namespace Cadru
                 return this.CompareTo((UnixTimestamp)obj);
             }
 
-            throw new ArgumentException(Resources.Arg_MustBeUnixTimestamp);
+            throw new ArgumentException(Core.Resources.Strings.Arg_MustBeUnixTimestamp);
         }
         #endregion
 
@@ -739,19 +738,6 @@ namespace Cadru
         }
         #endregion
 
-        #region GetTypeCode
-        /// <summary>
-        /// Returns the <see cref="T:System.TypeCode" /> for this instance.
-        /// </summary>
-        /// <returns>
-        /// The enumerated constant <see cref="T:System.TypeCode">TypeCode.Object</see>.
-        /// </returns>
-        public TypeCode GetTypeCode()
-        {
-            return TypeCode.Object;
-        }
-        #endregion
-
         #region Subtract
 
         #region Subtract(UnixTimestamp value)
@@ -833,341 +819,6 @@ namespace Cadru
         }
         #endregion
 
-        #endregion
-
-        #region IConvertible.ToBoolean
-        /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to
-        /// use this method throws an <see cref="InvalidCastException"/>.
-        /// </summary>
-        /// <param name="provider">
-        /// An object that implements the
-        /// <see cref="T:System.IFormatProvider" /> interface.
-        /// (This parameter is not used; specify <see langword="null"/>.)
-        /// </param>
-        /// <returns>
-        /// The return value for this member is not used.
-        /// </returns>
-        /// <exception cref="System.InvalidCastException">In all cases.</exception>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:DocumentationTextMustEndWithAPeriod", Justification = "Reviewed.")]
-        bool IConvertible.ToBoolean(IFormatProvider provider)
-        {
-            throw new InvalidCastException(ExceptionBuilder.Format(Resources.InvalidCast_FromTo, "UnixTimestamp", "Boolean"));
-        }
-        #endregion
-
-        #region IConvertible.ToByte
-        /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to
-        /// use this method throws an <see cref="InvalidCastException"/>.
-        /// </summary>
-        /// <param name="provider">
-        /// An object that implements the
-        /// <see cref="T:System.IFormatProvider" /> interface.
-        /// (This parameter is not used; specify <see langword="null"/>.)
-        /// </param>
-        /// <returns>
-        /// The return value for this member is not used.
-        /// </returns>
-        /// <exception cref="System.InvalidCastException">In all cases.</exception>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:DocumentationTextMustEndWithAPeriod", Justification = "Reviewed.")]
-        byte IConvertible.ToByte(IFormatProvider provider)
-        {
-            throw new InvalidCastException(ExceptionBuilder.Format(Resources.InvalidCast_FromTo, "UnixTimestamp", "Byte"));
-        }
-        #endregion
-
-        #region IConvertible.ToChar
-        /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to
-        /// use this method throws an <see cref="InvalidCastException"/>.
-        /// </summary>
-        /// <param name="provider">
-        /// An object that implements the
-        /// <see cref="T:System.IFormatProvider" /> interface.
-        /// (This parameter is not used; specify <see langword="null"/>.)
-        /// </param>
-        /// <returns>
-        /// The return value for this member is not used.
-        /// </returns>
-        /// <exception cref="System.InvalidCastException">In all cases.</exception>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:DocumentationTextMustEndWithAPeriod", Justification = "Reviewed.")]
-        char IConvertible.ToChar(IFormatProvider provider)
-        {
-            throw new InvalidCastException(ExceptionBuilder.Format(Resources.InvalidCast_FromTo, "UnixTimestamp", "Char"));
-        }
-        #endregion
-
-        #region IConvertible.ToDateTime
-        /// <summary>
-        /// Returns a <see cref="DateTime"/> object representing the current instance.
-        /// </summary>
-        /// <param name="provider">
-        /// An object that implements the
-        /// <see cref="T:System.IFormatProvider" /> interface.
-        /// (This parameter is not used; specify <see langword="null"/>.)
-        /// </param>
-        /// <returns>
-        /// A <see cref="T:System.DateTime" /> representing the current instance.
-        /// </returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:DocumentationTextMustEndWithAPeriod", Justification = "Reviewed.")]
-        DateTime IConvertible.ToDateTime(IFormatProvider provider)
-        {
-            return UnixTimestamp.Epoch.AddSeconds(this.seconds);
-        }
-        #endregion
-
-        #region IConvertible.ToDecimal
-        /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to
-        /// use this method throws an <see cref="InvalidCastException"/>.
-        /// </summary>
-        /// <param name="provider">
-        /// An object that implements the
-        /// <see cref="T:System.IFormatProvider" /> interface.
-        /// (This parameter is not used; specify <see langword="null"/>.)
-        /// </param>
-        /// <returns>
-        /// The return value for this member is not used.
-        /// </returns>
-        /// <exception cref="System.InvalidCastException">In all cases.</exception>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:DocumentationTextMustEndWithAPeriod", Justification = "Reviewed.")]
-        decimal IConvertible.ToDecimal(IFormatProvider provider)
-        {
-            throw new InvalidCastException(ExceptionBuilder.Format(Resources.InvalidCast_FromTo, "UnixTimestamp", "Decimal"));
-        }
-        #endregion
-
-        #region IConvertible.ToDouble
-        /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to
-        /// use this method throws an <see cref="InvalidCastException"/>.
-        /// </summary>
-        /// <param name="provider">
-        /// An object that implements the
-        /// <see cref="T:System.IFormatProvider" /> interface.
-        /// (This parameter is not used; specify <see langword="null"/>.)
-        /// </param>
-        /// <returns>
-        /// The return value for this member is not used.
-        /// </returns>
-        /// <exception cref="System.InvalidCastException">In all cases.</exception>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:DocumentationTextMustEndWithAPeriod", Justification = "Reviewed.")]
-        double IConvertible.ToDouble(IFormatProvider provider)
-        {
-            throw new InvalidCastException(ExceptionBuilder.Format(Resources.InvalidCast_FromTo, "UnixTimestamp", "Double"));
-        }
-        #endregion
-
-        #region IConvertible.ToInt16
-        /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to
-        /// use this method throws an <see cref="InvalidCastException"/>.
-        /// </summary>
-        /// <param name="provider">
-        /// An object that implements the
-        /// <see cref="T:System.IFormatProvider" /> interface.
-        /// (This parameter is not used; specify <see langword="null"/>.)
-        /// </param>
-        /// <returns>
-        /// The return value for this member is not used.
-        /// </returns>
-        /// <exception cref="System.InvalidCastException">In all cases.</exception>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:DocumentationTextMustEndWithAPeriod", Justification = "Reviewed.")]
-        short IConvertible.ToInt16(IFormatProvider provider)
-        {
-            throw new InvalidCastException(ExceptionBuilder.Format(Resources.InvalidCast_FromTo, "UnixTimestamp", "Int16"));
-        }
-        #endregion
-
-        #region IConvertible.ToInt32
-        /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to
-        /// use this method throws an <see cref="InvalidCastException"/>.
-        /// </summary>
-        /// <param name="provider">
-        /// An object that implements the
-        /// <see cref="T:System.IFormatProvider" /> interface.
-        /// (This parameter is not used; specify <see langword="null"/>.)
-        /// </param>
-        /// <returns>
-        /// The return value for this member is not used.
-        /// </returns>
-        /// <exception cref="System.InvalidCastException">In all cases.</exception>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:DocumentationTextMustEndWithAPeriod", Justification = "Reviewed.")]
-        int IConvertible.ToInt32(IFormatProvider provider)
-        {
-            throw new InvalidCastException(ExceptionBuilder.Format(Resources.InvalidCast_FromTo, "UnixTimestamp", "Int32"));
-        }
-        #endregion
-
-        #region IConvertible.ToInt64
-        /// <summary>
-        /// Returns a <see cref="T:System.Int64"/> representing the seconds of the current instance.
-        /// </summary>
-        /// <param name="provider">
-        /// An object that implements the
-        /// <see cref="T:System.IFormatProvider" /> interface.
-        /// (This parameter is not used; specify <see langword="null"/>.)
-        /// </param>
-        /// <returns>
-        /// A <see cref="T:System.Int64" /> representing the seconds of the current instance.
-        /// </returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:DocumentationTextMustEndWithAPeriod", Justification = "Reviewed.")]
-        long IConvertible.ToInt64(IFormatProvider provider)
-        {
-            return this.seconds;
-        }
-        #endregion
-
-        #region IConvertible.ToSByte
-        /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to
-        /// use this method throws an <see cref="InvalidCastException"/>.
-        /// </summary>
-        /// <param name="provider">
-        /// An object that implements the
-        /// <see cref="T:System.IFormatProvider" /> interface.
-        /// (This parameter is not used; specify <see langword="null"/>.)
-        /// </param>
-        /// <returns>
-        /// The return value for this member is not used.
-        /// </returns>
-        /// <exception cref="System.InvalidCastException">In all cases.</exception>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:DocumentationTextMustEndWithAPeriod", Justification = "Reviewed.")]
-
-        sbyte IConvertible.ToSByte(IFormatProvider provider)
-        {
-            throw new InvalidCastException(ExceptionBuilder.Format(Resources.InvalidCast_FromTo, "UnixTimestamp", "SByte"));
-        }
-        #endregion
-
-        #region IConvertible.ToSingle
-        /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to
-        /// use this method throws an <see cref="InvalidCastException"/>.
-        /// </summary>
-        /// <param name="provider">
-        /// An object that implements the
-        /// <see cref="T:System.IFormatProvider" /> interface.
-        /// (This parameter is not used; specify <see langword="null"/>.)
-        /// </param>
-        /// <returns>
-        /// The return value for this member is not used.
-        /// </returns>
-        /// <exception cref="System.InvalidCastException">In all cases.</exception>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:DocumentationTextMustEndWithAPeriod", Justification = "Reviewed.")]
-        float IConvertible.ToSingle(IFormatProvider provider)
-        {
-            throw new InvalidCastException(ExceptionBuilder.Format(Resources.InvalidCast_FromTo, "UnixTimestamp", "Single"));
-        }
-        #endregion
-
-        #region IConvertible.ToString
-        /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to
-        /// use this method throws an <see cref="InvalidCastException"/>.
-        /// </summary>
-        /// <param name="provider">
-        /// An object that implements the
-        /// <see cref="T:System.IFormatProvider" /> interface.
-        /// (This parameter is not used; specify <see langword="null"/>.)
-        /// </param>
-        /// <returns>
-        /// The return value for this member is not used.
-        /// </returns>
-        /// <exception cref="System.InvalidCastException">In all cases.</exception>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:DocumentationTextMustEndWithAPeriod", Justification = "Reviewed.")]
-        string IConvertible.ToString(IFormatProvider provider)
-        {
-            throw new InvalidCastException(ExceptionBuilder.Format(Resources.InvalidCast_FromTo, "UnixTimestamp", "String"));
-        }
-        #endregion
-
-        #region IConvertible.ToType
-        /// <summary>
-        /// Converts the current <see cref="UnixTimestamp"/> object to an object of a specified type.
-        /// </summary>
-        /// <param name="type">The desired type.</param>
-        /// <param name="provider">
-        /// An object that implements the
-        /// <see cref="T:System.IFormatProvider" /> interface.
-        /// (This parameter is not used; specify <see langword="null"/>.)
-        /// </param>
-        /// <returns>
-        /// An object of the type specified by the <paramref name="type"/> parameter,
-        /// with a value equivalent to the current <see cref="UnixTimestamp"/> object.
-        /// </returns>
-        /// <exception cref="ArgumentNullException"><paramref name="type"/> is <see langword="null"/>.</exception>
-        /// <exception cref="System.InvalidCastException">This conversion is not supported for the Da<see cref="UnixTimestamp"/> type.</exception>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:DocumentationTextMustEndWithAPeriod", Justification = "Reviewed.")]
-        object IConvertible.ToType(Type type, IFormatProvider provider)
-        {
-            return Convert.ChangeType((IConvertible)this, type, provider);
-        }
-        #endregion
-
-        #region IConvertible.ToUInt16
-        /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to
-        /// use this method throws an <see cref="InvalidCastException"/>.
-        /// </summary>
-        /// <param name="provider">
-        /// An object that implements the
-        /// <see cref="T:System.IFormatProvider" /> interface.
-        /// (This parameter is not used; specify <see langword="null"/>.)
-        /// </param>
-        /// <returns>
-        /// The return value for this member is not used.
-        /// </returns>
-        /// <exception cref="System.InvalidCastException">In all cases.</exception>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:DocumentationTextMustEndWithAPeriod", Justification = "Reviewed.")]
-        ushort IConvertible.ToUInt16(IFormatProvider provider)
-        {
-            throw new InvalidCastException(ExceptionBuilder.Format(Resources.InvalidCast_FromTo, "UnixTimestamp", "UInt16"));
-        }
-        #endregion
-
-        #region IConvertible.ToUInt32
-        /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to
-        /// use this method throws an <see cref="InvalidCastException"/>.
-        /// </summary>
-        /// <param name="provider">
-        /// An object that implements the
-        /// <see cref="T:System.IFormatProvider" /> interface.
-        /// (This parameter is not used; specify <see langword="null"/>.)
-        /// </param>
-        /// <returns>
-        /// The return value for this member is not used.
-        /// </returns>
-        /// <exception cref="System.InvalidCastException">In all cases.</exception>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:DocumentationTextMustEndWithAPeriod", Justification = "Reviewed.")]
-        uint IConvertible.ToUInt32(IFormatProvider provider)
-        {
-            throw new InvalidCastException(ExceptionBuilder.Format(Resources.InvalidCast_FromTo, "UnixTimestamp", "UInt32"));
-        }
-        #endregion
-
-        #region IConvertible.ToUInt64
-        /// <summary>
-        /// Infrastructure. This conversion is not supported. Attempting to
-        /// use this method throws an <see cref="InvalidCastException"/>.
-        /// </summary>
-        /// <param name="provider">
-        /// An object that implements the
-        /// <see cref="T:System.IFormatProvider" /> interface.
-        /// (This parameter is not used; specify <see langword="null"/>.)
-        /// </param>
-        /// <returns>
-        /// The return value for this member is not used.
-        /// </returns>
-        /// <exception cref="System.InvalidCastException">In all cases.</exception>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:DocumentationTextMustEndWithAPeriod", Justification = "Reviewed.")]
-        ulong IConvertible.ToUInt64(IFormatProvider provider)
-        {
-            throw new InvalidCastException(ExceptionBuilder.Format(Resources.InvalidCast_FromTo, "UnixTimestamp", "UInt64"));
-        }
         #endregion
 
         #region DateToSeconds

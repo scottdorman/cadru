@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="AssemblyInfo.cs" 
-//  company="Scott Dorman" 
+// <copyright file="AssemblyInfo.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -23,14 +23,14 @@ using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-// General Information about an assembly is controlled through the following 
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Cadru.Core")]
-[assembly: AssemblyDescription("The main Cadru library, packaged as a Portable Class Library.")]
+[assembly: AssemblyDescription("A utility framework containing new APIs and extensions to the .NET Framework.")]
 
 [assembly: AssemblyFileVersion("1.0.0")]
-[assembly: AssemblyInformationalVersion("1.0.0")]
+[assembly: AssemblyInformationalVersion("4.0.0-beta-27")]
 
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
