@@ -36,6 +36,8 @@
     },
 ```
 
+Simply add that target back in to project.json and recompile to see the error.
+
 I really want to just target profile 328:
 
 ```
