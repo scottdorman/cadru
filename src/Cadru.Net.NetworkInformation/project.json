@@ -1,7 +1,7 @@
 {
   "version": "4.0.0-beta-27",
-  "summary": "Provides support for calling REST API services, working with HttpClient and an easy way to build web URIs.",
-  "description": "Provides support for calling REST API services, working with HttpClient and an easy way to build web URIs.\r\n Commonly Used Types:\r\n CompressingHttpClientHandler\r\n HttpRetryPolicy\r\n HttpRetryStrategy\r\n HttpTransientErrorDetectionStrategy\r\n RetryHandler\r\n UrlBuilder\r\n QueryStringParametersDictionary\r\n RestClient\r\n RouteAttribute",
+  "summary": "Provides notifications of network connectivity changes.",
+  "description": "Provides notifications of network connectivity changes.",
   "authors": [ "Scott Dorman" ],
   "owners": [ "scottdorman" ],
   "requireLicenseAcceptance": false,
@@ -13,13 +13,10 @@
   "dependencies": {
     "Cadru.Contracts": "4.0.0-beta-27",
     "Cadru.Core": "4.0.0-beta-27",
-    "Cadru.Portability": "4.0.0-beta-27",
-    "Cadru.TransientFaultHandling": "4.0.0-beta-27",
-    "Newtonsoft.Json": "8.0.2",
-    "Microsoft.Net.Http": "2.2.29"
+    "Cadru.Portability": "4.0.0-beta-27"
   },
   "frameworks": {
-     "wp80": {
+    "wp80": {
       "compilationOptions": {
         "define": [ "WP" ]
       },

@@ -1,7 +1,7 @@
 ﻿The WPA81 profile that causes the `CS0012` compiler error looks like
 
 ```
-    "wpa81": {
+   "wpa81": {
       "compilationOptions": {
         "define": [ "WP" ]
       },
@@ -24,14 +24,18 @@
         "System.Text.Encoding": "4.0.0.0",
         "System.Reflection": "4.0.0.0",
         "System.Reflection.Extensions": "4.0.0.0",
+        "System.Reflection.Primitives": "4.0.0.0",
         "System.Resources.ResourceManager": "4.0.0.0",
         "System.ComponentModel": "4.0.0.0",
         "System.Net.Http": "4.0.0.0",
-        "System.Net.Primitives": "4.0.0.0",
         "System.Net.Requests": "4.0.0.0",
         "System.Threading": "4.0.0.0"
+
       },
       "dependencies": {
+        "System.Net.Primitives": "4.0.0",
+        "System.Net.NetworkInformation": "4.0.0"
+
       }
     },
 ```

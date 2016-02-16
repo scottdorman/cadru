@@ -20,54 +20,48 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.Networking
+namespace Cadru.Net.NetworkInformation
 {
+    using Cadru.Portability;
+    using Cadru.Portability.InteropServices;
+#if NET40 || NET45 || DNXCORE50
     using System;
     using System.ComponentModel;
     using System.Globalization;
     using System.Net;
     using System.Net.NetworkInformation;
+    using System.Net.Sockets;
     using System.Runtime.InteropServices;
     using System.Security;
-    using Cadru.Portability.InteropServices;
-    using InteropServices;
+    using Cadru.Net.NetworkInformation.Interop;
     using System.Threading.Tasks;
+#if WP80
+    using Microsoft.Phone.Net.NetworkInformation;
+#endif
+
+
     /// <summary>
     /// Provides information about a computer or computers on a domain.
     /// </summary>
     public static class ExtendedNetworkInformation
     {
-        #region fields
+    #region fields
 
-        #endregion
+    #endregion
 
-        #region constructors
-        #endregion
+    #region constructors
+    #endregion
 
-        #region events
-        #endregion
+    #region events
+    #endregion
 
-        #region properties
+    #region properties
 
-        #endregion
+    #endregion
 
-        #region methods
+    #region methods
 
-        #region GetDomains
-        /// <summary>
-        /// Gets an array of <see cref="ServerInfo"/> instances for all
-        /// available domains.
-        /// </summary>
-        /// <returns>An array of <see cref="ServerInfo"/> instances for all
-        /// available domains.</returns>
-        [SecurityCritical]
-        public static ServerInfo[] GetDomains()
-        {
-            return GetServerList(ServerTypes.AllDomains, null);
-        }
-        #endregion
-
-        #region HostName
+    #region GetHostName
         /// <summary>
         /// Gets the fully qualified hostname of the local computer.
         /// </summary>
@@ -75,7 +69,11 @@ namespace Cadru.Networking
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
         public static async Task<string> GetHostName()
         {
-            string hostName = Environment.MachineName;
+#if WP80
+            return "";
+#else
+
+            string hostName = EnvironmentShim.GetMachineName();
 
             try
             {
@@ -95,22 +93,37 @@ namespace Cadru.Networking
             {
                 try
                 {
-                    IPHostEntry hostInfo = await DnsShim.GetHostEntryAsync(System.Environment.MachineName);
-                    hostName = hostInfo.HostName;
+                    hostName = await DnsShim.GetHostNameByDnsAsync(EnvironmentShim.GetMachineName());
                 }
                 catch (System.Net.Sockets.SocketException)
                 {
-                    hostName = Environment.MachineName;
+                    hostName = EnvironmentShim.GetMachineName();
                 }
             }
 
             return hostName;
+#endif
         }
-        #endregion
+    #endregion
 
-        #region GetServerInfo
+#if !(WP80 || WPA81)
+    #region GetDomains
+        /// <summary>
+        /// Gets an array of <see cref="ServerInfo"/> instances for all
+        /// available domains.
+        /// </summary>
+        /// <returns>An array of <see cref="ServerInfo"/> instances for all
+        /// available domains.</returns>
+        [SecurityCritical]
+        public static ServerInfo[] GetDomains()
+        {
+            return GetServerList(ServerTypes.AllDomains, null);
+        }
+    #endregion
 
-        #region GetServerInfo()
+    #region GetServerInfo
+
+    #region GetServerInfo()
         /// <summary>
         /// Gets a <see cref="ServerInfo"/> instance representing the local computer.
         /// </summary>
@@ -119,9 +132,9 @@ namespace Cadru.Networking
         {
             return GetServerInfoInternal(null);
         }
-        #endregion
+    #endregion
 
-        #region GetServerInfo(string serverName)
+    #region GetServerInfo(string serverName)
         /// <summary>
         /// Gets a <see cref="ServerInfo"/> instance representing the named computer.
         /// </summary>
@@ -138,11 +151,11 @@ namespace Cadru.Networking
 
             return GetServerInfoInternal(serverName);
         }
-        #endregion
+    #endregion
 
-        #endregion
+    #endregion
 
-        #region GetServerList
+    #region GetServerList
         /// <summary>
         /// Gets an array of <see cref="ServerInfo"/> instances of the
         /// specified server type for the given domain.
@@ -189,51 +202,9 @@ namespace Cadru.Networking
 
             return serverList;
         }
-        #endregion
+    #endregion
 
-        #region IPAddress
-        /// <summary>
-        /// Gets the IP addresses of the local computer.
-        /// </summary>
-        /// <returns>An <see cref="IPAddress"/> array containing the IP addresses of the local computer.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
-        public static async Task<IPAddress[]> GetIPAddresses()
-        {
-            IPAddress[] ipAddress = null;
-
-            try
-            {
-                NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
-                if (nics != null || nics.Length >= 1)
-                {
-                    NetworkInterface adapter = nics[0];
-                    IPInterfaceProperties adapterProperties = adapter.GetIPProperties();
-                    UnicastIPAddressInformationCollection uniCast = adapterProperties.UnicastAddresses;
-
-                    if (uniCast != null && uniCast.Count > 0)
-                    {
-                        ipAddress = new IPAddress[uniCast.Count];
-                        for (int i = 0; i < uniCast.Count; i++)
-                        {
-                            ipAddress[i] = uniCast[0].Address;
-                        }
-                    }
-                    else
-                    {
-                        ipAddress = await GetIPAddressesFromDns();
-                    }
-                }
-            }
-            catch (NetworkInformationException)
-            {
-                ipAddress = await GetIPAddressesFromDns();
-            }
-
-            return ipAddress;
-        }
-        #endregion
-
-        #region GetServerInfoInternal
+    #region GetServerInfoInternal
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
         private static ServerInfo GetServerInfoInternal(string serverName)
         {
@@ -260,29 +231,9 @@ namespace Cadru.Networking
 
             return server;
         }
-        #endregion
+    #endregion
 
-        #region GetIPAddressesFromDns
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
-        private static async Task<IPAddress[]> GetIPAddressesFromDns()
-        {
-            IPAddress[] ipAddress = null;
-
-            try
-            {
-                IPHostEntry hostInfo = await DnsShim.GetHostEntryAsync(await ExtendedNetworkInformation.GetHostName());
-                ipAddress = hostInfo.AddressList;
-            }
-            catch (System.Net.Sockets.SocketException)
-            {
-                ipAddress = new IPAddress[] { IPAddress.None };
-            }
-
-            return ipAddress;
-        }
-        #endregion
-
-        #region FreeBuffer
+    #region FreeBuffer
         private static void FreeBuffer(ref IntPtr buffer)
         {
             try
@@ -298,8 +249,83 @@ namespace Cadru.Networking
                 buffer = IntPtr.Zero;
             }
         }
-        #endregion
+    #endregion
+#endif
 
-        #endregion
+    #region IPAddress
+        /// <summary>
+        /// Gets the IP addresses of the local computer.
+        /// </summary>
+        /// <returns>An <see cref="IPAddress"/> array containing the IP addresses of the local computer.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
+        public static IPAddress[] GetIPAddresses()
+        {
+            IPAddress[] ipAddress = null;
+
+            try
+            {
+#if WP80
+                DeviceNetworkInformation.ResolveHostNameAsync(new DnsEndPoint("localhost", 0), (NameResolutionResult result) =>
+                {
+                    var count = result.IPEndPoints.Length;
+                    ipAddress = new IPAddress[count];
+                    for (int i = 0; i < count; i++)
+                    {
+                        ipAddress[i] = result.IPEndPoints[i].Address;
+                    }
+                }, null);
+#else
+                NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+                if (nics != null || nics.Length >= 1)
+                {
+                    NetworkInterface adapter = nics[0];
+                    IPInterfaceProperties adapterProperties = adapter.GetIPProperties();
+                    UnicastIPAddressInformationCollection uniCast = adapterProperties.UnicastAddresses;
+
+                    if (uniCast != null && uniCast.Count > 0)
+                    {
+                        ipAddress = new IPAddress[uniCast.Count];
+                        for (int i = 0; i < uniCast.Count; i++)
+                        {
+                            ipAddress[i] = uniCast[0].Address;
+                        }
+                    }
+                    else
+                    {
+                        ipAddress = GetIPAddressesFromDns();
+                    }
+                }
+#endif
+            }
+            catch (Exception)
+            {
+                ipAddress = GetIPAddressesFromDns();
+            }
+            return ipAddress;
+        }
+    #endregion
+
+    #region GetIPAddressesFromDns
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
+        private static IPAddress[] GetIPAddressesFromDns()
+        {
+            IPAddress[] ipAddress = null;
+
+            //try
+            //{
+            //    var hostInfo = await DnsShim.GetHostEntryAsync(await ExtendedNetworkInformation.GetHostName());
+            //    ipAddress = hostInfo.AddressList;
+            //}
+            //catch (System.Net.Sockets.SocketException)
+            //{
+            //    ipAddress = new IPAddress[] { IPAddress.None };
+            //}
+
+            return ipAddress;
+        }
+    #endregion
+
+    #endregion
     }
+#endif
 }

@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadru.Core.UnitTests", "..\
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Cadru.Portability", "Cadru.Portability\Cadru.Portability.xproj", "{1C3975D9-5A83-4D5D-BC4A-DFE16B91A348}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Cadru.Net.NetworkInformation", "Cadru.Net.NetworkInformation\Cadru.Net.NetworkInformation.xproj", "{8F11BCF6-284A-476E-8ECA-972102021BE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +62,10 @@ Global
 		{1C3975D9-5A83-4D5D-BC4A-DFE16B91A348}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C3975D9-5A83-4D5D-BC4A-DFE16B91A348}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C3975D9-5A83-4D5D-BC4A-DFE16B91A348}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F11BCF6-284A-476E-8ECA-972102021BE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F11BCF6-284A-476E-8ECA-972102021BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F11BCF6-284A-476E-8ECA-972102021BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F11BCF6-284A-476E-8ECA-972102021BE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
