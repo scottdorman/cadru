@@ -1,6 +1,6 @@
 ﻿To reproduce the overload resolution error in the SL50 target, change the code in https://github.com/scottdorman/cadru/blob/netcore/src/Cadru.Portability/InteropServices/MarshalShim.cs#L11 from 
 
-```chsarp
+```c#
 public static T PtrToStructure<T>(IntPtr ptr)
 {
 #if NET40 || NET45 || DOTNET5_1 || WP80
@@ -15,7 +15,7 @@ public static T PtrToStructure<T>(IntPtr ptr)
 
 to
 
-```csharp
+```c#
 public static T PtrToStructure<T>(IntPtr ptr)
 {
 #if NET40 || NET45 || DOTNET5_1 || SL50 || WP80
