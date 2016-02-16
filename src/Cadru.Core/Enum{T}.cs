@@ -6,7 +6,7 @@
     using System.Linq;
     using System.Reflection;
     using System.Text;
-    using Cadru.Introspection;
+    using Cadru.Portability;
 
     /// <summary>
     /// Provides a class for working with enumerations.

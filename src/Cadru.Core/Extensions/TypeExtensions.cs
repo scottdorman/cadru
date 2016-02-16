@@ -26,7 +26,7 @@ namespace Cadru.Extensions
     using System;
     using System.Linq;
     using System.Reflection;
-    using Cadru.Introspection;
+    using Cadru.Portability;
 
     /// <summary>
     /// Provides basic routines for common type manipulation.

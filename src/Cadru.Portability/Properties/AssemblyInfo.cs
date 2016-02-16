@@ -26,7 +26,7 @@ using System.Runtime.CompilerServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Cadru.Introspection")]
+[assembly: AssemblyTitle("Cadru.Portability")]
 [assembly: AssemblyDescription("Provides extensions for enabling introspection (reflection) on types in a way that's agnostic to the target framework.")]
 
 [assembly: AssemblyFileVersion("1.0.0")]

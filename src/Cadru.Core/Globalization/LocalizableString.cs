@@ -27,7 +27,7 @@ namespace Cadru.Globalization
     using System;
     using System.Globalization;
     using System.Reflection;
-    using Cadru.Introspection;
+    using Cadru.Portability;
 
     /// <summary>
     /// A helper class for providing a localizable string property.

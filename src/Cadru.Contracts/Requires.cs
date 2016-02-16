@@ -30,7 +30,7 @@ namespace Cadru.Contracts
     using System.Linq;
     using System.Reflection;
     using Internal;
-    using Cadru.Introspection;
+    using Cadru.Portability;
 
     /// <summary>
     /// Provides a set of methods to simplify code contract requirements.

@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// <copyright file="ServerInfo.cs" 
-//  company="Scott Dorman" 
+// <copyright file="ServerInfo.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2013 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -25,17 +25,14 @@ namespace Cadru.Networking
     using System;
     using System.Globalization;
     using System.Runtime.InteropServices;
-    using System.Runtime.Serialization;
-    using System.Security.Permissions;
     using Cadru.InteropServices;
 
     /// <summary>
-    /// The Server structure contains information about the specified server, 
+    /// The Server structure contains information about the specified server,
     /// including name, platform, type of server, and associated software.
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    [Serializable]
-    public struct ServerInfo : ISerializable, IEquatable<ServerInfo>
+    public partial struct ServerInfo : IEquatable<ServerInfo>
     {
         #region events
 
@@ -61,20 +58,6 @@ namespace Cadru.Networking
             this.minorVersion = (int)info.sv101_version_minor;
             this.serverType = (ServerTypes)info.sv101_type;
             this.comment = info.sv101_comment;
-        }
-        #endregion
-
-        #region serialization constructor
-        private ServerInfo(SerializationInfo info, StreamingContext context)
-        {
-            Contracts.Requires.NotNull(info, "info");
-
-            this.platformId = (PlatformId)info.GetValue("platformId", typeof(PlatformId));
-            this.name = info.GetString("name");
-            this.serverType = (ServerTypes)info.GetValue("serverType", typeof(ServerTypes));
-            this.majorVersion = info.GetInt32("majorVersion");
-            this.minorVersion = info.GetInt32("minorVersion");
-            this.comment = info.GetString("comment");
         }
         #endregion
 
@@ -223,29 +206,6 @@ namespace Cadru.Networking
         }
         #endregion
 
-        #region GetObjectData
-        /// <summary>
-        /// Populates a <see cref="SerializationInfo"/> object with the data needed
-        /// to serialize the current <see cref="ServerInfo"/> object. 
-        /// </summary>
-        /// <param name="info">The <see cref="SerializationInfo"/> object to populate with data.</param>
-        /// <param name="context">The destination for this serialization.(This parameter is not used; 
-        /// specify a <see langword="null"/>.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="info"/> is a <see langword="null"/>.</exception>
-        [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.SerializationFormatter)]
-        void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            Contracts.Requires.NotNull(info, "info");
-
-            info.AddValue("platformId", this.platformId, typeof(PlatformId));
-            info.AddValue("name", this.name);
-            info.AddValue("serverType", this.serverType, typeof(ServerTypes));
-            info.AddValue("majorVersion", this.majorVersion);
-            info.AddValue("minorVersion", this.minorVersion);
-            info.AddValue("comment", this.comment);
-        }
-        #endregion
-
         #region Equals
 
         #region Equals(Object obj)
@@ -354,7 +314,7 @@ namespace Cadru.Networking
 
         #region GetHashCode
         /// <summary>
-        /// Returns the hash code for this instance. 
+        /// Returns the hash code for this instance.
         /// </summary>
         /// <returns>A 32-bit signed integer hash code.</returns>
         public override int GetHashCode()
@@ -372,7 +332,7 @@ namespace Cadru.Networking
 
         #region ToString()
         /// <summary>
-        /// Converts the value of this instance to its equivalent string representation. 
+        /// Converts the value of this instance to its equivalent string representation.
         /// </summary>
         /// <returns>The string representation of this instance.</returns>
         public override String ToString()
@@ -383,7 +343,7 @@ namespace Cadru.Networking
 
         #region ToString(IFormatProvider provider)
         /// <summary>
-        /// Converts the value of the current Server object to its equivalent string representation using the specified culture-specific format information. 
+        /// Converts the value of the current Server object to its equivalent string representation using the specified culture-specific format information.
         /// </summary>
         /// <param name="provider">An object that supplies culture-specific formatting information. </param>
         /// <returns>The string representation of this instance as specified by <paramref name="provider"/>.</returns>

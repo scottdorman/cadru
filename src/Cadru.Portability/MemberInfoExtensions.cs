@@ -1,4 +1,4 @@
-﻿namespace Cadru.Introspection
+﻿namespace Cadru.Portability
 {
     using System;
     using System.Collections.Generic;

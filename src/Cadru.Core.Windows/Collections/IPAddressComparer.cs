@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// <copyright file="IPAddressComparer.cs" 
-//  company="Scott Dorman" 
+// <copyright file="IPAddressComparer.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2013 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -72,7 +72,7 @@ namespace Cadru.Collections
         #endregion
 
         #region methods
-        
+
         #region Compare
 
         #region Compare(IPAddress x, IPAddress y)
@@ -187,7 +187,7 @@ namespace Cadru.Collections
             {
                 result = 1;
             }
-            else 
+            else
             {
                 result = this.Compare(left, right);
             }
@@ -240,12 +240,12 @@ namespace Cadru.Collections
 
             if (!IPAddress.TryParse(x, out t1))
             {
-                throw new FormatException(Properties.Resources.Format_Dns_Bad_Ip_Address);
+                throw new FormatException(Cadru.Net.Resources.Strings.Format_Dns_Bad_Ip_Address);
             }
 
             if (!IPAddress.TryParse(y, out t2))
             {
-                throw new FormatException(Properties.Resources.Format_Dns_Bad_Ip_Address);
+                throw new FormatException(Cadru.Net.Resources.Strings.Format_Dns_Bad_Ip_Address);
             }
 
             return this.Compare(t1, t2);
@@ -262,7 +262,7 @@ namespace Cadru.Collections
         /// </summary>
         /// <param name="x">The first <see cref="IPAddress"/> to compare.</param>
         /// <param name="y">The second <see cref="IPAddress"/> to compare.</param>
-        /// <returns><see langword="true" /> if the two <see cref="IPAddress"/> values are equal; 
+        /// <returns><see langword="true" /> if the two <see cref="IPAddress"/> values are equal;
         /// otherwise, <see langword="false" />. </returns>
         public bool Equals(IPAddress x, IPAddress y)
         {
@@ -281,7 +281,7 @@ namespace Cadru.Collections
         /// </summary>
         /// <param name="x">The first string to compare.</param>
         /// <param name="y">The second string to compare.</param>
-        /// <returns><see langword="true" /> if the two string values are equal; 
+        /// <returns><see langword="true" /> if the two string values are equal;
         /// otherwise, <see langword="false" />. </returns>
         public bool Equals(string x, string y)
         {
@@ -335,16 +335,16 @@ namespace Cadru.Collections
         /// <summary>
         /// Returns a hash code for the specified <see cref="IPAddress"/>.
         /// </summary>
-        /// <param name="obj">The <see cref="IPAddress"/> for which a hash code is to be 
+        /// <param name="obj">The <see cref="IPAddress"/> for which a hash code is to be
         /// returned.</param>
         /// <returns>A hash code for the specified <see cref="IPAddress"/>.</returns>
-        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a 
+        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a
         /// reference type and <paramref name="obj"/> is a <see langword="null"/>.
         /// </exception>
         public int GetHashCode(IPAddress obj)
         {
             Contracts.Requires.NotNull(obj, "obj");
-            
+
             return obj.GetHashCode();
         }
         #endregion
@@ -353,10 +353,10 @@ namespace Cadru.Collections
         /// <summary>
         /// Returns a hash code for the specified object.
         /// </summary>
-        /// <param name="obj">The Object for which a hash code is to be 
+        /// <param name="obj">The Object for which a hash code is to be
         /// returned.</param>
         /// <returns>A hash code for the specified object.</returns>
-        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a 
+        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a
         /// reference type and <paramref name="obj"/> is a <see langword="null"/>.
         /// </exception>
         public int GetHashCode(object obj)
@@ -402,10 +402,10 @@ namespace Cadru.Collections
         /// <summary>
         /// Returns a hash code for the specified string.
         /// </summary>
-        /// <param name="obj">The string for which a hash code is to be 
+        /// <param name="obj">The string for which a hash code is to be
         /// returned.</param>
         /// <returns>A hash code for the specified string.</returns>
-        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a 
+        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a
         /// reference type and <paramref name="obj"/> is a <see langword="null"/>.
         /// </exception>
         public int GetHashCode(string obj)

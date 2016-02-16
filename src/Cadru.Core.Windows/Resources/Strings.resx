@@ -117,6 +117,60 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ApplicationExcpetion_UnableToDetermineInstallRoot" xml:space="preserve">
+    <value>Unable to determine the install root path for the .NET Framework.</value>
+  </data>
+  <data name="ArgumentExceptionMustBeEnum" xml:space="preserve">
+    <value>Type provided must be an Enum.</value>
+  </data>
+  <data name="ArgumentNull_String" xml:space="preserve">
+    <value>String reference not set to an instance of a String.</value>
+  </data>
+  <data name="ArgumentOutOfRange_IndexLessThanLength" xml:space="preserve">
+    <value>Index must be less than the length of string.</value>
+  </data>
+  <data name="ArgumentOutOfRange_IndexLessThanZero" xml:space="preserve">
+    <value>Index must be non-negative.</value>
+  </data>
+  <data name="ArgumentOutOfRange_IndexString" xml:space="preserve">
+    <value>Index was out of range. Must be non-negative and less than the length of the string.</value>
+  </data>
+  <data name="ArgumentOutOfRange_Range" xml:space="preserve">
+    <value>Valid values are between {0} and {1}, inclusive.</value>
+  </data>
+  <data name="Argument_EnumIllegalVal" xml:space="preserve">
+    <value>Illegal enum value: {0}.</value>
+  </data>
+  <data name="Argument_InvalidEnumValue" xml:space="preserve">
+    <value>The value '{0}' is not valid for this usage of the type {1}.</value>
+  </data>
+  <data name="Argument_InvalidFlag" xml:space="preserve">
+    <value>Value of flags is invalid.</value>
+  </data>
+  <data name="Argument_InvalidIndexValuesString" xml:space="preserve">
+    <value>The starting index and ending index refer to the same location in the string.</value>
+  </data>
+  <data name="Argument_MustBeAttribute" xml:space="preserve">
+    <value>Argument must be an Attribute or derived from an Attribute.</value>
+  </data>
+  <data name="Argument_MustBeDateTime" xml:space="preserve">
+    <value>Object must be of type DateTime.</value>
+  </data>
+  <data name="Argument_MustBeIsoDateTime" xml:space="preserve">
+    <value>Argument must be an IsoDateTime.</value>
+  </data>
+  <data name="Argument_MustBeString" xml:space="preserve">
+    <value>Object must be of type String.</value>
+  </data>
+  <data name="Argument_NotSerializable" xml:space="preserve">
+    <value>Argument passed in is not serializable.</value>
+  </data>
+  <data name="Argument_StartIndexGreaterThanEndIndexString" xml:space="preserve">
+    <value>The starting index refers to a location in the string that is after the ending index.</value>
+  </data>
+  <data name="Argument_StringZeroLength" xml:space="preserve">
+    <value>String cannot be of zero length.</value>
+  </data>
   <data name="DownloadInfoConnectionClosed" xml:space="preserve">
     <value>Could not download {0} - FTP server closed the connection.</value>
   </data>
@@ -150,11 +204,20 @@
   <data name="Format_DateOutOfRange" xml:space="preserve">
     <value>The DateTime represented by the string is out of range.</value>
   </data>
+  <data name="Format_Dns_Bad_Ip_Address" xml:space="preserve">
+    <value>An invalid IP address was specified.</value>
+  </data>
   <data name="Format_EmptyInputString" xml:space="preserve">
     <value>Input string was either empty or contained only white space.</value>
   </data>
   <data name="Format_ExtraJunkAtEnd" xml:space="preserve">
     <value>Additional non-parsable characters are at the end of the string.</value>
+  </data>
+  <data name="Format_InvalidLen" xml:space="preserve">
+    <value>String was not of correct length.</value>
+  </data>
+  <data name="Format_InvalidString" xml:space="preserve">
+    <value>Input string was not in a correct format.</value>
   </data>
   <data name="Format_NeedSingleChar" xml:space="preserve">
     <value>String must be exactly one character long.</value>
@@ -168,42 +231,6 @@
   <data name="Format_UnknowDateTimeWord" xml:space="preserve">
     <value>The string was not recognized as a valid DateTime. There is a unknown word starting at index {0}.</value>
   </data>
-  <data name="ArgumentNull_String" xml:space="preserve">
-    <value>String reference not set to an instance of a String.</value>
-  </data>
-  <data name="Format_InvalidLen" xml:space="preserve">
-    <value>String was not of correct length.</value>
-  </data>
-  <data name="Format_InvalidString" xml:space="preserve">
-    <value>Input string was not in a correct format.</value>
-  </data>
-  <data name="Argument_MustBeIsoDateTime" xml:space="preserve">
-    <value>Argument must be an IsoDateTime.</value>
-  </data>
-  <data name="Argument_EnumIllegalVal" xml:space="preserve">
-    <value>Illegal enum value: {0}.</value>
-  </data>
-  <data name="Argument_InvalidEnumValue" xml:space="preserve">
-    <value>The value '{0}' is not valid for this usage of the type {1}.</value>
-  </data>
-  <data name="Argument_InvalidFlag" xml:space="preserve">
-    <value>Value of flags is invalid.</value>
-  </data>
-  <data name="Argument_InvalidIndexValuesString" xml:space="preserve">
-    <value>The starting index and ending index refer to the same location in the string.</value>
-  </data>
-  <data name="Argument_StartIndexGreaterThanEndIndexString" xml:space="preserve">
-    <value>The starting index refers to a location in the string that is after the ending index.</value>
-  </data>
-  <data name="ArgumentOutOfRange_IndexLessThanLength" xml:space="preserve">
-    <value>Index must be less than the length of string.</value>
-  </data>
-  <data name="ArgumentOutOfRange_IndexLessThanZero" xml:space="preserve">
-    <value>Index must be non-negative.</value>
-  </data>
-  <data name="ArgumentOutOfRange_IndexString" xml:space="preserve">
-    <value>Index was out of range. Must be non-negative and less than the length of the string.</value>
-  </data>
   <data name="InvalidCast_FromTo" xml:space="preserve">
     <value>Invalid cast from '{0}' to '{1}'.</value>
   </data>
@@ -212,32 +239,5 @@
   </data>
   <data name="MDA_InvalidFormatForUtc" xml:space="preserve">
     <value>Cannot apply format "{0}" to the date "{1}" as the date is already in universal time.</value>
-  </data>
-  <data name="Argument_StringZeroLength" xml:space="preserve">
-    <value>String cannot be of zero length.</value>
-  </data>
-  <data name="Argument_NotSerializable" xml:space="preserve">
-    <value>Argument passed in is not serializable.</value>
-  </data>
-  <data name="Argument_MustBeDateTime" xml:space="preserve">
-    <value>Object must be of type DateTime.</value>
-  </data>
-  <data name="Argument_MustBeString" xml:space="preserve">
-    <value>Object must be of type String.</value>
-  </data>
-  <data name="Argument_MustBeAttribute" xml:space="preserve">
-    <value>Argument must be an Attribute or derived from an Attribute.</value>
-  </data>
-  <data name="Format_Dns_Bad_Ip_Address" xml:space="preserve">
-    <value>An invalid IP address was specified.</value>
-  </data>
-  <data name="ApplicationExcpetion_UnableToDetermineInstallRoot" xml:space="preserve">
-    <value>Unable to determine the install root path for the .NET Framework.</value>
-  </data>
-  <data name="ArgumentExceptionMustBeEnum" xml:space="preserve">
-    <value>Type provided must be an Enum.</value>
-  </data>
-  <data name="ArgumentOutOfRange_Range" xml:space="preserve">
-    <value>Valid values are between {0} and {1}, inclusive.</value>
   </data>
 </root>

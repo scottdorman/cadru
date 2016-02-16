@@ -1,0 +1,86 @@
+{
+  "version": "4.0.0-beta-27",
+  "summary": "Provides support for calling REST API services, working with HttpClient and an easy way to build web URIs.",
+  "description": "Provides support for calling REST API services, working with HttpClient and an easy way to build web URIs.\r\n Commonly Used Types:\r\n CompressingHttpClientHandler\r\n HttpRetryPolicy\r\n HttpRetryStrategy\r\n HttpTransientErrorDetectionStrategy\r\n RetryHandler\r\n UrlBuilder\r\n QueryStringParametersDictionary\r\n RestClient\r\n RouteAttribute",
+  "authors": [ "Scott Dorman" ],
+  "owners": [ "scottdorman" ],
+  "requireLicenseAcceptance": false,
+  "copyright": "Copyright © Scott Dorman",
+  "licenseUrl": "http://opensource.org/licenses/Ms-PL.html",
+  "projectUrl": "https://github.com/scottdorman/cadru",
+  "tags": [ "cadru", "PCL", "universal", "utility" ],
+  "compile": [ "../shared/**/*.cs" ],
+  "dependencies": {
+    "Cadru.Contracts": "4.0.0-beta-27",
+    "Cadru.Core": "4.0.0-beta-27",
+    "Cadru.Portability": "4.0.0-beta-27"
+  },
+  "frameworks": {
+    "net40": {
+      "frameworkAssemblies": {
+        "mscorlib": "4.0.0.0",
+        "System": "4.0.0.0",
+        "System.Core": "4.0.0.0",
+        "System.Net": "4.0.0.0",
+        "System.Runtime.Serialization": "4.0.0.0"
+      },
+      "dependencies": {
+      }
+    },
+    "net45": {
+      "frameworkAssemblies": {
+        "mscorlib": "4.0.0",
+        "System": "4.0.0.0",
+        "System.Core": "4.0.0.0",
+        "System.Net": "4.0.0.0",
+        "System.Net.NetworkInformation": "4.0.0.0",
+        "System.Runtime.Serialization": "4.0.0.0"
+      },
+      "dependencies": {
+      }
+    },
+    "dnxcore50": {
+      "compilationOptions": {
+        "define": [ "NETCORE", "DNX" ]
+      },
+      "dependencies": {
+        "Microsoft.Win32.Primitives": "4.0.1-beta-23516",
+        "Microsoft.Win32.Registry": "4.0.0-beta-23516",
+        "Microsoft.Win32.Registry.AccessControl": "4.0.0-beta-23516",
+        "System.Collections": "4.0.11-beta-23516",
+        "System.Collections.Concurrent": "4.0.11-beta-23516",
+        "System.ComponentModel.TypeConverter": "4.0.1-beta-23516",
+        "System.Diagnostics.Contracts": "4.0.1-beta-23516",
+        "System.Diagnostics.Debug": "4.0.11-beta-23516",
+        "System.Diagnostics.FileVersionInfo": "4.0.0-beta-23516",
+        "System.Diagnostics.Tools": "4.0.1-beta-23516",
+        "System.Globalization": "4.0.11-beta-23516",
+        "System.IO": "4.0.11-beta-23516",
+        "System.IO.FileSystem": "4.0.1-beta-23516",
+        "System.IO.FileSystem.Primitives": "4.0.1-beta-23516",
+        "System.Linq": "4.0.1-beta-23516",
+        "System.Net.Http": "4.0.1-beta-23516",
+        "System.Net.NameResolution": "4.0.0-beta-23516",
+        "System.Net.NetworkInformation": "4.1.0-beta-23516",
+        "System.Net.Primitives": "4.0.11-beta-23516",
+        "System.Net.Requests": "4.0.11-beta-23516",
+        "System.Net.Security": "4.0.0-beta-23516",
+        "System.Reflection": "4.1.0-beta-23516",
+        "System.Reflection.Extensions": "4.0.1-beta-23516",
+        "System.Reflection.Primitives": "4.0.1-beta-23516",
+        "System.Resources.ResourceManager": "4.0.1-beta-23516",
+        "System.Runtime": "4.0.21-beta-23516",
+        "System.Runtime.Extensions": "4.0.11-beta-23516",
+        "System.Runtime.InteropServices": "4.0.21-beta-23516",
+        "System.Runtime.Serialization.Primitives": "4.1.0-beta-23516",
+        "System.Runtime.WindowsRuntime": "4.0.11-beta-23516",
+        "System.Security.Cryptography.Algorithms": "4.0.0-beta-23516",
+        "System.Text.RegularExpressions": "4.0.11-beta-23516",
+        "System.Threading": "4.0.0",
+        "System.Threading.Tasks": "4.0.0"
+      },
+      "frameworkAssemblies": {
+      }
+    }
+  }
+}

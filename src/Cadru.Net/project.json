@@ -13,7 +13,7 @@
   "dependencies": {
     "Cadru.Contracts": "4.0.0-beta-27",
     "Cadru.Core": "4.0.0-beta-27",
-    "Cadru.Introspection": "4.0.0-beta-27",
+    "Cadru.Portability": "4.0.0-beta-27",
     "Cadru.TransientFaultHandling": "4.0.0-beta-27",
     "Newtonsoft.Json": "8.0.2",
     "Microsoft.Net.Http": "2.2.29"

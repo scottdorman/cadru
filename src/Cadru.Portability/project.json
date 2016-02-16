@@ -19,8 +19,6 @@
         "mscorlib": { },
         "System": { },
         "System.Core": { }
-      },
-      "dependencies": {
       }
     },
     "sl50": {
@@ -28,6 +26,9 @@
         "mscorlib": { },
         "System": { },
         "System.Core": { }
+      },
+      "dependencies": {
+        "Microsoft.Bcl.Async": "1.0.168"
       }
     },
     "wpa81": {
@@ -42,10 +43,11 @@
         "System.Reflection.Extensions": "4.0.0.0",
         "System.Runtime": "4.0.10.0",
         "System.Linq": "4.0.0.0",
-        "System.Resources.ResourceManager": "4.0.0.0"
+        "System.Resources.ResourceManager": "4.0.0.0",
+        "System.Threading.Tasks": "4.0.0.0"
       },
       "dependencies": {
-        "System.Runtime.InteropServices": "4.0.21-beta-23516"
+        "System.Runtime.InteropServices": "4.0.20"
       }
     },
     "wp80": {
@@ -58,14 +60,31 @@
         "System.Core": "2.0.5.0",
         "System.Reflection": "4.0.0.0",
         "System.Reflection.Extensions": "4.0.0.0",
-        "System.Resources.ResourceManager": "4.0.0.0"
+        "System.Resources.ResourceManager": "4.0.0.0",
+        "System.Threading.Tasks": "4.0.0.0"
       }
     },
     "net40": {
+      "frameworkAssemblies": {
+        "System.Net": "4.0.0.0",
+        "System.Net.NetworkInformation": "4.0.0.0",
+        "System.Runtime.Serialization": "4.0.0.0"
+      },
+      "dependencies": {
+        "Microsoft.Bcl.Async": "1.0.168"
+      }
     },
     "net45": {
       "compilationOptions": {
         "define": [ "INTROSPECTIONSHIM" ]
+      },
+      "frameworkAssemblies": {
+        "System.Net": "4.0.0.0",
+        "System.Net.NetworkInformation": "4.0.0.0",
+        "System.Runtime.Serialization": "4.0.0.0"
+      },
+      "dependencies": {
+        "Microsoft.Bcl.Async": "1.0.168"
       }
     },
     "dotnet5.1": {
@@ -79,7 +98,11 @@
         "System.Reflection": "4.1.0-beta-23516",
         "System.Linq": "4.0.1-beta-23516",
         "System.Runtime.InteropServices": "4.0.0",
-        "System.Resources.ResourceManager": "4.0.1-beta-23516"
+        "System.Resources.ResourceManager": "4.0.1-beta-23516",
+        "System.Net.NetworkInformation": "4.1.0-beta-23516",
+        "System.Net.Primitives": "4.0.11-beta-23516",
+        "System.Net.Requests": "4.0.11-beta-23516",
+        "System.Threading.Tasks": "4.0.11-beta-23516"
       }
     },
     "dnxcore50": {
@@ -93,7 +116,13 @@
         "System.Reflection": "4.1.0-beta-23516",
         "System.Linq": "4.0.1-beta-23516",
         "System.Runtime.InteropServices": "4.0.21-beta-23516",
-        "System.Resources.ResourceManager": "4.0.1-beta-23516"
+        "System.Resources.ResourceManager": "4.0.1-beta-23516",
+        "System.Net.NameResolution": "4.0.0-beta-23516",
+        "System.Net.NetworkInformation": "4.1.0-beta-23516",
+        "System.Net.Primitives": "4.0.11-beta-23516",
+        "System.Net.Requests": "4.0.11-beta-23516",
+        "System.Net.Security": "4.0.0-beta-23516",
+        "System.Threading.Tasks": "4.0.11-beta-23516"
       }
     }
   }

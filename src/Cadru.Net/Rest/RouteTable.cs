@@ -28,7 +28,8 @@ namespace Cadru.Net.Rest
     using System.Reflection;
     using Cadru.Contracts;
     using Cadru.Extensions;
-    using Introspection;
+    using Cadru.Portability;
+
     /// <summary>
     /// Represents a collection of routes that map between a method name the API endpoint.
     /// </summary>

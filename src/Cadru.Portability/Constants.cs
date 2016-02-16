@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace Cadru.Introspection
+namespace Cadru.Portability
 {
 #if !INTROSPECTIONSHIM
     internal static class Constants

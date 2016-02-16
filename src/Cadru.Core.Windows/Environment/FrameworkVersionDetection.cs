@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// <copyright file="FrameworkVersionDetection.cs" 
-//  company="Scott Dorman" 
+// <copyright file="FrameworkVersionDetection.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2013 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -40,7 +40,6 @@ namespace Cadru
     using System.Globalization;
     using System.IO;
     using Cadru.InteropServices;
-    using Cadru.Properties;
     using Microsoft.Win32;
 
     /// <summary>
@@ -64,7 +63,7 @@ namespace Cadru
         private const string Netfx30RegValueName = "InstallSuccess";
         private const string Netfx35RegKeyName = "Software\\Microsoft\\NET Framework Setup\\NDP\\v3.5";
         private const string Netfx35ClientProfileRegKeyName = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\NET Framework Setup\\DotNetClient\\v3.5";
-        
+
         // At this point, I don't know the correct registry key for the server core profile.
         private const string Netfx35ServerCoreProfileRegKeyName = "";
 
@@ -127,17 +126,17 @@ namespace Cadru
         /// Retrieves the exact version number for the specified .NET Framework
         /// version.
         /// </summary>
-        /// <param name="frameworkVersion">The .NET Framework whose version should be 
+        /// <param name="frameworkVersion">The .NET Framework whose version should be
         /// retrieved.</param>
         /// <returns>A <see cref="Version">version</see> representing
         /// the exact version number for the specified .NET Framework version.
-        /// If the specified .NET Framework version is not found, a 
+        /// If the specified .NET Framework version is not found, a
         /// <see cref="Version"/> is returned that represents a 0.0.0.0 version
         /// number.
         /// </returns>
         public static Version GetExactVersion(FrameworkVersion frameworkVersion)
         {
-            Version version = new Version();
+            Version version = new Version(0,0,0,0);
 
             switch (frameworkVersion)
             {
@@ -164,7 +163,7 @@ namespace Cadru
                 case FrameworkVersion.Fx35ClientProfile:
                     version = GetNetfxExactVersion(GetRegistryKey(FrameworkVersion.Fx35ClientProfile), NetfxStandardVersionRegValueName);
                     break;
-                
+
                 case FrameworkVersion.Fx35ServerCoreProfile:
                     version = GetNetfxExactVersion(GetRegistryKey(FrameworkVersion.Fx35ServerCoreProfile), NetfxStandardVersionRegValueName);
                     break;
@@ -196,12 +195,12 @@ namespace Cadru
         /// <returns>A <see cref="Version">version</see> representing
         /// the exact version number for the specified .NET Framework Foundation
         /// Library. If the specified .NET Framework Foundation Library is not
-        /// found, a <see cref="Version"/> is returned that represents a 
+        /// found, a <see cref="Version"/> is returned that represents a
         /// 0.0.0.0 version number.
         /// </returns>
         public static Version GetExactVersion(WindowsFoundationLibrary foundationLibrary)
         {
-            Version version = new Version();
+            Version version = new Version(0, 0, 0, 0);
 
             switch (foundationLibrary)
             {
@@ -232,14 +231,14 @@ namespace Cadru
 
         #region GetServicePackLevel(FrameworkVersion frameworkVersion)
         /// <overloads>
-        /// Retrieves the service pack level for the specified .NET Framework or  
+        /// Retrieves the service pack level for the specified .NET Framework or
         /// Foundation Library.
         /// </overloads>
         /// <summary>
         /// Retrieves the service pack level for the specified .NET Framework
         /// version.
         /// </summary>
-        /// <param name="frameworkVersion">The .NET Framework whose service pack 
+        /// <param name="frameworkVersion">The .NET Framework whose service pack
         /// level should be retrieved.</param>
         /// <returns>An <see cref="Int32">integer</see> value representing
         /// the service pack level for the specified .NET Framework version. If
@@ -274,7 +273,7 @@ namespace Cadru
                 case FrameworkVersion.Fx35ClientProfile:
                     servicePackLevel = GetNetfxSPLevel(GetRegistryKey(FrameworkVersion.Fx35ClientProfile), NetfxStandrdSpxRegValueName);
                     break;
-                
+
                 case FrameworkVersion.Fx35ServerCoreProfile:
                     servicePackLevel = GetNetfxSPLevel(GetRegistryKey(FrameworkVersion.Fx35ServerCoreProfile), NetfxStandrdSpxRegValueName);
                     break;
@@ -301,7 +300,7 @@ namespace Cadru
         /// Retrieves the service pack level for the specified .NET Framework
         /// Foundation Library.
         /// </summary>
-        /// <param name="foundationLibrary">The Foundation Library whose service pack 
+        /// <param name="foundationLibrary">The Foundation Library whose service pack
         /// level should be retrieved.</param>
         /// <returns>An <see cref="Int32">integer</see> value representing
         /// the service pack level for the specified .NET Framework Foundation
@@ -341,7 +340,7 @@ namespace Cadru
 
         #region IsInstalled(FrameworkVersion frameworkVersion)
         /// <overloads>
-        /// Determines if the specified .NET Framework or Foundation Library is 
+        /// Determines if the specified .NET Framework or Foundation Library is
         /// installed on the local computer.
         /// </overloads>
         /// <summary>
@@ -438,15 +437,15 @@ namespace Cadru
         /// and validates that it is not a pre-release version number.
         /// </summary>
         /// <param name="frameworkVersion">The version of the .NET Framework to test.</param>
-        /// <returns><see langword="true"/> if the build number is greater than the 
+        /// <returns><see langword="true"/> if the build number is greater than the
         /// requested version; otherwise <see langword="false"/>.
         /// </returns>
         private static bool CheckFxVersion(FrameworkVersion frameworkVersion)
         {
             bool valid = false;
-            Version version = new Version();
-            Version min = new Version();
-            Version max = new Version();
+            Version version = new Version(0,0,0,0);
+            Version min = new Version(0,0,0,0);
+            Version max = new Version(0,0,0,0);
 
             switch (frameworkVersion)
             {
@@ -455,31 +454,31 @@ namespace Cadru
                     min = Netfx10Version;
                     max = Netfx10Version;
                     break;
-                
+
                 case FrameworkVersion.Fx11:
                     version = GetNetfx11ExactVersion();
                     min = Netfx11Version;
                     max = Netfx11Version;
                     break;
-                
+
                 case FrameworkVersion.Fx20:
                     version = GetNetfx20ExactVersion();
                     min = Netfx20Version;
                     max = Netfx20Version;
                     break;
-                
+
                 case FrameworkVersion.Fx30:
                     version = GetNetfxExactVersion(Netfx30RegKeyName, NetfxStandardVersionRegValueName);
                     min = Netfx20Version;
                     max = Netfx30Version;
                     break;
-                
+
                 case FrameworkVersion.Fx35:
                     version = GetNetfxExactVersion(GetRegistryKey(FrameworkVersion.Fx35), NetfxStandardVersionRegValueName);
                     min = Netfx20Version;
                     max = Netfx35Version;
                     break;
-                
+
                 case FrameworkVersion.Fx35ClientProfile:
                     version = GetNetfxExactVersion(GetRegistryKey(FrameworkVersion.Fx35ClientProfile), NetfxStandardVersionRegValueName);
                     min = Netfx20Version;
@@ -551,14 +550,14 @@ namespace Cadru
         /// <summary>
         /// Gets the installation root path for the .NET Framework.
         /// </summary>
-        /// <returns>A <see cref="String"/> representing the installation root 
+        /// <returns>A <see cref="String"/> representing the installation root
         /// path for the .NET Framework.</returns>
         private static string GetInstallRoot()
         {
             string installRoot = String.Empty;
             if (!GetRegistryValue(RegistryHive.LocalMachine, NetfxInstallRootRegKeyName, NetFxInstallRootRegValueName, RegistryValueKind.String, out installRoot))
             {
-                throw new DirectoryNotFoundException(Resources.ApplicationExcpetion_UnableToDetermineInstallRoot);
+                throw new DirectoryNotFoundException(Cadru.Net.Resources.Strings.ApplicationExcpetion_UnableToDetermineInstallRoot);
             }
 
             return installRoot;
@@ -612,15 +611,15 @@ namespace Cadru
         /// <summary>
         /// Detects the service pack level for the .NET Framework 1.0.
         /// </summary>
-        /// <returns>An <see cref="Int32"/> representing the service pack 
+        /// <returns>An <see cref="Int32"/> representing the service pack
         /// level for the .NET Framework.</returns>
         /// <devdoc>Uses the detection method recommended at
-        /// http://blogs.msdn.com/astebner/archive/2004/09/14/229802.aspx 
-        /// to determine what service pack for the .NET Framework 1.0 is 
+        /// http://blogs.msdn.com/astebner/archive/2004/09/14/229802.aspx
+        /// to determine what service pack for the .NET Framework 1.0 is
         /// installed on the machine.
         /// </devdoc>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", 
-            MessageId = "System.Int32.TryParse(System.String,System.Int32@)", 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults",
+            MessageId = "System.Int32.TryParse(System.String,System.Int32@)",
             Justification = "In this case, we're already defaulting the out parameter but want to make sure the Parse isn't going to throw an exception.")]
         private static int GetNetfx10SPLevel()
         {
@@ -659,7 +658,7 @@ namespace Cadru
         /// </summary>
         /// <param name="key">The registry key name.</param>
         /// <param name="value">The registry value name.</param>
-        /// <returns>An <see cref="Int32"/> representing the service pack 
+        /// <returns>An <see cref="Int32"/> representing the service pack
         /// level for the .NET Framework.</returns>
         private static int GetNetfxSPLevel(string key, string value)
         {
@@ -695,7 +694,7 @@ namespace Cadru
         private static Version GetNetfx10ExactVersion()
         {
             bool foundKey = false;
-            Version version = new Version();
+            Version version = new Version(0,0,0,0);
             string regValue;
 
             if (IsTabletOrMediaCenter())
@@ -743,7 +742,7 @@ namespace Cadru
             // We can only get -1 if the .NET Framework is not
             // installed or there was some kind of error retrieving
             // the data from the registry
-            Version version = new Version();
+            Version version = new Version(0,0,0,0);
 
             if (GetRegistryValue(RegistryHive.LocalMachine, Netfx11RegKeyName, NetfxStandardRegValueName, RegistryValueKind.DWord, out regValue))
             {
@@ -779,7 +778,7 @@ namespace Cadru
             // We can only get -1 if the .NET Framework is not
             // installed or there was some kind of error retrieving
             // the data from the registry
-            Version version = new Version();
+            Version version = new Version(0,0,0,0);
 
             // If we have a Version registry value, use that.
             try
@@ -817,7 +816,7 @@ namespace Cadru
         /// </summary>
         /// <param name="key">The registry key name.</param>
         /// <param name="value">The registry value name.</param>
-        /// <returns>A <see cref="Version"/> that represents the .NET 
+        /// <returns>A <see cref="Version"/> that represents the .NET
         /// Framework version or a <see cref="Version"/> is returned
         /// that represents a 0.0.0.0 version number if the .NET Framework
         /// version is not found.</returns>
@@ -828,7 +827,7 @@ namespace Cadru
             // We can only get the default version if the .NET Framework
             // is not installed or there was some kind of error retrieving
             // the data from the registry
-            Version version = new Version();
+            Version version = new Version(0,0,0,0);
 
             if (GetRegistryValue(RegistryHive.LocalMachine, key, value, RegistryValueKind.String, out regValue))
             {
@@ -853,20 +852,24 @@ namespace Cadru
         /// <param name="key">The specified sub key to open.</param>
         /// <param name="value">The name of the value to retrieve.</param>
         /// <param name="kind">The registry data type of the specified value.</param>
-        /// <param name="data">The data associated with the registry hive, 
+        /// <param name="data">The data associated with the registry hive,
         /// key, and value name.</param>
-        /// <returns><see langword="true"/> if the registry value was found; 
+        /// <returns><see langword="true"/> if the registry value was found;
         /// otherwise, <see langword="false"/>.</returns>
         private static bool GetRegistryValue<T>(RegistryHive hive, string key, string value, RegistryValueKind kind, out T data)
         {
             bool success = false;
             data = default(T);
 
-            using (RegistryKey baseKey = RegistryKey.OpenRemoteBaseKey(hive, String.Empty))
+            using (RegistryKey baseKey = RegistryKey.OpenBaseKey(hive, RegistryView.Default))
             {
                 if (baseKey != null)
                 {
+#if DNXCORE50
+                    using (RegistryKey registryKey = baseKey.OpenSubKey(key, System.Security.AccessControl.RegistryRights.EnumerateSubKeys))
+#else
                     using (RegistryKey registryKey = baseKey.OpenSubKey(key, RegistryKeyPermissionCheck.ReadSubTree))
+#endif
                     {
                         if (registryKey != null)
                         {
@@ -898,9 +901,9 @@ namespace Cadru
 
             return success;
         }
-        #endregion
+#endregion
 
-        #region GetRegistryKey
+#region GetRegistryKey
         /// <summary>
         /// Gets the registry key for the given .NET Framework version and (optionally) profile.
         /// </summary>
@@ -954,15 +957,15 @@ namespace Cadru
 
             return regKeyName;
         }
-        #endregion
+#endregion
 
-        #region IsNetfxInstalled functions
+#region IsNetfxInstalled functions
 
-        #region IsNetfx10Installed
+#region IsNetfx10Installed
         /// <summary>
         /// Detects if the .NET Framework 1.0 is installed.
         /// </summary>
-        /// <returns><see langword="true"/> if the .NET Framework 1.0 is 
+        /// <returns><see langword="true"/> if the .NET Framework 1.0 is
         /// installed; otherwise <see langword="false"/>.</returns>
         /// <devdoc>Uses the detection method recommended at
         /// http://msdn.microsoft.com/library/ms994349.aspx to determine
@@ -976,13 +979,13 @@ namespace Cadru
 
             return found && CheckFxVersion(FrameworkVersion.Fx10);
         }
-        #endregion
+#endregion
 
-        #region IsNetfx11Installed
+#region IsNetfx11Installed
         /// <summary>
         /// Detects if the .NET Framework 1.1 is installed.
         /// </summary>
-        /// <returns><see langword="true"/> if the .NET Framework 1.1 is 
+        /// <returns><see langword="true"/> if the .NET Framework 1.1 is
         /// installed; otherwise <see langword="false"/>.</returns>
         /// <devdoc>Uses the detection method recommended at
         /// http://msdn.microsoft.com/library/ms994339.aspx to determine
@@ -1003,13 +1006,13 @@ namespace Cadru
 
             return found && CheckFxVersion(FrameworkVersion.Fx11);
         }
-        #endregion
+#endregion
 
-        #region IsNetfx20Installed
+#region IsNetfx20Installed
         /// <summary>
         /// Detects if the .NET Framework 2.0 is installed.
         /// </summary>
-        /// <returns><see langword="true"/> if the .NET Framework 2.0 is 
+        /// <returns><see langword="true"/> if the .NET Framework 2.0 is
         /// installed; otherwise <see langword="false"/>.</returns>
         /// <devdoc>Uses the detection method recommended at
         /// http://msdn.microsoft.com/library/aa480243.aspx to determine
@@ -1030,13 +1033,13 @@ namespace Cadru
 
             return found && CheckFxVersion(FrameworkVersion.Fx20);
         }
-        #endregion
+#endregion
 
-        #region IsNetfx30Installed
+#region IsNetfx30Installed
         /// <summary>
         /// Detects if the .NET Framework 3.0 is installed.
         /// </summary>
-        /// <returns><see langword="true"/> if the .NET Framework 3.0 is 
+        /// <returns><see langword="true"/> if the .NET Framework 3.0 is
         /// installed; otherwise <see langword="false"/>.</returns>
         /// <devdoc>Uses the detection method recommended at
         /// http://msdn.microsoft.com/library/aa964979.aspx to determine
@@ -1067,19 +1070,19 @@ namespace Cadru
             // version number listed in the registry.
             return found && CheckFxVersion(FrameworkVersion.Fx30);
         }
-        #endregion
+#endregion
 
-        #region IsNetfx35Installed
+#region IsNetfx35Installed
         /// <summary>
         /// Detects if the .NET Framework 3.5 is installed.
         /// </summary>
         /// <param name="frameworkVersion">The version of the .NET Framework.</param>
-        /// <returns><see langword="true"/> if the .NET Framework 3.5 is 
+        /// <returns><see langword="true"/> if the .NET Framework 3.5 is
         /// installed; otherwise <see langword="false"/>.</returns>
         /// <devdoc>Uses the detection method recommended at
         /// http://msdn.microsoft.com/library/cc160716.aspx to determine
         /// whether the .NET Framework 3.5 is installed on the machine.
-        /// Also uses the method described at 
+        /// Also uses the method described at
         /// http://blogs.msdn.com/astebner/archive/2008/07/13/8729636.aspx.
         /// </devdoc>
         private static bool IsNetfx35Installed(FrameworkVersion frameworkVersion)
@@ -1107,9 +1110,9 @@ namespace Cadru
             // version number listed in the registry.
             return found && CheckFxVersion(frameworkVersion);
         }
-        #endregion
+#endregion
 
-        #region IsNetfx40Installed
+#region IsNetfx40Installed
         /// <summary>
         /// Detects if the specified .NET Framework 4.0 profile is installed.
         /// </summary>
@@ -1119,7 +1122,7 @@ namespace Cadru
         /// <devdoc>Uses the detection method recommended at
         /// http://msdn.microsoft.com/library/ee942965(v=VS.100).aspx to
         /// determine whether the specified .NET Framework 4.0 profile is
-        /// installed on the machine. Also uses the method described at 
+        /// installed on the machine. Also uses the method described at
         /// http://blogs.msdn.com/astebner/archive/2008/07/13/8729636.aspx.
         /// </devdoc>
         private static bool IsNetfx40Installed(FrameworkVersion frameworkVersion)
@@ -1144,9 +1147,9 @@ namespace Cadru
             // version number listed in the registry.
             return found && CheckFxVersion(frameworkVersion);
         }
-        #endregion
+#endregion
 
-        #region IsNetfx45Installed
+#region IsNetfx45Installed
         /// <summary>
         /// Detects if the specified .NET Framework 4.5 profile is installed.
         /// </summary>
@@ -1155,7 +1158,7 @@ namespace Cadru
         /// <devdoc>Uses the detection method recommended at
         /// http://msdn.microsoft.com/library/ee942965(v=VS.100).aspx to
         /// determine whether the specified .NET Framework 4.5 profile is
-        /// installed on the machine. Also uses the method described at 
+        /// installed on the machine. Also uses the method described at
         /// http://blogs.msdn.com/astebner/archive/2008/07/13/8729636.aspx.
         /// </devdoc>
         private static bool IsNetfx45Installed()
@@ -1180,11 +1183,11 @@ namespace Cadru
             // version number listed in the registry.
             return found && CheckFxVersion(FrameworkVersion.Fx45);
         }
-        #endregion
+#endregion
 
-        #endregion
+#endregion
 
-        #region IsTabletOrMediaCenter
+#region IsTabletOrMediaCenter
         /// <summary>
         /// Determines if the operating system is Windows Media Center or Windows XP Tablet.
         /// </summary>
@@ -1194,17 +1197,17 @@ namespace Cadru
         {
             return (SafeNativeMethods.GetSystemMetrics(SystemMetric.SM_TABLETPC) != 0) || (SafeNativeMethods.GetSystemMetrics(SystemMetric.SM_MEDIACENTER) != 0);
         }
-        #endregion
+#endregion
 
-        #region WindowsFounationLibrary functions
+#region WindowsFounationLibrary functions
 
-        #region CardSpace
+#region CardSpace
 
-        #region IsNetfx30CardSpaceInstalled
+#region IsNetfx30CardSpaceInstalled
         /// <summary>
         /// Detects if the .NET Framework 3.0 CardSpace is installed.
         /// </summary>
-        /// <returns><see langword="true"/> if the .NET Framework 3.0 CardSpace is 
+        /// <returns><see langword="true"/> if the .NET Framework 3.0 CardSpace is
         /// installed; otherwise <see langword="false"/>.</returns>
         private static bool IsNetfx30CardSpaceInstalled()
         {
@@ -1221,13 +1224,13 @@ namespace Cadru
 
             return found;
         }
-        #endregion
+#endregion
 
-        #region GetNetfx30CardSpaceSPLevel
+#region GetNetfx30CardSpaceSPLevel
         /// <summary>
         /// Detects the service pack level for the .NET Framework 3.0 CardSpace.
         /// </summary>
-        /// <returns>An <see cref="Int32"/> representing the service pack 
+        /// <returns>An <see cref="Int32"/> representing the service pack
         /// level for the .NET Framework 3.0 CardSpace.</returns>
         /// <remarks>It doesn't appear that the Windows Foundation Libraries are
         /// serviced independently of the .NET Framework 3.0, so this returns
@@ -1236,9 +1239,9 @@ namespace Cadru
         {
             return GetServicePackLevel(FrameworkVersion.Fx30);
         }
-        #endregion
+#endregion
 
-        #region GetNetfx30CardSpaceExactVersion
+#region GetNetfx30CardSpaceExactVersion
         /// <summary>
         /// Retrieves the exact version number for the .NET Framework 3.0 CardSpace.
         /// </summary>
@@ -1254,7 +1257,7 @@ namespace Cadru
             // We can only get the default version if the .NET Framework
             // is not installed or there was some kind of error retrieving
             // the data from the registry
-            Version version = new Version();
+            Version version = new Version(0,0,0,0);
 
             if (GetRegistryValue(RegistryHive.LocalMachine, CardSpaceServicesRegKeyName, CardSpaceServicesPlusImagePathRegName, RegistryValueKind.ExpandString, out regValue))
             {
@@ -1268,17 +1271,17 @@ namespace Cadru
 
             return version;
         }
-        #endregion
+#endregion
 
-        #endregion
+#endregion
 
-        #region Windows Communication Foundation
+#region Windows Communication Foundation
 
-        #region IsNetfx30WCFInstalled
+#region IsNetfx30WCFInstalled
         /// <summary>
         /// Detects if the .NET Framework 3.0 WCF is installed.
         /// </summary>
-        /// <returns><see langword="true"/> if the .NET Framework 3.0 WCF is 
+        /// <returns><see langword="true"/> if the .NET Framework 3.0 WCF is
         /// installed; otherwise <see langword="false"/>.</returns>
         private static bool IsNetfx30WCFInstalled()
         {
@@ -1295,13 +1298,13 @@ namespace Cadru
 
             return found;
         }
-        #endregion
+#endregion
 
-        #region GetNetfx30WCFSPLevel
+#region GetNetfx30WCFSPLevel
         /// <summary>
         /// Detects the service pack level for the .NET Framework 3.0 WCF.
         /// </summary>
-        /// <returns>An <see cref="Int32"/> representing the service pack 
+        /// <returns>An <see cref="Int32"/> representing the service pack
         /// level for the .NET Framework 3.0 WCF.</returns>
         /// <remarks>It doesn't appear that the Windows Foundation Libraries are
         /// serviced independently of the .NET Framework 3.0, so this returns
@@ -1310,9 +1313,9 @@ namespace Cadru
         {
             return GetServicePackLevel(FrameworkVersion.Fx30);
         }
-        #endregion
+#endregion
 
-        #region GetNetfx30WCFExactVersion
+#region GetNetfx30WCFExactVersion
         /// <summary>
         /// Retrieves the exact version number for the .NET Framework 3.0 WCF.
         /// </summary>
@@ -1328,7 +1331,7 @@ namespace Cadru
             // We can only get the default version if the .NET Framework
             // is not installed or there was some kind of error retrieving
             // the data from the registry
-            Version version = new Version();
+            Version version = new Version(0,0,0,0);
 
             if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWCFRegKeyName, NetfxStandardVersionRegValueName, RegistryValueKind.String, out regValue))
             {
@@ -1340,17 +1343,17 @@ namespace Cadru
 
             return version;
         }
-        #endregion
+#endregion
 
-        #endregion
+#endregion
 
-        #region Windows Presentation Foundation
+#region Windows Presentation Foundation
 
-        #region IsNetfx30WPFInstalled
+#region IsNetfx30WPFInstalled
         /// <summary>
         /// Detects if the .NET Framework 3.0 WPF is installed.
         /// </summary>
-        /// <returns><see langword="true"/> if the .NET Framework 3.0 WPF is 
+        /// <returns><see langword="true"/> if the .NET Framework 3.0 WPF is
         /// installed; otherwise <see langword="false"/>.</returns>
         private static bool IsNetfx30WPFInstalled()
         {
@@ -1367,13 +1370,13 @@ namespace Cadru
 
             return found;
         }
-        #endregion
+#endregion
 
-        #region GetNetfx30WPFSPLevel
+#region GetNetfx30WPFSPLevel
         /// <summary>
         /// Detects the service pack level for the .NET Framework 3.0 WOF.
         /// </summary>
-        /// <returns>An <see cref="Int32"/> representing the service pack 
+        /// <returns>An <see cref="Int32"/> representing the service pack
         /// level for the .NET Framework 3.0 WPF.</returns>
         /// <remarks>It doesn't appear that the Windows Foundation Libraries are
         /// serviced independently of the .NET Framework 3.0, so this returns
@@ -1382,9 +1385,9 @@ namespace Cadru
         {
             return GetServicePackLevel(FrameworkVersion.Fx30);
         }
-        #endregion
+#endregion
 
-        #region GetNetfx30WPFExactVersion
+#region GetNetfx30WPFExactVersion
         /// <summary>
         /// Retrieves the exact version number for the .NET Framework 3.0 WPF.
         /// </summary>
@@ -1400,7 +1403,7 @@ namespace Cadru
             // We can only get the default version if the .NET Framework
             // is not installed or there was some kind of error retrieving
             // the data from the registry
-            Version version = new Version();
+            Version version = new Version(0,0,0,0);
 
             if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWPFRegKeyName, NetfxStandardVersionRegValueName, RegistryValueKind.String, out regValue))
             {
@@ -1412,17 +1415,17 @@ namespace Cadru
 
             return version;
         }
-        #endregion
+#endregion
 
-        #endregion
+#endregion
 
-        #region Windows Workflow Foundation
+#region Windows Workflow Foundation
 
-        #region IsNetfx30WFInstalled
+#region IsNetfx30WFInstalled
         /// <summary>
         /// Detects if the .NET Framework 3.0 WF is installed.
         /// </summary>
-        /// <returns><see langword="true"/> if the .NET Framework 3.0 WF is 
+        /// <returns><see langword="true"/> if the .NET Framework 3.0 WF is
         /// installed; otherwise <see langword="false"/>.</returns>
         private static bool IsNetfx30WFInstalled()
         {
@@ -1439,13 +1442,13 @@ namespace Cadru
 
             return found;
         }
-        #endregion
+#endregion
 
-        #region GetNetfx30WFSPLevel
+#region GetNetfx30WFSPLevel
         /// <summary>
         /// Detects the service pack level for the .NET Framework 3.0 WF.
         /// </summary>
-        /// <returns>An <see cref="Int32"/> representing the service pack 
+        /// <returns>An <see cref="Int32"/> representing the service pack
         /// level for the .NET Framework 3.0 WF.</returns>
         /// <remarks>It doesn't appear that the Windows Foundation Libraries are
         /// serviced independently of the .NET Framework 3.0, so this returns
@@ -1454,9 +1457,9 @@ namespace Cadru
         {
             return GetServicePackLevel(FrameworkVersion.Fx30);
         }
-        #endregion
+#endregion
 
-        #region GetNetfx30WFExactVersion
+#region GetNetfx30WFExactVersion
         /// <summary>
         /// Retrieves the exact version number for the .NET Framework 3.0 WF.
         /// </summary>
@@ -1472,7 +1475,7 @@ namespace Cadru
             // We can only get the default version if the .NET Framework
             // is not installed or there was some kind of error retrieving
             // the data from the registry
-            Version version = new Version();
+            Version version = new Version(0,0,0,0);
 
             if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWFRegKeyName, Netfx30PlusWFPlusVersionRegValueName, RegistryValueKind.String, out regValue))
             {
@@ -1484,12 +1487,12 @@ namespace Cadru
 
             return version;
         }
-        #endregion
+#endregion
 
-        #endregion
+#endregion
 
-        #endregion
+#endregion
 
-        #endregion
+#endregion
     }
 }

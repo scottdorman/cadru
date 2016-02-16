@@ -26,7 +26,7 @@ namespace Cadru.Net.Rest
     using System.Collections.Generic;
     using System.Collections;
     using System.Reflection;
-    using Cadru.Introspection;
+    using Cadru.Portability;
 
     /// <summary>
     /// Represents a case-insensitive collection of key/value pairs that are used

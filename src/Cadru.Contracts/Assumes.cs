@@ -26,7 +26,7 @@ namespace Cadru.Contracts
     using System.Diagnostics;
     using System.Globalization;
     using Cadru.Contracts.Internal;
-    using Cadru.Introspection;
+    using Cadru.Portability;
 
     /// <summary>
     /// Provides a set of methods to simplify debugging your code.

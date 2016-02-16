@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25008.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B82E15F1-6387-4A0C-9146-7E0F304F4AE7}"
 	ProjectSection(SolutionItems) = preProject
@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Cadru.Core", "Cadru.Core\Cadru.Core.xproj", "{B98B3609-8A51-48DE-B3E1-0AD049C4524A}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Cadru.Introspection", "Cadru.Introspection\Cadru.Introspection.xproj", "{1C3975D9-5A83-4D5D-BC4A-DFE16B91A348}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Cadru.Contracts", "Cadru.Contracts\Cadru.Contracts.xproj", "{4BF9738F-5AFA-4952-97E1-E891CC10701A}"
 EndProject
@@ -26,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BD00C0E7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadru.Core.UnitTests", "..\tests\Cadru.Core.UnitTests\Cadru.Core.UnitTests.csproj", "{0BED0473-C90D-4C16-98D1-14D76D13FB17}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Cadru.Portability", "Cadru.Portability\Cadru.Portability.xproj", "{1C3975D9-5A83-4D5D-BC4A-DFE16B91A348}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,10 +36,6 @@ Global
 		{B98B3609-8A51-48DE-B3E1-0AD049C4524A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B98B3609-8A51-48DE-B3E1-0AD049C4524A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B98B3609-8A51-48DE-B3E1-0AD049C4524A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C3975D9-5A83-4D5D-BC4A-DFE16B91A348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C3975D9-5A83-4D5D-BC4A-DFE16B91A348}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C3975D9-5A83-4D5D-BC4A-DFE16B91A348}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C3975D9-5A83-4D5D-BC4A-DFE16B91A348}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4BF9738F-5AFA-4952-97E1-E891CC10701A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4BF9738F-5AFA-4952-97E1-E891CC10701A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BF9738F-5AFA-4952-97E1-E891CC10701A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -60,6 +56,10 @@ Global
 		{0BED0473-C90D-4C16-98D1-14D76D13FB17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BED0473-C90D-4C16-98D1-14D76D13FB17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BED0473-C90D-4C16-98D1-14D76D13FB17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C3975D9-5A83-4D5D-BC4A-DFE16B91A348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C3975D9-5A83-4D5D-BC4A-DFE16B91A348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C3975D9-5A83-4D5D-BC4A-DFE16B91A348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C3975D9-5A83-4D5D-BC4A-DFE16B91A348}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

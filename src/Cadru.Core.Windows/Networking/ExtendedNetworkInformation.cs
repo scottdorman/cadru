@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// <copyright file="ExtendedNetworkInformation.cs" 
-//  company="Scott Dorman" 
+// <copyright file="ExtendedNetworkInformation.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2013 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -29,7 +29,8 @@ namespace Cadru.Networking
     using System.Net.NetworkInformation;
     using System.Runtime.InteropServices;
     using System.Security;
-    using Cadru.InteropServices;
+    using Cadru.Portability.InteropServices;
+    using InteropServices;
 
     /// <summary>
     /// Provides information about a computer or computers on a domain.
@@ -146,7 +147,7 @@ namespace Cadru.Networking
         /// Gets an array of <see cref="ServerInfo"/> instances of the
         /// specified server type for the given domain.
         /// </summary>
-        /// <param name="serverType">A bitwise combination of enumeration values 
+        /// <param name="serverType">A bitwise combination of enumeration values
         /// that defines what server types to search. </param>
         /// <param name="domain">The name of the domain to search, or <see langword="null"/>
         /// to search the primary domain.</param>
@@ -176,7 +177,7 @@ namespace Cadru.Networking
                 SERVER_INFO_101 serverInfo;
                 for (int i = 0; i < entriesRead; i++)
                 {
-                    serverInfo = (SERVER_INFO_101)Marshal.PtrToStructure(new IntPtr(ptr), typeof(SERVER_INFO_101));
+                    serverInfo = MarshalShim.PtrToStructure<SERVER_INFO_101>(new IntPtr(ptr));
                     ptr += Marshal.SizeOf(serverInfo);
                     serverList[i] = new ServerInfo(serverInfo);
                 }
@@ -192,7 +193,7 @@ namespace Cadru.Networking
 
         #region IPAddress
         /// <summary>
-        /// Gets the IP addresses of the local computer. 
+        /// Gets the IP addresses of the local computer.
         /// </summary>
         /// <returns>An <see cref="IPAddress"/> array containing the IP addresses of the local computer.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
@@ -249,7 +250,7 @@ namespace Cadru.Networking
 
                 int ptr = pBuf.ToInt32();
                 SERVER_INFO_101 serverInfo;
-                serverInfo = (SERVER_INFO_101)Marshal.PtrToStructure(new IntPtr(ptr), typeof(SERVER_INFO_101));
+                serverInfo = MarshalShim.PtrToStructure<SERVER_INFO_101>(new IntPtr(ptr));
                 server = new ServerInfo(serverInfo);
             }
             finally
