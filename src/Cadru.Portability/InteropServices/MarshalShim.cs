@@ -10,13 +10,13 @@ namespace Cadru.Portability.InteropServices
     {
         public static T PtrToStructure<T>(IntPtr ptr)
         {
-        #if NET40 || NET45 || DOTNET5_1 || WP80
+#if NET40 || NET45 || DOTNET5_1 || WP80
             return (T)Marshal.PtrToStructure(ptr, typeof(T));
-        #elif PCL || SL50
+#elif PCL || SL50
             throw new PlatformNotSupportedException();
-        #else
+#else
             return Marshal.PtrToStructure<T>(ptr);
-        #endif
+#endif
         }
 
         public static int SizeOf<T>()
