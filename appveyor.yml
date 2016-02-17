@@ -113,6 +113,13 @@ artifacts:
 - path: '**\*.chm'
   name: CHM Documentation
 
+#---------------------------------#
+#  notifications configuration    #
+#---------------------------------#
+
+notifications:
+- provider: Webhook
+  url: https://webhooks.gitter.im/e/fa9762a67dfc4aef2e07
 
 #---------------------------------#
 #        global handlers          #
