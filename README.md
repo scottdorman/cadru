@@ -1,6 +1,4 @@
-# Cadru [![Build status](https://ci.appveyor.com/api/projects/status/3t0p4d04fyqtiun5?svg=true&retina=true)](https://ci.appveyor.com/project/scottdorman/cadru) 
-
-[![Join the chat at https://gitter.im/scottdorman/cadru](https://badges.gitter.im/scottdorman/cadru.svg)](https://gitter.im/scottdorman/cadru?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# Cadru [![Build status](https://ci.appveyor.com/api/projects/status/3t0p4d04fyqtiun5?svg=true&retina=true)](https://ci.appveyor.com/project/scottdorman/cadru) [![Join the chat at https://gitter.im/scottdorman/cadru](https://badges.gitter.im/scottdorman/cadru.svg)](https://gitter.im/scottdorman/cadru?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 | | |
 |-------|------|
