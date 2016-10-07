@@ -27,6 +27,14 @@ namespace Cadru.Data.Dapper
 
     public interface IPropertyMap
     {
+        /// <summary>
+        /// Gets the option for handling string values.
+        /// </summary>
+        StringHandlingOption StringHandlingOption { get; }
+
+        /// <summary>
+        /// Gets a value that indicates whether a field is exportable.
+        /// </summary>
         bool IsExportable { get; }
 
         /// <summary>

@@ -94,6 +94,8 @@
     <Compile Include="Predicates\Internal\PropertyPredicate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyMap.cs" />
+    <Compile Include="StringHandlingAttribute.cs" />
+    <Compile Include="StringHandlingOption.cs" />
     <Compile Include="TableMap{T}.cs" />
     <Compile Include="Table{TEntity}.cs" />
     <Compile Include="TrackedEntity.cs" />

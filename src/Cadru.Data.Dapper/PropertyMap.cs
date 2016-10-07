@@ -72,8 +72,19 @@ namespace Cadru.Data.Dapper
 
             var exportAttribute = attributes.OfType<ExportableAttribute>().SingleOrDefault();
             this.IsExportable = exportAttribute?.AllowExport ?? true;
+
+            var stringHandlingAttribute = attributes.OfType<StringHandlingAttribute>().SingleOrDefault();
+            this.StringHandlingOption = stringHandlingAttribute?.StringHandlingOption ?? StringHandlingOption.None;
         }
 
+        /// <summary>
+        /// Gets the option for handling string values.
+        /// </summary>
+        public StringHandlingOption StringHandlingOption { get; private set; }
+
+        /// <summary>
+        /// Gets a value that indicates whether a field is exportable.
+        /// </summary>
         public bool IsExportable { get; private set; }
 
         /// <summary>

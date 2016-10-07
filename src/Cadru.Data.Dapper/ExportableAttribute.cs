@@ -6,29 +6,29 @@ using System.Threading.Tasks;
 
 namespace Cadru.Data.Dapper
 {
+    /// <summary>
+    /// Denotes that a property should be excluded from being exported.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
     public sealed class ExportableAttribute : Attribute
     {
         /// <summary>
-        /// Indicates whether or not the field/property allows exporting of the
-        /// value.
+        /// Gets a value that indicates whether a field is exportable.
         /// </summary>
         /// <value>
-        /// When <c>true</c>, the field/property is exportable.
-        /// <para>
-        /// When <c>false</c>, the field/property is not exportable.
-        /// </para>
+        /// <see langword="true"/> if the field is exportable; otherwise, <see langword="false"/>.
         /// </value>
         public bool AllowExport { get; private set; }
 
         /// <summary>
-        /// Indicate whether or not a field/property is exportable.
+        /// Initializes a new instance of the <see cref="ExportableAttribute"/> class.
         /// </summary>
-        /// <param name="allowEdit">
-        /// Indicates whether the field/property is editable.
+        /// <param name="allowExport">
+        /// <see langword="true"/> to specify that the field is exportable; otherwise, <see langword="false"/>.
         /// </param>
-        public ExportableAttribute(bool allowEdit)
+        public ExportableAttribute(bool allowExport)
         {
-            this.AllowExport = allowEdit;
+            this.AllowExport = allowExport;
         }
     }
 }
