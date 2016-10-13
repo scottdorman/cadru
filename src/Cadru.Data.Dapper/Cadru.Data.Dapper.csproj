@@ -74,10 +74,11 @@
     <Compile Include="Database.cs" />
     <Compile Include="ExportableAttribute.cs" />
     <Compile Include="IDatabase.cs" />
+    <Compile Include="DatabaseObjectType.cs" />
     <Compile Include="Internal\TypeHelpers.cs" />
     <Compile Include="IPropertyMap.cs" />
-    <Compile Include="ITable.cs" />
-    <Compile Include="ITableMap.cs" />
+    <Compile Include="IDatabaseObject.cs" />
+    <Compile Include="IObjectMap.cs" />
     <Compile Include="KeyType.cs" />
     <Compile Include="Predicates\Internal\ComparePredicate.cs" />
     <Compile Include="Predicates\Internal\ExistsPredicate.cs" />
@@ -94,9 +95,13 @@
     <Compile Include="Predicates\Internal\PropertyPredicate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyMap.cs" />
+    <Compile Include="ObjectMap{T}.cs" />
     <Compile Include="StringHandlingAttribute.cs" />
     <Compile Include="StringHandlingOption.cs" />
+    <Compile Include="ViewMap{T}.cs" />
     <Compile Include="TableMap{T}.cs" />
+    <Compile Include="ViewAttribute.cs" />
+    <Compile Include="View{TEntity}.cs" />
     <Compile Include="Table{TEntity}.cs" />
     <Compile Include="TrackedEntity.cs" />
   </ItemGroup>

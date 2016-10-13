@@ -34,22 +34,26 @@ namespace Cadru.Data.Dapper
     using System.Reflection;
     using System.Text;
 
-    public partial class Table<TEntity> : ITable where TEntity : class
+    public partial class Table<TEntity> : IDatabaseObject where TEntity : class
     {
         private Database database;
-        private ITableMap tableMap;
+        private IObjectMap tableMap;
         private Type underlyingType = typeof(TEntity);
         static ConcurrentDictionary<Type, List<string>> paramNameCache = new ConcurrentDictionary<Type, List<string>>();
 
         public Table(Database database)
         {
             this.database = database;
-            this.tableMap = database.MapTable<TEntity>();
+            this.tableMap = database.MapObject<TEntity>(this.ObjectType);
         }
 
-        public string Schema => this.tableMap.SchemaName;
+        public string Schema => this.tableMap.Schema;
 
-        public string TableName => this.tableMap.TableName;
+        public string ObjectName => this.tableMap.ObjectName;
+
+        public string FullyQualifiedObjectName => this.tableMap.FullyQualifiedObjectName;
+
+        public DatabaseObjectType ObjectType => DatabaseObjectType.Table;
 
         protected Database Database => this.database;
 
@@ -89,7 +93,7 @@ namespace Cadru.Data.Dapper
 
             var cols = string.Join(",", paramNames);
             var cols_params = string.Join(",", paramNames.Select(p => $"@{p}"));
-            var sql = $"set nocount on insert {TableName} ({cols}) values ({cols_params})";
+            var sql = $"SET NOCOUNT ON INSERT {this.FullyQualifiedObjectName} ({cols}) VALUES ({cols_params})";
 
             database.Query<int?>(sql, parameters);
         }
@@ -100,7 +104,7 @@ namespace Cadru.Data.Dapper
             var parameters = new DynamicParameters(data);
             var cols = string.Join(",", paramNames);
             var cols_params = string.Join(",", paramNames.Select(p => $"@{p}"));
-            var sql = $"set nocount on insert {TableName} ({cols}) values ({cols_params})";
+            var sql = $"SET NOCOUNT ON INSERT {this.FullyQualifiedObjectName} ({cols}) VALUES ({cols_params})";
             database.Query<int?>(sql, parameters);
         }
 
@@ -110,7 +114,7 @@ namespace Cadru.Data.Dapper
             var parameters = new DynamicParameters(data);
 
             var builder = new StringBuilder();
-            builder.Append($"update {TableName} set ");
+            builder.Append($"UPDATE {this.FullyQualifiedObjectName} SET ");
             builder.AppendLine(string.Join(", ", paramNames.Select(p => $"{p} = @{p}")));
             AppendWhere(builder, predicate, parameters);
             return database.Execute(builder.ToString(), parameters);
@@ -128,7 +132,7 @@ namespace Cadru.Data.Dapper
             var parameters = new DynamicParameters(data);
 
             var builder = new StringBuilder();
-            builder.Append($"update {TableName} set ");
+            builder.Append($"UPDATE {this.FullyQualifiedObjectName} SET ");
             builder.AppendLine(string.Join(", ", paramNames.Select(p => $"{p} = @{p}")));
             AppendWhere(builder, predicate, parameters);
             return database.Execute(builder.ToString(), parameters);
@@ -136,7 +140,7 @@ namespace Cadru.Data.Dapper
 
         private void AppendWhere(StringBuilder builder, IPredicate predicate, DynamicParameters parameters)
         {
-            builder.Append(" where ");
+            builder.Append(" WHERE ");
             builder.Append(predicate.GetSql(parameters));
         }
 
@@ -149,7 +153,7 @@ namespace Cadru.Data.Dapper
         {
             Requires.NotNull(predicate, "predicate");
             var parameters = new DynamicParameters();
-            return database.Execute($"delete from {TableName} where {predicate.GetSql(parameters)}", parameters);
+            return database.Execute($"DELETE FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}", parameters);
         }
 
         /// <summary>
@@ -161,7 +165,7 @@ namespace Cadru.Data.Dapper
         {
             Requires.NotNull(predicate, "predicate");
             var parameters = new DynamicParameters();
-            return database.Query<TEntity>($"select * from {TableName} where {predicate.GetSql(parameters)}", parameters).FirstOrDefault();
+            return database.Query<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}", parameters).FirstOrDefault();
         }
 
         /// <summary>
@@ -170,7 +174,7 @@ namespace Cadru.Data.Dapper
         /// <returns></returns>
         public virtual TEntity First()
         {
-            return database.Query<TEntity>($"select top 1 * from {TableName}").FirstOrDefault();
+            return database.Query<TEntity>($"SELECT TOP 1 * FROM {this.FullyQualifiedObjectName}").FirstOrDefault();
         }
 
         /// <summary>
@@ -182,7 +186,7 @@ namespace Cadru.Data.Dapper
         {
             Requires.NotNull(predicate, "predicate");
             var parameters = new DynamicParameters();
-            return database.Query<TEntity>($"select top 1 * from {TableName} where {predicate.GetSql(parameters)}").FirstOrDefault();
+            return database.Query<TEntity>($"SELECT TOP 1 * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}").FirstOrDefault();
         }
 
         /// <summary>
@@ -191,7 +195,7 @@ namespace Cadru.Data.Dapper
         /// <returns></returns>
         public virtual IEnumerable<TEntity> All()
         {
-            return database.Query<TEntity>($"select * from {TableName}");
+            return database.Query<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName}");
         }
 
         /// <summary>
@@ -203,7 +207,7 @@ namespace Cadru.Data.Dapper
         {
             Requires.NotNull(predicate, "predicate");
             var parameters = new DynamicParameters();
-            return database.Query<TEntity>($"select * from {TableName} where {predicate.GetSql(parameters)}", parameters);
+            return database.Query<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}", parameters);
         }
     }
 }

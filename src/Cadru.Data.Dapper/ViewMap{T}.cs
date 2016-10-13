@@ -31,16 +31,16 @@ namespace Cadru.Data.Dapper
     using System.Text;
     using System.Threading.Tasks;
 
-    public class TableMap<T> : ObjectMap<T> where T : class
+    public class ViewMap<T> : ObjectMap<T> where T : class
     {
-        internal TableMap() : base()
+        internal ViewMap() : base()
         {
-            this.ObjectType = DatabaseObjectType.Table;
-            var tableAttribute = this.EntityType.GetCustomAttribute<TableAttribute>(inherit: true);
-            if (tableAttribute != null)
+            this.ObjectType = DatabaseObjectType.View;
+            var viewAttribute = this.EntityType.GetCustomAttribute<ViewAttribute>(inherit: true);
+            if (viewAttribute != null)
             {
-                base.Schema = tableAttribute.Schema;
-                this.ObjectName = tableAttribute.Name;
+                base.Schema = viewAttribute.Schema;
+                this.ObjectName = viewAttribute.Name;
             }
             else
             {

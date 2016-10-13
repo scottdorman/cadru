@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="ExistsPredicate.cs"
+// <copyright file="ITableMap.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2015 Scott Dorman.
@@ -20,28 +20,28 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.Data.Dapper.Predicates.Internal
+using System;
+using System.Collections.Generic;
+
+namespace Cadru.Data.Dapper
 {
-    using global::Dapper;
-    using System;
-
-    internal class ExistsPredicate<TModel> : IExistsPredicate
-        where TModel : class
+    public interface IObjectMap
     {
-        public bool Not { get; set; }
+        string Schema { get; }
 
-        public IPredicate Predicate { get; set; }
+        string ObjectName { get; }
 
-        public string GetSql(DynamicParameters parameters)
-        {
-            string sql = null;
-            IObjectMap classMap;
-            if (Database.Mappings.TryGetValue(typeof(TModel), out classMap))
-            {
-                sql = $"({(Not ? "NOT " : String.Empty)}EXISTS (SELECT 1 FROM {classMap.ObjectName} WHERE {Predicate.GetSql(parameters)}))";
-            }
+        DatabaseObjectType ObjectType { get; }
 
-            return sql;
-        }
+        string FullyQualifiedObjectName { get; }
+
+        Type EntityType { get; }
+
+        /// <summary>
+        /// A collection of properties that will map to columns in the database table.
+        /// </summary>
+        IList<IPropertyMap> Properties { get; }
+
+        void Map();
     }
 }

@@ -35,12 +35,12 @@ namespace Cadru.Data.Dapper
 
     public abstract partial class Database : IDatabase
     {
-        static ConcurrentDictionary<Type, ITableMap> mappings = new ConcurrentDictionary<Type, ITableMap>();
+        static ConcurrentDictionary<Type, IObjectMap> mappings = new ConcurrentDictionary<Type, IObjectMap>();
         int commandTimeout;
         DbConnection connection;
         DbTransaction transaction;
 
-        public static ConcurrentDictionary<Type, ITableMap> Mappings => mappings;
+        public static ConcurrentDictionary<Type, IObjectMap> Mappings => mappings;
 
         public DbTransaction Transaction => this.transaction;
 
@@ -136,12 +136,10 @@ namespace Cadru.Data.Dapper
             transaction = null;
         }
 
-        internal ITableMap MapTable<T>() where T : class
+        internal IObjectMap MapTable<T>() where T : class
         {
-            string tableName;
-            string schemaName;
             var tableType = typeof(T);
-            ITableMap map;
+            IObjectMap map;
 
             if (!mappings.TryGetValue(tableType, out map))
             {
@@ -152,6 +150,34 @@ namespace Cadru.Data.Dapper
             return map;
         }
 
+        internal IObjectMap MapView<T>() where T : class
+        {
+            var tableType = typeof(T);
+            IObjectMap map;
+
+            if (!mappings.TryGetValue(tableType, out map))
+            {
+                map = new TableMap<T>();
+                mappings[tableType] = map;
+            }
+
+            return map;
+        }
+
+
+        internal IObjectMap MapObject<T>(DatabaseObjectType databaseObjectType) where T : class
+        {
+            var entityType = typeof(T);
+            IObjectMap map;
+
+            if (!mappings.TryGetValue(entityType, out map))
+            {
+                map = ObjectMap<T>.CreateMap(databaseObjectType);
+                mappings[entityType] = map;
+            }
+
+            return map;
+        }
         internal void InitializeDatabase(DbConnection connection, int commandTimeout)
         {
             this.connection = connection;
@@ -161,7 +187,7 @@ namespace Cadru.Data.Dapper
         protected void InitializeTableProperties()
         {
             var setters = GetType().GetProperties()
-                .Where(p => p.PropertyType.HasInterface<ITable>())
+                .Where(p => p.PropertyType.HasInterface<IDatabaseObject>())
                 .Select(p => Tuple.Create(
                         p.GetSetMethod(true),
                         p.PropertyType

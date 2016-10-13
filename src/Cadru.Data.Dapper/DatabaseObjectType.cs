@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="ExistsPredicate.cs"
+// <copyright file="ITable.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2015 Scott Dorman.
@@ -20,28 +20,11 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.Data.Dapper.Predicates.Internal
+namespace Cadru.Data.Dapper
 {
-    using global::Dapper;
-    using System;
-
-    internal class ExistsPredicate<TModel> : IExistsPredicate
-        where TModel : class
+    public enum DatabaseObjectType
     {
-        public bool Not { get; set; }
-
-        public IPredicate Predicate { get; set; }
-
-        public string GetSql(DynamicParameters parameters)
-        {
-            string sql = null;
-            IObjectMap classMap;
-            if (Database.Mappings.TryGetValue(typeof(TModel), out classMap))
-            {
-                sql = $"({(Not ? "NOT " : String.Empty)}EXISTS (SELECT 1 FROM {classMap.ObjectName} WHERE {Predicate.GetSql(parameters)}))";
-            }
-
-            return sql;
-        }
+        Table = 0,
+        View = 1
     }
 }
