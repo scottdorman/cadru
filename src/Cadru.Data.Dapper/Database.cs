@@ -136,35 +136,6 @@ namespace Cadru.Data.Dapper
             transaction = null;
         }
 
-        internal IObjectMap MapTable<T>() where T : class
-        {
-            var tableType = typeof(T);
-            IObjectMap map;
-
-            if (!mappings.TryGetValue(tableType, out map))
-            {
-                map = new TableMap<T>();
-                mappings[tableType] = map;
-            }
-
-            return map;
-        }
-
-        internal IObjectMap MapView<T>() where T : class
-        {
-            var tableType = typeof(T);
-            IObjectMap map;
-
-            if (!mappings.TryGetValue(tableType, out map))
-            {
-                map = new TableMap<T>();
-                mappings[tableType] = map;
-            }
-
-            return map;
-        }
-
-
         internal IObjectMap MapObject<T>(DatabaseObjectType databaseObjectType) where T : class
         {
             var entityType = typeof(T);

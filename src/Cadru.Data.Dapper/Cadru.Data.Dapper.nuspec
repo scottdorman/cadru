@@ -14,15 +14,13 @@
     <copyright>Copyright © Scott Dorman</copyright>
     <tags>cadru data dapper utility</tags>
     <releaseNotes>
-      **(Breaking change)**  PropertyMap.Name has been renamed to PropertyMap.PropertyName so that PropertyMap.Name can be used more appropriately for the display name of the property.
-      Added support for DisplayAttribute properties.
-      Added ExportableAttribute, which can be used to inform calling code whether the property should be exportable or not.
-      Added additional virtual methods to Table{TEntity} for Insert and Update which accept a TEntity.
-      Made the remaining Update, Delete, Get, and All methods in Table{TEntity} virtual.
-      Added Execute, Query, and QueryMultiple signatures to IDatabase.
-      Database and Database{T} now know how to automatically initialize the table properties collection at instantiation based on finding any properties whose datatype implements ITable.
-      Database now exposes a read-only property for the Transaction.
-      Added additional overloads to the Predicate static factory.
+      **(Breaking change)**  ITable has been replaced with IDatabaseObject.
+      **(Breaking change)**  ITableMap has been replaced with IObjectMap.
+      **(Breaking change)**  TableMap now derives from a new abstract base class and some property names have changed.
+      **(Breaking change)**  ITable has been renamed to IDatabaseObject.
+      **(Breaking change)**  Table{T} implements IDatabaseObject instead of ITable.
+      SQL statements now properly escape schema/object names using the fully qualified object name.
+      Added support for working with database views.
     </releaseNotes>
     <dependencies>
       <group targetFramework=".NETPortable0.0-net40+sl50+win+wpa81+wp80">

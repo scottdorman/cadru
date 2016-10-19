@@ -42,6 +42,8 @@ namespace Cadru.Data.Dapper
         /// </summary>
         IList<IPropertyMap> Properties { get; }
 
+        IReadOnlyDictionary<string, object> AdditionalValues { get; }
+
         void Map();
     }
 }

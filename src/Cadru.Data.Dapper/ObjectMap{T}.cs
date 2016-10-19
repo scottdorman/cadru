@@ -31,9 +31,24 @@ namespace Cadru.Data.Dapper
     using System.Text;
     using System.Threading.Tasks;
 
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
+    public sealed class ExtendedPropertyAttribute : Attribute
+    {
+        public ExtendedPropertyAttribute(string name, object value)
+        {
+            this.Name = name;
+            this.Value = value;
+        }
+
+        public string Name { get; private set; }
+
+        public object Value { get; private set; }
+    }
+
     public abstract class ObjectMap<T> : IObjectMap where T : class
     {
         private Type entityType = typeof(T);
+        private Dictionary<string, object> additionalValues = new Dictionary<string, object>();
 
         public static IObjectMap CreateMap(DatabaseObjectType databaseObjectType)
         {
@@ -54,7 +69,13 @@ namespace Cadru.Data.Dapper
         protected ObjectMap()
         {
             Properties = new List<IPropertyMap>();
+            foreach(var attribute in entityType.GetCustomAttributes<ExtendedPropertyAttribute>())
+            {
+                this.additionalValues.Add(attribute.Name, attribute.Value);
+            }
         }
+
+        public IReadOnlyDictionary<string, object> AdditionalValues => additionalValues;
 
         public string FullyQualifiedObjectName { get; internal set; }
 
