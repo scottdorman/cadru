@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net45</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>4.0.0-beta-29</Version>
+    <Authors>Scott Dorman</Authors>
+    <Company>Scott Dorman</Company>
+    <Product>Cadru Framework</Product>
+    <Copyright>Copyright © Scott Dorman</Copyright>
+    <PackageLicenseUrl>http://opensource.org/licenses/Ms-PL.html</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/scottdorman/cadru</PackageProjectUrl>
+    <Description>Generate emails using ASP.NET MVC views</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="NewFolder\**" />
+    <EmbeddedResource Remove="NewFolder\**" />
+    <None Remove="NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.3" />
+    <PackageReference Include="RazorEngine" Version="3.9.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cadru.Contracts\Cadru.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Web" />
+  </ItemGroup>
+
+</Project>

@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="NumericExtensions.cs" 
-//  company="Scott Dorman" 
+// <copyright file="NumericExtensions.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -58,7 +58,7 @@ namespace Cadru.Extensions
         /// <param name="min">The minimum byte value.</param>
         /// <param name="max">The maximum byte value.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
-        /// the minimum value but less than the maximum value; otherwise it 
+        /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
         public static bool Between(this byte expression, byte min, byte max)
         {
@@ -74,10 +74,10 @@ namespace Cadru.Extensions
         /// <param name="expression">Any byte value.</param>
         /// <param name="min">The minimum byte value.</param>
         /// <param name="max">The maximum byte value.</param>
-        /// <param name="options">A bitwise combination of enumeration values 
+        /// <param name="options">A bitwise combination of enumeration values
         /// that defines whether the comparison is inclusive.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
-        /// the minimum value but less than the maximum value; otherwise it 
+        /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
         public static bool Between(this byte expression, byte min, byte max, NumericComparisonOptions options)
         {
@@ -98,7 +98,7 @@ namespace Cadru.Extensions
         /// <param name="min">The minimum decimal value.</param>
         /// <param name="max">The maximum decimal value.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
-        /// the minimum value but less than the maximum value; otherwise it 
+        /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
         public static bool Between(this decimal expression, decimal min, decimal max)
         {
@@ -114,10 +114,10 @@ namespace Cadru.Extensions
         /// <param name="expression">Any decimal value.</param>
         /// <param name="min">The minimum decimal value.</param>
         /// <param name="max">The maximum decimal value.</param>
-        /// <param name="options">A bitwise combination of enumeration values 
+        /// <param name="options">A bitwise combination of enumeration values
         /// that defines whether the comparison is inclusive.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
-        /// the minimum value but less than the maximum value; otherwise it 
+        /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
         public static bool Between(this decimal expression, decimal min, decimal max, NumericComparisonOptions options)
         {
@@ -138,7 +138,7 @@ namespace Cadru.Extensions
         /// <param name="min">The minimum double value.</param>
         /// <param name="max">The maximum double value.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
-        /// the minimum value but less than the maximum value; otherwise it 
+        /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
         public static bool Between(this double expression, double min, double max)
         {
@@ -154,10 +154,10 @@ namespace Cadru.Extensions
         /// <param name="expression">Any double value.</param>
         /// <param name="min">The minimum double value.</param>
         /// <param name="max">The maximum double value.</param>
-        /// <param name="options">A bitwise combination of enumeration values 
+        /// <param name="options">A bitwise combination of enumeration values
         /// that defines whether the comparison is inclusive.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
-        /// the minimum value but less than the maximum value; otherwise it 
+        /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
         public static bool Between(this double expression, double min, double max, NumericComparisonOptions options)
         {
@@ -178,7 +178,7 @@ namespace Cadru.Extensions
         /// <param name="min">The minimum short value.</param>
         /// <param name="max">The maximum short value.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
-        /// the minimum value but less than the maximum value; otherwise it 
+        /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
         public static bool Between(this short expression, short min, short max)
         {
@@ -194,10 +194,10 @@ namespace Cadru.Extensions
         /// <param name="expression">Any short value.</param>
         /// <param name="min">The minimum short value.</param>
         /// <param name="max">The maximum short value.</param>
-        /// <param name="options">A bitwise combination of enumeration values 
+        /// <param name="options">A bitwise combination of enumeration values
         /// that defines whether the comparison is inclusive.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
-        /// the minimum value but less than the maximum value; otherwise it 
+        /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
         public static bool Between(this short expression, short min, short max, NumericComparisonOptions options)
         {
@@ -218,7 +218,7 @@ namespace Cadru.Extensions
         /// <param name="min">The minimum integer value.</param>
         /// <param name="max">The maximum integer value.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
-        /// the minimum value but less than the maximum value; otherwise it 
+        /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
         public static bool Between(this int expression, int min, int max)
         {
@@ -234,10 +234,10 @@ namespace Cadru.Extensions
         /// <param name="expression">Any integer value.</param>
         /// <param name="min">The minimum integer value.</param>
         /// <param name="max">The maximum integer value.</param>
-        /// <param name="options">A bitwise combination of enumeration values 
+        /// <param name="options">A bitwise combination of enumeration values
         /// that defines whether the comparison is inclusive.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
-        /// the minimum value but less than the maximum value; otherwise it 
+        /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
         public static bool Between(this int expression, int min, int max, NumericComparisonOptions options)
         {
@@ -258,7 +258,7 @@ namespace Cadru.Extensions
         /// <param name="min">The minimum long value.</param>
         /// <param name="max">The maximum long value.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
-        /// the minimum value but less than the maximum value; otherwise it 
+        /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
         public static bool Between(this long expression, long min, long max)
         {
@@ -274,10 +274,10 @@ namespace Cadru.Extensions
         /// <param name="expression">Any long value.</param>
         /// <param name="min">The minimum long value.</param>
         /// <param name="max">The maximum long value.</param>
-        /// <param name="options">A bitwise combination of enumeration values 
+        /// <param name="options">A bitwise combination of enumeration values
         /// that defines whether the comparison is inclusive.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
-        /// the minimum value but less than the maximum value; otherwise it 
+        /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
         public static bool Between(this long expression, long min, long max, NumericComparisonOptions options)
         {
@@ -298,7 +298,7 @@ namespace Cadru.Extensions
         /// <param name="min">The minimum single value.</param>
         /// <param name="max">The maximum single value.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
-        /// the minimum value but less than the maximum value; otherwise it 
+        /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
         public static bool Between(this float expression, float min, float max)
         {
@@ -314,10 +314,10 @@ namespace Cadru.Extensions
         /// <param name="expression">Any single value.</param>
         /// <param name="min">The minimum single value.</param>
         /// <param name="max">The maximum single value.</param>
-        /// <param name="options">A bitwise combination of enumeration values 
+        /// <param name="options">A bitwise combination of enumeration values
         /// that defines whether the comparison is inclusive.</param>
         /// <returns>Between returns <see langword="true" /> if <paramref name="expression"/> is greater than
-        /// the minimum value but less than the maximum value; otherwise it 
+        /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
         public static bool Between(this float expression, float min, float max, NumericComparisonOptions options)
         {
@@ -334,7 +334,7 @@ namespace Cadru.Extensions
         #region GreaterThan(byte expression, byte min)
         /// <overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than the minimum indicated.
         /// </summary>
         /// </overloads>
@@ -463,7 +463,7 @@ namespace Cadru.Extensions
         #region GreaterThanOrEqualTo(byte expression, byte min)
         /// <overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than or equal to the
         /// minimum indicated.
         /// </summary>
@@ -607,12 +607,12 @@ namespace Cadru.Extensions
         #region IsEven(this int expression)
         /// <overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an even number.
         /// </summary>
         /// </overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an even number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
@@ -628,7 +628,7 @@ namespace Cadru.Extensions
 
         #region IsEven(this short expression)
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an even number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
@@ -644,7 +644,7 @@ namespace Cadru.Extensions
 
         #region IsEven(this long expression)
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an even number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
@@ -660,7 +660,7 @@ namespace Cadru.Extensions
 
         #region IsEven(this decimal expression)
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an even number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
@@ -676,7 +676,7 @@ namespace Cadru.Extensions
 
         #region IsEven(this double expression)
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an even number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
@@ -692,7 +692,7 @@ namespace Cadru.Extensions
 
         #region IsEven(this float expression)
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an even number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
@@ -713,12 +713,12 @@ namespace Cadru.Extensions
         #region IsOdd(this int expression)
         /// <overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an odd number.
         /// </summary>
         /// </overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an odd number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
@@ -734,7 +734,7 @@ namespace Cadru.Extensions
 
         #region IsOdd(this short expression)
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an odd number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
@@ -750,7 +750,7 @@ namespace Cadru.Extensions
 
         #region IsOdd(this long expression)
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an odd number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
@@ -766,7 +766,7 @@ namespace Cadru.Extensions
 
         #region IsOdd(this decimal expression)
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an odd number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
@@ -782,7 +782,7 @@ namespace Cadru.Extensions
 
         #region IsOdd(this double expression)
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an odd number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
@@ -798,7 +798,7 @@ namespace Cadru.Extensions
 
         #region IsOdd(this float expression)
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an odd number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
@@ -819,7 +819,7 @@ namespace Cadru.Extensions
         #region LessThan(byte expression, byte min)
         /// <overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than the minimum indicated.
         /// </summary>
         /// </overloads>
@@ -948,7 +948,7 @@ namespace Cadru.Extensions
         #region LessThanOrEqualTo(byte expression, byte min)
         /// <overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether 
+        /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than or equal to the
         /// minimum indicated.
         /// </summary>

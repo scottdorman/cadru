@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6.1</TargetFramework>
+    <AssemblyName>Cadru.AspNetCore</AssemblyName>
+    <PackageId>Cadru.AspNetCore</PackageId>
+    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
+    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <Version>4.0.0-beta-28</Version>
+    <Authors>Scott Dorman</Authors>
+    <Copyright>Copyright © Scott Dorman</Copyright>
+    <PackageLicenseUrl>http://opensource.org/licenses/Ms-PL.html</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/scottdorman/cadru</PackageProjectUrl>
+    <Description>A utility framework containing new APIs and extensions to the .NET Framework.</Description>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Cadru.licenseheader" Link="Cadru.licenseheader" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="1.1.2" />
+  </ItemGroup>
+
+</Project>

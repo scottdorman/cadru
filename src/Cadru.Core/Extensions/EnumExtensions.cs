@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="EnumExtensions.cs" 
-//  company="Scott Dorman" 
+// <copyright file="EnumExtensions.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -70,10 +70,10 @@ namespace Cadru.Extensions
         /// <returns>A string containing the text of the <see cref="EnumDescriptionAttribute"/>.</returns>
         public static string GetDescription(this Enum value, bool useNameAsFallback)
         {
-            Contracts.Requires.IsEnum(value, "value");
+            Contracts.Requires.IsEnum(value, nameof(value));
 
             var fieldValue = value.ToString();
-            var attribute = ((EnumDescriptionAttribute[])value.GetType().GetField(fieldValue)?.GetCustomAttributes(typeof(EnumDescriptionAttribute), false)).FirstOrDefault();
+            var attribute = ((EnumDescriptionAttribute[])value.GetType().GetTypeInfo().GetDeclaredField(fieldValue).GetCustomAttributes(typeof(EnumDescriptionAttribute), false)).FirstOrDefault();
             return attribute?.Description ?? (useNameAsFallback ? fieldValue : null);
         }
         #endregion

@@ -2,7 +2,7 @@
 // <copyright file="IDatabase.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2015 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -22,10 +22,10 @@
 
 namespace Cadru.Data.Dapper
 {
-    using global::Dapper;
     using System;
     using System.Data;
     using System.Data.Common;
+    using global::Dapper;
 
     public interface IDatabase : IDisposable
     {

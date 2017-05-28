@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="ArrayExtensions.cs" 
-//  company="Scott Dorman" 
+// <copyright file="ArrayExtensions.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -19,14 +19,13 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
 
 namespace Cadru.Extensions
 {
+    using System;
+    using System.Globalization;
+    using System.Text;
+
     /// <summary>
     /// Provides basic routines for common array manipulation.
     /// </summary>
@@ -54,7 +53,7 @@ namespace Cadru.Extensions
         /// <returns>The binary string representation of the array</returns>
         public static string BytesToBinaryString(this byte[] source)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             var buffer = new StringBuilder(source.Length * 8);
             foreach (var b in source)
@@ -74,7 +73,7 @@ namespace Cadru.Extensions
         /// <returns>The hexadecimal string representation of the array</returns>
         public static string BytesToString(this byte[] source)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             var buffer = new StringBuilder(source.Length * 8);
             buffer.AppendAsHexadecimal(source);
@@ -99,7 +98,7 @@ namespace Cadru.Extensions
         /// original array.</remarks>
         public static void ReverseArrayInPlace(this byte[] source)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             int length = source.Length;
             for (int i = 0; i < (length >> 1); i++)
@@ -120,7 +119,7 @@ namespace Cadru.Extensions
         /// <returns>The reversed array.</returns>
         public static byte[] ReverseArray(this byte[] source)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             int length = source.Length;
             var result = new byte[length];

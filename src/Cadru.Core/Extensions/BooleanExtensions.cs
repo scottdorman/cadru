@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="BooleanExtensions.cs" 
-//  company="Scott Dorman" 
+// <copyright file="BooleanExtensions.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -76,19 +76,19 @@ namespace Cadru.Extensions
         #region TryParseAsBoolean(int value, out bool result)
         /// <overloads>
         /// <summary>
-        /// Tries to convert the specified representation of a logical value to its 
+        /// Tries to convert the specified representation of a logical value to its
         /// Boolean equivalent. A return value indicates whether the conversion succeeded or failed.
         /// </summary>
         /// </overloads>
         /// <summary>
-        /// Tries to convert the specified integer representation of a logical value to its 
+        /// Tries to convert the specified integer representation of a logical value to its
         /// Boolean equivalent. A return value indicates whether the conversion succeeded or failed.
         /// </summary>
         /// <param name="value">An integer containing the value to convert. </param>
-        /// <param name="result">When this method returns, if the conversion succeeded, contains 
+        /// <param name="result">When this method returns, if the conversion succeeded, contains
         /// <see langword="true"/>true if <paramref name="value"/> is equal to 1 (one)
         /// or <see langword="false"/> if <paramref name="value"/> is equal to 0 (zero).
-        /// If the conversion failed, contains <see langword="false"/>. The conversion fails if 
+        /// If the conversion failed, contains <see langword="false"/>. The conversion fails if
         /// <paramref name="value"/> is not equal to 1 (one) or 0 (zero).</param>
         /// <returns><see langword="true"/> if value was converted successfully; otherwise, <see langword="false"/>.</returns>
         public static bool TryParseAsBoolean(this int value, out bool result)
@@ -106,16 +106,16 @@ namespace Cadru.Extensions
 
         #region TryParseAsBoolean(string value, out bool result)
         /// <summary>
-        /// Tries to convert the specified string representation of a logical value to its 
+        /// Tries to convert the specified string representation of a logical value to its
         /// Boolean equivalent. A return value indicates whether the conversion succeeded or failed.
         /// </summary>
         /// <param name="value">A string containing the value to convert. </param>
-        /// <param name="result">When this method returns, if the conversion succeeded, contains 
-        /// <see langword="true"/>true if <paramref name="value"/> is equal to 
+        /// <param name="result">When this method returns, if the conversion succeeded, contains
+        /// <see langword="true"/>true if <paramref name="value"/> is equal to
         /// <see cref="p:Boolean.TrueString"/>, the character 'T', the word "Yes", or the character 'Y'
-        /// or <see langword="false"/> if <paramref name="value"/> is equal to 
+        /// or <see langword="false"/> if <paramref name="value"/> is equal to
         /// <see cref="p:Boolean.FalseString"/>, the character 'F', the word "No", or the character 'N'.
-        /// If the conversion failed, contains <see langword="false"/>. The conversion fails if 
+        /// If the conversion failed, contains <see langword="false"/>. The conversion fails if
         /// <paramref name="value"/> is <see langword="null"/> or is not equal to the value of
         /// either <see cref="p:Boolean.TrueString"/>, the character 'T', the word "Yes", or the character 'Y',
         /// <see cref="p:Boolean.FalseString"/>, the character 'F', the word "No", or the character 'N'.</param>

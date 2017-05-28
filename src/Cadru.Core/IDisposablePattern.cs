@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="IDisposablePattern.cs" 
-//  company="Scott Dorman" 
+// <copyright file="IDisposablePattern.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ namespace Cadru
     using System;
 
     /// <summary>
-    /// Defines an extended method to release allocated resources.
+    /// Defines an extended method to release allocated Strings.
     /// </summary>
     public interface IDisposablePattern : IDisposable
     {

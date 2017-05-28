@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="CustomAssert.cs" 
-//  company="Scott Dorman" 
+// <copyright file="CustomAssert.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ namespace Cadru.UnitTest.Framework
 {
     using System;
     using System.Collections;
+    using Cadru.UnitTest.Framework.Resources;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
@@ -49,19 +50,19 @@ namespace Cadru.UnitTest.Framework
 
         #region AreEqualIgnoringCase(string expected, string actual)
         /// <summary>
-        /// Asserts that two strings are equal, without regard to case. 
+        /// Asserts that two strings are equal, without regard to case.
         /// </summary>
         /// <param name="expected">The expected string.</param>
         /// <param name="actual">The actual string.</param>
         public static void AreEqualIgnoringCase(string expected, string actual)
         {
-            CustomAssert.AreEqualIgnoringCase(expected, actual, Properties.Resources.Assertion_GenericFailure, expected, actual);
+            CustomAssert.AreEqualIgnoringCase(expected, actual, Strings.Assertion_GenericFailure, expected, actual);
         }
         #endregion
 
         #region AreEqualIgnoringCase(string expected, string actual, string message)
         /// <summary>
-        /// Asserts that two strings are equal, without regard to case. 
+        /// Asserts that two strings are equal, without regard to case.
         /// </summary>
         /// <param name="expected">The expected string.</param>
         /// <param name="actual">The actual string.</param>
@@ -74,7 +75,7 @@ namespace Cadru.UnitTest.Framework
 
         #region AreEqualIgnoringCase(string expected, string actual, string message, params object[] parameters)
         /// <summary>
-        /// Asserts that two strings are equal, without regard to case. 
+        /// Asserts that two strings are equal, without regard to case.
         /// </summary>
         /// <param name="expected">The expected string.</param>
         /// <param name="actual">The actual string.</param>
@@ -97,7 +98,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="collection">The value to be tested.</param>
         public static void IsEmpty(ICollection collection)
         {
-            CustomAssert.IsEmpty(collection, Properties.Resources.Assertion_CollectionFailure, 0, collection.Count);
+            CustomAssert.IsEmpty(collection, Strings.Assertion_CollectionFailure, 0, collection.Count);
         }
         #endregion
 
@@ -133,7 +134,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="value">The value to be tested.</param>
         public static void IsEmpty(string value)
         {
-            CustomAssert.IsEmpty(value, Properties.Resources.Assertion_GenericFailure, String.Empty, value);
+            CustomAssert.IsEmpty(value, Strings.Assertion_GenericFailure, String.Empty, value);
         }
         #endregion
 
@@ -173,7 +174,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="collection">The value to be tested.</param>
         public static void IsNotEmpty(ICollection collection)
         {
-            CustomAssert.IsNotEmpty(collection, Properties.Resources.Assertion_CollectionFailure, collection.Count, 0);
+            CustomAssert.IsNotEmpty(collection, Strings.Assertion_CollectionFailure, collection.Count, 0);
         }
         #endregion
 
@@ -209,7 +210,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="value">The value to be tested.</param>
         public static void IsNotEmpty(string value)
         {
-            CustomAssert.IsNotEmpty(value, Properties.Resources.Assertion_GenericFailure, value, String.Empty);
+            CustomAssert.IsNotEmpty(value, Strings.Assertion_GenericFailure, value, String.Empty);
         }
         #endregion
 

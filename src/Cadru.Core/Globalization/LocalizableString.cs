@@ -2,7 +2,7 @@
 // <copyright file="LocalizableString.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2015 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -22,11 +22,11 @@
 
 namespace Cadru.Globalization
 {
-    using Contracts;
-    using Cadru.Properties;
     using System;
     using System.Globalization;
     using System.Reflection;
+    using Cadru.Core.Resources;
+    using Contracts;
 
     /// <summary>
     /// A helper class for providing a localizable string property.
@@ -114,14 +114,14 @@ namespace Cadru.Globalization
             bool badlyConfigured = false;
 
             // Make sure we found the property and it's the correct type, and that the type itself is public
-            if (!resourceType.IsVisible || property == null || property.PropertyType != typeof(string))
+            if (!resourceType.GetTypeInfo().IsVisible || property == null || property.PropertyType != typeof(string))
             {
                 badlyConfigured = true;
             }
             else
             {
                 // Ensure the getter for the property is available as public static
-                MethodInfo getter = property.GetGetMethod();
+                MethodInfo getter = property.GetMethod;
 
                 if (getter == null || !(getter.IsPublic && getter.IsStatic))
                 {
@@ -167,11 +167,11 @@ namespace Cadru.Globalization
                 }
                 else
                 {
-                    PropertyInfo property = this.resourceType.GetProperty(this.propertyValue);
+                    PropertyInfo property = this.resourceType.GetTypeInfo().GetDeclaredProperty(this.propertyValue);
 
                     if (IsBadlyConfigured(this.resourceType, property))
                     {
-                        string exceptionMessage = String.Format(CultureInfo.CurrentCulture, Resources.InvalidOperation_LocalizationFailed,
+                        string exceptionMessage = String.Format(CultureInfo.CurrentCulture, Strings.InvalidOperation_LocalizationFailed,
                             this.propertyName, this.resourceType.FullName, this.propertyValue);
                         this.cachedResult = () => { throw new InvalidOperationException(exceptionMessage); };
                     }

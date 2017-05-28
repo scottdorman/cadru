@@ -1,126 +1,40 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E78F58AE-D510-4ADF-A04C-7BBEECC9175F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cadru.Data.Dapper</RootNamespace>
-    <AssemblyName>Cadru.Data.Dapper</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <TargetFrameworks>net45;net451;netstandard1.3</TargetFrameworks>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>4.0.0-beta-29</Version>
+    <Authors>Scott Dorman</Authors>
+    <Company>Scott Dorman</Company>
+    <Product>Cadru Framework</Product>
+    <Copyright>Copyright © Scott Dorman</Copyright>
+    <PackageLicenseUrl>http://opensource.org/licenses/Ms-PL.html</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/scottdorman/cadru</PackageProjectUrl>
+    <Description>This is a non-portable class library to provide a common database context and predicates for use with Dapper.</Description>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Cadru.Data.Dapper.XML</DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
-    <CodeAnalysisRuleSet>Cadru.Data.Dapper.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Cadru.Data.Dapper.XML</DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
-    <CodeAnalysisRuleSet>Cadru.Data.Dapper.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Cadru.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cadru.Core.2.0.5809.109\lib\portable-net40+sl50+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10\Cadru.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Mono.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\packages\Mono.Security.3.2.3.0\lib\net45\Mono.Security.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="PCLCrypto, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d4421c8a4786956c, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCLCrypto.1.0.2.15130\lib\net40-Client\PCLCrypto.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' OR '$(TargetFramework)' == 'net451' ">
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Xml" />
-    <Reference Include="Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=2fc06f0d701809a7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Validation.2.0.6.15003\lib\portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\Validation.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
+    <PackageReference Include="Microsoft.CSharp" Version="4.3.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.3.0" />
+    <PackageReference Include="System.Data.Common" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\SolutionInfo.cs">
-      <Link>SolutionInfo.cs</Link>
-    </Compile>
-    <Compile Include="Database.cs" />
-    <Compile Include="ExportableAttribute.cs" />
-    <Compile Include="IDatabase.cs" />
-    <Compile Include="DatabaseObjectType.cs" />
-    <Compile Include="Internal\TypeHelpers.cs" />
-    <Compile Include="IPropertyMap.cs" />
-    <Compile Include="IDatabaseObject.cs" />
-    <Compile Include="IObjectMap.cs" />
-    <Compile Include="KeyType.cs" />
-    <Compile Include="Predicates\Internal\ComparePredicate.cs" />
-    <Compile Include="Predicates\Internal\ExistsPredicate.cs" />
-    <Compile Include="Predicates\Internal\FieldPredicate.cs" />
-    <Compile Include="Predicates\Internal\GroupOperator.cs" />
-    <Compile Include="Predicates\Internal\IPredicateBase.cs" />
-    <Compile Include="Predicates\Internal\IExistsPredicate.cs" />
-    <Compile Include="Predicates\Internal\PredicateBase.cs" />
-    <Compile Include="Predicates\IPredicate.cs" />
-    <Compile Include="Predicates\IPredicateGroup.cs" />
-    <Compile Include="Predicates\Operator.cs" />
-    <Compile Include="Predicates\Predicate.cs" />
-    <Compile Include="Predicates\Internal\PredicateGroup.cs" />
-    <Compile Include="Predicates\Internal\PropertyPredicate.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PropertyMap.cs" />
-    <Compile Include="ObjectMap{T}.cs" />
-    <Compile Include="StringHandlingAttribute.cs" />
-    <Compile Include="StringHandlingOption.cs" />
-    <Compile Include="ViewMap{T}.cs" />
-    <Compile Include="TableMap{T}.cs" />
-    <Compile Include="ViewAttribute.cs" />
-    <Compile Include="View{TEntity}.cs" />
-    <Compile Include="Table{TEntity}.cs" />
-    <Compile Include="TrackedEntity.cs" />
+    <None Include="..\Cadru.licenseheader" Link="Cadru.licenseheader" />
   </ItemGroup>
+
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Cadru.Data.Dapper.licenseheader" />
-    <None Include="Cadru.Data.Dapper.nuspec" />
-    <None Include="Cadru.Data.Dapper.ruleset" />
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <PackageReference Include="Dapper" Version="1.50.2" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath32)\StyleCop\v4.7\StyleCop.targets" Condition="Exists('$(MSBuildExtensionsPath32)\StyleCop\v4.7\StyleCop.targets')" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cadru.Core\Cadru.Core.csproj" />
+  </ItemGroup>
+
 </Project>

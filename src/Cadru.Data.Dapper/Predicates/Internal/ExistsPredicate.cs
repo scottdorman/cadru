@@ -2,7 +2,7 @@
 // <copyright file="ExistsPredicate.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2015 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -22,8 +22,8 @@
 
 namespace Cadru.Data.Dapper.Predicates.Internal
 {
-    using global::Dapper;
     using System;
+    using global::Dapper;
 
     internal class ExistsPredicate<TModel> : IExistsPredicate
         where TModel : class
@@ -35,8 +35,7 @@ namespace Cadru.Data.Dapper.Predicates.Internal
         public string GetSql(DynamicParameters parameters)
         {
             string sql = null;
-            IObjectMap classMap;
-            if (Database.Mappings.TryGetValue(typeof(TModel), out classMap))
+            if (Database.Mappings.TryGetValue(typeof(TModel), out IObjectMap classMap))
             {
                 sql = $"({(Not ? "NOT " : String.Empty)}EXISTS (SELECT 1 FROM {classMap.ObjectName} WHERE {Predicate.GetSql(parameters)}))";
             }

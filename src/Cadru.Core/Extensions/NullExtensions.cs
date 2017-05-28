@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="NullExtensions.cs" 
-//  company="Scott Dorman" 
+// <copyright file="NullExtensions.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -22,10 +22,6 @@
 
 namespace Cadru.Extensions
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using Cadru.Internal;
 
     /// <summary>
@@ -41,7 +37,7 @@ namespace Cadru.Extensions
         /// <param name="source">The source instance.</param>
         /// <returns><see langword="true"/> if <paramref name="source"/> is <see langword="null"/>;
         /// otherwise, <see langword="false"/>.</returns>
-        public static bool IsNull<T>(this T source) 
+        public static bool IsNull<T>(this T source)
         {
             return source == null;
         }
@@ -54,7 +50,7 @@ namespace Cadru.Extensions
         /// <param name="source">The source instance.</param>
         /// <returns><see langword="true"/> if <paramref name="source"/> is not <see langword="null"/>;
         /// otherwise, <see langword="false"/>.</returns>
-        public static bool IsNotNull<T>([ValidatedNotNull]this T source) 
+        public static bool IsNotNull<T>([ValidatedNotNull]this T source)
         {
             return source != null;
         }

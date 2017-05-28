@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// <copyright file="NormalizationOptions.cs" 
-//  company="Scott Dorman" 
+// <copyright file="NormalizationOptions.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
+
 namespace Cadru.Text
 {
     using System;
@@ -41,7 +42,7 @@ namespace Cadru.Text
         ControlCharacters = 0x002,
 
         /// <summary>
-        /// Remove all white space characters from the beginning 
+        /// Remove all white space characters from the beginning
         /// and end of the string and collapse all internal white
         /// space characters to a single white space character.
         /// </summary>
@@ -49,9 +50,9 @@ namespace Cadru.Text
         Whitespace = 0x004,
 
         /// <summary>
-        /// Remove all white space and control characters from 
+        /// Remove all white space and control characters from
         /// the beginning and end of the string and collapse
-        /// all internal white space characters to a single 
+        /// all internal white space characters to a single
         /// white space character.
         /// </summary>
         All = Whitespace | ControlCharacters,

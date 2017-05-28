@@ -2,7 +2,7 @@
 // <copyright file="RelativeDateFormatting.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2015 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -19,13 +19,9 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
+
 namespace Cadru.Text
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
     /// <summary>
     /// Specifies how a relative date within the current week
     /// (+/- 5 days from today) should be formatted.

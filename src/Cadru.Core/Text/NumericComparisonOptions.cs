@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// <copyright file="NumericComparisonOptions.cs" 
-//  company="Scott Dorman" 
+// <copyright file="NumericComparisonOptions.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
+
 namespace Cadru.Text
 {
     using System;
@@ -26,7 +27,7 @@ namespace Cadru.Text
     /// <summary>
     /// Specifies the comparison rules to be used by certain overloads of the
     /// <see cref="Cadru.Extensions.StringExtensions">StringExtensions.LengthBetween</see> and
-    /// <see cref="Cadru.Extensions.NumericExtensions">NumericExtensions.Between</see> methods. 
+    /// <see cref="Cadru.Extensions.NumericExtensions">NumericExtensions.Between</see> methods.
     /// </summary>
     [Flags]
     public enum NumericComparisonOptions

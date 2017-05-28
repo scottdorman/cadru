@@ -2,7 +2,7 @@
 // <copyright file="EnumerableExtensions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -22,13 +22,13 @@
 
 namespace Cadru.Extensions
 {
+    using Cadru.Core.Resources;
+    using Cadru.Internal;
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
-    using Cadru.Internal;
-    using Cadru.Properties;
     using System.Collections.ObjectModel;
+    using System.Linq;
 
 
     /// <summary>
@@ -59,18 +59,18 @@ namespace Cadru.Extensions
         /// otherwise, <see langword="false"/>.</returns>
         public static bool IsEmpty(this IEnumerable source)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
-            bool empty = false;
+            var empty = false;
 
-            ICollection collection = source as ICollection;
+            var collection = source as ICollection;
             if (collection.IsNotNull())
             {
                 empty = collection.Count == 0;
             }
             else
             {
-                IEnumerator enumerator = source.GetEnumerator();
+                var enumerator = source.GetEnumerator();
                 if (!enumerator.MoveNext())
                 {
                     empty = true;
@@ -245,12 +245,12 @@ namespace Cadru.Extensions
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures", Justification = "Reviewed.")]
         public static IEnumerable<IEnumerable<T>> Partition<T>(this IEnumerable<T> source, int size)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.ValidRange(size < 0, "size", Resources.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.ValidRange(size < 0, nameof(size), Strings.ArgumentOutOfRange_IndexLessThanZero);
 
             T[] array = null;
-            int count = 0;
-            foreach (T item in source)
+            var count = 0;
+            foreach (var item in source)
             {
                 if (array == null)
                 {
@@ -274,6 +274,48 @@ namespace Cadru.Extensions
         }
         #endregion
 
+        #region RandomElement
+
+        #region RandomElement<T>(this IEnumerable<T> source)
+        /// <summary>
+        /// Returns a pseudo-random element from the specified collection.
+        /// </summary>
+        /// <typeparam name="T">The type of the members of <paramref name="source"/>.</typeparam>
+        /// <param name="source">A collection that contains the objects to segment.</param>
+        /// <returns>A pseudo-random element from the specified collection.</returns>
+        public static T RandomElement<T>(this IEnumerable<T> source)
+        {
+            return source.RandomElement<T>(new Random());
+        }
+        #endregion
+
+        #region RandomElement<T>(this IEnumerable<T> source, Random random)
+        /// <summary>
+        /// Returns a pseudo-random element from the specified collection.
+        /// </summary>
+        /// <typeparam name="T">The type of the members of <paramref name="source"/>.</typeparam>
+        /// <param name="source">A collection that contains the objects to segment.</param>
+        /// <param name="random">A pseudo-random number generator.</param>
+        /// <returns>A pseudo-random element from the specified collection.</returns>
+        public static T RandomElement<T>(this IEnumerable<T> source, Random random)
+        {
+            var current = default(T);
+            var count = 0;
+            foreach (var element in source)
+            {
+                count++;
+                if (random.Next(count) == 0)
+                {
+                    current = element;
+                }
+            }
+
+            return current;
+        }
+        #endregion
+
+        #endregion
+
         #region Slice
         /// <summary>Returns a segment of the specified collection.</summary>
         /// <typeparam name="T">The type of the members of <paramref name="source"/>.</typeparam>
@@ -287,10 +329,10 @@ namespace Cadru.Extensions
         /// <paramref name="endIndex"/>.</exception>
         public static IEnumerable<T> Slice<T>(this IEnumerable<T> source, int startIndex, int endIndex)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.ValidRange(startIndex > endIndex, "startIndex", Resources.Argument_StartIndexGreaterThanEndIndex);
-            Contracts.Requires.ValidRange(startIndex < 0, "startIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            Contracts.Requires.ValidRange(endIndex < 0, "endIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.ValidRange(startIndex > endIndex, nameof(startIndex), Strings.Argument_StartIndexGreaterThanEndIndex);
+            Contracts.Requires.ValidRange(startIndex < 0, nameof(startIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(endIndex < 0, nameof(endIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
 
             var index = 0;
             foreach (var item in source)

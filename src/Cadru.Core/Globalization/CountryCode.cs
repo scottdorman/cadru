@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// <copyright file="CountryCode.cs" 
-//  company="Scott Dorman" 
+// <copyright file="CountryCode.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -22,10 +22,8 @@
 
 namespace Cadru.Globalization
 {
-    using System;
- 
     /// <summary>
-    /// ISO 3166 country code expressions for international aware item 
+    /// ISO 3166 country code expressions for international aware item
     /// validation routines.
     /// </summary>
     [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:DocumentationTextMustEndWithAPeriod", Justification = "Reviewed.")]

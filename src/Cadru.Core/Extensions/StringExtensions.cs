@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// <copyright file="StringExtensions.cs" 
-//  company="Scott Dorman" 
+// <copyright file="StringExtensions.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -26,10 +26,9 @@ namespace Cadru.Extensions
     using System.Collections.Generic;
     using System.Globalization;
     using System.Text;
+    using Cadru.Core.Resources;
     using Cadru.Internal;
-    using Cadru.Properties;
     using Cadru.Text;
-    using Contracts;
 
     /// <summary>
     /// Provides basic routines for common string manipulation.
@@ -60,9 +59,9 @@ namespace Cadru.Extensions
         /// <param name="source">The <see cref="String"/> to normalize.
         /// </param>
         /// <returns>A new, normalized string.</returns>
-        /// <remarks><para>The <see cref="Clean(string)"/> method removes 
-        /// all occurrences of white space and control characters from the 
-        /// beginning and end of the given string as well as collapsing all 
+        /// <remarks><para>The <see cref="Clean(string)"/> method removes
+        /// all occurrences of white space and control characters from the
+        /// beginning and end of the given string as well as collapsing all
         /// internal white space characters to a single white space character.
         /// </para>
         /// </remarks>
@@ -79,16 +78,16 @@ namespace Cadru.Extensions
         /// </summary>
         /// <param name="source">The <see cref="String"/> to normalize.
         /// </param>
-        /// <param name="options">One of the 
+        /// <param name="options">One of the
         /// <see cref="NormalizationOptions"/> values.</param>
         /// <returns>A new, normalized string.</returns>
         public static string Clean(this string source, NormalizationOptions options)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if ((int)options < 0 || ((int)options & (int)~(NormalizationOptions.ControlCharacters | NormalizationOptions.Whitespace)) != 0)
             {
-                throw ExceptionBuilder.CreateArgumentException("options", String.Format(CultureInfo.CurrentUICulture, Resources.Argument_EnumIllegalVal, (int)options));
+                throw ExceptionBuilder.CreateArgumentException("options", String.Format(CultureInfo.CurrentUICulture, Strings.Argument_EnumIllegalVal, (int)options));
             }
 
             char[] normalized;
@@ -166,13 +165,13 @@ namespace Cadru.Extensions
         /// <param name="comparisonType">One of the enumeration values that specifies how the strings will be compared.</param>
         /// <returns>
         /// <see langword="true"/> if the <paramref name="value"/> parameter occurs within
-        /// this string, or if <paramref name="value"/> is the empty string (""); 
+        /// this string, or if <paramref name="value"/> is the empty string ("");
         /// otherwise, <see langword="false"/>.
         /// </returns>
         public static bool Contains(this string source, string value, StringComparison comparisonType)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.NotNull(value, "value");
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.NotNull(value, nameof(value));
 
             return source.IndexOf(value, comparisonType) >= 0;
         }
@@ -208,8 +207,8 @@ namespace Cadru.Extensions
         /// any of the specified strings; otherwise, <see langword="false"/>.</returns>
         public static bool EndsWithAny(this string source, IEnumerable<string> values, StringComparison comparisonType)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.NotNullOrEmpty(values, "values");
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.NotNullOrEmpty(values, nameof(values));
 
             foreach (var value in values)
             {
@@ -255,8 +254,8 @@ namespace Cadru.Extensions
         /// any of the specified strings; otherwise, <see langword="false"/>.</returns>
         public static bool EqualsAny(this string source, IEnumerable<string> values, StringComparison comparisonType)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.NotNullOrEmpty(values, "values");
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.NotNullOrEmpty(values, nameof(values));
 
             foreach (var value in values)
             {
@@ -276,13 +275,13 @@ namespace Cadru.Extensions
 
         #region IndexOfOccurrence(this string source, char value, int occurrence)
         /// <summary>
-        /// Reports the zero-based index of the nth occurrence of the 
+        /// Reports the zero-based index of the nth occurrence of the
         /// specified character in <paramref name="source"/>.
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="value">The character to seek.</param>
         /// <param name="occurrence">The occurrence to find.</param>
-        /// <returns>The index position of <paramref name="value"/> if that 
+        /// <returns>The index position of <paramref name="value"/> if that
         /// character is found, or -1 if it is not. If <paramref name="value"/> is
         /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
         /// </returns>
@@ -293,21 +292,21 @@ namespace Cadru.Extensions
         /// </exception>
         public static int IndexOfOccurrence(this string source, char value, int occurrence)
         {
-            Contracts.Requires.NotNull(source, "source");
-            
+            Contracts.Requires.NotNull(source, nameof(source));
+
             return source.IndexOfOccurrence(value, 0, occurrence);
         }
         #endregion
 
         #region IndexOfOccurrence(this string source, string value, int occurrence)
         /// <summary>
-        /// Reports the zero-based index of the nth occurrence of the 
+        /// Reports the zero-based index of the nth occurrence of the
         /// specified string in <paramref name="source"/>.
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="value">The string to seek.</param>
         /// <param name="occurrence">The occurrence to find.</param>
-        /// <returns>The index position of <paramref name="value"/> if that 
+        /// <returns>The index position of <paramref name="value"/> if that
         /// string is found, or -1 if it is not. If <paramref name="value"/> is
         /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
         /// </returns>
@@ -319,22 +318,22 @@ namespace Cadru.Extensions
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.IndexOfOccurrence(System.String,System.String,System.Int32,System.Int32)", Justification = "This ultimately calls an overload which provides the comparison.")]
         public static int IndexOfOccurrence(this string source, string value, int occurrence)
         {
-            Contracts.Requires.NotNull(source, "source");
-            
+            Contracts.Requires.NotNull(source, nameof(source));
+
             return source.IndexOfOccurrence(value, 0, occurrence);
         }
         #endregion
 
         #region IndexOfOccurrence(this string source, char value, int startIndex, int occurrence)
         /// <summary>
-        /// Reports the zero-based index of the nth occurrence of the 
+        /// Reports the zero-based index of the nth occurrence of the
         /// specified character in <paramref name="source"/>.
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="value">The string to seek.</param>
         /// <param name="startIndex">The search starting position.</param>
         /// <param name="occurrence">The occurrence to find.</param>
-        /// <returns>The index position of <paramref name="value"/> if that 
+        /// <returns>The index position of <paramref name="value"/> if that
         /// character is found, or -1 if it is not. If <paramref name="value"/> is
         /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
         /// </returns>
@@ -345,22 +344,22 @@ namespace Cadru.Extensions
         /// </exception>
         public static int IndexOfOccurrence(this string source, char value, int startIndex, int occurrence)
         {
-            Contracts.Requires.NotNull(source, "source");
-            
+            Contracts.Requires.NotNull(source, nameof(source));
+
             return source.IndexOfOccurrence(value, startIndex, source.Length - startIndex, occurrence);
         }
         #endregion
 
         #region IndexOfOccurrence(this string source, string value, int startIndex, int occurrence)
         /// <summary>
-        /// Reports the zero-based index of the nth occurrence of the 
+        /// Reports the zero-based index of the nth occurrence of the
         /// specified string in <paramref name="source"/>.
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="value">The string to seek.</param>
         /// <param name="startIndex">The search starting position.</param>
         /// <param name="occurrence">The occurrence to find.</param>
-        /// <returns>The index position of <paramref name="value"/> if that 
+        /// <returns>The index position of <paramref name="value"/> if that
         /// string is found, or -1 if it is not. If <paramref name="value"/> is
         /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
         /// </returns>
@@ -371,15 +370,15 @@ namespace Cadru.Extensions
         /// </exception>
         public static int IndexOfOccurrence(this string source, string value, int startIndex, int occurrence)
         {
-            Contracts.Requires.NotNull(source, "source");
-            
+            Contracts.Requires.NotNull(source, nameof(source));
+
             return source.IndexOfOccurrence(value, startIndex, source.Length - startIndex, occurrence, StringComparison.Ordinal);
         }
         #endregion
 
         #region IndexOfOccurrence(this string source, string value, int occurrence, StringComparison comparisonType)
         /// <summary>
-        /// Reports the zero-based index of the nth occurrence of the 
+        /// Reports the zero-based index of the nth occurrence of the
         /// specified string in <paramref name="source"/> using the
         /// specified string comparison.
         /// </summary>
@@ -387,7 +386,7 @@ namespace Cadru.Extensions
         /// <param name="value">The string to seek.</param>
         /// <param name="occurrence">The occurrence to find.</param>
         /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param>
-        /// <returns>The index position of <paramref name="value"/> if that 
+        /// <returns>The index position of <paramref name="value"/> if that
         /// string is found, or -1 if it is not. If <paramref name="value"/> is
         /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
         /// </returns>
@@ -397,20 +396,20 @@ namespace Cadru.Extensions
         /// <para><paramref name="value"/> is <see langword="null"/>.</para>
         /// </exception>
         /// <exception cref="ArgumentException">
-        /// <paramref name="comparisonType"/> is not a valid 
+        /// <paramref name="comparisonType"/> is not a valid
         /// <see cref="System.StringComparison"/>System.StringComparison value.
         /// </exception>
         public static int IndexOfOccurrence(this string source, string value, int occurrence, StringComparison comparisonType)
         {
-            Contracts.Requires.NotNull(source, "source");
-            
+            Contracts.Requires.NotNull(source, nameof(source));
+
             return source.IndexOfOccurrence(value, 0, source.Length, occurrence, comparisonType);
         }
         #endregion
 
         #region IndexOfOccurrence(this string source, char value, int startIndex, int count, int occurrence)
         /// <summary>
-        /// Reports the zero-based index of the nth occurrence of the 
+        /// Reports the zero-based index of the nth occurrence of the
         /// specified string in <paramref name="source"/>.
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
@@ -418,7 +417,7 @@ namespace Cadru.Extensions
         /// <param name="startIndex">The search starting position.</param>
         /// <param name="count">The number of character positions to examine.</param>
         /// <param name="occurrence">The occurrence to find.</param>
-        /// <returns>The index position of <paramref name="value"/> if that 
+        /// <returns>The index position of <paramref name="value"/> if that
         /// string is found, or -1 if it is not. If <paramref name="value"/> is
         /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
         /// </returns>
@@ -429,9 +428,9 @@ namespace Cadru.Extensions
         /// </exception>
         public static int IndexOfOccurrence(this string source, char value, int startIndex, int count, int occurrence)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.ValidRange(startIndex < 0, "startIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            Contracts.Requires.ValidRange(startIndex > source.Length, "startIndex", Resources.ArgumentOutOfRange_IndexLessThanLength);
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.ValidRange(startIndex < 0, nameof(startIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(startIndex > source.Length, nameof(startIndex), Strings.ArgumentOutOfRange_IndexLessThanLength);
 
             int index = source.IndexOf(value, startIndex, count);
             if (index == -1)
@@ -454,7 +453,7 @@ namespace Cadru.Extensions
 
         #region IndexOfOccurrence(this string source, string value, int startIndex, int count, int occurrence)
         /// <summary>
-        /// Reports the zero-based index of the nth occurrence of the 
+        /// Reports the zero-based index of the nth occurrence of the
         /// specified string in <paramref name="source"/>.
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
@@ -462,7 +461,7 @@ namespace Cadru.Extensions
         /// <param name="startIndex">The search starting position.</param>
         /// <param name="count">The number of character positions to examine.</param>
         /// <param name="occurrence">The occurrence to find.</param>
-        /// <returns>The index position of <paramref name="value"/> if that 
+        /// <returns>The index position of <paramref name="value"/> if that
         /// string is found, or -1 if it is not. If <paramref name="value"/> is
         /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
         /// </returns>
@@ -474,15 +473,15 @@ namespace Cadru.Extensions
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.IndexOfOccurrence(System.String,System.String,System.Int32,System.Int32,System.Int32)", Justification = "This ultimately calls an overload which provides the comparison.")]
         public static int IndexOfOccurrence(this string source, string value, int startIndex, int count, int occurrence)
         {
-            Contracts.Requires.NotNull(source, "source");
-            
+            Contracts.Requires.NotNull(source, nameof(source));
+
             return source.IndexOfOccurrence(value, startIndex, count, occurrence, StringComparison.Ordinal);
         }
         #endregion
 
         #region IndexOfOccurrence(this string source, string value, int startIndex, int occurrence, StringComparison comparisonType)
         /// <summary>
-        /// Reports the zero-based index of the nth occurrence of the 
+        /// Reports the zero-based index of the nth occurrence of the
         /// specified string in <paramref name="source"/>.
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
@@ -490,7 +489,7 @@ namespace Cadru.Extensions
         /// <param name="startIndex">The search starting position.</param>
         /// <param name="occurrence">The occurrence to find.</param>
         /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param>
-        /// <returns>The index position of <paramref name="value"/> if that 
+        /// <returns>The index position of <paramref name="value"/> if that
         /// string is found, or -1 if it is not. If <paramref name="value"/> is
         /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
         /// </returns>
@@ -501,8 +500,8 @@ namespace Cadru.Extensions
         /// </exception>
         public static int IndexOfOccurrence(this string source, string value, int startIndex, int occurrence, StringComparison comparisonType)
         {
-            Contracts.Requires.NotNull(source, "source");
-            
+            Contracts.Requires.NotNull(source, nameof(source));
+
             return source.IndexOfOccurrence(value, startIndex, source.Length - startIndex, occurrence, comparisonType);
         }
 
@@ -510,7 +509,7 @@ namespace Cadru.Extensions
 
         #region IndexOfOccurrence(this string source, string value, int startIndex, int count, int occurrence, StringComparison comparisonType)
         /// <summary>
-        /// Reports the zero-based index of the nth occurrence of the 
+        /// Reports the zero-based index of the nth occurrence of the
         /// specified string in <paramref name="source"/>.
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
@@ -519,7 +518,7 @@ namespace Cadru.Extensions
         /// <param name="count">The number of character positions to examine.</param>
         /// <param name="occurrence">The occurrence to find.</param>
         /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param>
-        /// <returns>The index position of <paramref name="value"/> if that 
+        /// <returns>The index position of <paramref name="value"/> if that
         /// string is found, or -1 if it is not. If <paramref name="value"/> is
         /// <see cref="String.Empty">String.Empty</see>, the return value is 0.
         /// </returns>
@@ -530,9 +529,9 @@ namespace Cadru.Extensions
         /// </exception>
         public static int IndexOfOccurrence(this string source, string value, int startIndex, int count, int occurrence, StringComparison comparisonType)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.ValidRange(startIndex < 0, "startIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            Contracts.Requires.ValidRange(startIndex > source.Length, "startIndex", Resources.ArgumentOutOfRange_IndexLessThanLength);
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.ValidRange(startIndex < 0, nameof(startIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(startIndex > source.Length, nameof(startIndex), Strings.ArgumentOutOfRange_IndexLessThanLength);
 
             int index = source.IndexOf(value, startIndex, count, comparisonType);
             if (index == -1)
@@ -564,7 +563,7 @@ namespace Cadru.Extensions
         /// string has a zero length.</returns>
         public static char LastCharacter(this string source)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             char lastCharacter = '\0';
             if (source.Length > 0)
@@ -585,7 +584,7 @@ namespace Cadru.Extensions
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="value">The ending character of a substring.</param>
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at the position of <paramref name="value"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="value"/> is not found in the string.
         /// </returns>
@@ -603,13 +602,13 @@ namespace Cadru.Extensions
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="value">The ending string of a substring.</param>
         /// <param name="occurrence">The occurrence of <paramref name="value"/>.</param>
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at the position of <paramref name="value"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="value"/> is not found in the string.
         /// </returns>
         public static string LeftSubstring(this string source, char value, int occurrence)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             string substring = source;
             int index = source.IndexOf(value);
@@ -636,7 +635,7 @@ namespace Cadru.Extensions
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="endingIndex">The index of the end of the substring.</param>
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at <paramref name="endingIndex"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="endingIndex"/> is not found in the string.
         /// </returns>
@@ -655,16 +654,16 @@ namespace Cadru.Extensions
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="endingIndex">The index of the end of the substring.</param>
         /// <param name="inclusive">Indicates if the substring should include the ending character position.</param>
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at <paramref name="endingIndex"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="endingIndex"/> is not found in the string.
         /// </returns>
         public static string LeftSubstring(this string source, int endingIndex, bool inclusive)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.ValidRange(endingIndex <= 0, "endingIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            Contracts.Requires.ValidRange(endingIndex > source.Length, "endingIndex", Resources.ArgumentOutOfRange_IndexLessThanLength);
-     
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.ValidRange(endingIndex <= 0, nameof(endingIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(endingIndex > source.Length, nameof(endingIndex), Strings.ArgumentOutOfRange_IndexLessThanLength);
+
             if (inclusive)
             {
                 endingIndex++;
@@ -681,7 +680,7 @@ namespace Cadru.Extensions
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="value">The ending string of a substring.</param>
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at the position of <paramref name="value"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="value"/> is not found in the string.
         /// </returns>
@@ -700,7 +699,7 @@ namespace Cadru.Extensions
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="value">The ending string of a substring.</param>
         /// <param name="occurrence">The occurrence of <paramref name="value"/>.</param>
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at the position of <paramref name="value"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="value"/> is not found in the string.
         /// </returns>
@@ -718,15 +717,15 @@ namespace Cadru.Extensions
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="value">The ending string of a substring.</param>
         /// <param name="occurrence">The occurrence of <paramref name="value"/>.</param>
-        /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param> 
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param>
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at the position of <paramref name="value"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="value"/> is not found in the string.
         /// </returns>
         public static string LeftSubstring(this string source, string value, int occurrence, StringComparison comparisonType)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.NotNull(value, "value");
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.NotNull(value, nameof(value));
 
             string substring = source;
             int index = source.IndexOf(value, comparisonType);
@@ -759,7 +758,7 @@ namespace Cadru.Extensions
         /// <param name="minimum">The minimum string length.</param>
         /// <param name="maximum">The maximum string length.</param>
         /// <returns>MinMax returns <see langword="true" /> if <paramref name="source"/> is greater than
-        /// the minimum value but less than the maximum value; otherwise it 
+        /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
         public static bool LengthBetween(this String source, Int32 minimum, Int32 maximum)
         {
@@ -775,14 +774,14 @@ namespace Cadru.Extensions
         /// <param name="source">Any string expression.</param>
         /// <param name="minimum">The minimum string length.</param>
         /// <param name="maximum">The maximum string length.</param>
-        /// <param name="options">A bitwise combination of enumeration values 
+        /// <param name="options">A bitwise combination of enumeration values
         /// that defines whether the comparison is inclusive.</param>
         /// <returns>MinMax returns <see langword="true" /> if <paramref name="source"/> is greater than
-        /// the minimum value but less than the maximum value; otherwise it 
+        /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
         public static bool LengthBetween(this String source, Int32 minimum, Int32 maximum, NumericComparisonOptions options)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             var success = false;
             var length = source.Length;
@@ -826,7 +825,7 @@ namespace Cadru.Extensions
         /// </returns>
         public static bool LengthGreaterThan(this String source, Int32 minimum)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             return source.Length > minimum;
         }
@@ -846,7 +845,7 @@ namespace Cadru.Extensions
         /// </returns>
         public static bool LengthGreaterThanOrEqualTo(this String source, Int32 minimum)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             return source.Length >= minimum;
         }
@@ -866,7 +865,7 @@ namespace Cadru.Extensions
         /// </returns>
         public static bool LengthLessThan(this String source, Int32 maximum)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             return source.Length < maximum;
         }
@@ -886,7 +885,7 @@ namespace Cadru.Extensions
         /// </returns>
         public static bool LengthLessThanOrEqualTo(this String source, Int32 maximum)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             return source.Length <= maximum;
         }
@@ -894,15 +893,15 @@ namespace Cadru.Extensions
 
         #region IsNullOrWhiteSpace
         /// <summary>
-        /// Indicates whether a specified string is <see langword="null"/>, 
+        /// Indicates whether a specified string is <see langword="null"/>,
         /// <see cref="String.Empty">empty</see>, or consists only of white-space characters.
         /// </summary>
         /// <param name="value">The string to test.</param>
         /// <returns><see langword="true"/> if the <paramref name="value"/>
         /// parameter is <see langword="null"/>null or <see cref="String.Empty">String.Empty</see>,
         /// or if <paramref name="value"/> consists exclusively of white-space characters.</returns>
-        /// <remarks>White-space characters are defined by the Unicode standard. The 
-        /// <see cref="IsNullOrWhiteSpace"/> method interprets any character that returns a value of 
+        /// <remarks>White-space characters are defined by the Unicode standard. The
+        /// <see cref="IsNullOrWhiteSpace"/> method interprets any character that returns a value of
         /// <see langword="true"/> when it is passed to the <see cref="Char.IsWhiteSpace(char)"/>
         /// method as a white-space character.</remarks>
         public static bool IsNullOrWhiteSpace(this string value)
@@ -933,15 +932,15 @@ namespace Cadru.Extensions
 
         #region IsNotNullOrWhiteSpace
         /// <summary>
-        /// Indicates whether a specified string is not <see langword="null"/>, 
+        /// Indicates whether a specified string is not <see langword="null"/>,
         /// <see cref="String.Empty">empty</see>, or consists only of white-space characters.
         /// </summary>
         /// <param name="value">The string to test.</param>
         /// <returns><see langword="true"/> if the <paramref name="value"/>
         /// parameter is not <see langword="null"/>null or <see cref="String.Empty">String.Empty</see>,
         /// or if <paramref name="value"/> does not consist exclusively of white-space characters.</returns>
-        /// <remarks>White-space characters are defined by the Unicode standard. The 
-        /// <see cref="IsNotNullOrWhiteSpace"/> method interprets any character that returns a value of 
+        /// <remarks>White-space characters are defined by the Unicode standard. The
+        /// <see cref="IsNotNullOrWhiteSpace"/> method interprets any character that returns a value of
         /// <see langword="true"/> when it is passed to the <see cref="Char.IsWhiteSpace(char)"/>
         /// method as a white-space character.</remarks>
         public static bool IsNotNullOrWhiteSpace(this string value)
@@ -962,7 +961,7 @@ namespace Cadru.Extensions
         /// or 0 if <paramref name="value"/> is not found in the string.</returns>
         public static int OccurrencesOf(this string source, char value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             int count = 0;
             foreach (char c in source)
@@ -997,13 +996,13 @@ namespace Cadru.Extensions
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="value">The string to count.</param>
-        /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param> 
+        /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param>
         /// <returns>The number of times <paramref name="value"/> appears in <paramref name="source"/>
         /// or 0 if <paramref name="value"/> is not found in the string.</returns>
         public static int OccurrencesOf(this string source, string value, StringComparison comparisonType)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.NotNull(value, "value");
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.NotNull(value, nameof(value));
 
             int count = 0;
             int index = source.IndexOf(value, comparisonType);
@@ -1039,7 +1038,7 @@ namespace Cadru.Extensions
         /// whitespace characters removed.</returns>
         public static string RemoveWhiteSpace(this string source)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
             int position = 0;
             int length = source.Length;
             char[] buffer = new char[length];
@@ -1067,11 +1066,11 @@ namespace Cadru.Extensions
         /// <param name="oldValue">The character to replace.</param>
         /// <param name="newValue">The replacement character.</param>
         /// <param name="occurrences">The occurrences of <paramref name="oldValue"/> to replace.</param>
-        /// <returns>A new string where <paramref name="oldValue"/> 
+        /// <returns>A new string where <paramref name="oldValue"/>
         /// has been replaced by <paramref name="newValue"/>.</returns>
         public static string Replace(this string source, char oldValue, char newValue, int occurrences)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             int count = 0;
             int index = 0;
@@ -1094,14 +1093,14 @@ namespace Cadru.Extensions
 
         #region Replace(string source, string oldValue, string newValue, int occurrences)
         /// <summary>
-        /// Returns a new string where <paramref name="oldValue"/> 
+        /// Returns a new string where <paramref name="oldValue"/>
         /// has been replaced by <paramref name="newValue"/>.
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="oldValue">The character to replace.</param>
         /// <param name="newValue">The replacement character.</param>
         /// <param name="occurrences">The occurrences of <paramref name="oldValue"/> to replace.</param>
-        /// <returns>A new string where <paramref name="oldValue"/> 
+        /// <returns>A new string where <paramref name="oldValue"/>
         /// has been replaced by <paramref name="newValue"/>.</returns>
         public static string Replace(this string source, string oldValue, string newValue, int occurrences)
         {
@@ -1118,14 +1117,14 @@ namespace Cadru.Extensions
         /// <param name="oldValue">The character to replace.</param>
         /// <param name="newValue">The replacement character.</param>
         /// <param name="occurrences">The occurrences of <paramref name="oldValue"/> to replace.</param>
-        /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param> 
-        /// <returns>A new string where <paramref name="oldValue"/> 
+        /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param>
+        /// <returns>A new string where <paramref name="oldValue"/>
         /// has been replaced by <paramref name="newValue"/>.</returns>
         public static string Replace(this string source, string oldValue, string newValue, int occurrences, StringComparison comparisonType)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.NotNull(oldValue, "oldValue");
-            Contracts.Requires.NotNull(newValue, "newValue");
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.NotNull(oldValue, nameof(oldValue));
+            Contracts.Requires.NotNull(newValue, nameof(newValue));
 
             string newString = source;
             int index = source.IndexOf(oldValue, comparisonType);
@@ -1196,13 +1195,13 @@ namespace Cadru.Extensions
         /// <param name="start">The starting character of the replacement substring.</param>
         /// <param name="end">The ending character of the replacement substring.</param>
         /// <param name="newValue">The replacement text.</param>
-        /// <param name="inclusive">Indicates if the substring should include the start and end characters.</param> 
+        /// <param name="inclusive">Indicates if the substring should include the start and end characters.</param>
         /// <returns>A new string where the text between <paramref name="start"/> and
         /// <parameref name="end"/> has been replaced by <paramref name="newValue"/>.</returns>
         public static string ReplaceBetween(this string source, char start, char end, string newValue, bool inclusive)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.NotNull(newValue, "newValue");
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.NotNull(newValue, nameof(newValue));
 
             string newString = source;
             int startIndex = source.IndexOf(start);
@@ -1260,19 +1259,19 @@ namespace Cadru.Extensions
         /// <param name="start">The starting index of the replacement substring.</param>
         /// <param name="end">The ending index of the replacement substring.</param>
         /// <param name="newValue">The replacement text.</param>
-        /// <param name="inclusive">Indicates if the substring should include the start and end indices.</param> 
+        /// <param name="inclusive">Indicates if the substring should include the start and end indices.</param>
         /// <returns>A new string where the text between <paramref name="start"/> and
         /// <parameref name="end"/> has been replaced by <paramref name="newValue"/>.</returns>
         public static string ReplaceBetween(this string source, int start, int end, string newValue, bool inclusive)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.NotNull(newValue, "newValue");
-            Contracts.Requires.ValidRange(start < 0, "start", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            Contracts.Requires.ValidRange(start > source.Length, "start", Resources.ArgumentOutOfRange_IndexLessThanLength);
-            Contracts.Requires.ValidRange(end < 0, "end", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            Contracts.Requires.ValidRange(end > source.Length, "end", Resources.ArgumentOutOfRange_IndexLessThanLength);
-            Contracts.Requires.ValidRange(start > end, "start", Resources.Argument_StartIndexGreaterThanEndIndexString);
-            Contracts.Requires.ValidRange(start == end, "start", Resources.Argument_InvalidIndexValuesString);
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.NotNull(newValue, nameof(newValue));
+            Contracts.Requires.ValidRange(start < 0, nameof(start), Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(start > source.Length, nameof(start), Strings.ArgumentOutOfRange_IndexLessThanLength);
+            Contracts.Requires.ValidRange(end < 0, nameof(end), Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(end > source.Length, nameof(end), Strings.ArgumentOutOfRange_IndexLessThanLength);
+            Contracts.Requires.ValidRange(start > end, nameof(start), Strings.Argument_StartIndexGreaterThanEndIndexString);
+            Contracts.Requires.ValidRange(start == end, nameof(start), Strings.Argument_InvalidIndexValuesString);
 
             string newString = source;
 
@@ -1320,7 +1319,7 @@ namespace Cadru.Extensions
         /// <param name="start">The starting string of the replacement substring.</param>
         /// <param name="end">The ending string of the replacement substring.</param>
         /// <param name="newValue">The replacement text.</param>
-        /// <param name="inclusive">Indicates if the substring should include the start and end strings.</param> 
+        /// <param name="inclusive">Indicates if the substring should include the start and end strings.</param>
         /// <returns>A new string where the text between <paramref name="start"/> and
         /// <parameref name="end"/> has been replaced by <paramref name="newValue"/>.</returns>
         public static string ReplaceBetween(this string source, string start, string end, string newValue, bool inclusive)
@@ -1338,16 +1337,16 @@ namespace Cadru.Extensions
         /// <param name="start">The starting string of the replacement substring.</param>
         /// <param name="end">The ending string of the replacement substring.</param>
         /// <param name="newValue">The replacement text.</param>
-        /// <param name="inclusive">Indicates if the substring should include the start and end strings.</param> 
-        /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param> 
+        /// <param name="inclusive">Indicates if the substring should include the start and end strings.</param>
+        /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param>
         /// <returns>A new string where the text between <paramref name="start"/> and
         /// <parameref name="end"/> has been replaced by <paramref name="newValue"/>.</returns>
         public static string ReplaceBetween(this string source, string start, string end, string newValue, bool inclusive, StringComparison comparisonType)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.NotNull(start, "start");
-            Contracts.Requires.NotNull(end, "end");
-            Contracts.Requires.NotNull(newValue, "newValue");
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.NotNull(start, nameof(start));
+            Contracts.Requires.NotNull(end, nameof(end));
+            Contracts.Requires.NotNull(newValue, nameof(newValue));
 
             string newString = source;
             int startIndex = source.IndexOf(start, comparisonType);
@@ -1361,7 +1360,7 @@ namespace Cadru.Extensions
                     if (inclusive)
                     {
                         // We need to offset the endIndex to include
-                        // the bracketing word. 
+                        // the bracketing word.
                         endIndex += end.Length;
                     }
                     else
@@ -1387,14 +1386,14 @@ namespace Cadru.Extensions
         /// <paramref name="source"/>.
         /// </summary>
         /// <param name="source">The <see cref="String"/> to resize.</param>
-        /// <param name="length">The desired length of the new 
+        /// <param name="length">The desired length of the new
         /// <see cref="String"/>.</param>
         /// <returns>A new, resized string.</returns>
-        /// <remarks><para>If <paramref name="source"/> is less than 
+        /// <remarks><para>If <paramref name="source"/> is less than
         /// <paramref name="length"/>, the returned string is padded with
         /// spaces; otherwise it is truncated to the desired length.</para>
         /// <para>If <paramref name="source"/> is <see langword="null"/>
-        /// or is an empty string, a new string containing 
+        /// or is an empty string, a new string containing
         /// <paramref name="length"/> number of spaces is returned.</para>
         /// </remarks>
         public static string ResizeString(this string source, int length)
@@ -1430,7 +1429,7 @@ namespace Cadru.Extensions
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="value">The ending character of a substring.</param>
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at the position of <paramref name="value"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="value"/> is not found in the string.
         /// </returns>
@@ -1448,13 +1447,13 @@ namespace Cadru.Extensions
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="value">The ending string of a substring.</param>
         /// <param name="occurrence">The occurrence of <paramref name="value"/>.</param>
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at the position of <paramref name="value"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="value"/> is not found in the string.
         /// </returns>
         public static string RightSubstring(this string source, char value, int occurrence)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             string substring = source;
             int index = source.IndexOf(value);
@@ -1481,7 +1480,7 @@ namespace Cadru.Extensions
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="endingIndex">The index of the end of the substring.</param>
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at <paramref name="endingIndex"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="endingIndex"/> is not found in the string.
         /// </returns>
@@ -1500,15 +1499,15 @@ namespace Cadru.Extensions
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="endingIndex">The index of the end of the substring.</param>
         /// <param name="inclusive">Indicates if the substring should include the ending character position.</param>
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at <paramref name="endingIndex"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="endingIndex"/> is not found in the string.
         /// </returns>
         public static string RightSubstring(this string source, int endingIndex, bool inclusive)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.ValidRange(endingIndex <= 0, "endingIndex", Resources.ArgumentOutOfRange_IndexLessThanZero);
-            Contracts.Requires.ValidRange(endingIndex > source.Length, "endingIndex", Resources.ArgumentOutOfRange_IndexLessThanLength);
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.ValidRange(endingIndex <= 0, nameof(endingIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Contracts.Requires.ValidRange(endingIndex > source.Length, nameof(endingIndex), Strings.ArgumentOutOfRange_IndexLessThanLength);
 
             if (inclusive)
             {
@@ -1526,7 +1525,7 @@ namespace Cadru.Extensions
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="value">The ending string of a substring.</param>
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at the position of <paramref name="value"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="value"/> is not found in the string.
         /// </returns>
@@ -1545,7 +1544,7 @@ namespace Cadru.Extensions
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="value">The ending string of a substring.</param>
         /// <param name="occurrence">The occurrence of <paramref name="value"/>.</param>
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at the position of <paramref name="value"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="value"/> is not found in the string.
         /// </returns>
@@ -1563,15 +1562,15 @@ namespace Cadru.Extensions
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="value">The ending string of a substring.</param>
         /// <param name="occurrence">The occurrence of <paramref name="value"/>.</param>
-        /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param> 
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param>
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at the position of <paramref name="value"/> in <paramref name="source"/>, or
         /// the entire string if <paramref name="value"/> is not found in the string.
         /// </returns>
         public static string RightSubstring(this string source, string value, int occurrence, StringComparison comparisonType)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.NotNull(value, "value");
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.NotNull(value, nameof(value));
 
             string substring = source;
             int index = source.IndexOf(value, comparisonType);
@@ -1623,8 +1622,8 @@ namespace Cadru.Extensions
         /// any of the specified strings; otherwise, <see langword="false"/>.</returns>
         public static bool StartsWithAny(this string source, IEnumerable<string> values, StringComparison comparisonType)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.NotNullOrEmpty(values, "values");
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.NotNullOrEmpty(values, nameof(values));
 
             foreach (var value in values)
             {
@@ -1645,14 +1644,14 @@ namespace Cadru.Extensions
         #region SubstringBetween(string source, char start, char end)
         /// <summary>
         /// Retrieves a substring from <paramref name="source"/>. The substring begins at <paramref name="start"/>
-        /// and ends at <paramref name="end"/>. 
+        /// and ends at <paramref name="end"/>.
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="start">The starting character of the substring.</param>
         /// <param name="end">The ending character of the substring.</param>
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at the position of <paramref name="end"/> in <paramref name="source"/>, or
-        /// <see cref="String.Empty"/> if <paramref name="start"/> or <paramref name="end"/> 
+        /// <see cref="String.Empty"/> if <paramref name="start"/> or <paramref name="end"/>
         /// are not found in the string.
         /// </returns>
         public static string SubstringBetween(this string source, char start, char end)
@@ -1669,15 +1668,15 @@ namespace Cadru.Extensions
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="start">The starting character of the substring.</param>
         /// <param name="end">The ending character of the substring.</param>
-        /// <param name="inclusive">Indicates if the substring should include the start and end characters.</param> 
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <param name="inclusive">Indicates if the substring should include the start and end characters.</param>
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at the position of <paramref name="end"/> in <paramref name="source"/>, or
-        /// <see cref="String.Empty"/> if <paramref name="start"/> or <paramref name="end"/> 
+        /// <see cref="String.Empty"/> if <paramref name="start"/> or <paramref name="end"/>
         /// are not found in the string.
         /// </returns>
         public static string SubstringBetween(this string source, char start, char end, bool inclusive)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             string substring = String.Empty;
             int startIndex = source.IndexOf(start);
@@ -1711,14 +1710,14 @@ namespace Cadru.Extensions
         #region SubstringBetween(string source, string start, string end)
         /// <summary>
         /// Retrieves a substring from <paramref name="source"/>. The substring begins at <paramref name="start"/>
-        /// and ends at <paramref name="end"/>. 
+        /// and ends at <paramref name="end"/>.
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="start">The starting string of the substring.</param>
         /// <param name="end">The ending string of the substring.</param>
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at the position of <paramref name="end"/> in <paramref name="source"/>, or
-        /// <see cref="String.Empty"/> if <paramref name="start"/> or <paramref name="end"/> 
+        /// <see cref="String.Empty"/> if <paramref name="start"/> or <paramref name="end"/>
         /// are not found in the string.
         /// </returns>
         public static string SubstringBetween(this string source, string start, string end)
@@ -1730,15 +1729,15 @@ namespace Cadru.Extensions
         #region SubstringBetween(string source, string start, string end, bool inclusive)
         /// <summary>
         /// Retrieves a substring from <paramref name="source"/>. The substring begins at <paramref name="start"/>
-        /// and ends at <paramref name="end"/>. 
+        /// and ends at <paramref name="end"/>.
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="start">The starting string of the substring.</param>
         /// <param name="end">The ending string of the substring.</param>
-        /// <param name="inclusive">Indicates if the substring should include the start and end strings.</param> 
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <param name="inclusive">Indicates if the substring should include the start and end strings.</param>
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at the position of <paramref name="end"/> in <paramref name="source"/>, or
-        /// <see cref="String.Empty"/> if <paramref name="start"/> or <paramref name="end"/> 
+        /// <see cref="String.Empty"/> if <paramref name="start"/> or <paramref name="end"/>
         /// are not found in the string.
         /// </returns>
         public static string SubstringBetween(this string source, string start, string end, bool inclusive)
@@ -1750,23 +1749,23 @@ namespace Cadru.Extensions
         #region SubstringBetween(string source, string start, string end, bool inclusive, StringComparison comparisonType)
         /// <summary>
         /// Retrieves a substring from <paramref name="source"/>. The substring begins at <paramref name="start"/>
-        /// and ends at <paramref name="end"/>. 
+        /// and ends at <paramref name="end"/>.
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="start">The starting string of the substring.</param>
         /// <param name="end">The ending string of the substring.</param>
-        /// <param name="inclusive">Indicates if the substring should include the start and end strings.</param> 
-        /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param> 
-        /// <returns>A <see cref="String"/> object equivalent to the substring that 
+        /// <param name="inclusive">Indicates if the substring should include the start and end strings.</param>
+        /// <param name="comparisonType">One of the <see cref="StringComparison"/> values.</param>
+        /// <returns>A <see cref="String"/> object equivalent to the substring that
         /// ends at the position of <paramref name="end"/> in <paramref name="source"/>, or
-        /// <see cref="String.Empty"/> if <paramref name="start"/> or <paramref name="end"/> 
+        /// <see cref="String.Empty"/> if <paramref name="start"/> or <paramref name="end"/>
         /// are not found in the string.
         /// </returns>
         public static string SubstringBetween(this string source, string start, string end, bool inclusive, StringComparison comparisonType)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.NotNull(start, "start");
-            Contracts.Requires.NotNull(end, "end");
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.NotNull(start, nameof(start));
+            Contracts.Requires.NotNull(end, nameof(end));
 
             string substring = String.Empty;
             int startIndex = source.IndexOf(start, comparisonType);
@@ -1780,7 +1779,7 @@ namespace Cadru.Extensions
                     if (inclusive)
                     {
                         // We need to offset the endIndex to include
-                        // the bracketing word. 
+                        // the bracketing word.
                         endIndex += end.Length;
                     }
                     else
@@ -1810,7 +1809,7 @@ namespace Cadru.Extensions
         /// <param name="length">The maximum number of characters to be included
         /// in the new <see cref="string"/>.</param>
         /// <returns>If <paramref name="source"/> is greater than
-        /// <paramref name="length"/>, a new string representing 
+        /// <paramref name="length"/>, a new string representing
         /// <paramref name="source"/> which has been truncated at
         /// <paramref name="length"/>; otherwise, the original value.</returns>
         public static string Truncate(this string source, int length)

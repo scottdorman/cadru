@@ -2,7 +2,7 @@
 // <copyright file="Predicate.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2015 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -101,6 +101,7 @@ namespace Cadru.Data.Dapper.Predicates
         {
             var predicate = new FieldPredicate<TModel, TFieldType>
             {
+                Not = not,
                 PropertyName = expression.GetProperty().Name,
                 Operator = op,
                 Value = value,
@@ -125,6 +126,7 @@ namespace Cadru.Data.Dapper.Predicates
         {
             var predicate = new FieldPredicate<TModel, TFieldType>
             {
+                Not = not,
                 PropertyName = fieldName,
                 Operator = op,
                 Value = value,
@@ -151,6 +153,7 @@ namespace Cadru.Data.Dapper.Predicates
         {
             var predicate = new PropertyPredicate<TModel, TModel2>
             {
+                Not = not,
                 PropertyName = left.GetProperty().Name,
                 Operator = op,
                 PropertyName2 = right.GetProperty().Name
@@ -177,6 +180,7 @@ namespace Cadru.Data.Dapper.Predicates
         {
             var predicate = new PropertyPredicate<TModel, TModel2>
             {
+                Not = not,
                 PropertyName = left,
                 Operator = op,
                 PropertyName2 = right

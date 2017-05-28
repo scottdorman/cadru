@@ -2,7 +2,7 @@
 // <copyright file="Table{TEntity}.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2015 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -22,17 +22,15 @@
 
 namespace Cadru.Data.Dapper
 {
-    using Contracts;
-    using Cadru.Data.Dapper.Predicates;
-    using global::Dapper;
     using System;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using System.Reflection;
     using System.Text;
+    using Cadru.Data.Dapper.Predicates;
+    using Contracts;
+    using global::Dapper;
 
     public partial class Table<TEntity> : IDatabaseObject where TEntity : class
     {
@@ -59,8 +57,7 @@ namespace Cadru.Data.Dapper
 
         internal IList<string> GetParamNames(object o)
         {
-            List<string> paramNames;
-            if (!paramNameCache.TryGetValue(o.GetType(), out paramNames))
+            if (!paramNameCache.TryGetValue(o.GetType(), out List<string> paramNames))
             {
                 paramNames = new List<string>();
                 foreach (var prop in o.GetType().GetRuntimeProperties())

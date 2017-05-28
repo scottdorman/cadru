@@ -2,7 +2,7 @@
 // <copyright file="Database.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2016 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -22,15 +22,14 @@
 
 namespace Cadru.Data.Dapper
 {
-    using global::Dapper;
     using System;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
     using System.Data;
     using System.Data.Common;
     using System.Linq;
     using System.Reflection;
+    using global::Dapper;
     using Cadru.Extensions;
 
     public abstract partial class Database : IDatabase
@@ -139,9 +138,8 @@ namespace Cadru.Data.Dapper
         internal IObjectMap MapObject<T>(DatabaseObjectType databaseObjectType) where T : class
         {
             var entityType = typeof(T);
-            IObjectMap map;
 
-            if (!mappings.TryGetValue(entityType, out map))
+            if (!mappings.TryGetValue(entityType, out IObjectMap map))
             {
                 map = ObjectMap<T>.CreateMap(databaseObjectType);
                 mappings[entityType] = map;

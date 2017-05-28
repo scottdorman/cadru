@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="ConditionAssert.cs" 
-//  company="Scott Dorman" 
+// <copyright file="ConditionAssert.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
 namespace Cadru.UnitTest.Framework
 {
     using System;
-    using Cadru.UnitTest.Framework.Properties;
+    using Cadru.UnitTest.Framework.Resources;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
@@ -56,7 +56,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="arg2">The second value, expected to be less.</param>
         public static void Greater<T>(T arg1, T arg2) where T : IComparable
         {
-            ConditionAssert.Greater(arg1, arg2, Resources.Assertion_IsComparisonOrEqualTo, arg2, "less", arg1);
+            ConditionAssert.Greater(arg1, arg2, Strings.Assertion_IsComparisonOrEqualTo, arg2, "less", arg1);
         }
         #endregion
 
@@ -105,7 +105,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="arg2">The second value, expected to be less.</param>
         public static void GreaterOrEqual<T>(T arg1, T arg2) where T : IComparable
         {
-            ConditionAssert.GreaterOrEqual(arg1, arg2, Resources.Assertion_IsComparison, arg2, "less", arg1);
+            ConditionAssert.GreaterOrEqual(arg1, arg2, Strings.Assertion_IsComparison, arg2, "less", arg1);
         }
         #endregion
 
@@ -154,7 +154,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="arg2">The second value, expected to be greater.</param>
         public static void Less<T>(T arg1, T arg2) where T : IComparable
         {
-            ConditionAssert.Less(arg1, arg2, Resources.Assertion_IsComparisonOrEqualTo, arg2, "greater", arg1);
+            ConditionAssert.Less(arg1, arg2, Strings.Assertion_IsComparisonOrEqualTo, arg2, "greater", arg1);
         }
         #endregion
 
@@ -203,7 +203,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="arg2">The second value, expected to be greater.</param>
         public static void LessOrEqual<T>(T arg1, T arg2) where T : IComparable
         {
-            ConditionAssert.LessOrEqual(arg1, arg2, Resources.Assertion_IsComparison, arg2, "greater", arg1);
+            ConditionAssert.LessOrEqual(arg1, arg2, Strings.Assertion_IsComparison, arg2, "greater", arg1);
         }
         #endregion
 
@@ -250,7 +250,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="value">The value to test.</param>
         public static void IsNaN(double value)
         {
-            ConditionAssert.IsNaN(value, Resources.Assertion_GenericFailure, Double.NaN, value);
+            ConditionAssert.IsNaN(value, Strings.Assertion_GenericFailure, Double.NaN, value);
         }
         #endregion
 
@@ -296,7 +296,7 @@ namespace Cadru.UnitTest.Framework
         /// <paramref name="condition"/> evaluates to <see langword="true"/>.</exception>
         public static void IsFalse(bool? condition)
         {
-            ConditionAssert.IsFalse(condition, Resources.Assertion_GenericFailure, true, condition);
+            ConditionAssert.IsFalse(condition, Strings.Assertion_GenericFailure, true, condition);
         }
         #endregion
 
@@ -304,7 +304,7 @@ namespace Cadru.UnitTest.Framework
         /// <summary>
         /// Verifies that the specified condition is <see langword="false"/>.
         /// The assertion fails if the condition is <see langword="true"/>.
-        /// Displays a message if the assertion fails. 
+        /// Displays a message if the assertion fails.
         /// </summary>
         /// <param name="condition">The condition to verify is <see langword="false"/>.</param>
         /// <param name="message">A message to display if the assertion fails. This message can be seen in the unit test results.</param>
@@ -320,7 +320,7 @@ namespace Cadru.UnitTest.Framework
         /// <summary>
         /// Verifies that the specified condition is <see langword="false"/>.
         /// The assertion fails if the condition is <see langword="true"/>.
-        /// Displays a message if the assertion fails, and applies the specified formatting to it. 
+        /// Displays a message if the assertion fails, and applies the specified formatting to it.
         /// </summary>
         /// <param name="condition">The condition to verify is <see langword="false"/>.</param>
         /// <param name="message">A message to display if the assertion fails. This message can be seen in the unit test results.</param>
@@ -350,7 +350,7 @@ namespace Cadru.UnitTest.Framework
         /// <paramref name="condition"/> evaluates to <see langword="false"/>.</exception>
         public static void IsTrue(bool? condition)
         {
-            ConditionAssert.IsTrue(condition, Resources.Assertion_GenericFailure, true, condition);
+            ConditionAssert.IsTrue(condition, Strings.Assertion_GenericFailure, true, condition);
         }
         #endregion
 
@@ -358,7 +358,7 @@ namespace Cadru.UnitTest.Framework
         /// <summary>
         /// Verifies that the specified condition is <see langword="true"/>.
         /// The assertion fails if the condition is <see langword="false"/>.
-        /// Displays a message if the assertion fails. 
+        /// Displays a message if the assertion fails.
         /// </summary>
         /// <param name="condition">The condition to verify is <see langword="true"/>.</param>
         /// <param name="message">A message to display if the assertion fails. This message can be seen in the unit test results.</param>
@@ -374,7 +374,7 @@ namespace Cadru.UnitTest.Framework
         /// <summary>
         /// Verifies that the specified condition is <see langword="true"/>.
         /// The assertion fails if the condition is <see langword="false"/>.
-        /// Displays a message if the assertion fails, and applies the specified formatting to it. 
+        /// Displays a message if the assertion fails, and applies the specified formatting to it.
         /// </summary>
         /// <param name="condition">The condition to verify is <see langword="true"/>.</param>
         /// <param name="message">A message to display if the assertion fails. This message can be seen in the unit test results.</param>

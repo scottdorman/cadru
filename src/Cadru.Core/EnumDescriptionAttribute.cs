@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="EnumDescriptionAttribute.cs" 
-//  company="Scott Dorman" 
+// <copyright file="EnumDescriptionAttribute.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ namespace Cadru
 
         #region constructors
         /// <summary>
-        /// Initializes a new instance of the 
+        /// Initializes a new instance of the
         /// <see cref="EnumDescriptionAttribute"/> class.
         /// </summary>
         /// <param name="description">The description to store in this attribute.</param>
@@ -57,13 +57,7 @@ namespace Cadru
         /// Gets the description stored in this attribute.
         /// </summary>
         /// <value>The description stored in the attribute.</value>
-        public string Description
-        {
-            get
-            {
-                return this.description;
-            }
-        }
+        public string Description => this.description;
         #endregion
 
         #endregion

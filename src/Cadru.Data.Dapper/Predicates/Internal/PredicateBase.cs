@@ -2,7 +2,7 @@
 // <copyright file="PredicateBase.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2015 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -22,11 +22,11 @@
 
 namespace Cadru.Data.Dapper.Predicates.Internal
 {
-    using global::Dapper;
     using System;
     using System.Linq;
     using System.Text;
     using Cadru.Extensions;
+    using global::Dapper;
 
     internal abstract partial class PredicateBase : IPredicateBase
     {
@@ -41,8 +41,7 @@ namespace Cadru.Data.Dapper.Predicates.Internal
             Contracts.Requires.NotNullOrWhiteSpace(propertyName, nameof(propertyName));
 
             var columnName = String.Empty;
-            IObjectMap tableMap;
-            if (Database.Mappings.TryGetValue(typeof(T), out tableMap))
+            if (Database.Mappings.TryGetValue(typeof(T), out IObjectMap tableMap))
             {
                 var propertyMap = tableMap.Properties.SingleOrDefault(p => p.PropertyName == propertyName);
                 if (propertyMap == null)

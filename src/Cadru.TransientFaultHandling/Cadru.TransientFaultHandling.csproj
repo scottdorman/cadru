@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>4.0.0-beta-28</Version>
+    <Authors>Scott Dorman</Authors>
+    <Company>Scott Dorman</Company>
+    <Product>Cadru Framework</Product>
+    <Description />
+    <Copyright>Copyright © Scott Dorman</Copyright>
+    <PackageLicenseUrl>http://opensource.org/licenses/Ms-PL.html</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/scottdorman/cadru</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Cadru.licenseheader" Link="Cadru.licenseheader" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cadru.Contracts\Cadru.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

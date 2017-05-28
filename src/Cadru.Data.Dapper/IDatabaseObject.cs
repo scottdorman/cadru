@@ -1,8 +1,8 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="ITable.cs"
+// <copyright file="IDatabaseObject.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2015 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -27,7 +27,6 @@ namespace Cadru.Data.Dapper
         string Schema { get; }
         string ObjectName { get; }
         string FullyQualifiedObjectName { get; }
-
         DatabaseObjectType ObjectType { get; }
     }
 }

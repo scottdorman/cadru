@@ -1,12 +1,32 @@
-﻿using Cadru.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+﻿//------------------------------------------------------------------------------
+// <copyright file="Enum{T}.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2017 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
 
 namespace Cadru
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Reflection;
+
     /// <summary>
     /// Provides a class for working with enumerations.
     /// </summary>
@@ -76,7 +96,7 @@ namespace Cadru
             var type = value.GetType();
 
             var fieldValue = value.ToString();
-            var attribute = ((EnumDescriptionAttribute[])type.GetField(fieldValue)?.GetCustomAttributes(typeof(EnumDescriptionAttribute), false)).FirstOrDefault();
+            var attribute = ((EnumDescriptionAttribute[])type.GetTypeInfo().GetDeclaredField(fieldValue)?.GetCustomAttributes(typeof(EnumDescriptionAttribute), false)).FirstOrDefault();
             return attribute?.Description ?? (useNameAsFallback ? fieldValue : null);
         }
         #endregion
@@ -109,15 +129,15 @@ namespace Cadru
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static IEnumerable<string> GetDescriptions(bool useNameAsFallback)
         {
-            var type = typeof(TEnum);
+            var type = typeof(TEnum).GetTypeInfo();
 
             Contracts.Requires.IsTrue(type.IsEnum);
-            var fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
-            var descriptions = new string[fields.Length];
-            for (int i = 0; i < fields.Length; i++)
+            var fields = type.DeclaredFields.Where(f => !f.IsSpecialName);
+            var descriptions = new List<string>();
+            foreach (var field in fields)
             {
-                var attribute = ((EnumDescriptionAttribute[])fields[i]?.GetCustomAttributes(typeof(EnumDescriptionAttribute), false)).FirstOrDefault();
-                descriptions[i] = attribute?.Description ?? (useNameAsFallback ? fields[i].Name : null);
+                var attribute = field.GetCustomAttribute<EnumDescriptionAttribute>(false);
+                descriptions.Add(attribute?.Description ?? (useNameAsFallback ? field.Name : null));
             }
 
             return descriptions;

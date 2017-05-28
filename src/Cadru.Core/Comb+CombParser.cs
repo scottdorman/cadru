@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
 // <copyright file="Comb+CombParser.cs"
-//  company="Scott Dorman" 
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -119,7 +119,6 @@ namespace Cadru
 
             private bool TryParse(string format, out Comb result)
             {
-                ulong a, b, c;
                 result = new Comb();
 
                 if ((format == "B" && !this.ParseChar('{')) || (format == "P" && !this.ParseChar('(')))
@@ -127,7 +126,7 @@ namespace Cadru
                     return false;
                 }
 
-                if (!this.ParseHex(8, true, out a))
+                if (!this.ParseHex(8, true, out ulong a))
                 {
                     return false;
                 }
@@ -139,7 +138,7 @@ namespace Cadru
                     return false;
                 }
 
-                if (!this.ParseHex(4, true, out b))
+                if (!this.ParseHex(4, true, out ulong b))
                 {
                     return false;
                 }
@@ -149,7 +148,7 @@ namespace Cadru
                     return false;
                 }
 
-                if (!this.ParseHex(4, true, out c))
+                if (!this.ParseHex(4, true, out ulong c))
                 {
                     return false;
                 }
@@ -162,8 +161,7 @@ namespace Cadru
                 var d = new byte[8];
                 for (int i = 0; i < d.Length; i++)
                 {
-                    ulong dd;
-                    if (!this.ParseHex(2, true, out dd))
+                    if (!this.ParseHex(2, true, out ulong dd))
                     {
                         return false;
                     }
@@ -192,18 +190,17 @@ namespace Cadru
 
             private bool TryParseHex(out Comb result)
             {
-                ulong a, b, c;
                 result = new Comb();
 
                 if (!(this.ParseChar('{')
                 && this.ParseHexPrefix()
-                && this.ParseHex(8, false, out a)
+                && this.ParseHex(8, false, out ulong a)
                 && this.ParseCharWithWhiteSpaces(',')
                 && this.ParseHexPrefix()
-                && this.ParseHex(4, false, out b)
+                && this.ParseHex(4, false, out ulong b)
                 && this.ParseCharWithWhiteSpaces(',')
                 && this.ParseHexPrefix()
-                && this.ParseHex(4, false, out c)
+                && this.ParseHex(4, false, out ulong c)
                 && this.ParseCharWithWhiteSpaces(',')
                 && this.ParseCharWithWhiteSpaces('{')))
                 {
@@ -213,9 +210,7 @@ namespace Cadru
                 var d = new byte[8];
                 for (int i = 0; i < d.Length; ++i)
                 {
-                    ulong dd;
-
-                    if (!(this.ParseHexPrefix() && this.ParseHex(2, false, out dd)))
+                    if (!(this.ParseHexPrefix() && this.ParseHex(2, false, out ulong dd)))
                     {
                         return false;
                     }

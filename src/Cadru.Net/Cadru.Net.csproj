@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.1</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>4.0.0-beta-28</Version>
+    <Authors>Scott Dorman</Authors>
+    <Company>Scott Dorman</Company>
+    <Product>Cadru Framework</Product>
+    <Copyright>Copyright © Scott Dorman</Copyright>
+    <PackageLicenseUrl>http://opensource.org/licenses/Ms-PL.html</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/scottdorman/cadru</PackageProjectUrl>
+    <Description />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Cadru.licenseheader" Link="Cadru.licenseheader" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+    <PackageReference Include="System.Net.Requests" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cadru.Contracts\Cadru.Contracts.csproj" />
+    <ProjectReference Include="..\Cadru.Core\Cadru.Core.csproj" />
+    <ProjectReference Include="..\Cadru.TransientFaultHandling\Cadru.TransientFaultHandling.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

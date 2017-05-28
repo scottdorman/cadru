@@ -1,8 +1,8 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="IPredicateBse.cs"
+// <copyright file="IPredicateBase.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2015 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
 //
 // <license>

@@ -2,7 +2,7 @@
 // <copyright file="TypeHelpers.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2015 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -22,17 +22,17 @@
 
 namespace Cadru.Data.Dapper.Internal
 {
-    using global::Dapper;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
+    using global::Dapper;
 
     internal static class TypeHelpers
     {
         public static PropertyInfo GetProperty(this LambdaExpression lambda)
         {
             Expression expr = lambda;
-            for (; ;)
+            for (;;)
             {
                 switch (expr.NodeType)
                 {

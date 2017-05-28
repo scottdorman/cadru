@@ -1,8 +1,8 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="TableMap.cs"
+// <copyright file="TableMap{T}.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2015 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -23,13 +23,8 @@
 namespace Cadru.Data.Dapper
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
-    using System.Linq.Expressions;
     using System.Reflection;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class TableMap<T> : ObjectMap<T> where T : class
     {

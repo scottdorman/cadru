@@ -2,7 +2,7 @@
 // <copyright file="FieldPredicate.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2015 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -22,13 +22,13 @@
 
 namespace Cadru.Data.Dapper.Predicates.Internal
 {
-    using Cadru.Data.Dapper.Internal;
-    using global::Dapper;
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using Cadru.Data.Dapper.Internal;
+    using global::Dapper;
 
     internal class FieldPredicate<T, TFieldType> : ComparePredicate
             where T : class
@@ -65,11 +65,13 @@ namespace Cadru.Data.Dapper.Predicates.Internal
 
             if (this.Operator == Operator.Between)
             {
+#pragma warning disable IDE0019
                 var values = this.Value as Tuple<TFieldType, TFieldType>;
                 if (values != null)
                 {
                     return $"({columnName} {GetOperatorString()} {parameters.SetParameterName(this.PropertyName, values.Item1, '@')} AND {parameters.SetParameterName(this.PropertyName, values.Item2, '@')})";
                 }
+#pragma warning restore IDE0019
             }
 
             var parameterName = parameters.SetParameterName(this.PropertyName, this.Value, '@');

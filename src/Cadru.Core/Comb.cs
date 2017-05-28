@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
 // <copyright file="Comb.cs"
-//  company="Scott Dorman" 
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -20,23 +20,20 @@
 // </license>
 //------------------------------------------------------------------------------
 
-#define PCLCrypto
-#define NoUseTicks
-
 namespace Cadru
 {
     using System;
     using System.Runtime.InteropServices;
     using System.Text;
+    using Cadru.Core.Resources;
     using Cadru.Extensions;
     using Cadru.Internal;
-    using Cadru.Properties;
 
     /// <summary>
     /// Represents a combined globally unique identifier (GUID) and time stamp.
     /// </summary>
     /// <remarks>A COMB is a 128-bit integer (16 bytes) that can be used across
-    /// all computers and networks wherever a unique identifier is required. 
+    /// all computers and networks wherever a unique identifier is required.
     /// Such an identifier has a low probability of being duplicated.
     /// </remarks>
     [StructLayout(LayoutKind.Sequential)]
@@ -50,7 +47,7 @@ namespace Cadru
         /// is all zeros.
         /// </summary>
         /// <remarks>You can compare a <see cref="Comb"/> with the value of the
-        /// <see cref="Comb.Empty"/> field to determine whether a 
+        /// <see cref="Comb.Empty"/> field to determine whether a
         /// <see cref="Comb"/> is non-zero.</remarks>
         public static readonly Comb Empty = new Comb(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         #endregion
@@ -102,14 +99,15 @@ namespace Cadru
 
         #region Comb(byte[] array)
         /// <summary>
-        /// Initializes a new instance of the <see cref="Comb"/> structure 
+        /// Initializes a new instance of the <see cref="Comb"/> structure
         /// using the specified array of bytes.
         /// </summary>
         /// <param name="array">A 16 element byte array containing values with
         /// which to initialize the <see cref="Comb"/>.</param>
         public Comb(byte[] array)
+            : this()
         {
-            Contracts.Requires.NotNull(array, "array");
+            Contracts.Requires.NotNull(array, nameof(array));
             Contracts.Requires.IsTrue(array.Length == 16);
 
             this.a = ((int)array[0] << 24) | ((int)array[1] << 16) | ((int)array[2] << 8) | array[3];
@@ -141,8 +139,9 @@ namespace Cadru
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "d", Justification = "Reviewed.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
         public Comb(int a, short b, short c, byte[] d)
+             : this()
         {
-            Contracts.Requires.NotNull(d, "d");
+            Contracts.Requires.NotNull(d, nameof(d));
             Contracts.Requires.IsTrue(d.Length == 8);
 
             this.a = a;
@@ -188,6 +187,7 @@ namespace Cadru
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "j", Justification = "Reviewed.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "k", Justification = "Reviewed.")]
         public Comb(int a, short b, short c, byte d, byte e, byte f, byte g, byte h, byte i, byte j, byte k)
+             : this()
         {
             this.a = a;
             this.b = b;
@@ -206,31 +206,30 @@ namespace Cadru
 
         #region Comb(string value)
         /// <summary>
-        /// Initializes a new instance of the <see cref="Comb"/> structure using 
+        /// Initializes a new instance of the <see cref="Comb"/> structure using
         /// the specified integers and byte array.
         /// </summary>
-        /// <param name="value"><para>A string that contains a 
+        /// <param name="value"><para>A string that contains a
         /// <see cref="Comb"/> in the following format:</para>
-        /// <para>hexadecimal digits are arranged in groups of 
-        /// 8, 4, 4, 4, and 12 digits with hyphens between the 
-        /// groups. The <see cref="Comb"/> can optionally be 
+        /// <para>hexadecimal digits are arranged in groups of
+        /// 8, 4, 4, 4, and 12 digits with hyphens between the
+        /// groups. The <see cref="Comb"/> can optionally be
         /// enclosed in matching braces.</para>
-        /// <para>For example: 
+        /// <para>For example:
         /// dddddddd-dddd-dddd-dddd-dddddddddddd or
         /// {dddddddd-dddd-dddd-dddd-dddddddddddd}.</para>
-        /// <para>Alternatively, the following format is permitted: 
-        /// {0xdddddddd,0xdddd, 0xdddd,{0xdd},{0xdd},{0xdd},{0xdd},{0xdd},{0xdd},{0xdd},{0xdd}}, 
-        /// where d is a hexadecimal digit. If this format is used, all brackets and commas 
-        /// indicated are required, and all numbers must be prefixed with "0x" as shown. 
-        /// Fewer hexadecimal digits than shown can be used, but not more.</para> 
+        /// <para>Alternatively, the following format is permitted:
+        /// {0xdddddddd,0xdddd, 0xdddd,{0xdd},{0xdd},{0xdd},{0xdd},{0xdd},{0xdd},{0xdd},{0xdd}},
+        /// where d is a hexadecimal digit. If this format is used, all brackets and commas
+        /// indicated are required, and all numbers must be prefixed with "0x" as shown.
+        /// Fewer hexadecimal digits than shown can be used, but not more.</para>
         /// </param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         public Comb(string value)
         {
-            Contracts.Requires.NotNullOrEmpty(value, "value");
+            Contracts.Requires.NotNullOrEmpty(value, nameof(value));
 
-            Comb guid;
-            if (!new CombParser(value).Parse(out guid))
+            if (!new CombParser(value).Parse(out Comb guid))
             {
                 throw ExceptionBuilder.CreateFormatException(value);
             }
@@ -249,13 +248,7 @@ namespace Cadru
         /// </summary>
         /// <value>A <see cref="DateTimeOffset"/> containing the data and time
         /// represented by the current instance.</value>
-        public DateTimeOffset DateTime
-        {
-            get
-            {
-                return this.dateTime;
-            }
-        }
+        public DateTimeOffset DateTime => this.dateTime;
         #endregion
 
         #endregion
@@ -270,7 +263,7 @@ namespace Cadru
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true"/> if both objects are equal; 
+        /// <see langword="true"/> if both objects are equal;
         /// otherwise, <see langword="false"/>.
         /// </returns>
         public static bool operator ==(Comb left, Comb right)
@@ -287,7 +280,7 @@ namespace Cadru
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true"/> if the first instance is greater than the second; 
+        /// <see langword="true"/> if the first instance is greater than the second;
         /// otherwise, <see langword="false"/>.
         /// </returns>
         public static bool operator >(Comb left, Comb right)
@@ -304,7 +297,7 @@ namespace Cadru
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true"/> if both objects are not equal; 
+        /// <see langword="true"/> if both objects are not equal;
         /// otherwise, <see langword="false"/>.
         /// </returns>
         public static bool operator !=(Comb left, Comb right)
@@ -321,7 +314,7 @@ namespace Cadru
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true"/> if the first instance is less than the second; 
+        /// <see langword="true"/> if the first instance is less than the second;
         /// otherwise, <see langword="false"/>.
         /// </returns>
         public static bool operator <(Comb left, Comb right)
@@ -341,7 +334,7 @@ namespace Cadru
         /// Initializes a new instance of the <see cref="Comb"/> structure.
         /// </summary>
         /// <returns>A new <see cref="Comb"/> object.</returns>
-        /// <remarks>The date and time value contained by the new 
+        /// <remarks>The date and time value contained by the new
         /// <see cref="Comb"/> is the current date and time
         /// as represented by <see cref="DateTimeOffset.UtcNow"/>.</remarks>
         public static Comb NewComb()
@@ -372,12 +365,8 @@ namespace Cadru
         /// <returns>A new <see cref="Comb"/> object.</returns>
         public static Comb NewComb(DateTimeOffset date)
         {
-#if PCLCrypto
             byte[] buffer = new byte[16];
-            PCLCrypto.NetFxCrypto.RandomNumberGenerator.GetBytes(buffer);
-#else
-            byte[] buffer = System.Guid.NewGuid().ToByteArray();
-#endif
+            buffer = Guid.NewGuid().ToByteArray();
 
             var utc = date;
             if (!date.IsUtcDateTime())
@@ -385,14 +374,6 @@ namespace Cadru
                 utc = date.ToUniversalTime();
             }
 
-#if UseTicks
-            var ticks = utc.UtcTicks - Comb.MinDate.UtcTicks;
-            var ticksArray = BitConverter.GetBytes(ticks).ReverseArray(); // byte[8]
-            //Buffer.BlockCopy(ticksArray, 0, buffer, 6, 1);
-            //Buffer.BlockCopy(ticksArray, 1, buffer, 9, 7);
-            Buffer.BlockCopy(ticksArray, 0, buffer, 0, 6);
-            Buffer.BlockCopy(ticksArray, 1, buffer, 9, 7);
-#else
             var days = TimeSpan.FromTicks(utc.UtcTicks - MinDate.UtcTicks).Days;
             var milliseconds = utc.TimeOfDay.TotalMilliseconds / Comb.Accuracy;
             byte[] msecsArray = BitConverter.GetBytes(milliseconds);
@@ -414,7 +395,6 @@ namespace Cadru
 
             var comb = new Comb(buffer);
             return comb;
-#endif
         }
         #endregion
 
@@ -429,14 +409,14 @@ namespace Cadru
         /// <returns>A structure that contains the value that was parsed.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="input"/> is
         /// <see langword="null"/>.</exception>
-        /// <exception cref="FormatException"><paramref name="input"/> is not 
+        /// <exception cref="FormatException"><paramref name="input"/> is not
         /// in a recognized format.</exception>
         /// <remarks>
         /// <para>The Parse method converts the string representation of a
-        /// COMB to a <see cref="Comb"/> value. This method can convert 
-        /// strings in any of the five formats produced by the 
-        /// <see cref="ToString(String)"/> and 
-        /// <see cref="ToString(String, IFormatProvider)"/> methods, as shown
+        /// COMB to a <see cref="Comb"/> value. This method can convert
+        /// strings in any of the five formats produced by the
+        /// <see cref="ToString(string)"/> and
+        /// <see cref="ToString(string, IFormatProvider)"/> methods, as shown
         /// in the following table.</para>
         /// <list type="table">
         /// <listheader>
@@ -468,14 +448,14 @@ namespace Cadru
         /// </item>
         /// <item>
         /// <term>X</term>
-        /// <description>Four hexadecimal values enclosed in braces, 
+        /// <description>Four hexadecimal values enclosed in braces,
         /// where the fourth value is a subset of eight hexadecimal values that
         /// is also enclosed in braces</description>
         /// <description>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</description>
         /// </item>
         /// </list>
-        /// <para>The method throws a <see cref="FormatException"/> if it is 
-        /// unable to successfully parse the string. Some of the reasons why 
+        /// <para>The method throws a <see cref="FormatException"/> if it is
+        /// unable to successfully parse the string. Some of the reasons why
         /// this might occur include:</para>
         /// <list type="bullet">
         /// <item>
@@ -483,30 +463,29 @@ namespace Cadru
         /// not part of the hexadecimal character set.</description>
         /// </item>
         /// <item>
-        /// <description><paramref name="input"/> has too many or too few 
+        /// <description><paramref name="input"/> has too many or too few
         /// numeric characters.</description>
         /// </item>
         /// <item>
         /// <description><paramref name="input"/> has too many or too few of
         /// the non-numeric characters appropriate for a particular format.
         /// </description>
-        /// </item> 
+        /// </item>
         /// <item>
-        /// <description><paramref name="input"/> is not in one of the 
-        /// formats recognized by the <see cref="ToString()"/> method and 
+        /// <description><paramref name="input"/> is not in one of the
+        /// formats recognized by the <see cref="ToString()"/> method and
         /// listed in the previous table.</description>
-        /// </item> 
+        /// </item>
         /// </list>
         /// <para>Use the <see cref="TryParse"/> method to catch any
-        /// unsuccessful parse operations without having to handle an 
+        /// unsuccessful parse operations without having to handle an
         /// exception.</para>
         /// </remarks>
         public static Comb Parse(string input)
         {
-            Contracts.Requires.NotNull(input, "input");
+            Contracts.Requires.NotNull(input, nameof(input));
 
-            Comb guid;
-            if (!TryParse(input, out guid))
+            if (!TryParse(input, out Comb guid))
             {
                 throw ExceptionBuilder.CreateFormatException(input);
             }
@@ -523,16 +502,16 @@ namespace Cadru
         /// </summary>
         /// <param name="input">The string to convert.</param>
         /// <param name="format">One of the following specifiers that indicates
-        /// the exact format to use when interpreting input: "N", "D", "B", "P", 
+        /// the exact format to use when interpreting input: "N", "D", "B", "P",
         /// or "X".</param>
         /// <returns>A structure that contains the value that was parsed.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="input"/> or
         /// <paramref name="format"/> is <see langword="null"/>.</exception>
-        /// <exception cref="FormatException"><paramref name="input"/> is not 
+        /// <exception cref="FormatException"><paramref name="input"/> is not
         /// in the format specified by <paramref name="format"/>.</exception>
         /// <remarks>
         /// <para>The following table shows the accepted format specifiers
-        /// for the <paramref name="format"/> parameter. "0" represents a 
+        /// for the <paramref name="format"/> parameter. "0" represents a
         /// digit; hyphens ("-"), braces ("{", "}"), and parentheses
         /// ("(", ")") appear as shown.</para>
         /// <list type="table">
@@ -564,7 +543,7 @@ namespace Cadru
         /// </item>
         /// <item>
         /// <term>X</term>
-        /// <description><para>Four hexadecimal values enclosed in braces, 
+        /// <description><para>Four hexadecimal values enclosed in braces,
         /// where the fourth value is a subset of eight hexadecimal values that
         /// is also enclosed in braces:</para>
         /// <para>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</para></description>
@@ -573,11 +552,10 @@ namespace Cadru
         /// </remarks>
         public static Comb ParseExact(string input, string format)
         {
-            Contracts.Requires.NotNull(input, "input");
-            Contracts.Requires.NotNull(format, "format");
+            Contracts.Requires.NotNull(input, nameof(input));
+            Contracts.Requires.NotNull(format, nameof(format));
 
-            Comb guid;
-            if (!TryParseExact(input, format, out guid))
+            if (!TryParseExact(input, format, out Comb guid))
             {
                 throw ExceptionBuilder.CreateFormatException(input);
             }
@@ -593,19 +571,19 @@ namespace Cadru
         /// </summary>
         /// <param name="input">The string to convert.</param>
         /// <param name="result">The structure that will contain the parsed
-        /// value. If the method returns <see langword="true"/>, 
+        /// value. If the method returns <see langword="true"/>,
         /// <paramref name="result"/> contains a valid <see cref="Comb"/>.
-        /// If the method returns <see langword="false"/>, 
+        /// If the method returns <see langword="false"/>,
         /// <paramref name="result"/> equals <see cref="Comb.Empty"/>.</param>
         /// <returns><see langword="true"/> if the parse operation was
         /// successful; otherwise, <see langword="false"/>.</returns>
         /// <remarks>
         /// <para>This method is like the <see cref="Parse"/> method, except
-        /// that instead of returning the parsed COMB, it returns 
-        /// <see langword="false"/> if <paramref name="input"/> is 
+        /// that instead of returning the parsed COMB, it returns
+        /// <see langword="false"/> if <paramref name="input"/> is
         /// <see langword="null"/> or not in a recognized format and doesn't
         /// throw an exception. It converts strings in any of the five formats
-        /// produced by the <see cref="ToString(String)"/> and 
+        /// produced by the <see cref="ToString(String)"/> and
         /// <see cref="ToString(String, IFormatProvider)"/> methods, as shown
         /// in the following table.</para>
         /// <list type="table">
@@ -638,7 +616,7 @@ namespace Cadru
         /// </item>
         /// <item>
         /// <term>X</term>
-        /// <description>Four hexadecimal values enclosed in braces, 
+        /// <description>Four hexadecimal values enclosed in braces,
         /// where the fourth value is a subset of eight hexadecimal values that
         /// is also enclosed in braces</description>
         /// <description>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</description>
@@ -666,21 +644,21 @@ namespace Cadru
         /// </summary>
         /// <param name="input">The string to convert.</param>
         /// <param name="format">One of the following specifiers that indicates
-        /// the exact format to use when interpreting input: "N", "D", "B", "P", 
+        /// the exact format to use when interpreting input: "N", "D", "B", "P",
         /// or "X".</param>
         /// <param name="result">The structure that will contain the parsed
-        /// value. If the method returns <see langword="true"/>, 
+        /// value. If the method returns <see langword="true"/>,
         /// <paramref name="result"/> contains a valid <see cref="Comb"/>.
-        /// If the method returns <see langword="false"/>, 
+        /// If the method returns <see langword="false"/>,
         /// <paramref name="result"/> equals <see cref="Comb.Empty"/>.</param>
         /// <returns><see langword="true"/> if the parse operation was
         /// successful; otherwise, <see langword="false"/>.</returns>
         /// <remarks>
-        /// <para>This method returns <see langword="false"/> if 
+        /// <para>This method returns <see langword="false"/> if
         /// <paramref name="input"/> is <see langword="null"/> or not in a
         /// recognized format and doesn't throw an exception.</para>
         /// <para>The following table shows the accepted format specifiers
-        /// for the <paramref name="format"/> parameter. "0" represents a 
+        /// for the <paramref name="format"/> parameter. "0" represents a
         /// digit; hyphens ("-"), braces ("{", "}"), and parentheses
         /// ("(", ")") appear as shown.</para>
         /// <list type="table">
@@ -712,7 +690,7 @@ namespace Cadru
         /// </item>
         /// <item>
         /// <term>X</term>
-        /// <description><para>Four hexadecimal values enclosed in braces, 
+        /// <description><para>Four hexadecimal values enclosed in braces,
         /// where the fourth value is a subset of eight hexadecimal values that
         /// is also enclosed in braces:</para>
         /// <para>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</para></description>
@@ -741,7 +719,7 @@ namespace Cadru
         /// </summary>
         /// <param name="obj">A boxed object to compare, or <see langword="null"/>.</param>
         /// <returns>
-        /// A signed number indicating the relative values of this instance and the 
+        /// A signed number indicating the relative values of this instance and the
         /// <paramref name="obj"/> parameter.
         /// <list type="table">
         /// <listheader>
@@ -784,20 +762,20 @@ namespace Cadru
                 return this.CompareTo((Comb)obj);
             }
 
-            throw new ArgumentException(Resources.Arg_MustBeSequentialGuid);
+            throw new ArgumentException(Strings.Arg_MustBeSequentialGuid);
         }
         #endregion
 
         #region CompareTo(Comb other)
         /// <summary>
-        /// Compares the value of this instance to a specified 
-        /// <see cref="UnixTimestamp"/> value and returns an integer that 
+        /// Compares the value of this instance to a specified
+        /// <see cref="UnixTimestamp"/> value and returns an integer that
         /// indicates whether this instance is earlier than, the same as, or
-        /// later than the specified <see cref="UnixTimestamp"/> value. 
+        /// later than the specified <see cref="UnixTimestamp"/> value.
         /// </summary>
         /// <param name="other">The object to compare to the current instance.</param>
         /// <returns>
-        /// A signed number indicating the relative values of this instance and the 
+        /// A signed number indicating the relative values of this instance and the
         /// <paramref name="other"/> parameter.
         /// <list type="table">
         /// <listheader>
@@ -839,7 +817,7 @@ namespace Cadru
         /// Returns a value indicating whether this instance is equal to a specified object.
         /// </summary>
         /// <param name="obj">The object to compare with this instance.</param>
-        /// <returns><see langword="true"/> if <paramref name="obj"/> is a 
+        /// <returns><see langword="true"/> if <paramref name="obj"/> is a
         /// <see cref="Comb"/> and has the same value as this instance;
         /// otherwise, <see langword="false"/>.</returns>
         public override bool Equals(object obj)
@@ -858,7 +836,7 @@ namespace Cadru
 
         #region Equals(Comb other)
         /// <summary>
-        /// Returns a value indicating whether this instance and a specified 
+        /// Returns a value indicating whether this instance and a specified
         /// <see cref="Comb"/> object represent the same value.
         /// </summary>
         /// <param name="other">An object to compare to this instance.</param>
@@ -892,12 +870,12 @@ namespace Cadru
         /// </summary>
         /// <returns><para>The value of this <see cref="Comb"/>, formatted by
         /// using the "D" format specifier as follows:</para>
-        /// <para>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</para> 
-        /// <para>where the value of the GUID is represented as a series of 
+        /// <para>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</para>
+        /// <para>where the value of the GUID is represented as a series of
         /// lowercase hexadecimal digits in groups of 8, 4, 4, 4, and 12 digits
-        /// and separated by hyphens. An example of a return value is 
-        /// "382c74c3-721d-4f34-80e5-57657b6cbc27". To convert the hexadecimal 
-        /// digits from a through f to uppercase, call the 
+        /// and separated by hyphens. An example of a return value is
+        /// "382c74c3-721d-4f34-80e5-57657b6cbc27". To convert the hexadecimal
+        /// digits from a through f to uppercase, call the
         /// <see cref="String.ToUpper"/> method on the returned string.</para>
         /// </returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
@@ -909,24 +887,24 @@ namespace Cadru
 
         #region ToString(string format)
         /// <summary>
-        /// Returns a string representation of the value of this 
+        /// Returns a string representation of the value of this
         /// <see cref="Comb"/> instance, according to the provided
         /// format specifier.
         /// </summary>
-        /// <param name="format">A single format specifier that 
+        /// <param name="format">A single format specifier that
         /// indicates how to format the value of this <see cref="Comb"/>.
-        /// The format parameter can be "N", "D", "B", "P", or "X". 
+        /// The format parameter can be "N", "D", "B", "P", or "X".
         /// If <paramref name="format"/> is <see langword="null"/> or an empty
         /// string (""), "D" is used.</param>
         /// <returns>The value of this <see cref="Comb"/>, represented
         /// as a series of lowercase hexadecimal digits in the specified
         /// format.</returns>
-        /// <exception cref="System.FormatException">The value of 
+        /// <exception cref="System.FormatException">The value of
         /// <paramref name="format"/> is not <see langword="null"/>, an empty
-        /// string (""), "N", "D", "B", "P", or "X". 
+        /// string (""), "N", "D", "B", "P", or "X".
         /// </exception>
         /// <remarks>The following table shows the accepted format specifiers
-        /// for the <paramref name="format"/> parameter. "0" represents a 
+        /// for the <paramref name="format"/> parameter. "0" represents a
         /// digit; hyphens ("-"), braces ("{", "}"), and parentheses
         /// ("(", ")") appear as shown.
         /// <list type="table">
@@ -958,14 +936,14 @@ namespace Cadru
         /// </item>
         /// <item>
         /// <term>X</term>
-        /// <description><para>Four hexadecimal values enclosed in braces, 
+        /// <description><para>Four hexadecimal values enclosed in braces,
         /// where the fourth value is a subset of eight hexadecimal values that
         /// is also enclosed in braces:</para>
         /// <para>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</para></description>
         /// </item>
         /// </list>
         /// <para>The hexadecimal digits a through f are lowercase in the
-        /// returned string. To convert them to uppercase, call the 
+        /// returned string. To convert them to uppercase, call the
         /// <see cref="String.ToUpper"/> method on the returned string.</para>
         /// </remarks>
         public string ToString(string format)
@@ -994,7 +972,7 @@ namespace Cadru
                         .AppendAsHexadecimal(this.k)
                         .Append('}');
                     break;
- 
+
                 case "P":
                     res = new StringBuilder(38)
                         .Append('(')
@@ -1015,7 +993,7 @@ namespace Cadru
                         .AppendAsHexadecimal(this.k)
                         .Append(')');
                     break;
-            
+
                 case "D":
                     res = new StringBuilder(36)
                         .AppendAsHexadecimal(this.a)
@@ -1034,7 +1012,7 @@ namespace Cadru
                         .AppendAsHexadecimal(this.j)
                         .AppendAsHexadecimal(this.k);
                     break;
-                
+
                 case "N":
                     res = new StringBuilder(32)
                         .AppendAsHexadecimal(this.a)
@@ -1049,7 +1027,7 @@ namespace Cadru
                         .AppendAsHexadecimal(this.j)
                         .AppendAsHexadecimal(this.k);
                     break;
-                
+
                 case "X":
                     res = new StringBuilder(68)
                         .Append(new[] { '{', '0', 'x' })
@@ -1076,9 +1054,9 @@ namespace Cadru
                         .AppendAsHexadecimal(this.k)
                         .Append(new[] { '}', '}' });
                     break;
-                
+
                 default:
-                    throw new NotImplementedException(Resources.Format_InvalidGuidFormatSpecification);
+                    throw new NotImplementedException(Strings.Format_InvalidGuidFormatSpecification);
             }
 
             return res.ToString();
@@ -1087,13 +1065,13 @@ namespace Cadru
 
         #region ToString(string format, IFormatProvider formatProvider)
         /// <summary>
-        /// Returns a string representation of the value of this 
+        /// Returns a string representation of the value of this
         /// <see cref="Comb"/> instance, according to the provided
         /// format specifier and culture-specific format information.
         /// </summary>
-        /// <param name="format">A single format specifier that 
+        /// <param name="format">A single format specifier that
         /// indicates how to format the value of this <see cref="Comb"/>.
-        /// The format parameter can be "N", "D", "B", "P", or "X". 
+        /// The format parameter can be "N", "D", "B", "P", or "X".
         /// If <paramref name="format"/> is <see langword="null"/> or an empty
         /// string (""), "D" is used.</param>
         /// <param name="formatProvider">(Reserved) An object that supplies
@@ -1101,16 +1079,16 @@ namespace Cadru
         /// <returns>The value of this <see cref="Comb"/>, represented
         /// as a series of lowercase hexadecimal digits in the specified
         /// format.</returns>
-        /// <exception cref="System.FormatException">The value of 
+        /// <exception cref="System.FormatException">The value of
         /// <paramref name="format"/> is not <see langword="null"/>, an empty
-        /// string (""), "N", "D", "B", "P", or "X". 
+        /// string (""), "N", "D", "B", "P", or "X".
         /// </exception>
         /// <remarks>
         /// <para>The <paramref name="formatProvider"/> parameter is reserved for
-        /// future use and does not contribute to the execution of this 
+        /// future use and does not contribute to the execution of this
         /// method. You can pass <see langword="null"/> in the method call.</para>
         /// <para>The following table shows the accepted format specifiers
-        /// for the <paramref name="format"/> parameter. "0" represents a 
+        /// for the <paramref name="format"/> parameter. "0" represents a
         /// digit; hyphens ("-"), braces ("{", "}"), and parentheses
         /// ("(", ")") appear as shown.</para>
         /// <list type="table">
@@ -1142,24 +1120,24 @@ namespace Cadru
         /// </item>
         /// <item>
         /// <term>X</term>
-        /// <description><para>Four hexadecimal values enclosed in braces, 
+        /// <description><para>Four hexadecimal values enclosed in braces,
         /// where the fourth value is a subset of eight hexadecimal values that
         /// is also enclosed in braces:</para>
         /// <para>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</para></description>
         /// </item>
         /// </list>
         /// <para>The hexadecimal digits a through f are lowercase in the
-        /// returned string. To convert them to uppercase, call the 
+        /// returned string. To convert them to uppercase, call the
         /// <see cref="String.ToUpper"/> method on the returned string.</para>
         /// <para>Because the <paramref name="formatProvider"/> parameter is ignored,
-        /// you cannot use it to provide a custom formatting solution. To 
-        /// represent a <see cref="Comb"/> value as a string in a format that 
-        /// isn't supported by the standard COMB format strings, call the 
+        /// you cannot use it to provide a custom formatting solution. To
+        /// represent a <see cref="Comb"/> value as a string in a format that
+        /// isn't supported by the standard COMB format strings, call the
         /// <see cref="String.Format(IFormatProvider, String, Object[])"/>
-        /// method with a provider object that implements both the 
+        /// method with a provider object that implements both the
         /// <see cref="ICustomFormatter"/> and <see cref="IFormatProvider"/>
-        /// interfaces. For more information, see the "Custom Formatting with 
-        /// ICustomFormatter" section in the 
+        /// interfaces. For more information, see the "Custom Formatting with
+        /// ICustomFormatter" section in the
         /// <see href="http://msdn.microsoft.com/en-us/library/26etazsy(v=vs.110).aspx">Formatting Types</see>
         /// article.</para>
         /// </remarks>
@@ -1257,23 +1235,15 @@ namespace Cadru
                     return "X";
             }
 
-            throw new FormatException(Resources.Format_InvalidGuidFormatSpecification);
+            throw new FormatException(Strings.Format_InvalidGuidFormatSpecification);
         }
         #endregion
 
         #region GetDateTimeOffset()
         private DateTimeOffset GetDateTimeOffset()
         {
-#if UseTicks
-            var ticksArray = new byte[8]; 
-            Buffer.BlockCopy(buffer, 6, ticksArray, 0, 1);
-            Buffer.BlockCopy(buffer, 9, ticksArray, 1, 7);
-            
-            var ticks = BitConverter.ToInt64(ticksArray.ReverseArray(), 0);
-            var date = Comb.MinDate.AddTicks(ticks);
-#else
             var buffer = this.ToByteArray();
-            var msecsArray = new byte[] 
+            var msecsArray = new byte[]
             {
                buffer[9],
                buffer[1],
@@ -1288,8 +1258,6 @@ namespace Cadru
             var days = buffer[6] + (buffer[0] << 8) + (buffer[4] << 16) + (buffer[5] << 24);
             var msecs = BitConverter.ToDouble(msecsArray, 0);
             var date = Comb.MinDate.AddDays(days).AddMilliseconds(msecs * Comb.Accuracy);
-#endif
-
             return date;
         }
         #endregion

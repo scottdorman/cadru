@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>4.0.0-beta-29</Version>
+    <Authors>Scott Dorman</Authors>
+    <Company>Scott Dorman</Company>
+    <Product>Cadru Framework</Product>
+    <Description />
+    <Copyright>Copyright © Scott Dorman</Copyright>
+    <PackageLicenseUrl>http://opensource.org/licenses/Ms-PL.html</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/scottdorman/cadru</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ExtendedDirectoryInfo.ISerializable.cs" />
+    <Compile Remove="ExtendedFileInfo.ISerializable.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Cadru.licenseheader" Link="Cadru.licenseheader" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Diagnostics.FileVersionInfo" Version="4.3.0" />
+    <PackageReference Include="System.IO.FileSystem.AccessControl" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cadru.Contracts\Cadru.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

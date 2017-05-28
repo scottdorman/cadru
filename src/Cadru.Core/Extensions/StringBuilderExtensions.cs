@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="StringBuilderExtensions.cs" 
-//  company="Scott Dorman" 
+// <copyright file="StringBuilderExtensions.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -60,7 +60,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendAsHexadecimal(this StringBuilder source, int value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             source.Append(ToHex((value >> 28) & 0xf));
             source.Append(ToHex((value >> 24) & 0xf));
@@ -88,7 +88,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendAsHexadecimal(this StringBuilder source, short value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             source.Append(ToHex((value >> 12) & 0xf));
             source.Append(ToHex((value >> 8) & 0xf));
@@ -112,7 +112,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendAsHexadecimal(this StringBuilder source, byte value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             source.Append(ToHex((value >> 4) & 0xf));
             source.Append(ToHex(value & 0xf));
@@ -134,8 +134,8 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendAsHexadecimal(this StringBuilder source, params byte[] values)
         {
-            Contracts.Requires.NotNull(source, "source");
-            Contracts.Requires.NotNull(values, "values");
+            Contracts.Requires.NotNull(source, nameof(source));
+            Contracts.Requires.NotNull(values, nameof(values));
 
             foreach (var value in values)
             {
@@ -181,7 +181,7 @@ namespace Cadru.Extensions
         /// equal to the length of the args array.</para>
         /// </exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The length of the expanded string would exceed 
+        /// The length of the expanded string would exceed
         /// <see cref="p:StringBuilder.MaxCapacity"/>.
         /// </exception>
         public static StringBuilder AppendFormatIf(this StringBuilder source, bool condition, string format, params object[] args)
@@ -195,7 +195,7 @@ namespace Cadru.Extensions
         /// Appends the string returned by processing a composite format string, which
         /// contains zero or more format items, followed by the default line terminator to
         /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
-        /// Each format item is replaced by the string representation of a corresponding 
+        /// Each format item is replaced by the string representation of a corresponding
         /// argument in a parameter array using a specified format provider.
         /// </summary>
         /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
@@ -217,12 +217,12 @@ namespace Cadru.Extensions
         /// equal to the length of the args array.</para>
         /// </exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The length of the expanded string would exceed 
+        /// The length of the expanded string would exceed
         /// <see cref="p:StringBuilder.MaxCapacity"/>.
         /// </exception>
         public static StringBuilder AppendFormatIf(this StringBuilder source, bool condition, IFormatProvider provider, string format, params object[] args)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -266,7 +266,7 @@ namespace Cadru.Extensions
         /// equal to the length of the args array.</para>
         /// </exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The length of the expanded string would exceed 
+        /// The length of the expanded string would exceed
         /// <see cref="p:StringBuilder.MaxCapacity"/>.
         /// </exception>
         public static StringBuilder AppendFormatLine(this StringBuilder source, string format, params object[] args)
@@ -300,12 +300,12 @@ namespace Cadru.Extensions
         /// equal to the length of the args array.</para>
         /// </exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The length of the expanded string would exceed 
+        /// The length of the expanded string would exceed
         /// <see cref="p:StringBuilder.MaxCapacity"/>.
         /// </exception>
         public static StringBuilder AppendFormatLine(this StringBuilder source, IFormatProvider provider, string format, params object[] args)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             return source.AppendLine(String.Format(provider, format, args));
         }
@@ -346,12 +346,12 @@ namespace Cadru.Extensions
         /// equal to the length of the args array.</para>
         /// </exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The length of the expanded string would exceed 
+        /// The length of the expanded string would exceed
         /// <see cref="p:StringBuilder.MaxCapacity"/>.
         /// </exception>
         public static StringBuilder AppendFormatLineIf(this StringBuilder source, bool condition, string format, params object[] args)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -367,7 +367,7 @@ namespace Cadru.Extensions
         /// Appends the string returned by processing a composite format string, which
         /// contains zero or more format items, followed by the default line terminator to
         /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
-        /// Each format item is replaced by the string representation of a corresponding 
+        /// Each format item is replaced by the string representation of a corresponding
         /// argument in a parameter array using a specified format provider.
         /// </summary>
         /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
@@ -389,12 +389,12 @@ namespace Cadru.Extensions
         /// equal to the length of the args array.</para>
         /// </exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The length of the expanded string would exceed 
+        /// The length of the expanded string would exceed
         /// <see cref="p:StringBuilder.MaxCapacity"/>.
         /// </exception>
         public static StringBuilder AppendFormatLineIf(this StringBuilder source, bool condition, IFormatProvider provider, string format, params object[] args)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -427,7 +427,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, bool value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -453,7 +453,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, byte value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -479,7 +479,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, char value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -505,7 +505,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, char[] value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -531,7 +531,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, double value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -557,7 +557,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, float value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -583,7 +583,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, int value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -609,7 +609,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, long value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -635,7 +635,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, object value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -659,10 +659,9 @@ namespace Cadru.Extensions
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
         /// </exception>
-        [CLSCompliant(false)]
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, sbyte value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -688,7 +687,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, short value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -714,7 +713,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, string value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -738,10 +737,9 @@ namespace Cadru.Extensions
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
         /// </exception>
-        [CLSCompliant(false)]
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, uint value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -765,10 +763,9 @@ namespace Cadru.Extensions
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
         /// </exception>
-        [CLSCompliant(false)]
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, ulong value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -792,10 +789,9 @@ namespace Cadru.Extensions
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
         /// </exception>
-        [CLSCompliant(false)]
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, ushort value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -808,7 +804,7 @@ namespace Cadru.Extensions
 
         #region AppendIf(this StringBuilder source, bool condition, char value, int repeatCount)
         /// <summary>
-        /// Appends a specified number of copies of the string representation of a 
+        /// Appends a specified number of copies of the string representation of a
         /// Unicode character to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
         /// </summary>
@@ -826,7 +822,7 @@ namespace Cadru.Extensions
         /// <exception cref="System.OutOfMemoryException">Out of memory.</exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, char value, int repeatCount)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -864,7 +860,7 @@ namespace Cadru.Extensions
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, char[] value, int startIndex, int charCount)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -901,7 +897,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, string value, int startIndex, int count)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -932,12 +928,12 @@ namespace Cadru.Extensions
         /// otherwise, <see langword="false"/>.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The length of the expanded string would exceed 
+        /// The length of the expanded string would exceed
         /// <see cref="p:StringBuilder.MaxCapacity"/>.
         /// </exception>
         public static StringBuilder AppendLineIf(this StringBuilder source, bool condition)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -959,12 +955,12 @@ namespace Cadru.Extensions
         /// <param name="value">The string to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The length of the expanded string would exceed 
+        /// The length of the expanded string would exceed
         /// <see cref="p:StringBuilder.MaxCapacity"/>.
         /// </exception>
         public static StringBuilder AppendLineIf(this StringBuilder source, bool condition, string value)
         {
-            Contracts.Requires.NotNull(source, "source");
+            Contracts.Requires.NotNull(source, nameof(source));
 
             if (condition)
             {

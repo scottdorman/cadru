@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="ExceptionAssert.cs" 
-//  company="Scott Dorman" 
+// <copyright file="ExceptionAssert.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
 namespace Cadru.UnitTest.Framework
 {
     using System;
-    using Cadru.UnitTest.Framework.Properties;
+    using Cadru.UnitTest.Framework.Resources;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
@@ -111,7 +111,7 @@ namespace Cadru.UnitTest.Framework
 
             if (caughtException == null)
             {
-                Assert.Fail(Resources.Assertion_ExceptionNotThrown, expectedExceptionType);
+                Assert.Fail(Strings.Assertion_ExceptionNotThrown, expectedExceptionType);
             }
 
             return caughtException;
@@ -259,7 +259,7 @@ namespace Cadru.UnitTest.Framework
 
             if (caughtException == null)
             {
-                Assert.Fail(Resources.Assertion_ExceptionNotThrown, expectedExceptionType);
+                Assert.Fail(Strings.Assertion_ExceptionNotThrown, expectedExceptionType);
             }
 
             return caughtException;
@@ -471,7 +471,7 @@ namespace Cadru.UnitTest.Framework
 
         #region WithParameter
         /// <summary>
-        /// Verifies that the exception <see cref="ArgumentException.ParamName"/> 
+        /// Verifies that the exception <see cref="ArgumentException.ParamName"/>
         /// property is equal to the given text.
         /// </summary>
         /// <typeparam name="T">The exception type.</typeparam>

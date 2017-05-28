@@ -2,7 +2,7 @@
 // <copyright file="TypeExtensions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -22,8 +22,8 @@
 
 namespace Cadru.Extensions
 {
+    using Cadru.Core.Resources;
     using Contracts;
-    using Properties;
     using System;
     using System.Linq;
     using System.Reflection;
@@ -60,15 +60,22 @@ namespace Cadru.Extensions
         {
             Requires.NotNull(type, nameof(type));
 
+            return type.GetTypeInfo().HasInterface<TInterface>();
+        }
+
+        public static bool HasInterface<TInterface>(this TypeInfo type)
+        {
+            Requires.NotNull(type, nameof(type));
+
             var result = false;
             var interfaceType = typeof(TInterface);
             try
             {
-                result = type.GetInterfaces().SingleOrDefault(t => t == interfaceType) != null;
+                result = type.ImplementedInterfaces.SingleOrDefault(t => t == interfaceType) != null;
             }
             catch (InvalidOperationException)
             {
-                throw new AmbiguousMatchException(Resources.Arg_AmbiguousMatchException);
+                throw new AmbiguousMatchException(Strings.Arg_AmbiguousMatchException);
             }
 
             return result;
@@ -86,12 +93,70 @@ namespace Cadru.Extensions
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         public static bool IsNullable(this Type type)
         {
-            Contracts.Requires.NotNull(type, "type");
+            Contracts.Requires.NotNull(type, nameof(type));
 
-            return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
+            return type.GetTypeInfo().IsNullable();
+        }
+
+        public static bool IsNullable(this TypeInfo type)
+        {
+            Contracts.Requires.NotNull(type, nameof(type));
+            return type.IsGenericType && !type.IsGenericTypeDefinition && type.GetGenericTypeDefinition() == typeof(Nullable<>);
         }
         #endregion
 
+        public static bool IsBoolean(this Type type)
+        {
+            Contracts.Requires.NotNull(type, nameof(type));
+            return type == typeof(Boolean);
+        }
+
+        public static bool IsBoolean(this TypeInfo type)
+        {
+            Contracts.Requires.NotNull(type, nameof(type));
+            return type.AsType() == typeof(Boolean);
+        }
+
+        public static bool IsNumeric(this Type type)
+        {
+            Contracts.Requires.NotNull(type, nameof(type));
+            if (type.GetTypeInfo().IsPrimitive)
+            {
+                return type != typeof(bool) && type != typeof(char) && type != typeof(IntPtr) && type != typeof(UIntPtr);
+            }
+
+            if (type.IsNullable())
+            {
+                var underlyingType = Nullable.GetUnderlyingType(type);
+                return underlyingType.IsNumeric();
+            }
+
+            return type == typeof(decimal);
+        }
+
+        public static bool IsDate(this Type type)
+        {
+            Contracts.Requires.NotNull(type, nameof(type));
+            if (type.IsNullable())
+            {
+                var underlyingType = Nullable.GetUnderlyingType(type);
+                return underlyingType.IsDate();
+            }
+
+            return type == typeof(DateTime);
+        }
+
+        public static bool IsDateOffset(this Type type)
+        {
+            Contracts.Requires.NotNull(type, nameof(type));
+            if (type.IsNullable())
+            {
+                var underlyingType = Nullable.GetUnderlyingType(type);
+                return underlyingType.IsDateOffset();
+            }
+
+            return type == typeof(DateTimeOffset);
+        }
         #endregion
     }
 }

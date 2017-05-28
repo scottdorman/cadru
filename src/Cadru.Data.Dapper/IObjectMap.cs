@@ -1,8 +1,8 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="ITableMap.cs"
+// <copyright file="IObjectMap.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2015 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,11 +20,11 @@
 // </license>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace Cadru.Data.Dapper
 {
+    using System.Collections.Generic;
+    using System.Reflection;
+
     public interface IObjectMap
     {
         string Schema { get; }
@@ -35,7 +35,7 @@ namespace Cadru.Data.Dapper
 
         string FullyQualifiedObjectName { get; }
 
-        Type EntityType { get; }
+        TypeInfo EntityType { get; }
 
         /// <summary>
         /// A collection of properties that will map to columns in the database table.

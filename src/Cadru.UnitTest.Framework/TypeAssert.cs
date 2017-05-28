@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="TypeAssert.cs" 
-//  company="Scott Dorman" 
+// <copyright file="TypeAssert.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2014 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -24,8 +24,7 @@ namespace Cadru.UnitTest.Framework
 {
     using System;
     using Cadru.Contracts;
-    using Cadru.Extensions;
-    using Cadru.UnitTest.Framework.Properties;
+    using Cadru.UnitTest.Framework.Resources;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
@@ -57,7 +56,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="expectedType">The expected <see cref="Type"/>.</param>
         public static void IsAssignableFrom(object value, Type expectedType)
         {
-            TypeAssert.IsAssignableFrom(value, expectedType, Resources.Assertion_ExpectedToBeAssignableFrom, value, expectedType);
+            TypeAssert.IsAssignableFrom(value, expectedType, Strings.Assertion_ExpectedToBeAssignableFrom, value, expectedType);
         }
         #endregion
 
@@ -103,7 +102,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="expectedType">The expected <see cref="Type"/>.</param>
         public static void IsNotAssignableFrom(object value, Type expectedType)
         {
-            TypeAssert.IsNotAssignableFrom(value, expectedType, Resources.Assertion_ExpectedToBeAssignableFrom, value, expectedType);
+            TypeAssert.IsNotAssignableFrom(value, expectedType, Strings.Assertion_ExpectedToBeAssignableFrom, value, expectedType);
         }
         #endregion
 
@@ -151,7 +150,7 @@ namespace Cadru.UnitTest.Framework
         public static void IsType(object value, Type expectedType)
         {
             Requires.NotNull(value, "value");
-            TypeAssert.IsType(value, expectedType, Resources.Assertion_WrongType, expectedType, value.GetType());
+            TypeAssert.IsType(value, expectedType, Strings.Assertion_WrongType, expectedType, value.GetType());
         }
         #endregion
 
@@ -182,9 +181,9 @@ namespace Cadru.UnitTest.Framework
             Type actualType = value.GetType();
             if (actualType != expectedType)
             {
-                if (message.IsNullOrWhiteSpace())
+                if (!String.IsNullOrWhiteSpace(message))
                 {
-                    Assert.Fail(Resources.Assertion_WrongType, expectedType, actualType);
+                    Assert.Fail(Strings.Assertion_WrongType, expectedType, actualType);
                 }
                 else
                 {

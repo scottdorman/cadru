@@ -1,8 +1,8 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="TableMap.cs"
+// <copyright file="ObjectMap{T}.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2015 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -24,30 +24,12 @@ namespace Cadru.Data.Dapper
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-    using System.Linq.Expressions;
     using System.Reflection;
-    using System.Text;
-    using System.Threading.Tasks;
-
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
-    public sealed class ExtendedPropertyAttribute : Attribute
-    {
-        public ExtendedPropertyAttribute(string name, object value)
-        {
-            this.Name = name;
-            this.Value = value;
-        }
-
-        public string Name { get; private set; }
-
-        public object Value { get; private set; }
-    }
 
     public abstract class ObjectMap<T> : IObjectMap where T : class
     {
-        private Type entityType = typeof(T);
+        private TypeInfo entityType = typeof(T).GetTypeInfo();
         private Dictionary<string, object> additionalValues = new Dictionary<string, object>();
 
         public static IObjectMap CreateMap(DatabaseObjectType databaseObjectType)
@@ -69,7 +51,7 @@ namespace Cadru.Data.Dapper
         protected ObjectMap()
         {
             Properties = new List<IPropertyMap>();
-            foreach(var attribute in entityType.GetCustomAttributes<ExtendedPropertyAttribute>())
+            foreach (var attribute in entityType.GetCustomAttributes<ExtendedPropertyAttribute>())
             {
                 this.additionalValues.Add(attribute.Name, attribute.Value);
             }
@@ -91,7 +73,7 @@ namespace Cadru.Data.Dapper
 
         public DatabaseObjectType ObjectType { get; protected set; }
 
-        public Type EntityType
+        public TypeInfo EntityType
         {
             get { return this.entityType; }
         }

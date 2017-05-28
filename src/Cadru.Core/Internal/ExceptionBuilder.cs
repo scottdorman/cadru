@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="ExceptionBuilder.cs" 
-//  company="Scott Dorman" 
+// <copyright file="ExceptionBuilder.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2017 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -25,13 +25,14 @@ namespace Cadru.Internal
     using System;
     using System.Globalization;
     using Cadru.Contracts;
+    using Cadru.Core.Resources;
     using Cadru.Extensions;
-    using Cadru.Properties;
+
 
     /// <summary>
     /// Provides methods to create specific exceptions.
     /// </summary>
-    internal static class ExceptionBuilder
+    public static class ExceptionBuilder
     {
         #region fields
         #endregion
@@ -137,7 +138,7 @@ namespace Cadru.Internal
         {
             Assumes.NotNull(parameterName);
 
-            string message = Format(Resources.Argument_NullElement, parameterName);
+            string message = Format(Strings.Argument_NullElement, parameterName);
 
             return new ArgumentException(message, parameterName);
         }
@@ -153,23 +154,6 @@ namespace Cadru.Internal
         public static InvalidOperationException CreateInvalidOperation(string message)
         {
             return new InvalidOperationException(message);
-        }
-        #endregion
-
-        #region CreateNotOverriddenByDerived
-        /// <summary>
-        /// Create an exception indicating that a member was not overridden by a derived class.
-        /// </summary>
-        /// <param name="memberName">The name of the member that caused the exception.</param>
-        /// <returns>A new <see cref="NotImplementedException"/>.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
-        public static NotImplementedException CreateNotOverriddenByDerived(string memberName)
-        {
-            Assumes.NotNullOrEmpty(memberName);
-
-            string message = Format(Resources.NotImplemented_NotOverriddenByDerived, memberName);
-
-            return new NotImplementedException(message);
         }
         #endregion
 
