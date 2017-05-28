@@ -1,16 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+  <Import Project="..\..\build\common.props" />
   <PropertyGroup>
     <TargetFrameworks>net45;net451;netstandard1.3</TargetFrameworks>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>4.0.0-beta-29</Version>
-    <Authors>Scott Dorman</Authors>
-    <Company>Scott Dorman</Company>
-    <Product>Cadru Framework</Product>
-    <Copyright>Copyright © Scott Dorman</Copyright>
-    <PackageLicenseUrl>http://opensource.org/licenses/Ms-PL.html</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/scottdorman/cadru</PackageProjectUrl>
-    <Description>This is a non-portable class library to provide a common database context and predicates for use with Dapper.</Description>
+    <Description>Provides a common database context and predicates for use with Dapper.</Description>
+    <PackageTags>$(CommonPackageTags) data dapper datacontext</PackageTags>
   </PropertyGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'net45' OR '$(TargetFramework)' == 'net451' ">
     <Reference Include="System.Data" />
@@ -24,9 +17,6 @@
     <PackageReference Include="Microsoft.CSharp" Version="4.3.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.3.0" />
     <PackageReference Include="System.Data.Common" Version="4.3.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\Cadru.licenseheader" Link="Cadru.licenseheader" />
   </ItemGroup>
 
   <ItemGroup>

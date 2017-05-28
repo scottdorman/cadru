@@ -1,22 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+  <Import Project="..\..\build\common.props" />
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
     <Description>Provides static classes for representing program contracts as preconditions in a way that's compatible with System.Diagnostics.Contracts.</Description>
-    <Product>Cadru Framework</Product>
-    <Company>Scott Dorman</Company>
-    <Authors>Scott Dorman</Authors>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Copyright>Copyright © Scott Dorman</Copyright>
-    <PackageLicenseUrl>http://opensource.org/licenses/Ms-PL.html</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/scottdorman/cadru</PackageProjectUrl>
-    <RepositoryUrl></RepositoryUrl>
-    <Version>4.0.0-beta-28</Version>
+    <PackageTags>$(CommonPackageTags) code contracts requires assumes preconditions argument args arg validation</PackageTags>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="..\Cadru.licenseheader" Link="Cadru.licenseheader" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Diagnostics.Contracts" Version="4.3.0" />

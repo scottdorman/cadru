@@ -1,21 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+  <Import Project="..\..\build\common.props" />
   <PropertyGroup>
     <TargetFramework>netstandard1.1</TargetFramework>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>4.0.0-beta-28</Version>
-    <Authors>Scott Dorman</Authors>
-    <Company>Scott Dorman</Company>
-    <Product>Cadru Framework</Product>
-    <Copyright>Copyright © Scott Dorman</Copyright>
-    <PackageLicenseUrl>http://opensource.org/licenses/Ms-PL.html</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/scottdorman/cadru</PackageProjectUrl>
-    <Description />
+    <Description>Provides transient error detection strategies for adding retry logic into your HttpClient calls and a UrlBuilder to help simplify building complex URLs.</Description>
+    <PackageTags>$(CommonPackageTags) http retry retries transient fault exception handling failure httpclient uri</PackageTags>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="..\Cadru.licenseheader" Link="Cadru.licenseheader" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />

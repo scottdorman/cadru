@@ -1,21 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+  <Import Project="..\..\build\common.props" />
   <PropertyGroup>
     <TargetFramework>netstandard1.5</TargetFramework>
-    <Version>4.0.0-beta-28</Version>
-    <Authors>Scott Dorman</Authors>
-    <Company>Scott Dorman</Company>
-    <Product>Cadru Framework</Product>
-    <Description />
-    <Copyright>Copyright © Scott Dorman</Copyright>
-    <PackageLicenseUrl>http://opensource.org/licenses/Ms-PL.html</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/scottdorman/cadru</PackageProjectUrl>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>Provides access to network information and notification of network status changes.</Description>
+    <PackageTags>$(CommonPackageTags) network</PackageTags>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="..\Cadru.licenseheader" Link="Cadru.licenseheader" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Net.NameResolution" Version="4.3.0" />

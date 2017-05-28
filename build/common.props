@@ -1,0 +1,22 @@
+<Project>
+  <Import Project="..\version.props" />
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Product>Cadru Framework</Product>
+    <RepositoryUrl>https://github.com/scottdorman/cadru</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Authors>Scott Dorman</Authors>
+    <Company>Scott Dorman</Company>
+    <Copyright>Copyright (c) Scott Dorman</Copyright>
+    <PackageLicenseUrl>http://opensource.org/licenses/Ms-PL.html</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/scottdorman/cadru</PackageProjectUrl>
+    <VersionSuffix Condition="'$(VersionSuffix)'!='' AND '$(BuildNumber)' != ''">$(VersionSuffix)-$(BuildNumber)</VersionSuffix>
+
+    <CommonPackageTags>cadru .NET Core .NETCore dotnet dotnetcore .NETStandard dotnetstandard</CommonPackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Cadru.licenseheader" Link="Cadru.licenseheader" />
+  </ItemGroup>
+</Project>
