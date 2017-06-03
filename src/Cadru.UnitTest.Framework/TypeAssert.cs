@@ -23,6 +23,7 @@
 namespace Cadru.UnitTest.Framework
 {
     using System;
+    using System.Reflection;
     using Cadru.Contracts;
     using Cadru.UnitTest.Framework.Resources;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -83,7 +84,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
         public static void IsAssignableFrom(object value, Type expectedType, string message, params object[] parameters)
         {
-            if (!value.GetType().IsAssignableFrom(expectedType))
+            if (!value.GetType().GetTypeInfo().IsAssignableFrom(expectedType.GetTypeInfo()))
             {
                 Assert.Fail(message, parameters);
             }
@@ -130,7 +131,7 @@ namespace Cadru.UnitTest.Framework
         public static void IsNotAssignableFrom(object value, Type expectedType, string message, params object[] parameters)
         {
             Requires.NotNull(value, "value");
-            if (value.GetType().IsAssignableFrom(expectedType))
+            if (value.GetType().GetTypeInfo().IsAssignableFrom(expectedType.GetTypeInfo()))
             {
                 Assert.Fail(message, parameters);
             }
