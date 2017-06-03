@@ -17,6 +17,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\Cadru.licenseheader" Link="Cadru.licenseheader" />
+    <None Include="..\..\Cadru.licenseheader" Link="Cadru.licenseheader" />
   </ItemGroup>
 </Project>
