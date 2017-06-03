@@ -26,7 +26,7 @@ I’ve tried to make it easy to get Cadru for your own use.
 If you want the source code, you can [fork the repository](https://github.com/scottdorman/cadru/fork) or just browse it on GitHub.
 You can also [browse it on NuGet](https://www.nuget.org/packages?q=Tags%3A%22cadru%22), or download an individual package directly.
 
-| Package Name | NuGet |
+| Package Name |  |
 |-------|------|
 |Cadru.AspNetCore|[![NuGet downloads](https://img.shields.io/nuget/dt/cadru.aspnetcore.svg)](http://www.nuget.org/packages/cadru.aspnetcore) [![NuGet version](https://img.shields.io/nuget/v/cadru.aspnetcore.svg)](http://www.nuget.org/packages/cadru.aspnetcore)|
 |Cadru.Collections|[![NuGet downloads](https://img.shields.io/nuget/dt/cadru.collections.svg)](http://www.nuget.org/packages/cadru.collections) [![NuGet version](https://img.shields.io/nuget/v/cadru.collections.svg)](http://www.nuget.org/packages/cadru.collections)|
