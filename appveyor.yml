@@ -107,7 +107,7 @@ test:
 #---------------------------------#
 
 artifacts:
-- path: '**\*.nupkg'
+- path: src\**\*.nupkg'
   name: Nuget Packages
 - path: '**\*.chm'
   name: CHM Documentation
