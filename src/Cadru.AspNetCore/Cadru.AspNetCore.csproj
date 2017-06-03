@@ -5,7 +5,7 @@
     <AssemblyName>Cadru.AspNetCore</AssemblyName>
     <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
     <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
-    <Description>A utility framework containing new APIs and extensions to the .NET Framework. (test)</Description>
+    <Description>Provides additional TagHelpers and View Location Expanders for ASP.NET Core.</Description>
     <PackageTags>$(CommonPackageTags) aspnetcore taghelpers view location expander bootstrap</PackageTags>
   </PropertyGroup>
 
