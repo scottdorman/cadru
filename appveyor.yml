@@ -98,7 +98,7 @@ after_build:
 #---------------------------------#
 
 test:
-  assemblies: '**\*.UnitTests.dll'
+  assemblies: '**\*.Tests.dll'
 
 #---------------------------------#
 #      artifacts configuration    #
