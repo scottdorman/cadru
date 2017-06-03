@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
+using System.Data;
 
 namespace Cadru.UnitTest.Framework.UnitTests
 {
@@ -16,8 +17,8 @@ namespace Cadru.UnitTest.Framework.UnitTests
         private readonly decimal de2 = 33.4M;
         private readonly double d1 = 4.85948654;
         private readonly double d2 = 1.0;
-        private readonly System.Enum e1 = System.Data.CommandType.TableDirect;
-        private readonly System.Enum e2 = System.Data.CommandType.StoredProcedure;
+        private readonly System.Enum e1 = CommandType.TableDirect;
+        private readonly System.Enum e2 = CommandType.StoredProcedure;
 
         [TestMethod]
         public void Greater()
