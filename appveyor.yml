@@ -85,7 +85,7 @@ build:
 
 # scripts to run before build
 before_build:
-  - ps: nuget restore $env:APPVEYOR_BUILD_FOLDER\Cadru.sln
+  - ps: dotnet restore
 
 # scripts to run after build
 after_build:
