@@ -92,15 +92,9 @@ before_build:
 
 # scripts to run after build
 after_build:
-#  - ps: Get-ChildItem -Path $env:APPVEYOR_BUILD_FOLDER\src -filter *.csproj -rec | foreach {nuget pack $($_.FullName) -properties "Configuration=$env:configuration;Platform=AnyCPU" -version $NUGET_PACKAGE_VERSION -symbols }
-#
-#- ps: >-
-#    # Cadru.Core is a PCL and nuget.exe isn't able to properly extract the version number so we have to override it here.
-#    nuget pack $env:APPVEYOR_BUILD_FOLDER\src\cadru.core\cadru.core.csproj -properties "Configuration=$env:configuration;Platform=AnyCPU" -version $NUGET_PACKAGE_VERSION -symbols
-#    nuget pack $env:APPVEYOR_BUILD_FOLDER\src\cadru.core.windows\cadru.core.windows.csproj -properties "Configuration=$env:configuration;Platform=AnyCPU" -symbols
-#    nuget pack $env:APPVEYOR_BUILD_FOLDER\src\cadru.unittest.framework\cadru.unittest.framework.csproj -properties "Configuration=$env:configuration;Platform=AnyCPU" -symbols
-#    nuget pack $env:APPVEYOR_BUILD_FOLDER\src\cadru.data.dapper\cadru.data.dapper.csproj -properties "Configuration=$env:configuration;Platform=AnyCPU" -symbols
-#
+- ps: >-
+    nuget pack $env:APPVEYOR_BUILD_FOLDER\src\cadru.unittest.framework\cadru.unittest.framework.csproj -properties "Configuration=$env:configuration;Platform=AnyCPU" -symbols
+
 #---------------------------------#
 #       tests configuration       #
 #---------------------------------#
@@ -113,7 +107,7 @@ test:
 #---------------------------------#
 
 artifacts:
-- path: '*.nupkg'
+- path: '**\*.nupkg'
   name: Nuget Packages
 - path: '**\*.chm'
   name: CHM Documentation
