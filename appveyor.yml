@@ -85,7 +85,9 @@ build:
 
 # scripts to run before build
 before_build:
-  - ps: dotnet restore
+  - ps: >-
+  dotnet restore
+  nuget restore
 
 # scripts to run after build
 after_build:
