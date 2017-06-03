@@ -6,19 +6,19 @@ Cadru is a [collection of NuGet packages](https://www.nuget.org/packages?q=Tags%
 ## What's in it?
 Cadru is made up of the following assemblies:
 
-* **Cadru.AspNetCore** - A utility framework containing new APIs and extensions to the .NET Framework.
+* **Cadru.AspNetCore** - Provides additional TagHelpers and View Location Expanders for ASP.NET Core.
 * **Cadru.Collections** - Provides additional collection classes and extensions.
 * **Cadru.Contracts** - Provides static classes for representing program contracts as preconditions in a way that's compatible with System.Diagnostics.Contracts.
 * **Cadru.Core** - Provides common extensions and new APIs for the .NET Framework.
-* **Cadru.Core.Windows** - A non-portable class library (targeting .NET Framework 4) meant for Windows desktop applications.
+* **Cadru.Core.Windows** - A .NET Framework 4 targeted library meant for Windows desktop applications.
 * **Cadru.Data** - Provides a standard way to read Excel data.
 * **Cadru.Data.Dapper** - Provides a common database context and predicates for use with Dapper.
 * **Cadru.IO** - Provides additional input and output (I/O) types.
 * **Cadru.Net** - Provides transient error detection strategies for adding retry logic into your HttpClient calls and a UrlBuilder to help simplify building complex URLs.
 * **Cadru.Net.NetworkInformation** - Provides access to network information and notification of network status changes.
-* **Cadru.Postal** - Generate emails using ASP.NET MVC views.
+* **Cadru.Postal** - Provides classes for generating email using ASP.NET MVC Razor views.
 * **Cadru.TransientFaultHandling** - Provides transient error detection strategies for adding retry logic into your application.
-* **Cadru.UnitTest.Framework** - A non-portable class library (targeting .NET Framework 4) which adds additional assert capabilities for MSTest.
+* **Cadru.UnitTest.Framework** - Provides additional assert capabilities for MS Test.
 
 ## How do I get Cadru?
 I’ve tried to make it easy to get Cadru for your own use.
