@@ -34,7 +34,7 @@ namespace Cadru.Data.Dapper
             var tableAttribute = this.EntityType.GetCustomAttribute<TableAttribute>(inherit: true);
             if (tableAttribute != null)
             {
-                base.Schema = tableAttribute.Schema;
+                this.Schema = tableAttribute.Schema;
                 this.ObjectName = tableAttribute.Name;
             }
             else

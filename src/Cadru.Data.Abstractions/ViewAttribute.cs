@@ -20,10 +20,10 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.Data.Dapper
+namespace Cadru.Data.Annotations
 {
-    using System;
     using Contracts;
+    using System;
 
     /// <summary>
     ///     Specifies the database view that a class is mapped to.
@@ -47,17 +47,14 @@ namespace Cadru.Data.Dapper
         /// <summary>
         ///     The name of the view the class is mapped to.
         /// </summary>
-        public string Name
-        {
-            get { return this.name; }
-        }
+        public string Name => this.name;
 
         /// <summary>
         ///     The schema of the view the class is mapped to.
         /// </summary>
         public string Schema
         {
-            get { return this.schema; }
+            get => this.schema;
             set
             {
                 Requires.NotNullOrWhiteSpace(value, nameof(value));

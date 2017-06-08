@@ -22,6 +22,7 @@
 
 namespace Cadru.Data.Dapper
 {
+    using Cadru.Data.Annotations;
     using System;
     using System.Reflection;
 
@@ -33,7 +34,7 @@ namespace Cadru.Data.Dapper
             var viewAttribute = this.EntityType.GetCustomAttribute<ViewAttribute>(inherit: true);
             if (viewAttribute != null)
             {
-                base.Schema = viewAttribute.Schema;
+                this.Schema = viewAttribute.Schema;
                 this.ObjectName = viewAttribute.Name;
             }
             else

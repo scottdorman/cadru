@@ -22,6 +22,7 @@
 
 namespace Cadru.Data.Dapper
 {
+    using Cadru.Data.Annotations;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
@@ -48,7 +49,7 @@ namespace Cadru.Data.Dapper
             }
 
             var columnAttribute = attributes.OfType<ColumnAttribute>().SingleOrDefault();
-            this.ColumnName = columnAttribute?.Name ?? PropertyInfo.Name;
+            this.ColumnName = columnAttribute?.Name ?? this.PropertyInfo.Name;
 
             var databaseGeneratedAttribute = attributes.OfType<DatabaseGeneratedAttribute>().SingleOrDefault();
             this.DatabaseGeneratedOption = databaseGeneratedAttribute?.DatabaseGeneratedOption ?? DatabaseGeneratedOption.None;
@@ -129,17 +130,14 @@ namespace Cadru.Data.Dapper
         /// </summary>
         public bool IsReadOnly { get; private set; }
 
-        public bool IsUpdatable { get { return !(this.Ignored || this.IsReadOnly || this.DatabaseGeneratedOption != DatabaseGeneratedOption.None); } }
+        public bool IsUpdatable => !(this.Ignored || this.IsReadOnly || this.DatabaseGeneratedOption != DatabaseGeneratedOption.None);
 
         public bool IsKey { get; private set; }
 
         /// <summary>
         /// Gets the name of the property by using the specified propertyInfo.
         /// </summary>
-        public string PropertyName
-        {
-            get { return PropertyInfo.Name; }
-        }
+        public string PropertyName => this.PropertyInfo.Name;
 
         /// <summary>
         /// Gets the property info for the current property.

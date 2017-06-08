@@ -22,6 +22,7 @@
 
 namespace Cadru.Data.Dapper
 {
+    using Cadru.Data.Annotations;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -50,14 +51,14 @@ namespace Cadru.Data.Dapper
 
         protected ObjectMap()
         {
-            Properties = new List<IPropertyMap>();
-            foreach (var attribute in entityType.GetCustomAttributes<ExtendedPropertyAttribute>())
+            this.Properties = new List<IPropertyMap>();
+            foreach (var attribute in this.entityType.GetCustomAttributes<ExtendedPropertyAttribute>())
             {
                 this.additionalValues.Add(attribute.Name, attribute.Value);
             }
         }
 
-        public IReadOnlyDictionary<string, object> AdditionalValues => additionalValues;
+        public IReadOnlyDictionary<string, object> AdditionalValues => this.additionalValues;
 
         public string FullyQualifiedObjectName { get; internal set; }
 
@@ -73,10 +74,7 @@ namespace Cadru.Data.Dapper
 
         public DatabaseObjectType ObjectType { get; protected set; }
 
-        public TypeInfo EntityType
-        {
-            get { return this.entityType; }
-        }
+        public TypeInfo EntityType => this.entityType;
 
         /// <summary>
         /// A collection of properties that will map to columns in the database table.
@@ -93,12 +91,12 @@ namespace Cadru.Data.Dapper
             var type = typeof(T);
             foreach (var propertyInfo in type.GetProperties())
             {
-                if (Properties.Any(p => p.PropertyName.Equals(propertyInfo.Name, StringComparison.OrdinalIgnoreCase)))
+                if (this.Properties.Any(p => p.PropertyName.Equals(propertyInfo.Name, StringComparison.OrdinalIgnoreCase)))
                 {
                     continue;
                 }
 
-                Properties.Add(new PropertyMap(propertyInfo));
+                this.Properties.Add(new PropertyMap(propertyInfo));
             }
         }
 

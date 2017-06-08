@@ -24,6 +24,7 @@ namespace Cadru.Data.Dapper
 {
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Reflection;
+    using Cadru.Data.Annotations;
 
     public interface IPropertyMap
     {

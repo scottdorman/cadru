@@ -20,7 +20,7 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.Data.Dapper
+namespace Cadru.Data.Annotations
 {
     using System;
 

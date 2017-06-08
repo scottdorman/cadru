@@ -22,9 +22,9 @@
 
 namespace Cadru.Collections
 {
+    using Cadru.Contracts;
     using System;
     using System.Collections.Generic;
-    using Cadru.Contracts;
 
     /// <summary>
     /// Represents an <see cref="IEqualityComparer{T}"/> which uses a
@@ -73,17 +73,17 @@ namespace Cadru.Collections
                 Requires.NotNull(keySelector, nameof(keySelector));
 
                 this.keySelector = keySelector;
-                this.comparer = comparer ?? EqualityComparer<V>.Default;
+                this.comparer = this.comparer ?? EqualityComparer<V>.Default;
             }
 
             public bool Equals(TSource x, TSource y)
             {
-                return comparer.Equals(keySelector(x), keySelector(y));
+                return this.comparer.Equals(this.keySelector(x), this.keySelector(y));
             }
 
             public int GetHashCode(TSource obj)
             {
-                return comparer.GetHashCode(keySelector(obj));
+                return this.comparer.GetHashCode(this.keySelector(obj));
             }
         }
     }

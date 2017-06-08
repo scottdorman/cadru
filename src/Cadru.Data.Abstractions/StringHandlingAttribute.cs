@@ -21,12 +21,8 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Cadru.Data.Dapper
+namespace Cadru.Data.Annotations
 {
     /// <summary>
     /// Specifies how string values should be handled.
