@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Cadru.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using Cadru.Contracts;
 
 namespace Cadru.Postal
 {
@@ -38,7 +38,7 @@ namespace Cadru.Postal
         public Email(string viewName, string areaName)
             : this(viewName)
         {
-            AreaName = areaName;
+            this.AreaName = areaName;
         }
 
         /// <summary>Create an Email where the ViewName is derived from the name of the class.</summary>
@@ -79,7 +79,7 @@ namespace Cadru.Postal
         /// <param name="attachment">The attachment to add.</param>
         public void Attach(Attachment attachment)
         {
-            Attachments.Add(attachment);
+            this.Attachments.Add(attachment);
         }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace Cadru.Postal
         /// <returns>Always returns true.</returns>
         public override bool TrySetMember(SetMemberBinder binder, object value)
         {
-            ViewData[binder.Name] = value;
+            this.ViewData[binder.Name] = value;
             return true;
         }
 
@@ -118,18 +118,19 @@ namespace Cadru.Postal
         /// <returns>True if the property was found, otherwise false.</returns>
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
-            return ViewData.TryGetValue(binder.Name, out result);
+            return this.ViewData.TryGetValue(binder.Name, out result);
         }
 
         private static string DeriveViewNameFromClassName()
         {
-            var viewName = typeof(Email).Name;
+            var typeName = typeof(Email).Name;
+            var viewName = typeName;
             if (viewName.EndsWith("Email"))
             {
                 viewName = viewName.Substring(0, viewName.Length - "Email".Length);
             }
 
-            return viewName;
+            return String.IsNullOrWhiteSpace(viewName) ? typeName : viewName;
         }
     }
 }
