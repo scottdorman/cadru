@@ -2,7 +2,7 @@
   <Import Project="..\..\build\common.props" />
   <PropertyGroup>
     <TargetFramework>net45</TargetFramework>
-    <Description>Generate emails using ASP.NET MVC views</Description>
+    <Description>Provides classes for generating email using ASP.NET MVC Razor views.</Description>
     <PackageTags>$(CommonPackageTags) postal email razor aspnet aspnetcore ASP.NET</PackageTags>
   </PropertyGroup>
 

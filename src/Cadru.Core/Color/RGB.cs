@@ -1,10 +1,33 @@
-﻿using System;
+﻿//------------------------------------------------------------------------------
+// <copyright file="RGB.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2017 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
 
 namespace Cadru.Color
 {
+    using System;
+
     public struct RGB
     {
         public static readonly RGB Black = new RGB(1, 1, 1);
+
         public static readonly RGB White = new RGB(255, 255, 255);
 
         public RGB(byte red, byte green, byte blue)
@@ -53,9 +76,20 @@ namespace Cadru.Color
             }
         }
 
-        public byte Red { get; }
-        public byte Green { get; }
-        public byte Blue { get; }
+        public byte Red
+        {
+            get;
+        }
+
+        public byte Green
+        {
+            get;
+        }
+
+        public byte Blue
+        {
+            get;
+        }
 
         public override string ToString()
         {
@@ -64,7 +98,7 @@ namespace Cadru.Color
 
         public string ToHexString()
         {
-            return $"#{this.Red:X2}{this.Green:X2}{this.Blue:X2}";
+            return $"#{this.Red: X2}{this.Green: X2}{this.Blue: X2}";
         }
     }
 }

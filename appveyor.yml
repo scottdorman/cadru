@@ -30,6 +30,9 @@ branches:
 
 image: Visual Studio 2017
 
+init:
+  - git config --global core.autocrlf input
+
 # scripts that run after cloning repository
 install:
 - ps: >-
@@ -49,7 +52,7 @@ install:
 
 # enable patching of AssemblyInfo.* files
 assembly_info:
-  patch: true
+  patch: false
   file: AssemblyInfo.*
   assembly_version: $(majorminor).0.0
   assembly_file_version: $(majorminor).$(BUILD_DAYS).{build}
@@ -68,46 +71,41 @@ configuration:
   - Release
 
 build:
-#  parallel: true                  # enable MSBuild parallel builds
-#  project: MyTestAzureCS.sln      # path to Visual Studio solution or project
+  parallel: true
+  project: Cadru.sln 
 #  publish_wap: true               # package Web Application Projects (WAP) for Web Deploy
 #  publish_wap_xcopy: true         # package Web Application Projects (WAP) for XCopy deployment
 #  publish_azure: true             # package Azure Cloud Service projects and push to artifacts
-#  publish_nuget: true             # package projects with .nuspec files and push to artifacts
-#  publish_nuget_symbols: true     # generate and publish NuGet symbol packages
-#  include_nuget_references: true  # add -IncludeReferencedProjects option while packaging NuGet artifacts
+  publish_nuget: true             # package projects with .nuspec files and push to artifacts
+  publish_nuget_symbols: true     # generate and publish NuGet symbol packages
+  include_nuget_references: true  # add -IncludeReferencedProjects option while packaging NuGet artifacts
 
   # MSBuild verbosity level
   verbosity: minimal
 
 # scripts to run before build
 before_build:
-  - ps: nuget restore $env:APPVEYOR_BUILD_FOLDER\src\Cadru.sln
+- ps: >-
+    dotnet restore
+
+    nuget restore
 
 # scripts to run after build
 after_build:
-  - ps: Get-ChildItem -Path $env:APPVEYOR_BUILD_FOLDER\src -filter *.csproj -rec | foreach {nuget pack $($_.FullName) -properties "Configuration=$env:configuration;Platform=AnyCPU" -version $NUGET_PACKAGE_VERSION -symbols }
-#
-#- ps: >-
-#    # Cadru.Core is a PCL and nuget.exe isn't able to properly extract the version number so we have to override it here.
-#    nuget pack $env:APPVEYOR_BUILD_FOLDER\src\cadru.core\cadru.core.csproj -properties "Configuration=$env:configuration;Platform=AnyCPU" -version $NUGET_PACKAGE_VERSION -symbols
-#    nuget pack $env:APPVEYOR_BUILD_FOLDER\src\cadru.core.windows\cadru.core.windows.csproj -properties "Configuration=$env:configuration;Platform=AnyCPU" -symbols
-#    nuget pack $env:APPVEYOR_BUILD_FOLDER\src\cadru.unittest.framework\cadru.unittest.framework.csproj -properties "Configuration=$env:configuration;Platform=AnyCPU" -symbols
-#    nuget pack $env:APPVEYOR_BUILD_FOLDER\src\cadru.data.dapper\cadru.data.dapper.csproj -properties "Configuration=$env:configuration;Platform=AnyCPU" -symbols
-#
+
 #---------------------------------#
 #       tests configuration       #
 #---------------------------------#
 
 test:
-  assemblies: '**\*.UnitTests.dll'
+  assemblies: '**\*.Tests.dll'
 
 #---------------------------------#
 #      artifacts configuration    #
 #---------------------------------#
 
 artifacts:
-- path: '*.nupkg'
+- path: '**\src\**\*.nupkg'
   name: Nuget Packages
 - path: '**\*.chm'
   name: CHM Documentation
