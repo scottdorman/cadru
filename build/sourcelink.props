@@ -1,0 +1,9 @@
+<Project>
+  <ItemGroup Condition="'$(UseSourceLink)' == 'true'">
+    <PackageReference Include="SourceLink.Create.GitHub" Version="[2.1.0-b446]" PrivateAssets="all" />
+    <!--<PackageReference Include="SourceLink.Create.CommandLine" Version="[2.1.0-b446]" PrivateAssets="all" />-->
+    <PackageReference Include="SourceLink.Test" Version="[2.1.0-b446]" PrivateAssets="all" />
+    <DotNetCliToolReference Include="dotnet-sourcelink-git" Version="[2.1.0-b446]" />
+    <DotNetCliToolReference Include="dotnet-sourcelink" Version="[2.1.0-b446]" />
+  </ItemGroup>
+</Project>
