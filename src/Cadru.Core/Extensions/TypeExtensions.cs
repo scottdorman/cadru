@@ -63,15 +63,15 @@ namespace Cadru.Extensions
             return type.GetTypeInfo().HasInterface<TInterface>();
         }
 
-        public static bool HasInterface<TInterface>(this TypeInfo type)
+        public static bool HasInterface<TInterface>(this TypeInfo typeInfo)
         {
-            Requires.NotNull(type, nameof(type));
+            Requires.NotNull(typeInfo, nameof(typeInfo));
 
             var result = false;
             var interfaceType = typeof(TInterface);
             try
             {
-                result = type.ImplementedInterfaces.SingleOrDefault(t => t == interfaceType) != null;
+                result = typeInfo.ImplementedInterfaces.SingleOrDefault(t => t == interfaceType) != null;
             }
             catch (InvalidOperationException)
             {
@@ -98,17 +98,25 @@ namespace Cadru.Extensions
             return type.GetTypeInfo().IsNullable();
         }
 
-        public static bool IsNullable(this TypeInfo type)
+        public static bool IsNullable(this TypeInfo typeInfo)
         {
-            Contracts.Requires.NotNull(type, nameof(type));
-            return type.IsGenericType && !type.IsGenericTypeDefinition && type.GetGenericTypeDefinition() == typeof(Nullable<>);
+            Contracts.Requires.NotNull(typeInfo, nameof(typeInfo));
+            return typeInfo.IsGenericType && !typeInfo.IsGenericTypeDefinition && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>);
         }
         #endregion
 
+        #region IsBoolean
+        /// <summary>
+        /// Determines whether the specified type is a <see cref="Boolean"/>.
+        /// </summary>
+        /// <param name="type">The type to test.</param>
+        /// <returns>
+        ///   <see langword="true"/> if the specified type is a <see cref="Boolean"/>; otherwise, <see langword="false"/>.
+        /// </returns>
         public static bool IsBoolean(this Type type)
         {
             Contracts.Requires.NotNull(type, nameof(type));
-            return type == typeof(Boolean);
+            return type.GetTypeInfo().IsBoolean();
         }
 
         public static bool IsBoolean(this TypeInfo type)
@@ -116,16 +124,34 @@ namespace Cadru.Extensions
             Contracts.Requires.NotNull(type, nameof(type));
             return type.AsType() == typeof(Boolean);
         }
+        #endregion
 
+        #region IsNumeric
+        /// <summary>
+        /// Determines whether the specified type is a numeric type.
+        /// </summary>
+        /// <param name="type">The type to test.</param>
+        /// <returns>
+        ///   <see langword="true"/> if the specified type is a numeric type; otherwise, <see langword="false"/>.
+        /// </returns>
         public static bool IsNumeric(this Type type)
         {
             Contracts.Requires.NotNull(type, nameof(type));
-            if (type.GetTypeInfo().IsPrimitive)
+            return type.GetTypeInfo().IsNumeric();
+        }
+
+        public static bool IsNumeric(this TypeInfo typeInfo)
+        {
+            Contracts.Requires.NotNull(typeInfo, nameof(typeInfo));
+
+            var type = typeInfo.AsType();
+
+            if (typeInfo.IsPrimitive)
             {
                 return type != typeof(bool) && type != typeof(char) && type != typeof(IntPtr) && type != typeof(UIntPtr);
             }
 
-            if (type.IsNullable())
+            if (typeInfo.IsNullable())
             {
                 var underlyingType = Nullable.GetUnderlyingType(type);
                 return underlyingType.IsNumeric();
@@ -133,11 +159,28 @@ namespace Cadru.Extensions
 
             return type == typeof(decimal);
         }
+        #endregion
 
+        #region IsDate
+        /// <summary>
+        /// Determines whether the specified type is a <see cref="DateTime"/>.
+        /// </summary>
+        /// <param name="type">The type to test.</param>
+        /// <returns>
+        ///   <see langword="true"/> if the specified type is a <see cref="DateTime"/>; otherwise, <see langword="false"/>.
+        /// </returns>
         public static bool IsDate(this Type type)
         {
             Contracts.Requires.NotNull(type, nameof(type));
-            if (type.IsNullable())
+            return type.GetTypeInfo().IsDate();
+        }
+
+        public static bool IsDate(this TypeInfo typeInfo)
+        {
+            Contracts.Requires.NotNull(typeInfo, nameof(typeInfo));
+
+            var type = typeInfo.AsType();
+            if (typeInfo.IsNullable())
             {
                 var underlyingType = Nullable.GetUnderlyingType(type);
                 return underlyingType.IsDate();
@@ -145,11 +188,28 @@ namespace Cadru.Extensions
 
             return type == typeof(DateTime);
         }
+        #endregion
 
+        #region IsDateOffset
+        /// <summary>
+        /// Determines whether the specified type is a <see cref="DateTimeOffset"/>.
+        /// </summary>
+        /// <param name="type">The type to test.</param>
+        /// <returns>
+        ///   <see langword="true"/> if the specified type is a <see cref="DateTimeOffset"/>; otherwise, <see langword="false"/>.
+        /// </returns>
         public static bool IsDateOffset(this Type type)
         {
             Contracts.Requires.NotNull(type, nameof(type));
-            if (type.IsNullable())
+            return type.GetTypeInfo().IsDateOffset();
+        }
+
+        public static bool IsDateOffset(this TypeInfo typeInfo)
+        {
+            Contracts.Requires.NotNull(typeInfo, nameof(typeInfo));
+
+            var type = typeInfo.AsType();
+            if (typeInfo.IsNullable())
             {
                 var underlyingType = Nullable.GetUnderlyingType(type);
                 return underlyingType.IsDateOffset();
@@ -157,6 +217,8 @@ namespace Cadru.Extensions
 
             return type == typeof(DateTimeOffset);
         }
+        #endregion
+
         #endregion
     }
 }

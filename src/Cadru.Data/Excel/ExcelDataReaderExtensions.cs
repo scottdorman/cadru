@@ -103,9 +103,16 @@
 
         public static string ToDelimitedString(this ExcelDataReader reader)
         {
+            return reader.ToDelimitedString(includeHeaders: false);
+        }
+
+        public static string ToDelimitedString(this ExcelDataReader reader, bool includeHeaders)
+        {
             var itemArray = new object[reader.FieldCount];
+            var fieldNames = reader.FieldNames.ToArray();
+
             reader.GetValues(itemArray);
-            return String.Join(",", itemArray.Select(x => $"[{x}]"));
+            return String.Join(",", itemArray.Select((x, i) => $"[{(includeHeaders ? $"{fieldNames[i]}: " : "")}{x}]"));
         }
     }
 }

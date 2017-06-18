@@ -33,6 +33,7 @@ namespace Cadru.Data.Excel
     public partial class ExcelDataReader
     {
         private int currentIndex = 0;
+        private int? currentRowIndex = null;
         private IEnumerable<Cell> currentRowData;
         private Sheet currentSheet;
         private SpreadsheetDocument document;
@@ -71,6 +72,8 @@ namespace Cadru.Data.Excel
         public bool IsClosed => this.document == null;
 
         public int ResultsCount => this.sheets?.Count() ?? -1;
+
+        public int? CurrentRowIndex => this.currentRowIndex;
 
         public string CurrentSheetName => this.currentSheet?.Name ?? String.Empty;
 

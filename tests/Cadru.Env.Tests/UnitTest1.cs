@@ -1,6 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Cadru.IO.Tests
+namespace Cadru.Env.Tests
 {
     [TestClass]
     public class UnitTest1

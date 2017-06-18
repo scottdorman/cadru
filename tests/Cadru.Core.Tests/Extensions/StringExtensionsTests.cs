@@ -1,10 +1,8 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Cadru;
+﻿using Cadru.Extensions;
 using Cadru.Text;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Diagnostics.CodeAnalysis;
-using Cadru.Extensions;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Cadru.UnitTest.Framework.UnitTests.Extensions
@@ -118,10 +116,10 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             Assert.AreEqual("d", testValue.SubstringBetween("c", "e"));
             Assert.AreEqual("cde", testValue.SubstringBetween('c', 'e', true));
             Assert.AreEqual("cde", testValue.SubstringBetween("c", "e", true));
-            Assert.AreEqual("cde", testValue.SubstringBetween("c", "e", true, StringComparison.InvariantCultureIgnoreCase));
+            Assert.AreEqual("cde", testValue.SubstringBetween("c", "e", true, StringComparison.Ordinal));
             Assert.AreEqual("d", testValue.SubstringBetween('c', 'e', false));
             Assert.AreEqual("d", testValue.SubstringBetween("c", "e", false));
-            Assert.AreEqual("d", testValue.SubstringBetween("c", "e", false, StringComparison.InvariantCultureIgnoreCase));
+            Assert.AreEqual("d", testValue.SubstringBetween("c", "e", false, StringComparison.Ordinal));
             Assert.AreEqual("abcde", testValue.SubstringBetween(String.Empty, "e", true));
             Assert.AreEqual("abcd", testValue.SubstringBetween(String.Empty, "e", false));
             Assert.AreEqual("c", testValue.SubstringBetween("c", String.Empty, true));
@@ -168,7 +166,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             Assert.AreEqual("abc", testValue.LeftSubstring("c", 1));
             Assert.AreEqual("abcdefgabc", testValue.LeftSubstring("c", 2));
             Assert.AreEqual("abcdefgabcdefg", testValue.LeftSubstring("c", 3));
-            Assert.AreEqual("abc", testValue.LeftSubstring("c", 1, StringComparison.InvariantCultureIgnoreCase));
+            Assert.AreEqual("abc", testValue.LeftSubstring("c", 1, StringComparison.Ordinal));
 
             ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LeftSubstring("c")).WithParameter("source");
             ExceptionAssert.Throws<ArgumentNullException>(() => testValue.LeftSubstring(null)).WithParameter("value");
@@ -235,8 +233,8 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
 
             Assert.AreEqual(2, testValue.OccurrencesOf('c'));
             Assert.AreEqual(2, testValue.OccurrencesOf("c"));
-            Assert.AreEqual(2, testValue.OccurrencesOf("c", StringComparison.InvariantCulture));
-            Assert.AreEqual(0, testValue.OccurrencesOf("C", StringComparison.InvariantCulture));
+            Assert.AreEqual(2, testValue.OccurrencesOf("c", StringComparison.Ordinal));
+            Assert.AreEqual(0, testValue.OccurrencesOf("C", StringComparison.Ordinal));
             Assert.AreEqual(1, testValue.OccurrencesOf('h'));
             Assert.AreEqual(1, testValue.OccurrencesOf("h"));
             Assert.AreEqual(0, testValue.OccurrencesOf('q'));
@@ -261,17 +259,17 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             Assert.AreEqual("abCDEfgabCDEfg", testValue.Replace("cde", "CDE", 2));
             Assert.AreEqual(testValue, testValue.Replace("cde", "CDE", 0));
             Assert.AreEqual("abCDEfgabCDEfg", testValue.Replace("cde", "CDE", 3));
-            Assert.AreEqual("abCDEfgabcdefg", testValue.Replace("cde", "CDE", 1, StringComparison.InvariantCulture));
-            Assert.AreEqual("abCDEfgabCDEfg", testValue.Replace("cde", "CDE", 2, StringComparison.InvariantCulture));
-            Assert.AreEqual(testValue, testValue.Replace("cde", "CDE", 0, StringComparison.InvariantCulture));
-            Assert.AreEqual(testValue, testValue.Replace("CDE", "CDE", 1, StringComparison.InvariantCulture));
-            Assert.AreEqual(testValue, testValue.Replace("CDE", "CDE", 2, StringComparison.InvariantCulture));
-            Assert.AreEqual(testValue, testValue.Replace("CDE", "CDE", 0, StringComparison.InvariantCulture));
+            Assert.AreEqual("abCDEfgabcdefg", testValue.Replace("cde", "CDE", 1, StringComparison.Ordinal));
+            Assert.AreEqual("abCDEfgabCDEfg", testValue.Replace("cde", "CDE", 2, StringComparison.Ordinal));
+            Assert.AreEqual(testValue, testValue.Replace("cde", "CDE", 0, StringComparison.Ordinal));
+            Assert.AreEqual(testValue, testValue.Replace("CDE", "CDE", 1, StringComparison.Ordinal));
+            Assert.AreEqual(testValue, testValue.Replace("CDE", "CDE", 2, StringComparison.Ordinal));
+            Assert.AreEqual(testValue, testValue.Replace("CDE", "CDE", 0, StringComparison.Ordinal));
 
             ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).Replace('c', 'Q', 0));
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).Replace("CDE", "CDE", 0, StringComparison.InvariantCulture)).WithParameter("source");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.Replace(null, "CDE", 0, StringComparison.InvariantCulture)).WithParameter("oldValue");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.Replace("CDE", null, 0, StringComparison.InvariantCulture)).WithParameter("newValue");
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).Replace("CDE", "CDE", 0, StringComparison.Ordinal)).WithParameter("source");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.Replace(null, "CDE", 0, StringComparison.Ordinal)).WithParameter("oldValue");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.Replace("CDE", null, 0, StringComparison.Ordinal)).WithParameter("newValue");
         }
 
         [TestMethod]
@@ -286,17 +284,17 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             Assert.AreEqual("abXYZfgabcdefg", testValue.ReplaceBetween('c', 'e', "XYZ", true));
             Assert.AreEqual("abXYZfgabcdefg", testValue.ReplaceBetween(2, 4, "XYZ", true));
             Assert.AreEqual("abXYZfgabcdefg", testValue.ReplaceBetween("c", "e", "XYZ", true));
-            Assert.AreEqual("abXYZfgabcdefg", testValue.ReplaceBetween("c", "e", "XYZ", true, StringComparison.InvariantCulture));
-            Assert.AreEqual(testValue, testValue.ReplaceBetween("C", "E", "XYZ", true, StringComparison.InvariantCulture));
-            Assert.AreEqual("abcXYZefgabcdefg", testValue.ReplaceBetween("c", "e", "XYZ", false, StringComparison.InvariantCulture));
-            Assert.AreEqual(testValue, testValue.ReplaceBetween("C", "E", "XYZ", false, StringComparison.InvariantCulture));
+            Assert.AreEqual("abXYZfgabcdefg", testValue.ReplaceBetween("c", "e", "XYZ", true, StringComparison.Ordinal));
+            Assert.AreEqual(testValue, testValue.ReplaceBetween("C", "E", "XYZ", true, StringComparison.Ordinal));
+            Assert.AreEqual("abcXYZefgabcdefg", testValue.ReplaceBetween("c", "e", "XYZ", false, StringComparison.Ordinal));
+            Assert.AreEqual(testValue, testValue.ReplaceBetween("C", "E", "XYZ", false, StringComparison.Ordinal));
 
             ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).ReplaceBetween('C', 'E', "XYZ")).WithParameter("source");
             ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween('C', 'E', null)).WithParameter("newValue");
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).ReplaceBetween("C", "E", "XYZ", true, StringComparison.InvariantCulture)).WithParameter("source");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween(null, "E", "XYZ", true, StringComparison.InvariantCulture)).WithParameter("start");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween("C", null, "XYZ", true, StringComparison.InvariantCulture)).WithParameter("end");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween("C", "E", null, true, StringComparison.InvariantCulture)).WithParameter("newValue");
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).ReplaceBetween("C", "E", "XYZ", true, StringComparison.Ordinal)).WithParameter("source");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween(null, "E", "XYZ", true, StringComparison.Ordinal)).WithParameter("start");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween("C", null, "XYZ", true, StringComparison.Ordinal)).WithParameter("end");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween("C", "E", null, true, StringComparison.Ordinal)).WithParameter("newValue");
             ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).ReplaceBetween(2, 4, "XYZ", true)).WithParameter("source");
             ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween(2, 4, null, true)).WithParameter("newValue");
             ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(-1, 4, "XYZ", true)).WithParameter("start");
@@ -329,8 +327,8 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             Assert.AreEqual("defgabcdefg", testValue.RightSubstring("c", 1));
             Assert.AreEqual("defg", testValue.RightSubstring("c", 2));
             Assert.AreEqual("abcdefgabcdefg", testValue.RightSubstring("c", 3));
-            Assert.AreEqual("defgabcdefg", testValue.RightSubstring("c", 1, StringComparison.InvariantCultureIgnoreCase));
-            Assert.AreEqual("defg", testValue.RightSubstring("c", 2, StringComparison.InvariantCultureIgnoreCase));
+            Assert.AreEqual("defgabcdefg", testValue.RightSubstring("c", 1, StringComparison.Ordinal));
+            Assert.AreEqual("defg", testValue.RightSubstring("c", 2, StringComparison.Ordinal));
 
             ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).RightSubstring("c")).WithParameter("source");
             ExceptionAssert.Throws<ArgumentNullException>(() => testValue.RightSubstring(null)).WithParameter("value");
@@ -440,13 +438,13 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "cat", "hat" }));
             Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "hat", "cat" }));
 
-            Assert.IsTrue(testValue.EndsWithAny(new string[] { "test", "fox", "hat" }, StringComparison.OrdinalIgnoreCase));
-            Assert.IsTrue(testValue.EndsWithAny(new string[] { "fox", "test", "hat" }, StringComparison.OrdinalIgnoreCase));
-            Assert.IsTrue(testValue.EndsWithAny(new string[] { "fox", "hat", "test" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsTrue(testValue.EndsWithAny(new string[] { "test", "fox", "hat" }, StringComparison.Ordinal));
+            Assert.IsTrue(testValue.EndsWithAny(new string[] { "fox", "test", "hat" }, StringComparison.Ordinal));
+            Assert.IsTrue(testValue.EndsWithAny(new string[] { "fox", "hat", "test" }, StringComparison.Ordinal));
 
-            Assert.IsFalse(testValue.EndsWithAny(new string[] { "cat", "fox", "hat" }, StringComparison.OrdinalIgnoreCase));
-            Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "cat", "hat" }, StringComparison.OrdinalIgnoreCase));
-            Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "hat", "cat" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsFalse(testValue.EndsWithAny(new string[] { "cat", "fox", "hat" }, StringComparison.Ordinal));
+            Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "cat", "hat" }, StringComparison.Ordinal));
+            Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "hat", "cat" }, StringComparison.Ordinal));
         }
 
         [TestMethod]
@@ -462,13 +460,13 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             Assert.IsFalse(testValue.StartsWithAny(new string[] { "fox", "cat", "hat" }));
             Assert.IsFalse(testValue.StartsWithAny(new string[] { "fox", "hat", "cat" }));
 
-            Assert.IsTrue(testValue.StartsWithAny(new string[] { "this", "fox", "hat" }, StringComparison.OrdinalIgnoreCase));
-            Assert.IsTrue(testValue.StartsWithAny(new string[] { "fox", "this", "hat" }, StringComparison.OrdinalIgnoreCase));
-            Assert.IsTrue(testValue.StartsWithAny(new string[] { "fox", "hat", "this" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsTrue(testValue.StartsWithAny(new string[] { "this", "fox", "hat" }, StringComparison.Ordinal));
+            Assert.IsTrue(testValue.StartsWithAny(new string[] { "fox", "this", "hat" }, StringComparison.Ordinal));
+            Assert.IsTrue(testValue.StartsWithAny(new string[] { "fox", "hat", "this" }, StringComparison.Ordinal));
 
-            Assert.IsFalse(testValue.StartsWithAny(new string[] { "cat", "fox", "hat" }, StringComparison.OrdinalIgnoreCase));
-            Assert.IsFalse(testValue.StartsWithAny(new string[] { "fox", "cat", "hat" }, StringComparison.OrdinalIgnoreCase));
-            Assert.IsFalse(testValue.StartsWithAny(new string[] { "fox", "hat", "cat" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsFalse(testValue.StartsWithAny(new string[] { "cat", "fox", "hat" }, StringComparison.Ordinal));
+            Assert.IsFalse(testValue.StartsWithAny(new string[] { "fox", "cat", "hat" }, StringComparison.Ordinal));
+            Assert.IsFalse(testValue.StartsWithAny(new string[] { "fox", "hat", "cat" }, StringComparison.Ordinal));
         }
 
         [TestMethod]
@@ -484,13 +482,13 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "cat", "hat" }));
             Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "hat", "cat" }));
 
-            Assert.IsTrue(testValue.EqualsAny(new string[] { "ABCD", "fox", "hat" }, StringComparison.OrdinalIgnoreCase));
-            Assert.IsTrue(testValue.EqualsAny(new string[] { "fox", "ABCD", "hat" }, StringComparison.OrdinalIgnoreCase));
-            Assert.IsTrue(testValue.EqualsAny(new string[] { "fox", "hat", "ABCD" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsTrue(testValue.EqualsAny(new string[] { "ABCD", "fox", "hat" }, StringComparison.Ordinal));
+            Assert.IsTrue(testValue.EqualsAny(new string[] { "fox", "ABCD", "hat" }, StringComparison.Ordinal));
+            Assert.IsTrue(testValue.EqualsAny(new string[] { "fox", "hat", "ABCD" }, StringComparison.Ordinal));
 
-            Assert.IsFalse(testValue.EqualsAny(new string[] { "cat", "fox", "hat" }, StringComparison.OrdinalIgnoreCase));
-            Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "cat", "hat" }, StringComparison.OrdinalIgnoreCase));
-            Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "hat", "cat" }, StringComparison.OrdinalIgnoreCase));
+            Assert.IsFalse(testValue.EqualsAny(new string[] { "cat", "fox", "hat" }, StringComparison.Ordinal));
+            Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "cat", "hat" }, StringComparison.Ordinal));
+            Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "hat", "cat" }, StringComparison.Ordinal));
         }
     }
 }

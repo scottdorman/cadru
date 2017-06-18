@@ -6,7 +6,7 @@
     using System;
     using System.Diagnostics.CodeAnalysis;
 
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass, ExcludeFromCodeCoverageAttribute]
     public class ComparisonComparerTests
     {
         /// <summary>

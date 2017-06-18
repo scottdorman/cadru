@@ -11,9 +11,9 @@
     <PackageReference Include="MSTest.TestFramework" Version="1.1.18" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Cadru.Collections\Cadru.Collections.csproj">
-      <Project>{36348068-2746-4137-adf3-8091f680c8f6}</Project>
-      <Name>Cadru.Collections</Name>
+    <ProjectReference Include="..\..\src\Cadru.Environment\Cadru.Environment.csproj">
+      <Project>{bc877570-9b31-41cb-9822-7b0c3bf77596}</Project>
+      <Name>Cadru.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\src\Cadru.UnitTest.Framework\Cadru.UnitTest.Framework.csproj">
       <Project>{b408912a-a6fe-4e76-bf2a-fbf9c012d283}</Project>

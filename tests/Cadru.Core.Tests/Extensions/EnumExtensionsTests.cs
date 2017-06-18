@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Cadru.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Cadru.Extensions;
-using Cadru.UnitTest.Framework;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
@@ -24,11 +23,11 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             string actual;
             ExceptionAssert.Throws<ArgumentNullException>(() => actual = value.GetDescription()).WithParameter("value");
 
-            // This enum has the Flags and ComVisible(true) attributes,
+            // This enum has the Flags attribute,
             // but not a Description attribute, so the description should
             // be the enum value.
-            Assert.AreEqual("None", System.AppDomainManagerInitializationOptions.None.GetDescription());
-            Assert.AreEqual(null, System.AppDomainManagerInitializationOptions.None.GetDescription(false));
+            Assert.AreEqual("None", System.Net.DecompressionMethods.None.GetDescription());
+            Assert.AreEqual(null, System.Net.DecompressionMethods.None.GetDescription(false));
 
             // This enum has no attributes, so the description should be the enum value.
             Assert.AreEqual("SafeUnescaped", System.UriFormat.SafeUnescaped.GetDescription());
@@ -47,11 +46,11 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             string actual;
             ExceptionAssert.Throws<ArgumentNullException>(() => actual = value.GetDescription()).WithParameter("value");
 
-            // This enum has the Flags and ComVisible(true) attributes,
+            // This enum has the Flags attribute,
             // but not a Description attribute, so the description should
             // be the enum value.
-            Assert.AreEqual("None", Enum<AppDomainManagerInitializationOptions>.GetDescription(AppDomainManagerInitializationOptions.None));
-            Assert.AreEqual(null, Enum<AppDomainManagerInitializationOptions>.GetDescription(AppDomainManagerInitializationOptions.None, false));
+            Assert.AreEqual("None", Enum<System.Net.DecompressionMethods>.GetDescription(System.Net.DecompressionMethods.None));
+            Assert.AreEqual(null, Enum<System.Net.DecompressionMethods>.GetDescription(System.Net.DecompressionMethods.None, false));
 
             // This enum has no attributes, so the description should be the enum value.
             Assert.AreEqual("SafeUnescaped", Enum<UriFormat>.GetDescription(UriFormat.SafeUnescaped));
@@ -73,8 +72,8 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             // This enum has the Flags and ComVisible(true) attributes,
             // but not a Description attribute, so the description should
             // be the enum value.
-            CollectionAssert.AreEqual(new[] { "None", "RegisterWithHost" } , Enum<AppDomainManagerInitializationOptions>.GetDescriptions().ToArray());
-            CollectionAssert.AreEqual(new string[] { null, null }, Enum<AppDomainManagerInitializationOptions>.GetDescriptions(false).ToArray());
+            CollectionAssert.AreEqual(new[] { "None", "GZip", "Deflate" }, Enum<System.Net.DecompressionMethods>.GetDescriptions().ToArray());
+            CollectionAssert.AreEqual(new string[] { null, null, null }, Enum<System.Net.DecompressionMethods>.GetDescriptions(false).ToArray());
 
             // This enum has no attributes, so the description should be the enum value.
             CollectionAssert.AreEqual(new[] { "UriEscaped", "Unescaped", "SafeUnescaped" }, Enum<UriFormat>.GetDescriptions().ToArray());

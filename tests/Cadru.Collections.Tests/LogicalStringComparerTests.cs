@@ -1,13 +1,9 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Collections;
-
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using Cadru.Collections;
-using System.Diagnostics.CodeAnalysis;
+﻿using Cadru.Collections;
 using Cadru.UnitTest.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Cadru.UnitTests.Collections
 {
@@ -173,7 +169,7 @@ namespace Cadru.UnitTests.Collections
             Assert.IsTrue(comparer.Compare("=1", "[1") < 0);
             Assert.IsTrue(comparer.Compare("[1", "=1") > 0);
             Assert.IsTrue(comparer.Compare("=1", "=1") == 0);
-            
+
             Assert.IsFalse(comparer.Compare("abc", "[1") < 0);
             Assert.IsFalse(comparer.Compare("[1", "abc") > 0);
             Assert.IsTrue(comparer.Compare("[1", "[1") == 0);
@@ -233,7 +229,7 @@ namespace Cadru.UnitTests.Collections
 
             Assert.IsTrue(comparer.Compare("10", "100") < 0);
             Assert.IsTrue(comparer.Compare("100", "10") > 0);
-            
+
             Assert.IsTrue(comparer.Compare("q\u8030R0P\0", "q\u8030r0pR") == -1);
             Assert.IsTrue(comparer.Compare("q\u8030\u8030B0\u80300", "q\u8030\u8030b0\u80300") == 0);
 
@@ -299,7 +295,7 @@ namespace Cadru.UnitTests.Collections
         public void Equals()
         {
             LogicalStringComparer comparer = LogicalStringComparer.Default as LogicalStringComparer;
- 
+
             Assert.IsFalse(comparer.Equals("abc", "def"));
             Assert.IsTrue(comparer.Equals("abc", "abc"));
 

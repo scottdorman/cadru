@@ -16,8 +16,6 @@ namespace Cadru.UnitTest.Framework.UnitTests
         private readonly decimal de2 = 83.4M;
         private readonly double d1 = 4.85948654;
         private readonly double d2 = 8.0;
-        private readonly System.Enum e1 = System.Data.CommandType.StoredProcedure;
-        private readonly System.Enum e2 = System.Data.CommandType.TableDirect;
 
         [TestMethod]
         public void Less()
@@ -53,7 +51,7 @@ namespace Cadru.UnitTest.Framework.UnitTests
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void NotLessIComparable()
         {
-            ConditionAssert.Less(e2, e1);
+            ConditionAssert.Less(System.Net.DecompressionMethods.Deflate, System.Net.DecompressionMethods.GZip);
         }
 
         [TestMethod]

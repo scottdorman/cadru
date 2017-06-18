@@ -84,6 +84,11 @@ namespace Cadru.Data.Excel
                 if (this.reader.ElementType == typeof(Row))
                 {
                     currentRow = this.reader.LoadCurrentElement();
+                    if (Int32.TryParse(currentRow.GetAttribute("r", String.Empty).Value, out int rowIndex))
+                    {
+                        this.currentRowIndex = rowIndex;
+                    }
+
                     if (IsRowEmpty(currentRow))
                     {
                         continue;
@@ -104,24 +109,25 @@ namespace Cadru.Data.Excel
 
         private static IEnumerable<Cell> AdjustRow(OpenXmlElement row, int capacity)
         {
-            if (row == null)
+            var currentCount = 0;
+            var currentColumnIndex = 0;
+            foreach (var cell in row.Descendants<Cell>())
             {
-                return new Cell[] { };
+                currentColumnIndex = GetColumnIndexByName(cell.CellReference);
+
+                for (; currentCount < currentColumnIndex; currentCount++)
+                {
+                    yield return new Cell();
+                }
+
+                yield return cell;
+                currentCount++;
             }
 
-            var cells = row.Elements<Cell>().ToArray();
-            if (capacity == -1)
+            for (; currentCount < capacity; currentCount++)
             {
-                capacity = cells.Count();
+                yield return new Cell();
             }
-
-            var list = cells.OrderBy(x => GetColumnIndexByName(x.CellReference.Value)).Take(capacity).ToList();
-            while (list.Count() < capacity)
-            {
-                list.Add(new Cell());
-            }
-
-            return list;
         }
 
         private string GetCellValue(CellType cell)

@@ -1,14 +1,7 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Collections;
-
+﻿using Cadru.Collections;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using Cadru.Collections;
-using System.Net;
+using System;
 using System.Diagnostics.CodeAnalysis;
-using Cadru.UnitTest.Framework;
 
 namespace Cadru.UnitTest.Framework.UnitTests.Collections
 {
@@ -23,7 +16,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Collections
         {
             var comparer = ReverseComparisonComparer<DateTime>.Create((a, b) => a.Date.Month.CompareTo(b.Date.Month));
             var x = new DateTime(2006, 10, 31);
-            var y= new DateTime(2006, 11, 1);
+            var y = new DateTime(2006, 11, 1);
 
             Assert.IsTrue(comparer.Compare(x, y) > 0);
             Assert.IsTrue(comparer.Compare(y, x) < 0);

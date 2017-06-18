@@ -1,14 +1,9 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Collections;
-
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using Cadru.Collections;
-using System.Net;
-using System.Diagnostics.CodeAnalysis;
+﻿using Cadru.Collections;
 using Cadru.UnitTest.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Cadru.UnitTests.Collections
 {
@@ -323,7 +318,7 @@ namespace Cadru.UnitTests.Collections
             Assert.AreEqual(String.Empty.GetHashCode(), comparer.GetHashCode(String.Empty));
 
             string c = "abc";
-            Assert.AreEqual(c.GetHashCode(), comparer.GetHashCode(c)); 
+            Assert.AreEqual(c.GetHashCode(), comparer.GetHashCode(c));
         }
     }
 }

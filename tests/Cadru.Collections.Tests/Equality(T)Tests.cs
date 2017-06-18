@@ -1,14 +1,8 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Collections;
-
+﻿using Cadru.Collections;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using Cadru.Collections;
-using System.Net;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using Cadru.UnitTest.Framework;
 using System.Linq;
 
 namespace Cadru.UnitTest.Framework.UnitTests.Collections

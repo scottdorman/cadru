@@ -22,11 +22,11 @@
 
 namespace Cadru.Globalization
 {
+    using Cadru.Core.Resources;
+    using Contracts;
     using System;
     using System.Globalization;
     using System.Reflection;
-    using Cadru.Core.Resources;
-    using Contracts;
 
     /// <summary>
     /// A helper class for providing a localizable string property.
@@ -71,7 +71,7 @@ namespace Cadru.Globalization
             {
                 if (this.resourceType != value)
                 {
-                    this.cachedResult = null;
+                    ClearCache();
                     this.resourceType = value;
                 }
             }
@@ -96,7 +96,7 @@ namespace Cadru.Globalization
             {
                 if (this.propertyValue != value)
                 {
-                    this.cachedResult = null;
+                    ClearCache();
                     this.propertyValue = value;
                 }
             }
@@ -106,6 +106,15 @@ namespace Cadru.Globalization
         #endregion
 
         #region Methods
+
+        /// <summary>
+        ///     Clears any cached values, forcing <see cref="GetLocalizableValue" /> to
+        ///     perform evaluation.
+        /// </summary>
+        private void ClearCache()
+        {
+            this.cachedResult = null;
+        }
 
         #region IsBadlyConfigured
         private static bool IsBadlyConfigured(Type resourceType, PropertyInfo property)
@@ -121,8 +130,7 @@ namespace Cadru.Globalization
             else
             {
                 // Ensure the getter for the property is available as public static
-                MethodInfo getter = property.GetMethod;
-
+                var getter = property.GetMethod;
                 if (getter == null || !(getter.IsPublic && getter.IsStatic))
                 {
                     badlyConfigured = true;
@@ -167,16 +175,18 @@ namespace Cadru.Globalization
                 }
                 else
                 {
-                    PropertyInfo property = this.resourceType.GetTypeInfo().GetDeclaredProperty(this.propertyValue);
+                    // Get the property from the resource type for this resource key
+                    var property = this.resourceType.GetRuntimeProperty(this.propertyValue);
 
                     if (IsBadlyConfigured(this.resourceType, property))
                     {
-                        string exceptionMessage = String.Format(CultureInfo.CurrentCulture, Strings.InvalidOperation_LocalizationFailed,
+                        var exceptionMessage = String.Format(CultureInfo.CurrentCulture, Strings.InvalidOperation_LocalizationFailed,
                             this.propertyName, this.resourceType.FullName, this.propertyValue);
                         this.cachedResult = () => { throw new InvalidOperationException(exceptionMessage); };
                     }
                     else
                     {
+                        // We have a valid property, so cache the resource
                         this.cachedResult = () => (string)property.GetValue(null, null);
                     }
                 }

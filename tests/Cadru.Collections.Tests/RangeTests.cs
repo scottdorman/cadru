@@ -1,14 +1,8 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Collections;
-
+﻿using Cadru.Collections;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using Cadru.Collections;
-using System.Net;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using Cadru.UnitTest.Framework;
 using System.Linq;
 
 namespace Cadru.UnitTest.Framework.UnitTests.Collections
@@ -228,7 +222,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Collections
             Assert.AreEqual("[1, 6]", range.ToString());
             range = new Range<int>(-10, 6, RangeEndpointOption.Open).Intersect(new Range<int>(1, 10, RangeEndpointOption.Closed));
             Assert.AreEqual("[1, 6)", range.ToString());
-            
+
             range = new Range<int>(-10, 6, RangeEndpointOption.Closed).Intersect(new Range<int>(1, 10, RangeEndpointOption.LeftHalfOpen));
             Assert.AreEqual("(1, 6)", range.ToString());
             range = new Range<int>(-10, 6, RangeEndpointOption.Closed).Intersect(new Range<int>(1, 10, RangeEndpointOption.RightHalfOpen));
