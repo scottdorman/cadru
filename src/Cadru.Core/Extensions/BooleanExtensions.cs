@@ -112,13 +112,13 @@ namespace Cadru.Extensions
         /// <param name="value">A string containing the value to convert. </param>
         /// <param name="result">When this method returns, if the conversion succeeded, contains
         /// <see langword="true"/>true if <paramref name="value"/> is equal to
-        /// <see cref="p:Boolean.TrueString"/>, the character 'T', the word "Yes", or the character 'Y'
+        /// <see cref="BooleanTrueString"/>, the character 'T', the word "Yes", or the character 'Y'
         /// or <see langword="false"/> if <paramref name="value"/> is equal to
-        /// <see cref="p:Boolean.FalseString"/>, the character 'F', the word "No", or the character 'N'.
+        /// <see cref="BooleanFalseString"/>, the character 'F', the word "No", or the character 'N'.
         /// If the conversion failed, contains <see langword="false"/>. The conversion fails if
         /// <paramref name="value"/> is <see langword="null"/> or is not equal to the value of
-        /// either <see cref="p:Boolean.TrueString"/>, the character 'T', the word "Yes", or the character 'Y',
-        /// <see cref="p:Boolean.FalseString"/>, the character 'F', the word "No", or the character 'N'.</param>
+        /// either <see cref="BooleanTrueString"/>, the character 'T', the word "Yes", or the character 'Y',
+        /// <see cref="BooleanFalseString"/>, the character 'F', the word "No", or the character 'N'.</param>
         /// <returns><see langword="true"/> if value was converted successfully; otherwise, <see langword="false"/>.</returns>
         public static bool TryParseAsBoolean(this string value, out bool result)
         {

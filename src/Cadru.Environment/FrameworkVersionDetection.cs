@@ -289,7 +289,7 @@ namespace Cadru.Environment
         /// </returns>
         public static Version GetExactVersion(WindowsFoundationLibrary foundationLibrary)
         {
-            Version version = new Version(0, 0, 0, 0);
+            var version = new Version(0, 0, 0, 0);
 
             switch (foundationLibrary)
             {
@@ -335,7 +335,7 @@ namespace Cadru.Environment
         /// </returns>
         public static int GetServicePackLevel(FrameworkVersion frameworkVersion)
         {
-            int servicePackLevel = -1;
+            var servicePackLevel = -1;
 
             switch (frameworkVersion)
             {
@@ -398,7 +398,7 @@ namespace Cadru.Environment
         /// </returns>
         public static int GetServicePackLevel(WindowsFoundationLibrary foundationLibrary)
         {
-            int servicePackLevel = -1;
+            var servicePackLevel = -1;
 
             switch (foundationLibrary)
             {
@@ -499,7 +499,7 @@ namespace Cadru.Environment
         /// Foundation Library is installed; otherwise <see langword="false"/>.</returns>
         public static bool IsInstalled(WindowsFoundationLibrary foundationLibrary)
         {
-            bool ret = false;
+            var ret = false;
 
             switch (foundationLibrary)
             {
@@ -622,8 +622,8 @@ namespace Cadru.Environment
         /// </returns>
         private static bool GetCoreFrameworkVersion(FrameworkVersion frameworkVersion, out Version version)
         {
-            bool valid = false;
-            string installPath = GetCorePath(frameworkVersion);
+            var valid = false;
+            var installPath = GetCorePath(frameworkVersion);
             FileVersionInfo fvi = null;
             version = null;
             if (!String.IsNullOrEmpty(installPath))
@@ -648,7 +648,7 @@ namespace Cadru.Environment
         /// path for the .NET Framework.</returns>
         private static string GetInstallRoot()
         {
-            string installRoot = String.Empty;
+            var installRoot = String.Empty;
             if (!GetRegistryValue(RegistryHive.LocalMachine, NetfxInstallRootRegKeyName, NetFxInstallRootRegValueName, RegistryValueKind.String, out installRoot))
             {
                 throw new DirectoryNotFoundException(Strings.ApplicationExcpetion_UnableToDetermineInstallRoot);
@@ -668,7 +668,7 @@ namespace Cadru.Environment
         /// </returns>
         private static string GetCorePath(FrameworkVersion frameworkVersion)
         {
-            string ret = String.Empty;
+            var ret = String.Empty;
 
             switch (frameworkVersion)
             {
@@ -717,8 +717,8 @@ namespace Cadru.Environment
             Justification = "In this case, we're already defaulting the out parameter but want to make sure the Parse isn't going to throw an exception.")]
         private static int GetNetfx10SPLevel()
         {
-            bool foundKey = false;
-            int servicePackLevel = -1;
+            var foundKey = false;
+            var servicePackLevel = -1;
             string regValue;
 
             if (IsTabletOrMediaCenter())
@@ -735,7 +735,7 @@ namespace Cadru.Environment
                 // This registry value should be of the format
                 // #,#,#####,# where the last # is the SP level
                 // Try to parse off the last # here
-                int index = regValue.LastIndexOf(',');
+                var index = regValue.LastIndexOf(',');
                 if (index > 0)
                 {
                     Int32.TryParse(regValue.Substring(index + 1), out servicePackLevel);
@@ -756,14 +756,12 @@ namespace Cadru.Environment
         /// level for the .NET Framework.</returns>
         private static int GetNetfxSPLevel(string key, string value)
         {
-            int regValue = 0;
-
             // We can only get -1 if the .NET Framework is not
             // installed or there was some kind of error retrieving
             // the data from the registry
-            int servicePackLevel = -1;
+            var servicePackLevel = -1;
 
-            if (GetRegistryValue(RegistryHive.LocalMachine, key, value, RegistryValueKind.DWord, out regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, key, value, RegistryValueKind.DWord, out int regValue))
             {
                 servicePackLevel = regValue;
             }
@@ -787,8 +785,8 @@ namespace Cadru.Environment
         /// </returns>
         private static Version GetNetfx10ExactVersion()
         {
-            bool foundKey = false;
-            Version version = new Version(0, 0, 0, 0);
+            var foundKey = false;
+            var version = new Version(0, 0, 0, 0);
             string regValue;
 
             if (IsTabletOrMediaCenter())
@@ -805,10 +803,10 @@ namespace Cadru.Environment
                 // This registry value should be of the format
                 // #,#,#####,# where the last # is the SP level
                 // Try to parse off the last # here
-                int index = regValue.LastIndexOf(',');
+                var index = regValue.LastIndexOf(',');
                 if (index > 0)
                 {
-                    string[] tokens = regValue.Substring(0, index).Split(',');
+                    var tokens = regValue.Substring(0, index).Split(',');
                     if (tokens.Length == 3)
                     {
                         version = new Version(Convert.ToInt32(tokens[0], NumberFormatInfo.InvariantInfo), Convert.ToInt32(tokens[1], NumberFormatInfo.InvariantInfo), Convert.ToInt32(tokens[2], NumberFormatInfo.InvariantInfo));
@@ -831,20 +829,18 @@ namespace Cadru.Environment
         /// </returns>
         private static Version GetNetfx11ExactVersion()
         {
-            int regValue = 0;
-
             // We can only get -1 if the .NET Framework is not
             // installed or there was some kind of error retrieving
             // the data from the registry
-            Version version = new Version(0, 0, 0, 0);
+            var version = new Version(0, 0, 0, 0);
 
-            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx11RegKeyName, NetfxStandardRegValueName, RegistryValueKind.DWord, out regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx11RegKeyName, NetfxStandardRegValueName, RegistryValueKind.DWord, out int regValue))
             {
                 if (regValue == 1)
                 {
                     // In the strict sense, we are cheating here, but the registry key name itself
                     // contains the version number.
-                    string[] tokens = Netfx11RegKeyName.Split(new string[] { "NDP\\v" }, StringSplitOptions.None);
+                    var tokens = Netfx11RegKeyName.Split(new string[] { "NDP\\v" }, StringSplitOptions.None);
                     if (tokens.Length == 2)
                     {
                         version = new Version(tokens[1]);
@@ -867,12 +863,12 @@ namespace Cadru.Environment
         /// </returns>
         private static Version GetNetfx20ExactVersion()
         {
-            string regValue = String.Empty;
+            var regValue = String.Empty;
 
             // We can only get -1 if the .NET Framework is not
             // installed or there was some kind of error retrieving
             // the data from the registry
-            Version version = new Version(0, 0, 0, 0);
+            var version = new Version(0, 0, 0, 0);
 
             // If we have a Version registry value, use that.
             try
@@ -887,10 +883,10 @@ namespace Cadru.Environment
                 {
                     if (!String.IsNullOrEmpty(regValue))
                     {
-                        string[] versionTokens = Netfx20RegKeyName.Split(new string[] { "NDP\\v" }, StringSplitOptions.None);
+                        var versionTokens = Netfx20RegKeyName.Split(new string[] { "NDP\\v" }, StringSplitOptions.None);
                         if (versionTokens.Length == 2)
                         {
-                            string[] tokens = versionTokens[1].Split('.');
+                            var tokens = versionTokens[1].Split('.');
                             if (tokens.Length == 3)
                             {
                                 version = new Version(Convert.ToInt32(tokens[0], NumberFormatInfo.InvariantInfo), Convert.ToInt32(tokens[1], NumberFormatInfo.InvariantInfo), Convert.ToInt32(tokens[2], NumberFormatInfo.InvariantInfo), Convert.ToInt32(regValue, NumberFormatInfo.InvariantInfo));
@@ -916,12 +912,12 @@ namespace Cadru.Environment
         /// version is not found.</returns>
         private static Version GetNetfxExactVersion(string key, string value)
         {
-            string regValue = String.Empty;
+            var regValue = String.Empty;
 
             // We can only get the default version if the .NET Framework
             // is not installed or there was some kind of error retrieving
             // the data from the registry
-            Version version = new Version(0, 0, 0, 0);
+            var version = new Version(0, 0, 0, 0);
 
             if (GetRegistryValue(RegistryHive.LocalMachine, key, value, RegistryValueKind.String, out regValue))
             {
@@ -1250,8 +1246,8 @@ namespace Cadru.Environment
         /// installed; otherwise <see langword="false"/>.</returns>
         private static bool IsNetfx30CardSpaceInstalled()
         {
-            bool found = false;
-            string regValue = String.Empty;
+            var found = false;
+            var regValue = String.Empty;
 
             if (GetRegistryValue(RegistryHive.LocalMachine, CardSpaceServicesRegKeyName, CardSpaceServicesPlusImagePathRegName, RegistryValueKind.ExpandString, out regValue))
             {
@@ -1291,19 +1287,19 @@ namespace Cadru.Environment
         /// </returns>
         private static Version GetNetfx30CardSpaceExactVersion()
         {
-            string regValue = String.Empty;
+            var regValue = String.Empty;
 
             // We can only get the default version if the .NET Framework
             // is not installed or there was some kind of error retrieving
             // the data from the registry
-            Version version = new Version(0, 0, 0, 0);
+            var version = new Version(0, 0, 0, 0);
 
             if (GetRegistryValue(RegistryHive.LocalMachine, CardSpaceServicesRegKeyName, CardSpaceServicesPlusImagePathRegName, RegistryValueKind.ExpandString, out regValue))
             {
                 if (!String.IsNullOrEmpty(regValue))
                 {
-                    FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(regValue.Trim('"'));
-                    int index = fileVersionInfo.FileVersion.IndexOf(' ');
+                    var fileVersionInfo = FileVersionInfo.GetVersionInfo(regValue.Trim('"'));
+                    var index = fileVersionInfo.FileVersion.IndexOf(' ');
                     version = new Version(fileVersionInfo.FileVersion.Substring(0, index));
                 }
             }
@@ -1324,10 +1320,9 @@ namespace Cadru.Environment
         /// installed; otherwise <see langword="false"/>.</returns>
         private static bool IsNetfx30WCFInstalled()
         {
-            bool found = false;
-            int regValue = 0;
+            var found = false;
 
-            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWCFRegKeyName, Netfx30RegValueName, RegistryValueKind.DWord, out regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWCFRegKeyName, Netfx30RegValueName, RegistryValueKind.DWord, out int regValue))
             {
                 if (regValue == 1)
                 {
@@ -1365,7 +1360,7 @@ namespace Cadru.Environment
         /// </returns>
         private static Version GetNetfx30WCFExactVersion()
         {
-            string regValue = String.Empty;
+            var regValue = String.Empty;
 
             // We can only get the default version if the .NET Framework
             // is not installed or there was some kind of error retrieving
@@ -1396,10 +1391,9 @@ namespace Cadru.Environment
         /// installed; otherwise <see langword="false"/>.</returns>
         private static bool IsNetfx30WPFInstalled()
         {
-            bool found = false;
-            int regValue = 0;
+            var found = false;
 
-            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWPFRegKeyName, Netfx30RegValueName, RegistryValueKind.DWord, out regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWPFRegKeyName, Netfx30RegValueName, RegistryValueKind.DWord, out int regValue))
             {
                 if (regValue == 1)
                 {
@@ -1437,12 +1431,12 @@ namespace Cadru.Environment
         /// </returns>
         private static Version GetNetfx30WPFExactVersion()
         {
-            string regValue = String.Empty;
+            var regValue = String.Empty;
 
             // We can only get the default version if the .NET Framework
             // is not installed or there was some kind of error retrieving
             // the data from the registry
-            Version version = new Version(0, 0, 0, 0);
+            var version = new Version(0, 0, 0, 0);
 
             if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWPFRegKeyName, NetfxStandardVersionRegValueName, RegistryValueKind.String, out regValue))
             {
@@ -1468,10 +1462,9 @@ namespace Cadru.Environment
         /// installed; otherwise <see langword="false"/>.</returns>
         private static bool IsNetfx30WFInstalled()
         {
-            bool found = false;
-            int regValue = 0;
+            var found = false;
 
-            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWFRegKeyName, Netfx30RegValueName, RegistryValueKind.DWord, out regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWFRegKeyName, Netfx30RegValueName, RegistryValueKind.DWord, out int regValue))
             {
                 if (regValue == 1)
                 {
@@ -1509,12 +1502,12 @@ namespace Cadru.Environment
         /// </returns>
         private static Version GetNetfx30WFExactVersion()
         {
-            string regValue = String.Empty;
+            var regValue = String.Empty;
 
             // We can only get the default version if the .NET Framework
             // is not installed or there was some kind of error retrieving
             // the data from the registry
-            Version version = new Version(0, 0, 0, 0);
+            var version = new Version(0, 0, 0, 0);
 
             if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWFRegKeyName, Netfx30PlusWFPlusVersionRegValueName, RegistryValueKind.String, out regValue))
             {

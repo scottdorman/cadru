@@ -46,7 +46,7 @@ namespace Cadru.UnitTests.Environment
         [TestMethod]
         public void GetExactVersion()
         {
-            Version emptyVersion = new Version(0, 0, 0, 0);
+            var emptyVersion = new Version(0, 0, 0, 0);
 
             Assert.AreEqual(emptyVersion, FrameworkVersionDetection.GetExactVersion(FrameworkVersion.Fx11));
             Assert.AreNotEqual(emptyVersion, FrameworkVersionDetection.GetExactVersion(FrameworkVersion.Fx20));
@@ -80,7 +80,7 @@ namespace Cadru.UnitTests.Environment
         [TestMethod]
         public void GetFoundationLibraryExactVersion()
         {
-            Version emptyVersion = new Version(0, 0, 0, 0);
+            var emptyVersion = new Version(0, 0, 0, 0);
 
             Assert.AreEqual(emptyVersion, FrameworkVersionDetection.GetExactVersion(WindowsFoundationLibrary.CardSpace));
             Assert.AreNotEqual(emptyVersion, FrameworkVersionDetection.GetExactVersion(WindowsFoundationLibrary.WCF));
@@ -94,10 +94,10 @@ namespace Cadru.UnitTests.Environment
         {
             try
             {
-                using (RegistryKey regKey = Registry.LocalMachine.CreateSubKey(@"Software\\Microsoft\\Active Setup\\Installed Components\\{78705f0d-e8db-4b2d-8193-982bdda15ecd}"))
+                using (var regKey = Registry.LocalMachine.CreateSubKey(@"Software\\Microsoft\\Active Setup\\Installed Components\\{78705f0d-e8db-4b2d-8193-982bdda15ecd}"))
                 {
                     regKey.SetValue("Version", "1,0,0000,1");
-                    Version emptyVersion = new Version(0, 0, 0, 0);
+                    var emptyVersion = new Version(0, 0, 0, 0);
 
                     Assert.AreEqual(FrameworkVersionDetection.GetServicePackLevel(FrameworkVersion.Fx10), 1);
                     Assert.AreNotEqual(emptyVersion, FrameworkVersionDetection.GetExactVersion(FrameworkVersion.Fx10));
