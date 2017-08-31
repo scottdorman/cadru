@@ -1,8 +1,8 @@
 ﻿namespace Cadru.Data.Excel
 {
-    using Cadru.Extensions;
     using System;
     using System.Linq;
+    using Cadru.Extensions;
 
     /// <summary>
     /// Defines the <see cref=ExcelDataReaderExtensions />

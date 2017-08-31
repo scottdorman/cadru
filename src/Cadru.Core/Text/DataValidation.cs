@@ -69,7 +69,7 @@ namespace Cadru.Text
         /// contains alphabetic characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsAlpha(char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains alphabetic
+        /// <returns><see cref="IsAlpha(Char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains alphabetic
         /// characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Alphabetic characters are any letters A-Z or a-z, the
         /// punctuation characters and the space character.</remarks>

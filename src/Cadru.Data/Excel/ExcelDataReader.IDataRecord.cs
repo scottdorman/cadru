@@ -180,11 +180,23 @@ namespace Cadru.Data.Excel
         public int GetValues(object[] values)
         {
             var num = values.Length < this.headers.Count ? values.Length : this.headers.Count;
-            var row = this.currentRowData.Select(this.GetCellValue).ToArray();
-            for (var i = 0; i < num; i++)
+            if (this.currentRowData == null)
             {
-                values[i] = row[i];
+                values = new object[num];
+                for (var i = 0; i < num; i++)
+                {
+                    values[i] = DBNull.Value;
+                }
             }
+            else
+            {
+                var row = this.currentRowData.Select(this.GetCellValue).ToArray();
+                for (var i = 0; i < num; i++)
+                {
+                    values[i] = row[i];
+                }
+            }
+
             return num;
         }
 

@@ -22,13 +22,13 @@
 
 namespace Cadru.Data.Excel
 {
-    using DocumentFormat.OpenXml;
-    using DocumentFormat.OpenXml.Packaging;
-    using DocumentFormat.OpenXml.Spreadsheet;
     using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
+    using DocumentFormat.OpenXml;
+    using DocumentFormat.OpenXml.Packaging;
+    using DocumentFormat.OpenXml.Spreadsheet;
 
     public partial class ExcelDataReader : IDataReader
     {
@@ -60,12 +60,12 @@ namespace Cadru.Data.Excel
                 return false;
             }
 
-            this.currentIndex++;
             Reset();
+            this.currentIndex++;
             return true;
         }
 
-        public bool Read()
+        private void FirstRead()
         {
             if (this.firstRead)
             {
@@ -76,6 +76,11 @@ namespace Cadru.Data.Excel
                 this.headers = this.FirstRowAsHeader ? GetFirstRowAsHeaders(currentWorksheetPart) : GetRangeHeaders(currentWorksheetPart);
                 this.firstRead = false;
             }
+        }
+
+        public bool Read()
+        {
+            FirstRead();
 
             OpenXmlElement currentRow = null;
 
@@ -100,6 +105,11 @@ namespace Cadru.Data.Excel
             }
 
             return currentRow != null && !this.reader.EOF;
+        }
+
+        public bool IsCurrentRowEmpty()
+        {
+            return this.currentRowData == null || !this.currentRowData.Any();
         }
 
         private bool IsRowEmpty(OpenXmlElement row)
@@ -208,7 +218,7 @@ namespace Cadru.Data.Excel
                 }
             }
 
-            return Enumerable.Range(0, count).Select(x => "col" + x).ToArray();
+            return Enumerable.Range(0, count).Select(x => "col" + x).ToList();
         }
 
         private Sheet GetSheetByIndex(int sheetIndex)
@@ -259,7 +269,10 @@ namespace Cadru.Data.Excel
 
         private void Reset()
         {
+            this.currentIndex = 0;
+            this.currentRowIndex = null;
             this.currentRowData = null;
+            this.currentSheet = null;
             this.headers?.Clear();
             this.firstRead = true;
         }

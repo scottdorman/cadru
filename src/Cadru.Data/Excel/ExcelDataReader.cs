@@ -22,13 +22,13 @@
 
 namespace Cadru.Data.Excel
 {
-    using DocumentFormat.OpenXml;
-    using DocumentFormat.OpenXml.Packaging;
-    using DocumentFormat.OpenXml.Spreadsheet;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
+    using DocumentFormat.OpenXml;
+    using DocumentFormat.OpenXml.Packaging;
+    using DocumentFormat.OpenXml.Spreadsheet;
 
     public partial class ExcelDataReader
     {
@@ -79,10 +79,13 @@ namespace Cadru.Data.Excel
 
         public string CurrentSheetId => this.currentSheet?.Id ?? String.Empty;
 
+        public int CurrentSheetIndex => this.currentIndex;
+
         public IEnumerable<string> SheetNames => this.sheets?.Select(s => s.Name.Value) ?? Enumerable.Empty<string>();
 
-        public bool NextResult(string sheetName)
+        public bool NextResult(string sheetName, bool firstRowAsHeader)
         {
+            this.FirstRowAsHeader = firstRowAsHeader;
             var sheet = GetSheetByName(sheetName);
 
             if (sheet == null)
@@ -90,9 +93,15 @@ namespace Cadru.Data.Excel
                 return false;
             }
 
-            this.currentIndex = this.sheets.IndexOf(sheet);
             Reset();
+            this.currentIndex = this.sheets.IndexOf(sheet);
+            FirstRead();
             return true;
+        }
+
+        public bool NextResult(string sheetName)
+        {
+            return NextResult(sheetName, false);
         }
 
         private static IDictionary<int, string> GetSharedStrings(SpreadsheetDocument document)

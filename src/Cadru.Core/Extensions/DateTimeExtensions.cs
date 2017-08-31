@@ -22,13 +22,13 @@
 
 namespace Cadru.Extensions
 {
+    using Cadru.Core.Resources;
+    using Cadru.Internal;
+    using Cadru.Text;
     using System;
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
-    using Cadru.Core.Resources;
-    using Cadru.Internal;
-    using Cadru.Text;
 
     /// <summary>
     /// Provides basic routines for common DateTime manipulation.
@@ -803,6 +803,65 @@ namespace Cadru.Extensions
         public static DateTime Yesterday(this DateTime value)
         {
             return value.AddDays(-1);
+        }
+        #endregion
+
+        public static bool TryParseFromSerialDate(this double serialDateValue, out DateTime date)
+        {
+#if NET45
+            try
+            {
+                date = new DateTime.FromOADate(serialDateValue);
+                return true;
+            }
+            catch
+            {
+                date = DateTime.MinValue;
+                return false;
+            }
+#else
+            var num = (long)((serialDateValue * 86400000.0) + ((serialDateValue >= 0.0) ? 0.5 : -0.5));
+            if (num < 0L)
+            {
+                num -= (num % 0x5265c00L) * 2L;
+            }
+            num += 0x3680b5e1fc00L;
+            num -= 62135596800000L;
+            try
+            {
+                date = new DateTime(num);
+                return true;
+            }
+            catch
+            {
+                date = DateTime.MinValue;
+                return false;
+            }
+#endif
+        }
+
+        #region ToDateTime
+        /// <summary>
+        /// Returns a <see cref="DateTime"/> equivalent to the specified
+        /// serial date.
+        /// </summary>
+        /// <param name="serialDateValue">A serial date value.</param>
+        /// <returns>A <see cref="DateTime"/> representing the same date
+        /// and time as <paramref name="serialDateValue"/>.</returns>
+        public static DateTime ToDateTime(this double serialDateValue)
+        {
+#if NET45
+            return DateTime.FromOADate(serialDateValue);
+#else
+            var num = (long)((serialDateValue * 86400000.0) + ((serialDateValue >= 0.0) ? 0.5 : -0.5));
+            if (num < 0L)
+            {
+                num -= (num % 0x5265c00L) * 2L;
+            }
+            num += 0x3680b5e1fc00L;
+            num -= 62135596800000L;
+            return new DateTime(num);
+#endif
         }
         #endregion
 

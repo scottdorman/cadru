@@ -7,6 +7,8 @@
 
     internal static class UnboxT<T>
     {
+        internal static readonly DateTime baseDate = new DateTime(1899, 12, 30);
+
         /// <summary>
         /// Defines the Unbox = Create(typeof (T))
         /// </summary>
@@ -51,29 +53,22 @@
             }
 
             object result = null;
-            if (DateTime.TryParse(value.ToString(), out DateTime parsedResult))
+            if (Double.TryParse(value.ToString(), out double serialDateValue))
             {
-                result = parsedResult;
+                try
+                {
+                    result = baseDate.AddDays(serialDateValue);
+                }
+                catch
+                {
+                    throw new InvalidCastException();
+                }
             }
             else
             {
-                if (Double.TryParse(value.ToString(), out double serialDateValue))
+                if (DateTime.TryParse(value.ToString(), out DateTime parsedResult))
                 {
-#if NET45
-                    result = DateTime.FromOADate(serialDateValue);
-#else
-                    var num = (long)((serialDateValue * 86400000.0) + ((serialDateValue >= 0.0) ? 0.5 : -0.5));
-                    if (num < 0L)
-                    {
-                        num -= (num % 0x5265c00L) * 2L;
-                    }
-
-                    num += 0x3680b5e1fc00L;
-                    num -= 62135596800000L;
-
-                    result = new DateTime(num);
-
-#endif
+                    result = parsedResult;
                 }
             }
 
@@ -88,7 +83,7 @@
             }
 
             object result = false;
-            if (value.ToString().TryParseAsBoolean(out bool temp))
+            if ((value?.ToString()).TryParseAsBoolean(out bool temp))
             {
                 result = temp;
             }
