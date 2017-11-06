@@ -1,9 +1,9 @@
 ﻿namespace Cadru.Data.Excel
 {
-    using Cadru.Extensions;
     using System;
     using System.Linq;
     using System.Reflection;
+    using Cadru.Extensions;
 
     internal static class UnboxT<T>
     {
@@ -108,7 +108,14 @@
                 return default(TElem?);
             }
 
-            return new Nullable<TElem>(UnboxT<TElem>.Unbox(value));
+            try
+            {
+                return new Nullable<TElem>(UnboxT<TElem>.Unbox(value));
+            }
+            catch
+            {
+                return default(TElem?);
+            }
         }
     }
 }
