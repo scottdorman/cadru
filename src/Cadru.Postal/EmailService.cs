@@ -1,10 +1,9 @@
-﻿using RazorEngine;
-using RazorEngine.Configuration;
-using RazorEngine.Templating;
-using System;
+﻿using System;
 using System.Net.Mail;
 using System.Threading.Tasks;
-using System.Web.Mvc;
+using RazorEngine;
+using RazorEngine.Configuration;
+using RazorEngine.Templating;
 
 namespace Cadru.Postal
 {
@@ -37,7 +36,16 @@ namespace Cadru.Postal
             return new EmailService(isolated ? Engine.IsolatedRazor : Engine.Razor);
         }
 
-        private EmailService(ITemplateServiceConfiguration configuration, bool isolated = false, Func < SmtpClient> createSmtpClient = null)
+        /// <summary>
+        /// Creates a new instance of the <see cref="EmailService"/> class
+        /// with the specified Razor Engine configuration and, optionally, a
+        /// delegate to create an <see cref="SmtpClient"/>.
+        /// </summary>
+        /// <param name="configuration">An <see cref="RazorEngine.Configuration.ITemplateServiceConfiguration"/> instance.</param>
+        /// <param name="isolated"></param>
+        /// <param name="createSmtpClient">A delegate to create an <see cref="SmtpClient"/> instance or <see langword="null"/>
+        /// to use a default delegate.</param>
+        public EmailService(ITemplateServiceConfiguration configuration, bool isolated = false, Func<SmtpClient> createSmtpClient = null)
             : this(isolated ? IsolatedRazorEngineService.Create() : RazorEngineService.Create(configuration), createSmtpClient)
         {
         }
@@ -54,7 +62,7 @@ namespace Cadru.Postal
         /// </summary>
         /// <param name="email">The email to save.</param>
         /// <param name="path">The directory where the email should be saved.</param>
-        public async Task SaveToFileAsync(Email email, string path)
+        public async Task SaveToFileAsync(IEmail email, string path)
         {
             using (MailMessage mailMessage = await CreateMailMessageAsync(email))
             using (var client = new SmtpClient("SaveEmailSMTPClient"))
@@ -75,7 +83,7 @@ namespace Cadru.Postal
         /// Sends an email to an SMTP client for delivery as an asynchronous operation.
         /// </summary>
         /// <param name="email">The email to send.</param>
-        public async Task SendAsync(Email email)
+        public async Task SendAsync(IEmail email)
         {
             using (var mailMessage = await CreateMailMessageAsync(email))
             {
@@ -95,9 +103,16 @@ namespace Cadru.Postal
         /// </summary>
         /// <param name="email">The email to render.</param>
         /// <returns>A <see cref="MailMessage"/> containing the rendered email.</returns>
-        public async Task<MailMessage> CreateMailMessageAsync(Email email)
+        public async Task<MailMessage> CreateMailMessageAsync(IEmail email)
         {
             var templateOutput = this.Render(email);
+            var mailMessage = await emailParser.ParseAsync(templateOutput, email);
+            return mailMessage;
+        }
+
+        public async Task<MailMessage> CreateMailMessageAsync(IEmail email, ITemplateKey key)
+        {
+            var templateOutput = this.Render(email, key);
             var mailMessage = await emailParser.ParseAsync(templateOutput, email);
             return mailMessage;
         }
@@ -109,11 +124,16 @@ namespace Cadru.Postal
         /// <param name="viewName">The email view name. If <see langword="null"/> then the
         /// <see cref="Email.ViewName"/> property is used.</param>
         /// <returns>The rendered email view output.</returns>
-        public virtual string Render(Email email, string viewName = null)
+        public virtual string Render(IEmail email, string viewName = null)
         {
             viewName = viewName ?? email.ViewName;
             var viewOutput = this.razorEngineService.RunCompile(viewName, model: email);
             return viewOutput;
+        }
+
+        public virtual string Render(IEmail email, ITemplateKey key)
+        {
+            return this.razorEngineService.RunCompile(key, model: email);
         }
     }
 }

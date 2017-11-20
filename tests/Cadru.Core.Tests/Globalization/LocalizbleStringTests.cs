@@ -1,10 +1,10 @@
-﻿using Cadru.Core.Tests.Resources;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using Cadru.Core.Tests.Resources;
 using Cadru.Globalization;
 using Cadru.UnitTest.Framework;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 
 namespace Cadru.Core.UnitTests.Globalization
 {
@@ -105,9 +105,11 @@ namespace Cadru.Core.UnitTests.Globalization
             Assert.AreEqual("Tomorrow", localized.GetLocalizableValue());
 
             var currentCulture = CultureInfo.CurrentCulture;
+            var currentUICulture = CultureInfo.CurrentUICulture;
             try
             {
                 CultureInfo.CurrentCulture = new CultureInfo("es-ES");
+                CultureInfo.CurrentUICulture = new CultureInfo("es-ES");
                 localized.ResourceType = typeof(Strings);
                 Assert.IsNotNull(localized.ResourceType);
                 Assert.AreEqual("RelativeDateFormatStringTomorrow", localized.Value);
@@ -116,6 +118,7 @@ namespace Cadru.Core.UnitTests.Globalization
             finally
             {
                 CultureInfo.CurrentCulture = currentCulture;
+                CultureInfo.CurrentUICulture = currentUICulture;
             }
         }
 

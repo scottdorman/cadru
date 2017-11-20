@@ -1,14 +1,10 @@
-﻿using RazorEngine;
-using RazorEngine.Templating;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
 using System.Net.Mail;
 using System.Net.Mime;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using RazorEngine.Templating;
 
 namespace Cadru.Postal
 {
@@ -29,7 +25,7 @@ namespace Cadru.Postal
             this.razorEngineService = razorEngineService;
         }
 
-        private async Task<AlternateView> CreateAlternativeViewAsync(Email email, string alternativeViewName)
+        private async Task<AlternateView> CreateAlternativeViewAsync(IEmail email, string alternativeViewName)
         {
             var fullViewName = GetAlternativeViewName(email, alternativeViewName);
             var output = this.razorEngineService.RunCompile(fullViewName, model: email, viewBag: new DynamicViewBag(email.ViewData));
@@ -72,7 +68,7 @@ namespace Cadru.Postal
             return alternativeView;
         }
 
-        private static string GetAlternativeViewName(Email email, string alternativeViewName)
+        private static string GetAlternativeViewName(IEmail email, string alternativeViewName)
         {
             if (email.ViewName.StartsWith("~"))
             {
@@ -163,7 +159,7 @@ namespace Cadru.Postal
             }
         }
 
-        private void AddAttachments(MailMessage message, Email email)
+        private void AddAttachments(MailMessage message, IEmail email)
         {
             foreach (var attachment in email.Attachments)
             {
@@ -171,7 +167,7 @@ namespace Cadru.Postal
             }
         }
 
-        private void AssignCommonHeaders(MailMessage message, Email email)
+        private void AssignCommonHeaders(MailMessage message, IEmail email)
         {
             if (message.To.Count == 0)
             {
@@ -210,7 +206,7 @@ namespace Cadru.Postal
             }
         }
 
-        private void AssignCommonHeader<T>(Email email, string header, Action<T> assign)
+        private void AssignCommonHeader<T>(IEmail email, string header, Action<T> assign)
             where T : class
         {
             if (email.ViewData.TryGetValue(header, out object value))
@@ -219,7 +215,7 @@ namespace Cadru.Postal
             }
         }
 
-        private async Task ProcessHeaderAsync(string key, string value, MailMessage message, Email email)
+        private async Task ProcessHeaderAsync(string key, string value, MailMessage message, IEmail email)
         {
             if (IsAlternativeViewsHeader(key))
             {
@@ -242,7 +238,7 @@ namespace Cadru.Postal
         /// <param name="template">The email view template.</param>
         /// <param name="email">The <see cref="Email"/> used to generate the output.</param>
         /// <returns>A <see cref="MailMessage"/> containing the email headers and content.</returns>
-        public async Task<MailMessage> ParseAsync(string template, Email email)
+        public async Task<MailMessage> ParseAsync(string template, IEmail email)
         {
             var message = new MailMessage();
             using (var reader = new StringReader(template))

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Net.Mail;
+﻿using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace Cadru.Postal
@@ -15,6 +14,6 @@ namespace Cadru.Postal
         /// <param name="template">The email view template.</param>
         /// <param name="email">The <see cref="Email"/> used to generate the output.</param>
         /// <returns>A <see cref="MailMessage"/> containing the email headers and content.</returns>
-        Task<MailMessage> ParseAsync(string template, Email email);
+        Task<MailMessage> ParseAsync(string template, IEmail email);
     }
 }

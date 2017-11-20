@@ -1,10 +1,10 @@
-﻿using Cadru.Contracts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Cadru.Contracts;
 
 namespace Cadru.Postal
 {
@@ -14,7 +14,7 @@ namespace Cadru.Postal
     /// ViewBag property of a Controller. Any dynamic property access is mapped to the
     /// view data dictionary.
     /// </summary>
-    public class Email : DynamicObject, IViewDataContainer
+    public class Email : DynamicObject, IViewDataContainer, IEmail
     {
         /// <summary>
         /// Creates a new Email, that will render the given view.
@@ -71,7 +71,7 @@ namespace Cadru.Postal
         /// Gets the <see cref="ImageEmbedder"/> instance used to the inline
         /// images in the rendered view.
         /// </summary>
-        protected internal ImageEmbedder ImageEmbedder { get; }
+        public ImageEmbedder ImageEmbedder { get; }
 
         /// <summary>
         /// Adds an attachment to the email.
