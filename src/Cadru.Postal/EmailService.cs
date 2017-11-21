@@ -36,16 +36,7 @@ namespace Cadru.Postal
             return new EmailService(isolated ? Engine.IsolatedRazor : Engine.Razor);
         }
 
-        /// <summary>
-        /// Creates a new instance of the <see cref="EmailService"/> class
-        /// with the specified Razor Engine configuration and, optionally, a
-        /// delegate to create an <see cref="SmtpClient"/>.
-        /// </summary>
-        /// <param name="configuration">An <see cref="RazorEngine.Configuration.ITemplateServiceConfiguration"/> instance.</param>
-        /// <param name="isolated"></param>
-        /// <param name="createSmtpClient">A delegate to create an <see cref="SmtpClient"/> instance or <see langword="null"/>
-        /// to use a default delegate.</param>
-        public EmailService(ITemplateServiceConfiguration configuration, bool isolated = false, Func<SmtpClient> createSmtpClient = null)
+        private EmailService(ITemplateServiceConfiguration configuration, bool isolated = false, Func<SmtpClient> createSmtpClient = null)
             : this(isolated ? IsolatedRazorEngineService.Create() : RazorEngineService.Create(configuration), createSmtpClient)
         {
         }
@@ -131,6 +122,12 @@ namespace Cadru.Postal
             return viewOutput;
         }
 
+        /// <summary>
+        /// Renders the email view.
+        /// </summary>
+        /// <param name="email">The email to render.</param>
+        /// <param name="key">The <see cref="ITemplateKey"/> used to resolve the template.</param>
+        /// <returns>The rendered email view output.</returns>
         public virtual string Render(IEmail email, ITemplateKey key)
         {
             return this.razorEngineService.RunCompile(key, model: email);
