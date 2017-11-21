@@ -182,7 +182,7 @@ namespace Cadru.UnitTest.Framework
             Type actualType = value.GetType();
             if (actualType != expectedType)
             {
-                if (!String.IsNullOrWhiteSpace(message))
+                if (String.IsNullOrWhiteSpace(message))
                 {
                     Assert.Fail(Strings.Assertion_WrongType, expectedType, actualType);
                 }
