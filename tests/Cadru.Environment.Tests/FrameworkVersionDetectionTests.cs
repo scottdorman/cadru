@@ -1,8 +1,8 @@
-﻿using Cadru.Environment;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
+using Cadru.Environment;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Win32;
-using System;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Cadru.UnitTests.Environment
 {
@@ -20,7 +20,7 @@ namespace Cadru.UnitTests.Environment
             Assert.IsFalse(FrameworkVersionDetection.IsInstalled(FrameworkVersion.Fx11));
             Assert.IsTrue(FrameworkVersionDetection.IsInstalled(FrameworkVersion.Fx20));
             Assert.IsTrue(FrameworkVersionDetection.IsInstalled(FrameworkVersion.Fx30));
-            Assert.IsTrue(FrameworkVersionDetection.IsInstalled(FrameworkVersion.Fx35));
+            Assert.IsFalse(FrameworkVersionDetection.IsInstalled(FrameworkVersion.Fx35));
             Assert.IsFalse(FrameworkVersionDetection.IsInstalled(FrameworkVersion.Fx35ClientProfile));
             Assert.IsFalse(FrameworkVersionDetection.IsInstalled(FrameworkVersion.Fx35ServerCoreProfile));
             Assert.IsTrue(FrameworkVersionDetection.IsInstalled(FrameworkVersion.Fx40ClientProfile));
@@ -35,7 +35,7 @@ namespace Cadru.UnitTests.Environment
             Assert.AreEqual(FrameworkVersionDetection.GetServicePackLevel(FrameworkVersion.Fx11), -1);
             Assert.AreEqual(FrameworkVersionDetection.GetServicePackLevel(FrameworkVersion.Fx20), 2);
             Assert.AreEqual(FrameworkVersionDetection.GetServicePackLevel(FrameworkVersion.Fx30), 2);
-            Assert.AreEqual(FrameworkVersionDetection.GetServicePackLevel(FrameworkVersion.Fx35), 1);
+            Assert.AreEqual(FrameworkVersionDetection.GetServicePackLevel(FrameworkVersion.Fx35), -1);
             Assert.AreEqual(FrameworkVersionDetection.GetServicePackLevel(FrameworkVersion.Fx35ClientProfile), -1);
             Assert.AreEqual(FrameworkVersionDetection.GetServicePackLevel(FrameworkVersion.Fx35ServerCoreProfile), -1);
             Assert.AreEqual(FrameworkVersionDetection.GetServicePackLevel(FrameworkVersion.Fx40ClientProfile), 0);
@@ -51,7 +51,7 @@ namespace Cadru.UnitTests.Environment
             Assert.AreEqual(emptyVersion, FrameworkVersionDetection.GetExactVersion(FrameworkVersion.Fx11));
             Assert.AreNotEqual(emptyVersion, FrameworkVersionDetection.GetExactVersion(FrameworkVersion.Fx20));
             Assert.AreNotEqual(emptyVersion, FrameworkVersionDetection.GetExactVersion(FrameworkVersion.Fx30));
-            Assert.AreNotEqual(emptyVersion, FrameworkVersionDetection.GetExactVersion(FrameworkVersion.Fx35));
+            Assert.AreEqual(emptyVersion, FrameworkVersionDetection.GetExactVersion(FrameworkVersion.Fx35));
             Assert.AreEqual(emptyVersion, FrameworkVersionDetection.GetExactVersion(FrameworkVersion.Fx35ClientProfile));
             Assert.AreEqual(emptyVersion, FrameworkVersionDetection.GetExactVersion(FrameworkVersion.Fx35ServerCoreProfile));
             Assert.AreNotEqual(emptyVersion, FrameworkVersionDetection.GetExactVersion(FrameworkVersion.Fx40ClientProfile));
