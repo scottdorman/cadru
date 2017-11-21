@@ -25,7 +25,7 @@ namespace Cadru.UnitTests.Environment
             Assert.IsFalse(FrameworkVersionDetection.IsInstalled(FrameworkVersion.Fx35ServerCoreProfile));
             Assert.IsTrue(FrameworkVersionDetection.IsInstalled(FrameworkVersion.Fx40ClientProfile));
             Assert.IsTrue(FrameworkVersionDetection.IsInstalled(FrameworkVersion.Fx40));
-            Assert.IsTrue(FrameworkVersionDetection.IsInstalled(FrameworkVersion.Fx45));
+            Assert.IsFalse(FrameworkVersionDetection.IsInstalled(FrameworkVersion.Fx45));
         }
 
         [TestMethod]
