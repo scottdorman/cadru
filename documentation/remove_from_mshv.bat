@@ -1,0 +1,1 @@
+ "%ProgramFiles%\Microsoft Help Viewer\v1.0\helplibmanager" /silent /product "VS" /version 100 /locale en-US /uninstall /vendor "Innovasys" /productName "RssReader Sample" /mediaBookList "RssReader Sample Documentation"

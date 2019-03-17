@@ -25,6 +25,21 @@ namespace Cadru.Postal
             this.razorEngineService = razorEngineService;
         }
 
+        private MailAddress GetValidEmailAddressOrDefault(string value)
+        {
+            MailAddress mailAddress = null;
+            try
+            {
+                mailAddress = new MailAddress(value);
+            }
+            catch (Exception e)
+            {
+                mailAddress = new MailAddress("");
+            }
+
+            return mailAddress;
+        }
+
         private async Task<AlternateView> CreateAlternativeViewAsync(IEmail email, string alternativeViewName)
         {
             var fullViewName = GetAlternativeViewName(email, alternativeViewName);
@@ -118,7 +133,7 @@ namespace Cadru.Postal
                     message.To.Add(value);
                     break;
                 case "from":
-                    message.From = new MailAddress(value);
+                    message.From = GetValidEmailAddressOrDefault(value);
                     break;
                 case "subject":
                     message.Subject = value;
@@ -133,7 +148,7 @@ namespace Cadru.Postal
                     message.ReplyToList.Add(value);
                     break;
                 case "sender":
-                    message.Sender = new MailAddress(value);
+                    message.Sender = GetValidEmailAddressOrDefault(value);
                     break;
                 case "priority":
                     MailPriority priority;
@@ -177,7 +192,7 @@ namespace Cadru.Postal
 
             if (message.From == null)
             {
-                AssignCommonHeader<string>(email, "from", from => message.From = new MailAddress(from));
+                AssignCommonHeader<string>(email, "from", from => message.From = GetValidEmailAddressOrDefault(from));
                 AssignCommonHeader<MailAddress>(email, "from", from => message.From = from);
             }
             if (message.CC.Count == 0)
@@ -197,7 +212,7 @@ namespace Cadru.Postal
             }
             if (message.Sender == null)
             {
-                AssignCommonHeader<string>(email, "sender", sender => message.Sender = new MailAddress(sender));
+                AssignCommonHeader<string>(email, "sender", sender => message.Sender = GetValidEmailAddressOrDefault(sender));
                 AssignCommonHeader<MailAddress>(email, "sender", sender => message.Sender = sender);
             }
             if (string.IsNullOrEmpty(message.Subject))

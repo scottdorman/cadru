@@ -267,9 +267,13 @@ namespace Cadru.Data.Excel
             return result;
         }
 
-        private void Reset()
+        private void Reset(bool resetCurrentIndex = false)
         {
-            this.currentIndex = 0;
+            if (resetCurrentIndex)
+            {
+                this.currentIndex = 0;
+            }
+
             this.currentRowIndex = null;
             this.currentRowData = null;
             this.currentSheet = null;

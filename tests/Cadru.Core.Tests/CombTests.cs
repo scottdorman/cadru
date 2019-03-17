@@ -1,12 +1,11 @@
-﻿using Cadru.UnitTest.Framework;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+
+using Cadru.UnitTest.Framework;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Cadru.Core.UnitTests
 {
@@ -85,6 +84,7 @@ namespace Cadru.Core.UnitTests
         [TestMethod]
         public void ToStringTests()
         {
+            Assert.AreEqual("00000000-0000-0000-0000-000000000000", $"{Comb.Empty}");
             Assert.AreEqual("00000000-0000-0000-0000-000000000000", Comb.Empty.ToString());
             Assert.AreEqual("00000000000000000000000000000000", Comb.Empty.ToString("N"));
             Assert.AreEqual("00000000-0000-0000-0000-000000000000", Comb.Empty.ToString("D"));
@@ -131,9 +131,8 @@ namespace Cadru.Core.UnitTests
         [TestMethod]
         public void TryParse()
         {
-            Comb c;
 
-            Assert.IsTrue(Comb.TryParse("{0x3e3a6e75,0x0100,0x0f45,{0xae,0x41,0xa3,0xe3,0xd2,0x53,0x6a,0x57}}", out c));
+            Assert.IsTrue(Comb.TryParse("{0x3e3a6e75,0x0100,0x0f45,{0xae,0x41,0xa3,0xe3,0xd2,0x53,0x6a,0x57}}", out var c));
             Assert.IsTrue(Comb.TryParse("{0x3E3A6E75,0x0100,0x0F45,{0xAE,0x41,0xA3,0xE3,0xD2,0x53,0x6A,0x57}}", out c));
             Assert.IsTrue(Comb.TryParse("3e3a6e7501000f45ae41a3e3d2536a57", out c));
             Assert.IsTrue(Comb.TryParse("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", out c));
@@ -147,9 +146,8 @@ namespace Cadru.Core.UnitTests
         [TestMethod]
         public void TryParseExact()
         {
-            Comb c;
 
-            Assert.IsTrue(Comb.TryParseExact("{0x3e3a6e75,0x0100,0x0f45,{0xae,0x41,0xa3,0xe3,0xd2,0x53,0x6a,0x57}}", "X", out c));
+            Assert.IsTrue(Comb.TryParseExact("{0x3e3a6e75,0x0100,0x0f45,{0xae,0x41,0xa3,0xe3,0xd2,0x53,0x6a,0x57}}", "X", out var c));
             Assert.IsTrue(Comb.TryParseExact("{0x3E3A6E75,0x0100,0x0F45,{0xAE,0x41,0xA3,0xE3,0xD2,0x53,0x6A,0x57}}", "x", out c));
 
             Assert.IsTrue(Comb.TryParseExact("3e3a6e7501000f45ae41a3e3d2536a57", "N", out c));
@@ -180,7 +178,7 @@ namespace Cadru.Core.UnitTests
             Assert.IsFalse(Comb.TryParseExact("{3e3a6e75-01000f45ae41a3e3d2536a57}", "b", out c));
             Assert.IsFalse(Comb.TryParseExact("{3e3a6e75-0100-0f45ae41a3e3d2536a57}", "b", out c));
             Assert.IsFalse(Comb.TryParseExact("{3e3a6e75-0100-0f45-ae41a3e3d2536a57}", "b", out c));
-            
+
             Assert.IsTrue(Comb.TryParseExact("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", "P", out c));
             Assert.IsTrue(Comb.TryParseExact("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", "p", out c));
             Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "p", out c));
@@ -223,7 +221,7 @@ namespace Cadru.Core.UnitTests
             Assert.IsTrue(left == right);
             Assert.IsTrue(left.Equals(right));
             Assert.IsTrue(left.Equals((object)right));
-            Assert.IsFalse(left.Equals((object)null));
+            Assert.IsFalse(left.Equals(null));
             Assert.IsFalse(left.Equals("test"));
 
             var hash = Comb.Parse("385175e2-0b00-b248-911d-413fa76b7979");
@@ -241,6 +239,10 @@ namespace Cadru.Core.UnitTests
             Assert.AreEqual(16, a.Length);
             CollectionAssert.AllItemsAreNotNull(a);
             CollectionAssert.AreEqual(new byte[] { 56, 81, 117, 226, 11, 0, 178, 72, 145, 29, 65, 63, 167, 107, 121, 121 }, a);
+
+            var c2 = new Comb(a);
+            Assert.IsTrue(c2 == c);
+            Assert.IsTrue(c2.DateTime == c.DateTime);
         }
 
         [TestMethod]
@@ -269,7 +271,7 @@ namespace Cadru.Core.UnitTests
 
             Assert.AreEqual(1, a.CompareTo(null));
             Assert.AreEqual(1, a.CompareTo((object)b));
-            
+
             ExceptionAssert.Throws<ArgumentException>(() => a.CompareTo("test"));
         }
     }

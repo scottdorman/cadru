@@ -25,6 +25,7 @@ namespace Cadru
     using System;
     using System.Runtime.InteropServices;
     using System.Text;
+
     using Cadru.Core.Resources;
     using Cadru.Extensions;
     using Cadru.Internal;
@@ -110,9 +111,9 @@ namespace Cadru
             Contracts.Requires.NotNull(array, nameof(array));
             Contracts.Requires.IsTrue(array.Length == 16);
 
-            this.a = ((int)array[0] << 24) | ((int)array[1] << 16) | ((int)array[2] << 8) | array[3];
-            this.b = (short)(((int)array[4] << 8) | array[5]);
-            this.c = (short)(((int)array[6] << 8) | array[7]);
+            this.a = (array[0] << 24) | (array[1] << 16) | (array[2] << 8) | array[3];
+            this.b = (short)((array[4] << 8) | array[5]);
+            this.c = (short)((array[6] << 8) | array[7]);
             this.d = array[8];
             this.e = array[9];
             this.f = array[10];
@@ -229,7 +230,7 @@ namespace Cadru
         {
             Contracts.Requires.NotNullOrEmpty(value, nameof(value));
 
-            if (!new CombParser(value).Parse(out Comb guid))
+            if (!new CombParser(value).Parse(out var guid))
             {
                 throw ExceptionBuilder.CreateFormatException(value);
             }
@@ -365,7 +366,7 @@ namespace Cadru
         /// <returns>A new <see cref="Comb"/> object.</returns>
         public static Comb NewComb(DateTimeOffset date)
         {
-            byte[] buffer = new byte[16];
+            var buffer = new byte[16];
             buffer = Guid.NewGuid().ToByteArray();
 
             var utc = date;
@@ -376,7 +377,7 @@ namespace Cadru
 
             var days = TimeSpan.FromTicks(utc.UtcTicks - MinDate.UtcTicks).Days;
             var milliseconds = utc.TimeOfDay.TotalMilliseconds / Comb.Accuracy;
-            byte[] msecsArray = BitConverter.GetBytes(milliseconds);
+            var msecsArray = BitConverter.GetBytes(milliseconds);
 
             buffer[0] = (byte)(days >> 8);
             buffer[1] = msecsArray[1];
@@ -415,8 +416,8 @@ namespace Cadru
         /// <para>The Parse method converts the string representation of a
         /// COMB to a <see cref="Comb"/> value. This method can convert
         /// strings in any of the five formats produced by the
-        /// <see cref="ToString(string)"/> and
-        /// <see cref="ToString(string, IFormatProvider)"/> methods, as shown
+        /// <see cref="ToString(String)"/> and
+        /// <see cref="ToString(String, IFormatProvider)"/> methods, as shown
         /// in the following table.</para>
         /// <list type="table">
         /// <listheader>
@@ -485,7 +486,7 @@ namespace Cadru
         {
             Contracts.Requires.NotNull(input, nameof(input));
 
-            if (!TryParse(input, out Comb guid))
+            if (!TryParse(input, out var guid))
             {
                 throw ExceptionBuilder.CreateFormatException(input);
             }
@@ -555,7 +556,7 @@ namespace Cadru
             Contracts.Requires.NotNull(input, nameof(input));
             Contracts.Requires.NotNull(format, nameof(format));
 
-            if (!TryParseExact(input, format, out Comb guid))
+            if (!TryParseExact(input, format, out var guid))
             {
                 throw ExceptionBuilder.CreateFormatException(input);
             }
@@ -857,7 +858,7 @@ namespace Cadru
         /// <returns>The hash code for this instance.</returns>
         public override int GetHashCode()
         {
-            return this.a ^ (((int)this.b << 16) | (int)(ushort)this.c) ^ (((int)this.f << 24) | this.k);
+            return this.a ^ ((this.b << 16) | (ushort)this.c) ^ ((this.f << 24) | this.k);
         }
         #endregion
 
@@ -949,6 +950,10 @@ namespace Cadru
         public string ToString(string format)
         {
             StringBuilder res = null;
+            if (format.IsNullOrEmpty())
+            {
+                format = "D";
+            }
 
             switch (format)
             {
@@ -1158,7 +1163,7 @@ namespace Cadru
         /// <returns>A 16-element byte array.</returns>
         public byte[] ToByteArray()
         {
-            byte[] buffer = new byte[16];
+            var buffer = new byte[16];
             buffer[0] = (byte)(this.a >> 24);
             buffer[1] = (byte)(this.a >> 16);
             buffer[2] = (byte)(this.a >> 8);
@@ -1188,7 +1193,7 @@ namespace Cadru
             var yBuffer = y.ToByteArray();
 
             // Swap to the correct order to be compared
-            for (int i = 0; i < 16; i++)
+            for (var i = 0; i < 16; i++)
             {
                 byte b1, b2;
 

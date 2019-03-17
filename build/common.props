@@ -12,7 +12,6 @@
     <PackageLicenseUrl>http://opensource.org/licenses/Ms-PL.html</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/scottdorman/cadru</PackageProjectUrl>
     <VersionSuffix Condition="'$(VersionSuffix)' != '' AND '$(APPVEYOR_BUILD_NUMBER)' != ''">$(VersionSuffix)-$(APPVEYOR_BUILD_NUMBER)</VersionSuffix>
-    <IncludeSymbols>False</IncludeSymbols>
     <CommonPackageTags>cadru .NET Core .NETCore dotnet dotnetcore .NETStandard dotnetstandard</CommonPackageTags>
     <SourceLinkCreate>true</SourceLinkCreate>
     <DebugType>embedded</DebugType>

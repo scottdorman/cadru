@@ -4,6 +4,7 @@
     <TargetFramework>netstandard1.0</TargetFramework>
     <Description>Provides common extensions and new APIs for the .NET Framework.</Description>
     <PackageTags>$(CommonPackageTags)</PackageTags>
+    <RootNamespace>Cadru</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

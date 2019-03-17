@@ -28,8 +28,12 @@ namespace Cadru.Data.Dapper
     using System.Linq;
     using System.Reflection;
     using System.Text;
+    using System.Threading.Tasks;
+
     using Cadru.Data.Dapper.Predicates;
+
     using Contracts;
+
     using global::Dapper;
 
     public partial class Table<TEntity> : IDatabaseObject where TEntity : class
@@ -37,7 +41,7 @@ namespace Cadru.Data.Dapper
         private Database database;
         private IObjectMap tableMap;
         private Type underlyingType = typeof(TEntity);
-        static ConcurrentDictionary<Type, List<string>> paramNameCache = new ConcurrentDictionary<Type, List<string>>();
+        private static ConcurrentDictionary<Type, List<string>> paramNameCache = new ConcurrentDictionary<Type, List<string>>();
 
         public Table(Database database)
         {
@@ -92,17 +96,44 @@ namespace Cadru.Data.Dapper
             var cols_params = string.Join(",", paramNames.Select(p => $"@{p}"));
             var sql = $"SET NOCOUNT ON INSERT {this.FullyQualifiedObjectName} ({cols}) VALUES ({cols_params})";
 
-            database.Query<int?>(sql, parameters);
+            this.database.Connection.Query<int?>(sql, parameters);
         }
 
         public virtual void Insert(TEntity data)
         {
-            IList<string> paramNames = GetParamNames(data);
+            IList<string> paramNames = this.GetParamNames(data);
             var parameters = new DynamicParameters(data);
             var cols = string.Join(",", paramNames);
             var cols_params = string.Join(",", paramNames.Select(p => $"@{p}"));
             var sql = $"SET NOCOUNT ON INSERT {this.FullyQualifiedObjectName} ({cols}) VALUES ({cols_params})";
-            database.Query<int?>(sql, parameters);
+            this.database.Connection.Query<int?>(sql, parameters);
+        }
+
+        /// <summary>
+        /// Insert a row into the db
+        /// </summary>
+        /// <param name="data">Either DynamicParameters or an anonymous type or concrete type</param>
+        /// <returns></returns>
+        public virtual async Task InsertAsync(dynamic data)
+        {
+            IList<string> paramNames = GetParamNames(data);
+            var parameters = new DynamicParameters(data);
+
+            var cols = string.Join(",", paramNames);
+            var cols_params = string.Join(",", paramNames.Select(p => $"@{p}"));
+            var sql = $"SET NOCOUNT ON INSERT {this.FullyQualifiedObjectName} ({cols}) VALUES ({cols_params})";
+
+            await this.database.Connection.QueryAsync<int?>(sql, parameters);
+        }
+
+        public virtual async Task InsertAsync(TEntity data)
+        {
+            IList<string> paramNames = this.GetParamNames(data);
+            var parameters = new DynamicParameters(data);
+            var cols = string.Join(",", paramNames);
+            var cols_params = string.Join(",", paramNames.Select(p => $"@{p}"));
+            var sql = $"SET NOCOUNT ON INSERT {this.FullyQualifiedObjectName} ({cols}) VALUES ({cols_params})";
+            await this.database.Connection.QueryAsync<int?>(sql, parameters);
         }
 
         public virtual int Update(TEntity data, IPredicate predicate)
@@ -113,8 +144,8 @@ namespace Cadru.Data.Dapper
             var builder = new StringBuilder();
             builder.Append($"UPDATE {this.FullyQualifiedObjectName} SET ");
             builder.AppendLine(string.Join(", ", paramNames.Select(p => $"{p} = @{p}")));
-            AppendWhere(builder, predicate, parameters);
-            return database.Execute(builder.ToString(), parameters);
+            this.AppendWhere(builder, predicate, parameters);
+            return this.database.Execute(builder.ToString(), parameters);
         }
 
         /// <summary>
@@ -131,8 +162,38 @@ namespace Cadru.Data.Dapper
             var builder = new StringBuilder();
             builder.Append($"UPDATE {this.FullyQualifiedObjectName} SET ");
             builder.AppendLine(string.Join(", ", paramNames.Select(p => $"{p} = @{p}")));
-            AppendWhere(builder, predicate, parameters);
-            return database.Execute(builder.ToString(), parameters);
+            this.AppendWhere(builder, predicate, parameters);
+            return this.database.Execute(builder.ToString(), parameters);
+        }
+
+        public virtual async Task<int> UpdateAsync(TEntity data, IPredicate predicate)
+        {
+            IList<string> paramNames = this.GetParamNames(data);
+            var parameters = new DynamicParameters(data);
+
+            var builder = new StringBuilder();
+            builder.Append($"UPDATE {this.FullyQualifiedObjectName} SET ");
+            builder.AppendLine(string.Join(", ", paramNames.Select(p => $"{p} = @{p}")));
+            this.AppendWhere(builder, predicate, parameters);
+            return await this.database.Connection.ExecuteAsync(builder.ToString(), parameters);
+        }
+
+        /// <summary>
+        /// Update a record in the DB
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public virtual async Task<int> UpdateAsync(dynamic data, IPredicate predicate)
+        {
+            IList<string> paramNames = this.GetParamNames(data);
+            var parameters = new DynamicParameters(data);
+
+            var builder = new StringBuilder();
+            builder.Append($"UPDATE {this.FullyQualifiedObjectName} SET ");
+            builder.AppendLine(string.Join(", ", paramNames.Select(p => $"{p} = @{p}")));
+            this.AppendWhere(builder, predicate, parameters);
+            return await this.database.Connection.ExecuteAsync(builder.ToString(), parameters);
         }
 
         private void AppendWhere(StringBuilder builder, IPredicate predicate, DynamicParameters parameters)
@@ -150,7 +211,19 @@ namespace Cadru.Data.Dapper
         {
             Requires.NotNull(predicate, "predicate");
             var parameters = new DynamicParameters();
-            return database.Execute($"DELETE FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}", parameters);
+            return this.database.Execute($"DELETE FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}", parameters);
+        }
+
+        /// <summary>
+        /// Deletes all records which match the given predicate.
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public virtual async Task<int> DeleteAsync(IPredicate predicate)
+        {
+            Requires.NotNull(predicate, "predicate");
+            var parameters = new DynamicParameters();
+            return await this.database.Connection.ExecuteAsync($"DELETE FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}", parameters);
         }
 
         /// <summary>
@@ -162,7 +235,19 @@ namespace Cadru.Data.Dapper
         {
             Requires.NotNull(predicate, "predicate");
             var parameters = new DynamicParameters();
-            return database.Query<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}", parameters).FirstOrDefault();
+            return this.database.Query<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}", parameters).FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Gets the first record which matches the given predicate.
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public virtual async Task<TEntity> GetAsync(IPredicate predicate)
+        {
+            Requires.NotNull(predicate, "predicate");
+            var parameters = new DynamicParameters();
+            return (await this.database.Connection.QueryAsync<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}", parameters)).FirstOrDefault();
         }
 
         /// <summary>
@@ -171,7 +256,7 @@ namespace Cadru.Data.Dapper
         /// <returns></returns>
         public virtual TEntity First()
         {
-            return database.Query<TEntity>($"SELECT TOP 1 * FROM {this.FullyQualifiedObjectName}").FirstOrDefault();
+            return this.database.Query<TEntity>($"SELECT TOP 1 * FROM {this.FullyQualifiedObjectName}").FirstOrDefault();
         }
 
         /// <summary>
@@ -183,16 +268,36 @@ namespace Cadru.Data.Dapper
         {
             Requires.NotNull(predicate, "predicate");
             var parameters = new DynamicParameters();
-            return database.Query<TEntity>($"SELECT TOP 1 * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}").FirstOrDefault();
+            return this.database.Query<TEntity>($"SELECT TOP 1 * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}").FirstOrDefault();
         }
 
+        /// <summary>
+        /// Gets the first record.
+        /// </summary>
+        /// <returns></returns>
+        public virtual async Task<TEntity> FirstAsync()
+        {
+            return (await this.database.Connection.QueryAsync<TEntity>($"SELECT TOP 1 * FROM {this.FullyQualifiedObjectName}")).FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Gets the first record which matches the given predicate.
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public virtual async Task<TEntity> FirstAsync(IPredicate predicate)
+        {
+            Requires.NotNull(predicate, "predicate");
+            var parameters = new DynamicParameters();
+            return (await this.database.Connection.QueryAsync<TEntity>($"SELECT TOP 1 * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}")).FirstOrDefault();
+        }
         /// <summary>
         /// Gets all of the records.
         /// </summary>
         /// <returns></returns>
         public virtual IEnumerable<TEntity> All()
         {
-            return database.Query<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName}");
+            return this.database.Query<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName}");
         }
 
         /// <summary>
@@ -204,7 +309,28 @@ namespace Cadru.Data.Dapper
         {
             Requires.NotNull(predicate, "predicate");
             var parameters = new DynamicParameters();
-            return database.Query<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}", parameters);
+            return this.database.Query<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}", parameters);
+        }
+
+        /// <summary>
+        /// Gets all of the records.
+        /// </summary>
+        /// <returns></returns>
+        public virtual async Task<IEnumerable<TEntity>> AllAsync()
+        {
+            return await this.database.Connection.QueryAsync<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName}");
+        }
+
+        /// <summary>
+        /// Gets all of the records which match the given predicate.
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public virtual async Task<IEnumerable<TEntity>> AllAsync(IPredicate predicate)
+        {
+            Requires.NotNull(predicate, "predicate");
+            var parameters = new DynamicParameters();
+            return await this.database.Connection.QueryAsync<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}", parameters);
         }
     }
 }

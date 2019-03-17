@@ -23,6 +23,7 @@
 namespace Cadru.Extensions
 {
     using System;
+    using System.Collections.Generic;
     using System.Globalization;
     using System.Text;
 
@@ -971,6 +972,60 @@ namespace Cadru.Extensions
         }
         #endregion
 
+        #endregion
+
+        #region AppendLines
+        /// <summary>
+        /// Appends a copy of each of the specified strings followed by the default line terminator
+        /// to the end of this instance.
+        /// </summary>
+        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
+        /// <param name="values">The strings to append.</param>
+        /// <returns>A reference to this instance after the append operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// The length of the expanded string would exceed
+        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// </exception>
+        public static StringBuilder AppendLines(this StringBuilder source, IEnumerable<string> values)
+        {
+            Contracts.Requires.NotNull(source, nameof(source));
+            foreach (var value in values)
+            {
+                source.AppendLine(value);
+            }
+
+            return source;
+        }
+        #endregion
+
+        #region AppendLinesIf
+        /// <summary>
+        /// Appends a copy of each of the specified strings followed by the default line terminator
+        /// to the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
+        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
+        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="values">The strings to append.</param>
+        /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// The length of the expanded string would exceed
+        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// </exception>
+        public static StringBuilder AppendLinesIf(this StringBuilder source, bool condition, IEnumerable<string> values)
+        {
+            Contracts.Requires.NotNull(source, nameof(source));
+
+            if (condition)
+            {
+                foreach (var value in values)
+                {
+                    source.AppendLine(value);
+                }
+            }
+
+            return source;
+        }
         #endregion
 
         #region ToHex

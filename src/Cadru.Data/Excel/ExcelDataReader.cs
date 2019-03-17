@@ -26,6 +26,7 @@ namespace Cadru.Data.Excel
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
+
     using DocumentFormat.OpenXml;
     using DocumentFormat.OpenXml.Packaging;
     using DocumentFormat.OpenXml.Spreadsheet;
@@ -46,20 +47,20 @@ namespace Cadru.Data.Excel
         public ExcelDataReader(string path)
         {
             this.document = SpreadsheetDocument.Open(path, false);
-            this.sheets = GetSheets(this.document);
+            this.sheets = this.GetSheets(this.document);
             this.sharedStrings = GetSharedStrings(this.document);
         }
 
         public ExcelDataReader(Stream stream)
         {
             this.document = SpreadsheetDocument.Open(stream, false);
-            this.sheets = GetSheets(this.document);
+            this.sheets = this.GetSheets(this.document);
             this.sharedStrings = GetSharedStrings(this.document);
         }
 
-        public object this[string name] => this[GetOrdinal(name)];
+        public object this[string name] => this[this.GetOrdinal(name)];
 
-        public object this[int i] => GetValue(i);
+        public object this[int i] => this.GetValue(i);
 
         public IEnumerable<string> FieldNames => this.headers;
 
@@ -86,27 +87,27 @@ namespace Cadru.Data.Excel
         public bool NextResult(string sheetName, bool firstRowAsHeader)
         {
             this.FirstRowAsHeader = firstRowAsHeader;
-            var sheet = GetSheetByName(sheetName);
+            var sheet = this.GetSheetByName(sheetName);
 
             if (sheet == null)
             {
                 return false;
             }
 
-            Reset();
+            this.Reset();
             this.currentIndex = this.sheets.IndexOf(sheet);
-            FirstRead();
+            this.FirstRead();
             return true;
         }
 
         public bool NextResult(string sheetName)
         {
-            return NextResult(sheetName, false);
+            return this.NextResult(sheetName, false);
         }
 
         private static IDictionary<int, string> GetSharedStrings(SpreadsheetDocument document)
         {
-            return document.WorkbookPart.SharedStringTablePart.SharedStringTable.Select((x, i) => System.Tuple.Create(i, x.InnerText)).ToDictionary(x => x.Item1, x => x.Item2);
+            return document.WorkbookPart.SharedStringTablePart?.SharedStringTable.Select((x, i) => System.Tuple.Create(i, x.InnerText)).ToDictionary(x => x.Item1, x => x.Item2);
         }
     }
 }
