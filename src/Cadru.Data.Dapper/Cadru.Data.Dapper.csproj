@@ -4,6 +4,7 @@
     <TargetFrameworks>netstandard1.3;net45;net451</TargetFrameworks>
     <Description>Provides a common database context and predicates for use with Dapper.</Description>
     <PackageTags>$(CommonPackageTags) data dapper datacontext</PackageTags>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'net45' OR '$(TargetFramework)' == 'net451' ">
     <Reference Include="System.Data" />
