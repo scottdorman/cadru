@@ -29,15 +29,18 @@ namespace Cadru.Data.Dapper
     using System.Data.Common;
     using System.Linq;
     using System.Reflection;
-    using global::Dapper;
+
     using Cadru.Extensions;
+
+    using global::Dapper;
 
     public abstract partial class Database : IDatabase
     {
-        static ConcurrentDictionary<Type, IObjectMap> mappings = new ConcurrentDictionary<Type, IObjectMap>();
-        int commandTimeout;
-        DbConnection connection;
-        DbTransaction transaction;
+        private static readonly ConcurrentDictionary<Type, IObjectMap> mappings = new ConcurrentDictionary<Type, IObjectMap>();
+        private int commandTimeout;
+        private DbConnection connection;
+        private DbTransaction transaction;
+        private CommandAdapter commandAdapter;
 
         public static ConcurrentDictionary<Type, IObjectMap> Mappings => mappings;
 
@@ -60,102 +63,103 @@ namespace Cadru.Data.Dapper
                 this.connection.Open();
             }
 
-            this.transaction = connection.BeginTransaction(isolation);
+            this.transaction = this.connection.BeginTransaction(isolation);
         }
 
         public void BeginTransaction(IsolationLevel isolation = IsolationLevel.ReadCommitted)
         {
-            BeginTransaction(false, isolation);
+            this.BeginTransaction(false, isolation);
         }
 
         public void CommitTransaction()
         {
-            transaction.Commit();
-            transaction = null;
+            this.transaction.Commit();
+            this.transaction = null;
         }
 
 
-        public int Execute(string sql, dynamic param = null)
+        public int Execute(string sql, dynamic param = null, int? commandTimeout = null)
         {
-            return SqlMapper.Execute(connection, sql, param as object, transaction, commandTimeout: this.commandTimeout);
+            return SqlMapper.Execute(this.connection, sql, param as object, this.transaction, commandTimeout: this.commandTimeout);
         }
 
-        public IEnumerable<T> Query<T>(string sql, dynamic param = null, bool buffered = true)
+        public IEnumerable<T> Query<T>(string sql, dynamic param = null, bool buffered = true, int? commandTimeout = null)
         {
-            return SqlMapper.Query<T>(connection, sql, param as object, transaction, buffered, commandTimeout);
+            return SqlMapper.Query<T>(this.connection, sql, param as object, this.transaction, buffered, commandTimeout);
         }
 
-        public IEnumerable<TReturn> Query<TFirst, TSecond, TReturn>(string sql, Func<TFirst, TSecond, TReturn> map, dynamic param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null)
+        public IEnumerable<TReturn> Query<TFirst, TSecond, TReturn>(string sql, Func<TFirst, TSecond, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null)
         {
-            return SqlMapper.Query(connection, sql, map, param as object, transaction, buffered, splitOn);
+            return SqlMapper.Query(this.connection, sql, map, param as object, this.transaction, buffered, splitOn, commandTimeout);
         }
 
-        public IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TReturn>(string sql, Func<TFirst, TSecond, TThird, TReturn> map, dynamic param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null)
+        public IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TReturn>(string sql, Func<TFirst, TSecond, TThird, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null)
         {
-            return SqlMapper.Query(connection, sql, map, param as object, transaction, buffered, splitOn);
+            return SqlMapper.Query(this.connection, sql, map, param as object, this.transaction, buffered, splitOn, commandTimeout);
         }
 
-        public IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TReturn>(string sql, Func<TFirst, TSecond, TThird, TFourth, TReturn> map, dynamic param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null)
+        public IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TReturn>(string sql, Func<TFirst, TSecond, TThird, TFourth, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null)
         {
-            return SqlMapper.Query(connection, sql, map, param as object, transaction, buffered, splitOn);
+            return SqlMapper.Query(this.connection, sql, map, param as object, this.transaction, buffered, splitOn, commandTimeout);
         }
 
-        public IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TFifth, TReturn>(string sql, Func<TFirst, TSecond, TThird, TFourth, TFifth, TReturn> map, dynamic param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null)
+        public IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TFifth, TReturn>(string sql, Func<TFirst, TSecond, TThird, TFourth, TFifth, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null)
         {
-            return SqlMapper.Query(connection, sql, map, param as object, transaction, buffered, splitOn);
+            return SqlMapper.Query(this.connection, sql, map, param as object, this.transaction, buffered, splitOn, commandTimeout);
         }
 
-        public IEnumerable<dynamic> Query(string sql, dynamic param = null, bool buffered = true)
+        public IEnumerable<dynamic> Query(string sql, dynamic param = null, bool buffered = true, int? commandTimeout = null)
         {
-            return SqlMapper.Query(connection, sql, param as object, transaction, buffered);
+            return SqlMapper.Query(this.connection, sql, param as object, this.transaction, buffered, commandTimeout);
         }
 
-        public SqlMapper.GridReader QueryMultiple(string sql, dynamic param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
+        public SqlMapper.GridReader QueryMultiple(string sql, dynamic param = null, int? commandTimeout = null, CommandType? commandType = null)
         {
-            return SqlMapper.QueryMultiple(connection, sql, param, transaction, commandTimeout, commandType);
+            return SqlMapper.QueryMultiple(this.connection, sql, param, this.transaction, commandTimeout, commandType);
         }
 
         public void Dispose()
         {
-            if (connection.State != ConnectionState.Closed)
+            if (this.connection.State != ConnectionState.Closed)
             {
-                if (transaction != null)
+                if (this.transaction != null)
                 {
-                    transaction.Rollback();
+                    this.transaction.Rollback();
                 }
 
-                connection.Close();
-                connection = null;
+                this.connection.Close();
+                this.connection = null;
             }
         }
 
         public void RollbackTransaction()
         {
-            transaction.Rollback();
-            transaction = null;
+            this.transaction.Rollback();
+            this.transaction = null;
         }
 
         internal IObjectMap MapObject<T>(DatabaseObjectType databaseObjectType) where T : class
         {
             var entityType = typeof(T);
 
-            if (!mappings.TryGetValue(entityType, out IObjectMap map))
+            if (!mappings.TryGetValue(entityType, out var map))
             {
-                map = ObjectMap<T>.CreateMap(databaseObjectType);
+                map = ObjectMap<T>.CreateMap(databaseObjectType, this.commandAdapter);
                 mappings[entityType] = map;
             }
 
             return map;
         }
-        internal void InitializeDatabase(DbConnection connection, int commandTimeout)
+        internal void InitializeDatabase(DbConnection connection, int commandTimeout, CommandAdapter commandAdapter = null)
         {
             this.connection = connection;
             this.commandTimeout = commandTimeout;
+            this.commandAdapter = commandAdapter ?? new CommandAdapter();
         }
 
         protected void InitializeTableProperties()
         {
-            var setters = GetType().GetProperties()
+            var setters = this.GetType().GetProperties()
                 .Where(p => p.PropertyType.HasInterface<IDatabaseObject>())
                 .Select(p => Tuple.Create(
                         p.GetSetMethod(true),
@@ -176,10 +180,10 @@ namespace Cadru.Data.Dapper
     /// <typeparam name="TDatabase"></typeparam>
     public abstract partial class Database<TDatabase> : Database where TDatabase : Database<TDatabase>, new()
     {
-        public static TDatabase Initialize(DbConnection connection, int commandTimeout)
+        public static TDatabase Initialize(DbConnection connection, int commandTimeout, CommandAdapter commandAdapter = null)
         {
             var db = new TDatabase();
-            db.InitializeDatabase(connection, commandTimeout);
+            db.InitializeDatabase(connection, commandTimeout, commandAdapter);
             db.InitializeTableProperties();
             return db;
         }

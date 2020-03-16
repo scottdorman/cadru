@@ -22,35 +22,38 @@
 
 namespace Cadru.Data.Dapper
 {
-    using Cadru.Data.Annotations;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
 
+    using Cadru.Data.Annotations;
+
     public abstract class ObjectMap<T> : IObjectMap where T : class
     {
-        private TypeInfo entityType = typeof(T).GetTypeInfo();
-        private Dictionary<string, object> additionalValues = new Dictionary<string, object>();
+        private readonly TypeInfo entityType = typeof(T).GetTypeInfo();
+        private readonly Dictionary<string, object> additionalValues = new Dictionary<string, object>();
+        private CommandAdapter commandAdapter;
 
-        public static IObjectMap CreateMap(DatabaseObjectType databaseObjectType)
+        public static IObjectMap CreateMap(DatabaseObjectType databaseObjectType, CommandAdapter commandAdapter)
         {
             IObjectMap map = null;
             switch (databaseObjectType)
             {
                 case DatabaseObjectType.Table:
-                    map = new TableMap<T>();
+                    map = new TableMap<T>(commandAdapter);
                     break;
                 case DatabaseObjectType.View:
-                    map = new ViewMap<T>();
+                    map = new ViewMap<T>(commandAdapter);
                     break;
             }
 
             return map;
         }
 
-        protected ObjectMap()
+        protected ObjectMap(CommandAdapter commandAdapter)
         {
+            this.commandAdapter = commandAdapter;
             this.Properties = new List<IPropertyMap>();
             foreach (var attribute in this.entityType.GetCustomAttributes<ExtendedPropertyAttribute>())
             {
@@ -59,6 +62,8 @@ namespace Cadru.Data.Dapper
         }
 
         public IReadOnlyDictionary<string, object> AdditionalValues => this.additionalValues;
+
+        public CommandAdapter CommandAdapter => this.commandAdapter;
 
         public string FullyQualifiedObjectName { get; internal set; }
 
@@ -83,7 +88,7 @@ namespace Cadru.Data.Dapper
 
         public virtual void Map()
         {
-            AutoMap();
+            this.AutoMap();
         }
 
         protected void AutoMap()
@@ -102,7 +107,7 @@ namespace Cadru.Data.Dapper
 
         protected string GetFullyQualifiedObjectName()
         {
-            return $"{(String.IsNullOrWhiteSpace(this.Schema) ? String.Empty : $"[{this.Schema}].")}[{this.ObjectName}]";
+            return $"{(String.IsNullOrWhiteSpace(this.Schema) ? String.Empty : $"{ this.commandAdapter.QuoteIdentifier(this.Schema)}{ this.commandAdapter.SchemaSeparator }")}{this.commandAdapter.QuoteIdentifier(this.ObjectName)}";
         }
     }
 }

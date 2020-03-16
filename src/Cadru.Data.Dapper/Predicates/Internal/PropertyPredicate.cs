@@ -32,9 +32,9 @@ namespace Cadru.Data.Dapper.Predicates.Internal
 
         public override string GetSql(DynamicParameters parameters)
         {
-            var columnName = GetColumnName<T>(PropertyName, false);
-            var columnName2 = GetColumnName<T2>(PropertyName2, false);
-            return $"({columnName} {GetOperatorString()} {columnName2})";
+            var columnName = GetColumnName<T>(this.PropertyName, false);
+            var columnName2 = GetColumnName<T2>(this.PropertyName2, false);
+            return $"{CommandAdapter.LeftParenthesis}{columnName}{this.GetOperatorString()}{columnName2}{CommandAdapter.RightParenthesis}";
         }
     }
 }

@@ -25,6 +25,7 @@ namespace Cadru.Data.Dapper.Predicates
     using System;
     using System.Collections.Generic;
     using System.Linq.Expressions;
+
     using Cadru.Data.Dapper.Internal;
     using Cadru.Data.Dapper.Predicates.Internal;
 
@@ -116,12 +117,62 @@ namespace Cadru.Data.Dapper.Predicates
         /// </summary>
         /// <typeparam name="TModel">The type of the entity.</typeparam>
         /// <typeparam name="TFieldType">The data type of the property.</typeparam>
+        /// <param name="expression">An expression that returns the [FieldName] operand.</param>
+        /// <param name="op">One of the <see cref="Operator"/> values.</param>
+        /// <param name="value">The value for the predicate.</param>
+        /// <param name="not"><see langword="true"/> to invert the comparison operator.</param>
+        /// <returns>An <see cref="IPredicate"/> instance representing the predicate.</returns>
+        public static IPredicate FieldComparison<TModel, TFieldType>(Expression<Func<TModel, TFieldType>> expression, Operator op, IEnumerable<TFieldType> value, bool not = false)
+            where TModel : class
+        {
+            var predicate = new FieldPredicate<TModel, TFieldType>
+            {
+                Not = not,
+                PropertyName = expression.GetProperty().Name,
+                Operator = op,
+                Value = value,
+            };
+
+            return predicate;
+        }
+
+        /// <summary>
+        /// Creates a predicate which represents a standard comparison clause,
+        /// of the form [FieldName] [Operator] [Value].
+        /// </summary>
+        /// <typeparam name="TModel">The type of the entity.</typeparam>
+        /// <typeparam name="TFieldType">The data type of the property.</typeparam>
         /// <param name="fieldName">The [FieldName] operand.</param>
         /// <param name="op">One of the <see cref="Operator"/> values.</param>
         /// <param name="value">The value for the predicate.</param>
         /// <param name="not"><see langword="true"/> to invert the comparison operator.</param>
         /// <returns>An <see cref="IPredicate"/> instance representing the predicate.</returns>
         public static IPredicate FieldComparison<TModel, TFieldType>(string fieldName, Operator op, TFieldType value, bool not = false)
+            where TModel : class
+        {
+            var predicate = new FieldPredicate<TModel, TFieldType>
+            {
+                Not = not,
+                PropertyName = fieldName,
+                Operator = op,
+                Value = value,
+            };
+
+            return predicate;
+        }
+
+        /// <summary>
+        /// Creates a predicate which represents a standard comparison clause,
+        /// of the form [FieldName] [Operator] [Value].
+        /// </summary>
+        /// <typeparam name="TModel">The type of the entity.</typeparam>
+        /// <typeparam name="TFieldType">The data type of the property.</typeparam>
+        /// <param name="fieldName">The [FieldName] operand.</param>
+        /// <param name="op">One of the <see cref="Operator"/> values.</param>
+        /// <param name="value">The value for the predicate.</param>
+        /// <param name="not"><see langword="true"/> to invert the comparison operator.</param>
+        /// <returns>An <see cref="IPredicate"/> instance representing the predicate.</returns>
+        public static IPredicate FieldComparison<TModel, TFieldType>(string fieldName, Operator op, IEnumerable<TFieldType> value, bool not = false)
             where TModel : class
         {
             var predicate = new FieldPredicate<TModel, TFieldType>
@@ -188,6 +239,7 @@ namespace Cadru.Data.Dapper.Predicates
 
             return predicate;
         }
+
         /// <summary>
         /// Creates a predicate which represents an EXISTS clause.
         /// </summary>

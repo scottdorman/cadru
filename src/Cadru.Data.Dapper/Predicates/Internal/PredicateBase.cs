@@ -25,7 +25,9 @@ namespace Cadru.Data.Dapper.Predicates.Internal
     using System;
     using System.Linq;
     using System.Text;
+
     using Cadru.Extensions;
+
     using global::Dapper;
 
     internal abstract partial class PredicateBase : IPredicateBase
@@ -41,7 +43,7 @@ namespace Cadru.Data.Dapper.Predicates.Internal
             Contracts.Requires.NotNullOrWhiteSpace(propertyName, nameof(propertyName));
 
             var columnName = String.Empty;
-            if (Database.Mappings.TryGetValue(typeof(T), out IObjectMap tableMap))
+            if (Database.Mappings.TryGetValue(typeof(T), out var tableMap))
             {
                 var propertyMap = tableMap.Properties.SingleOrDefault(p => p.PropertyName == propertyName);
                 if (propertyMap == null)
@@ -55,31 +57,39 @@ namespace Cadru.Data.Dapper.Predicates.Internal
                     columnAlias = propertyMap.PropertyName;
                 }
 
-                columnName = GetColumnName(GetTableName(tableMap.Schema, tableMap.ObjectName, null), propertyMap.ColumnName, columnAlias);
+                columnName = GetColumnName(tableMap.CommandAdapter, GetTableName(tableMap, null), propertyMap.ColumnName, columnAlias);
             }
 
             return columnName;
         }
 
-        private static string GetColumnName(string prefix, string columnName, string alias)
+        private static string GetColumnName(CommandAdapter commandAdapter, string prefix, string columnName, string alias)
         {
             Contracts.Requires.NotNullOrWhiteSpace(columnName, nameof(columnName));
 
             var result = new StringBuilder();
-            result.AppendFormatIf(!string.IsNullOrWhiteSpace(prefix), $"{prefix}.");
-            result.AppendFormat(columnName);
-            result.AppendFormatIf(!string.IsNullOrWhiteSpace(alias), $" AS {alias}");
+            result.AppendIf(!String.IsNullOrWhiteSpace(prefix), $"{prefix}{commandAdapter.SchemaSeparator}");
+            result.Append(commandAdapter.QuoteIdentifier(columnName));
+
+            if (!String.IsNullOrWhiteSpace(alias))
+            {
+                result.Append($"{CommandAdapter.As}{commandAdapter.QuoteIdentifier(alias)}");
+            }
+
             return result.ToString();
         }
 
-        private static string GetTableName(string schemaName, string tableName, string alias)
+        private static string GetTableName(IObjectMap objectMap, string alias)
         {
-            Contracts.Requires.NotNullOrWhiteSpace(tableName, nameof(tableName));
+            Contracts.Requires.NotNull(objectMap, nameof(objectMap));
 
             var result = new StringBuilder();
-            result.AppendFormatIf(!string.IsNullOrWhiteSpace(schemaName), $"{schemaName}.");
-            result.AppendFormat(tableName);
-            result.AppendFormatIf(!string.IsNullOrWhiteSpace(alias), $" AS {alias}");
+            result.Append(objectMap.FullyQualifiedObjectName);
+            if (!String.IsNullOrWhiteSpace(alias))
+            {
+                result.Append($"{CommandAdapter.As}{objectMap.CommandAdapter.QuoteIdentifier(alias)}");
+            }
+
             return result.ToString();
         }
     }

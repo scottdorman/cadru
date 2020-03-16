@@ -25,6 +25,7 @@ namespace Cadru.Data.Dapper
     using System;
     using System.Data;
     using System.Data.Common;
+
     using global::Dapper;
 
     public interface IDatabase : IDisposable
@@ -34,14 +35,14 @@ namespace Cadru.Data.Dapper
 
         void BeginTransaction(IsolationLevel isolation = IsolationLevel.ReadCommitted);
         void CommitTransaction();
-        int Execute(string sql, dynamic param = null);
-        System.Collections.Generic.IEnumerable<dynamic> Query(string sql, dynamic param = null, bool buffered = true);
-        System.Collections.Generic.IEnumerable<T> Query<T>(string sql, dynamic param = null, bool buffered = true);
-        System.Collections.Generic.IEnumerable<TReturn> Query<TFirst, TSecond, TReturn>(string sql, System.Func<TFirst, TSecond, TReturn> map, dynamic param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = default(int?));
-        System.Collections.Generic.IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TReturn>(string sql, System.Func<TFirst, TSecond, TThird, TReturn> map, dynamic param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = default(int?));
-        System.Collections.Generic.IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TReturn>(string sql, System.Func<TFirst, TSecond, TThird, TFourth, TReturn> map, dynamic param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = default(int?));
-        System.Collections.Generic.IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TFifth, TReturn>(string sql, System.Func<TFirst, TSecond, TThird, TFourth, TFifth, TReturn> map, dynamic param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = default(int?));
-        SqlMapper.GridReader QueryMultiple(string sql, dynamic param = null, IDbTransaction transaction = null, int? commandTimeout = default(int?), CommandType? commandType = default(CommandType?));
+        int Execute(string sql, dynamic param = null, int? commandTimeout = default);
+        System.Collections.Generic.IEnumerable<dynamic> Query(string sql, dynamic param = null, bool buffered = true, int? commandTimeout = default);
+        System.Collections.Generic.IEnumerable<T> Query<T>(string sql, dynamic param = null, bool buffered = true, int? commandTimeout = default);
+        System.Collections.Generic.IEnumerable<TReturn> Query<TFirst, TSecond, TReturn>(string sql, System.Func<TFirst, TSecond, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = default);
+        System.Collections.Generic.IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TReturn>(string sql, System.Func<TFirst, TSecond, TThird, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = default);
+        System.Collections.Generic.IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TReturn>(string sql, System.Func<TFirst, TSecond, TThird, TFourth, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = default);
+        System.Collections.Generic.IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TFifth, TReturn>(string sql, System.Func<TFirst, TSecond, TThird, TFourth, TFifth, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = default);
+        SqlMapper.GridReader QueryMultiple(string sql, dynamic param = null, int? commandTimeout = default, CommandType? commandType = default);
         void RollbackTransaction();
     }
 }

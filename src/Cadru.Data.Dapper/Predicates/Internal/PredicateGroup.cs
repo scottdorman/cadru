@@ -25,7 +25,7 @@ namespace Cadru.Data.Dapper.Predicates.Internal
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
+
     using global::Dapper;
 
     /// <summary>
@@ -33,7 +33,7 @@ namespace Cadru.Data.Dapper.Predicates.Internal
     /// </summary>
     internal class PredicateGroup : IPredicateGroup
     {
-        private List<IPredicate> predicates;
+        private readonly List<IPredicate> predicates;
 
         public PredicateGroup()
         {
@@ -42,59 +42,27 @@ namespace Cadru.Data.Dapper.Predicates.Internal
 
         internal GroupOperator Operator { get; set; }
 
-        public IList<IPredicate> Predicates => predicates;
+        public IList<IPredicate> Predicates => this.predicates;
 
         internal void AddRange(IEnumerable<IPredicate> predicates)
         {
             this.predicates.AddRange(predicates);
         }
-        //public static IPredicateGroup And()
-        //{
-        //    var group = new PredicateGroup
-        //    {
-        //        Operator = GroupOperator.And,
-        //    };
-
-        //    return group;
-        //}
-
-        //public static IPredicateGroup And(IList<IPredicate> predicates)
-        //{
-        //    var group = (PredicateGroup)PredicateGroup.And();
-        //    group.predicates.AddRange(predicates);
-        //    return group;
-        //}
-
-        //public static IPredicateGroup Or()
-        //{
-        //    var group = new PredicateGroup
-        //    {
-        //        Operator = GroupOperator.Or,
-        //    };
-
-        //    return group;
-        //}
-
-        //public static IPredicateGroup Or(IList<IPredicate> predicates)
-        //{
-        //    var group = (PredicateGroup)PredicateGroup.Or();
-        //    group.predicates.AddRange(predicates);
-        //    return group;
-        //}
 
         public string GetSql(DynamicParameters parameters)
         {
-            var seperator = Operator == GroupOperator.And ? " AND " : " OR ";
-            var seed = new StringBuilder();
-            Func<StringBuilder, IPredicate, StringBuilder> func = (sb, p) => (sb.Length == 0 ? sb : sb.Append(seperator)).Append(p.GetSql(parameters));
-            Func<StringBuilder, string> result = sb =>
+            var seperator = this.Operator == GroupOperator.And ? CommandAdapter.And : CommandAdapter.Or;
+            var predicateList = new List<string>();
+            foreach (var predicate in this.Predicates)
             {
-                var s = sb.ToString();
-                if (s.Length == 0) return "1 = 1";
-                return s;
-            };
+                var sql = predicate.GetSql(parameters);
+                if (!String.IsNullOrWhiteSpace(sql))
+                {
+                    predicateList.Add(sql);
+                }
+            }
 
-            return $"( {Predicates.Aggregate(seed, func, result)})";
+            return predicateList.Any() ? $"{CommandAdapter.LeftParenthesis}{ String.Join(seperator, predicateList) }{CommandAdapter.RightParenthesis}" : String.Empty;
         }
     }
 }

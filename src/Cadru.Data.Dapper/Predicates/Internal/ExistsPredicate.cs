@@ -22,7 +22,6 @@
 
 namespace Cadru.Data.Dapper.Predicates.Internal
 {
-    using System;
     using global::Dapper;
 
     internal class ExistsPredicate<TModel> : IExistsPredicate
@@ -34,10 +33,11 @@ namespace Cadru.Data.Dapper.Predicates.Internal
 
         public string GetSql(DynamicParameters parameters)
         {
+            var operatorString = this.Not ? CommandAdapter.NotExists : CommandAdapter.Exists;
             string sql = null;
-            if (Database.Mappings.TryGetValue(typeof(TModel), out IObjectMap classMap))
+            if (Database.Mappings.TryGetValue(typeof(TModel), out var classMap))
             {
-                sql = $"({(Not ? "NOT " : String.Empty)}EXISTS (SELECT 1 FROM {classMap.ObjectName} WHERE {Predicate.GetSql(parameters)}))";
+                sql = $"{CommandAdapter.LeftParenthesis}{operatorString}{CommandAdapter.SpaceLeftParenthesis}{CommandAdapter.SelectOne}{classMap.ObjectName}{CommandAdapter.Where}{this.Predicate.GetSql(parameters)}{CommandAdapter.RightParenthesis}{CommandAdapter.RightParenthesis}";
             }
 
             return sql;

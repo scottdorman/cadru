@@ -26,6 +26,7 @@ namespace Cadru.Data.Dapper
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
     using System.Threading.Tasks;
 
     using Cadru.Data.Dapper.Predicates;
@@ -36,10 +37,10 @@ namespace Cadru.Data.Dapper
 
     public partial class View<TEntity> : IDatabaseObject where TEntity : class
     {
-        private Database database;
-        private IObjectMap viewMap;
-        private Type underlyingType = typeof(TEntity);
-        private static ConcurrentDictionary<Type, List<string>> paramNameCache = new ConcurrentDictionary<Type, List<string>>();
+        private readonly Database database;
+        private readonly IObjectMap viewMap;
+        private readonly Type underlyingType = typeof(TEntity);
+        private static readonly ConcurrentDictionary<Type, List<string>> paramNameCache = new ConcurrentDictionary<Type, List<string>>();
 
         public View(Database database)
         {
@@ -57,16 +58,19 @@ namespace Cadru.Data.Dapper
 
         protected Database Database => this.database;
 
-        /// <summary>
-        /// Gets the first record which matches the given predicate.
-        /// </summary>
-        /// <param name="predicate"></param>
-        /// <returns></returns>
-        public virtual TEntity Get(IPredicate predicate)
+        private void AppendWhere(StringBuilder builder, IPredicate predicate, DynamicParameters parameters)
         {
-            Requires.NotNull(predicate, "predicate");
-            var parameters = new DynamicParameters();
-            return this.database.Query<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}", parameters).FirstOrDefault();
+            builder.Append(CommandAdapter.Where);
+            builder.Append(predicate.GetSql(parameters));
+        }
+
+        private StringBuilder GetStatementBuilder()
+        {
+            var builder = new StringBuilder();
+            builder.Append(CommandAdapter.SelectStar);
+            builder.Append(this.FullyQualifiedObjectName);
+
+            return builder;
         }
 
         /// <summary>
@@ -74,20 +78,13 @@ namespace Cadru.Data.Dapper
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        public virtual async Task<TEntity> GetAsync(IPredicate predicate)
+        public virtual TEntity Get(IPredicate predicate, int? commandTimeout = null)
         {
             Requires.NotNull(predicate, "predicate");
             var parameters = new DynamicParameters();
-            return (await this.database.Connection.QueryAsync<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}", parameters)).FirstOrDefault();
-        }
-
-        /// <summary>
-        /// Gets the first record.
-        /// </summary>
-        /// <returns></returns>
-        public virtual TEntity First()
-        {
-            return this.database.Query<TEntity>($"SELECT TOP 1 * FROM {this.FullyQualifiedObjectName}").FirstOrDefault();
+            var builder = this.GetStatementBuilder();
+            this.AppendWhere(builder, predicate, parameters);
+            return this.database.Query<TEntity>(builder.ToString(), parameters, commandTimeout: commandTimeout).FirstOrDefault();
         }
 
         /// <summary>
@@ -95,74 +92,94 @@ namespace Cadru.Data.Dapper
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        public virtual TEntity First(IPredicate predicate)
+        public virtual async Task<TEntity> GetAsync(IPredicate predicate, int? commandTimeout = null)
         {
             Requires.NotNull(predicate, "predicate");
             var parameters = new DynamicParameters();
-            return this.database.Query<TEntity>($"SELECT TOP 1 * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}").FirstOrDefault();
+            var builder = this.GetStatementBuilder();
+            this.AppendWhere(builder, predicate, parameters);
+            return (await this.database.Connection.QueryAsync<TEntity>(builder.ToString(), parameters, commandTimeout: commandTimeout)).FirstOrDefault();
         }
 
-        /// <summary>
-        /// Gets the first record.
-        /// </summary>
-        /// <returns></returns>
-        public virtual async Task<TEntity> FirstAsync()
+        private StringBuilder FirstStatementBuilder()
         {
-            return (await this.database.Connection.QueryAsync<TEntity>($"SELECT TOP 1 * FROM {this.FullyQualifiedObjectName}")).FirstOrDefault();
+            var builder = new StringBuilder();
+            builder.Append(CommandAdapter.SelectTopOne);
+            builder.Append(this.FullyQualifiedObjectName);
+
+            return builder;
         }
 
         /// <summary>
-        /// Gets the first record which matches the given predicate.
+        /// Gets the first record which matches the predicate, if provided.
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        public virtual async Task<TEntity> FirstAsync(IPredicate predicate)
+        public virtual TEntity First(IPredicate predicate = null, int? commandTimeout = null)
         {
-            Requires.NotNull(predicate, "predicate");
-            var parameters = new DynamicParameters();
-            return (await this.database.Connection.QueryAsync<TEntity>($"SELECT TOP 1 * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}")).FirstOrDefault();
+            DynamicParameters parameters = null;
+            var builder = this.FirstStatementBuilder();
+            if (predicate != null)
+            {
+                parameters = new DynamicParameters();
+                this.AppendWhere(builder, predicate, parameters);
+            }
+
+            return this.database.Query<TEntity>(builder.ToString(), param: parameters, commandTimeout: commandTimeout).FirstOrDefault();
         }
 
         /// <summary>
-        /// Gets all of the records.
-        /// </summary>
-        /// <returns></returns>
-        public virtual IEnumerable<TEntity> All()
-        {
-            return this.database.Query<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName}");
-        }
-
-        /// <summary>
-        /// Gets all of the records which match the given predicate.
+        /// Gets the first record which matches the predicate, if provided.
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        public virtual IEnumerable<TEntity> All(IPredicate predicate)
+        public virtual async Task<TEntity> FirstAsync(IPredicate predicate = null, int? commandTimeout = null)
         {
-            Requires.NotNull(predicate, "predicate");
-            var parameters = new DynamicParameters();
-            return this.database.Query<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}", parameters);
+            DynamicParameters parameters = null;
+            var builder = this.FirstStatementBuilder();
+            if (predicate != null)
+            {
+                parameters = new DynamicParameters();
+                this.AppendWhere(builder, predicate, parameters);
+            }
+
+            return (await this.database.Connection.QueryAsync<TEntity>(builder.ToString(), param: parameters, commandTimeout: commandTimeout)).FirstOrDefault();
         }
 
         /// <summary>
-        /// Gets all of the records.
-        /// </summary>
-        /// <returns></returns>
-        public virtual async Task<IEnumerable<TEntity>> AllAsync()
-        {
-            return await this.database.Connection.QueryAsync<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName}");
-        }
-
-        /// <summary>
-        /// Gets all of the records which match the given predicate.
+        /// Gets all of the records which match the predicate, if provided.
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        public virtual async Task<IEnumerable<TEntity>> AllAsync(IPredicate predicate)
+        public virtual IEnumerable<TEntity> All(IPredicate predicate = null, int? commandTimeout = null)
         {
-            Requires.NotNull(predicate, "predicate");
-            var parameters = new DynamicParameters();
-            return await this.database.Connection.QueryAsync<TEntity>($"SELECT * FROM {this.FullyQualifiedObjectName} WHERE {predicate.GetSql(parameters)}", parameters);
+            DynamicParameters parameters = null;
+            var builder = this.GetStatementBuilder();
+            if (predicate != null)
+            {
+                parameters = new DynamicParameters();
+                this.AppendWhere(builder, predicate, parameters);
+            }
+
+            return this.database.Connection.Query<TEntity>(builder.ToString(), param: parameters, commandTimeout: commandTimeout);
+        }
+
+        /// <summary>
+        /// Gets all of the records which match the predicate, if provided.
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public virtual async Task<IEnumerable<TEntity>> AllAsync(IPredicate predicate = null, int? commandTimeout = null)
+        {
+            DynamicParameters parameters = null;
+            var builder = this.GetStatementBuilder();
+            if (predicate != null)
+            {
+                parameters = new DynamicParameters();
+                this.AppendWhere(builder, predicate, parameters);
+            }
+
+            return await this.database.Connection.QueryAsync<TEntity>(builder.ToString(), param: parameters, commandTimeout: commandTimeout);
         }
     }
 }

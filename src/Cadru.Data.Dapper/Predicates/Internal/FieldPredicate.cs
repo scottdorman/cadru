@@ -27,40 +27,53 @@ namespace Cadru.Data.Dapper.Predicates.Internal
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+
     using Cadru.Data.Dapper.Internal;
+
     using global::Dapper;
 
     internal class FieldPredicate<T, TFieldType> : ComparePredicate
             where T : class
     {
-        public TFieldType Value { get; set; }
+        public object Value { get; set; }
 
         public override string GetSql(DynamicParameters parameters)
         {
-            var notText = Not ? "NOT " : string.Empty;
+            var notText = this.Not ? CommandAdapter.Not : String.Empty;
 
-            var columnName = GetColumnName<T>(PropertyName, false);
-            if (Value == null)
+            var columnName = GetColumnName<T>(this.PropertyName, false);
+            if (this.Value == null)
             {
-                return $"({columnName} IS {notText}NULL)";
+                return $"{CommandAdapter.LeftParenthesis}{columnName}{this.GetOperatorString()}{CommandAdapter.RightParenthesis}";
             }
 
-            if (Value is IEnumerable && !(Value is string))
+            if (this.Operator == Operator.In)
             {
-                if (Operator != Operator.Equal)
+                var enumerable = this.Value as IEnumerable;
+                if (enumerable != null)
                 {
-                    throw new ArgumentException("Operator must be set to Eq for Enumerable types");
-                }
+                    var @params = new List<string>();
+                    foreach (var value in enumerable)
+                    {
+                        var valueParameterName = parameters.SetParameterName(this.PropertyName, value, '@');
+                        @params.Add(valueParameterName);
+                    }
 
-                var @params = new List<string>();
-                foreach (var value in (IEnumerable)Value)
+                    if (@params.Any())
+                    {
+                        var paramStrings = @params.Aggregate(new StringBuilder(), (sb, s) => sb.Append((sb.Length != 0 ? ", " : String.Empty) + s), sb => sb.ToString());
+                        return $"{CommandAdapter.LeftParenthesis}{columnName}{this.GetOperatorString()}{CommandAdapter.SpaceLeftParenthesis}{paramStrings}{CommandAdapter.RightParenthesis}{CommandAdapter.RightParenthesis}";
+                    }
+                    else
+                    {
+                        return String.Empty;
+                    }
+                }
+                else
                 {
-                    var valueParameterName = parameters.SetParameterName(this.PropertyName, value, '@');
-                    @params.Add(valueParameterName);
-                }
+                    throw new ArgumentException("Value must be enumerable for IN operations");
 
-                var paramStrings = @params.Aggregate(new StringBuilder(), (sb, s) => sb.Append((sb.Length != 0 ? ", " : string.Empty) + s), sb => sb.ToString());
-                return $"({columnName} {notText}IN ({paramStrings}))";
+                }
             }
 
             if (this.Operator == Operator.Between)
@@ -69,13 +82,13 @@ namespace Cadru.Data.Dapper.Predicates.Internal
                 var values = this.Value as Tuple<TFieldType, TFieldType>;
                 if (values != null)
                 {
-                    return $"({columnName} {GetOperatorString()} {parameters.SetParameterName(this.PropertyName, values.Item1, '@')} AND {parameters.SetParameterName(this.PropertyName, values.Item2, '@')})";
+                    return $"({columnName} {this.GetOperatorString()} {parameters.SetParameterName(this.PropertyName, values.Item1, '@')}{CommandAdapter.And}{parameters.SetParameterName(this.PropertyName, values.Item2, '@')})";
                 }
 #pragma warning restore IDE0019
             }
 
             var parameterName = parameters.SetParameterName(this.PropertyName, this.Value, '@');
-            return $"({columnName} {GetOperatorString()} {parameterName})";
+            return $"({columnName} {this.GetOperatorString()} {parameterName})";
         }
     }
 }

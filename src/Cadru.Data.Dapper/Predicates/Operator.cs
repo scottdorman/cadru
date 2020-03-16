@@ -61,5 +61,10 @@ namespace Cadru.Data.Dapper.Predicates
         /// Between
         /// </summary>
         Between,
+
+        /// <summary>
+        /// In
+        /// </summary>
+        In,
     }
 }

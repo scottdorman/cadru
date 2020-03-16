@@ -22,13 +22,14 @@
 
 namespace Cadru.Data.Dapper
 {
-    using Cadru.Data.Annotations;
     using System;
     using System.Reflection;
 
+    using Cadru.Data.Annotations;
+
     public class ViewMap<T> : ObjectMap<T> where T : class
     {
-        internal ViewMap() : base()
+        internal ViewMap(CommandAdapter commandAdapter) : base(commandAdapter)
         {
             this.ObjectType = DatabaseObjectType.View;
             var viewAttribute = this.EntityType.GetCustomAttribute<ViewAttribute>(inherit: true);

@@ -28,7 +28,7 @@ namespace Cadru.Data.Dapper
 
     public class TableMap<T> : ObjectMap<T> where T : class
     {
-        internal TableMap() : base()
+        internal TableMap(CommandAdapter commandAdapter) : base(commandAdapter)
         {
             this.ObjectType = DatabaseObjectType.Table;
             var tableAttribute = this.EntityType.GetCustomAttribute<TableAttribute>(inherit: true);
