@@ -1,16 +1,18 @@
-using Cadru.Data.Excel;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+
+using Cadru.Data.Excel;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Cadru.Env.Tests
 {
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
+        [TestMethod, Ignore]
         public void TestMethod1()
         {
             //var filePath = @"D:\Users\Scott\Source\github\cadru\tests\Cadru.Data.Tests\Plan Assignment DELETE File 20170615.xlsx";
