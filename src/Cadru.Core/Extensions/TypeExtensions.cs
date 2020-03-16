@@ -22,11 +22,13 @@
 
 namespace Cadru.Extensions
 {
-    using Cadru.Core.Resources;
-    using Contracts;
     using System;
     using System.Linq;
     using System.Reflection;
+
+    using Cadru.Resources;
+
+    using Contracts;
 
     /// <summary>
     /// Provides basic routines for common type manipulation.

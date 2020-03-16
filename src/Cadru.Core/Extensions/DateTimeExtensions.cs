@@ -22,13 +22,14 @@
 
 namespace Cadru.Extensions
 {
-    using Cadru.Core.Resources;
-    using Cadru.Internal;
-    using Cadru.Text;
     using System;
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
+
+    using Cadru.Internal;
+    using Cadru.Resources;
+    using Cadru.Text;
 
     /// <summary>
     /// Provides basic routines for common DateTime manipulation.

@@ -26,8 +26,9 @@ namespace Cadru.Extensions
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
-    using Cadru.Core.Resources;
+
     using Cadru.Internal;
+    using Cadru.Resources;
     using Cadru.Text;
 
     /// <summary>

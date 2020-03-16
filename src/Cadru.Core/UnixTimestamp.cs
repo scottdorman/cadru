@@ -26,8 +26,9 @@ namespace Cadru
     using System.Diagnostics.Contracts;
     using System.Globalization;
     using System.Runtime.InteropServices;
-    using Cadru.Core.Resources;
+
     using Cadru.Internal;
+    using Cadru.Resources;
 
 
     /// <summary>

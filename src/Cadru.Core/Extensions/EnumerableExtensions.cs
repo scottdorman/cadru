@@ -22,13 +22,14 @@
 
 namespace Cadru.Extensions
 {
-    using Cadru.Core.Resources;
-    using Cadru.Internal;
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
+
+    using Cadru.Internal;
+    using Cadru.Resources;
 
 
     /// <summary>

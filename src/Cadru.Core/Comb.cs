@@ -26,9 +26,9 @@ namespace Cadru
     using System.Runtime.InteropServices;
     using System.Text;
 
-    using Cadru.Core.Resources;
     using Cadru.Extensions;
     using Cadru.Internal;
+    using Cadru.Resources;
 
     /// <summary>
     /// Represents a combined globally unique identifier (GUID) and time stamp.

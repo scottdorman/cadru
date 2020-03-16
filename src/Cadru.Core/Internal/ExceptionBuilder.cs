@@ -24,9 +24,10 @@ namespace Cadru.Internal
 {
     using System;
     using System.Globalization;
+
     using Cadru.Contracts;
-    using Cadru.Core.Resources;
     using Cadru.Extensions;
+    using Cadru.Resources;
 
 
     /// <summary>

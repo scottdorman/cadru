@@ -22,11 +22,13 @@
 
 namespace Cadru.Globalization
 {
-    using Cadru.Core.Resources;
-    using Contracts;
     using System;
     using System.Globalization;
     using System.Reflection;
+
+    using Cadru.Resources;
+
+    using Contracts;
 
     /// <summary>
     /// A helper class for providing a localizable string property.
