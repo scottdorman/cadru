@@ -71,6 +71,36 @@ namespace Cadru.Extensions
         }
         #endregion
 
+        #region ToLower
+        /// <summary>
+        /// Converts the value of this instance to its equivalent lowercase string representation
+        /// (either "true" or "false").
+        /// </summary>
+        /// <param name="value">The boolean value whose character representation should be returned.</param>
+        /// <returns>The lowercase representation of <see cref="System.Boolean.TrueString"/> if the value
+        /// of this instance is true, or the lowercase representation of
+        /// <see cref="System.Boolean.FalseString"/> if the value of this instance is false.</returns>
+        public static string ToLower(this bool value)
+        {
+            return value.ToString().ToLower();
+        }
+        #endregion
+
+        #region ToUpper
+        /// <summary>
+        /// Converts the value of this instance to its equivalent uppercase string representation
+        /// (either "true" or "false").
+        /// </summary>
+        /// <param name="value">The boolean value whose character representation should be returned.</param>
+        /// <returns>The uppercase representation of <see cref="System.Boolean.TrueString"/> if the value
+        /// of this instance is true, or the uppercase representation of
+        /// <see cref="System.Boolean.FalseString"/> if the value of this instance is false.</returns>
+        public static string ToUpper(this bool value)
+        {
+            return value.ToString().ToUpper();
+        }
+        #endregion
+
         #region TryParseAsBoolean
 
         #region TryParseAsBoolean(int value, out bool result)
