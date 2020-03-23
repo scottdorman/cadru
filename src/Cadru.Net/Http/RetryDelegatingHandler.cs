@@ -26,6 +26,7 @@ namespace Cadru.Net.Http
     using System.Net.Http;
     using System.Threading;
     using System.Threading.Tasks;
+
     using Cadru.TransientFaultHandling;
 
     /// <summary>
@@ -115,12 +116,12 @@ namespace Cadru.Net.Http
         /// <returns>The task object representing the asynchronous operation.</returns>
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            RetryPolicy.Retrying += (sender, args) => Retrying?.Invoke(sender, args);
+            this.RetryPolicy.Retrying += (sender, args) => Retrying?.Invoke(sender, args);
 
             HttpResponseMessage responseMessage = null;
             try
             {
-                await RetryPolicy.ExecuteAsync(async () =>
+                await this.RetryPolicy.ExecuteAsync(async () =>
                 {
                     responseMessage = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
                     if (!responseMessage.IsSuccessStatusCode)

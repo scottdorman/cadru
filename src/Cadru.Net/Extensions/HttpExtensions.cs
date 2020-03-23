@@ -28,6 +28,9 @@ namespace Cadru.Net.Extensions
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Text;
+
+    using Cadru.Collections;
+
     using Newtonsoft.Json.Linq;
 
     /// <summary>
@@ -35,6 +38,82 @@ namespace Cadru.Net.Extensions
     /// </summary>
     public static class HttpExtensions
     {
+        #region AsFormattedString
+        /// <summary>
+        /// Returns string representation of a HttpRequestMessage.
+        /// </summary>
+        /// <param name="httpRequest">Request object to format.</param>
+        /// <returns>The string, formatted into curly braces.</returns>
+        public static string AsFormattedString(this HttpRequestMessage httpRequest)
+        {
+            if (httpRequest == null)
+            {
+                throw new ArgumentNullException("httpRequest");
+            }
+
+            var stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine(httpRequest.ToString());
+            if (httpRequest.Content != null)
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.AppendLine("Body:");
+                stringBuilder.AppendLine("{");
+                stringBuilder.AppendLine(httpRequest.Content.ReadAsStringAsync().ConfigureAwait(false).GetAwaiter().GetResult());
+                stringBuilder.AppendLine("}");
+            }
+
+            return stringBuilder.ToString();
+        }
+
+        /// <summary>
+        /// Returns string representation of a HttpResponseMessage.
+        /// </summary>
+        /// <param name="httpResponse">Response object to format.</param>
+        /// <returns>The string, formatted into curly braces.</returns>
+        public static string AsFormattedString(this HttpResponseMessage httpResponse)
+        {
+            if (httpResponse == null)
+            {
+                throw new ArgumentNullException("httpResponse");
+            }
+
+            var stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine(httpResponse.ToString());
+            if (httpResponse.Content != null)
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.AppendLine("Body:");
+                stringBuilder.AppendLine("{");
+                stringBuilder.AppendLine(httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false).GetAwaiter().GetResult());
+                stringBuilder.AppendLine("}");
+            }
+
+            return stringBuilder.ToString();
+        }
+
+        /// <summary>
+        /// Converts given dictionary into a log string.
+        /// </summary>
+        /// <typeparam name="TKey">The dictionary key type.</typeparam>
+        /// <typeparam name="TValue">The dictionary value type.</typeparam>
+        /// <param name="dictionary">The dictionary object.</param>
+        /// <returns>The string, formatted into curly braces.</returns>
+        public static string AsFormattedString<TKey, TValue>(this IDictionary<TKey, TValue> dictionary)
+        {
+            if (dictionary == null)
+            {
+                return "{}";
+            }
+
+            return "{" + String.Join(",",
+                dictionary.Select(kv => kv.Key.ToString() +
+                                        "=" +
+                                        (kv.Value == null ? String.Empty : kv.Value.ToString()))
+                    .ToArray()) + "}";
+        }
+        #endregion
+
+        #region AsString
         /// <summary>
         /// Formats an HttpContent object as String.
         /// </summary>
@@ -54,6 +133,59 @@ namespace Cadru.Net.Extensions
             }
             return null;
         }
+        #endregion
+
+        public static HttpRequestMessage CreateRequestMessage(this HttpClient httpClient, HttpMethod method, Uri uri, QueryStringParametersDictionary queryStringParameters = null, IDictionary<string, string> headerCollection = null)
+        {
+            Uri requestUri = null;
+            if ((uri == null) && (httpClient.BaseAddress == null))
+            {
+                throw new InvalidOperationException("SR.net_http_client_invalid_requesturi");
+            }
+            if (uri == null)
+            {
+                requestUri = httpClient.BaseAddress;
+            }
+            else
+            {
+                // If the request Uri is an absolute Uri, just use it. Otherwise try to combine it with the base Uri.
+                if (!uri.IsAbsoluteUri)
+                {
+                    if (httpClient.BaseAddress == null)
+                    {
+                        throw new InvalidOperationException("SR.net_http_client_invalid_requesturi");
+                    }
+                    else
+                    {
+                        requestUri = new Uri(httpClient.BaseAddress, uri);
+                    }
+                }
+            }
+
+            if (queryStringParameters != null)
+            {
+                var builder = new UriBuilder(requestUri)
+                {
+                    Query = queryStringParameters.ToQueryString()
+                };
+
+                requestUri = builder.Uri;
+            }
+
+            var requestMessge = new HttpRequestMessage(method, requestUri);
+
+            if (headerCollection != null)
+            {
+                foreach (var header in headerCollection)
+                {
+                    requestMessge.Headers.Add(header.Key, header.Value);
+                }
+            }
+
+            return requestMessge;
+        }
+
+        #region GetContentHeaders
         /// <summary>
         /// Get the content headers of an HtttRequestMessage.
         /// </summary>
@@ -67,6 +199,7 @@ namespace Cadru.Net.Extensions
             }
             return null;
         }
+
         /// <summary>
         /// Get the content headers of an HttpResponseMessage.
         /// </summary>
@@ -80,115 +213,9 @@ namespace Cadru.Net.Extensions
             }
             return null;
         }
-        /// <summary>
-        /// Returns string representation of a HttpRequestMessage.
-        /// </summary>
-        /// <param name="httpRequest">Request object to format.</param>
-        /// <returns>The string, formatted into curly braces.</returns>
-        public static string AsFormattedString(this HttpRequestMessage httpRequest)
-        {
-            if (httpRequest == null)
-            {
-                throw new ArgumentNullException("httpRequest");
-            }
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine(httpRequest.ToString());
-            if (httpRequest.Content != null)
-            {
-                stringBuilder.AppendLine();
-                stringBuilder.AppendLine("Body:");
-                stringBuilder.AppendLine("{");
-                stringBuilder.AppendLine(httpRequest.Content.ReadAsStringAsync().ConfigureAwait(false).GetAwaiter().GetResult());
-                stringBuilder.AppendLine("}");
-            }
-            return stringBuilder.ToString();
-        }
-        /// <summary>
-        /// Returns string representation of a HttpResponseMessage.
-        /// </summary>
-        /// <param name="httpResponse">Response object to format.</param>
-        /// <returns>The string, formatted into curly braces.</returns>
-        public static string AsFormattedString(this HttpResponseMessage httpResponse)
-        {
-            if (httpResponse == null)
-            {
-                throw new ArgumentNullException("httpResponse");
-            }
-            var stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine(httpResponse.ToString());
-            if (httpResponse.Content != null)
-            {
-                stringBuilder.AppendLine();
-                stringBuilder.AppendLine("Body:");
-                stringBuilder.AppendLine("{");
-                stringBuilder.AppendLine(httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false).GetAwaiter().GetResult());
-                stringBuilder.AppendLine("}");
-            }
-            return stringBuilder.ToString();
-        }
-        /// <summary>
-        /// Converts given dictionary into a log string.
-        /// </summary>
-        /// <typeparam name="TKey">The dictionary key type.</typeparam>
-        /// <typeparam name="TValue">The dictionary value type.</typeparam>
-        /// <param name="dictionary">The dictionary object.</param>
-        /// <returns>The string, formatted into curly braces.</returns>
-        public static string AsFormattedString<TKey, TValue>(this IDictionary<TKey, TValue> dictionary)
-        {
-            if (dictionary == null)
-            {
-                return "{}";
-            }
-            return "{" + string.Join(",",
-                dictionary.Select(kv => kv.Key.ToString() +
-                                        "=" +
-                                        (kv.Value == null ? string.Empty : kv.Value.ToString()))
-                    .ToArray()) + "}";
-        }
-        /// <summary>
-        /// Serializes HttpHeaders as Json dictionary.
-        /// </summary>
-        /// <param name="headers">HttpHeaders</param>
-        /// <returns>Json string</returns>
-        public static JObject ToJson(this HttpHeaders headers)
-        {
-            if (headers == null || !headers.Any())
-            {
-                return new JObject();
-            }
-            else
-            {
-                return headers.ToDictionary(h => h.Key, h => h.Value).ToJson();
-            }
-        }
-        /// <summary>
-        /// Serializes header dictionary as Json dictionary.
-        /// </summary>
-        /// <param name="headers">Dictionary</param>
-        /// <returns>Json string</returns>
-        public static JObject ToJson(this IDictionary<string, IEnumerable<string>> headers)
-        {
-            if (headers == null || !headers.Any())
-            {
-                return new JObject();
-            }
-            else
-            {
-                var jObject = new JObject();
-                foreach (var httpResponseHeader in headers)
-                {
-                    if (httpResponseHeader.Value.Count() > 1)
-                    {
-                        jObject[httpResponseHeader.Key] = new JArray(httpResponseHeader.Value);
-                    }
-                    else
-                    {
-                        jObject[httpResponseHeader.Key] = httpResponseHeader.Value.FirstOrDefault();
-                    }
-                }
-                return jObject;
-            }
-        }
+        #endregion
+
+        #region GetHeadersAsJson
         /// <summary>
         /// Serializes HttpResponseHeaders and HttpContentHeaders as Json dictionary.
         /// </summary>
@@ -228,5 +255,54 @@ namespace Cadru.Net.Extensions
             }
             return jObject;
         }
+        #endregion
+
+        #region ToJson
+        /// <summary>
+        /// Serializes HttpHeaders as Json dictionary.
+        /// </summary>
+        /// <param name="headers">HttpHeaders</param>
+        /// <returns>Json string</returns>
+        public static JObject ToJson(this HttpHeaders headers)
+        {
+            if (headers == null || !headers.Any())
+            {
+                return new JObject();
+            }
+            else
+            {
+                return headers.ToDictionary(h => h.Key, h => h.Value).ToJson();
+            }
+        }
+
+        /// <summary>
+        /// Serializes header dictionary as Json dictionary.
+        /// </summary>
+        /// <param name="headers">Dictionary</param>
+        /// <returns>Json string</returns>
+        public static JObject ToJson(this IDictionary<string, IEnumerable<string>> headers)
+        {
+            if (headers == null || !headers.Any())
+            {
+                return new JObject();
+            }
+            else
+            {
+                var jObject = new JObject();
+                foreach (var httpResponseHeader in headers)
+                {
+                    if (httpResponseHeader.Value.Count() > 1)
+                    {
+                        jObject[httpResponseHeader.Key] = new JArray(httpResponseHeader.Value);
+                    }
+                    else
+                    {
+                        jObject[httpResponseHeader.Key] = httpResponseHeader.Value.FirstOrDefault();
+                    }
+                }
+                return jObject;
+            }
+        }
+        #endregion
     }
 }
