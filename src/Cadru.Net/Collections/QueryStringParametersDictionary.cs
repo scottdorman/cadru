@@ -26,6 +26,7 @@ namespace Cadru.Collections
     using System.Collections.Generic;
     using System.Globalization;
     using System.Text;
+
     using Cadru.Internal;
 
     /// <summary>
@@ -121,6 +122,18 @@ namespace Cadru.Collections
 
         #region methods
 
+        /// <summary>
+        /// Adds the items from the collection into this instance.
+        /// </summary>
+        /// <param name="collection">The source collection whose items will be copied.</param>
+        public void AddRange(QueryStringParametersDictionary collection)
+        {
+            foreach (var item in collection)
+            {
+                this.Add(item.Key, item.Value);
+            }
+        }
+
         #region ToQueryString
         /// <summary>
         /// Returns a string representation of the query parameters and
@@ -131,11 +144,11 @@ namespace Cadru.Collections
         public string ToQueryString()
         {
             var queryString = String.Empty;
-            int index = 0;
+            var index = 0;
 
             if (this.Count > 0)
             {
-                int count = this.Count - 1;
+                var count = this.Count - 1;
                 var builder = new StringBuilder();
                 foreach (var item in this)
                 {
@@ -151,7 +164,7 @@ namespace Cadru.Collections
 
         internal void FillFromString(string query)
         {
-            int length = (query != null) ? query.Length : 0;
+            var length = (query != null) ? query.Length : 0;
 
             if (length > 0)
             {
@@ -162,7 +175,7 @@ namespace Cadru.Collections
 
                 foreach (var pair in query.Split(new[] { '&' }, StringSplitOptions.RemoveEmptyEntries))
                 {
-                    int pairLength = pair.Length;
+                    var pairLength = pair.Length;
                     var index = pair.IndexOf('=');
                     if (index == -1)
                     {
