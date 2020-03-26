@@ -53,7 +53,7 @@
             }
 
             object result = null;
-            if (Double.TryParse(value.ToString(), out double serialDateValue))
+            if (Double.TryParse(value.ToString(), out var serialDateValue))
             {
                 try
                 {
@@ -66,7 +66,7 @@
             }
             else
             {
-                if (DateTime.TryParse(value.ToString(), out DateTime parsedResult))
+                if (DateTime.TryParse(value.ToString(), out var parsedResult))
                 {
                     result = parsedResult;
                 }
@@ -83,7 +83,7 @@
             }
 
             object result = false;
-            if ((value?.ToString()).TryParseAsBoolean(out bool temp))
+            if ((value?.ToString()).TryParseAsBoolean(out var temp))
             {
                 result = temp;
             }

@@ -7,7 +7,7 @@ using Cadru.UnitTest.Framework;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Cadru.Core.UnitTests
+namespace Cadru.Core.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class CombTests
@@ -18,7 +18,7 @@ namespace Cadru.Core.UnitTests
         [TestMethod]
         public void Scratch()
         {
-            for (int i = 0; i < 1000; i++)
+            for (var i = 0; i < 1000; i++)
             {
                 var ticks = DateTimeOffset.UtcNow.UtcTicks;
                 Console.WriteLine(ticks);
@@ -61,11 +61,11 @@ namespace Cadru.Core.UnitTests
             //Assert.AreNotEqual("00000000-0000-0000-0000-000000000000", s.ToString());
             //Assert.AreEqual(DateTime.Today.Date, s.GetDateTime().Date);
 
-            int count = 10;
+            var count = 10;
 
             var list = new List<Comb>(count);
 
-            for (int i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
             {
                 var c = Comb.NewComb();
                 list.Add(c);

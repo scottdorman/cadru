@@ -70,7 +70,7 @@ namespace Cadru.Net.Http
             var isTransient = false;
             if (exception.Data.Count > 0)
             {
-                HttpStatusCode statusCode = exception.Data.GetValueOrDefault("Status", (HttpStatusCode)0);
+                var statusCode = exception.Data.GetValueOrDefault("Status", (HttpStatusCode)0);
                 switch (statusCode)
                 {
                     case HttpStatusCode.GatewayTimeout:

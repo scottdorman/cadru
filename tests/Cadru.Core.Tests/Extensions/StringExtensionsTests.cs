@@ -1,11 +1,14 @@
-﻿using Cadru.Extensions;
-using Cadru.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace Cadru.UnitTest.Framework.UnitTests.Extensions
+using Cadru.Extensions;
+using Cadru.Text;
+using Cadru.UnitTest.Framework;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Cadru.Core.Extensions.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class StringExtensionsTests
@@ -110,7 +113,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void SubstringBetween()
         {
-            string testValue = "abcdefg";
+            var testValue = "abcdefg";
 
             Assert.AreEqual("d", testValue.SubstringBetween('c', 'e'));
             Assert.AreEqual("d", testValue.SubstringBetween("c", "e"));
@@ -139,7 +142,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void LastCharacter()
         {
-            string testValue = "abcdefg";
+            var testValue = "abcdefg";
 
             Assert.AreEqual('g', testValue.LastCharacter());
             ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LastCharacter());
@@ -148,7 +151,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void LeftSubstring()
         {
-            string testValue = "abcdefgabcdefg";
+            var testValue = "abcdefgabcdefg";
 
             Assert.AreEqual("abc", testValue.LeftSubstring('c'));
             Assert.AreEqual("abcd", testValue.LeftSubstring(3));
@@ -180,7 +183,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void Clean()
         {
-            string testValue = " abc   defg abcdefg ";
+            var testValue = " abc   defg abcdefg ";
 
             Assert.AreEqual("abc defg abcdefg", testValue.Clean());
             Assert.AreEqual("abc defg abcdefg", testValue.Clean(NormalizationOptions.Whitespace));
@@ -229,7 +232,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void OccurrencesOf()
         {
-            string testValue = "abcdefgabcdefgh";
+            var testValue = "abcdefgabcdefgh";
 
             Assert.AreEqual(2, testValue.OccurrencesOf('c'));
             Assert.AreEqual(2, testValue.OccurrencesOf("c"));
@@ -248,7 +251,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void Replace()
         {
-            string testValue = "abcdefgabcdefg";
+            var testValue = "abcdefgabcdefg";
 
             Assert.AreEqual("abQdefgabcdefg", testValue.Replace('c', 'Q', 1));
             Assert.AreEqual("abcdefgabcdefg", testValue.Replace('h', 'Q', 2));
@@ -275,7 +278,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void ReplaceBetween()
         {
-            string testValue = "abcdefgabcdefg";
+            var testValue = "abcdefgabcdefg";
 
             Assert.AreEqual("abcXYZefgabcdefg", testValue.ReplaceBetween('c', 'e', "XYZ"));
             Assert.AreEqual("abcdefgabcdefg", testValue.ReplaceBetween('h', 'Q', "XYZ"));
@@ -308,7 +311,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void RightSubstring()
         {
-            string testValue = "abcdefgabcdefg";
+            var testValue = "abcdefgabcdefg";
 
             Assert.AreEqual("defgabcdefg", testValue.RightSubstring('c'));
             Assert.AreEqual("cdefgabcdefg", testValue.RightSubstring(3));
@@ -342,7 +345,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void ResizeString()
         {
-            string testValue = "abcdefg";
+            var testValue = "abcdefg";
 
             Assert.AreEqual("abc", testValue.ResizeString(3));
             Assert.AreEqual("abcdefg     ", testValue.ResizeString(12));
@@ -428,7 +431,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void EndsWithAny()
         {
-            string testValue = "this is a test";
+            var testValue = "this is a test";
 
             Assert.IsTrue(testValue.EndsWithAny(new string[] { "test", "fox", "hat" }));
             Assert.IsTrue(testValue.EndsWithAny(new string[] { "fox", "test", "hat" }));
@@ -450,7 +453,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void StartsWithAny()
         {
-            string testValue = "this is a test";
+            var testValue = "this is a test";
 
             Assert.IsTrue(testValue.StartsWithAny(new string[] { "this", "fox", "hat" }));
             Assert.IsTrue(testValue.StartsWithAny(new string[] { "fox", "this", "hat" }));
@@ -472,7 +475,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void EqualsAny()
         {
-            string testValue = "ABCD";
+            var testValue = "ABCD";
 
             Assert.IsTrue(testValue.EqualsAny(new string[] { "ABCD", "fox", "hat" }));
             Assert.IsTrue(testValue.EqualsAny(new string[] { "fox", "ABCD", "hat" }));

@@ -1,10 +1,11 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Cadru.Text;
-using System.Diagnostics.CodeAnalysis;
-using Cadru.Extensions;
+﻿using System.Diagnostics.CodeAnalysis;
 
-namespace Cadru.UnitTest.Framework.UnitTests.Extensions
+using Cadru.Extensions;
+using Cadru.Text;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Cadru.Core.Extensions.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class Tests

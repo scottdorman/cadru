@@ -1015,7 +1015,7 @@ namespace Cadru.IO
         /// example, on Windows-based platforms, paths must be less than 248
         /// characters, and file names must be less than 260 characters.
         /// </exception>
-        /// <remarks><para>Use the <see cref="CopyTo(string, bool)"/> method to
+        /// <remarks><para>Use the <see cref="CopyTo(String, Boolean)"/> method to
         /// allow overwriting of an existing file.</para>
         /// <para type="caution">Whenever possible, avoid using short file
         /// names (such as XXXXXX~1.XXX) with this method. If two files have
@@ -1068,7 +1068,7 @@ namespace Cadru.IO
         /// <paramref name="overwrite"/> contains a colon (:) in the middle
         /// of the string.</exception>
         /// <remarks><para>Use this method to allow or prevent overwriting of
-        /// an existing file. Use the <see cref="CopyTo(string)"/> method to
+        /// an existing file. Use the <see cref="CopyTo(String)"/> method to
         /// prevent overwriting of an existing file by default.</para>
         /// <para type="caution">Whenever possible, avoid using short file
         /// names (such as XXXXXX~1.XXX) with this method. If two files have
@@ -1091,7 +1091,7 @@ namespace Cadru.IO
         /// <remarks><para>By default, full read/write access to new files is
         /// granted to all users.</para>
         /// <para>This method is a wrapper for the functionality provided by
-        /// <see cref="File.Create(string)"/>.</para></remarks>
+        /// <see cref="File.Create(String)"/>.</para></remarks>
         public FileStream Create()
         {
             return this.fileInfo.Create();
@@ -1583,7 +1583,7 @@ namespace Cadru.IO
                 this.fileVersionInfo = FileVersionInfo.GetVersionInfo(fileName);
 
                 // Try to fill the SHFILEINFO struct for the file type, if the returned pointer is 0 then an error occurred.
-                IntPtr ptr = SafeNativeMethods.SHGetFileInfo(fileName, FileAttributes.Normal, ref this.shellFileInfo, Marshal.SizeOf<SHFILEINFO>(), SHGFI.TYPENAME);
+                var ptr = SafeNativeMethods.SHGetFileInfo(fileName, FileAttributes.Normal, ref this.shellFileInfo, Marshal.SizeOf<SHFILEINFO>(), SHGFI.TYPENAME);
                 if (ptr == IntPtr.Zero)
                 {
                     throw new IOException();
@@ -1611,9 +1611,9 @@ namespace Cadru.IO
                 // NE = 0x454E - OS/2 signature.
                 // LE = 0x454C - OS/2 LE or VXD signature.
                 // PE = 0x4550 - Win32/NT signature.
-                int wparam = ptr.ToInt32();
-                int loWord = wparam & 0xffff;
-                int hiWord = wparam >> 16;
+                var wparam = ptr.ToInt32();
+                var loWord = wparam & 0xffff;
+                var hiWord = wparam >> 16;
 
                 if (wparam == 0)
                 {
@@ -1646,7 +1646,7 @@ namespace Cadru.IO
                     }
                 }
 
-                FileSecurity fs = new FileSecurity(this.originalFileName, AccessControlSections.Owner);
+                var fs = new FileSecurity(this.originalFileName, AccessControlSections.Owner);
                 owner = fs.GetOwner(typeof(NTAccount)).ToString();
             }
 

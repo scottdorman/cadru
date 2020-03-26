@@ -17,7 +17,7 @@ namespace Cadru.Postal
         public static void ParseHeaders(TextReader reader, Action<string, string> useKeyAndValue)
         {
             string line;
-            while (string.IsNullOrWhiteSpace(line = reader.ReadLine()))
+            while (String.IsNullOrWhiteSpace(line = reader.ReadLine()))
             {
                 // Skip over any empty lines before the headers.
             }
@@ -31,7 +31,7 @@ namespace Cadru.Postal
                 var key = match.Groups[1].Value.ToLowerInvariant();
                 var value = match.Groups[2].Value.TrimEnd();
                 useKeyAndValue(key, value);
-            } while (!string.IsNullOrWhiteSpace(line = reader.ReadLine()));
+            } while (!String.IsNullOrWhiteSpace(line = reader.ReadLine()));
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace Cadru.Postal
         public static async Task ParseHeadersAsync(TextReader reader, Action<string, string> useKeyAndValue)
         {
             string line;
-            while (string.IsNullOrWhiteSpace(line = await reader.ReadLineAsync()))
+            while (String.IsNullOrWhiteSpace(line = await reader.ReadLineAsync()))
             {
                 // Skip over any empty lines before the headers.
             }
@@ -55,7 +55,7 @@ namespace Cadru.Postal
                 var key = match.Groups[1].Value.ToLowerInvariant();
                 var value = match.Groups[2].Value.TrimEnd();
                 useKeyAndValue(key, value);
-            } while (!string.IsNullOrWhiteSpace(line = await reader.ReadLineAsync()));
+            } while (!String.IsNullOrWhiteSpace(line = await reader.ReadLineAsync()));
         }
     }
 }

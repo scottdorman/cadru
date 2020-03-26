@@ -139,7 +139,7 @@ namespace Cadru.Internal
         {
             Assumes.NotNull(parameterName);
 
-            string message = Format(Strings.Argument_NullElement, parameterName);
+            var message = Format(Strings.Argument_NullElement, parameterName);
 
             return new ArgumentException(message, parameterName);
         }

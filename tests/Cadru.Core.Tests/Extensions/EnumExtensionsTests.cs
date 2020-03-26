@@ -1,10 +1,13 @@
-﻿using Cadru.Extensions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace Cadru.UnitTest.Framework.UnitTests.Extensions
+using Cadru.Extensions;
+using Cadru.UnitTest.Framework;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Cadru.Core.Extensions.Tests
 {
     public enum TestEnum
     {
@@ -94,8 +97,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void TryParse()
         {
-            TestEnum result;
-            Assert.IsTrue(Enum<TestEnum>.TryParse("TestValue1", out result));
+            Assert.IsTrue(Enum<TestEnum>.TryParse("TestValue1", out var result));
             Assert.IsTrue(Enum<TestEnum>.TryParse("testvalue1", true, out result));
             Assert.IsFalse(Enum<TestEnum>.TryParse("testvalue1", false, out result));
             Assert.IsFalse(Enum<TestEnum>.TryParse("test", true, out result));

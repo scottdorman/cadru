@@ -1090,7 +1090,7 @@ namespace Cadru.Extensions
         #region Between<T>(T expression, T minimum, T maximum, MinMaxCompareOptions options, IComparer<T> comparer)
         private static bool Between<T>(T expression, T minimum, T maximum, NumericComparisonOptions options, IComparer<T> comparer) where T : IComparable
         {
-            bool success = false;
+            var success = false;
 
             switch (options)
             {
@@ -1118,7 +1118,7 @@ namespace Cadru.Extensions
         #region GreaterThan<T>(T expression, T minimum, MinMaxCompareOptions options, IComparer<T> comparer)
         private static bool GreaterThan<T>(T expression, T minimum, NumericComparisonOptions options, IComparer<T> comparer) where T : IComparable
         {
-            bool success = false;
+            var success = false;
 
             switch (options)
             {
@@ -1139,7 +1139,7 @@ namespace Cadru.Extensions
         #region LessThan<T>(T expression, T maximum, MinMaxCompareOptions options, IComparer<T> comparer)
         private static bool LessThan<T>(T expression, T maximum, NumericComparisonOptions options, IComparer<T> comparer) where T : IComparable
         {
-            bool success = false;
+            var success = false;
 
             switch (options)
             {

@@ -89,7 +89,7 @@ namespace Cadru.Data.Excel
                 if (this.reader.ElementType == typeof(Row))
                 {
                     currentRow = this.reader.LoadCurrentElement();
-                    if (Int32.TryParse(currentRow.GetAttribute("r", String.Empty).Value, out int rowIndex))
+                    if (Int32.TryParse(currentRow.GetAttribute("r", String.Empty).Value, out var rowIndex))
                     {
                         this.currentRowIndex = rowIndex;
                     }
@@ -153,7 +153,7 @@ namespace Cadru.Data.Excel
                 return null;
             }
 
-            if (Int32.TryParse(value, out int index) && cell.DataType != null && cell.DataType.Value == CellValues.SharedString)
+            if (Int32.TryParse(value, out var index) && cell.DataType != null && cell.DataType.Value == CellValues.SharedString)
             {
                 return this.sharedStrings[index];
             }

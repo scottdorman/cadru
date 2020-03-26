@@ -1,7 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 
-namespace Cadru.UnitTest.Framework.UnitTests
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Cadru.UnitTest.Framework.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class ConditionAssertGreaterTests
@@ -20,23 +21,23 @@ namespace Cadru.UnitTest.Framework.UnitTests
         [TestMethod]
         public void Greater()
         {
-            ConditionAssert.Greater(i1, i2);
-            ConditionAssert.Greater(u1, u2);
-            ConditionAssert.Greater(d1, d2, "double");
-            ConditionAssert.Greater(de1, de2, "{0}", "decimal");
-            ConditionAssert.Greater(f1, f2, "float");
+            ConditionAssert.Greater(this.i1, this.i2);
+            ConditionAssert.Greater(this.u1, this.u2);
+            ConditionAssert.Greater(this.d1, this.d2, "double");
+            ConditionAssert.Greater(this.de1, this.de2, "{0}", "decimal");
+            ConditionAssert.Greater(this.f1, this.f2, "float");
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void NotGreaterWhenEqual()
         {
-            ConditionAssert.Greater(i1, i1);
+            ConditionAssert.Greater(this.i1, this.i1);
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void NotGreater()
         {
-            ConditionAssert.Greater(i2, i1);
+            ConditionAssert.Greater(this.i2, this.i1);
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]

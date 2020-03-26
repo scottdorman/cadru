@@ -49,7 +49,7 @@ namespace Cadru.AspNet.TagHelpers
 
             var placeholder = GetPlaceholder(Placeholder.ModelExplorer);
 
-            if (!output.Attributes.TryGetAttribute("placeholder", out TagHelperAttribute placeholderAttribute))
+            if (!output.Attributes.TryGetAttribute("placeholder", out var placeholderAttribute))
             {
                 output.Attributes.Add(new TagHelperAttribute("placeholder", placeholder));
             }

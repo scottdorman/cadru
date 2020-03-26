@@ -1,12 +1,13 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Cadru.Extensions;
-using Cadru.UnitTest.Framework;
-using System.Text;
-using System.Globalization;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.Text;
 
-namespace Cadru.UnitTest.Framework.UnitTests.Extensions
+using Cadru.Extensions;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Cadru.Core.Extensions.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class StringBuilderExtensionsTests
@@ -58,7 +59,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
 
             Assert.AreEqual("4", new StringBuilder().AppendIf(true, (short)4).ToString());
             Assert.AreEqual("", new StringBuilder().AppendIf(false, (short)4).ToString());
-            
+
             Assert.AreEqual("4", new StringBuilder().AppendIf(true, (uint)4).ToString());
             Assert.AreEqual("", new StringBuilder().AppendIf(false, (uint)4).ToString());
 
@@ -74,7 +75,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             Assert.AreEqual("test", new StringBuilder().AppendIf(true, "test").ToString());
             Assert.AreEqual("", new StringBuilder().AppendIf(false, "test").ToString());
 
-            Assert.AreEqual("test", new StringBuilder().AppendIf(true, "test", 0, 4) .ToString());
+            Assert.AreEqual("test", new StringBuilder().AppendIf(true, "test", 0, 4).ToString());
             Assert.AreEqual("", new StringBuilder().AppendIf(false, "test", 0, 4).ToString());
             Assert.AreEqual("est", new StringBuilder().AppendIf(true, "test", 1, 3).ToString());
             Assert.AreEqual("", new StringBuilder().AppendIf(false, "test", 1, 3).ToString());

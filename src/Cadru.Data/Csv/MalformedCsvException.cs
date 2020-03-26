@@ -55,11 +55,11 @@ namespace Cadru.Data.Csv
         /// </summary>
         /// <param name="message">The message that describes the error.</param>
         /// <param name="innerException">The exception that is the cause of the current exception.</param>
-        public MalformedCsvException(string message, Exception innerException) : base(string.Empty, innerException)
+        public MalformedCsvException(string message, Exception innerException) : base(String.Empty, innerException)
         {
-            _message = (message == null ? string.Empty : message);
+            _message = (message == null ? String.Empty : message);
 
-            _rawData = string.Empty;
+            _rawData = String.Empty;
             _currentPosition = -1;
             _currentRecordIndex = -1;
             _currentFieldIndex = -1;
@@ -85,14 +85,14 @@ namespace Cadru.Data.Csv
         /// <param name="currentRecordIndex">The current record index.</param>
         /// <param name="currentFieldIndex">The current field index.</param>
         /// <param name="innerException">The exception that is the cause of the current exception.</param>
-        public MalformedCsvException(string rawData, int currentPosition, long currentRecordIndex, int currentFieldIndex, Exception innerException) : base(string.Empty, innerException)
+        public MalformedCsvException(string rawData, int currentPosition, long currentRecordIndex, int currentFieldIndex, Exception innerException) : base(String.Empty, innerException)
         {
-            _rawData = (rawData == null ? string.Empty : rawData);
+            _rawData = (rawData == null ? String.Empty : rawData);
             _currentPosition = currentPosition;
             _currentRecordIndex = currentRecordIndex;
             _currentFieldIndex = currentFieldIndex;
 
-            _message = string.Format(CultureInfo.InvariantCulture, Strings.MalformedCsvException, _currentRecordIndex, _currentFieldIndex, _currentPosition, _rawData);
+            _message = String.Format(CultureInfo.InvariantCulture, Strings.MalformedCsvException, _currentRecordIndex, _currentFieldIndex, _currentPosition, _rawData);
         }
 
         /// <summary>

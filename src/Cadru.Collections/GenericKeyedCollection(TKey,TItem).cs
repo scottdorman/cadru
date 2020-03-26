@@ -34,7 +34,7 @@ namespace Cadru.Collections
     /// <typeparam name="TItem">The type of items in the collection.</typeparam>
     public class GenericKeyedCollection<TKey, TItem> : KeyedCollection<TKey, TItem>
     {
-        private Func<TItem, TKey> getKeyFunc;
+        private readonly Func<TItem, TKey> getKeyFunc;
 
         protected override TKey GetKeyForItem(TItem item)
         {

@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Text;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Cadru.Core.UnitTests
+namespace Cadru.Core.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class WeakReferenceTests

@@ -30,6 +30,8 @@ namespace Cadru.Data.Annotations
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
     public sealed class ExportableAttribute : Attribute
     {
+        public const int DefaultOrder = 10000;
+
         /// <summary>
         /// Gets a value that indicates whether a field is exportable.
         /// </summary>
@@ -48,7 +50,7 @@ namespace Cadru.Data.Annotations
         /// presentation layers should consider using the value 10000. This
         /// value lets explicitly-ordered fields be displayed before and after
         /// the fields that do not have a specified order.</remarks>
-        public int Order { get; set; } = 10000;
+        public int Order { get; set; } = DefaultOrder;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ExportableAttribute"/> class.

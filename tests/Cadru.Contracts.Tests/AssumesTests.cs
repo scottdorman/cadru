@@ -2,10 +2,12 @@
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
-using Cadru.Contracts;
+
+using Cadru.UnitTest.Framework;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Cadru.UnitTest.Framework.UnitTests.Contracts
+namespace Cadru.Contracts.Tests
 {
 #if DEBUG
     // These tests will always fail in a non-debug build since all of the

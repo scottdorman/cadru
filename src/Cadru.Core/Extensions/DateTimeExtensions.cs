@@ -69,7 +69,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static DateTime AddWeekdays(this DateTime date, double value)
         {
-            int direction = value < 0 ? -1 : 1;
+            var direction = value < 0 ? -1 : 1;
 
             while (value != 0)
             {
@@ -265,7 +265,7 @@ namespace Cadru.Extensions
         /// first day of the week of the date represented by this instance.</returns>
         public static DateTime FirstDayOfWeek(this DateTime date, DayOfWeek startOfWeek)
         {
-            int diff = date.DayOfWeek - startOfWeek;
+            var diff = date.DayOfWeek - startOfWeek;
             if (diff < 0)
             {
                 diff += 7;
@@ -309,7 +309,7 @@ namespace Cadru.Extensions
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "This is an extension method.")]
         public static IList<string> GetAbbreviatedMonthNames()
         {
-            return CultureInfo.CurrentCulture.DateTimeFormat.AbbreviatedMonthNames.Where(m => !string.IsNullOrEmpty(m)).ToList();
+            return CultureInfo.CurrentCulture.DateTimeFormat.AbbreviatedMonthNames.Where(m => !String.IsNullOrEmpty(m)).ToList();
         }
         #endregion
 
@@ -340,8 +340,8 @@ namespace Cadru.Extensions
         /// day of the week from the date represented by this instance.</returns>
         public static DateTime GetDayOfWeek(this DateTime date, DayOfWeek day, DayOfWeek startOfWeek)
         {
-            int current = DaysBetween(date.DayOfWeek, startOfWeek);
-            int resultday = DaysBetween(day, startOfWeek);
+            var current = DaysBetween(date.DayOfWeek, startOfWeek);
+            var resultday = DaysBetween(day, startOfWeek);
             return date.AddDays(resultday - current);
         }
         #endregion
@@ -366,7 +366,7 @@ namespace Cadru.Extensions
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "This is an extension method.")]
         public static IList<string> GetMonthNames()
         {
-            return CultureInfo.CurrentCulture.DateTimeFormat.MonthNames.Where(m => !string.IsNullOrEmpty(m)).ToList();
+            return CultureInfo.CurrentCulture.DateTimeFormat.MonthNames.Where(m => !String.IsNullOrEmpty(m)).ToList();
         }
         #endregion
 
@@ -869,7 +869,7 @@ namespace Cadru.Extensions
         #region DaysBetween
         private static int DaysBetween(DayOfWeek current, DayOfWeek firstDayOfWeek)
         {
-            int days = current - firstDayOfWeek;
+            var days = current - firstDayOfWeek;
             return days < 0 ? days + 7 : days;
         }
         #endregion

@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Cadru.UnitTest.Framework.UnitTests
+namespace Cadru.UnitTest.Framework.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class ConditionAssertLessTests
@@ -20,32 +20,32 @@ namespace Cadru.UnitTest.Framework.UnitTests
         [TestMethod]
         public void Less()
         {
-            ConditionAssert.Less(i1, i2);
-            ConditionAssert.Less(i1, i2, "int");
-            ConditionAssert.Less(i1, i2, "{0}", "int");
-            ConditionAssert.Less(u1, u2, "uint");
-            ConditionAssert.Less(u1, u2, "{0}", "uint");
-            ConditionAssert.Less(d1, d2);
-            ConditionAssert.Less(d1, d2, "double");
-            ConditionAssert.Less(d1, d2, "{0}", "double");
-            ConditionAssert.Less(de1, de2);
-            ConditionAssert.Less(de1, de2, "decimal");
-            ConditionAssert.Less(de1, de2, "{0}", "decimal");
-            ConditionAssert.Less(f1, f2);
-            ConditionAssert.Less(f1, f2, "float");
-            ConditionAssert.Less(f1, f2, "{0}", "float");
+            ConditionAssert.Less(this.i1, this.i2);
+            ConditionAssert.Less(this.i1, this.i2, "int");
+            ConditionAssert.Less(this.i1, this.i2, "{0}", "int");
+            ConditionAssert.Less(this.u1, this.u2, "uint");
+            ConditionAssert.Less(this.u1, this.u2, "{0}", "uint");
+            ConditionAssert.Less(this.d1, this.d2);
+            ConditionAssert.Less(this.d1, this.d2, "double");
+            ConditionAssert.Less(this.d1, this.d2, "{0}", "double");
+            ConditionAssert.Less(this.de1, this.de2);
+            ConditionAssert.Less(this.de1, this.de2, "decimal");
+            ConditionAssert.Less(this.de1, this.de2, "{0}", "decimal");
+            ConditionAssert.Less(this.f1, this.f2);
+            ConditionAssert.Less(this.f1, this.f2, "float");
+            ConditionAssert.Less(this.f1, this.f2, "{0}", "float");
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void NotLessWhenEqual()
         {
-            ConditionAssert.Less(i1, i1);
+            ConditionAssert.Less(this.i1, this.i1);
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void NotLess()
         {
-            ConditionAssert.Less(i2, i1);
+            ConditionAssert.Less(this.i2, this.i1);
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]

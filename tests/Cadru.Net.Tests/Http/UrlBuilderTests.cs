@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Cadru.Net.Http;
+
 using Cadru.UnitTest.Framework;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Cadru.Core.UnitTests.Net.Http
+namespace Cadru.Net.Http.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class UrlBuilderTests
@@ -124,7 +125,7 @@ namespace Cadru.Core.UnitTests.Net.Http
             Assert.AreEqual(UriScheme.Http, builder.Scheme);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.UserName));
             Assert.IsNotNull(builder.Uri);
-            
+
             builder = new UrlBuilder(UriScheme.Http, "example.com", 8080, "foo");
             Assert.IsNotNull(builder);
             Assert.IsTrue(String.IsNullOrWhiteSpace(builder.Fragment));

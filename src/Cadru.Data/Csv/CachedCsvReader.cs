@@ -188,7 +188,7 @@ namespace Cadru.Data.Csv
                         return Records[(int) CacheRecordIndex][field];
                     }
 
-                    throw new ArgumentOutOfRangeException(nameof(field), field, string.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, field));
+                    throw new ArgumentOutOfRangeException(nameof(field), field, String.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, field));
                 }
                
                 throw new InvalidOperationException(Strings.NoCurrentRecord);

@@ -85,7 +85,7 @@ namespace Cadru.Text
         /// contains alphabetic characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsAlpha(string)"/> returns <see langword="true" /> if <paramref name="expression"/> contains alphabetic
+        /// <returns><see cref="IsAlpha(String)"/> returns <see langword="true" /> if <paramref name="expression"/> contains alphabetic
         /// characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Alphabetic characters are any letters A-Z or a-z, the
         /// punctuation characters and the space character.</remarks>
@@ -93,9 +93,9 @@ namespace Cadru.Text
         {
             Contracts.Requires.NotNull(expression, nameof(expression));
 
-            bool success = true;
+            var success = true;
 
-            for (int i = 0; i < expression.Length; i++)
+            for (var i = 0; i < expression.Length; i++)
             {
                 if (!(Char.IsLetter(expression, i) || Char.IsPunctuation(expression, i) || CharUnicodeInfo.GetUnicodeCategory(expression, i) == UnicodeCategory.SpaceSeparator))
                 {
@@ -118,7 +118,7 @@ namespace Cadru.Text
         /// contains alphabetic and numeric characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsAlphanumeric(char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains alphabetic
+        /// <returns><see cref="IsAlphanumeric(Char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains alphabetic
         /// characters or numeric characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Alphabetic characters are any letters
         /// A-Z or a-z, the punctuation characters, and the space character.
@@ -135,7 +135,7 @@ namespace Cadru.Text
         /// contains alphabetic and numeric characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsAlphanumeric(string)"/> returns <see langword="true" /> if <paramref name="expression"/> contains alphabetic
+        /// <returns><see cref="IsAlphanumeric(String)"/> returns <see langword="true" /> if <paramref name="expression"/> contains alphabetic
         /// characters or numeric characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Alphabetic characters are any letters
         /// A-Z or a-z, the punctuation characters, and the space character.
@@ -144,9 +144,9 @@ namespace Cadru.Text
         {
             Contracts.Requires.NotNull(expression, nameof(expression));
 
-            bool success = true;
+            var success = true;
 
-            for (int i = 0; i < expression.Length; i++)
+            for (var i = 0; i < expression.Length; i++)
             {
                 if (!(Char.IsLetter(expression, i) || Char.IsNumber(expression, i) || Char.IsPunctuation(expression, i) || CharUnicodeInfo.GetUnicodeCategory(expression, i) == UnicodeCategory.SpaceSeparator))
                 {
@@ -169,7 +169,7 @@ namespace Cadru.Text
         /// contains a valid currency string.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsCurrency(string)"/> returns <see langword="true" /> if <paramref name="expression"/> contains a valid
+        /// <returns><see cref="IsCurrency(String)"/> returns <see langword="true" /> if <paramref name="expression"/> contains a valid
         /// currency string; otherwise it returns <see langword="false" />.</returns>
         public static bool IsCurrency(this string expression)
         {
@@ -185,11 +185,11 @@ namespace Cadru.Text
         /// <param name="expression">Any string expression.</param>
         /// <param name="provider">An <see cref="IFormatProvider"/> that
         /// supplies culture-specific formatting information about <paramref name="expression"/>. </param>
-        /// <returns><see cref="IsCurrency(string, IFormatProvider)"/> returns <see langword="true" /> if <paramref name="expression"/> contains a valid
+        /// <returns><see cref="IsCurrency(String, IFormatProvider)"/> returns <see langword="true" /> if <paramref name="expression"/> contains a valid
         /// currency string; otherwise it returns <see langword="false" />.</returns>
         public static bool IsCurrency(this string expression, IFormatProvider provider)
         {
-            return Double.TryParse(expression, NumberStyles.Currency, provider, out double tmp);
+            return Double.TryParse(expression, NumberStyles.Currency, provider, out var tmp);
         }
         #endregion
 
@@ -203,13 +203,13 @@ namespace Cadru.Text
         /// converted to a date.
         /// </summary>
         /// <param name="expression">Any string expression recognizable as a date or time.</param>
-        /// <returns><see cref="IsDate(string)"/> returns <see langword="true" /> if <paramref name="expression"/> is a string convertible
+        /// <returns><see cref="IsDate(String)"/> returns <see langword="true" /> if <paramref name="expression"/> is a string convertible
         /// to type <see cref="DateTime"/>; otherwise, it returns <see langword="false" />.</returns>
         /// <remarks><para>In Microsoft Windows, the range of valid dates is January 1, 100 A.D. through
         /// December 31, 9999 A.D.; the ranges vary among operating systems.</para>
-        /// <para><see cref="IsDate(string)"/> uses the <see cref="DateTimeFormatInfo.InvariantInfo"/> object.</para>
+        /// <para><see cref="IsDate(String)"/> uses the <see cref="DateTimeFormatInfo.InvariantInfo"/> object.</para>
         /// </remarks>
-        /// <example>The following example uses the <see cref="IsDate(string)"/> function to determine whether an expression
+        /// <example>The following example uses the <see cref="IsDate(String)"/> function to determine whether an expression
         /// can be converted to a date:
         /// <code>
         /// string dtString = "9/27/1973";
@@ -237,7 +237,7 @@ namespace Cadru.Text
         /// <param name="expression">Any string expression recognizable as a date or time.</param>
         /// <param name="provider">An <see cref="IFormatProvider"/> that
         /// supplies culture-specific formatting information about <paramref name="expression"/>. </param>
-        /// <returns><see cref="IsDate(string, IFormatProvider)"/> returns <see langword="true" /> if <paramref name="expression"/> is a string convertible
+        /// <returns><see cref="IsDate(String, IFormatProvider)"/> returns <see langword="true" /> if <paramref name="expression"/> is a string convertible
         /// to type <see cref="DateTime"/>; otherwise, it returns <see langword="false" />.</returns>
         /// <remarks><para>In Microsoft Windows, the range of valid dates is January 1, 100 A.D. through
         /// December 31, 9999 A.D.; the ranges vary among operating systems.</para>
@@ -274,7 +274,7 @@ namespace Cadru.Text
         /// that defines how to interpret the parsed date in relation to the
         /// current time zone or the current date. A typical value to specify
         /// is <see cref="DateTimeStyles">None</see>.</param>
-        /// <returns><see cref="IsDate(string, IFormatProvider)"/> returns <see langword="true" /> if <paramref name="expression"/> is a string convertible
+        /// <returns><see cref="IsDate(String, IFormatProvider)"/> returns <see langword="true" /> if <paramref name="expression"/> is a string convertible
         /// to type <see cref="DateTime"/>; otherwise, it returns <see langword="false" />.</returns>
         /// <remarks><para>In Microsoft Windows, the range of valid dates is January 1, 100 A.D. through
         /// December 31, 9999 A.D.; the ranges vary among operating systems.</para>
@@ -295,7 +295,7 @@ namespace Cadru.Text
         /// </code></example>
         public static bool IsDate(this string expression, IFormatProvider provider, DateTimeStyles styles)
         {
-            return DateTime.TryParse(expression, provider, styles, out DateTime tmp);
+            return DateTime.TryParse(expression, provider, styles, out var tmp);
         }
         #endregion
 
@@ -309,13 +309,13 @@ namespace Cadru.Text
         /// contains hexadecimal characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsHexadecimal(char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains hexadecimal
+        /// <returns><see cref="IsHexadecimal(Char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains hexadecimal
         /// characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Hexadecimal characters are any letters
         /// A-F, a-f, or 0-9.</remarks>
         public static bool IsHexadecimal(this char expression)
         {
-            string pattern = @"^[0-9A-Fa-f]+$";
+            var pattern = @"^[0-9A-Fa-f]+$";
             return Validate(Convert.ToString(expression, CultureInfo.InvariantCulture), pattern);
         }
         #endregion
@@ -326,13 +326,13 @@ namespace Cadru.Text
         /// contains hexadecimal characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsHexadecimal(string)"/> returns <see langword="true" /> if <paramref name="expression"/> contains hexadecimal
+        /// <returns><see cref="IsHexadecimal(String)"/> returns <see langword="true" /> if <paramref name="expression"/> contains hexadecimal
         /// characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Hexadecimal characters are any letters
         /// A-F, a-f, or 0-9.</remarks>
         public static bool IsHexadecimal(this string expression)
         {
-            string pattern = @"^[0-9A-Fa-f]+$";
+            var pattern = @"^[0-9A-Fa-f]+$";
             return Validate(expression, pattern);
         }
         #endregion
@@ -347,7 +347,7 @@ namespace Cadru.Text
         /// contains only numbers.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsNumeric(char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains numeric
+        /// <returns><see cref="IsNumeric(Char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains numeric
         /// characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Numeric characters are 0-9.</remarks>
         public static bool IsNumeric(this char expression)
@@ -362,7 +362,7 @@ namespace Cadru.Text
         /// contains only numbers.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsNumeric(string)"/> returns <see langword="true" /> if <paramref name="expression"/> contains numeric
+        /// <returns><see cref="IsNumeric(String)"/> returns <see langword="true" /> if <paramref name="expression"/> contains numeric
         /// characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Numeric characters are 0-9.</remarks>
         public static bool IsNumeric(this string expression)
@@ -379,12 +379,12 @@ namespace Cadru.Text
         /// <param name="expression">Any string expression.</param>
         /// <param name="provider">An <see cref="IFormatProvider"/> that
         /// supplies culture-specific formatting information about <paramref name="expression"/>. </param>
-        /// <returns><see cref="IsNumeric(string, IFormatProvider)"/> returns <see langword="true" /> if <paramref name="expression"/> contains numeric
+        /// <returns><see cref="IsNumeric(String, IFormatProvider)"/> returns <see langword="true" /> if <paramref name="expression"/> contains numeric
         /// characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Numeric characters are 0-9.</remarks>
         public static bool IsNumeric(this string expression, IFormatProvider provider)
         {
-            return Int64.TryParse(expression, NumberStyles.Number, provider, out long tmp);
+            return Int64.TryParse(expression, NumberStyles.Number, provider, out var tmp);
         }
         #endregion
 
@@ -398,7 +398,7 @@ namespace Cadru.Text
         /// contains only alphabetic characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsStrictlyAlpha(char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains
+        /// <returns><see cref="IsStrictlyAlpha(Char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains
         /// alphabetic characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Alphabetic characters are any letters A-Z or a-z.</remarks>
         public static bool IsStrictlyAlpha(this char expression)
@@ -413,16 +413,16 @@ namespace Cadru.Text
         /// contains only alphabetic characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsStrictlyAlpha(string)"/> returns <see langword="true" /> if <paramref name="expression"/> contains
+        /// <returns><see cref="IsStrictlyAlpha(String)"/> returns <see langword="true" /> if <paramref name="expression"/> contains
         /// alphabetic characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Alphabetic characters are any letters A-Z or a-z.</remarks>
         public static bool IsStrictlyAlpha(this string expression)
         {
             Contracts.Requires.NotNull(expression, nameof(expression));
 
-            bool success = true;
+            var success = true;
 
-            for (int i = 0; i < expression.Length; i++)
+            for (var i = 0; i < expression.Length; i++)
             {
                 if (!Char.IsLetter(expression, i))
                 {
@@ -445,7 +445,7 @@ namespace Cadru.Text
         /// contains only alphabetic and numeric characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsStrictlyAlphanumeric(char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains
+        /// <returns><see cref="IsStrictlyAlphanumeric(Char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains
         /// alphabetic characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Alphabetic characters are any letters A-Z or a-z.
         /// Numeric characters are 0-9.</remarks>
@@ -461,7 +461,7 @@ namespace Cadru.Text
         /// contains only alphabetic and numeric characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsStrictlyAlphanumeric(string)"/> returns <see langword="true" /> if <paramref name="expression"/> contains
+        /// <returns><see cref="IsStrictlyAlphanumeric(String)"/> returns <see langword="true" /> if <paramref name="expression"/> contains
         /// alphabetic characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Alphabetic characters are any letters A-Z or a-z.
         /// Numeric characters are 0-9.</remarks>
@@ -469,9 +469,9 @@ namespace Cadru.Text
         {
             Contracts.Requires.NotNull(expression, nameof(expression));
 
-            bool success = true;
+            var success = true;
 
-            for (int i = 0; i < expression.Length; i++)
+            for (var i = 0; i < expression.Length; i++)
             {
                 if (!(Char.IsLetter(expression, i) || Char.IsNumber(expression, i)))
                 {
@@ -494,7 +494,7 @@ namespace Cadru.Text
         /// contains a valid file name.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsValidFileName(string)"/> returns <see langword="true" /> if <paramref name="expression"/> contains a
+        /// <returns><see cref="IsValidFileName(String)"/> returns <see langword="true" /> if <paramref name="expression"/> contains a
         /// valid file name; otherwise it returns <see langword="false" />.</returns>
         public static bool IsValidFileName(this string expression)
         {
@@ -511,11 +511,11 @@ namespace Cadru.Text
         /// <param name="platformIndependent"><see langword="true"/> to test whether
         /// the expression contains a valid platform independent file name;
         /// otherwise, <see langword="false"/>.</param>
-        /// <returns><see cref="IsValidFileName(string, bool)"/> returns <see langword="true" /> if <paramref name="expression"/> contains a
+        /// <returns><see cref="IsValidFileName(String, Boolean)"/> returns <see langword="true" /> if <paramref name="expression"/> contains a
         /// valid file name; otherwise it returns <see langword="false" />.</returns>
         public static bool IsValidFileName(this string expression, bool platformIndependent)
         {
-            string pattern = @"^(?!^(PRN|AUX|CLOCK\$|NUL|CON|COM\d|LPT\d|\..*)(\..+)?$)[^\x00-\x1f\\?*:\"";|/]+$";
+            var pattern = @"^(?!^(PRN|AUX|CLOCK\$|NUL|CON|COM\d|LPT\d|\..*)(\..+)?$)[^\x00-\x1f\\?*:\"";|/]+$";
             if (platformIndependent)
             {
                 pattern = @"^(([a-zA-Z]:|\\)\\)?(((\.)|(\.\.)|([^\\/:\*\?""\|<>\. ](([^\\/:\*\?""\|<>\. ])|([^\\/:\*\?""\|<>]*[^\\/:\*\?""\|<>\. ]))?))\\)*[^\\/:\*\?""\|<>\. ](([^\\/:\*\?""\|<>\. ])|([^\\/:\*\?""\|<>]*[^\\/:\*\?""\|<>\. ]))?$";

@@ -30,7 +30,7 @@ namespace Cadru.Data.Dapper
         /// <returns>escapes the name with [], also escapes the last close bracket with double-bracket</returns>
         public static string EscapeIdentifier(string name)
         {
-            Debug.Assert(!string.IsNullOrEmpty(name), "null or empty identifiers are not allowed");
+            Debug.Assert(!String.IsNullOrEmpty(name), "null or empty identifiers are not allowed");
             return "[" + name.Replace("]", "]]") + "]";
         }
 
@@ -40,7 +40,7 @@ namespace Cadru.Data.Dapper
         public static void EscapeIdentifier(StringBuilder builder, string name)
         {
             Debug.Assert(builder != null, "builder cannot be null");
-            Debug.Assert(!string.IsNullOrEmpty(name), "null or empty identifiers are not allowed");
+            Debug.Assert(!String.IsNullOrEmpty(name), "null or empty identifiers are not allowed");
 
             builder.Append("[");
             builder.Append(name.Replace("]", "]]"));
@@ -65,7 +65,7 @@ namespace Cadru.Data.Dapper
         /// <returns>escaped and quoted literal string</returns>
         public static string MakeStringLiteral(string input)
         {
-            if (string.IsNullOrEmpty(input))
+            if (String.IsNullOrEmpty(input))
             {
                 return "''";
             }

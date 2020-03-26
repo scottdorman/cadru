@@ -64,7 +64,7 @@ namespace Cadru.Postal
             var mailMessage = await Parser.ParseAsync(result, Email);
 
             // no special requests; render what's in the template
-            if (string.IsNullOrEmpty(format))
+            if (String.IsNullOrEmpty(format))
             {
                 if (!mailMessage.IsBodyHtml)
                 {
@@ -80,7 +80,7 @@ namespace Cadru.Postal
             // Check if alternative
             var alternativeContentType = CheckAlternativeViews(writer, mailMessage, format);
 
-            if (!string.IsNullOrEmpty(alternativeContentType))
+            if (!String.IsNullOrEmpty(alternativeContentType))
                 return alternativeContentType;
 
             if (format == "text")
@@ -102,7 +102,7 @@ namespace Cadru.Postal
                 return HtmlContentType;
             }
 
-            throw new NotSupportedException(string.Format("Unsupported format {0}", format));
+            throw new NotSupportedException(String.Format("Unsupported format {0}", format));
         }
 
         static string CheckAlternativeViews(TextWriter writer, MailMessage mailMessage, string format)
@@ -158,7 +158,7 @@ namespace Cadru.Postal
 
                 while (line != null)
                 {
-                    if (string.IsNullOrEmpty(line))
+                    if (String.IsNullOrEmpty(line))
                     {
                         return new TemplateParts(headerBuilder.ToString(), reader.ReadToEnd());
                     }
@@ -182,7 +182,7 @@ namespace Cadru.Postal
 
                 while (line != null)
                 {
-                    if (string.IsNullOrEmpty(line))
+                    if (String.IsNullOrEmpty(line))
                     {
                         return new TemplateParts(headerBuilder.ToString(), mailMessage.Body);
                     }
@@ -216,7 +216,7 @@ namespace Cadru.Postal
         {
             var contentType = resource.ContentType.MediaType;
             var bytes = ReadFully(resource.ContentStream);
-            return string.Format("data:{0};base64,{1}",
+            return String.Format("data:{0};base64,{1}",
                 contentType,
                 Convert.ToBase64String(bytes));
         }

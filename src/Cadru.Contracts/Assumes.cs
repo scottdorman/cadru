@@ -352,7 +352,7 @@ namespace Cadru.Contracts
 
         #region FailFast
         /// <summary>
-        /// Throws a new <see cref="AssumptionException"/> and a <see cref="Debug.Assert(bool, string)"/> assertion failure.
+        /// Throws a new <see cref="AssumptionException"/> and a <see cref="Debug.Assert(Boolean, String)"/> assertion failure.
         /// </summary>
         /// <param name="message">The message of the resulting AssumptionException.</param>
         /// <exception cref="AssumptionException">An assumption failed.</exception>

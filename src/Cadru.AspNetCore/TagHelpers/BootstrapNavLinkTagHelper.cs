@@ -70,7 +70,7 @@ namespace Cadru.AspNet.TagHelpers
 
         private void MakeActive(TagHelperOutput output)
         {
-            if (output.Attributes.TryGetAttribute("class", out TagHelperAttribute classAttribute))
+            if (output.Attributes.TryGetAttribute("class", out var classAttribute))
             {
                 output.Attributes.SetAttribute("class", classAttribute.Value + " active");
             }

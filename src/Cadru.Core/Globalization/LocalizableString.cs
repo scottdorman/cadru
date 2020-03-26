@@ -36,7 +36,7 @@ namespace Cadru.Globalization
     public class LocalizableString
     {
         #region fields
-        private string propertyName;
+        private readonly string propertyName;
         private string propertyValue;
         private Type resourceType;
         private Func<string> cachedResult;
@@ -65,15 +65,12 @@ namespace Cadru.Globalization
         /// </summary>
         public Type ResourceType
         {
-            get
-            {
-                return this.resourceType;
-            }
+            get => this.resourceType;
             set
             {
                 if (this.resourceType != value)
                 {
-                    ClearCache();
+                    this.ClearCache();
                     this.resourceType = value;
                 }
             }
@@ -90,15 +87,12 @@ namespace Cadru.Globalization
         /// <see cref="GetLocalizableValue"/>.</remarks>
         public string Value
         {
-            get
-            {
-                return this.propertyValue;
-            }
+            get => this.propertyValue;
             set
             {
                 if (this.propertyValue != value)
                 {
-                    ClearCache();
+                    this.ClearCache();
                     this.propertyValue = value;
                 }
             }
@@ -122,7 +116,7 @@ namespace Cadru.Globalization
         private static bool IsBadlyConfigured(Type resourceType, PropertyInfo property)
         {
             // We need to detect bad configurations so that we can throw exceptions accordingly
-            bool badlyConfigured = false;
+            var badlyConfigured = false;
 
             // Make sure we found the property and it's the correct type, and that the type itself is public
             if (!resourceType.GetTypeInfo().IsVisible || property == null || property.PropertyType != typeof(string))

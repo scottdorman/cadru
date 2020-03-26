@@ -65,6 +65,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Data.Tests", "tests\C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Data.Dapper.Tests", "tests\Cadru.Data.Dapper.Tests\Cadru.Data.Dapper.Tests.csproj", "{FC656CF9-8A47-441B-9E78-873F52010B2C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Data.Annotations.Tests", "tests\Cadru.Data.Annotations.Tests\Cadru.Data.Annotations.Tests.csproj", "{D39723A8-967F-4526-BFA8-8BDBA9E1E03B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -171,6 +173,10 @@ Global
 		{FC656CF9-8A47-441B-9E78-873F52010B2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC656CF9-8A47-441B-9E78-873F52010B2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC656CF9-8A47-441B-9E78-873F52010B2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D39723A8-967F-4526-BFA8-8BDBA9E1E03B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D39723A8-967F-4526-BFA8-8BDBA9E1E03B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D39723A8-967F-4526-BFA8-8BDBA9E1E03B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D39723A8-967F-4526-BFA8-8BDBA9E1E03B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -187,6 +193,7 @@ Global
 		{4CF19882-32E4-47B9-A6D8-4B7AB653C1B5} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
 		{084421E4-2EA7-4F35-98E2-50228D391237} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
 		{FC656CF9-8A47-441B-9E78-873F52010B2C} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
+		{D39723A8-967F-4526-BFA8-8BDBA9E1E03B} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {446E584A-949E-4799-BFC3-DBB40E1BE1CF}

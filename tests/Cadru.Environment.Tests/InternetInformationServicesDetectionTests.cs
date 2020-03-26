@@ -1,9 +1,8 @@
-﻿
-using Cadru.Environment;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 
-namespace Cadru.UnitTests.Environment
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Cadru.Environment.Tests
 {
     /// <summary>
     ///This is a test class for CadruUtilities.EnumerationUtilities and is intended

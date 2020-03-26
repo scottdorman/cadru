@@ -1,9 +1,11 @@
-﻿using Cadru.Collections;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections;
+﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Cadru.UnitTest.Framework.UnitTests.Collections
+using Cadru.UnitTest.Framework;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Cadru.Collections.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class NameValuePairTests

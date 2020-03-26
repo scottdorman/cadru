@@ -54,7 +54,7 @@ namespace Cadru.Contracts.Internal
         {
             Contracts.Requires.NotNull(source, nameof(source));
 
-            bool empty = false;
+            var empty = false;
 
             if (source is ICollection collection)
             {
@@ -62,7 +62,7 @@ namespace Cadru.Contracts.Internal
             }
             else
             {
-                IEnumerator enumerator = source.GetEnumerator();
+                var enumerator = source.GetEnumerator();
                 if (!enumerator.MoveNext())
                 {
                     empty = true;

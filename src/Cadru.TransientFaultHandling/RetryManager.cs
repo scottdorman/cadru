@@ -77,11 +77,11 @@ namespace Cadru.TransientFaultHandling
             defaultRetryStrategiesMap = new Dictionary<string, RetryStrategy>();
             if (defaultRetryStrategyNamesMap != null)
             {
-                foreach (var map in defaultRetryStrategyNamesMap.Where(x => !string.IsNullOrWhiteSpace(x.Value)))
+                foreach (var map in defaultRetryStrategyNamesMap.Where(x => !String.IsNullOrWhiteSpace(x.Value)))
                 {
-                    if (!this.retryStrategies.TryGetValue(map.Value, out RetryStrategy strategy))
+                    if (!this.retryStrategies.TryGetValue(map.Value, out var strategy))
                     {
-                        throw new ArgumentOutOfRangeException(nameof(defaultRetryStrategyNamesMap), string.Format(CultureInfo.CurrentCulture, Strings.DefaultRetryStrategyMappingNotFound, map.Key, map.Value));
+                        throw new ArgumentOutOfRangeException(nameof(defaultRetryStrategyNamesMap), String.Format(CultureInfo.CurrentCulture, Strings.DefaultRetryStrategyMappingNotFound, map.Key, map.Value));
                     }
 
                     defaultRetryStrategiesMap.Add(map.Key, strategy);
@@ -114,16 +114,16 @@ namespace Cadru.TransientFaultHandling
             get { return defaultRetryStrategyName; }
             set
             {
-                if (!string.IsNullOrWhiteSpace(value))
+                if (!String.IsNullOrWhiteSpace(value))
                 {
-                    if (retryStrategies.TryGetValue(value, out RetryStrategy strategy))
+                    if (retryStrategies.TryGetValue(value, out var strategy))
                     {
                         defaultRetryStrategyName = value;
                         defaultStrategy = strategy;
                     }
                     else
                     {
-                        throw new ArgumentOutOfRangeException("value", string.Format(CultureInfo.CurrentCulture,
+                        throw new ArgumentOutOfRangeException("value", String.Format(CultureInfo.CurrentCulture,
                             Strings.RetryStrategyNotFound, value));
                     }
                 }
@@ -204,14 +204,14 @@ namespace Cadru.TransientFaultHandling
         /// <returns>The retry strategy that matches the specified name.</returns>
         public virtual RetryStrategy GetRetryStrategy(string retryStrategyName)
         {
-            if (string.IsNullOrEmpty(retryStrategyName))
+            if (String.IsNullOrEmpty(retryStrategyName))
             {
                 throw new ArgumentException(String.Format(CultureInfo.CurrentCulture, Strings.StringCannotBeEmpty, nameof(retryStrategyName)));
             }
 
-            if (!retryStrategies.TryGetValue(retryStrategyName, out RetryStrategy retryStrategy))
+            if (!retryStrategies.TryGetValue(retryStrategyName, out var retryStrategy))
             {
-                throw new ArgumentOutOfRangeException(string.Format(CultureInfo.CurrentCulture,
+                throw new ArgumentOutOfRangeException(String.Format(CultureInfo.CurrentCulture,
                     Strings.RetryStrategyNotFound, retryStrategyName));
             }
 
@@ -225,19 +225,19 @@ namespace Cadru.TransientFaultHandling
         /// <returns>The retry strategy for the specified technology.</returns>
         public virtual RetryStrategy GetDefaultRetryStrategy(string technology)
         {
-            if (string.IsNullOrEmpty(technology))
+            if (String.IsNullOrEmpty(technology))
             {
                 throw new ArgumentException(String.Format(CultureInfo.CurrentCulture, Strings.StringCannotBeEmpty, nameof(technology)));
             }
 
-            if (!defaultRetryStrategiesMap.TryGetValue(technology, out RetryStrategy retryStrategy))
+            if (!defaultRetryStrategiesMap.TryGetValue(technology, out var retryStrategy))
             {
                 retryStrategy = defaultStrategy;
             }
 
             if (retryStrategy == null)
             {
-                throw new ArgumentOutOfRangeException(string.Format(CultureInfo.CurrentCulture,
+                throw new ArgumentOutOfRangeException(String.Format(CultureInfo.CurrentCulture,
                     Strings.DefaultRetryStrategyNotFound, technology));
             }
 

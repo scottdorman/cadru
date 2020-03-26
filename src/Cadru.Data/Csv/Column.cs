@@ -66,7 +66,7 @@ namespace Cadru.Data.Csv
         /// <returns>Converted value.</returns>
         public object Convert(string value)
         {
-            TryConvert(value, out object x);
+            TryConvert(value, out var x);
 
             return x;
         }
@@ -114,7 +114,7 @@ namespace Cadru.Data.Csv
                 case "Boolean":
                     {
                         int x;
-                        converted = int.TryParse(value, NumberStyles, Culture, out x);
+                        converted = Int32.TryParse(value, NumberStyles, Culture, out x);
                         if (converted)
                         {
                             result = x != 0;
@@ -122,7 +122,7 @@ namespace Cadru.Data.Csv
                         else
                         {
                             bool y;
-                            converted = bool.TryParse(value, out y);
+                            converted = Boolean.TryParse(value, out y);
                             result = y;
                         }
                     }
@@ -131,7 +131,7 @@ namespace Cadru.Data.Csv
                 case "Int32":
                     {
                         int x;
-                        converted = int.TryParse(value, NumberStyles, Culture, out x);
+                        converted = Int32.TryParse(value, NumberStyles, Culture, out x);
                         result = x;
                     }
                     break;
@@ -139,7 +139,7 @@ namespace Cadru.Data.Csv
                 case "Int64":
                     {
                         long x;
-                        converted = long.TryParse(value, NumberStyles, Culture, out x);
+                        converted = Int64.TryParse(value, NumberStyles, Culture, out x);
                         result = x;
                     }
                     break;
@@ -147,7 +147,7 @@ namespace Cadru.Data.Csv
                 case "Single":
                     {
                         float x;
-                        converted = float.TryParse(value, NumberStyles, Culture, out x);
+                        converted = Single.TryParse(value, NumberStyles, Culture, out x);
                         result = x;
                     }
                     break;
@@ -155,7 +155,7 @@ namespace Cadru.Data.Csv
                 case "Double":
                     {
                         double x;
-                        converted = double.TryParse(value, NumberStyles, Culture, out x);
+                        converted = Double.TryParse(value, NumberStyles, Culture, out x);
                         result = x;
                     }
                     break;
@@ -163,7 +163,7 @@ namespace Cadru.Data.Csv
                 case "Decimal":
                     {
                         decimal x;
-                        converted = decimal.TryParse(value, NumberStyles, Culture, out x);
+                        converted = Decimal.TryParse(value, NumberStyles, Culture, out x);
                         result = x;
                     }
                     break;
@@ -171,7 +171,7 @@ namespace Cadru.Data.Csv
                 case "DateTime":
                     {
                         DateTime x;
-                        if (!string.IsNullOrEmpty(DateParseExact))
+                        if (!String.IsNullOrEmpty(DateParseExact))
                         {
                             converted = DateTime.TryParseExact(value, DateParseExact, Culture, DateTimeStyles, out x);
                         }

@@ -179,7 +179,7 @@ namespace Cadru.UnitTest.Framework
         public static void IsType(object value, Type expectedType, string message, params object[] parameters)
         {
             Requires.NotNull(value, "value");
-            Type actualType = value.GetType();
+            var actualType = value.GetType();
             if (actualType != expectedType)
             {
                 if (String.IsNullOrWhiteSpace(message))

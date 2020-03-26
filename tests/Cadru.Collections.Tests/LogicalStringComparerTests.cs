@@ -1,11 +1,12 @@
-﻿using Cadru.Collections;
-using Cadru.UnitTest.Framework;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Cadru.UnitTests.Collections
+using Cadru.UnitTest.Framework;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Cadru.Collections.Tests
 {
     /// <summary>
     ///This is a test class for CadruCollections.LogicalStringComparer and is intended
@@ -20,7 +21,7 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Compare()
         {
-            IComparer comparer = LogicalStringComparer.Default;
+            var comparer = LogicalStringComparer.Default;
 
             Assert.IsTrue(comparer.Compare("abc", "def") < 0);
             Assert.IsTrue(comparer.Compare("def", "abc") > 0);
@@ -143,7 +144,7 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Compare1()
         {
-            LogicalStringComparer comparer = LogicalStringComparer.Default as LogicalStringComparer;
+            var comparer = LogicalStringComparer.Default as LogicalStringComparer;
 
             Assert.IsTrue(comparer.Compare("abc", "def") < 0);
             Assert.IsTrue(comparer.Compare("def", "abc") > 0);
@@ -294,7 +295,7 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Equals()
         {
-            LogicalStringComparer comparer = LogicalStringComparer.Default as LogicalStringComparer;
+            var comparer = LogicalStringComparer.Default as LogicalStringComparer;
 
             Assert.IsFalse(comparer.Equals("abc", "def"));
             Assert.IsTrue(comparer.Equals("abc", "abc"));
@@ -311,8 +312,8 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void HashCode()
         {
-            LogicalStringComparer comparer = LogicalStringComparer.Default as LogicalStringComparer;
-            string x = "abc";
+            var comparer = LogicalStringComparer.Default as LogicalStringComparer;
+            var x = "abc";
 
             Assert.AreEqual(x.GetHashCode(), comparer.GetHashCode("abc"));
 

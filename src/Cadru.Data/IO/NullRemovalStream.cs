@@ -182,7 +182,7 @@ namespace Cadru.Data.IO
             }
 
             var template = "[removed {0} null bytes]";
-            var mark = string.Format(template, nullCount);
+            var mark = String.Format(template, nullCount);
             foreach (var c in mark)
             {
                 if (targetIndex < target.Length)

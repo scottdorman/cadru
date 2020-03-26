@@ -75,7 +75,7 @@ namespace Cadru
 
             public bool Parse(out Comb result)
             {
-                string format = String.Empty;
+                var format = String.Empty;
 
                 switch (this.sourceLength)
                 {
@@ -126,7 +126,7 @@ namespace Cadru
                     return false;
                 }
 
-                if (!this.ParseHex(8, true, out ulong a))
+                if (!this.ParseHex(8, true, out var a))
                 {
                     return false;
                 }
@@ -138,7 +138,7 @@ namespace Cadru
                     return false;
                 }
 
-                if (!this.ParseHex(4, true, out ulong b))
+                if (!this.ParseHex(4, true, out var b))
                 {
                     return false;
                 }
@@ -148,7 +148,7 @@ namespace Cadru
                     return false;
                 }
 
-                if (!this.ParseHex(4, true, out ulong c))
+                if (!this.ParseHex(4, true, out var c))
                 {
                     return false;
                 }
@@ -159,9 +159,9 @@ namespace Cadru
                 }
 
                 var d = new byte[8];
-                for (int i = 0; i < d.Length; i++)
+                for (var i = 0; i < d.Length; i++)
                 {
-                    if (!this.ParseHex(2, true, out ulong dd))
+                    if (!this.ParseHex(2, true, out var dd))
                     {
                         return false;
                     }
@@ -194,13 +194,13 @@ namespace Cadru
 
                 if (!(this.ParseChar('{')
                 && this.ParseHexPrefix()
-                && this.ParseHex(8, false, out ulong a)
+                && this.ParseHex(8, false, out var a)
                 && this.ParseCharWithWhiteSpaces(',')
                 && this.ParseHexPrefix()
-                && this.ParseHex(4, false, out ulong b)
+                && this.ParseHex(4, false, out var b)
                 && this.ParseCharWithWhiteSpaces(',')
                 && this.ParseHexPrefix()
-                && this.ParseHex(4, false, out ulong c)
+                && this.ParseHex(4, false, out var c)
                 && this.ParseCharWithWhiteSpaces(',')
                 && this.ParseCharWithWhiteSpaces('{')))
                 {
@@ -208,9 +208,9 @@ namespace Cadru
                 }
 
                 var d = new byte[8];
-                for (int i = 0; i < d.Length; ++i)
+                for (var i = 0; i < d.Length; ++i)
                 {
-                    if (!(this.ParseHexPrefix() && this.ParseHex(2, false, out ulong dd)))
+                    if (!(this.ParseHexPrefix() && this.ParseHex(2, false, out var dd)))
                     {
                         return false;
                     }
@@ -248,7 +248,7 @@ namespace Cadru
                         return this.source[this.current++] == 'x';
                     }
 
-                    if (!char.IsWhiteSpace(ch))
+                    if (!Char.IsWhiteSpace(ch))
                     {
                         break;
                     }
@@ -267,7 +267,7 @@ namespace Cadru
                         return true;
                     }
 
-                    if (!char.IsWhiteSpace(ch))
+                    if (!Char.IsWhiteSpace(ch))
                     {
                         break;
                     }
@@ -291,14 +291,14 @@ namespace Cadru
             {
                 result = 0;
 
-                for (int i = 0; i < length; i++)
+                for (var i = 0; i < length; i++)
                 {
                     if (this.EOF)
                     {
                         return !(strict && (i + 1 != length));
                     }
 
-                    char c = this.source[this.current];
+                    var c = this.source[this.current];
                     if (Char.IsDigit(c))
                     {
                         result = ((result * 16) + c) - '0';

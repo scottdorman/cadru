@@ -1,13 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics.CodeAnalysis;
+
 using Cadru.Extensions;
 
-namespace Cadru.Core.UnitTests.Extensions
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Cadru.Core.Extensions.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class ArrayExtensionsTests

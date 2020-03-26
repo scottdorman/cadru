@@ -244,7 +244,7 @@ namespace Cadru.Collections
         /// contains the specified value; otherwise, <see langword="false"/>.</returns>
         public bool Contains(T value)
         {
-            bool result = true;
+            var result = true;
 
             switch (this.option)
             {
@@ -330,8 +330,8 @@ namespace Cadru.Collections
 
             if (this.Overlaps(other))
             {
-                T start = Comparer.Compare(this.LowerBound, other.LowerBound) > 0 ? this.LowerBound : other.LowerBound;
-                T end = Comparer.Compare(other.UpperBound, this.UpperBound) < 0 ? other.UpperBound : this.UpperBound;
+                var start = Comparer.Compare(this.LowerBound, other.LowerBound) > 0 ? this.LowerBound : other.LowerBound;
+                var end = Comparer.Compare(other.UpperBound, this.UpperBound) < 0 ? other.UpperBound : this.UpperBound;
                 result = new Range<T>(start, end, ComputeRangeOption(this, other));
             }
 
@@ -449,8 +449,8 @@ namespace Cadru.Collections
                 }
                 else
                 {
-                    T start = Comparer.Compare(this.LowerBound, other.LowerBound) < 0 ? this.LowerBound : other.LowerBound;
-                    T end = Comparer.Compare(other.UpperBound, this.UpperBound) > 0 ? other.UpperBound : this.UpperBound;
+                    var start = Comparer.Compare(this.LowerBound, other.LowerBound) < 0 ? this.LowerBound : other.LowerBound;
+                    var end = Comparer.Compare(other.UpperBound, this.UpperBound) > 0 ? other.UpperBound : this.UpperBound;
                     result = new Range<T>(start, end, ComputeRangeOption(this, other));
                 }
             }

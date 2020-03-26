@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Cadru.UnitTest.Framework;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Cadru.Core.UnitTests
+namespace Cadru.Core.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class UnixTimestampTests
@@ -193,8 +193,8 @@ namespace Cadru.Core.UnitTests
         {
             UnixTimestamp timestamp = rawTimestamp;
             UnixTimestamp timestamp2 = rawTimestamp;
-            UnixTimestamp timestamp3 = new UnixTimestamp(rawTimestamp).AddMonths(1);
-            UnixTimestamp timestamp4 = new UnixTimestamp(rawTimestamp).AddMonths(-1);
+            var timestamp3 = new UnixTimestamp(rawTimestamp).AddMonths(1);
+            var timestamp4 = new UnixTimestamp(rawTimestamp).AddMonths(-1);
 
             Assert.AreEqual(1, timestamp.CompareTo(null));
             ExceptionAssert.Throws<ArgumentException>(() => timestamp.CompareTo("test"));
@@ -209,8 +209,8 @@ namespace Cadru.Core.UnitTests
         {
             UnixTimestamp timestamp = rawTimestamp;
             UnixTimestamp timestamp2 = rawTimestamp;
-            UnixTimestamp timestamp3 = new UnixTimestamp(rawTimestamp).AddMonths(1);
-            UnixTimestamp timestamp4 = new UnixTimestamp(rawTimestamp).AddMonths(-1);
+            var timestamp3 = new UnixTimestamp(rawTimestamp).AddMonths(1);
+            var timestamp4 = new UnixTimestamp(rawTimestamp).AddMonths(-1);
 
             Assert.IsTrue(timestamp.Equals((object)timestamp2));
             Assert.IsFalse(timestamp.Equals((object)timestamp3));

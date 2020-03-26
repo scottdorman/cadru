@@ -42,8 +42,8 @@ namespace Cadru.Net.NetworkInformation
         /// </summary>
         public NetworkStatus()
         {
-            bool online = NetworkInterface.GetIsNetworkAvailable();
-            ConnectionStatus current = online ? ConnectionStatus.Connected : ConnectionStatus.Disconnected;
+            var online = NetworkInterface.GetIsNetworkAvailable();
+            var current = online ? ConnectionStatus.Connected : ConnectionStatus.Disconnected;
 
             lock (syncRoot)
             {
@@ -119,14 +119,14 @@ namespace Cadru.Net.NetworkInformation
 #else
         private void NetworkAddressChanged(object sender, EventArgs e)
         {
-            ConnectionStatus current = NetworkInterface.GetIsNetworkAvailable() ? ConnectionStatus.Connected : ConnectionStatus.Disconnected;
+            var current = NetworkInterface.GetIsNetworkAvailable() ? ConnectionStatus.Connected : ConnectionStatus.Disconnected;
             ChangeNetworkStatus(current);
         }
 #endif
 
         private void ChangeNetworkStatus(ConnectionStatus current)
         {
-            bool changed = false;
+            var changed = false;
 
             lock (syncRoot)
             {
@@ -141,7 +141,7 @@ namespace Cadru.Net.NetworkInformation
             {
                 if (changed)
                 {
-                    NetworkStatusChangedEventArgs networkStatusChangedEventArgs = new NetworkStatusChangedEventArgs(current);
+                    var networkStatusChangedEventArgs = new NetworkStatusChangedEventArgs(current);
                     this.NetworkStatusChanged(this, networkStatusChangedEventArgs);
                 }
             }

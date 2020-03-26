@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Cadru.UnitTest.Framework.UnitTests
+namespace Cadru.UnitTest.Framework.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class TypeAssertTests
@@ -9,8 +9,8 @@ namespace Cadru.UnitTest.Framework.UnitTests
         [TestMethod]
         public void IsAssignableFrom()
         {
-            int[] array10 = new int[10];
-            int[] array2 = new int[2];
+            var array10 = new int[10];
+            var array2 = new int[2];
 
             TypeAssert.IsAssignableFrom(array10, array2.GetType());
             TypeAssert.IsAssignableFrom(array10, array2.GetType(), "Type Failure Message");
@@ -20,8 +20,8 @@ namespace Cadru.UnitTest.Framework.UnitTests
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void IsAssignableFromFails()
         {
-            int[] array10 = new int[10];
-            int[,] array2 = new int[2, 2];
+            var array10 = new int[10];
+            var array2 = new int[2, 2];
 
             TypeAssert.IsAssignableFrom(array10, array2.GetType());
         }
@@ -29,8 +29,8 @@ namespace Cadru.UnitTest.Framework.UnitTests
         [TestMethod]
         public void IsNotAssignableFrom()
         {
-            int[] array10 = new int[10];
-            int[,] array2 = new int[2, 2];
+            var array10 = new int[10];
+            var array2 = new int[2, 2];
 
             TypeAssert.IsNotAssignableFrom(array10, array2.GetType());
             TypeAssert.IsNotAssignableFrom(array10, array2.GetType(), "Type Failure Message");
@@ -40,8 +40,8 @@ namespace Cadru.UnitTest.Framework.UnitTests
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void IsNotAssignableFromFails()
         {
-            int[] array10 = new int[10];
-            int[] array2 = new int[2];
+            var array10 = new int[10];
+            var array2 = new int[2];
 
             TypeAssert.IsNotAssignableFrom(array10, array2.GetType());
         }

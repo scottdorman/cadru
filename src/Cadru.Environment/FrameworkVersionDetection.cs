@@ -605,7 +605,7 @@ namespace Cadru.Environment
                     break;
             }
 
-            valid = GetCoreFrameworkVersion(frameworkVersion, out Version coreVersion) ? (version >= max && coreVersion >= min) : version >= max;
+            valid = GetCoreFrameworkVersion(frameworkVersion, out var coreVersion) ? (version >= max && coreVersion >= min) : version >= max;
 
             return valid;
         }

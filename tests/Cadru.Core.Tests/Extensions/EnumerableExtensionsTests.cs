@@ -1,14 +1,14 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Cadru;
-using Cadru.Text;
-using System.Diagnostics.CodeAnalysis;
-using Cadru.Extensions;
-using System.Collections.Generic;
-using System.Linq;
 using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
-namespace Cadru.UnitTest.Framework.UnitTests.Extensions
+using Cadru.Extensions;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Cadru.Core.Extensions.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class EnumerableExtensionsTests
@@ -83,8 +83,8 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void Slice()
         {
-            var test = new [] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            CollectionAssert.AreEqual(new [] { 0, 1, 2, 3 }, test.Slice(0, 3).ToArray());
+            var test = new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            CollectionAssert.AreEqual(new[] { 0, 1, 2, 3 }, test.Slice(0, 3).ToArray());
             CollectionAssert.AreEqual(new[] { 4, 5, 6, 7, 8, 9 }, test.Slice(4, 9).ToArray());
             CollectionAssert.AreEqual(new[] { 9 }, test.Slice(9, 9).ToArray());
 
@@ -99,7 +99,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
             int[] numbers = { 0, 30, 20, 15, 90, 85, 40, 75 };
 
             CollectionAssert.AreEqual(numbers, numbers.WhereIf(false, c => c < 40).ToArray());
-            CollectionAssert.AreEqual(new [] { 0, 30, 20, 15 }, numbers.WhereIf(true, c => c < 40).ToArray());
+            CollectionAssert.AreEqual(new[] { 0, 30, 20, 15 }, numbers.WhereIf(true, c => c < 40).ToArray());
 
             CollectionAssert.AreEqual(numbers, numbers.WhereIf(false, (number, index) => number <= index * 10).ToArray());
             CollectionAssert.AreEqual(new[] { 0, 20, 15, 40 }, numbers.WhereIf(true, (number, index) => number <= index * 10).ToArray());

@@ -53,7 +53,7 @@ namespace Cadru.Postal
                 body = reader.ReadToEnd();
             }
 
-            if (string.IsNullOrWhiteSpace(contentType))
+            if (String.IsNullOrWhiteSpace(contentType))
             {
                 if (alternativeViewName.Equals("text", StringComparison.OrdinalIgnoreCase))
                 {
@@ -158,7 +158,7 @@ namespace Cadru.Postal
                     }
                     else
                     {
-                        throw new ArgumentException(string.Format("Invalid email priority: {0}. It must be High, Medium or Low.", value));
+                        throw new ArgumentException(String.Format("Invalid email priority: {0}. It must be High, Medium or Low.", value));
                     }
                     break;
                 case "content-type":
@@ -215,7 +215,7 @@ namespace Cadru.Postal
                 AssignCommonHeader<string>(email, "sender", sender => message.Sender = GetValidEmailAddressOrDefault(sender));
                 AssignCommonHeader<MailAddress>(email, "sender", sender => message.Sender = sender);
             }
-            if (string.IsNullOrEmpty(message.Subject))
+            if (String.IsNullOrEmpty(message.Subject))
             {
                 AssignCommonHeader<string>(email, "subject", subject => message.Subject = subject);
             }
@@ -224,7 +224,7 @@ namespace Cadru.Postal
         private void AssignCommonHeader<T>(IEmail email, string header, Action<T> assign)
             where T : class
         {
-            if (email.ViewData.TryGetValue(header, out object value))
+            if (email.ViewData.TryGetValue(header, out var value))
             {
                 if (value is T typedValue) assign(typedValue);
             }

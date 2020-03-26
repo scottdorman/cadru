@@ -1,14 +1,16 @@
-﻿using Cadru.Text;
-using Cadru.UnitTest.Framework;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
-namespace CadruUnitTests.Text
+using Cadru.Text;
+using Cadru.UnitTest.Framework;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Cadru.Core.Text.Tests
 {
     /// <summary>
-    ///This is a test class for CadruText.DataValidation and is 
+    ///This is a test class for CadruText.DataValidation and is
     ///intended to contain all CadruText.DataValidation Unit Tests
     ///</summary>
     [TestClass, ExcludeFromCodeCoverage]
@@ -326,13 +328,13 @@ namespace CadruUnitTests.Text
             Assert.IsFalse('.'.IsStrictlyAlphanumeric());
             Assert.IsFalse('/'.IsStrictlyAlphanumeric());
             Assert.IsFalse(';'.IsStrictlyAlphanumeric());
- 
+
             Assert.IsTrue("ADZerdfd".IsStrictlyAlphanumeric());
             Assert.IsTrue("ADZe321".IsStrictlyAlphanumeric());
 
             Assert.IsFalse("ADZ./;".IsStrictlyAlphanumeric());
             Assert.IsFalse("321./;".IsStrictlyAlphanumeric());
- 
+
             ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).IsStrictlyAlphanumeric());
         }
 
@@ -342,7 +344,7 @@ namespace CadruUnitTests.Text
         [TestMethod]
         public void IsValidFileName()
         {
-            string expression = "testfile.txt";
+            var expression = "testfile.txt";
 
             Assert.IsTrue(expression.IsValidFileName());
 

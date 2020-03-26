@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Cadru.UnitTest.Framework.UnitTests
+namespace Cadru.Core.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class EventArgsTests

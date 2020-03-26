@@ -7,7 +7,7 @@ using Cadru.Data.Excel;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Cadru.Env.Tests
+namespace Cadru.Data.Tests
 {
     [TestClass]
     public class ExcelReaderTests
@@ -29,7 +29,7 @@ namespace Cadru.Env.Tests
 
                     reader.Read();
 
-                    var empty = IsRowEmpty(reader, 0, Enumerable.Empty<int>());
+                    var empty = this.IsRowEmpty(reader, 0, Enumerable.Empty<int>());
 
                     var fiscalYear = reader.Field<int>(0);
                     var empId = reader.Field<string>(1);

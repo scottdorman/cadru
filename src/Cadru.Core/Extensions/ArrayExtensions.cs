@@ -100,11 +100,11 @@ namespace Cadru.Extensions
         {
             Contracts.Requires.NotNull(source, nameof(source));
 
-            int length = source.Length;
-            for (int i = 0; i < (length >> 1); i++)
+            var length = source.Length;
+            for (var i = 0; i < (length >> 1); i++)
             {
-                int j = length - i - 1;
-                byte temp = source[i];
+                var j = length - i - 1;
+                var temp = source[i];
                 source[i] = source[j];
                 source[j] = temp;
             }
@@ -121,11 +121,11 @@ namespace Cadru.Extensions
         {
             Contracts.Requires.NotNull(source, nameof(source));
 
-            int length = source.Length;
+            var length = source.Length;
             var result = new byte[length];
-            for (int i = 0; i < length; i++)
+            for (var i = 0; i < length; i++)
             {
-                int j = length - i - 1;
+                var j = length - i - 1;
                 result[j] = source[i];
             }
 

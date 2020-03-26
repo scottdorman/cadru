@@ -147,8 +147,8 @@ namespace Cadru.TransientFaultHandling
         {
             Contracts.Requires.NotNull(func, nameof(func));
 
-            int retryCount = 0;
-            TimeSpan delay = TimeSpan.Zero;
+            var retryCount = 0;
+            var delay = TimeSpan.Zero;
             Exception lastError;
 
             var shouldRetry = this.RetryStrategy.GetShouldRetry();
@@ -170,7 +170,7 @@ namespace Cadru.TransientFaultHandling
                         throw;
                     }
 
-                    RetryCondition condition = shouldRetry(retryCount++, lastError);
+                    var condition = shouldRetry(retryCount++, lastError);
                     if (!condition.RetryAllowed)
                     {
                         throw;

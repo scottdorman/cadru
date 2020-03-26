@@ -61,7 +61,7 @@ namespace Cadru.Extensions
         {
             Contracts.Requires.NotNull(dictionary, nameof(dictionary));
 
-            return dictionary.TryGetValue(key, out TValue result) ? result : defaultValue;
+            return dictionary.TryGetValue(key, out var result) ? result : defaultValue;
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace Cadru.Extensions
         {
             Contracts.Requires.NotNull(dictionary, nameof(dictionary));
 
-            bool found = true;
+            var found = true;
             if (!dictionary.TryGetValue(key, out value))
             {
                 value = defaultValue;
@@ -140,7 +140,7 @@ namespace Cadru.Extensions
         {
             Contracts.Requires.NotNull(dictionary, nameof(dictionary));
 
-            bool found = true;
+            bool found;
             if (dictionary is Dictionary<object, TValue> temp)
             {
                 found = temp.TryGetValueOrDefault<object, TValue>(key, defaultValue, out value);

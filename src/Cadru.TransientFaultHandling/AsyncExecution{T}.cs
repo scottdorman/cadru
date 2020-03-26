@@ -138,7 +138,7 @@ namespace Cadru.TransientFaultHandling
                 return runningTask;
             }
 
-            Exception lastError = runningTask.Exception.InnerException;
+            var lastError = runningTask.Exception.InnerException;
 
             if (!(this.isTransient(lastError)))
             {
@@ -146,12 +146,12 @@ namespace Cadru.TransientFaultHandling
                 return runningTask;
             }
 
-            RetryCondition condition = this.shouldRetry(this.retryCount++, lastError);
+            var condition = this.shouldRetry(this.retryCount++, lastError);
             if (!condition.RetryAllowed)
             {
                 return runningTask;
             }
-            TimeSpan delay = condition.DelayBeforeRetry;
+            var delay = condition.DelayBeforeRetry;
 
             // Perform an extra check in the delay interval.
             if (delay < TimeSpan.Zero)

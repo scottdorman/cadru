@@ -1,10 +1,11 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
 using Cadru.Extensions;
+using Cadru.UnitTest.Framework;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Cadru.UnitTest.Framework.UnitTests.Extensions
+namespace Cadru.Core.Extensions.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class BooleanExtensionsTests
@@ -44,88 +45,87 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
         [TestMethod]
         public void TryParse()
         {
-            ConditionAssert.IsTrue(TryParse("true"));
-            ConditionAssert.IsTrue(TryParse("True"));
-            ConditionAssert.IsTrue(TryParse("TRUE"));
-            ConditionAssert.IsTrue(TryParse("T"));
-            ConditionAssert.IsTrue(TryParse("t"));
-            ConditionAssert.IsTrue(TryParse("Y"));
-            ConditionAssert.IsTrue(TryParse("y"));
-            ConditionAssert.IsTrue(TryParse("YES"));
-            ConditionAssert.IsTrue(TryParse("Yes"));
-            ConditionAssert.IsTrue(TryParse("yes"));
+            ConditionAssert.IsTrue(this.TryParse("true"));
+            ConditionAssert.IsTrue(this.TryParse("True"));
+            ConditionAssert.IsTrue(this.TryParse("TRUE"));
+            ConditionAssert.IsTrue(this.TryParse("T"));
+            ConditionAssert.IsTrue(this.TryParse("t"));
+            ConditionAssert.IsTrue(this.TryParse("Y"));
+            ConditionAssert.IsTrue(this.TryParse("y"));
+            ConditionAssert.IsTrue(this.TryParse("YES"));
+            ConditionAssert.IsTrue(this.TryParse("Yes"));
+            ConditionAssert.IsTrue(this.TryParse("yes"));
 
-            ConditionAssert.IsFalse(TryParse("false"));
-            ConditionAssert.IsFalse(TryParse("False"));
-            ConditionAssert.IsFalse(TryParse("FALSE"));
-            ConditionAssert.IsFalse(TryParse("F"));
-            ConditionAssert.IsFalse(TryParse("f"));
-            ConditionAssert.IsFalse(TryParse("N"));
-            ConditionAssert.IsFalse(TryParse("n"));
-            ConditionAssert.IsFalse(TryParse("NO"));
-            ConditionAssert.IsFalse(TryParse("No"));
-            ConditionAssert.IsFalse(TryParse("no"));
-            ConditionAssert.IsFalse(TryParse("NA"));
-            ConditionAssert.IsFalse(TryParse("Na"));
-            ConditionAssert.IsFalse(TryParse("na"));
-            ConditionAssert.IsFalse(TryParse("N/A"));
-            ConditionAssert.IsFalse(TryParse("N/a"));
-            ConditionAssert.IsFalse(TryParse("n/a"));
+            ConditionAssert.IsFalse(this.TryParse("false"));
+            ConditionAssert.IsFalse(this.TryParse("False"));
+            ConditionAssert.IsFalse(this.TryParse("FALSE"));
+            ConditionAssert.IsFalse(this.TryParse("F"));
+            ConditionAssert.IsFalse(this.TryParse("f"));
+            ConditionAssert.IsFalse(this.TryParse("N"));
+            ConditionAssert.IsFalse(this.TryParse("n"));
+            ConditionAssert.IsFalse(this.TryParse("NO"));
+            ConditionAssert.IsFalse(this.TryParse("No"));
+            ConditionAssert.IsFalse(this.TryParse("no"));
+            ConditionAssert.IsFalse(this.TryParse("NA"));
+            ConditionAssert.IsFalse(this.TryParse("Na"));
+            ConditionAssert.IsFalse(this.TryParse("na"));
+            ConditionAssert.IsFalse(this.TryParse("N/A"));
+            ConditionAssert.IsFalse(this.TryParse("N/a"));
+            ConditionAssert.IsFalse(this.TryParse("n/a"));
 
-            ConditionAssert.IsTrue(TryParse("true "));
-            ConditionAssert.IsTrue(TryParse(" True"));
-            ConditionAssert.IsTrue(TryParse("TRUE "));
-            ConditionAssert.IsTrue(TryParse("T "));
-            ConditionAssert.IsTrue(TryParse(" t"));
-            ConditionAssert.IsTrue(TryParse("Y "));
-            ConditionAssert.IsTrue(TryParse(" y"));
-            ConditionAssert.IsTrue(TryParse("YES "));
-            ConditionAssert.IsTrue(TryParse(" Yes"));
-            ConditionAssert.IsTrue(TryParse(" yes "));
+            ConditionAssert.IsTrue(this.TryParse("true "));
+            ConditionAssert.IsTrue(this.TryParse(" True"));
+            ConditionAssert.IsTrue(this.TryParse("TRUE "));
+            ConditionAssert.IsTrue(this.TryParse("T "));
+            ConditionAssert.IsTrue(this.TryParse(" t"));
+            ConditionAssert.IsTrue(this.TryParse("Y "));
+            ConditionAssert.IsTrue(this.TryParse(" y"));
+            ConditionAssert.IsTrue(this.TryParse("YES "));
+            ConditionAssert.IsTrue(this.TryParse(" Yes"));
+            ConditionAssert.IsTrue(this.TryParse(" yes "));
 
-            ConditionAssert.IsFalse(TryParse(" false"));
-            ConditionAssert.IsFalse(TryParse("False "));
-            ConditionAssert.IsFalse(TryParse("FALSE "));
-            ConditionAssert.IsFalse(TryParse(" F"));
-            ConditionAssert.IsFalse(TryParse("f "));
-            ConditionAssert.IsFalse(TryParse("N "));
-            ConditionAssert.IsFalse(TryParse(" n"));
-            ConditionAssert.IsFalse(TryParse("NO "));
-            ConditionAssert.IsFalse(TryParse(" No"));
-            ConditionAssert.IsFalse(TryParse("no "));
-            ConditionAssert.IsFalse(TryParse("NA "));
-            ConditionAssert.IsFalse(TryParse(" Na"));
-            ConditionAssert.IsFalse(TryParse("na "));
-            ConditionAssert.IsFalse(TryParse(" N/A "));
-            ConditionAssert.IsFalse(TryParse(" N/a"));
-            ConditionAssert.IsFalse(TryParse("n/a "));
+            ConditionAssert.IsFalse(this.TryParse(" false"));
+            ConditionAssert.IsFalse(this.TryParse("False "));
+            ConditionAssert.IsFalse(this.TryParse("FALSE "));
+            ConditionAssert.IsFalse(this.TryParse(" F"));
+            ConditionAssert.IsFalse(this.TryParse("f "));
+            ConditionAssert.IsFalse(this.TryParse("N "));
+            ConditionAssert.IsFalse(this.TryParse(" n"));
+            ConditionAssert.IsFalse(this.TryParse("NO "));
+            ConditionAssert.IsFalse(this.TryParse(" No"));
+            ConditionAssert.IsFalse(this.TryParse("no "));
+            ConditionAssert.IsFalse(this.TryParse("NA "));
+            ConditionAssert.IsFalse(this.TryParse(" Na"));
+            ConditionAssert.IsFalse(this.TryParse("na "));
+            ConditionAssert.IsFalse(this.TryParse(" N/A "));
+            ConditionAssert.IsFalse(this.TryParse(" N/a"));
+            ConditionAssert.IsFalse(this.TryParse("n/a "));
 
-            ConditionAssert.IsTrue(TryParse(1));
-            ConditionAssert.IsFalse(TryParse(0));
+            ConditionAssert.IsTrue(this.TryParse(1));
+            ConditionAssert.IsFalse(this.TryParse(0));
 
-            Assert.IsNull(TryParse("foo"));
-            Assert.IsNull(TryParse(" foo"));
-            Assert.IsNull(TryParse(3));
+            Assert.IsNull(this.TryParse("foo"));
+            Assert.IsNull(this.TryParse(" foo"));
+            Assert.IsNull(this.TryParse(3));
 
-            Assert.IsNull(TryParse(""));
-            Assert.IsNull(TryParse("\0"));
-            Assert.IsNull(TryParse("\u0089"));
-            Assert.IsNull(TryParse("\t"));
-            Assert.IsNull(TryParse("\u0100"));
-            Assert.IsNull(TryParse("\u0089\t"));
-            Assert.IsNull(TryParse("\u0089\0"));
-            Assert.IsNull(TryParse("\t\0"));
-            Assert.IsNull(TryParse("\t\0\0"));
-            Assert.IsNull(TryParse("\u0100\0\0"));
-            Assert.IsNull(TryParse("\u0100\t\t"));
-            Assert.IsNull(TryParse("\t\t"));
+            Assert.IsNull(this.TryParse(""));
+            Assert.IsNull(this.TryParse("\0"));
+            Assert.IsNull(this.TryParse("\u0089"));
+            Assert.IsNull(this.TryParse("\t"));
+            Assert.IsNull(this.TryParse("\u0100"));
+            Assert.IsNull(this.TryParse("\u0089\t"));
+            Assert.IsNull(this.TryParse("\u0089\0"));
+            Assert.IsNull(this.TryParse("\t\0"));
+            Assert.IsNull(this.TryParse("\t\0\0"));
+            Assert.IsNull(this.TryParse("\u0100\0\0"));
+            Assert.IsNull(this.TryParse("\u0100\t\t"));
+            Assert.IsNull(this.TryParse("\t\t"));
         }
 
         private bool? TryParse(string value)
         {
-            bool result;
 
-            if (value.TryParseAsBoolean(out result))
+            if (value.TryParseAsBoolean(out var result))
             {
                 return result;
             }
@@ -135,9 +135,8 @@ namespace Cadru.UnitTest.Framework.UnitTests.Extensions
 
         private bool? TryParse(int value)
         {
-            bool result;
 
-            if (value.TryParseAsBoolean(out result))
+            if (value.TryParseAsBoolean(out var result))
             {
                 return result;
             }

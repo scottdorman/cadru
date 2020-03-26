@@ -56,12 +56,12 @@ namespace Cadru.Collections
         ///  to iterate through the <see cref="Range{T}"/>.</returns>
         public IEnumerator<T> GetEnumerator()
         {
-            T current = this.range.IncludesLowerBound ? this.range.LowerBound : this.step(this.range.LowerBound);
+            var current = this.range.IncludesLowerBound ? this.range.LowerBound : this.step(this.range.LowerBound);
 
             while (this.range.Contains(current))
             {
                 yield return current;
-                T next = this.step(current);
+                var next = this.step(current);
 
                 // Handle a stepping function which wraps
                 // around from a value near the end to one

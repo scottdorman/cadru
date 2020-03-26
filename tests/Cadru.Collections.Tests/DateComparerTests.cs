@@ -1,11 +1,12 @@
-﻿using Cadru.Collections;
-using Cadru.UnitTest.Framework;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Cadru.UnitTests.Collections
+using Cadru.UnitTest.Framework;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Cadru.Collections.Tests
 {
     /// <summary>
     ///This is a test class for CadruCollections.DateComparer and is intended
@@ -20,7 +21,7 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Compare()
         {
-            DateComparer comparer = DateComparer.Default as DateComparer;
+            var comparer = DateComparer.Default as DateComparer;
             object x = "10/31/2006";
             object y = "11/1/2006";
 
@@ -42,9 +43,9 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Compare1()
         {
-            DateComparer comparer = DateComparer.Default as DateComparer;
-            string x = "10/31/2006";
-            string y = "11/1/2006";
+            var comparer = DateComparer.Default as DateComparer;
+            var x = "10/31/2006";
+            var y = "11/1/2006";
 
             Assert.IsTrue(comparer.Compare(x, y) < 0);
             Assert.IsTrue(comparer.Compare(y, x) > 0);
@@ -54,7 +55,7 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Compare2()
         {
-            DateComparer comparer = DateComparer.Default as DateComparer;
+            var comparer = DateComparer.Default as DateComparer;
 
             Assert.IsTrue(comparer.Compare(DateTime.Today, DateTime.Today.AddDays(1)) < 0);
             Assert.IsTrue(comparer.Compare(DateTime.Today.AddDays(1), DateTime.Today) > 0);
@@ -64,7 +65,7 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Compare3()
         {
-            DateComparer comparer = DateComparer.Default as DateComparer;
+            var comparer = DateComparer.Default as DateComparer;
 
             ExceptionAssert.Throws<FormatException>(() => comparer.Compare("10/31/2006", "abc123"));
             ExceptionAssert.Throws<FormatException>(() => comparer.Compare("abc123", "10/31/2006"));
@@ -77,7 +78,7 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Compare4()
         {
-            DateComparer comparer = DateComparer.DefaultInvariant as DateComparer;
+            var comparer = DateComparer.DefaultInvariant as DateComparer;
             object x = "10/31/2006";
             object y = "11/1/2006";
 
@@ -99,9 +100,9 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Compare5()
         {
-            DateComparer comparer = DateComparer.DefaultInvariant as DateComparer;
-            string x = "10/31/2006";
-            string y = "11/1/2006";
+            var comparer = DateComparer.DefaultInvariant as DateComparer;
+            var x = "10/31/2006";
+            var y = "11/1/2006";
 
             Assert.IsTrue(comparer.Compare(x, y) < 0);
             Assert.IsTrue(comparer.Compare(y, x) > 0);
@@ -111,7 +112,7 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Compare6()
         {
-            DateComparer comparer = DateComparer.DefaultInvariant as DateComparer;
+            var comparer = DateComparer.DefaultInvariant as DateComparer;
 
             Assert.IsTrue(comparer.Compare(DateTime.Today, DateTime.Today.AddDays(1)) < 0);
             Assert.IsTrue(comparer.Compare(DateTime.Today.AddDays(1), DateTime.Today) > 0);
@@ -121,7 +122,7 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Compare7()
         {
-            DateComparer comparer = DateComparer.DefaultInvariant as DateComparer;
+            var comparer = DateComparer.DefaultInvariant as DateComparer;
 
             ExceptionAssert.Throws<FormatException>(() => comparer.Compare("10/31/2006", "abc123"));
             ExceptionAssert.Throws<FormatException>(() => comparer.Compare("abc123", "10/31/2006"));
@@ -136,7 +137,7 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Compare9()
         {
-            DateComparer comparer = new DateComparer();
+            var comparer = new DateComparer();
             object x = "10/31/2006";
             object y = "11/1/2006";
 
@@ -155,9 +156,9 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Equals()
         {
-            DateComparer comparer = DateComparer.Default as DateComparer;
-            DateTime x = DateTime.Today;
-            DateTime y = DateTime.Today.AddDays(1);
+            var comparer = DateComparer.Default as DateComparer;
+            var x = DateTime.Today;
+            var y = DateTime.Today.AddDays(1);
 
             Assert.IsFalse(comparer.Equals(x, y));
             Assert.IsTrue(comparer.Equals(x, x));
@@ -166,9 +167,9 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Equals1()
         {
-            DateComparer comparer = DateComparer.Default as DateComparer;
-            string x = "10/31/2006";
-            string y = "11/1/2006";
+            var comparer = DateComparer.Default as DateComparer;
+            var x = "10/31/2006";
+            var y = "11/1/2006";
 
             Assert.IsFalse(((IEqualityComparer)comparer).Equals(x, y));
             Assert.IsTrue(((IEqualityComparer)comparer).Equals(x, x));
@@ -177,9 +178,9 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Equals2()
         {
-            DateComparer comparer = DateComparer.Default as DateComparer;
-            string x = "10/31/2006";
-            string y = "11/1/2006";
+            var comparer = DateComparer.Default as DateComparer;
+            var x = "10/31/2006";
+            var y = "11/1/2006";
 
             Assert.IsFalse(comparer.Equals(x, y));
             Assert.IsTrue(comparer.Equals(x, x));
@@ -188,7 +189,7 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Equals3()
         {
-            DateComparer comparer = DateComparer.Default as DateComparer;
+            var comparer = DateComparer.Default as DateComparer;
             string x = null;
             string y = null;
 
@@ -202,9 +203,9 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Equals4()
         {
-            DateComparer comparer = DateComparer.DefaultInvariant as DateComparer;
-            DateTime x = DateTime.Today;
-            DateTime y = DateTime.Today.AddDays(1);
+            var comparer = DateComparer.DefaultInvariant as DateComparer;
+            var x = DateTime.Today;
+            var y = DateTime.Today.AddDays(1);
 
             Assert.IsFalse(comparer.Equals(x, y));
             Assert.IsTrue(comparer.Equals(x, x));
@@ -213,9 +214,9 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Equals5()
         {
-            DateComparer comparer = DateComparer.DefaultInvariant as DateComparer;
-            string x = "10/31/2006";
-            string y = "11/1/2006";
+            var comparer = DateComparer.DefaultInvariant as DateComparer;
+            var x = "10/31/2006";
+            var y = "11/1/2006";
 
             Assert.IsFalse(((IEqualityComparer)comparer).Equals(x, y));
             Assert.IsTrue(((IEqualityComparer)comparer).Equals(x, x));
@@ -224,9 +225,9 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Equals6()
         {
-            DateComparer comparer = DateComparer.DefaultInvariant as DateComparer;
-            string x = "10/31/2006";
-            string y = "11/1/2006";
+            var comparer = DateComparer.DefaultInvariant as DateComparer;
+            var x = "10/31/2006";
+            var y = "11/1/2006";
 
             Assert.IsFalse(comparer.Equals(x, y));
             Assert.IsTrue(comparer.Equals(x, x));
@@ -235,7 +236,7 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void Equals7()
         {
-            DateComparer comparer = DateComparer.DefaultInvariant as DateComparer;
+            var comparer = DateComparer.DefaultInvariant as DateComparer;
             string x = null;
             string y = null;
 
@@ -249,15 +250,15 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void GetHashCode1()
         {
-            DateComparer comparer = DateComparer.Default as DateComparer;
-            string x = "10/31/2006";
+            var comparer = DateComparer.Default as DateComparer;
+            var x = "10/31/2006";
 
             Assert.AreEqual(DateTime.Parse(x).GetHashCode(), comparer.GetHashCode(x));
 
             object y = "10/31/2006";
             Assert.AreEqual(DateTime.Parse(y.ToString()).GetHashCode(), comparer.GetHashCode(y));
 
-            DateTime z = DateTime.Today;
+            var z = DateTime.Today;
             Assert.AreEqual(z.GetHashCode(), comparer.GetHashCode(z));
 
             object a = DateTime.Today;
@@ -276,27 +277,27 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void GetHashCode3()
         {
-            DateComparer comparer = DateComparer.Default as DateComparer;
+            var comparer = DateComparer.Default as DateComparer;
 
             ExceptionAssert.Throws<ArgumentNullException>(() => ((DateComparer)DateComparer.Default).GetHashCode(((string)null)));
             Assert.AreEqual(String.Empty.GetHashCode(), comparer.GetHashCode(String.Empty));
 
-            string c = "abc";
+            var c = "abc";
             Assert.AreEqual(c.GetHashCode(), comparer.GetHashCode(c));
         }
 
         [TestMethod]
         public void GetHashCode4()
         {
-            DateComparer comparer = DateComparer.DefaultInvariant as DateComparer;
-            string x = "10/31/2006";
+            var comparer = DateComparer.DefaultInvariant as DateComparer;
+            var x = "10/31/2006";
 
             Assert.AreEqual(DateTime.Parse(x).GetHashCode(), comparer.GetHashCode(x));
 
             object y = "10/31/2006";
             Assert.AreEqual(DateTime.Parse(y.ToString()).GetHashCode(), comparer.GetHashCode(y));
 
-            DateTime z = DateTime.Today;
+            var z = DateTime.Today;
             Assert.AreEqual(z.GetHashCode(), comparer.GetHashCode(z));
 
             object a = DateTime.Today;
@@ -312,12 +313,12 @@ namespace Cadru.UnitTests.Collections
         [TestMethod]
         public void GetHashCode5()
         {
-            DateComparer comparer = DateComparer.DefaultInvariant as DateComparer;
+            var comparer = DateComparer.DefaultInvariant as DateComparer;
             ExceptionAssert.Throws<ArgumentNullException>(() => comparer.GetHashCode(((object)null)));
             ExceptionAssert.Throws<ArgumentNullException>(() => comparer.GetHashCode(((string)null)));
             Assert.AreEqual(String.Empty.GetHashCode(), comparer.GetHashCode(String.Empty));
 
-            string c = "abc";
+            var c = "abc";
             Assert.AreEqual(c.GetHashCode(), comparer.GetHashCode(c));
         }
     }

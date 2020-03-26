@@ -28,7 +28,7 @@ namespace Cadru.Data.Dapper.Tests
                 new PlanComponent{ FiscalYear = 2019, PlanID = "P005"},
             };
 
-            int fiscalYear = 2019;
+            var fiscalYear = 2019;
             var parameters = new DynamicParameters();
 
             var predicate = Predicate.And(new[] {

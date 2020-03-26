@@ -271,12 +271,12 @@ namespace Cadru.Net.Http
                 return false;
             }
 
-            if (object.ReferenceEquals(this.scheme, other.scheme))
+            if (Object.ReferenceEquals(this.scheme, other.scheme))
             {
                 return true;
             }
 
-            return string.Compare(this.scheme, other.scheme, StringComparison.OrdinalIgnoreCase) == 0;
+            return String.Compare(this.scheme, other.scheme, StringComparison.OrdinalIgnoreCase) == 0;
         }
         #endregion
 

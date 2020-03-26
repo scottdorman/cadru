@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Cadru.UnitTest.Framework.UnitTests
+namespace Cadru.UnitTest.Framework.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class ExceptionAssertTests

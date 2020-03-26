@@ -54,7 +54,7 @@ namespace Cadru.Collections
 
         #region Key
         /// <summary>Gets the key in the key/value pair.</summary>
-        /// <value>A <see cref="string"/> that is the key of the <see cref="NameValuePair{TValue}" />. </value>
+        /// <value>A <see cref="System.String"/> that is the key of the <see cref="NameValuePair{TValue}" />. </value>
         public string Key
         {
             get
@@ -173,7 +173,7 @@ namespace Cadru.Collections
         /// <returns>A string representation of the <see cref="T:System.Collections.Generic.KeyValuePair`2" />, which includes the string representations of the key and value.</returns>
         public override string ToString()
         {
-            StringBuilder stringBuilder = new StringBuilder(16);
+            var stringBuilder = new StringBuilder(16);
             stringBuilder.Append("[");
             if (this.Key.IsNotNull())
             {
@@ -183,9 +183,9 @@ namespace Cadru.Collections
             stringBuilder.Append(": ");
             var total = this.Value.Count;
 
-            for (int i = 0; i < total; i++)
+            for (var i = 0; i < total; i++)
             {
-                TValue v = this.Value[i];
+                var v = this.Value[i];
                 if (v.IsNotNull())
                 {
                     stringBuilder.Append(v);

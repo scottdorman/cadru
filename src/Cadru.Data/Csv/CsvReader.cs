@@ -565,7 +565,7 @@ namespace Cadru.Data.Csv
             {
                 if (!MoveTo(record))
                 {
-                    throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, Strings.CannotReadRecordAtIndex, record));
+                    throw new InvalidOperationException(String.Format(CultureInfo.InvariantCulture, Strings.CannotReadRecordAtIndex, record));
                 }
 
                 return this[field];
@@ -591,7 +591,7 @@ namespace Cadru.Data.Csv
             {
                 if (!MoveTo(record))
                 {
-                    throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, Strings.CannotReadRecordAtIndex, record));
+                    throw new InvalidOperationException(String.Format(CultureInfo.InvariantCulture, Strings.CannotReadRecordAtIndex, record));
                 }
 
                 return this[field];
@@ -613,7 +613,7 @@ namespace Cadru.Data.Csv
         {
             get
             {
-                if (string.IsNullOrEmpty(field))
+                if (String.IsNullOrEmpty(field))
                 {
                     throw new ArgumentNullException(nameof(field));
                 }
@@ -627,7 +627,7 @@ namespace Cadru.Data.Csv
 
                 if (index < 0)
                 {
-                    throw new ArgumentException(string.Format(CultureInfo.InvariantCulture, Strings.FieldHeaderNotFound, field), "field");
+                    throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, Strings.FieldHeaderNotFound, field), "field");
                 }
 
                 return this[index];
@@ -668,7 +668,7 @@ namespace Cadru.Data.Csv
         {
             EnsureInitialize();
 
-            if (_fieldHeaderIndexes != null && _fieldHeaderIndexes.TryGetValue(header, out int index))
+            if (_fieldHeaderIndexes != null && _fieldHeaderIndexes.TryGetValue(header, out var index))
             {
                 return index;
             }
@@ -687,7 +687,7 @@ namespace Cadru.Data.Csv
         {
             EnsureInitialize();
 
-            if (string.IsNullOrEmpty(header))
+            if (String.IsNullOrEmpty(header))
             {
                 throw new ArgumentNullException(nameof(header));
             }
@@ -720,7 +720,7 @@ namespace Cadru.Data.Csv
 
             if (index < 0 || index >= array.Length)
             {
-                throw new ArgumentOutOfRangeException(nameof(index), index, string.Empty);
+                throw new ArgumentOutOfRangeException(nameof(index), index, String.Empty);
             }
 
             if (FileRecordIndex < 0 || !_initialized)
@@ -752,7 +752,7 @@ namespace Cadru.Data.Csv
             }
             else
             {
-                return string.Empty;
+                return String.Empty;
             }
         }
 
@@ -964,7 +964,7 @@ namespace Cadru.Data.Csv
                 var maxField = UseColumnDefaults ? Columns.Count : _fieldCount;
                 if (field < 0 || field >= maxField)
                 {
-                    throw new ArgumentOutOfRangeException(nameof(field), field, string.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, field));
+                    throw new ArgumentOutOfRangeException(nameof(field), field, String.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, field));
                 }
 
                 if (FileRecordIndex < 0)
@@ -972,7 +972,7 @@ namespace Cadru.Data.Csv
                     throw new InvalidOperationException(Strings.NoCurrentRecord);
                 }
 
-                if (Columns.Count > field && !string.IsNullOrEmpty(Columns[field].OverrideValue))
+                if (Columns.Count > field && !String.IsNullOrEmpty(Columns[field].OverrideValue))
                 {
                     // Use the override value for this column.
                     return Columns[field].OverrideValue;
@@ -1016,8 +1016,8 @@ namespace Cadru.Data.Csv
 
                 if (MissingFieldFlag)
                 {
-                    string result = HandleMissingField(value?.ToString(), index, ref _nextFieldStart);
-                    if (value == null && result == string.Empty && MissingFieldAction == MissingFieldAction.ReplaceByEmpty)
+                    var result = HandleMissingField(value?.ToString(), index, ref _nextFieldStart);
+                    if (value == null && result == String.Empty && MissingFieldAction == MissingFieldAction.ReplaceByEmpty)
                     {
                         value = new StringBuilder();
                     }
@@ -1034,15 +1034,15 @@ namespace Cadru.Data.Csv
                         if (!discardValue)
                         {
                             value = new StringBuilder();
-                            _fields[index] = string.Empty;
+                            _fields[index] = String.Empty;
                         }
 
                         MissingFieldFlag = true;
                     }
                     else
                     {
-                        string result = HandleMissingField(value?.ToString(), index, ref _nextFieldStart);
-                        if (value == null && result == string.Empty && MissingFieldAction == MissingFieldAction.ReplaceByEmpty)
+                        var result = HandleMissingField(value?.ToString(), index, ref _nextFieldStart);
+                        if (value == null && result == String.Empty && MissingFieldAction == MissingFieldAction.ReplaceByEmpty)
                         {
                             value = new StringBuilder();
                         }
@@ -1059,7 +1059,7 @@ namespace Cadru.Data.Csv
                     if (_eof)
                     {
                         value = new StringBuilder();
-                        _fields[field] = string.Empty;
+                        _fields[field] = String.Empty;
 
                         if (field < _fieldCount)
                         {
@@ -1191,8 +1191,8 @@ namespace Cadru.Data.Csv
                                     value = null;
                                 }
 
-                                string result = HandleMissingField(value?.ToString(), index, ref _nextFieldStart);
-                                if (value == null && result == string.Empty && MissingFieldAction == MissingFieldAction.ReplaceByEmpty)
+                                var result = HandleMissingField(value?.ToString(), index, ref _nextFieldStart);
+                                if (value == null && result == String.Empty && MissingFieldAction == MissingFieldAction.ReplaceByEmpty)
                                 {
                                     value = new StringBuilder();
                                 }
@@ -1351,8 +1351,8 @@ namespace Cadru.Data.Csv
                         {
                             if (!initializing && index < _fieldCount - 1)
                             {
-                                string result = HandleMissingField(value?.ToString(), index, ref _nextFieldStart);
-                                if (value == null && result == string.Empty && MissingFieldAction == MissingFieldAction.ReplaceByEmpty)
+                                var result = HandleMissingField(value?.ToString(), index, ref _nextFieldStart);
+                                if (value == null && result == String.Empty && MissingFieldAction == MissingFieldAction.ReplaceByEmpty)
                                 {
                                     value = new StringBuilder();
                                 }
@@ -1381,7 +1381,7 @@ namespace Cadru.Data.Csv
                         }
                         else
                         {
-                            return value == null ? string.Empty : value.ToString();
+                            return value == null ? String.Empty : value.ToString();
                         }
                     }
                     else
@@ -1504,7 +1504,7 @@ namespace Cadru.Data.Csv
                     for (var i = 0; i < _fields.Length; i++)
                     {
                         var headerName = _fields[i];
-                        if (string.IsNullOrEmpty(headerName) || headerName.Trim().Length == 0)
+                        if (String.IsNullOrEmpty(headerName) || headerName.Trim().Length == 0)
                         {
                             headerName = DefaultHeaderName + i;
                         }
@@ -1810,7 +1810,7 @@ namespace Cadru.Data.Csv
                             throw e.Error;
 
                         case ParseErrorAction.RaiseEvent:
-                            throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, Strings.ParseErrorActionInvalidInsideParseErrorEvent, e.Action), e.Error);
+                            throw new InvalidOperationException(String.Format(CultureInfo.InvariantCulture, Strings.ParseErrorActionInvalidInsideParseErrorEvent, e.Action), e.Error);
 
                         case ParseErrorAction.AdvanceToNextLine:
                             // already at EOL when fields are missing, so don't skip to next line in that case
@@ -1821,7 +1821,7 @@ namespace Cadru.Data.Csv
                             break;
 
                         default:
-                            throw new NotSupportedException(string.Format(CultureInfo.InvariantCulture, Strings.ParseErrorActionNotSupported, e.Action), e.Error);
+                            throw new NotSupportedException(String.Format(CultureInfo.InvariantCulture, Strings.ParseErrorActionNotSupported, e.Action), e.Error);
                     }
                     break;
 
@@ -1835,7 +1835,7 @@ namespace Cadru.Data.Csv
                     break;
 
                 default:
-                    throw new NotSupportedException(string.Format(CultureInfo.InvariantCulture, Strings.ParseErrorActionNotSupported, DefaultParseErrorAction), error);
+                    throw new NotSupportedException(String.Format(CultureInfo.InvariantCulture, Strings.ParseErrorActionNotSupported, DefaultParseErrorAction), error);
             }
         }
 
@@ -1854,7 +1854,7 @@ namespace Cadru.Data.Csv
         {
             if (fieldIndex < 0 || fieldIndex >= _fieldCount)
             {
-                throw new ArgumentOutOfRangeException(nameof(fieldIndex), fieldIndex, string.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, fieldIndex));
+                throw new ArgumentOutOfRangeException(nameof(fieldIndex), fieldIndex, String.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, fieldIndex));
             }
 
             MissingFieldFlag = true;
@@ -1877,13 +1877,13 @@ namespace Cadru.Data.Csv
                         return value;
 
                     case MissingFieldAction.ReplaceByEmpty:
-                        return string.Empty;
+                        return String.Empty;
 
                     case MissingFieldAction.ReplaceByNull:
                         return null;
 
                     default:
-                        throw new NotSupportedException(string.Format(CultureInfo.InvariantCulture, Strings.MissingFieldActionNotSupported, MissingFieldAction));
+                        throw new NotSupportedException(String.Format(CultureInfo.InvariantCulture, Strings.MissingFieldActionNotSupported, MissingFieldAction));
                 }
             }
         }
@@ -1922,10 +1922,10 @@ namespace Cadru.Data.Csv
 
             if (field < 0 || field >= _fieldCount)
             {
-                throw new ArgumentOutOfRangeException(nameof(field), field, string.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, field));
+                throw new ArgumentOutOfRangeException(nameof(field), field, String.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, field));
             }
 
-            if (fieldOffset < 0 || fieldOffset >= int.MaxValue)
+            if (fieldOffset < 0 || fieldOffset >= Int32.MaxValue)
             {
                 throw new ArgumentOutOfRangeException(nameof(fieldOffset));
             }
@@ -1941,10 +1941,10 @@ namespace Cadru.Data.Csv
 
             if (value == null)
             {
-                value = string.Empty;
+                value = String.Empty;
             }
 
-            Debug.Assert(fieldOffset < int.MaxValue);
+            Debug.Assert(fieldOffset < Int32.MaxValue);
 
             Debug.Assert(destinationArray.GetType() == typeof(char[]) || destinationArray.GetType() == typeof(byte[]));
 
@@ -2055,11 +2055,11 @@ namespace Cadru.Data.Csv
             {
                 true,                    // 00- AllowDBNull
                 null,                    // 01- BaseColumnName
-                string.Empty,            // 02- BaseSchemaName
-                string.Empty,            // 03- BaseTableName
+                String.Empty,            // 02- BaseSchemaName
+                String.Empty,            // 03- BaseTableName
                 null,                    // 04- ColumnName
                 null,                    // 05- ColumnOrdinal
-                int.MaxValue,            // 06- ColumnSize
+                Int32.MaxValue,            // 06- ColumnSize
                 typeof(string),          // 07- DataType
                 false,                   // 08- IsAliased
                 false,                   // 09- IsExpression
@@ -2070,8 +2070,8 @@ namespace Cadru.Data.Csv
                 DBNull.Value,            // 14- NumericScale
                 (int) DbType.String,     // 15- ProviderType
 
-                string.Empty,            // 16- BaseCatalogName
-                string.Empty,            // 17- BaseServerName
+                String.Empty,            // 16- BaseCatalogName
+                String.Empty,            // 17- BaseServerName
                 false,                   // 18- IsAutoIncrement
                 false,                   // 19- IsHidden
                 true,                    // 20- IsReadOnly
@@ -2115,7 +2115,7 @@ namespace Cadru.Data.Csv
 
             var value = this[i];
 
-            return int.Parse(value ?? string.Empty, CultureInfo.CurrentCulture);
+            return Int32.Parse(value ?? String.Empty, CultureInfo.CurrentCulture);
         }
 
         object IDataRecord.this[string name]
@@ -2146,7 +2146,7 @@ namespace Cadru.Data.Csv
         bool IDataRecord.IsDBNull(int i)
         {
             ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
-            return NullValue == null ? string.IsNullOrEmpty(this[i]) : string.Equals(this[i], NullValue, StringComparison.OrdinalIgnoreCase);
+            return NullValue == null ? String.IsNullOrEmpty(this[i]) : String.Equals(this[i], NullValue, StringComparison.OrdinalIgnoreCase);
         }
 
         long IDataRecord.GetBytes(int i, long fieldOffset, byte[] buffer, int bufferoffset, int length)
@@ -2159,7 +2159,7 @@ namespace Cadru.Data.Csv
         byte IDataRecord.GetByte(int i)
         {
             ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
-            return byte.Parse(this[i], CultureInfo.CurrentCulture);
+            return Byte.Parse(this[i], CultureInfo.CurrentCulture);
         }
 
         Type IDataRecord.GetFieldType(int i)
@@ -2169,7 +2169,7 @@ namespace Cadru.Data.Csv
 
             if (i < 0 || i >= _fieldCount)
             {
-                throw new ArgumentOutOfRangeException(nameof(i), i, string.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, i));
+                throw new ArgumentOutOfRangeException(nameof(i), i, String.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, i));
             }
 
             if (Columns == null || i < 0 || i >= Columns.Count)
@@ -2183,7 +2183,7 @@ namespace Cadru.Data.Csv
         decimal IDataRecord.GetDecimal(int i)
         {
             ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
-            return decimal.Parse(this[i], CultureInfo.CurrentCulture);
+            return Decimal.Parse(this[i], CultureInfo.CurrentCulture);
         }
 
         int IDataRecord.GetValues(object[] values)
@@ -2207,7 +2207,7 @@ namespace Cadru.Data.Csv
 
             if (i < 0 || i >= FieldCount)
             {
-                throw new ArgumentOutOfRangeException(nameof(i), i, string.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, i));
+                throw new ArgumentOutOfRangeException(nameof(i), i, String.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, i));
             }
 
             if (i >= Columns.Count)
@@ -2236,12 +2236,12 @@ namespace Cadru.Data.Csv
 
             var value = this[i];
 
-            if (int.TryParse(value, out var result))
+            if (Int32.TryParse(value, out var result))
             {
                 return (result != 0);
             }
 
-            return bool.Parse(value);
+            return Boolean.Parse(value);
         }
 
         Guid IDataRecord.GetGuid(int i)
@@ -2263,7 +2263,7 @@ namespace Cadru.Data.Csv
 
             if (!_fieldHeaderIndexes.TryGetValue(name, out var index))
             {
-                throw new ArgumentException(string.Format(CultureInfo.InvariantCulture, Strings.FieldHeaderNotFound, name), "name");
+                throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, Strings.FieldHeaderNotFound, name), "name");
             }
 
             return index;
@@ -2278,7 +2278,7 @@ namespace Cadru.Data.Csv
         float IDataRecord.GetFloat(int i)
         {
             ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
-            return float.Parse(this[i], CultureInfo.CurrentCulture);
+            return Single.Parse(this[i], CultureInfo.CurrentCulture);
         }
 
         IDataReader IDataRecord.GetData(int i)
@@ -2304,13 +2304,13 @@ namespace Cadru.Data.Csv
         char IDataRecord.GetChar(int i)
         {
             ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
-            return char.Parse(this[i]);
+            return Char.Parse(this[i]);
         }
 
         short IDataRecord.GetInt16(int i)
         {
             ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
-            return short.Parse(this[i], CultureInfo.CurrentCulture);
+            return Int16.Parse(this[i], CultureInfo.CurrentCulture);
         }
 #endif
         object FieldValue(int i)

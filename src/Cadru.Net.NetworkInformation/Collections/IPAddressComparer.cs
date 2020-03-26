@@ -114,10 +114,10 @@ namespace Cadru.Net.NetworkInformation.Collections
             Contracts.Requires.NotNull(x, "x");
             Contracts.Requires.NotNull(y, "y");
 
-            int result = 0;
+            var result = 0;
 
-            uint u1 = Convert(x.GetAddressBytes());
-            uint u2 = Convert(y.GetAddressBytes());
+            var u1 = Convert(x.GetAddressBytes());
+            var u2 = Convert(y.GetAddressBytes());
 
             if (u1 < u2)
             {
@@ -171,10 +171,10 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// </list></returns>
         public int Compare(object x, object y)
         {
-            int result = 0;
+            var result = 0;
 
-            string left = x as string;
-            string right = y as string;
+            var left = x as string;
+            var right = y as string;
 
             if (String.IsNullOrEmpty(left) && String.IsNullOrEmpty(right))
             {
@@ -296,7 +296,7 @@ namespace Cadru.Net.NetworkInformation.Collections
             }
             else
             {
-                bool stringComparison = String.Equals(x, y, StringComparison.OrdinalIgnoreCase);
+                var stringComparison = String.Equals(x, y, StringComparison.OrdinalIgnoreCase);
 
                 // First, test to see if the strings are equal.
                 if (stringComparison == true)
@@ -366,7 +366,7 @@ namespace Cadru.Net.NetworkInformation.Collections
 
             int hashCode;
 
-            IPAddress ip1 = obj as IPAddress;
+            var ip1 = obj as IPAddress;
 
             if (ip1 != null)
             {
@@ -374,7 +374,7 @@ namespace Cadru.Net.NetworkInformation.Collections
             }
             else
             {
-                string s1 = obj as string;
+                var s1 = obj as string;
 
                 if (s1 == null)
                 {
@@ -449,7 +449,7 @@ namespace Cadru.Net.NetworkInformation.Collections
         #region Convert
         private static uint Convert(byte[] bytes)
         {
-            uint ip = (uint)bytes[0] << 24;
+            var ip = (uint)bytes[0] << 24;
             ip += (uint)bytes[1] << 16;
             ip += (uint)bytes[2] << 8;
             ip += (uint)bytes[3];

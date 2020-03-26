@@ -1,15 +1,15 @@
-﻿using Cadru.Contracts;
-using Cadru.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 using System.Linq;
 
-namespace Cadru.UnitTest.Framework.UnitTests.Contracts
+using Cadru.UnitTest.Framework;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Cadru.Contracts.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class RequiresTests
@@ -111,7 +111,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Contracts
         [TestMethod]
         public void ValidElements()
         {
-            List<string> values = new List<string>()
+            var values = new List<string>()
             {
                 "this",
                 null,
@@ -133,7 +133,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Contracts
         {
             public DisposeTester(bool flag)
             {
-                Disposed = flag;
+                this.Disposed = flag;
             }
 
             public bool Disposed

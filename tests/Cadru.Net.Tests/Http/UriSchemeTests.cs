@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Cadru.Net.Http;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 
-namespace Cadru.Core.UnitTests.Net.Http
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Cadru.Net.Http.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class UriSchemeTests
@@ -54,14 +53,14 @@ namespace Cadru.Core.UnitTests.Net.Http
             Assert.IsFalse(UriScheme.Https.Equals((UriScheme)null));
             Assert.IsFalse(UriScheme.MailTo.Equals((UriScheme)null));
             Assert.IsFalse(UriScheme.News.Equals((UriScheme)null));
-            
+
             Assert.IsTrue(UriScheme.File == UriScheme.File);
-            Assert.IsTrue(UriScheme.Ftp ==  UriScheme.Ftp);
-            Assert.IsTrue(UriScheme.Gopher ==  UriScheme.Gopher);
-            Assert.IsTrue(UriScheme.Http ==  UriScheme.Http);
-            Assert.IsTrue(UriScheme.Https ==  UriScheme.Https);
-            Assert.IsTrue(UriScheme.MailTo ==  UriScheme.MailTo);
-            Assert.IsTrue(UriScheme.News ==  UriScheme.News);
+            Assert.IsTrue(UriScheme.Ftp == UriScheme.Ftp);
+            Assert.IsTrue(UriScheme.Gopher == UriScheme.Gopher);
+            Assert.IsTrue(UriScheme.Http == UriScheme.Http);
+            Assert.IsTrue(UriScheme.Https == UriScheme.Https);
+            Assert.IsTrue(UriScheme.MailTo == UriScheme.MailTo);
+            Assert.IsTrue(UriScheme.News == UriScheme.News);
 
             Assert.IsFalse(UriScheme.File != UriScheme.File);
             Assert.IsFalse(UriScheme.Ftp != UriScheme.Ftp);

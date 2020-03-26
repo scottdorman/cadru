@@ -1,11 +1,11 @@
-﻿using Cadru.Collections;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace Cadru.UnitTest.Framework.UnitTests.Collections
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Cadru.Collections.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class RangeTests
@@ -57,7 +57,7 @@ namespace Cadru.UnitTest.Framework.UnitTests.Collections
             range.SetDefaultEnumerator();
             //range.SetEnumerator(RangeEnumerator.CreateDefault(range));
             var expected = new[] { 'b', 'c', 'd' };
-            var actual = range.ToList();
+            range.ToList();
             Assert.IsTrue(expected.SequenceEqual(range));
         }
 

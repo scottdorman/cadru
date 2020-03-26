@@ -76,12 +76,12 @@ namespace Cadru.Networking
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
         public async static Task<string> GetHostNameAsync()
         {
-            string hostName = Environment.MachineName;
+            var hostName = Environment.MachineName;
 
             try
             {
-                IPGlobalProperties computerProperties = IPGlobalProperties.GetIPGlobalProperties();
-                string domainName = computerProperties.DomainName;
+                var computerProperties = IPGlobalProperties.GetIPGlobalProperties();
+                var domainName = computerProperties.DomainName;
 
                 if (String.IsNullOrEmpty(domainName) || String.Compare(domainName, "localdomain", StringComparison.OrdinalIgnoreCase) == 0)
                 {
@@ -96,7 +96,7 @@ namespace Cadru.Networking
             {
                 try
                 {
-                    IPHostEntry hostInfo = await Dns.GetHostEntryAsync(System.Environment.MachineName);
+                    var hostInfo = await Dns.GetHostEntryAsync(System.Environment.MachineName);
                     hostName = hostInfo.HostName;
                 }
                 catch (System.Net.Sockets.SocketException)
@@ -159,24 +159,24 @@ namespace Cadru.Networking
         public static ServerInfo[] GetServerList(ServerTypes serverType, string domain)
         {
             ServerInfo[] serverList;
-            IntPtr pBuf = IntPtr.Zero;
+            var pBuf = IntPtr.Zero;
 
             try
             {
-                int entriesRead = 0;
-                int totalEntries = 0;
+                var entriesRead = 0;
+                var totalEntries = 0;
 
-                int result = SafeNativeMethods.NetServerEnum(null, 101, out pBuf, -1, ref entriesRead, ref totalEntries, (uint)serverType, domain, IntPtr.Zero);
+                var result = SafeNativeMethods.NetServerEnum(null, 101, out pBuf, -1, ref entriesRead, ref totalEntries, (uint)serverType, domain, IntPtr.Zero);
                 if (result != Constants.ERROR_SUCCESS && result != Constants.ERROR_MORE_DATA && entriesRead <= 0)
                 {
                     throw new Win32Exception(result);
                 }
 
                 serverList = new ServerInfo[entriesRead];
-                int ptr = pBuf.ToInt32();
+                var ptr = pBuf.ToInt32();
 
                 SERVER_INFO_101 serverInfo;
-                for (int i = 0; i < entriesRead; i++)
+                for (var i = 0; i < entriesRead; i++)
                 {
                     serverInfo = Marshal.PtrToStructure<SERVER_INFO_101>(new IntPtr(ptr));
                     ptr += Marshal.SizeOf(serverInfo);
@@ -204,17 +204,17 @@ namespace Cadru.Networking
 
             try
             {
-                NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+                var nics = NetworkInterface.GetAllNetworkInterfaces();
                 if (nics != null || nics.Length >= 1)
                 {
-                    NetworkInterface adapter = nics[0];
-                    IPInterfaceProperties adapterProperties = adapter.GetIPProperties();
-                    UnicastIPAddressInformationCollection uniCast = adapterProperties.UnicastAddresses;
+                    var adapter = nics[0];
+                    var adapterProperties = adapter.GetIPProperties();
+                    var uniCast = adapterProperties.UnicastAddresses;
 
                     if (uniCast != null && uniCast.Count > 0)
                     {
                         ipAddress = new IPAddress[uniCast.Count];
-                        for (int i = 0; i < uniCast.Count; i++)
+                        for (var i = 0; i < uniCast.Count; i++)
                         {
                             ipAddress[i] = uniCast[0].Address;
                         }
@@ -239,17 +239,17 @@ namespace Cadru.Networking
         private static ServerInfo GetServerInfoInternal(string serverName)
         {
             ServerInfo server;
-            IntPtr pBuf = IntPtr.Zero;
+            var pBuf = IntPtr.Zero;
 
             try
             {
-                int result = SafeNativeMethods.NetServerGetInfo(serverName, 101, out pBuf);
+                var result = SafeNativeMethods.NetServerGetInfo(serverName, 101, out pBuf);
                 if (result != Constants.ERROR_SUCCESS && result != Constants.ERROR_MORE_DATA)
                 {
                     throw new Win32Exception(result);
                 }
 
-                int ptr = pBuf.ToInt32();
+                var ptr = pBuf.ToInt32();
                 SERVER_INFO_101 serverInfo;
                 serverInfo = Marshal.PtrToStructure<SERVER_INFO_101>(new IntPtr(ptr));
                 server = new ServerInfo(serverInfo);
@@ -271,7 +271,7 @@ namespace Cadru.Networking
 
             try
             {
-                IPHostEntry hostInfo = await Dns.GetHostEntryAsync(await ExtendedNetworkInformation.GetHostNameAsync());
+                var hostInfo = await Dns.GetHostEntryAsync(await ExtendedNetworkInformation.GetHostNameAsync());
                 ipAddress = hostInfo.AddressList;
             }
             catch (System.Net.Sockets.SocketException)
@@ -288,7 +288,7 @@ namespace Cadru.Networking
         {
             try
             {
-                int result = SafeNativeMethods.NetApiBufferFree(buffer);
+                var result = SafeNativeMethods.NetApiBufferFree(buffer);
                 if (result != Constants.ERROR_SUCCESS)
                 {
                     throw new Win32Exception(result);

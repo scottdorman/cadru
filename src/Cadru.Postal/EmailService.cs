@@ -55,7 +55,7 @@ namespace Cadru.Postal
         /// <param name="path">The directory where the email should be saved.</param>
         public async Task SaveToFileAsync(IEmail email, string path)
         {
-            using (MailMessage mailMessage = await CreateMailMessageAsync(email))
+            using (var mailMessage = await CreateMailMessageAsync(email))
             using (var client = new SmtpClient("SaveEmailSMTPClient"))
             {
                 client.EnableSsl = false;

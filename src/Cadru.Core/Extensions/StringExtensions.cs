@@ -60,7 +60,7 @@ namespace Cadru.Extensions
         /// <param name="source">The <see cref="String"/> to normalize.
         /// </param>
         /// <returns>A new, normalized string.</returns>
-        /// <remarks><para>The <see cref="Clean(string)"/> method removes
+        /// <remarks><para>The <see cref="Clean(String)"/> method removes
         /// all occurrences of white space and control characters from the
         /// beginning and end of the given string as well as collapsing all
         /// internal white space characters to a single white space character.
@@ -102,15 +102,15 @@ namespace Cadru.Extensions
                 normalized = source.ToCharArray();
             }
 
-            int index = 0;
-            int whitespaceCount = 0;
-            int controlCount = 0;
-            StringBuilder builder = new StringBuilder(source.Length);
+            var index = 0;
+            var whitespaceCount = 0;
+            var controlCount = 0;
+            var builder = new StringBuilder(source.Length);
             while (index < normalized.Length)
             {
                 if ((options & NormalizationOptions.Whitespace) == NormalizationOptions.Whitespace)
                 {
-                    int position = index;
+                    var position = index;
                     if (Char.IsWhiteSpace(normalized[position]))
                     {
                         while ((position + 1) < normalized.Length && Char.IsWhiteSpace(normalized[++position]))
@@ -134,7 +134,7 @@ namespace Cadru.Extensions
                 {
                     if (Char.IsControl(normalized[index]))
                     {
-                        int position = index;
+                        var position = index;
                         while ((position + 1) < normalized.Length && Char.IsControl(normalized[++position]))
                         {
                             // we found a control character, so look ahead until we
@@ -159,7 +159,7 @@ namespace Cadru.Extensions
 
         #region Contains
         /// <summary>
-        /// Returns a value indicating whether the specified <see cref="string"/> object occurs within this string.
+        /// Returns a value indicating whether the specified <see cref="String"/> object occurs within this string.
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="value">The string to seek.</param>
@@ -433,13 +433,13 @@ namespace Cadru.Extensions
             Contracts.Requires.ValidRange(startIndex < 0, nameof(startIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
             Contracts.Requires.ValidRange(startIndex > source.Length, nameof(startIndex), Strings.ArgumentOutOfRange_IndexLessThanLength);
 
-            int index = source.IndexOf(value, startIndex, count);
+            var index = source.IndexOf(value, startIndex, count);
             if (index == -1)
             {
                 return -1;
             }
 
-            for (int i = 1; i < occurrence; i++)
+            for (var i = 1; i < occurrence; i++)
             {
                 index = source.IndexOf(value, index + 1, source.Length - index - 1);
                 if (index == -1)
@@ -534,13 +534,13 @@ namespace Cadru.Extensions
             Contracts.Requires.ValidRange(startIndex < 0, nameof(startIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
             Contracts.Requires.ValidRange(startIndex > source.Length, nameof(startIndex), Strings.ArgumentOutOfRange_IndexLessThanLength);
 
-            int index = source.IndexOf(value, startIndex, count, comparisonType);
+            var index = source.IndexOf(value, startIndex, count, comparisonType);
             if (index == -1)
             {
                 return -1;
             }
 
-            for (int i = 1; i < occurrence; i++)
+            for (var i = 1; i < occurrence; i++)
             {
                 index = source.IndexOf(value, index + 1, source.Length - index - 1, comparisonType);
                 if (index == -1)
@@ -566,7 +566,7 @@ namespace Cadru.Extensions
         {
             Contracts.Requires.NotNull(source, nameof(source));
 
-            char lastCharacter = '\0';
+            var lastCharacter = '\0';
             if (source.Length > 0)
             {
                 lastCharacter = source[source.Length - 1];
@@ -611,8 +611,8 @@ namespace Cadru.Extensions
         {
             Contracts.Requires.NotNull(source, nameof(source));
 
-            string substring = source;
-            int index = source.IndexOf(value);
+            var substring = source;
+            var index = source.IndexOf(value);
 
             while (index != -1 && occurrence > 1)
             {
@@ -728,8 +728,8 @@ namespace Cadru.Extensions
             Contracts.Requires.NotNull(source, nameof(source));
             Contracts.Requires.NotNull(value, nameof(value));
 
-            string substring = source;
-            int index = source.IndexOf(value, comparisonType);
+            var substring = source;
+            var index = source.IndexOf(value, comparisonType);
 
             while (index != -1 && occurrence > 1)
             {
@@ -761,7 +761,7 @@ namespace Cadru.Extensions
         /// <returns>MinMax returns <see langword="true" /> if <paramref name="source"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
-        public static bool LengthBetween(this String source, Int32 minimum, Int32 maximum)
+        public static bool LengthBetween(this string source, int minimum, int maximum)
         {
             return LengthBetween(source, minimum, maximum, NumericComparisonOptions.IncludeBoth);
         }
@@ -780,13 +780,13 @@ namespace Cadru.Extensions
         /// <returns>MinMax returns <see langword="true" /> if <paramref name="source"/> is greater than
         /// the minimum value but less than the maximum value; otherwise it
         /// returns <see langword="false" />.</returns>
-        public static bool LengthBetween(this String source, Int32 minimum, Int32 maximum, NumericComparisonOptions options)
+        public static bool LengthBetween(this string source, int minimum, int maximum, NumericComparisonOptions options)
         {
             Contracts.Requires.NotNull(source, nameof(source));
-
-            var success = false;
             var length = source.Length;
 
+
+            bool success;
             switch (options)
             {
                 case NumericComparisonOptions.IncludeBoth:
@@ -824,7 +824,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the length of <paramref name="source"/>
         /// is greater than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LengthGreaterThan(this String source, Int32 minimum)
+        public static bool LengthGreaterThan(this string source, int minimum)
         {
             Contracts.Requires.NotNull(source, nameof(source));
 
@@ -844,7 +844,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the length of <paramref name="source"/>
         /// is greater than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LengthGreaterThanOrEqualTo(this String source, Int32 minimum)
+        public static bool LengthGreaterThanOrEqualTo(this string source, int minimum)
         {
             Contracts.Requires.NotNull(source, nameof(source));
 
@@ -864,7 +864,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the length of <paramref name="source"/>
         /// is less than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LengthLessThan(this String source, Int32 maximum)
+        public static bool LengthLessThan(this string source, int maximum)
         {
             Contracts.Requires.NotNull(source, nameof(source));
 
@@ -884,7 +884,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the length of <paramref name="source"/>
         /// is less than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LengthLessThanOrEqualTo(this String source, Int32 maximum)
+        public static bool LengthLessThanOrEqualTo(this string source, int maximum)
         {
             Contracts.Requires.NotNull(source, nameof(source));
 
@@ -903,16 +903,16 @@ namespace Cadru.Extensions
         /// or if <paramref name="value"/> consists exclusively of white-space characters.</returns>
         /// <remarks>White-space characters are defined by the Unicode standard. The
         /// <see cref="IsNullOrWhiteSpace"/> method interprets any character that returns a value of
-        /// <see langword="true"/> when it is passed to the <see cref="Char.IsWhiteSpace(char)"/>
+        /// <see langword="true"/> when it is passed to the <see cref="Char.IsWhiteSpace(Char)"/>
         /// method as a white-space character.</remarks>
         public static bool IsNullOrWhiteSpace(this string value)
         {
             if (value.IsNotNull())
             {
-                int num = 0;
+                var num = 0;
                 while (num < value.Length)
                 {
-                    if (char.IsWhiteSpace(value[num]))
+                    if (Char.IsWhiteSpace(value[num]))
                     {
                         num++;
                     }
@@ -942,7 +942,7 @@ namespace Cadru.Extensions
         /// or if <paramref name="value"/> does not consist exclusively of white-space characters.</returns>
         /// <remarks>White-space characters are defined by the Unicode standard. The
         /// <see cref="IsNotNullOrWhiteSpace"/> method interprets any character that returns a value of
-        /// <see langword="true"/> when it is passed to the <see cref="Char.IsWhiteSpace(char)"/>
+        /// <see langword="true"/> when it is passed to the <see cref="Char.IsWhiteSpace(Char)"/>
         /// method as a white-space character.</remarks>
         public static bool IsNotNullOrWhiteSpace(this string value)
         {
@@ -964,8 +964,8 @@ namespace Cadru.Extensions
         {
             Contracts.Requires.NotNull(source, nameof(source));
 
-            int count = 0;
-            foreach (char c in source)
+            var count = 0;
+            foreach (var c in source)
             {
                 if (c == value)
                 {
@@ -1005,8 +1005,8 @@ namespace Cadru.Extensions
             Contracts.Requires.NotNull(source, nameof(source));
             Contracts.Requires.NotNull(value, nameof(value));
 
-            int count = 0;
-            int index = source.IndexOf(value, comparisonType);
+            var count = 0;
+            var index = source.IndexOf(value, comparisonType);
 
             if (index != -1)
             {
@@ -1040,11 +1040,11 @@ namespace Cadru.Extensions
         public static string RemoveWhiteSpace(this string source)
         {
             Contracts.Requires.NotNull(source, nameof(source));
-            int position = 0;
-            int length = source.Length;
-            char[] buffer = new char[length];
+            var position = 0;
+            var length = source.Length;
+            var buffer = new char[length];
             char current;
-            for (int i = 0; i < length; i++)
+            for (var i = 0; i < length; i++)
             {
                 current = source[i];
                 if (!Char.IsWhiteSpace(current))
@@ -1073,9 +1073,9 @@ namespace Cadru.Extensions
         {
             Contracts.Requires.NotNull(source, nameof(source));
 
-            int count = 0;
-            int index = 0;
-            char[] newString = source.ToCharArray();
+            var count = 0;
+            var index = 0;
+            var newString = source.ToCharArray();
 
             while (index < (newString.Length - 1) && count < occurrences)
             {
@@ -1088,7 +1088,7 @@ namespace Cadru.Extensions
                 index++;
             }
 
-            return new String(newString);
+            return new string(newString);
         }
         #endregion
 
@@ -1127,23 +1127,22 @@ namespace Cadru.Extensions
             Contracts.Requires.NotNull(oldValue, nameof(oldValue));
             Contracts.Requires.NotNull(newValue, nameof(newValue));
 
-            string newString = source;
-            int index = source.IndexOf(oldValue, comparisonType);
-            int lastIndex = 0;
-            int length = oldValue.Length;
-            int count = 0;
+            var newString = source;
+            var index = source.IndexOf(oldValue, comparisonType);
+            var length = oldValue.Length;
+            var count = 0;
 
             if (index != -1 && occurrences > 0)
             {
-                StringBuilder builder = new StringBuilder(source.Length);
+                var builder = new StringBuilder(source.Length);
 
                 // we found an occurrence, so replace it.
                 builder.Append(source.Substring(0, index));
                 builder.Append(newValue);
 
                 count++;
-                lastIndex = index;
-                int startingIndex = lastIndex + length;
+                var lastIndex = index;
+                var startingIndex = lastIndex + length;
 
                 while (index >= 0 && count < occurrences)
                 {
@@ -1204,12 +1203,12 @@ namespace Cadru.Extensions
             Contracts.Requires.NotNull(source, nameof(source));
             Contracts.Requires.NotNull(newValue, nameof(newValue));
 
-            string newString = source;
-            int startIndex = source.IndexOf(start);
+            var newString = source;
+            var startIndex = source.IndexOf(start);
 
             if (startIndex != -1)
             {
-                int endIndex = source.IndexOf(end, startIndex + 1);
+                var endIndex = source.IndexOf(end, startIndex + 1);
 
                 if (endIndex != -1)
                 {
@@ -1273,9 +1272,6 @@ namespace Cadru.Extensions
             Contracts.Requires.ValidRange(end > source.Length, nameof(end), Strings.ArgumentOutOfRange_IndexLessThanLength);
             Contracts.Requires.ValidRange(start > end, nameof(start), Strings.Argument_StartIndexGreaterThanEndIndexString);
             Contracts.Requires.ValidRange(start == end, nameof(start), Strings.Argument_InvalidIndexValuesString);
-
-            string newString = source;
-
             if (inclusive)
             {
                 // We need to offset the ending index by 1 to include the
@@ -1289,7 +1285,7 @@ namespace Cadru.Extensions
                 start++;
             }
 
-            newString = String.Concat(source.Substring(0, start), newValue, source.Substring(end));
+            var newString = String.Concat(source.Substring(0, start), newValue, source.Substring(end));
             return newString;
         }
         #endregion
@@ -1349,12 +1345,12 @@ namespace Cadru.Extensions
             Contracts.Requires.NotNull(end, nameof(end));
             Contracts.Requires.NotNull(newValue, nameof(newValue));
 
-            string newString = source;
-            int startIndex = source.IndexOf(start, comparisonType);
+            var newString = source;
+            var startIndex = source.IndexOf(start, comparisonType);
 
             if (startIndex != -1)
             {
-                int endIndex = source.IndexOf(end, startIndex + 1, comparisonType);
+                var endIndex = source.IndexOf(end, startIndex + 1, comparisonType);
 
                 if (endIndex != -1)
                 {
@@ -1399,7 +1395,7 @@ namespace Cadru.Extensions
         /// </remarks>
         public static string ResizeString(this string source, int length)
         {
-            string sizedString = String.Empty;
+            var sizedString = String.Empty;
 
             if (String.IsNullOrEmpty(source))
             {
@@ -1456,8 +1452,8 @@ namespace Cadru.Extensions
         {
             Contracts.Requires.NotNull(source, nameof(source));
 
-            string substring = source;
-            int index = source.IndexOf(value);
+            var substring = source;
+            var index = source.IndexOf(value);
 
             while (index != -1 && occurrence > 1)
             {
@@ -1573,8 +1569,8 @@ namespace Cadru.Extensions
             Contracts.Requires.NotNull(source, nameof(source));
             Contracts.Requires.NotNull(value, nameof(value));
 
-            string substring = source;
-            int index = source.IndexOf(value, comparisonType);
+            var substring = source;
+            var index = source.IndexOf(value, comparisonType);
 
             while (index != -1 && occurrence > 1)
             {
@@ -1679,12 +1675,12 @@ namespace Cadru.Extensions
         {
             Contracts.Requires.NotNull(source, nameof(source));
 
-            string substring = String.Empty;
-            int startIndex = source.IndexOf(start);
+            var substring = String.Empty;
+            var startIndex = source.IndexOf(start);
 
             if (startIndex != -1)
             {
-                int endIndex = source.IndexOf(end, startIndex + 1);
+                var endIndex = source.IndexOf(end, startIndex + 1);
 
                 if (endIndex != -1)
                 {
@@ -1768,12 +1764,12 @@ namespace Cadru.Extensions
             Contracts.Requires.NotNull(start, nameof(start));
             Contracts.Requires.NotNull(end, nameof(end));
 
-            string substring = String.Empty;
-            int startIndex = source.IndexOf(start, comparisonType);
+            var substring = String.Empty;
+            var startIndex = source.IndexOf(start, comparisonType);
 
             if (startIndex != -1)
             {
-                int endIndex = source.IndexOf(end, startIndex + 1, comparisonType);
+                var endIndex = source.IndexOf(end, startIndex + 1, comparisonType);
 
                 if (endIndex != -1)
                 {
@@ -1808,7 +1804,7 @@ namespace Cadru.Extensions
         /// </summary>
         /// <param name="source">The source <see cref="String"/>.</param>
         /// <param name="length">The maximum number of characters to be included
-        /// in the new <see cref="string"/>.</param>
+        /// in the new <see cref="String"/>.</param>
         /// <returns>If <paramref name="source"/> is greater than
         /// <paramref name="length"/>, a new string representing
         /// <paramref name="source"/> which has been truncated at
@@ -1827,14 +1823,14 @@ namespace Cadru.Extensions
         #region TrimWhiteSpaceAndNull
         internal static string TrimWhiteSpaceAndNull(this string source)
         {
-            int num = 0;
-            int length = source.Length - 1;
-            char chr = '\0';
+            var num = 0;
+            var length = source.Length - 1;
+            var chr = '\0';
             while (true)
             {
                 if (num < source.Length)
                 {
-                    if (!char.IsWhiteSpace(source[num]) && source[num] != chr)
+                    if (!Char.IsWhiteSpace(source[num]) && source[num] != chr)
                     {
                         break;
                     }
@@ -1847,7 +1843,7 @@ namespace Cadru.Extensions
                 }
             }
 
-            while (length >= num && (char.IsWhiteSpace(source[length]) || source[length] == chr))
+            while (length >= num && (Char.IsWhiteSpace(source[length]) || source[length] == chr))
             {
                 length--;
             }

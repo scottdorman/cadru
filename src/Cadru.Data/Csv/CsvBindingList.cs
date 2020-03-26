@@ -79,11 +79,11 @@ namespace Cadru.Data.Csv
 
         public int Find(PropertyDescriptor property, object key)
         {
-            int fieldIndex = ((CsvPropertyDescriptor)property).Index;
-            string value = (string)key;
+            var fieldIndex = ((CsvPropertyDescriptor)property).Index;
+            var value = (string)key;
 
-            int recordIndex = 0;
-            int count = this.Count;
+            var recordIndex = 0;
+            var count = this.Count;
 
             while (recordIndex < count && _csv[recordIndex, fieldIndex] != value)
                 recordIndex++;
@@ -166,7 +166,7 @@ namespace Cadru.Data.Csv
 
         public string GetListName(PropertyDescriptor[] listAccessors)
         {
-            return string.Empty;
+            return String.Empty;
         }
 
         public int IndexOf(string[] item)

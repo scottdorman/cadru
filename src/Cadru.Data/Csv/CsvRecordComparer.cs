@@ -22,7 +22,7 @@ namespace Cadru.Data.Csv
         {
             if (field < 0)
             {
-                throw new ArgumentOutOfRangeException("field", field, string.Format(CultureInfo.InvariantCulture, Resources.Strings.FieldIndexOutOfRange, field));
+                throw new ArgumentOutOfRangeException("field", field, String.Format(CultureInfo.InvariantCulture, Resources.Strings.FieldIndexOutOfRange, field));
             }
 
             Field = field;
@@ -43,7 +43,7 @@ namespace Cadru.Data.Csv
         {
             Debug.Assert(x != null && y != null && x.Length == y.Length && Field < x.Length);
 
-            var result = string.Compare(x[Field], y[Field], StringComparison.CurrentCulture);
+            var result = String.Compare(x[Field], y[Field], StringComparison.CurrentCulture);
 
             return (Direction == ListSortDirection.Ascending ? result : -result);
         }

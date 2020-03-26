@@ -498,10 +498,10 @@ namespace Cadru
 
             var datePart = this.DateTime;
 
-            int y = datePart.Year;
-            int m = datePart.Month;
-            int d = datePart.Day;
-            int i = m - 1 + months;
+            var y = datePart.Year;
+            var m = datePart.Month;
+            var d = datePart.Day;
+            var i = m - 1 + months;
             if (i >= 0)
             {
                 m = (i % 12) + 1;
@@ -518,7 +518,7 @@ namespace Cadru
                 throw new ArgumentOutOfRangeException(nameof(months), Strings.ArgumentOutOfRange_DateArithmetic);
             }
 
-            int daysInMonth = DateTime.DaysInMonth(y, m);
+            var daysInMonth = DateTime.DaysInMonth(y, m);
             if (d > daysInMonth)
             {
                 d = daysInMonth;

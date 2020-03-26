@@ -124,7 +124,7 @@ namespace Cadru.Extensions
         public static bool IsBoolean(this TypeInfo type)
         {
             Contracts.Requires.NotNull(type, nameof(type));
-            return type.AsType() == typeof(Boolean);
+            return type.AsType() == typeof(bool);
         }
         #endregion
 

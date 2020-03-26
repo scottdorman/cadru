@@ -134,7 +134,7 @@ namespace Cadru.Contracts.Internal
         {
             Assumes.NotNull(parameterName);
 
-            string message = Format(Resources.Strings.Argument_NullElement, parameterName);
+            var message = Format(Resources.Strings.Argument_NullElement, parameterName);
 
             return new ArgumentException(message, parameterName);
         }
@@ -164,7 +164,7 @@ namespace Cadru.Contracts.Internal
         {
             Assumes.NotNullOrEmpty(memberName);
 
-            string message = Format(Resources.Strings.NotImplemented_NotOverriddenByDerived, memberName);
+            var message = Format(Resources.Strings.NotImplemented_NotOverriddenByDerived, memberName);
 
             return new NotImplementedException(message);
         }

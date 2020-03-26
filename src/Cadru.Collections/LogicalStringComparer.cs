@@ -53,7 +53,7 @@ namespace Cadru.Collections
     {
         #region fields
         private static LogicalStringComparer defaultInvariant;
-        private CultureInfo cultureInfo;
+        private readonly CultureInfo cultureInfo;
         #endregion
 
         #region constructors
@@ -123,13 +123,7 @@ namespace Cadru.Collections
         /// </remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1304:SpecifyCultureInfo", MessageId = "Cadru.Collections.LogicalStringComparer.#ctor", Justification = "This constructor call implicitly passes a culture.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
-        public static IComparer Default
-        {
-            get
-            {
-                return new LogicalStringComparer();
-            }
-        }
+        public static IComparer Default => new LogicalStringComparer();
         #endregion
 
         #region DefaultInvariant
@@ -213,11 +207,10 @@ namespace Cadru.Collections
         /// </list></returns>
         public int Compare(object x, object y)
         {
-            int result = 0;
+            var left = x as string;
+            var right = y as string;
 
-            string left = x as string;
-            string right = y as string;
-
+            int result;
             if (String.IsNullOrEmpty(left) && String.IsNullOrEmpty(right))
             {
                 return 0;
@@ -282,11 +275,11 @@ namespace Cadru.Collections
             }
             else
             {
-                int lengthOfX = x.Length;
-                int lengthOfY = y.Length;
+                var lengthOfX = x.Length;
+                var lengthOfY = y.Length;
 
-                bool sp1 = Char.IsLetterOrDigit(x[0]);
-                bool sp2 = Char.IsLetterOrDigit(y[0]);
+                var sp1 = Char.IsLetterOrDigit(x[0]);
+                var sp2 = Char.IsLetterOrDigit(y[0]);
 
                 if (sp1 && !sp2)
                 {
@@ -300,7 +293,6 @@ namespace Cadru.Collections
 
                 char c1, c2;
                 int i1 = 0, i2 = 0;
-                int r = 0;
                 bool letter1, letter2;
 
                 while (true)
@@ -311,6 +303,7 @@ namespace Cadru.Collections
                     sp1 = Char.IsDigit(c1);
                     sp2 = Char.IsDigit(c2);
 
+                    int r;
                     if (!sp1 && !sp2)
                     {
                         if (c1 != c2)
@@ -419,7 +412,7 @@ namespace Cadru.Collections
             Contracts.Requires.NotNull(obj, nameof(obj));
 
             int hashCode;
-            string s1 = obj as string;
+            var s1 = obj as string;
 
             if (s1.IsNull())
             {
@@ -464,13 +457,13 @@ namespace Cadru.Collections
             ScanNumber(s1, s1Length, i1, ref nzStart1, ref end1);
             ScanNumber(s2, s2Length, i2, ref nzStart2, ref end2);
 
-            int start1 = i1;
+            var start1 = i1;
             i1 = end1 - 1;
-            int start2 = i2;
+            var start2 = i2;
             i2 = end2 - 1;
 
-            int length1 = end2 - nzStart2;
-            int length2 = end1 - nzStart1;
+            var length1 = end2 - nzStart2;
+            var length2 = end1 - nzStart1;
 
             if (length1 == length2)
             {
@@ -509,8 +502,8 @@ namespace Cadru.Collections
             nzStart = start;
             end = start;
 
-            bool countZeros = true;
-            char c = s[end];
+            var countZeros = true;
+            var c = s[end];
 
             while (true)
             {

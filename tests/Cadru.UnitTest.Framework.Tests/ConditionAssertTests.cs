@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Cadru.UnitTest.Framework.UnitTests
+namespace Cadru.UnitTest.Framework.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class ConditionAssertTests
@@ -9,7 +9,7 @@ namespace Cadru.UnitTest.Framework.UnitTests
         [TestMethod]
         public void IsNaN()
         {
-            ConditionAssert.IsNaN(double.NaN);
+            ConditionAssert.IsNaN(System.Double.NaN);
         }
 
         [TestMethod]

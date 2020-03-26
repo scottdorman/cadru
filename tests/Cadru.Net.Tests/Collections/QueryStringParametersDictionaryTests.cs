@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Cadru.Collections;
-using Cadru.UnitTest.Framework;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
-namespace Cadru.Core.UnitTests.Collections
+using Cadru.Collections;
+using Cadru.UnitTest.Framework;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Cadru.Net.Collections.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class QueryStringParametersDictionaryTests
@@ -124,7 +126,7 @@ namespace Cadru.Core.UnitTests.Collections
             Assert.AreEqual("baz", q.Keys.Skip(1).First());
             Assert.AreEqual("", q["baz"]);
             Assert.AreEqual("foo=bar&baz=", q.ToQueryString());
-            
+
             ExceptionAssert.Throws<InvalidOperationException>(() => new QueryStringParametersDictionary("foo"));
         }
 

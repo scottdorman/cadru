@@ -1,31 +1,33 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+
 using Cadru.Core.Tests.Resources;
 using Cadru.Globalization;
 using Cadru.UnitTest.Framework;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Cadru.Core.UnitTests.Globalization
+namespace Cadru.Core.Globalization.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class LocalizbleStringTests
     {
         public class ResourceTester
         {
-            public static string Valid { get { return "Valid"; } }
+            public static string Valid => "Valid";
 
-            internal string Invalid { get { return "Invalid"; } }
+            internal string Invalid => "Invalid";
 
             public string Invalid2 { set { } }
 
             public static string Invalid3 { set { } }
 
-            public static string Invalid4 { private get { return ""; } set { } }
+            public static string Invalid4 { private get => ""; set { } }
 
-            public string Invalid5 { private get { return ""; } set { } }
+            public string Invalid5 { private get => ""; set { } }
 
-            internal static string InvalidStatic { get { return "Invalid"; } }
+            internal static string InvalidStatic => "Invalid";
         }
 
         [TestMethod]
@@ -44,8 +46,10 @@ namespace Cadru.Core.UnitTests.Globalization
         [TestMethod]
         public void LocalValue()
         {
-            var localized = new LocalizableString("Width");
-            localized.Value = "100px";
+            var localized = new LocalizableString("Width")
+            {
+                Value = "100px"
+            };
             Assert.AreEqual("100px", localized.Value);
             Assert.AreEqual("100px", localized.GetLocalizableValue());
         }
@@ -53,9 +57,11 @@ namespace Cadru.Core.UnitTests.Globalization
         [TestMethod]
         public void InvalidResource()
         {
-            var localized = new LocalizableString("RelativeDateFormatStringTomorrow");
-            localized.ResourceType = typeof(Strings);
-            localized.Value = "RelativeDateFormatStringYesterday";
+            var localized = new LocalizableString("RelativeDateFormatStringTomorrow")
+            {
+                ResourceType = typeof(Strings),
+                Value = "RelativeDateFormatStringYesterday"
+            };
             Assert.AreEqual("RelativeDateFormatStringYesterday", localized.Value);
             Assert.IsNotNull(localized.ResourceType);
 
@@ -84,8 +90,10 @@ namespace Cadru.Core.UnitTests.Globalization
         [TestMethod]
         public void MissingValue()
         {
-            var localized = new LocalizableString("RelativeDateFormatStringTomorrow");
-            localized.ResourceType = typeof(Strings);
+            var localized = new LocalizableString("RelativeDateFormatStringTomorrow")
+            {
+                ResourceType = typeof(Strings)
+            };
             Assert.IsNotNull(localized.ResourceType);
             Assert.IsNull(localized.GetLocalizableValue());
         }
@@ -93,8 +101,10 @@ namespace Cadru.Core.UnitTests.Globalization
         [TestMethod]
         public void LocalizedValue()
         {
-            var localized = new LocalizableString("RelativeDateFormatStringTomorrow");
-            localized.Value = "RelativeDateFormatStringTomorrow";
+            var localized = new LocalizableString("RelativeDateFormatStringTomorrow")
+            {
+                Value = "RelativeDateFormatStringTomorrow"
+            };
             Assert.IsNull(localized.ResourceType);
             Assert.AreEqual("RelativeDateFormatStringTomorrow", localized.Value);
             Assert.AreEqual("RelativeDateFormatStringTomorrow", localized.GetLocalizableValue());

@@ -1,11 +1,11 @@
-﻿using Cadru.Collections;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace Cadru.UnitTest.Framework.UnitTests.Collections
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Cadru.Collections.Tests
 {
     struct EqualityTester
     {
@@ -14,8 +14,8 @@ namespace Cadru.UnitTest.Framework.UnitTests.Collections
 
         public EqualityTester(int index, DateTime date) : this()
         {
-            Index = index;
-            Date = date;
+            this.Index = index;
+            this.Date = date;
         }
     }
 

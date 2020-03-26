@@ -3,7 +3,7 @@ using System.Collections;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Cadru.UnitTest.Framework.UnitTests
+namespace Cadru.UnitTest.Framework.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
     public class CustomAssertTests
@@ -38,9 +38,9 @@ namespace Cadru.UnitTest.Framework.UnitTests
         [TestMethod]
         public void IsNotEmpty()
         {
-            int[] array = new int[] { 1, 2, 3 };
-            ArrayList list = new ArrayList(array);
-            Hashtable hash = new Hashtable();
+            var array = new int[] { 1, 2, 3 };
+            var list = new ArrayList(array);
+            var hash = new Hashtable();
             hash.Add("array", array);
 
             CustomAssert.IsNotEmpty("Hi!", "Failed on String");

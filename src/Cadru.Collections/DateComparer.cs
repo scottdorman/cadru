@@ -231,10 +231,10 @@ namespace Cadru.Collections
         /// </list></returns>
         public int Compare(object x, object y)
         {
-            int result = 0;
+            var result = 0;
 
-            string left = x as string;
-            string right = y as string;
+            var left = x as string;
+            var right = y as string;
 
             if (String.IsNullOrEmpty(left) && String.IsNullOrEmpty(right))
             {
@@ -296,12 +296,12 @@ namespace Cadru.Collections
             Contracts.Requires.NotNull(x, nameof(x));
             Contracts.Requires.NotNull(y, nameof(y));
 
-            if (!DateTime.TryParse(x, this.cultureInfo, DateTimeStyles.None, out DateTime t1))
+            if (!DateTime.TryParse(x, this.cultureInfo, DateTimeStyles.None, out var t1))
             {
                 throw ExceptionBuilder.CreateFormatException(Strings.Format_BadDateTime);
             }
 
-            if (!DateTime.TryParse(y, this.cultureInfo, DateTimeStyles.None, out DateTime t2))
+            if (!DateTime.TryParse(y, this.cultureInfo, DateTimeStyles.None, out var t2))
             {
                 throw ExceptionBuilder.CreateFormatException(Strings.Format_BadDateTime);
             }
@@ -348,14 +348,14 @@ namespace Cadru.Collections
             }
             else
             {
-                bool stringComparison = String.Equals(x, y, StringComparison.OrdinalIgnoreCase);
+                var stringComparison = String.Equals(x, y, StringComparison.OrdinalIgnoreCase);
 
                 // First, test to see if the strings are equal.
                 if (stringComparison == true)
                 {
                     // The strings are equal, so now we need to test to see if
                     // they are valid DateTime objects and if they are equal.
-                    if (!DateTime.TryParse(x, this.cultureInfo, DateTimeStyles.None, out DateTime t1) || !DateTime.TryParse(y, this.cultureInfo, DateTimeStyles.None, out DateTime t2))
+                    if (!DateTime.TryParse(x, this.cultureInfo, DateTimeStyles.None, out var t1) || !DateTime.TryParse(y, this.cultureInfo, DateTimeStyles.None, out var t2))
                     {
                         // At least of the strings was not a valid DateTime, so
                         // return the string comparison result.
@@ -419,7 +419,7 @@ namespace Cadru.Collections
             }
             else
             {
-                string s1 = obj as string;
+                var s1 = obj as string;
 
                 if (s1.IsNull())
                 {
@@ -427,7 +427,7 @@ namespace Cadru.Collections
                 }
                 else
                 {
-                    if (DateTime.TryParse(s1, this.cultureInfo, DateTimeStyles.None, out DateTime t1))
+                    if (DateTime.TryParse(s1, this.cultureInfo, DateTimeStyles.None, out var t1))
                     {
                         hashCode = t1.GetHashCode();
                     }
@@ -464,7 +464,7 @@ namespace Cadru.Collections
             }
             else
             {
-                if (DateTime.TryParse(obj, this.cultureInfo, DateTimeStyles.None, out DateTime t1))
+                if (DateTime.TryParse(obj, this.cultureInfo, DateTimeStyles.None, out var t1))
                 {
                     hashCode = t1.GetHashCode();
                 }

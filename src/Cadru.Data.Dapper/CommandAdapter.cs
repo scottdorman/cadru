@@ -67,7 +67,7 @@ namespace Cadru.Data.Dapper
         {
             get
             {
-                string quoteSuffix = _quoteSuffix;
+                var quoteSuffix = _quoteSuffix;
                 return ((null != quoteSuffix) ? quoteSuffix : String.Empty);
             }
             set
@@ -82,7 +82,7 @@ namespace Cadru.Data.Dapper
         {
             get
             {
-                string schemaSeparator = _schemaSeparator;
+                var schemaSeparator = _schemaSeparator;
                 return (((null != schemaSeparator) && (0 < schemaSeparator.Length)) ? schemaSeparator : NameSeparator);
             }
             set

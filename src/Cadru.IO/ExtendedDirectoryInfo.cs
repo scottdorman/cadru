@@ -851,7 +851,7 @@ namespace Cadru.IO
             string owner = null;
             if (this.directoryInfo.Exists)
             {
-                DirectorySecurity ds = this.directoryInfo.GetAccessControl(AccessControlSections.Owner);
+                var ds = this.directoryInfo.GetAccessControl(AccessControlSections.Owner);
                 owner = ds.GetOwner(typeof(NTAccount)).ToString();
             }
 

@@ -18,7 +18,7 @@ namespace Cadru.Postal
         /// <returns>An HTML &lt;img&gt; tag.</returns>
         public static IHtmlString EmbedImage(this HtmlHelper html, string imagePathOrUrl, string alt = "")
         {
-            if (string.IsNullOrWhiteSpace(imagePathOrUrl)) throw new ArgumentException("Path or URL required", "imagePathOrUrl");
+            if (String.IsNullOrWhiteSpace(imagePathOrUrl)) throw new ArgumentException("Path or URL required", "imagePathOrUrl");
 
             if (IsFileName(imagePathOrUrl))
             {
@@ -26,7 +26,7 @@ namespace Cadru.Postal
             }
             var imageEmbedder = (ImageEmbedder)html.ViewData[ImageEmbedder.ViewDataKey];
             var resource = imageEmbedder.ReferenceImage(imagePathOrUrl);
-            return new HtmlString(string.Format("<img src=\"cid:{0}\" alt=\"{1}\"/>", resource.ContentId, html.AttributeEncode(alt)));
+            return new HtmlString(String.Format("<img src=\"cid:{0}\" alt=\"{1}\"/>", resource.ContentId, html.AttributeEncode(alt)));
         }
 
         static bool IsFileName(string pathOrUrl)
