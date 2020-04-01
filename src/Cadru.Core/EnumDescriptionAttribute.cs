@@ -31,7 +31,7 @@ namespace Cadru
     public sealed class EnumDescriptionAttribute : Attribute
     {
         #region fields
-        private string description;
+        private readonly string description;
         #endregion
 
         #region constructors

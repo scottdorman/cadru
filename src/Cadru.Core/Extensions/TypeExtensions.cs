@@ -206,6 +206,13 @@ namespace Cadru.Extensions
             return type.GetTypeInfo().IsDateOffset();
         }
 
+        /// <summary>
+        /// Determines whether the specified type is a <see cref="DateTimeOffset"/>.
+        /// </summary>
+        /// <param name="typeInfo">The TypeInfo to test.</param>
+        /// <returns>
+        ///   <see langword="true"/> if the specified type is a <see cref="DateTimeOffset"/>; otherwise, <see langword="false"/>.
+        /// </returns>
         public static bool IsDateOffset(this TypeInfo typeInfo)
         {
             Contracts.Requires.NotNull(typeInfo, nameof(typeInfo));
@@ -218,6 +225,41 @@ namespace Cadru.Extensions
             }
 
             return type == typeof(DateTimeOffset);
+        }
+        #endregion
+
+        #region IsFlagsEnum
+        /// <summary>
+        /// Determines whether the specified type is an <see cref="Enum"/> with an associated
+        /// <see cref="FlagsAttribute"/>.
+        /// </summary>
+        /// <param name="type">The type to test.</param>
+        /// <returns>
+        ///   <see langword="true"/> if the specified type is an <see cref="Enum"/> with an associated
+        ///   <see cref="FlagsAttribute"/>; otherwise, <see langword="false"/>.
+        /// </returns>
+        public static bool IsFlagsEnum(this Type type)
+        {
+            Contracts.Requires.NotNull(type, nameof(type));
+
+            return type.GetTypeInfo().IsFlagsEnum();
+        }
+
+        /// <summary>
+        /// Determines whether the specified type is an <see cref="Enum"/> with an associated
+        /// <see cref="FlagsAttribute"/>.
+        /// </summary>
+        /// <param name="typeInfo">The TypeInfo to test.</param>
+        /// <returns>
+        ///   <see langword="true"/> if the specified type is an <see cref="Enum"/> with an associated
+        ///   <see cref="FlagsAttribute"/>; otherwise, <see langword="false"/>.
+        /// </returns>
+        public static bool IsFlagsEnum(this TypeInfo typeInfo)
+        {
+            Contracts.Requires.NotNull(typeInfo, nameof(typeInfo));
+            Contracts.Requires.IsTrue(typeInfo.IsEnum);
+
+            return typeInfo.GetCustomAttribute<FlagsAttribute>(inherit: false) != null;
         }
         #endregion
 

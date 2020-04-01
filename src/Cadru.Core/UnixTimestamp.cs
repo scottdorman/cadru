@@ -58,7 +58,7 @@ namespace Cadru
         private const long MaxSeconds = 253402300799L;
         private const long MinSeconds = -62135596800L;
         private static readonly DateTime Epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
-        private long seconds;
+        private readonly long seconds;
         #endregion
 
         #region constructors
@@ -832,8 +832,17 @@ namespace Cadru
         #region DateToSeconds
         private static long DateToSeconds(int year, int month, int day, int hour, int minute, int second)
         {
-            var ticks = new DateTime(year, month, day, hour, minute, second).Ticks;
-            var seconds = TicksToSeconds(ticks - UnixTimestamp.Epoch.Ticks);
+            long seconds;
+            long ticks = DateTime.MaxValue.Ticks;
+            try
+            {
+                ticks = new DateTime(year, month, day, hour, minute, second).Ticks;
+            }
+            finally
+            {
+                seconds = TicksToSeconds(ticks - UnixTimestamp.Epoch.Ticks);
+            }
+
             return seconds;
         }
         #endregion

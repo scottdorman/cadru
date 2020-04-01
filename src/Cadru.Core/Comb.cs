@@ -79,17 +79,17 @@ namespace Cadru
         // encode the time stamp allow COMB values to be sorted by date.
         private static readonly int[] CompareOrder = new int[16] { 10, 11, 12, 13, 14, 15, 8, 9, 6, 7, 4, 5, 0, 1, 2, 3 };
 
-        private int a;
-        private short b;
-        private short c;
-        private byte d;
-        private byte e;
-        private byte f;
-        private byte g;
-        private byte h;
-        private byte i;
-        private byte j;
-        private byte k;
+        private readonly int a;
+        private readonly short b;
+        private readonly short c;
+        private readonly byte d;
+        private readonly byte e;
+        private readonly byte f;
+        private readonly byte g;
+        private readonly byte h;
+        private readonly byte i;
+        private readonly byte j;
+        private readonly byte k;
         private DateTimeOffset dateTime;
         #endregion
 

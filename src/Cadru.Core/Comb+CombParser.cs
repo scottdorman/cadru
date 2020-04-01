@@ -29,7 +29,7 @@ namespace Cadru
     {
         internal struct CombParser
         {
-            private string source;
+            private readonly string source;
             private int sourceLength;
             private int current;
 
