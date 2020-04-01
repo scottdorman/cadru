@@ -2,7 +2,7 @@
   <Import Project="..\..\build\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.0</TargetFramework>
+    <TargetFramework>netstandard1.1</TargetFramework>
     <Description>Provides common data annotation attributes.</Description>
     <PackageTags>$(CommonPackageTags) data annotations</PackageTags>
   </PropertyGroup>

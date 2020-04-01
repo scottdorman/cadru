@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\..\build\common.props" />
   <PropertyGroup>
-    <TargetFramework>netstandard1.0</TargetFramework>
+    <TargetFramework>netstandard1.1</TargetFramework>
     <Description>Provides additional collection classes and extensions.</Description>
     <PackageTags>$(CommonPackageTags) collections logical natural string comparison date comparison comparer</PackageTags>
   </PropertyGroup>
