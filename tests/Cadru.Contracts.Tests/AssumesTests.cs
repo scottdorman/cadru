@@ -59,6 +59,7 @@ namespace Cadru.Contracts.Tests
         [TestMethod]
         public void Fail()
         {
+            ExceptionAssert.Throws(debugAssertException, () => { Assumes.Fail((string)null); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
             ExceptionAssert.Throws(debugAssertException, () => { Assumes.Fail(String.Empty); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
             ExceptionAssert.Throws(debugAssertException, () => { Assumes.Fail("test."); }).WithMessage("Assumption failed. test.", ExceptionMessageComparison.StartsWith);
         }
