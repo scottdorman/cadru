@@ -4,7 +4,6 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Cadru.AspNetCore</AssemblyName>
     <NetStandardImplicitPackageVersion>2.0</NetStandardImplicitPackageVersion>
-    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <Description>Provides additional TagHelpers and View Location Expanders for ASP.NET Core.</Description>
     <PackageTags>$(CommonPackageTags) aspnetcore taghelpers view location expander bootstrap</PackageTags>
   </PropertyGroup>
