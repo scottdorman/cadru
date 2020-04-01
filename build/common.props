@@ -9,7 +9,7 @@
     <Authors>Scott Dorman</Authors>
     <Company>Scott Dorman</Company>
     <Copyright>Copyright (c) Scott Dorman</Copyright>
-    <PackageLicenseUrl>http://opensource.org/licenses/Ms-PL.html</PackageLicenseUrl>
+    <PackageLicenseExpression>MS-PL</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/scottdorman/cadru</PackageProjectUrl>
     <VersionSuffix Condition="'$(VersionSuffix)' != '' AND '$(APPVEYOR_BUILD_NUMBER)' != ''">$(VersionSuffix)-$(APPVEYOR_BUILD_NUMBER)</VersionSuffix>
     <CommonPackageTags>cadru .NET Core .NETCore dotnet dotnetcore .NETStandard dotnetstandard</CommonPackageTags>
