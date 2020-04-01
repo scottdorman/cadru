@@ -20,10 +20,11 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.AspNet.TagHelpers
+namespace Cadru.AspNetCore.Mvc.TagHelpers
 {
     using System;
     using System.Linq;
+
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.TagHelpers;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
@@ -46,23 +47,23 @@ namespace Cadru.AspNet.TagHelpers
 
         private bool ShouldBeActive()
         {
-            var routeData = ViewContext.RouteData.Values;
+            var routeData = this.ViewContext.RouteData.Values;
             var currentController = routeData["controller"] as string;
             var currentAction = routeData["action"] as string;
             var result = false;
 
-            if (!String.IsNullOrWhiteSpace(Controller) && !String.IsNullOrWhiteSpace(Action))
+            if (!String.IsNullOrWhiteSpace(this.Controller) && !String.IsNullOrWhiteSpace(this.Action))
             {
-                result = String.Equals(Action, currentAction, StringComparison.OrdinalIgnoreCase) &&
-                    String.Equals(Controller, currentController, StringComparison.OrdinalIgnoreCase);
+                result = String.Equals(this.Action, currentAction, StringComparison.OrdinalIgnoreCase) &&
+                    String.Equals(this.Controller, currentController, StringComparison.OrdinalIgnoreCase);
             }
-            else if (!String.IsNullOrWhiteSpace(Action))
+            else if (!String.IsNullOrWhiteSpace(this.Action))
             {
-                result = String.Equals(Action, currentAction, StringComparison.OrdinalIgnoreCase);
+                result = String.Equals(this.Action, currentAction, StringComparison.OrdinalIgnoreCase);
             }
-            else if (!String.IsNullOrWhiteSpace(Controller))
+            else if (!String.IsNullOrWhiteSpace(this.Controller))
             {
-                result = String.Equals(Controller, currentController, StringComparison.OrdinalIgnoreCase);
+                result = String.Equals(this.Controller, currentController, StringComparison.OrdinalIgnoreCase);
             }
 
             return result;
@@ -94,10 +95,10 @@ namespace Cadru.AspNet.TagHelpers
                 var tagBuilder = new TagBuilder("a");
                 tagBuilder.Attributes.Add("href", href.Value.ToString());
 
-                if (!String.IsNullOrWhiteSpace(IconCss))
+                if (!String.IsNullOrWhiteSpace(this.IconCss))
                 {
                     var iconTagBuilder = new TagBuilder("div");
-                    iconTagBuilder.AddCssClass(IconCss);
+                    iconTagBuilder.AddCssClass(this.IconCss);
                     tagBuilder.InnerHtml.AppendHtml(iconTagBuilder);
                 }
 
@@ -109,9 +110,9 @@ namespace Cadru.AspNet.TagHelpers
                 output.Content.SetHtmlContent(content);
             }
 
-            if (ShouldBeActive())
+            if (this.ShouldBeActive())
             {
-                MakeActive(output);
+                this.MakeActive(output);
             }
         }
     }

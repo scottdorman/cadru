@@ -20,9 +20,10 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.AspNet.TagHelpers
+namespace Cadru.AspNetCore.Mvc.TagHelpers
 {
     using System;
+
     using Microsoft.AspNetCore.Mvc.TagHelpers;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
     using Microsoft.AspNetCore.Razor.TagHelpers;
@@ -47,9 +48,8 @@ namespace Cadru.AspNet.TagHelpers
         {
             base.Process(context, output);
 
-            var placeholder = GetPlaceholder(Placeholder.ModelExplorer);
-
-            if (!output.Attributes.TryGetAttribute("placeholder", out var placeholderAttribute))
+            var placeholder = this.GetPlaceholder(this.Placeholder.ModelExplorer);
+            if (!output.Attributes.TryGetAttribute("placeholder", out _))
             {
                 output.Attributes.Add(new TagHelperAttribute("placeholder", placeholder));
             }

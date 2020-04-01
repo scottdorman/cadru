@@ -20,10 +20,11 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.AspNet.Services
+namespace Cadru.AspNetCore.Mvc.Razor
 {
     using System.Collections.Generic;
     using System.Linq;
+
     using Microsoft.AspNetCore.Mvc.Razor;
 
     public class LayoutViewLocationExpander : IViewLocationExpander
