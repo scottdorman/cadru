@@ -49,6 +49,32 @@ namespace Cadru.Extensions
 
         #region methods
 
+        #region HasCustomAttribute
+        /// <summary>
+        /// Determines whether the specified type has a custom attribute
+        /// </summary>
+        /// <typeparam name="T">The type of attribute to search for.</typeparam>
+        /// <param name="element">The member to inspect.</param>
+        /// <param name="inherit"><see langword="true"/> to inspect the ancestors of element; otherwise, <see langword="false"/>.</param>
+        /// <returns><see langword="true"/> if the specified element has the attribute;
+        /// otherwise, <see langword="false"/>.</returns>
+        /// <exception cref="System.ArgumentNullException"><paramref name="element"/> is null.</exception>
+        /// <exception cref="System.NotSupportedException"><paramref name="element"/> is not a constructor, method, property, event, type, or field.</exception>
+        /// <exception cref="System.Reflection.AmbiguousMatchException">More than one of the requested attributes was found.</exception>
+        /// <exception cref="System.TypeLoadException">A custom attribute type cannot be loaded.</exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
+        public static bool HasCustomAttribute<T>(this Type element, bool inherit = false) where T : Attribute
+        {
+            Requires.NotNull(element, nameof(element));
+            return element.GetTypeInfo().HasCustomAttribute<T>(inherit);
+        }
+
+        public static bool HasCustomAttribute<T>(this MemberInfo element, bool inherit = false) where T : Attribute
+        {
+            return element.GetCustomAttribute<T>(inherit) != null;
+        }
+        #endregion
+
         #region HasInterface
         /// <summary>
         /// Determines whether the specified type implements an interface
