@@ -33,8 +33,8 @@ namespace Cadru.Net.Http
     public class UrlBuilder
     {
         #region fields
-        private UriBuilder builder;
-        private QueryStringParametersDictionary queryParameters;
+        private readonly UriBuilder builder;
+        private readonly QueryStringParametersDictionary queryParameters;
         #endregion
 
         #region constructors
@@ -240,15 +240,8 @@ namespace Cadru.Net.Http
         /// ("#") is added to the beginning of the fragment.</value>
         public string Fragment
         {
-            get
-            {
-                return this.builder.Fragment;
-            }
-
-            set
-            {
-                this.builder.Fragment = value;
-            }
+            get => this.builder.Fragment;
+            set => this.builder.Fragment = value;
         }
         #endregion
 
@@ -260,15 +253,8 @@ namespace Cadru.Net.Http
         /// <value>The DNS host name or IP address of the server.</value>
         public string Host
         {
-            get
-            {
-                return this.builder.Host;
-            }
-
-            set
-            {
-                this.builder.Host = value;
-            }
+            get => this.builder.Host;
+            set => this.builder.Host = value;
         }
         #endregion
 
@@ -279,15 +265,8 @@ namespace Cadru.Net.Http
         /// <value>The password of the user that accesses the URI.</value>
         public string Password
         {
-            get
-            {
-                return this.builder.Password;
-            }
-
-            set
-            {
-                this.builder.Password = value;
-            }
+            get => this.builder.Password;
+            set => this.builder.Password = value;
         }
         #endregion
 
@@ -298,15 +277,8 @@ namespace Cadru.Net.Http
         /// <value>The path to the resource referenced by the URI.</value>
         public string Path
         {
-            get
-            {
-                return this.builder.Path;
-            }
-
-            set
-            {
-                this.builder.Path = value;
-            }
+            get => this.builder.Path;
+            set => this.builder.Path = value;
         }
         #endregion
 
@@ -320,15 +292,8 @@ namespace Cadru.Net.Http
         /// </exception>
         public int Port
         {
-            get
-            {
-                return this.builder.Port;
-            }
-
-            set
-            {
-                this.builder.Port = value;
-            }
+            get => this.builder.Port;
+            set => this.builder.Port = value;
         }
         #endregion
 
@@ -339,15 +304,8 @@ namespace Cadru.Net.Http
         /// <value>The query information included in the URI.</value>
         public string Query
         {
-            get
-            {
-                return this.queryParameters.ToQueryString();
-            }
-
-            set
-            {
-                this.queryParameters.FillFromString(value);
-            }
+            get => this.queryParameters.ToQueryString();
+            set => this.queryParameters.FillFromString(value);
         }
         #endregion
 
@@ -356,13 +314,7 @@ namespace Cadru.Net.Http
         /// Gets the collection of query parameters to be included in the URI.
         /// </summary>
         /// <value>The collection of query parameters to be included in the URI.</value>
-        public QueryStringParametersDictionary QueryParameters
-        {
-            get
-            {
-                return this.queryParameters;
-            }
-        }
+        public QueryStringParametersDictionary QueryParameters => this.queryParameters;
         #endregion
 
         #region Scheme
@@ -373,15 +325,9 @@ namespace Cadru.Net.Http
         /// <exception cref="System.ArgumentException">The scheme cannot be set to an invalid scheme name.</exception>
         public UriScheme Scheme
         {
-            get
-            {
-                return new UriScheme(this.builder.Scheme);
-            }
+            get => new UriScheme(this.builder.Scheme);
 
-            set
-            {
-                this.builder.Scheme = value;
-            }
+            set => this.builder.Scheme = value;
         }
         #endregion
 
@@ -413,15 +359,9 @@ namespace Cadru.Net.Http
         /// <value>The user name of the user that accesses the URI.</value>
         public string UserName
         {
-            get
-            {
-                return this.builder.UserName;
-            }
+            get => this.builder.UserName;
 
-            set
-            {
-                this.builder.UserName = value;
-            }
+            set => this.builder.UserName = value;
         }
         #endregion
 
