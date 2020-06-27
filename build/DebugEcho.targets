@@ -1,0 +1,78 @@
+<Project>
+  <Target Name="DebugEcho" 
+    BeforeTargets="$(DebugMessagesBeforeTargets)" 
+    DependsOnTargets="_CheckDebugEchoTarget;$(DebugMessagesDependsOnTargets)" 
+    Condition="'$(DebugMessages)' == 'true'">
+
+    <PropertyGroup>
+      <DebugMessageImportance Condition="'$(DebugMessageImportance)' == ''">high</DebugMessageImportance>
+    </PropertyGroup>
+    
+    <CallTarget Targets="_DebugEcho" Condition="'%(ProjectIsDebugEchoTarget.Identity)' != ''"/>
+  </Target>
+
+  <Target Name="_CheckDebugEchoTarget">
+    <FindInList CaseSensitive="false" List="@(DebugEchoTarget)" ItemSpecToFind="$(MSBuildProjectName)"
+      Condition="'@(DebugEchoTarget)' != ''">
+      <Output TaskParameter="ItemFound" ItemName="ProjectIsDebugEchoTarget"/>
+    </FindInList>
+  </Target>
+  
+  <Target Name="_DebugEcho">
+    <Message Importance="$(DebugMessageImportance)" Text="$(NoWarn)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="$(ProjectIsDebugEchoTarget)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="Core file path properties"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  RepoRoot = $(RepoRoot)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  BuildDir = $(BuildDir)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  BuildProps = $(BuildProps)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  VersionProps = $(VersionProps)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  CommonProps = $(CommonProps)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  MiscProps = $(MiscProps)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  SourceLinkProps = $(SourceLinkProps)"/>
+    <Message Importance="$(DebugMessageImportance)" Text=" "/>
+
+    <Message Importance="$(DebugMessageImportance)" Text="Versioning properties"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  VersionMajor = $(VersionMajor)" />
+    <Message Importance="$(DebugMessageImportance)" Text="  VersionMinor = $(VersionMinor)" />
+    <Message Importance="$(DebugMessageImportance)" Text="  VersionPatch = $(VersionPatch)" />
+    <Message Importance="$(DebugMessageImportance)" Text="  VersionBuild = $(VersionBuild)" />
+    <Message Importance="$(DebugMessageImportance)" Text="  VersionRevision = $(VersionRevision)" />
+    <Message Importance="$(DebugMessageImportance)" Text="  BuildDate = $(BuildDate)" />
+    <Message Importance="$(DebugMessageImportance)" Text="  SourceRevisionId = $(SourceRevisionId)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  VersionPrefix = $(VersionPrefix)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  VersionSuffix = $(VersionSuffix)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  Version = $(Version)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  ProductVersion = $(ProductVersion)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  AssemblyVersion = $(AssemblyVersion)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  FileVersion = $(FileVersion)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  PackageVersion = $(PackageVersion)"/>
+    <Message Importance="$(DebugMessageImportance)" Text=" "/>
+
+    <Message Importance="$(DebugMessageImportance)" Text="SourceLink properties"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  SourceLinkCreate = $(SourceLinkCreate)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  PublishRepositoryUrl = $(PublishRepositoryUrl)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  EmbedUntrackedSources = $(EmbedUntrackedSources)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  IncludeSymbols = $(IncludeSymbols)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  SymbolPackageFormat = $(SymbolPackageFormat)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  Deterministic = $(Deterministic)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  ContinuousIntegrationBuild = $(ContinuousIntegrationBuild)"/>
+    <Message Importance="$(DebugMessageImportance)" Text=" "/>
+    
+    <Message Importance="$(DebugMessageImportance)" Text="Package properties"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  GeneratePackageOnBuild = $(GeneratePackageOnBuild)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  RepositoryUrl = $(RepositoryUrl)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  RepositoryType = $(RepositoryType)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  PackageLicenseExpression = $(PackageLicenseExpression)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  PackageProjectUrl = $(PackageProjectUrl)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  Authors = $(Authors)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  Company = $(Company)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  Copyright = $(Copyright)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  Product = $(Product)"/>
+    <Message Importance="$(DebugMessageImportance)" Text=" "/>
+
+    <Message Importance="$(DebugMessageImportance)" Text="General control properties"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  GenerateReleaseNotes = $(GenerateReleaseNotes)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  GenerateAssemblyBuildDateAttribute = $(GenerateAssemblyBuildDateAttribute)"/>
+    <Message Importance="$(DebugMessageImportance)" Text="  VersionStrategy = $(VersionStrategy)"/>
+  </Target>
+</Project>
