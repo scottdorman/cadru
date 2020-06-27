@@ -88,6 +88,7 @@ build:
 before_build:
 - ps: >-
     dotnet restore
+
     dotnet build build/Cadru.VersionUpdate.targets -t:UpdateAssemblyVersionInfo
 
 # scripts to run after build
