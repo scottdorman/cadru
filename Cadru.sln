@@ -70,8 +70,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Build.Tasks", "src\Ca
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.AspNetCore.Mvc.Core", "src\Cadru.AspNetCore.Mvc.Core\Cadru.AspNetCore.Mvc.Core.csproj", "{C832464B-E419-4A1B-A423-F77307B04D48}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Caching", "src\Cadru.Caching\Cadru.Caching.csproj", "{C291E091-6993-41B7-B0B3-3F6A9ADD2E15}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -190,10 +188,6 @@ Global
 		{C832464B-E419-4A1B-A423-F77307B04D48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C832464B-E419-4A1B-A423-F77307B04D48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C832464B-E419-4A1B-A423-F77307B04D48}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C291E091-6993-41B7-B0B3-3F6A9ADD2E15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C291E091-6993-41B7-B0B3-3F6A9ADD2E15}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C291E091-6993-41B7-B0B3-3F6A9ADD2E15}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C291E091-6993-41B7-B0B3-3F6A9ADD2E15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
