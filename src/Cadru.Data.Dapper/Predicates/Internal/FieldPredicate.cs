@@ -42,15 +42,10 @@ namespace Cadru.Data.Dapper.Predicates.Internal
             var notText = this.Not ? CommandAdapter.Not : String.Empty;
 
             var columnName = GetColumnName<T>(this.PropertyName, false);
-            if (this.Value == null)
-            {
-                return $"{CommandAdapter.LeftParenthesis}{columnName}{this.GetOperatorString()}{CommandAdapter.RightParenthesis}";
-            }
 
             if (this.Operator == Operator.In)
             {
-                var enumerable = this.Value as IEnumerable;
-                if (enumerable != null)
+                if (this.Value is IEnumerable enumerable)
                 {
                     var @params = new List<string>();
                     foreach (var value in enumerable)
