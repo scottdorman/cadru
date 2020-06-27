@@ -1,0 +1,89 @@
+<!-- WARNING: DO NOT MODIFY this file unless you are knowledgeable about
+MSBuild and have created a backup copy. Incorrect changes to this file will
+make it impossible to load or build your projects from the command-line or the
+IDE. -->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
+    <BuildDir>$([MSBuild]::EnsureTrailingSlash($(RepoRoot)build))</BuildDir>
+    <BuildProps>$(BuildDir)build.props</BuildProps>
+    <VersionProps>$(RepoRoot)version.props</VersionProps>
+    <CommonProps>$(RepoRoot)common.props</CommonProps>
+    <MiscProps>$(RepoRoot)misc.props</MiscProps>
+    <SourceLinkProps>$(BuildDir)sourcelink.props</SourceLinkProps>
+    <DebugTargetProps>$(RepoRoot)debugtarget.props</DebugTargetProps>
+    <GenerateAssemblyInfoTargets>$(BuildDir)\Cadru.GenerateAssemblyInfo.targets</GenerateAssemblyInfoTargets>
+    <ReleaseNotesTargets>$(BuildDir)\Cadru.ReleaseNotes.targets</ReleaseNotesTargets>
+  </PropertyGroup>
+
+  <Import Project="$(DebugTargetProps)" Condition="Exists('$(DebugTargetProps)')"/>
+  <Import Project="$(BuildProps)" Condition="Exists('$(BuildProps)')"/>
+  <Import Project="$(VersionProps)" Condition="Exists('$(VersionProps)')"/>
+  <Import Project="$(CommonProps)" Condition="Exists('$(CommonProps)')"/>
+  <Import Project="$(MiscProps)" Condition="Exists('$(MiscProps)')"/>
+
+  <PropertyGroup>
+    <DebugType Condition="'$(SourceLinkCreate)' != 'true'">embedded</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Add the default warnings to ignore if they aren't already there. -->
+    <NoWarn Condition="'$(NoWarn)' == ''">1701;1702</NoWarn>
+
+    <!-- NU5105: we're explicitly opting in to semver2 -->
+    <NoWarn>$(NoWarn);NU5105</NoWarn>
+  </PropertyGroup>
+
+  <!-- Define default values if any of these are blank. -->
+  <PropertyGroup>
+    <VersionMajor Condition="'$(VersionMajor)' == ''">1</VersionMajor>
+    <VersionMinor Condition="'$(VersionMinor)' == ''">0</VersionMinor>
+    <VersionPatch Condition="'$(VersionPatch)' == ''">0</VersionPatch>
+  </PropertyGroup>
+
+  <!-- Define the default $(VersionPrefix) format. The $(PackageVersion) is
+  also set here to prevent it from accidentally getting the $(VersionRevision)
+  value, allowing it to conform to SemVer 2.0 syntax.
+  -->
+  <PropertyGroup>
+    <VersionPrefix Condition="'$(VersionPrefix)' == ''">$(VersionMajor).$(VersionMinor).$(VersionPatch)</VersionPrefix>
+    <PackageVersion Condition="'$(PackageVersion)' == ''">$(VersionPrefix)</PackageVersion>
+  </PropertyGroup>
+
+  <!-- If $(VersionSuffix) isn't empty, then add $(VersionRevision) to it if
+  it isn't also empty. Add $(VersionSuffix) to the $(PackageVersion) and, if
+  it's set also add the $(SourceRevisionId). -->
+  <PropertyGroup Condition="'$(VersionSuffix)' != ''">
+    <VersionSuffix Condition="'$(VersionBuild)' != ''">$(VersionSuffix).$(VersionBuild)</VersionSuffix>
+    <VersionSuffix Condition="'$(VersionRevision)' != ''">$(VersionSuffix).$(VersionRevision)</VersionSuffix>
+    <PackageVersion>$(VersionPrefix)-$(VersionSuffix)</PackageVersion>
+    <PackageVersion Condition="'$(SourceRevisionId)' != ''">$(PackageVersion).$(SourceRevisionId)</PackageVersion>
+  </PropertyGroup>
+
+  <!-- The $(VersionPrefix) and $(VersionSuffix) rules here may seem odd, and
+  possibly redundant, but they're necessary in order to ensure the compiled
+  binary version is a proper 4-part version number, the product version is the
+  property 4-part version number with the suffix, and possibly the
+  $(SourceRevisionId), appended, and that the package version is a proper
+  3-part version (SemVer 2.0 compliant format) with optionally the suffix. -->
+  <PropertyGroup Condition=" '$(Version)' == '' ">
+    <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
+    <Version Condition=" '$(VersionSuffix)' == '' ">$(VersionPrefix).$(VersionRevision)</Version>
+    <AssemblyFileVersion Condition=" '$(AssemblyFileVersion)' == '' ">$(VersionPrefix).$(VersionRevision)</AssemblyFileVersion>
+    <AssemblyVersion Condition=" '$(AssemblyVersion)' == '' ">$(VersionPrefix).$(VersionRevision)</AssemblyVersion>
+  </PropertyGroup>
+
+  <!-- Adds the build date to the generated AssemblyInfo file, if the project
+  has the $(GenerateAssemblyInfo) property set to true. This indirectly hooks
+  in to the standard .NET SDK GenerateAssemblyInfo target by using the same
+  ItemGroup names that GetAssemblyAttributes uses. This allows us to insert
+  additional assembly attributes in to the set that's used. -->
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadata" Condition="'$(BuildDate)' != '' and '$(GenerateAssemblyBuildDateAttribute)' == 'true'">
+      <_Parameter1>BuildDate</_Parameter1>
+      <_Parameter2>$(BuildDate)</_Parameter2>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+  <Import Project="$(SourceLinkProps)" Condition="Exists('$(SourceLinkProps)')"/>
+</Project>

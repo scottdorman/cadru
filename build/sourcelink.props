@@ -1,5 +1,10 @@
 <Project>
   <PropertyGroup Condition="'$(SourceLinkCreate)' == 'true'">
+    <!-- See https://blog.paranoidcoding.com/2016/04/05/deterministic-builds-in-roslyn.html
+    for more details on setting Deterministic. -->
+    <Deterministic>false</Deterministic>
+    <ContinuousIntegrationBuild>false</ContinuousIntegrationBuild>
+    
     <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
 

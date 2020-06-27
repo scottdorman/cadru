@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Mail;
 using System.Threading.Tasks;
+
 using RazorEngine;
 using RazorEngine.Configuration;
 using RazorEngine.Templating;
@@ -61,11 +62,7 @@ namespace Cadru.Postal
                 client.EnableSsl = false;
                 client.DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory;
                 client.PickupDirectoryLocation = path;
-#if NET45
                 await client.SendMailAsync(mailMessage);
-#else
-                await client.SendTaskAsync(mailMessage);
-#endif
                 client.Dispose();
             }
         }
@@ -80,11 +77,7 @@ namespace Cadru.Postal
             {
                 using (var smtp = createSmtpClient())
                 {
-#if NET45
                     await smtp.SendMailAsync(mailMessage);
-#else
-                    await smtp.SendTaskAsync(mailMessage);
-#endif
                 }
             }
         }

@@ -1,0 +1,41 @@
+<!-- Modify this file to change assembly information.
+
+WARNING: DO NOT MODIFY this file unless you have created a backup copy.
+Incorrect changes to this file will make it impossible to load or build your
+projects from the command-line or the IDE. -->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Defines common/shared assembly and NuGet package metadata. Typical
+  properties are:
+        $(Product)
+        $(Company)
+        $(Copyright)
+  -->
+  <PropertyGroup>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Product>Cadru Framework</Product>
+    <RepositoryUrl>https://github.com/scottdorman/cadru</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Authors>Scott Dorman</Authors>
+    <Company>Scott Dorman</Company>
+    <Copyright>Copyright (c) Scott Dorman</Copyright>
+    <PackageLicenseExpression>MS-PL</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/scottdorman/cadru</PackageProjectUrl>
+    <CommonPackageTags>cadru .NET Core .NETCore dotnet dotnetcore .NETStandard dotnetstandard</CommonPackageTags>
+    <SourceLinkCreate>true</SourceLinkCreate>
+  </PropertyGroup>
+
+  <!-- Defines properties which help customize the version update process. -->
+  <PropertyGroup>
+    <GenerateReleaseNotes Condition="'$(GenerateReleaseNotes)' == ''">false</GenerateReleaseNotes>
+    <GenerateAssemblyBuildDateAttribute Condition="'$(GenerateAssemblyBuildDateAttribute)' == ''">true</GenerateAssemblyBuildDateAttribute>
+    <VersionStrategy Condition="'$(VersionStrategy)' == ''">ShortDate</VersionStrategy>
+  </PropertyGroup>
+
+  <!-- The UpdateReleaseNotes target expects a single XML file as input and
+    one or more destination folders as output, as defined by the ItemGroup.
+    Uncomment this item group and change the path as necessary. -->
+
+  <ItemGroup>
+    <None Include="$(SolutionDir)\Cadru.licenseheader" Link="Cadru.licenseheader" />
+  </ItemGroup>
+</Project>

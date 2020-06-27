@@ -1,11 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\..\build\common.props" />
   <PropertyGroup>
     <TargetFramework>netstandard1.1</TargetFramework>
     <Description>Provides common extensions and new APIs for the .NET Framework.</Description>
     <PackageTags>$(CommonPackageTags)</PackageTags>
     <RootNamespace>Cadru</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Caching.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.ComponentModel" Version="4.3.0" />

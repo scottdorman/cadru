@@ -1,7 +1,36 @@
-<!-- This file may be overwritten by automation. Only values allowed here are VersionPrefix and VersionSuffix.  -->
-<Project>
-    <PropertyGroup>
-        <VersionPrefix>4.0.0</VersionPrefix>
-        <VersionSuffix>preview6</VersionSuffix>
-    </PropertyGroup>
+<!-- Modify this file to change assembly information.
+
+WARNING: DO NOT MODIFY this file unless you have created a backup copy.
+Incorrect changes to this file will make it impossible to load or build your
+projects from the command-line or the IDE. -->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Defines version related properties. The possible properties are:
+
+          $(VersionMajor)
+          $(VersionMinor)
+          $(VersionPatch)
+          $(VersionRevision)
+          $(VersionPrefix)
+          $(VersionSuffix)
+          $(PackageVersion)
+          $(SourceRevisionId)
+          $(BuildDate)
+
+  Typically, you will only set the $(VersionMajor), $(VersionMinor), and
+  possibly the $(VersionSuffix) properties here. Any of the remaining
+  properties are either derived from those or would be set by an automated (CI)
+  build process in the build/version.props file.
+
+  By default, $(VersionPrefix) is set to be equal to $(VersionMajor).$(VersionMinor).$(VersionPatch), and defaults to 1.0.0.
+  If $(VersionRevision) is provided, it is appended to $(VersionPrefix) as
+  $(VersionPrefix).$(VersionRevision).
+
+  Any properties defined in the build/version.props file will override the
+  values specified here. -->
+  <PropertyGroup>
+    <VersionMajor>4</VersionMajor>
+    <VersionMinor>0</VersionMinor>
+    <VersionPatch>1</VersionPatch>
+    <VersionSuffix>preview.4</VersionSuffix>
+  </PropertyGroup>
 </Project>

@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\..\build\common.props" />
   <PropertyGroup>
     <TargetFramework>net45</TargetFramework>
     <Description>Provides classes for generating email using ASP.NET MVC Razor views.</Description>
@@ -7,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.6" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
     <PackageReference Include="RazorEngine" Version="3.10.0" />
   </ItemGroup>
 

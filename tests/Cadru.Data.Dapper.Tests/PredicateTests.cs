@@ -37,6 +37,13 @@ namespace Cadru.Data.Dapper.Tests
             });
 
             var x = predicate.GetSql(parameters);
+
+            predicate = Predicate.And(new[] {
+                        Predicate.FieldComparison<PlanComponent, int>(m => m.FiscalYear, Operator.Equal, fiscalYear),
+                        Predicate.FieldComparison<PlanComponent, string>(m => m.PlanID, Operator.Equal, (string)null),
+            });
+
+            x = predicate.GetSql(parameters);
         }
     }
 }

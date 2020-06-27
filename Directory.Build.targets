@@ -1,0 +1,9 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
+    <BuildDir>$([MSBuild]::EnsureTrailingSlash($(RepoRoot)build))</BuildDir>
+    <DebugEchoTargets>$(BuildDir)DebugEcho.targets</DebugEchoTargets>
+  </PropertyGroup>
+
+    <Import Project="$(DebugEchoTargets)" Condition="Exists('$(DebugEchoTargets)')"/>
+</Project>

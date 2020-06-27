@@ -10,7 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		appveyor.yml = appveyor.yml
 		Cadru.licenseheader = Cadru.licenseheader
-		build\common.props = build\common.props
 		build\sourcelink.props = build\sourcelink.props
 		version.props = version.props
 	EndProjectSection
@@ -66,6 +65,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Data.Dapper.Tests", "tests\Cadru.Data.Dapper.Tests\Cadru.Data.Dapper.Tests.csproj", "{FC656CF9-8A47-441B-9E78-873F52010B2C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Data.Annotations.Tests", "tests\Cadru.Data.Annotations.Tests\Cadru.Data.Annotations.Tests.csproj", "{D39723A8-967F-4526-BFA8-8BDBA9E1E03B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Build.Tasks", "src\Cadru.Build.Tasks\Cadru.Build.Tasks.csproj", "{84B67D70-396E-4236-B1FB-E396DADE0124}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.AspNetCore.Mvc.Core", "src\Cadru.AspNetCore.Mvc.Core\Cadru.AspNetCore.Mvc.Core.csproj", "{C832464B-E419-4A1B-A423-F77307B04D48}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Caching", "src\Cadru.Caching\Cadru.Caching.csproj", "{C291E091-6993-41B7-B0B3-3F6A9ADD2E15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -177,6 +182,18 @@ Global
 		{D39723A8-967F-4526-BFA8-8BDBA9E1E03B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D39723A8-967F-4526-BFA8-8BDBA9E1E03B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D39723A8-967F-4526-BFA8-8BDBA9E1E03B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84B67D70-396E-4236-B1FB-E396DADE0124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84B67D70-396E-4236-B1FB-E396DADE0124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84B67D70-396E-4236-B1FB-E396DADE0124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84B67D70-396E-4236-B1FB-E396DADE0124}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C832464B-E419-4A1B-A423-F77307B04D48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C832464B-E419-4A1B-A423-F77307B04D48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C832464B-E419-4A1B-A423-F77307B04D48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C832464B-E419-4A1B-A423-F77307B04D48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C291E091-6993-41B7-B0B3-3F6A9ADD2E15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C291E091-6993-41B7-B0B3-3F6A9ADD2E15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C291E091-6993-41B7-B0B3-3F6A9ADD2E15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C291E091-6993-41B7-B0B3-3F6A9ADD2E15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

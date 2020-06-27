@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.0</TargetFramework>
-    <Description>Provides transient error detection strategies for adding retry logic into your application.</Description>
-    <PackageTags>$(CommonPackageTags) retry retries transient fault exception handling failure azure</PackageTags>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Provides additional collection classes and extensions.</Description>
+    <PackageTags>$(CommonPackageTags) collections logical natural string comparison date comparison comparer</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cadru.Contracts\Cadru.Contracts.csproj" />
-  </ItemGroup>
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.5.0" />
+    <PackageReference Include="Microsoft.Build.Tasks.Core" Version="16.5.0" />  </ItemGroup>
 
   <ItemGroup>
     <Compile Update="Resources\Strings.Designer.cs">
