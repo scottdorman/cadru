@@ -29,7 +29,7 @@ branches:
 #    environment configuration    #
 #---------------------------------#
 
-image: Visual Studio 2017
+image: Visual Studio 2019
 
 init:
   - git config --global core.autocrlf input
@@ -88,8 +88,7 @@ build:
 before_build:
 - ps: >-
     dotnet restore
-
-    nuget restore
+    dotnet build build/Cadru.VersionUpdate.targets -t:UpdateAssemblyVersionInfo
 
 # scripts to run after build
 after_build:
