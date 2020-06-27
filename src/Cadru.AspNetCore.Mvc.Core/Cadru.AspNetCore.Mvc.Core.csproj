@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Cadru.AspNetCore.Mvc.Core</AssemblyName>
+    <NetStandardImplicitPackageVersion>2.0</NetStandardImplicitPackageVersion>
+    <Description>Provides additional TagHelpers and View Location Expanders for ASP.NET Core.</Description>
+    <PackageTags>$(CommonPackageTags) aspnetcore</PackageTags>
+    <RootNamespace>Cadru.AspNetCore.Mvc</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cadru.Core\Cadru.Core.csproj" />
+  </ItemGroup>
+
+</Project>
