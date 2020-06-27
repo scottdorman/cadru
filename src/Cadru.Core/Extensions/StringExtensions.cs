@@ -950,6 +950,35 @@ namespace Cadru.Extensions
         }
         #endregion
 
+        /// <summary>
+        /// Returns <see langword="null"/> if the specified string is already
+        /// <see langword="null"/> or <see cref="String.Empty"/>. This is useful
+        /// <see cref="https://docs.microsoft.com/dotnet/csharp/language-reference/operators/null-coalescing-operator">Null coalescing operator</see>
+        /// </summary>
+        /// <param name="value">The string to test.</param>
+        /// <returns><see langword="null"/> if <paramref name="value"/> is
+        /// <see langword="null"/> or <see cref="String.Empty"/>; otherwise,
+        /// <paramref name="value"/>.</returns>
+        public static string NullIfEmpty(this string value)
+        {
+            return String.IsNullOrEmpty(value) ? null : value;
+        }
+
+        /// <summary>
+        /// Returns <see langword="null"/> if the specified string is already
+        /// <see langword="null"/>, <see cref="String.Empty"/>, or consists only
+        /// of white-space characters. This is useful to use with the
+        /// <see cref="https://docs.microsoft.com/dotnet/csharp/language-reference/operators/null-coalescing-operator">Null coalescing operator</see>
+        /// </summary>
+        /// <param name="value">The string to test.</param>
+        /// <returns><see langword="null"/> if <paramref name="value"/> is
+        /// <see langword="null"/>, <see cref="String.Empty"/>, or consists only
+        /// of white-space characters; otherwise, <paramref name="value"/>.</returns>
+        public static string NullIfWhiteSpace(this string value)
+        {
+            return String.IsNullOrWhiteSpace(value) ? null : value;
+        }
+
         #region OccurrencesOf
 
         #region OccurrencesOf(string source, char value)

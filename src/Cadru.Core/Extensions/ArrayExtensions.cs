@@ -89,6 +89,12 @@ namespace Cadru.Extensions
         }
         #endregion
 
+        public static string GetStringOrNull(this string[] record, int index)
+        {
+            var val = record.GetValue(index)?.ToString();
+            return String.IsNullOrWhiteSpace(val) ? null : val;
+        }
+
         #region ReverseInPlace
         /// <summary>
         /// Reverses an array.
