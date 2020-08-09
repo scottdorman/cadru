@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Cadru.Caching
 {
@@ -6,20 +7,49 @@ namespace Cadru.Caching
     {
         private static readonly HashSet<CacheKey> keys = new HashSet<CacheKey>();
 
+        public static int Count => keys.Count;
+
         public static IEnumerable<CacheKey> Keys => keys;
 
-        public static CacheKey CreateKey(string prefix, params object[] data)
+        public static CacheKey Add(string prefix, params object[] data)
         {
-            var key = new CacheKey(prefix, data);
-            keys.Add(key);
-            return key;
+            return Add(new CacheKey(prefix, data));
         }
 
-        public static CacheKey CreateKey(string prefix)
+        public static CacheKey Add(string prefix)
         {
-            var key = new CacheKey(prefix);
-            keys.Add(key);
-            return key;
+            return Add(new CacheKey(prefix));
+        }
+
+        public static CacheKey Add(CacheKey item)
+        {
+            keys.Add(item);
+            return item;
+        }
+
+        public static void Clear()
+        {
+            keys.Clear();
+        }
+
+        public static bool Contains(CacheKey item)
+        {
+            return keys.Contains(item);
+        }
+
+        public static bool Remove(CacheKey item)
+        {
+            return keys.Remove(item);
+        }
+
+        public static int RemoveWhere(Predicate<CacheKey> match)
+        {
+            return keys.RemoveWhere(match);
+        }
+
+        public static void TrimExcess()
+        {
+            keys.TrimExcess();
         }
     }
 }

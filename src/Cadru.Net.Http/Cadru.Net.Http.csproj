@@ -1,12 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.1</TargetFramework>
-    <Description>Provides transient error detection strategies for adding retry logic into your HttpClient calls and a UrlBuilder to help simplify building complex URLs.</Description>
-    <PackageTags>$(CommonPackageTags) http retry retries transient fault exception handling failure httpclient uri</PackageTags>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Provides transient error detection strategies for adding retry logic into your HttpClient calls, a UrlBuilder to help simplify building complex URLs, and additional extensions for working with HttpClient.</Description>
+    <PackageTags>$(CommonPackageTags) http retry retries transient fault exception handling failure httpclient uri url</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="System.Net.Requests" Version="4.3.0" />
   </ItemGroup>
 

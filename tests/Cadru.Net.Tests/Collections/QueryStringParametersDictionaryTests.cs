@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-using Cadru.Collections;
+using Cadru.Net.Http.Collections;
 using Cadru.UnitTest.Framework;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;

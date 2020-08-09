@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net45;netstandard1.3</TargetFrameworks>
-    <Description>Provides a standard way to read Excel data.</Description>
-    <PackageTags>$(CommonPackageTags) excel reader datareader</PackageTags>
+    <TargetFrameworks>net46;netstandard1.3</TargetFrameworks>
+    <Description>Provides a standard way to read Excel data and CSV formatted files.</Description>
+    <PackageTags>$(CommonPackageTags) excel csv reader datareader</PackageTags>
   </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
     <Reference Include="System.Xml" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Data" />
@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="1.1.1" />
-    <PackageReference Include="DocumentFormat.OpenXml" Version="2.8.1" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.11.3" />
   </ItemGroup>
 
   <ItemGroup>

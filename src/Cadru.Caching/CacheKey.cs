@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 
 using Cadru.Contracts;
 
@@ -8,12 +9,9 @@ namespace Cadru.Caching
 {
     public class CacheKey
     {
-        public int Hash { get; }
-
-        public string Key { get; }
-
         private CacheKey()
         {
+            this.CancellationToken = new CancellationTokenSource();
         }
 
         public CacheKey(string prefix) : this(prefix, null)
@@ -26,9 +24,9 @@ namespace Cadru.Caching
             Requires.NotNullOrWhiteSpace(prefix, nameof(prefix));
 
             var keyBuilder = new List<string>
-                {
-                    prefix
-                };
+            {
+                prefix
+            };
 
             if (data != null)
             {
@@ -63,6 +61,12 @@ namespace Cadru.Caching
             this.Key = cacheKey;
             this.Hash = cacheKey.GetHashCode();
         }
+
+        private int Hash { get; }
+
+        public string Key { get; }
+
+        public CancellationTokenSource CancellationToken { get; set; }
 
         public override bool Equals(object obj) => (obj is CacheKey key) ? this.Key == key.Key : base.Equals(obj);
 

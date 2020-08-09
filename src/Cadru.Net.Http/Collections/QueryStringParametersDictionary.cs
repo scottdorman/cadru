@@ -20,7 +20,7 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.Collections
+namespace Cadru.Net.Http.Collections
 {
     using System;
     using System.Collections.Generic;
@@ -28,6 +28,7 @@ namespace Cadru.Collections
     using System.Text;
 
     using Cadru.Internal;
+    using Cadru.Net.Http.Resources;
 
     /// <summary>
     /// Represents a collection of query string parameters and values.
@@ -179,7 +180,7 @@ namespace Cadru.Collections
                     var index = pair.IndexOf('=');
                     if (index == -1)
                     {
-                        throw ExceptionBuilder.CreateInvalidOperation(Net.Resources.Strings.InvalidOperation_QueryStringParameterDictionaryParsing);
+                        throw ExceptionBuilder.CreateInvalidOperation(Strings.InvalidOperation_QueryStringParameterDictionaryParsing);
                     }
                     else
                     {

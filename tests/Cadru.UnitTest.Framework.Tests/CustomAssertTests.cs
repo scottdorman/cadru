@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Cadru.UnitTest.Framework.Tests
 {

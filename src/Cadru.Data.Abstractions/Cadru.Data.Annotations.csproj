@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.1</TargetFramework>
+    <TargetFramework>netstandard1.3</TargetFramework>
     <Description>Provides common data annotation attributes.</Description>
     <PackageTags>$(CommonPackageTags) data annotations</PackageTags>
   </PropertyGroup>

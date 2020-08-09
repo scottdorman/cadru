@@ -27,14 +27,19 @@ namespace Cadru.Diagnostics
 {
     public sealed class StopwatchTimer : IDisposable
     {
-        public StopwatchTimer()
+        private readonly Action<Stopwatch> stopAction;
+
+        public StopwatchTimer(Action<Stopwatch> startAction = null, Action<Stopwatch> stopAction = null)
         {
+            this.stopAction = stopAction;
             this.Stopwatch = Stopwatch.StartNew();
+            startAction?.Invoke(this.Stopwatch);
         }
 
         public void Dispose()
         {
             this.Stopwatch.Stop();
+            this.stopAction?.Invoke(this.Stopwatch);
         }
 
         public Stopwatch Stopwatch { get; }

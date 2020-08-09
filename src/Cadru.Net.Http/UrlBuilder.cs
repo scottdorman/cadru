@@ -23,8 +23,9 @@
 namespace Cadru.Net.Http
 {
     using System;
-    using Cadru.Collections;
+
     using Cadru.Contracts;
+    using Cadru.Net.Http.Collections;
 
     /// <summary>
     /// Provides a custom constructor for uniform resource identifiers (URIs)

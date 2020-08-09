@@ -21,6 +21,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Diagnostics;
 using System.Text;
 
 namespace Cadru.Diagnostics
@@ -44,6 +45,12 @@ namespace Cadru.Diagnostics
             }
 
             return messages.ToString();
+        }
+
+        public static string ToElapsedTime(this Stopwatch stopwatch)
+        {
+            var elapsed = stopwatch.Elapsed;
+            return String.Format("{0:00}:{1:00}:{2:00}.{3:00}", elapsed.Hours, elapsed.Minutes, elapsed.Seconds, elapsed.Milliseconds / 10);
         }
     }
 }

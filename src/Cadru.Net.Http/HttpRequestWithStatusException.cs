@@ -24,20 +24,17 @@ using System;
 using System.Globalization;
 using System.Net;
 using System.Net.Http;
-using Cadru.Net.Resources;
+
+using Cadru.Net.Http.Resources;
 
 namespace Cadru.Net.Http
 {
     /// <summary>
     /// Inherits HttpRequestException adding HttpStatusCode to the exception.
     /// </summary>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage(
-        "Microsoft.Design",
-        "CA1032:ImplementStandardExceptionConstructors"),
-     System.Diagnostics.CodeAnalysis.SuppressMessage(
-         "Microsoft.Usage",
-         "CA2237:MarkISerializableTypesWithSerializable",
-         Justification = "HttpRequestException hides the constructor needed for serialization.")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2237:MarkISerializableTypesWithSerializable", Justification = "HttpRequestException hides the constructor needed for serialization.")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2229:Implement serialization constructors", Justification = "HttpRequestException hides the constructor needed for serialization.")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S3925:\"ISerializable\" should be implemented correctly", Justification = "HttpRequestException hides the constructor needed for serialization.")]
     public class HttpRequestWithStatusException : HttpRequestException
     {
         private static string GetFormattedMessage(HttpResponseMessage responseMessage)

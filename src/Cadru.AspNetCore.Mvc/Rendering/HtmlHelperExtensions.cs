@@ -19,7 +19,9 @@ namespace Cadru.AspNetCore.Mvc.Rendering
         }
 
         /// <inheritdoc />
+#pragma warning disable IDE0060 // Remove unused parameter
         public static IEnumerable<SelectListItem> GetEnumSelectList(this IHtmlHelper htmlHelper, Type enumType, string uiHint)
+#pragma warning restore IDE0060 // Remove unused parameter
         {
             Contracts.Requires.NotNull(uiHint, nameof(uiHint));
             Contracts.Requires.IsTrue(enumType.IsEnum && !enumType.IsFlagsEnum());

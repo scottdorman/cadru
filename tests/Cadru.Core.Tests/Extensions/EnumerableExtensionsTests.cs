@@ -119,7 +119,7 @@ namespace Cadru.Core.Extensions.Tests
             Assert.AreEqual(1, partitions.Length);
             CollectionAssert.AreEqual(numbers, partitions[0].ToArray());
 
-            numbers = new int[] { };
+            numbers = Array.Empty<int>();
             partitions = numbers.Partition(3).ToArray();
             Assert.AreEqual(0, partitions.Length);
         }

@@ -20,7 +20,7 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.Net.Extensions
+namespace Cadru.Net.Http.Extensions
 {
     using System;
     using System.Collections.Generic;
@@ -29,7 +29,7 @@ namespace Cadru.Net.Extensions
     using System.Net.Http.Headers;
     using System.Text;
 
-    using Cadru.Collections;
+    using Cadru.Net.Http.Collections;
 
     using Newtonsoft.Json.Linq;
 
@@ -48,7 +48,7 @@ namespace Cadru.Net.Extensions
         {
             if (httpRequest == null)
             {
-                throw new ArgumentNullException("httpRequest");
+                throw new ArgumentNullException(nameof(httpRequest));
             }
 
             var stringBuilder = new StringBuilder();
@@ -74,7 +74,7 @@ namespace Cadru.Net.Extensions
         {
             if (httpResponse == null)
             {
-                throw new ArgumentNullException("httpResponse");
+                throw new ArgumentNullException(nameof(httpResponse));
             }
 
             var stringBuilder = new StringBuilder();
@@ -239,6 +239,7 @@ namespace Cadru.Net.Extensions
                     jObject[httpResponseHeader.Key] = httpResponseHeader.Value.FirstOrDefault();
                 }
             }
+
             if (message.Content != null)
             {
                 foreach (var httpResponseHeader in message.Content.Headers)

@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "Cadru.Build.Tasks": {
+      "commandName": "Project"
+    }
+  }
+}

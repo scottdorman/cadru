@@ -58,23 +58,21 @@ namespace Cadru.Extensions
         ///<returns>The index of the first matching item, or -1 if no items match.</returns>
         public static int FindIndex<T>(this IEnumerable<T> items, Func<T, bool> predicate)
         {
-            if (items == null) throw new ArgumentNullException("items");
-            if (predicate == null) throw new ArgumentNullException("predicate");
+            if (items == null) throw new ArgumentNullException(nameof(items));
+            if (predicate == null) throw new ArgumentNullException(nameof(predicate));
 
-            int retVal = 0;
+            var retVal = 0;
             foreach (var item in items)
             {
                 if (predicate(item)) return retVal;
                 retVal++;
             }
+
             return -1;
         }
 
         public static int FindIndex(this IEnumerable<string> items, string header)
         {
-            if (items == null) throw new ArgumentNullException("items");
-            if (header == null) throw new ArgumentNullException("header");
-
             return FindIndex(items, h => String.CompareOrdinal(h, header) == 0);
         }
         #endregion

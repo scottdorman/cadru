@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>    
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Appveyor.TestLogger" Version="2.0.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="2.10.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
-    <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.1.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Cadru.Net\Cadru.Net.csproj">
+    <ProjectReference Include="..\..\src\Cadru.Net.Http\Cadru.Net.Http.csproj">
       <Project>{70550251-695d-4045-84e5-4ecb7c548b63}</Project>
       <Name>Cadru.Net</Name>
     </ProjectReference>

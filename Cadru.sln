@@ -26,7 +26,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.AspNetCore", "src\Cad
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.TransientFaultHandling", "src\Cadru.TransientFaultHandling\Cadru.TransientFaultHandling.csproj", "{9ECA0E2F-7F6D-4201-B5B2-7EE78A0FE5D5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Net", "src\Cadru.Net\Cadru.Net.csproj", "{70550251-695D-4045-84E5-4ECB7C548B63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Net.Http", "src\Cadru.Net.Http\Cadru.Net.Http.csproj", "{70550251-695D-4045-84E5-4ECB7C548B63}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Net.NetworkInformation", "src\Cadru.Net.NetworkInformation\Cadru.Net.NetworkInformation.csproj", "{14B3A2A6-26D8-4166-9913-7C958CDBECB7}"
 EndProject
@@ -68,7 +68,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Data.Annotations.Test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Build.Tasks", "src\Cadru.Build.Tasks\Cadru.Build.Tasks.csproj", "{84B67D70-396E-4236-B1FB-E396DADE0124}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.AspNetCore.Mvc.Core", "src\Cadru.AspNetCore.Mvc.Core\Cadru.AspNetCore.Mvc.Core.csproj", "{C832464B-E419-4A1B-A423-F77307B04D48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.AspNetCore.Mvc", "src\Cadru.AspNetCore.Mvc\Cadru.AspNetCore.Mvc.csproj", "{C832464B-E419-4A1B-A423-F77307B04D48}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Caching", "src\Cadru.Caching\Cadru.Caching.csproj", "{F78A10E8-9C09-4580-B9E7-B8BB9844CCAC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Scim", "src\Cadru.Scim\Cadru.Scim.csproj", "{FEAB8DFA-828E-4F7E-AE7E-F15AA0F282F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -188,6 +192,14 @@ Global
 		{C832464B-E419-4A1B-A423-F77307B04D48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C832464B-E419-4A1B-A423-F77307B04D48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C832464B-E419-4A1B-A423-F77307B04D48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F78A10E8-9C09-4580-B9E7-B8BB9844CCAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F78A10E8-9C09-4580-B9E7-B8BB9844CCAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F78A10E8-9C09-4580-B9E7-B8BB9844CCAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F78A10E8-9C09-4580-B9E7-B8BB9844CCAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEAB8DFA-828E-4F7E-AE7E-F15AA0F282F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEAB8DFA-828E-4F7E-AE7E-F15AA0F282F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEAB8DFA-828E-4F7E-AE7E-F15AA0F282F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEAB8DFA-828E-4F7E-AE7E-F15AA0F282F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

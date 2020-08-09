@@ -34,7 +34,7 @@ namespace Cadru.Build.Tasks
         public override bool Execute()
         {
             var document = XDocument.Load(this.File.ItemSpec);
-            var entry = document.Root.Descendants("entry").Where(e => e.Attribute("version").Value == "vNext" || e.Attribute("version").Value == "" || e.Attribute("version").Value == this.Version).SingleOrDefault();
+            var entry = document.Root.Descendants("entry").SingleOrDefault(e => e.Attribute("version").Value == "vNext" || String.IsNullOrEmpty(e.Attribute("version").Value) || e.Attribute("version").Value == this.Version);
             if (entry != null)
             {
                 this.Log.LogMessage("Build entry found; updating attributes.");
@@ -54,7 +54,7 @@ namespace Cadru.Build.Tasks
             else
             {
                 this.Log.LogMessage("Build entry not found.");
-                if (this.AddIfNotFound == true)
+                if (this.AddIfNotFound)
                 {
                     this.Log.LogMessage("Adding new build entry.");
                     entry = new XElement("entry",
