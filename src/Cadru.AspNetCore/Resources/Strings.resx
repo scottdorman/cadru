@@ -133,6 +133,6 @@
     <value>Location: {0}</value>
   </data>
   <data name="Debugging_HttpMessage_Response" xml:space="preserve">
-    <value>{0} ({0:D})</value>
+    <value>{0} ({0:D}) </value>
   </data>
 </root>

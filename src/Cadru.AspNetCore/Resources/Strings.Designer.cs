@@ -61,7 +61,7 @@ namespace Cadru.AspNetCore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} ({0:D}).
+        ///   Looks up a localized string similar to {0} ({0:D}) .
         /// </summary>
         internal static string Debugging_HttpMessage_Response {
             get {
