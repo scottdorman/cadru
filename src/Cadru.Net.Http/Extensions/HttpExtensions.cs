@@ -191,13 +191,14 @@ namespace Cadru.Net.Http.Extensions
         /// </summary>
         /// <param name="request">The request message.</param>
         /// <returns>The content headers.</returns>
-        public static HttpHeaders GetContentHeaders(this HttpRequestMessage request)
+        public static HttpContentHeaders GetContentHeaders(this HttpRequestMessage request)
         {
             if (request != null && request.Content != null)
             {
                 return request.Content.Headers;
             }
-            return null;
+
+            return default;
         }
 
         /// <summary>
@@ -205,13 +206,14 @@ namespace Cadru.Net.Http.Extensions
         /// </summary>
         /// <param name="response">The response message.</param>
         /// <returns>The content headers.</returns>
-        public static HttpHeaders GetContentHeaders(this HttpResponseMessage response)
+        public static HttpContentHeaders GetContentHeaders(this HttpResponseMessage response)
         {
             if (response != null && response.Content != null)
             {
                 return response.Content.Headers;
             }
-            return null;
+
+            return default;
         }
         #endregion
 
@@ -257,6 +259,20 @@ namespace Cadru.Net.Http.Extensions
             return jObject;
         }
         #endregion
+
+        public static bool TryGetHeaderValue(this HttpRequestMessage requestMessage, string name, out string value)
+        {
+            var found = false;
+            value = null;
+
+            if (requestMessage.Headers.TryGetValues(name, out var values))
+            {
+                value = values.First();
+                found = true;
+            }
+
+            return found;
+        }
 
         #region ToJson
         /// <summary>

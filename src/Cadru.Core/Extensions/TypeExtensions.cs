@@ -23,6 +23,7 @@
 namespace Cadru.Extensions
 {
     using System;
+    using System.Collections;
     using System.Linq;
     using System.Reflection;
 
@@ -288,6 +289,17 @@ namespace Cadru.Extensions
             return typeInfo.GetCustomAttribute<FlagsAttribute>(inherit: false) != null;
         }
         #endregion
+
+        /// <summary>
+        /// Determines if the type is an enumerable type.
+        /// </summary>
+        /// <param name="type">The type to test.</param>
+        /// <returns><see langword="true"/> if the specified type is an
+        /// enumerable type; otherwise, <see langword="false"/>.</returns>
+        public static bool IsEnumerableType(this Type type)
+        {
+            return type.HasInterface<IEnumerable>();
+        }
 
         #endregion
     }

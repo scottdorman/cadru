@@ -33,7 +33,7 @@ namespace Cadru.Net.Http.Collections
     /// <summary>
     /// Represents a collection of query string parameters and values.
     /// </summary>
-    public class QueryStringParametersDictionary : Dictionary<string, string>
+    public sealed class QueryStringParametersDictionary : Dictionary<string, string>
     {
         #region fields
         #endregion

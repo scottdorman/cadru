@@ -23,6 +23,7 @@
 namespace Cadru.Net.Http
 {
     using System;
+
     using Cadru.Contracts;
 
     /// <summary>
@@ -30,7 +31,7 @@ namespace Cadru.Net.Http
     /// </summary>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1311:StaticReadonlyFieldsMustBeginWithUpperCaseLetter", Justification = "Reviewed.")]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
-    public class UriScheme : IEquatable<UriScheme>
+    public sealed class UriScheme : IEquatable<UriScheme>
     {
         #region fields
         private static readonly UriScheme fileScheme = new UriScheme("file");
@@ -40,7 +41,7 @@ namespace Cadru.Net.Http
         private static readonly UriScheme httpsScheme = new UriScheme("https");
         private static readonly UriScheme mailtoScheme = new UriScheme("mailto");
         private static readonly UriScheme newsScheme = new UriScheme("news");
-        private string scheme;
+        private readonly string scheme;
         #endregion
 
         #region constructors

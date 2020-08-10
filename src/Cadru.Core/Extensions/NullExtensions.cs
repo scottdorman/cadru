@@ -22,6 +22,8 @@
 
 namespace Cadru.Extensions
 {
+    using System;
+
     using Cadru.Internal;
 
     /// <summary>
@@ -50,9 +52,20 @@ namespace Cadru.Extensions
         /// <param name="source">The source instance.</param>
         /// <returns><see langword="true"/> if <paramref name="source"/> is not <see langword="null"/>;
         /// otherwise, <see langword="false"/>.</returns>
-        public static bool IsNotNull<T>([ValidatedNotNull]this T source)
+        public static bool IsNotNull<T>([ValidatedNotNull] this T source)
         {
             return source != null;
+        }
+
+        public static bool IsNullOrEmpty([ValidatedNotNull] this Guid? source)
+        {
+            var empty = !source.HasValue;
+            if (!empty)
+            {
+                empty = source.Value == Guid.Empty;
+            }
+
+            return empty;
         }
     }
 }
