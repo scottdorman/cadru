@@ -52,7 +52,7 @@ namespace Cadru.Contracts.Internal
         /// otherwise, <see langword="false"/>.</returns>
         public static bool IsEmpty(this IEnumerable source)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             var empty = false;
 

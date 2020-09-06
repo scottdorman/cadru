@@ -57,7 +57,7 @@ namespace Cadru.Contracts
         [Conditional("DEBUG")]
         public static void Fail(string message)
         {
-            Assumes.FailFast(message);
+            FailFast(message);
         }
         #endregion
 
@@ -76,7 +76,7 @@ namespace Cadru.Contracts
         public static void IsEnum([ValidatedNotNull]Enum value, string parameterName)
         {
             Requires.NotNull(value, parameterName);
-            Assumes.IsTrue(value.GetType().GetTypeInfo().IsEnum);
+            IsTrue(value.GetType().GetTypeInfo().IsEnum);
         }
         #endregion
 
@@ -93,7 +93,7 @@ namespace Cadru.Contracts
         public static void IsEnum([ValidatedNotNull]object value, string parameterName)
         {
             Requires.NotNull(value, parameterName);
-            Assumes.IsTrue(value.GetType().GetTypeInfo().IsEnum);
+            IsTrue(value.GetType().GetTypeInfo().IsEnum);
         }
         #endregion
 
@@ -111,7 +111,7 @@ namespace Cadru.Contracts
         [Conditional("DEBUG")]
         public static void IsFalse(bool condition)
         {
-            Assumes.IsFalse(condition, null);
+            IsFalse(condition, null);
         }
         #endregion
 
@@ -128,7 +128,7 @@ namespace Cadru.Contracts
         {
             if (condition)
             {
-                Assumes.Fail(message);
+                Fail(message);
             }
         }
         #endregion
@@ -147,7 +147,7 @@ namespace Cadru.Contracts
         [Conditional("DEBUG")]
         public static void IsTrue(bool condition)
         {
-            Assumes.IsTrue(condition, null);
+            IsTrue(condition, null);
         }
         #endregion
 
@@ -164,7 +164,7 @@ namespace Cadru.Contracts
         {
             if (!condition)
             {
-                Assumes.Fail(message);
+                Fail(message);
             }
         }
         #endregion
@@ -187,7 +187,7 @@ namespace Cadru.Contracts
         public static void IsType([ValidatedNotNull]object value, Type expectedType, string parameterName)
         {
             Requires.NotNull(value, parameterName);
-            Assumes.IsTrue(value.GetType() == expectedType);
+            IsTrue(value.GetType() == expectedType);
         }
         #endregion
 
@@ -204,7 +204,7 @@ namespace Cadru.Contracts
         [Conditional("DEBUG")]
         public static void IsType<T>([ValidatedNotNull]object value, string parameterName)
         {
-            Assumes.IsType(value, typeof(T), parameterName);
+            IsType(value, typeof(T), parameterName);
         }
         #endregion
 
@@ -223,7 +223,7 @@ namespace Cadru.Contracts
         [Conditional("DEBUG")]
         public static void NotNull<T>(T value)
         {
-            Assumes.IsTrue(value != null);
+            IsTrue(value != null);
         }
         #endregion
 
@@ -246,8 +246,8 @@ namespace Cadru.Contracts
         [Conditional("DEBUG")]
         public static void NotNull<T1, T2>(T1 value1, T2 value2)
         {
-            Assumes.NotNull(value1);
-            Assumes.NotNull(value2);
+            NotNull(value1);
+            NotNull(value2);
         }
         #endregion
 
@@ -275,9 +275,9 @@ namespace Cadru.Contracts
         [Conditional("DEBUG")]
         public static void NotNull<T1, T2, T3>(T1 value1, T2 value2, T3 value3)
         {
-            Assumes.NotNull(value1);
-            Assumes.NotNull(value2);
-            Assumes.NotNull(value3);
+            NotNull(value1);
+            NotNull(value2);
+            NotNull(value3);
         }
         #endregion
 
@@ -311,10 +311,10 @@ namespace Cadru.Contracts
         [Conditional("DEBUG")]
         public static void NotNull<T1, T2, T3, T4>(T1 value1, T2 value2, T3 value3, T4 value4)
         {
-            Assumes.NotNull(value1);
-            Assumes.NotNull(value2);
-            Assumes.NotNull(value3);
-            Assumes.NotNull(value4);
+            NotNull(value1);
+            NotNull(value2);
+            NotNull(value3);
+            NotNull(value4);
         }
         #endregion
 
@@ -331,8 +331,8 @@ namespace Cadru.Contracts
         [Conditional("DEBUG")]
         public static void NotNullOrEmpty([ValidatedNotNull]string value)
         {
-            Assumes.NotNull(value);
-            Assumes.IsTrue(value.Length > 0);
+            NotNull(value);
+            IsTrue(value.Length > 0);
         }
         #endregion
 
@@ -346,7 +346,7 @@ namespace Cadru.Contracts
         [Conditional("DEBUG")]
         public static void Null(object value)
         {
-            Assumes.IsTrue(value == null);
+            IsTrue(value == null);
         }
         #endregion
 
