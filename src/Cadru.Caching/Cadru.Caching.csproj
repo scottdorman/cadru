@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
     <Description>Provides a standard implementation for creating and using cache keys.</Description>
     <PackageTags>$(CommonPackageTags) cache caching keys</PackageTags>
   </PropertyGroup>
