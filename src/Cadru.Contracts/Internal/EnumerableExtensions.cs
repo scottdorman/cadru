@@ -19,11 +19,10 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
+using System.Collections;
 
 namespace Cadru.Contracts.Internal
 {
-    using System.Collections;
-
     /// <summary>
     /// Provides basic routines for common sequence and collection manipulation.
     /// </summary>
@@ -80,7 +79,7 @@ namespace Cadru.Contracts.Internal
         /// <param name="source">The collection to test.</param>
         /// <returns><see langword="true"/> if the collection is <see langword="null"/>;
         /// otherwise, <see langword="false"/>.</returns>
-        public static bool IsNull([ValidatedNotNull]this IEnumerable source)
+        public static bool IsNull([ValidatedNotNull] this IEnumerable source)
         {
             return source == null;
         }
@@ -93,7 +92,7 @@ namespace Cadru.Contracts.Internal
         /// <param name="source">The collection to test.</param>
         /// <returns><see langword="true"/> if the collection is <see langword="null"/>
         /// or does not contain values; otherwise, <see langword="false"/>.</returns>
-        public static bool IsNullOrEmpty([ValidatedNotNull]this IEnumerable source)
+        public static bool IsNullOrEmpty([ValidatedNotNull] this IEnumerable source)
         {
             return source == null || source.IsEmpty();
         }

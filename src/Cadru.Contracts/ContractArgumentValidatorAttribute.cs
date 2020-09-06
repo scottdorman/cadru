@@ -19,11 +19,10 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
+using System;
 
 namespace Cadru.Contracts
 {
-    using System;
-
     /// <summary>
     /// Enables factoring legacy if-then-throw into separate methods for reuse and full control over
     /// thrown exception and arguments.

@@ -19,19 +19,18 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Diagnostics.Contracts;
+using System.Linq;
+using System.Reflection;
+
+using Cadru.Contracts.Internal;
 
 namespace Cadru.Contracts
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Diagnostics.Contracts;
-    using System.Linq;
-    using System.Reflection;
-
-    using Internal;
-
     /// <summary>
     /// Provides a set of methods to simplify code contract requirements.
     /// </summary>

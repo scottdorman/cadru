@@ -19,13 +19,11 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
+using System;
+using System.Runtime.Serialization;
 
 namespace Cadru.Contracts
 {
-    using System;
-    using System.Runtime.Serialization;
-
-
     /// <summary>
     /// The exception that is thrown when an assumption fails.
     /// </summary>

@@ -19,12 +19,11 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
+using System;
+using System.Globalization;
 
 namespace Cadru.Contracts.Internal
 {
-    using System;
-    using System.Globalization;
-
     /// <summary>
     /// Provides methods to create specific exceptions.
     /// </summary>

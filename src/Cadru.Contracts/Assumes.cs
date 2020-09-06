@@ -19,15 +19,15 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
+using System;
+using System.Diagnostics;
+using System.Globalization;
+using System.Reflection;
+
+using Cadru.Contracts.Internal;
 
 namespace Cadru.Contracts
 {
-    using System;
-    using System.Diagnostics;
-    using System.Globalization;
-    using System.Reflection;
-    using Cadru.Contracts.Internal;
-
     /// <summary>
     /// Provides a set of methods to simplify debugging your code.
     /// </summary>
@@ -73,7 +73,7 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException"><paramref name="value"/>  is not an enumerated type.</exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void IsEnum([ValidatedNotNull]Enum value, string parameterName)
+        public static void IsEnum([ValidatedNotNull] Enum value, string parameterName)
         {
             Requires.NotNull(value, parameterName);
             IsTrue(value.GetType().GetTypeInfo().IsEnum);
@@ -90,7 +90,7 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException"><paramref name="value"/>  is not an enumerated type.</exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void IsEnum([ValidatedNotNull]object value, string parameterName)
+        public static void IsEnum([ValidatedNotNull] object value, string parameterName)
         {
             Requires.NotNull(value, parameterName);
             IsTrue(value.GetType().GetTypeInfo().IsEnum);
@@ -184,7 +184,7 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException"><paramref name="value"/>  is not an enumerated type.</exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void IsType([ValidatedNotNull]object value, Type expectedType, string parameterName)
+        public static void IsType([ValidatedNotNull] object value, Type expectedType, string parameterName)
         {
             Requires.NotNull(value, parameterName);
             IsTrue(value.GetType() == expectedType);
@@ -202,7 +202,7 @@ namespace Cadru.Contracts
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void IsType<T>([ValidatedNotNull]object value, string parameterName)
+        public static void IsType<T>([ValidatedNotNull] object value, string parameterName)
         {
             IsType(value, typeof(T), parameterName);
         }
@@ -329,7 +329,7 @@ namespace Cadru.Contracts
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void NotNullOrEmpty([ValidatedNotNull]string value)
+        public static void NotNullOrEmpty([ValidatedNotNull] string value)
         {
             NotNull(value);
             IsTrue(value.Length > 0);

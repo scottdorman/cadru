@@ -19,11 +19,10 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
+using System;
 
 namespace Cadru.Contracts.Internal
 {
-    using System;
-
     /// <summary>
     /// Indicates to Code Analysis that a method validates a particular parameter.
     /// </summary>
