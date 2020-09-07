@@ -24,6 +24,10 @@ projects from the command-line or the IDE. -->
     <SourceLinkCreate>true</SourceLinkCreate>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <DocumentationFile>$(MSBuildProjectName).xml</DocumentationFile>
+  </PropertyGroup>
+
   <!-- Defines properties which help customize the version update process. -->
   <PropertyGroup>
     <GenerateReleaseNotes Condition="'$(GenerateReleaseNotes)' == ''">false</GenerateReleaseNotes>
