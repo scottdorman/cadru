@@ -1,0 +1,417 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cadru.Scim</name>
+    </assembly>
+    <members>
+        <member name="T:Cadru.Scim.Filters.FilterExpression">
+            <summary>
+            Represents an SCIM filter expression.
+            </summary>
+            <remarks>
+            Each expression MUST contain an attribute name followed by an attribute
+            operator and optional value. Multiple expressions MAY be combined using
+            an <see cref="T:Cadru.Scim.Filters.IFilterGroup"></see>.
+            </remarks>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterExpression.Attribute">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterExpression.Operator">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterExpression.Value">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterExpression.ToFilterExpression(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterExpression.ToString">
+            <summary>
+            Returns a string that represents the current <see
+            cref="T:Cadru.Scim.Filters.FilterExpression"></see> as a valid query
+            </summary>
+            <returns>A string that represents the current <see
+            cref="T:Cadru.Scim.Filters.FilterExpression"></see>.</returns>
+        </member>
+        <member name="T:Cadru.Scim.Filters.FilterExpressionOperator">
+            <summary>
+            The expression operators.
+            </summary>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator"/> structure.
+            </summary>
+            <param name="value">The string value of the instance.</param>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterExpressionOperator.Contains">
+            <summary>
+            The entire operator value must be a substring of the attribute value for a match.
+            </summary>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterExpressionOperator.EndsWith">
+            <summary>
+            The entire operator value must be a substring of the attribute value,
+            matching at the end of the attribute value.
+            </summary>
+            <remarks>
+            This criterion is satisfied if the two strings are identical.
+            </remarks>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterExpressionOperator.Equal">
+            <summary>
+            The attribute and operator values must be identical for a match.
+            </summary>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterExpressionOperator.GreaterThan">
+            <summary>
+            If the attribute value is greater than the operator value, there is
+            a match.
+            </summary>
+            <remarks>
+            The actual comparison is dependent on the attribute type. For string
+            attribute types, this is a lexicographical comparison, and for
+            DateTime types, it is a chronological comparison. For integer
+            attributes, it is a comparison by numeric value. Boolean and Binary
+            attributes will cause a failed response (HTTP status code 400) with
+            "scimType" of "invalidFilter".
+            </remarks>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterExpressionOperator.GreaterThanOrEqual">
+            <summary>
+            If the attribute value is greater than or equal to the operator
+            value, there is a match.
+            </summary>
+            <remarks>
+            The actual comparison is dependent on the attribute type. For string
+            attribute types, this is a lexicographical comparison, and for
+            DateTime types, it is a chronological comparison. For integer
+            attributes, it is a comparison by numeric value. Boolean and Binary
+            attributes will cause a failed response (HTTP status code 400) with
+            "scimType" of "invalidFilter".
+            </remarks>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterExpressionOperator.HasValue">
+            <summary>
+            If the attribute has a non-empty or non-null value, or if it
+            contains a  non-empty node for complex attributes, there is a match.
+            </summary>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterExpressionOperator.LessThan">
+            <summary>
+            If the attribute value is less than the operator value, there is
+            a match.
+            </summary>
+            <remarks>
+            The actual comparison is dependent on the attribute type. For string
+            attribute types, this is a lexicographical comparison, and for
+            DateTime types, it is a chronological comparison. For integer
+            attributes, it is a comparison by numeric value. Boolean and Binary
+            attributes will cause a failed response (HTTP status code 400) with
+            "scimType" of "invalidFilter".
+            </remarks>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterExpressionOperator.LessThanOrEqual">
+            <summary>
+            If the attribute value is less than or equal to the operator
+            value, there is a match.
+            </summary>
+            <remarks>
+            The actual comparison is dependent on the attribute type. For string
+            attribute types, this is a lexicographical comparison, and for
+            DateTime types, it is a chronological comparison. For integer
+            attributes, it is a comparison by numeric value. Boolean and Binary
+            attributes will cause a failed response (HTTP status code 400) with
+            "scimType" of "invalidFilter".
+            </remarks>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterExpressionOperator.NotEqual">
+            <summary>
+            The attribute and operator values are not identical.
+            </summary>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterExpressionOperator.Present">
+            <summary>
+            If the attribute has a non-empty or non-null value, or if it
+            contains a  non-empty node for complex attributes, there is a match.
+            </summary>
+            <remarks>
+            This is synonymous with <see cref="P:Cadru.Scim.Filters.FilterExpressionOperator.HasValue"></see>.
+            </remarks>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterExpressionOperator.StartsWith">
+            <summary>
+            The entire operator value must be a substring of the attribute value,
+            matching at the beginning of the attribute value.
+            </summary>
+            <remarks>
+            This criterion is satisfied if the two strings are identical.
+            </remarks>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.op_Implicit(System.String)~Cadru.Scim.Filters.FilterExpressionOperator">
+            <summary>
+            Converts a string to a <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator"/>.
+            </summary>
+            <param name="value">The string value to convert.</param>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.op_Inequality(Cadru.Scim.Filters.FilterExpressionOperator,Cadru.Scim.Filters.FilterExpressionOperator)">
+            <summary>
+            Determines if two <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator"/> values are different.
+            </summary>
+            <param name="left">The first <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator"/> to compare.</param>
+            <param name="right">The second <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator"/> to compare.</param>
+            <returns>True if <paramref name="left"/> and <paramref name="right"/> are different; otherwise, false.</returns>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.op_Equality(Cadru.Scim.Filters.FilterExpressionOperator,Cadru.Scim.Filters.FilterExpressionOperator)">
+            <summary>
+            Determines if two <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator"/> values are the same.
+            </summary>
+            <param name="left">The first <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator"/> to compare.</param>
+            <param name="right">The second <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator"/> to compare.</param>
+            <returns>True if <paramref name="left"/> and <paramref name="right"/> are the same; otherwise, false.</returns>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.Equals(Cadru.Scim.Filters.FilterExpressionOperator)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.Scim.Filters.FilterGroup">
+            <summary>
+            Represents a group of <see cref="T:Cadru.Scim.Filters.IFilter"></see> instances.
+            </summary>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterGroup.Filters">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterGroup.GroupingCharacter">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterGroup.LogicalOperator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterGroup.ToFilterExpression(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterGroup.ToString">
+            <summary>
+            Returns a string that represents the current <see
+            cref="T:Cadru.Scim.Filters.FilterGroup"></see> as a valid query
+            </summary>
+            <returns>A string that represents the current <see
+            cref="T:Cadru.Scim.Filters.FilterGroup"></see>.</returns>
+        </member>
+        <member name="T:Cadru.Scim.Filters.FilterGroupExtensions">
+            <summary>
+            Extension methods for working with <see cref="T:Cadru.Scim.Filters.IFilterGroup"></see> instances.
+            </summary>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterGroupExtensions.AddExpression(Cadru.Scim.Filters.IFilterGroup,Cadru.Scim.Filters.IFilterExpression)">
+            <summary>
+            Add a new <see cref="T:Cadru.Scim.Filters.IFilterExpression"></see> to the <see
+            cref="T:Cadru.Scim.Filters.IFilterGroup"></see>.
+            </summary>
+            <param name="filterGroup">A <see cref="T:Cadru.Scim.Filters.IFilterGroup"></see> to
+            modify.</param>
+            <param name="filter">An <see cref="T:Cadru.Scim.Filters.IFilterExpression"></see> to
+            add.</param>
+            <returns>A reference to the <paramref name="filterGroup"/> after the
+            operation has completed. </returns>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterGroupExtensions.AddGroup(Cadru.Scim.Filters.IFilterGroup,Cadru.Scim.Filters.IFilterGroup)">
+            <summary>
+            Add a new <see cref="T:Cadru.Scim.Filters.IFilterGroup"></see> to the <see cref="T:Cadru.Scim.Filters.IFilterGroup"></see>.
+            </summary>
+            <param name="filterGroup">A <see cref="T:Cadru.Scim.Filters.IFilterGroup"></see> to modify.</param>
+            <param name="group">An <see cref="T:Cadru.Scim.Filters.IFilterGroup"></see> to
+            add.</param>
+            <returns>A reference to the <paramref name="filterGroup"/> after the
+            operation has completed. </returns>
+        </member>
+        <member name="T:Cadru.Scim.Filters.FilterLogicalOperator">
+            <summary>
+            The logical grouping operators for grouping one or more <see cref="T:Cadru.Scim.Filters.IFilterExpression"></see>
+            instances together in an <see cref="T:Cadru.Scim.Filters.IFilterGroup"></see>.
+            </summary>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator"/> structure.
+            </summary>
+            <param name="value">The string value of the instance.</param>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterLogicalOperator.And">
+            <summary>
+            The <see cref="T:Cadru.Scim.Filters.IFilterGroup"></see> is only a match if all
+            <see cref="T:Cadru.Scim.Filters.IFilterExpression"></see> instances evaluate to true.
+            </summary>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterLogicalOperator.Or">
+            <summary>
+            The <see cref="T:Cadru.Scim.Filters.IFilterGroup"></see> is only a match if any
+            <see cref="T:Cadru.Scim.Filters.IFilterExpression"></see> instances evaluate to true.
+            </summary>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.op_Implicit(System.String)~Cadru.Scim.Filters.FilterLogicalOperator">
+            <summary>
+            Converts a string to a <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator"/>.
+            </summary>
+            <param name="value">The string value to convert.</param>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.op_Inequality(Cadru.Scim.Filters.FilterLogicalOperator,Cadru.Scim.Filters.FilterLogicalOperator)">
+            <summary>
+            Determines if two <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator"/> values are different.
+            </summary>
+            <param name="left">The first <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator"/> to compare.</param>
+            <param name="right">The second <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator"/> to compare.</param>
+            <returns>True if <paramref name="left"/> and <paramref name="right"/> are different; otherwise, false.</returns>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.op_Equality(Cadru.Scim.Filters.FilterLogicalOperator,Cadru.Scim.Filters.FilterLogicalOperator)">
+            <summary>
+            Determines if two <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator"/> values are the same.
+            </summary>
+            <param name="left">The first <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator"/> to compare.</param>
+            <param name="right">The second <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator"/> to compare.</param>
+            <returns>True if <paramref name="left"/> and <paramref name="right"/> are the same; otherwise, false.</returns>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.Equals(Cadru.Scim.Filters.FilterLogicalOperator)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.Scim.Filters.GroupingCharacter">
+            <summary>
+            Indicates the grouping character used by an <see
+            cref="T:Cadru.Scim.Filters.IFilterGroup"></see>.
+            </summary>
+        </member>
+        <member name="F:Cadru.Scim.Filters.GroupingCharacter.None">
+            <summary>
+            No grouping characters will be used.
+            </summary>
+        </member>
+        <member name="F:Cadru.Scim.Filters.GroupingCharacter.Parentheses">
+            <summary>
+            Boolean expressions may be grouped using parentheses to change the
+            standard order of operations.
+            </summary>
+        </member>
+        <member name="F:Cadru.Scim.Filters.GroupingCharacter.SquareBracket">
+            <summary>
+            Service providers may support complex filters where expressions must
+            be applied to the same value of a parent attribute. The expression
+            with square brackets must be a valid filter expression based upon
+            sub-attributes of the parent attribute. Nested expressions may be
+            used.
+            </summary>
+        </member>
+        <member name="T:Cadru.Scim.Filters.IFilter">
+            <summary>
+            Represents common features of an SCIM filter expression or filter group.
+            </summary>
+        </member>
+        <member name="M:Cadru.Scim.Filters.IFilter.ToFilterExpression(System.Boolean)">
+            <summary>
+            Returns a string that represents the current <see
+            cref="T:Cadru.Scim.Filters.FilterExpression"></see> as a valid query
+            </summary>
+            <param name="prependQuerySeprator">To prepend the "?" query string
+            separator, <see langword="true"></see>; otherwise, <see
+            langword="false"></see>.</param>
+            <returns>A string that represents the current <see
+            cref="T:Cadru.Scim.Filters.FilterExpression"></see>.</returns>
+        </member>
+        <member name="T:Cadru.Scim.Filters.IFilterExpression">
+            <summary>
+            Represents an SCIM filter expression.
+            </summary>
+            <remarks>
+            Each expression MUST contain an attribute name followed by an attribute
+            operator and optional value. Multiple expressions MAY be combined using
+            an <see cref="T:Cadru.Scim.Filters.IFilterGroup"></see>.
+            </remarks>
+        </member>
+        <member name="P:Cadru.Scim.Filters.IFilterExpression.Attribute">
+            <summary>
+            The attribute name.
+            </summary>
+        </member>
+        <member name="P:Cadru.Scim.Filters.IFilterExpression.Operator">
+            <summary>
+            The attribute operator.
+            </summary>
+        </member>
+        <member name="P:Cadru.Scim.Filters.IFilterExpression.Value">
+            <summary>
+            The value.
+            </summary>
+        </member>
+        <member name="T:Cadru.Scim.Filters.IFilterGroup">
+            <summary>
+            Represents a group of <see cref="T:Cadru.Scim.Filters.IFilter"></see> instances.
+            </summary>
+        </member>
+        <member name="P:Cadru.Scim.Filters.IFilterGroup.Filters">
+            <summary>
+            The collection of <see cref="T:Cadru.Scim.Filters.IFilter"></see> instances to be
+            grouped.
+            </summary>
+            <remarks>
+            An <see cref="T:Cadru.Scim.Filters.IFilterGroup"></see> may contain either <see
+            cref="T:Cadru.Scim.Filters.IFilterExpression"></see> instances or <see
+            cref="T:Cadru.Scim.Filters.IFilterGroup"></see> instances.
+            </remarks>
+        </member>
+        <member name="P:Cadru.Scim.Filters.IFilterGroup.GroupingCharacter">
+            <summary>
+            The grouping character used.
+            </summary>
+        </member>
+        <member name="P:Cadru.Scim.Filters.IFilterGroup.LogicalOperator">
+            <summary>
+            The logical grouping operator.
+            </summary>
+        </member>
+        <member name="T:Cadru.Scim.Filters.NotFilterGroup">
+            <summary>
+            Represents a group of <see cref="T:Cadru.Scim.Filters.IFilter"></see> instances where the
+            filter is a match if the expression evaluates to <see
+            langword="false"></see>.
+            </summary>
+        </member>
+        <member name="P:Cadru.Scim.Filters.NotFilterGroup.Filters">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cadru.Scim.Filters.NotFilterGroup.GroupingCharacter">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cadru.Scim.Filters.NotFilterGroup.LogicalOperator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Scim.Filters.NotFilterGroup.ToFilterExpression(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Scim.Filters.NotFilterGroup.ToString">
+            <summary>
+            Returns a string that represents the current <see
+            cref="T:Cadru.Scim.Filters.NotFilterGroup"></see> as a valid query
+            </summary>
+            <returns>A string that represents the current <see
+            cref="T:Cadru.Scim.Filters.NotFilterGroup"></see>.</returns>
+        </member>
+    </members>
+</doc>
