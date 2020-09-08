@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="ITransientErrorDetectionStrategy.cs"
+// <copyright file="IExceptionHandlingStrategy.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2020 Scott Dorman.
