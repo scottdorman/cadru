@@ -20,14 +20,14 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
+
+using Dapper;
+
 namespace Cadru.Data.Dapper.Internal
 {
-    using System.Linq;
-    using System.Linq.Expressions;
-    using System.Reflection;
-
-    using global::Dapper;
-
     internal static class TypeHelpers
     {
         public static PropertyInfo? GetProperty(this LambdaExpression lambda)

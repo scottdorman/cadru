@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="TableMap{T}.cs"
+// <copyright file="CombTypeHandler.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2020 Scott Dorman.
@@ -20,19 +20,29 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Data;
+
+using Dapper;
+
 namespace Cadru.Data.Dapper
 {
-    using System;
-
-#pragma warning disable 1591
-
-    [Obsolete("Use ObjectMap<T> directly instead.")]
-    public class TableMap<T> : ObjectMap<T> where T : class
+    /// <summary>
+    /// A type handler to convert between a <see cref="Comb"/> and a <see cref="Guid"/>.
+    /// </summary>
+    public class CombTypeHandler : SqlMapper.TypeHandler<Comb>
     {
-        internal TableMap(CommandAdapter commandAdapter) : base(commandAdapter, DatabaseObjectType.Table)
+        /// <inheritdoc/>
+        public override Comb Parse(object value)
         {
+            return new Comb(value.ToString());
+        }
+
+        /// <inheritdoc/>
+        public override void SetValue(IDbDataParameter parameter, Comb value)
+        {
+            parameter.DbType = DbType.Guid;
+            parameter.Value = new Guid(value.ToString());
         }
     }
-
-#pragma warning restore 1591
 }

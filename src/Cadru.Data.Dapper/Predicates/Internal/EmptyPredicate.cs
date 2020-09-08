@@ -20,12 +20,12 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
+using Dapper;
+
 namespace Cadru.Data.Dapper.Predicates.Internal
 {
-    using System;
-
-    using global::Dapper;
-
     internal class EmptyPredicate : IPredicate
     {
         public string GetSql(DynamicParameters parameters, IObjectMap objectMap)

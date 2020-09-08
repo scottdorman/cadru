@@ -20,18 +20,18 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Cadru.Data.Dapper.Internal;
+
+using Dapper;
+
 namespace Cadru.Data.Dapper.Predicates.Internal
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
-    using Cadru.Data.Dapper.Internal;
-
-    using global::Dapper;
-
     internal class FieldPredicate<T, TFieldType> : ComparePredicate
             where T : class
     {

@@ -20,12 +20,12 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
+using Dapper;
+
 namespace Cadru.Data.Dapper.Predicates.Internal
 {
-    using System;
-
-    using global::Dapper;
-
     internal class ExistsPredicate : IExistsPredicate
     {
         public bool Not { get; set; }

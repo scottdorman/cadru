@@ -20,9 +20,10 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.Collections.Generic;
+
 namespace Cadru.Data.Dapper.Predicates
 {
-    using System.Collections.Generic;
 
     /// <summary>
     /// Represents a collection of <see cref="IPredicate"/> instances to

@@ -20,16 +20,16 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Linq;
+using System.Text;
+
+using Cadru.Extensions;
+
+using Dapper;
+
 namespace Cadru.Data.Dapper.Predicates.Internal
 {
-    using System;
-    using System.Linq;
-    using System.Text;
-
-    using Cadru.Extensions;
-
-    using global::Dapper;
-
     internal abstract partial class PredicateBase : IPredicateBase
     {
         public bool Not { get; set; }

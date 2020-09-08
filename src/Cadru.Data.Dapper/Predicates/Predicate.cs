@@ -20,16 +20,16 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+
+using Cadru.Contracts;
+using Cadru.Data.Dapper.Internal;
+using Cadru.Data.Dapper.Predicates.Internal;
+
 namespace Cadru.Data.Dapper.Predicates
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq.Expressions;
-
-    using Cadru.Contracts;
-    using Cadru.Data.Dapper.Internal;
-    using Cadru.Data.Dapper.Predicates.Internal;
-
     /// <summary>
     /// Provides factory methods for creating <see cref="IPredicate"/> instances.
     /// </summary>

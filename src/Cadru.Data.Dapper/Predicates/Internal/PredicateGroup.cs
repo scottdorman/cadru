@@ -20,14 +20,14 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using Dapper;
+
 namespace Cadru.Data.Dapper.Predicates.Internal
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
-    using global::Dapper;
-
     /// <summary>
     /// Groups IPredicates together using the specified group operator.
     /// </summary>

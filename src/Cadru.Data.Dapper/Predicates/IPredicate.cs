@@ -20,10 +20,10 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using Dapper;
+
 namespace Cadru.Data.Dapper.Predicates
 {
-    using global::Dapper;
-
     /// <summary>
     /// Represents a basic predicate.
     /// </summary>
