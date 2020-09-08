@@ -33,7 +33,7 @@ namespace Cadru.Polly
     /// href="https://github.com/App-vNext/Polly">Polly</see> services in an
     /// <see cref="IServiceCollection"/>.
     /// </summary>
-    public static class PollyServiceCollectionExtensions
+    public static class ServiceCollectionExtensions
     {
         /// <summary>
         /// Adds a <see cref="PolicyRegistry"/> instance to the specified <see cref="IServiceCollection"/>.
@@ -48,38 +48,6 @@ namespace Cadru.Polly
             services.AddSingleton<IPolicyRegistry<string>>(registry);
             services.AddSingleton<IReadOnlyPolicyRegistry<string>>(registry);
             return registry;
-        }
-
-        /// <summary>
-        /// Adds a default <see cref="IPolicyContextFactory"/> to the specified
-        /// <see cref="IServiceCollection"/>.
-        /// </summary>
-        /// <param name="services">The <see cref="IServiceCollection" /> to add
-        /// services to.</param>
-        /// <returns>The <see cref="IServiceCollection"/> so that additional
-        /// calls can be chained.</returns>
-        public static IServiceCollection AddPollyContextFactory(this IServiceCollection services)
-        {
-            Requires.NotNull(services, nameof(services));
-
-            services.AddPollyContextFactory<PolicyContextFactory>();
-            return services;
-        }
-
-        /// <summary>
-        /// Adds the <see cref="IPolicyContextFactory"/> to the specified <see
-        /// cref="IServiceCollection"/>.
-        /// </summary>
-        /// <param name="services">The <see cref="IServiceCollection" /> to add
-        /// services to.</param>
-        /// <returns>The <see cref="IServiceCollection"/> so that additional
-        /// calls can be chained.</returns>
-        public static IServiceCollection AddPollyContextFactory<T>(this IServiceCollection services) where T : class, IPolicyContextFactory
-        {
-            Requires.NotNull(services, nameof(services));
-
-            services.AddTransient<IPolicyContextFactory, T>();
-            return services;
         }
     }
 }

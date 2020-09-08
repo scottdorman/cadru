@@ -61,7 +61,7 @@ namespace Cadru.Polly
         /// cref="ILogger"/> instance if one is found in the <paramref
         /// name="context"/>; otherwise, <see langword="null"/>. This parameter
         /// is passed uninitialized.</param>
-        /// <returns><see cref="true"/> if the <paramref name="context"/>
+        /// <returns><see langword="true"/> if the <paramref name="context"/>
         /// contains an <see cref="ILogger"/> instance; otherwise, <see
         /// langword="false"/>.</returns>
         public static bool TryGetLogger(this Context context, [NotNullWhen(true)] out ILogger? logger)

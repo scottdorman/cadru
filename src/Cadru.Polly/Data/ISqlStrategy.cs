@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="PolicyRegistryExtensions.cs"
+// <copyright file="ISqlStrategy.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2020 Scott Dorman.
@@ -20,27 +20,23 @@
 // </license>
 //------------------------------------------------------------------------------
 
-using Polly.Registry;
+using Polly;
 
-namespace Cadru.Polly.Sql
+namespace Cadru.Polly.Data
 {
     /// <summary>
-    /// Extension methods for working with a <see cref="IPolicyRegistry{String}"/>.
+    /// Represents the policies used for performing database operations.
     /// </summary>
-    public static class PolicyRegistryExtensions
+    public interface ISqlStrategy
     {
         /// <summary>
-        /// Adds the policies for the specified <see cref="ISqlStrategy"/> to the registry.
+        /// The asynchronous policy used for performing database operations.
         /// </summary>
-        /// <param name="registry">The <see cref="IPolicyRegistry{String}" /> to add policies to.</param>
-        /// <param name="sqlStrategy">The <see cref="ISqlStrategy"/> whose policies will be added.</param>
-        public static void Add(this IPolicyRegistry<string> registry, ISqlStrategy? sqlStrategy)
-        {
-            if (registry != null && sqlStrategy != null)
-            {
-                registry.Add(sqlStrategy.AsyncPolicy);
-                registry.Add(sqlStrategy.SyncPolicy);
-            }
-        }
+        IAsyncPolicy AsyncPolicy { get; }
+
+        /// <summary>
+        /// The synchronous policy used for performing database operations.
+        /// </summary>
+        ISyncPolicy SyncPolicy { get; }
     }
 }

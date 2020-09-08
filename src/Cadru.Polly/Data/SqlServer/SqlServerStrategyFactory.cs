@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="ISqlStrategy.cs"
+// <copyright file="SqlServerStrategyFactory.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2020 Scott Dorman.
@@ -20,25 +20,32 @@
 // </license>
 //------------------------------------------------------------------------------
 
-using Polly;
+using System;
+using System.Collections.Generic;
 
-namespace Cadru.Polly.Sql
+using Microsoft.Extensions.DependencyInjection;
+
+namespace Cadru.Polly.Data.SqlServer
 {
     /// <summary>
-    /// Represents the policies used for performing database operations.
+    /// Represents a set of methods for creating instances of an <see
+    /// cref="SqlServerStrategyBuilder"/>.
     /// </summary>
-    public interface ISqlStrategy
+    public sealed class SqlServerStrategyFactory : SqlStrategyFactory
     {
         /// <summary>
-        /// The asynchronous policy used for performing database operations.
+        /// Gets an instance of the <see cref="SqlServerStrategyFactory"/>.
         /// </summary>
-        IAsyncPolicy AsyncPolicy { get; }
+        public static SqlServerStrategyFactory Instance => new SqlServerStrategyFactory();
 
-        /// <summary>
-        /// The synchronous policy used for performing database operations.
-        /// </summary>
-        ISyncPolicy SyncPolicy { get; }
+        private SqlServerStrategyFactory()
+        {
+        }
 
-        internal ISqlStrategy BuildPolicies();
+        /// <inheritdoc/>
+        protected override SqlStrategyBuilder CreateStrategyBuilder(IServiceProvider serviceProvider, IEnumerable<IExceptionHandlingStrategy> exceptionHandlingStrategies)
+        {
+            return ActivatorUtilities.CreateInstance<SqlServerStrategyBuilder>(serviceProvider, exceptionHandlingStrategies);
+        }
     }
 }

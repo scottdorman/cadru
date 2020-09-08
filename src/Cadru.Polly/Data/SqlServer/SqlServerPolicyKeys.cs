@@ -20,7 +20,7 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.Polly.Sql.SqlServer
+namespace Cadru.Polly.Data.SqlServer
 {
     internal static class SqlServerPolicyKeys
     {

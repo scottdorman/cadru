@@ -29,7 +29,7 @@ using System.Text.RegularExpressions;
 
 using Microsoft.Data.SqlClient;
 
-namespace Cadru.Polly.Sql.SqlServer
+namespace Cadru.Polly.Data.SqlServer
 {
     /// <summary>
     /// Defines the possible throttling modes in SQL Database.

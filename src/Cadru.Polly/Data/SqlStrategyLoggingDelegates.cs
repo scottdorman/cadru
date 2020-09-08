@@ -29,9 +29,9 @@ using Microsoft.Extensions.Logging;
 
 using Polly;
 
-namespace Cadru.Polly.Sql
+namespace Cadru.Polly.Data
 {
-    internal static class SqlPolicyDelegates
+    internal static class SqlStrategyLoggingDelegates
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required to match delegate call site.")]
         internal static void OnRetry(Exception exception, TimeSpan timeSpan, int retries, Context context)

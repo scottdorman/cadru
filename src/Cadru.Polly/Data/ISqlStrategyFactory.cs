@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="SqlServerStrategy.cs"
+// <copyright file="ISqlStrategyFactory.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2020 Scott Dorman.
@@ -21,26 +21,20 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Linq;
+using System.Collections.Generic;
 
-using Cadru.Extensions;
-using Cadru.Polly.Resources;
-
-namespace Cadru.Polly.Sql.SqlServer
+namespace Cadru.Polly.Data
 {
     /// <summary>
-    /// Represents the policies used for performing SQL Server database operations.
+    /// Represents a set of methods for creating instances of an <see
+    /// cref="ISqlStrategy"/>.
     /// </summary>
-    public class SqlServerStrategy : SqlStrategy
+    public interface ISqlStrategyFactory
     {
-        /// <inheritdoc/>
-        protected override void ValidatePolicies()
-        {
-            if (this.Policies.Any(x => x.PolicyKey.StartsWith(SqlServerPolicyKeys.TimeoutPerRetryPolicy)
-                && !this.Policies.Any(x => x.PolicyKey.StartsWithAny(new[] { SqlServerPolicyKeys.CommonTransientErrorsPolicy, SqlServerPolicyKeys.TransactionPolicy }))))
-            {
-                throw new InvalidOperationException(Strings.SqlServer_InvalidTimeoutConfiguration);
-            }
-        }
+        /// <summary>
+        /// Create a new <see cref="ISqlStrategy"/> instance.
+        /// </summary>
+        /// <returns>A new <see cref="ISqlStrategy"/>.</returns>
+        ISqlStrategy Create(IServiceProvider serviceProvider, IEnumerable<IExceptionHandlingStrategy> exceptionHandlingStrategies);
     }
 }

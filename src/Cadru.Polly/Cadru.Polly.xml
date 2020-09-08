@@ -31,7 +31,7 @@
             cref="T:Microsoft.Extensions.Logging.ILogger"/> instance if one is found in the <paramref
             name="context"/>; otherwise, <see langword="null"/>. This parameter
             is passed uninitialized.</param>
-            <returns><see cref="!:true"/> if the <paramref name="context"/>
+            <returns><see langword="true"/> if the <paramref name="context"/>
             contains an <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance; otherwise, <see
             langword="false"/>.</returns>
         </member>
@@ -86,62 +86,678 @@
             <returns>The <see cref="T:Polly.Context"/> so that additional calls can be
             chained.</returns>
         </member>
-        <member name="T:Cadru.Polly.IExceptionHandlingStrategy`1">
+        <member name="T:Cadru.Polly.Data.ISqlStrategy">
+            <summary>
+            Represents the policies used for performing database operations.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.ISqlStrategy.AsyncPolicy">
+            <summary>
+            The asynchronous policy used for performing database operations.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.ISqlStrategy.SyncPolicy">
+            <summary>
+            The synchronous policy used for performing database operations.
+            </summary>
+        </member>
+        <member name="T:Cadru.Polly.Data.ISqlStrategyFactory">
+            <summary>
+            Represents a set of methods for creating instances of an <see
+            cref="T:Cadru.Polly.Data.ISqlStrategy"/>.
+            </summary>
+        </member>
+        <member name="M:Cadru.Polly.Data.ISqlStrategyFactory.Create(System.IServiceProvider,System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy})">
+            <summary>
+            Create a new <see cref="T:Cadru.Polly.Data.ISqlStrategy"/> instance.
+            </summary>
+            <returns>A new <see cref="T:Cadru.Polly.Data.ISqlStrategy"/>.</returns>
+        </member>
+        <member name="T:Cadru.Polly.Data.SqlServer.ServiceCollectionExtensions">
+            <summary>
+            Extension methods for adding exception handling strategies in an
+            <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            </summary>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.ServiceCollectionExtensions.UseExceptionHandlingStrategies(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds default exception handling strategies to the specified <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            </summary>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to add services to.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional calls can be chained.</returns>
+        </member>
+        <member name="T:Cadru.Polly.Data.SqlServer.SqlServerTransientExceptionHandlingStrategy">
+            <summary>
+            Defines a strategy for determining transient SQL Server errors.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.SqlServerTransientExceptionHandlingStrategy.IsDefaultStrategy">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.SqlServerTransientExceptionHandlingStrategy.ShouldHandle(System.Exception)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.Polly.Data.SqlServer.NetworkConnectivityExceptionHandlingStrategy">
+            <summary>
+            Defines a strategy for determining transient SQL Server network connectivity errors.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.NetworkConnectivityExceptionHandlingStrategy.IsDefaultStrategy">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.NetworkConnectivityExceptionHandlingStrategy.ShouldHandle(System.Exception)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.Polly.Data.SqlServer.SqlServerTransientTransactionExceptionHandlingStrategy">
+            <summary>
+            Defines a strategy for determining transient SQL Server transaction errors.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.SqlServerTransientTransactionExceptionHandlingStrategy.IsDefaultStrategy">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.SqlServerTransientTransactionExceptionHandlingStrategy.ShouldHandle(System.Exception)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.Polly.Data.SqlServer.SqlServerTimeoutExceptionHandlingStrategy">
+            <summary>
+            Defines a strategy for determining SQL Server timeout errors.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.SqlServerTimeoutExceptionHandlingStrategy.IsDefaultStrategy">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.SqlServerTimeoutExceptionHandlingStrategy.ShouldHandle(System.Exception)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder">
+            <summary>
+            Represents the policies used for performing SQL Server database operations.
+            </summary>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder.#ctor(System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy},Microsoft.Extensions.Options.IOptions{Cadru.Polly.Data.SqlStrategyOptions})">
+            <summary>
+            Initializes a new instance of the <see
+            cref="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder"/> class.
+            </summary>
+            <param name="exceptionHandlingStrategies">The collection of <see
+            cref="T:Cadru.Polly.IExceptionHandlingStrategy"/> strategies to use.</param>
+            <param name="strategyOptionsAccessor">The strategy configuration. If
+            <paramref name="strategyOptionsAccessor"/> is <see langword="null"/>,
+            a default configuration will be used.</param>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder.Validate">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyFactory">
+            <summary>
+            Represents a set of methods for creating instances of an <see
+            cref="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder"/>.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.SqlServerStrategyFactory.Instance">
+            <summary>
+            Gets an instance of the <see cref="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyFactory"/>.
+            </summary>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategyFactory.CreateStrategyBuilder(System.IServiceProvider,System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax">
+            <summary>
+            Fluent API for defining a <see cref="T:Cadru.Polly.Data.SqlStrategy"/>.
+            </summary>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithCircuitBreakers(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)">
+            <summary>
+            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy"/> with policies that will function
+            like a Circuit Breaker.
+            </summary>
+            <param name="sqlStrategyBuilder">The SQL strategy.</param>
+            <param name="sqlStrategyConfiguration">An <see
+            cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> containing configuration
+            parameters.</param>
+            <returns>The strategy instance.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithFallback``1(Cadru.Polly.Data.SqlStrategyBuilder,System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy"/> with a policy which provides a
+            fallback action if the main execution fails.
+            </summary>
+            <param name="sqlStrategy">The SQL strategy.</param>
+            <param name="action">The fallback action delegate.</param>
+            <returns>The strategy instance.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithFallback(Cadru.Polly.Data.SqlStrategyBuilder,System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy"/> with a policy which provides a
+            fallback action if the main execution fails.
+            </summary>
+            <param name="sqlStrategy">The SQL strategy.</param>
+            <param name="action">The fallback action delegate.</param>
+            <returns>The strategy instance.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallAndTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)">
+            <summary>
+            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy"/> with policies for both an overall
+            timeout and a per retry timeout.
+            </summary>
+            <param name="sqlStrategy">The SQL strategy.</param>
+            <param name="sqlStrategyConfiguration">An <see
+            cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> containing configuration
+            parameters.</param>
+            <returns>The strategy instance.</returns>
+            <remarks>
+            This is equivalent to calling <see
+            cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>,
+            <see cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>.
+            </remarks>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)">
+            <summary>
+            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy"/> with a policy for an overall
+            timeout.
+            </summary>
+            <param name="sqlStrategy">The SQL strategy.</param>
+            <param name="sqlStrategyConfiguration">An <see
+            cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> containing configuration
+            parameters.</param>
+            <returns>The strategy instance.</returns>
+            <remarks>
+            This is equivalent to calling <see
+            cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>,
+            <see cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>.
+            </remarks>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)">
+            <summary>
+            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy"/> with a policy for a per retry
+            timeout.
+            </summary>
+            <param name="sqlStrategy">The SQL strategy.</param>
+            <param name="sqlStrategyConfiguration">An <see
+            cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> containing configuration
+            parameters.</param>
+            <returns>The strategy instance.</returns>
+            <remarks>
+            This is equivalent to calling <see
+            cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>,
+            <see cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>.
+            </remarks>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.Retry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.IExceptionHandlingStrategy,Cadru.Polly.Data.SqlStrategyOptions)">
+            <summary>
+            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy"/> with a policy for retrying
+            actions on transaction failures.
+            </summary>
+            <param name="sqlStrategy">The SQL strategy.</param>
+            <param name="exceptionHandlingStrategy">The exception handling
+            strategy used to determine which exceptions should be
+            retried.</param>
+            <param name="sqlStrategyConfiguration">An <see
+            cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> containing configuration
+            parameters.</param>
+            <returns>The strategy instance.</returns>
+        </member>
+        <member name="T:Cadru.Polly.Data.SqlServer.ThrottlingMode">
+            <summary>
+            Defines the possible throttling modes in SQL Database.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottlingMode.NoThrottling">
+            <summary>
+            Corresponds to the "No Throttling" throttling mode, in which all SQL statements can be processed.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottlingMode.RejectUpdateInsert">
+            <summary>
+            Corresponds to the "Reject Update / Insert" throttling mode, in which SQL statements such as INSERT, UPDATE, CREATE TABLE, and CREATE INDEX are rejected.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottlingMode.RejectAllWrites">
+            <summary>
+            Corresponds to the "Reject All Writes" throttling mode, in which SQL statements such as INSERT, UPDATE, DELETE, CREATE, and DROP are rejected.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottlingMode.RejectAll">
+            <summary>
+            Corresponds to the "Reject All" throttling mode, in which all SQL statements are rejected.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottlingMode.Unknown">
+            <summary>
+            Corresponds to an unknown throttling mode whereby throttling mode cannot be determined with certainty.
+            </summary>
+        </member>
+        <member name="T:Cadru.Polly.Data.SqlServer.ThrottlingType">
+            <summary>
+            Defines the possible throttling types in SQL Database.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottlingType.None">
+            <summary>
+            Indicates that no throttling was applied to a given resource.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottlingType.Soft">
+            <summary>
+            Corresponds to a soft throttling type. Soft throttling is applied when machine resources such as, CPU, I/O, storage, and worker threads exceed
+            predefined safety thresholds despite the load balancer’s best efforts.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottlingType.Hard">
+            <summary>
+            Corresponds to a hard throttling type. Hard throttling is applied when the machine is out of resources, for example storage space.
+            With hard throttling, no new connections are allowed to the databases hosted on the machine until resources are freed up.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottlingType.Unknown">
+            <summary>
+            Corresponds to an unknown throttling type in the event that the throttling type cannot be determined with certainty.
+            </summary>
+        </member>
+        <member name="T:Cadru.Polly.Data.SqlServer.ThrottledResourceType">
+            <summary>
+            Defines the types of resources in SQL Database that may be subject to throttling conditions.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottledResourceType.PhysicalDatabaseSpace">
+            <summary>
+            Corresponds to the "Physical Database Space" resource, which may be subject to throttling.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottledResourceType.PhysicalLogSpace">
+            <summary>
+            Corresponds to the "Physical Log File Space" resource, which may be subject to throttling.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottledResourceType.LogWriteIoDelay">
+            <summary>
+            Corresponds to the "Transaction Log Write IO Delay" resource, which may be subject to throttling.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottledResourceType.DataReadIoDelay">
+            <summary>
+            Corresponds to the "Database Read IO Delay" resource, which may be subject to throttling.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottledResourceType.Cpu">
+            <summary>
+            Corresponds to the "CPU" resource, which may be subject to throttling.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottledResourceType.DatabaseSize">
+            <summary>
+            Corresponds to the "Database Size" resource, which may be subject to throttling.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottledResourceType.WorkerThreads">
+            <summary>
+            Corresponds to the "SQL Worker Thread Pool" resource, which may be subject to throttling.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottledResourceType.Internal">
+            <summary>
+            Corresponds to an internal resource that may be subject to throttling.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottledResourceType.Unknown">
+            <summary>
+            Corresponds to an unknown resource type in the event that the actual resource cannot be determined with certainty.
+            </summary>
+        </member>
+        <member name="T:Cadru.Polly.Data.SqlServer.ThrottlingCondition">
+            <summary>
+            Implements an object that holds the decoded reason code returned from SQL Database when throttling conditions are encountered.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottlingCondition.ThrottlingErrorNumber">
+            <summary>
+            Gets the error number that corresponds to the throttling conditions reported by SQL Database.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottlingCondition.throttledResources">
+            <summary>
+            Maintains a collection of key/value pairs where a key is the resource type and a value is the type of throttling applied to the given resource type.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlServer.ThrottlingCondition.sqlErrorCodeRegEx">
+            <summary>
+            Provides a compiled regular expression used to extract the reason code from the error message.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.ThrottlingCondition.Unknown">
+            <summary>
+            Gets an unknown throttling condition in the event that the actual throttling condition cannot be determined.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.ThrottlingCondition.ThrottlingMode">
+            <summary>
+            Gets the value that reflects the throttling mode in SQL Database.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.ThrottlingCondition.ThrottledResources">
+            <summary>
+            Gets a list of the resources in the SQL Database that were subject to throttling conditions.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.ThrottlingCondition.IsThrottledOnDataSpace">
+            <summary>
+            Gets a value that indicates whether physical data file space throttling was reported by SQL Database.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.ThrottlingCondition.IsThrottledOnLogSpace">
+            <summary>
+            Gets a value that indicates whether physical log space throttling was reported by SQL Database.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.ThrottlingCondition.IsThrottledOnLogWrite">
+            <summary>
+            Gets a value that indicates whether transaction activity throttling was reported by SQL Database.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.ThrottlingCondition.IsThrottledOnDataRead">
+            <summary>
+            Gets a value that indicates whether data read activity throttling was reported by SQL Database.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.ThrottlingCondition.IsThrottledOnCpu">
+            <summary>
+            Gets a value that indicates whether CPU throttling was reported by SQL Database.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.ThrottlingCondition.IsThrottledOnDatabaseSize">
+            <summary>
+            Gets a value that indicates whether database size throttling was reported by SQL Database.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.ThrottlingCondition.IsThrottledOnWorkerThreads">
+            <summary>
+            Gets a value that indicates whether concurrent requests throttling was reported by SQL Database.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.ThrottlingCondition.IsUnknown">
+            <summary>
+            Gets a value that indicates whether throttling conditions were not determined with certainty.
+            </summary>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.ThrottlingCondition.FromException(Microsoft.Data.SqlClient.SqlException)">
+            <summary>
+            Determines throttling conditions from the specified SQL exception.
+            </summary>
+            <param name="ex">The <see cref="T:Microsoft.Data.SqlClient.SqlException"/> object that contains information relevant to an error returned by SQL Server when throttling conditions were encountered.</param>
+            <returns>An instance of the object that holds the decoded reason codes returned from SQL Database when throttling conditions were encountered.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.ThrottlingCondition.FromError(Microsoft.Data.SqlClient.SqlError)">
+            <summary>
+            Determines the throttling conditions from the specified SQL error.
+            </summary>
+            <param name="error">The <see cref="T:Microsoft.Data.SqlClient.SqlError"/> object that contains information relevant to a warning or error returned by SQL Server.</param>
+            <returns>An instance of the object that holds the decoded reason codes returned from SQL Database when throttling conditions were encountered.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.ThrottlingCondition.FromReasonCode(System.Int32)">
+            <summary>
+            Determines the throttling conditions from the specified reason code.
+            </summary>
+            <param name="reasonCode">The reason code returned by SQL Database that contains the throttling mode and the exceeded resource types.</param>
+            <returns>An instance of the object holding the decoded reason codes returned from SQL Database when encountering throttling conditions.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlServer.ThrottlingCondition.ToString">
+            <summary>
+             Returns a textual representation of the current ThrottlingCondition object, including the information held with respect to throttled resources.
+            </summary>
+            <returns>A string that represents the current ThrottlingCondition object.</returns>
+        </member>
+        <member name="T:Cadru.Polly.Data.SqlStrategy">
+            <summary>
+            Represents the policies used for performing database operations.
+            </summary>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategy.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Polly.Data.SqlStrategy"/> class.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlStrategy.Default">
+            <summary>
+            Gets a <see cref="T:Cadru.Polly.Data.SqlStrategy"/> containing policies that will
+            execute without any custom behavior.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlStrategy.AsyncPolicy">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlStrategy.SyncPolicy">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategy.NoOp">
+            <summary>
+            Builds a NoOp <see cref="P:Cadru.Polly.Data.SqlStrategy.SyncPolicy"/> that will execute without any custom behavior.
+            </summary>
+            <returns>The policy instance.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategy.NoOpAsync">
+            <summary>
+            Builds a NoOp <see cref="P:Cadru.Polly.Data.SqlStrategy.AsyncPolicy"/> that will execute without any custom behavior.
+            </summary>
+            <returns>The policy instance.</returns>
+        </member>
+        <member name="T:Cadru.Polly.Data.SqlStrategyBuilder">
+            <summary>
+            Builder class that holds the list of current exception predicates
+            </summary>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.#ctor(System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy},Microsoft.Extensions.Options.IOptions{Cadru.Polly.Data.SqlStrategyOptions})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Polly.Data.SqlStrategyBuilder"/> class.
+            </summary>
+            <param name="exceptionHandlingStrategies">The collection of <see
+            cref="T:Cadru.Polly.IExceptionHandlingStrategy"/> strategies to use.</param>
+            <param name="strategyOptionsAccessor">An optional strategy
+            configuration.</param>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlStrategyBuilder.Policies">
+            <summary>
+            Gets the list of policies which make up the strategy.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlStrategyBuilder.ExceptionHandlingStrategies">
+            <summary>
+            Gets the <see cref="T:Cadru.Polly.IExceptionHandlingStrategy">exception handling
+            strategies</see> used.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlStrategyBuilder.StrategyOptions">
+            <summary>
+            Gets the <see cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> used to configure the policies.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlStrategyBuilder.DefaultStrategy">
+            <summary>
+            Gets the default <see cref="T:Cadru.Polly.IExceptionHandlingStrategy"/>.
+            </summary>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.NoOp">
+            <summary>
+            Builds a NoOp <see cref="T:Polly.Policy"/> that will execute without any custom behavior.
+            </summary>
+            <returns>The policy instance.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.NoOpAsync">
+            <summary>
+            Builds a NoOp <see cref="T:Polly.AsyncPolicy"/> that will execute without any custom behavior.
+            </summary>
+            <returns>The policy instance.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.GetPolicyBuilder">
+            <summary>
+            Gets a <see cref="T:Polly.PolicyBuilder"/> which handles all of the exceptions
+            in <see cref="P:Cadru.Polly.Data.SqlStrategyBuilder.ExceptionHandlingStrategies"/>.
+            </summary>
+            <returns>A <see cref="T:Polly.PolicyBuilder"/> instance.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.GetDefaultPolicyBuilder">
+            <summary>
+            Gets a <see cref="T:Polly.PolicyBuilder"/> which handles the exceptions
+            in the default <see cref="T:Cadru.Polly.IExceptionHandlingStrategy"/>.
+            </summary>
+            <returns>A <see cref="T:Polly.PolicyBuilder"/> instance.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.Build">
+            <summary>
+            Builds a <see cref="T:Cadru.Polly.Data.ISqlStrategy"/>.
+            </summary>
+            <returns>The SQL strategy instance.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.GetAsyncPolicies">
+            <summary>
+            Gets the ordered set of asynchronous policies to build.
+            </summary>
+            <returns>An ordered set of asynchronous policies.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.GetSyncPolicies">
+            <summary>
+            Gets the ordered set of synchronous policies to build.
+            </summary>
+            <returns>An ordered set of synchronous policies.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.Validate">
+            <summary>
+            When overridden in a derived class, provides additional validation
+            for the policies before building them.
+            </summary>
+        </member>
+        <member name="T:Cadru.Polly.Data.SqlStrategyFactory">
+            <summary>
+            Represents a set of methods for creating instances of an <see
+            cref="T:Cadru.Polly.Data.ISqlStrategy"/>.
+            </summary>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyFactory.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Polly.Data.SqlStrategyFactory"/> class.
+            </summary>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyFactory.CreateStrategyBuilder(System.IServiceProvider,System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy})">
+            <summary>
+            When overridden in a derived class, creates a new <see
+            cref="T:Cadru.Polly.Data.ISqlStrategy"/> instance.
+            </summary>
+            <returns>A new <see cref="T:Cadru.Polly.Data.ISqlStrategy"/>.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyFactory.Create(System.IServiceProvider,System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.Polly.Data.SqlStrategyOptions">
+            <summary>
+            The configuration options for a retry strategy.
+            </summary>
+        </member>
+        <member name="F:Cadru.Polly.Data.SqlStrategyOptions.SectionKey">
+            <summary>
+            The configuration section key.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlStrategyOptions.DurationOfBreak">
+            <summary>
+            The duration the circuit will stay open before resetting.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlStrategyOptions.ExceptionsAllowedBeforeBreaking">
+            <summary>
+            The number of exceptions that are allowed before opening the circuit.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlStrategyOptions.RetryCount">
+            <summary>
+            The retry count.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlStrategyOptions.OverallTimeout">
+            <summary>
+            The timeout for the overall strategy.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlStrategyOptions.TimeoutPerRetry">
+            <summary>
+            The timeout for each retry.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlStrategyOptions.Defaults">
+            <summary>
+            Gets the default options values.
+            </summary>
+        </member>
+        <member name="T:Cadru.Polly.Data.SqlStrategyOptionsExtensions">
+            <summary>
+            Helper methods for getting strongly typed values from an <see cref="T:Cadru.Polly.Data.SqlStrategyOptions"/>.
+            </summary>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyOptionsExtensions.ExponentialBackoff(Cadru.Polly.Data.SqlStrategyOptions)">
+            <summary>
+            Generates sleep durations in an exponential manner.
+            </summary>
+            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> instance.</param>
+            <returns>The configured value if it is not <see langword="null"/>
+            otherwise, the default value.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyOptionsExtensions.RetryCount(Cadru.Polly.Data.SqlStrategyOptions)">
+            <summary>
+            The retry count.
+            </summary>
+            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> instance.</param>
+            <returns>The configured value if it is not <see langword="null"/>;
+            otherwise, the default value.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyOptionsExtensions.ExceptionsAllowedBeforeBreaking(Cadru.Polly.Data.SqlStrategyOptions)">
+            <summary>
+            The number of exceptions that are allowed before opening the circuit.
+            </summary>
+            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> instance.</param>
+            <returns>The configured value if it is not <see langword="null"/>;
+            otherwise, the default value.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyOptionsExtensions.DurationOfBreak(Cadru.Polly.Data.SqlStrategyOptions)">
+            <summary>
+            The duration the circuit will stay open before resetting.
+            </summary>
+            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> instance.</param>
+            <returns>The configured value if it is not <see langword="null"/>;
+            otherwise, the default value.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyOptionsExtensions.OverallTimeout(Cadru.Polly.Data.SqlStrategyOptions)">
+            <summary>
+            The timeout for the overall policy.
+            </summary>
+            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> instance.</param>
+            <returns>The configured value if it is not <see langword="null"/>;
+            otherwise, the default value.</returns>
+        </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyOptionsExtensions.TimeoutPerRetry(Cadru.Polly.Data.SqlStrategyOptions)">
+            <summary>
+            The timeout for each retry.
+            </summary>
+            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> instance.</param>
+            <returns>The configured value if it is not <see langword="null"/>;
+            otherwise, the default value.</returns>
+        </member>
+        <member name="T:Cadru.Polly.IExceptionHandlingStrategy">
             <summary>
             Defines an interface that must be implemented by custom components responsible for detecting specific transient conditions.
             </summary>
-            <typeparam name="T">The exception type.</typeparam>
         </member>
-        <member name="M:Cadru.Polly.IExceptionHandlingStrategy`1.ShouldHandle(`0)">
+        <member name="P:Cadru.Polly.IExceptionHandlingStrategy.IsDefaultStrategy">
+            <summary>
+            Gets a value indicating whether or not this is the default exception
+            handling strategy.
+            </summary>
+        </member>
+        <member name="M:Cadru.Polly.IExceptionHandlingStrategy.ShouldHandle(System.Exception)">
             <summary>
             Determines whether the specified exception represents a transient failure that can be compensated by a retry.
             </summary>
             <param name="exception">The exception object to be verified.</param>
             <returns>true if the specified exception is considered as transient; otherwise, false.</returns>
-        </member>
-        <member name="T:Cadru.Polly.IPolicyContextFactory">
-            <summary>
-            Represents a set of methods for creating instances of a <see
-            cref="T:Polly.Context"/>.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.IPolicyContextFactory.CreateContext">
-            <summary>
-            Create a new <see cref="T:Polly.Context"/> instance.
-            </summary>
-            <returns>A new <see cref="T:Polly.Context"/>.</returns>
-        </member>
-        <member name="M:Cadru.Polly.IPolicyContextFactory.CreateContext(Microsoft.Extensions.Logging.ILogger)">
-            <summary>
-            Create a new <see cref="T:Polly.Context"/> instance with the specified <see
-            cref="T:Microsoft.Extensions.Logging.ILogger"/>.
-            </summary>
-            <returns>A new <see cref="T:Polly.Context"/>.</returns>
-        </member>
-        <member name="M:Cadru.Polly.IPolicyContextFactory.CreateContext(System.String)">
-            <summary>
-            Create a new <see cref="T:Polly.Context"/> instance with a <see
-            cref="T:Microsoft.Extensions.Logging.ILogger"/> using the provided category name for messages
-            produced by the logger.
-            </summary>
-            <returns>A new <see cref="T:Polly.Context"/>.</returns>
-        </member>
-        <member name="M:Cadru.Polly.IPolicyContextFactory.CreateContext(System.Type)">
-            <summary>
-            Create a new <see cref="T:Polly.Context"/> instance with a <see
-            cref="T:Microsoft.Extensions.Logging.ILogger"/> using the full name of the given type for messages
-            produced by the logger.
-            </summary>
-            <returns>A new <see cref="T:Polly.Context"/>.</returns>
-        </member>
-        <member name="M:Cadru.Polly.IPolicyContextFactory.CreateContext``1">
-            <summary>
-            Create a new <see cref="T:Polly.Context"/> instance with a <see
-            cref="T:Microsoft.Extensions.Logging.ILogger"/> using the full name of the given type for messages
-            produced by the logger.
-            </summary>
-            <typeparam name="T">The type.</typeparam>
-            <returns>A new <see cref="T:Polly.Context"/>.</returns>
         </member>
         <member name="T:Cadru.Polly.Logging.AsyncLoggingPolicy">
             <summary>
@@ -186,6 +802,11 @@
         </member>
         <member name="M:Cadru.Polly.Logging.LoggingPolicy`1.Implementation(System.Func{Polly.Context,System.Threading.CancellationToken,`0},Polly.Context,System.Threading.CancellationToken)">
             <inheritdoc/>
+        </member>
+        <member name="T:Cadru.Polly.Logging.LoggingPolicySyntax">
+            <summary>
+            Fluent API for defining an <see cref="T:Cadru.Polly.Logging.AsyncLoggingPolicy"/>.
+            </summary>
         </member>
         <member name="M:Cadru.Polly.Logging.LoggingPolicySyntax.AsyncLog(Polly.PolicyBuilder,System.Func{Polly.Context,Microsoft.Extensions.Logging.ILogger},System.Action{Microsoft.Extensions.Logging.ILogger,Polly.Context,System.Exception})">
             <summary>
@@ -240,42 +861,6 @@
             <param name="logAction">A logging action.</param>
             <returns><see cref="T:Cadru.Polly.Logging.LoggingPolicy`1"/></returns>
         </member>
-        <member name="T:Cadru.Polly.PolicyContextFactory">
-            <summary>
-            Represents a set of methods for creating instances of a <see
-            cref="T:Polly.Context"/>.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.PolicyContextFactory.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Polly.PolicyContextFactory"/>
-            class using a <see cref="T:Microsoft.Extensions.Logging.Abstractions.NullLoggerFactory"/> instance.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.PolicyContextFactory.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Polly.PolicyContextFactory"/>
-            class using the provided <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/> instance.
-            </summary>
-            <param name="loggerFactory">The <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/>
-            instance used to create an <see cref="T:Microsoft.Extensions.Logging.ILogger"/> item in the <see
-            cref="T:Polly.Context"/>.</param>
-        </member>
-        <member name="M:Cadru.Polly.PolicyContextFactory.CreateContext">
-            <inheritdoc/>
-        </member>
-        <member name="M:Cadru.Polly.PolicyContextFactory.CreateContext(System.String)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Cadru.Polly.PolicyContextFactory.CreateContext(System.Type)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Cadru.Polly.PolicyContextFactory.CreateContext``1">
-            <inheritdoc/>
-        </member>
-        <member name="M:Cadru.Polly.PolicyContextFactory.CreateContext(Microsoft.Extensions.Logging.ILogger)">
-            <inheritdoc/>
-        </member>
         <member name="T:Cadru.Polly.PolicyContextItems">
             <summary>
             Standard <see cref="T:Polly.Context" /> item keys.
@@ -298,40 +883,6 @@
             </summary>
             <param name="registry">The <see cref="T:Polly.Registry.IPolicyRegistry`1" /> to add policies to.</param>
             <param name="policy">The <see cref="T:Polly.IsPolicy"/> to add.</param>
-        </member>
-        <member name="T:Cadru.Polly.PollyServiceCollectionExtensions">
-            <summary>
-            Extension methods for setting up <see
-            href="https://github.com/App-vNext/Polly">Polly</see> services in an
-            <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.PollyServiceCollectionExtensions.AddPollyRegistry(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            Adds a <see cref="T:Polly.Registry.PolicyRegistry"/> instance to the specified <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
-            </summary>
-            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to add services to.</param>
-            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional calls can be chained.</returns>
-        </member>
-        <member name="M:Cadru.Polly.PollyServiceCollectionExtensions.AddPollyContextFactory(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            Adds a default <see cref="T:Cadru.Polly.IPolicyContextFactory"/> to the specified
-            <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
-            </summary>
-            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to add
-            services to.</param>
-            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional
-            calls can be chained.</returns>
-        </member>
-        <member name="M:Cadru.Polly.PollyServiceCollectionExtensions.AddPollyContextFactory``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            Adds the <see cref="T:Cadru.Polly.IPolicyContextFactory"/> to the specified <see
-            cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
-            </summary>
-            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to add
-            services to.</param>
-            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional
-            calls can be chained.</returns>
         </member>
         <member name="T:Cadru.Polly.Resources.Strings">
             <summary>
@@ -394,861 +945,19 @@
               Looks up a localized string similar to There are no policies configured..
             </summary>
         </member>
-        <member name="T:Cadru.Polly.Sql.ISqlStrategy">
+        <member name="T:Cadru.Polly.ServiceCollectionExtensions">
             <summary>
-            Represents the policies used for performing database operations.
+            Extension methods for setting up <see
+            href="https://github.com/App-vNext/Polly">Polly</see> services in an
+            <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
             </summary>
         </member>
-        <member name="P:Cadru.Polly.Sql.ISqlStrategy.AsyncPolicy">
+        <member name="M:Cadru.Polly.ServiceCollectionExtensions.AddPollyRegistry(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
-            The asynchronous policy used for performing database operations.
+            Adds a <see cref="T:Polly.Registry.PolicyRegistry"/> instance to the specified <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
             </summary>
-        </member>
-        <member name="P:Cadru.Polly.Sql.ISqlStrategy.SyncPolicy">
-            <summary>
-            The synchronous policy used for performing database operations.
-            </summary>
-        </member>
-        <member name="T:Cadru.Polly.Sql.ISqlStrategyConfiguration">
-            <summary>
-            Represents a read-only collection of key/value pairs used for
-            configuring an <see cref="T:Cadru.Polly.Sql.ISqlStrategy"/>.
-            </summary>
-        </member>
-        <member name="T:Cadru.Polly.Sql.ISqlStrategyFactory">
-            <summary>
-            Represents a set of methods for creating instances of an <see
-            cref="T:Cadru.Polly.Sql.ISqlStrategy"/>.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.ISqlStrategyFactory.CreateStrategy(Cadru.Polly.Sql.ISqlStrategyConfiguration)">
-            <summary>
-            Create a new <see cref="T:Cadru.Polly.Sql.ISqlStrategy"/> instance.
-            </summary>
-            <param name="strategyConfiguration">An optional strategy
-            configuration.</param>
-            <returns>A new <see cref="T:Cadru.Polly.Sql.ISqlStrategy"/>.</returns>
-        </member>
-        <member name="T:Cadru.Polly.Sql.PolicyRegistryExtensions">
-            <summary>
-            Extension methods for working with a <see cref="T:Polly.Registry.IPolicyRegistry`1"/>.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.PolicyRegistryExtensions.Add(Polly.Registry.IPolicyRegistry{System.String},Cadru.Polly.Sql.ISqlStrategy)">
-            <summary>
-            Adds the policies for the specified <see cref="T:Cadru.Polly.Sql.ISqlStrategy"/> to the registry.
-            </summary>
-            <param name="registry">The <see cref="T:Polly.Registry.IPolicyRegistry`1" /> to add policies to.</param>
-            <param name="sqlStrategy">The <see cref="T:Cadru.Polly.Sql.ISqlStrategy"/> whose policies will be added.</param>
-        </member>
-        <member name="T:Cadru.Polly.Sql.SqlServer.SqlServerPolicyExtensions">
-            <summary>
-            Fluent API for defining <see cref="T:Microsoft.Data.SqlClient.SqlException"/> error handling predicates.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicyExtensions.HandleAllTransientSqlErrors">
-            <summary>
-            Handle SQL Server transient and transaction errors.
-            </summary>
-            <returns>The <see cref="T:Polly.PolicyBuilder"/> instance.</returns>
-            <remarks>
-            This is equivalent to calling <see cref="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicyExtensions.HandleTransientSqlError"/>,
-            <see cref="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicyExtensions.HandleTransientTransactionSqlError"/>, and
-            <see cref="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicyExtensions.HandleSqlTimeoutError"/>.
-            </remarks>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicyExtensions.HandleTransientSqlError">
-            <summary>
-            Handle SQL Server transient errors.
-            </summary>
-            <returns>The <see cref="T:Polly.PolicyBuilder"/> instance.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicyExtensions.HandleTransientTransactionSqlError">
-            <summary>
-            Handle SQL Server transient transaction errors.
-            </summary>
-            <returns>The <see cref="T:Polly.PolicyBuilder"/> instance.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicyExtensions.HandleSqlTimeoutError">
-            <summary>
-            Handle SQL Server timeout errors.
-            </summary>
-            <returns>The <see cref="T:Polly.PolicyBuilder"/> instance.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicyExtensions.HandleSqlError(System.Int32)">
-            <summary>
-            Handle a SQL Server error with the provided error number.
-            </summary>
-            <param name="handledExceptionNumber">The SQL error number to handle.</param>
-            <returns>The <see cref="T:Polly.PolicyBuilder"/> instance.</returns>
-        </member>
-        <member name="T:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax">
-            <summary>
-            Fluent API for defining a <see cref="T:Cadru.Polly.Sql.SqlStrategy"/>.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithCircuitBreaker(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)">
-            <summary>
-            Builds a <see cref="T:Cadru.Polly.Sql.SqlStrategy"/> with policies that will function
-            like a Circuit Breaker.
-            </summary>
-            <param name="sqlStrategy">The SQL strategy.</param>
-            <param name="sqlStrategyConfiguration">An <see
-            cref="T:Cadru.Polly.Sql.ISqlStrategyConfiguration"/> containing configuration
-            parameters.</param>
-            <returns>The strategy instance.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithDefaults(Cadru.Polly.Sql.SqlStrategy)">
-            <summary>
-            Builds a <see cref="T:Cadru.Polly.Sql.SqlStrategy"/> with a default set of policies.
-            </summary>
-            <param name="sqlStrategy">The SQL strategy.</param>
-            <returns>The strategy instance.</returns>
-            <remarks>
-            This is equivalent to calling <see
-            cref="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithOverallTimeout(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)"/>, <see
-            cref="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithTransientErrors(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)"/>, and <see
-            cref="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithCircuitBreaker(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)"/>.
-            </remarks>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithDefaults(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)">
-            <summary>
-            Builds a <see cref="T:Cadru.Polly.Sql.SqlStrategy"/> with a default set of policies.
-            </summary>
-            <param name="sqlStrategy">The SQL strategy.</param>
-            <param name="sqlStrategyConfiguration">An <see
-            cref="T:Cadru.Polly.Sql.ISqlStrategyConfiguration"/> containing configuration
-            parameters.</param>
-            <returns>The strategy instance.</returns>
-            <remarks>
-            This is equivalent to calling <see
-            cref="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithOverallTimeout(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)"/>, <see
-            cref="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithTransientErrors(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)"/>, and <see
-            cref="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithCircuitBreaker(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)"/>.
-            </remarks>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithFallback``1(Cadru.Polly.Sql.SqlStrategy,System.Func{System.Threading.Tasks.Task{``0}})">
-            <summary>
-            Builds a <see cref="T:Cadru.Polly.Sql.SqlStrategy"/> with a policy which provides a
-            fallback action if the main execution fails.
-            </summary>
-            <param name="sqlStrategy">The SQL strategy.</param>
-            <param name="action">The fallback action delegate.</param>
-            <returns>The strategy instance.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithFallback(Cadru.Polly.Sql.SqlStrategy,System.Func{System.Threading.Tasks.Task})">
-            <summary>
-            Builds a <see cref="T:Cadru.Polly.Sql.SqlStrategy"/> with a policy which provides a
-            fallback action if the main execution fails.
-            </summary>
-            <param name="sqlStrategy">The SQL strategy.</param>
-            <param name="action">The fallback action delegate.</param>
-            <returns>The strategy instance.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithOverallAndTimeoutPerRetry(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)">
-            <summary>
-            Builds a <see cref="T:Cadru.Polly.Sql.SqlStrategy"/> with policies for both an overall
-            timeout and a per retry timeout.
-            </summary>
-            <param name="sqlStrategy">The SQL strategy.</param>
-            <param name="sqlStrategyConfiguration">An <see
-            cref="T:Cadru.Polly.Sql.ISqlStrategyConfiguration"/> containing configuration
-            parameters.</param>
-            <returns>The strategy instance.</returns>
-            <remarks>
-            This is equivalent to calling <see
-            cref="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithOverallTimeout(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)"/>,
-            <see cref="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithTimeoutPerRetry(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)"/>.
-            </remarks>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithOverallTimeout(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)">
-            <summary>
-            Builds a <see cref="T:Cadru.Polly.Sql.SqlStrategy"/> with a policy for an overall
-            timeout.
-            </summary>
-            <param name="sqlStrategy">The SQL strategy.</param>
-            <param name="sqlStrategyConfiguration">An <see
-            cref="T:Cadru.Polly.Sql.ISqlStrategyConfiguration"/> containing configuration
-            parameters.</param>
-            <returns>The strategy instance.</returns>
-            <remarks>
-            This is equivalent to calling <see
-            cref="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithOverallTimeout(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)"/>,
-            <see cref="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithTimeoutPerRetry(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)"/>.
-            </remarks>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithTimeoutPerRetry(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)">
-            <summary>
-            Builds a <see cref="T:Cadru.Polly.Sql.SqlStrategy"/> with a policy for a per retry
-            timeout.
-            </summary>
-            <param name="sqlStrategy">The SQL strategy.</param>
-            <param name="sqlStrategyConfiguration">An <see
-            cref="T:Cadru.Polly.Sql.ISqlStrategyConfiguration"/> containing configuration
-            parameters.</param>
-            <returns>The strategy instance.</returns>
-            <remarks>
-            This is equivalent to calling <see
-            cref="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithOverallTimeout(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)"/>,
-            <see cref="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithTimeoutPerRetry(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)"/>.
-            </remarks>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithTransaction(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)">
-            <summary>
-            Builds a <see cref="T:Cadru.Polly.Sql.SqlStrategy"/> with a policy for retrying
-            actions on transaction failures.
-            </summary>
-            <param name="sqlStrategy">The SQL strategy.</param>
-            <param name="sqlStrategyConfiguration">An <see
-            cref="T:Cadru.Polly.Sql.ISqlStrategyConfiguration"/> containing configuration
-            parameters.</param>
-            <returns>The strategy instance.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerPolicySyntax.WithTransientErrors(Cadru.Polly.Sql.SqlStrategy,Cadru.Polly.Sql.ISqlStrategyConfiguration)">
-            <summary>
-            Builds a <see cref="T:Cadru.Polly.Sql.SqlStrategy"/> with a policy for retrying
-            actions on transient failures.
-            </summary>
-            <param name="sqlStrategy">The SQL strategy.</param>
-            <param name="sqlStrategyConfiguration">An <see
-            cref="T:Cadru.Polly.Sql.ISqlStrategyConfiguration"/> containing configuration
-            parameters.</param>
-            <returns>The strategy instance.</returns>
-        </member>
-        <member name="T:Cadru.Polly.Sql.SqlServer.SqlServerStrategy">
-            <summary>
-            Represents the policies used for performing SQL Server database operations.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerStrategy.ValidatePolicies">
-            <inheritdoc/>
-        </member>
-        <member name="T:Cadru.Polly.Sql.SqlServer.SqlServerStrategyConfiguration">
-            <summary>
-            Helper methods for getting strongly typed values from an <see cref="T:Cadru.Polly.Sql.ISqlStrategyConfiguration"/>.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerStrategyConfiguration.MaxRetries(Cadru.Polly.Sql.ISqlStrategyConfiguration)">
-            <summary>
-            The retry count.
-            </summary>
-            <param name="sqlStrategyConfiguration"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerStrategyConfiguration.ExceptionsAllowedBeforeBreaking(Cadru.Polly.Sql.ISqlStrategyConfiguration)">
-            <summary>
-            The number of exceptions that are allowed before opening the circuit.
-            </summary>
-            <param name="sqlStrategyConfiguration"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerStrategyConfiguration.DurationOfBreak(Cadru.Polly.Sql.ISqlStrategyConfiguration)">
-            <summary>
-            The duration the circuit will stay open before resetting.
-            </summary>
-            <param name="sqlStrategyConfiguration"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerStrategyConfiguration.OverallTimeout(Cadru.Polly.Sql.ISqlStrategyConfiguration)">
-            <summary>
-            The timeout for the overall policy.
-            </summary>
-            <param name="sqlStrategyConfiguration"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerStrategyConfiguration.TimeoutPerRetry(Cadru.Polly.Sql.ISqlStrategyConfiguration)">
-            <summary>
-            The timeout for each retry.
-            </summary>
-            <param name="sqlStrategyConfiguration"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cadru.Polly.Sql.SqlServer.SqlServerStrategyFactory">
-            <summary>
-            Represents a set of methods for creating instances of an <see
-            cref="T:Cadru.Polly.Sql.SqlServer.SqlServerStrategy"/>.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.SqlServerStrategyFactory.Instance">
-            <summary>
-            Gets an instance of the <see cref="T:Cadru.Polly.Sql.SqlServer.SqlServerStrategyFactory"/>.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerStrategyFactory.CreateStrategyImplementation(Cadru.Polly.Sql.ISqlStrategyConfiguration)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Cadru.Polly.Sql.SqlServer.SqlServerTransientErrorDetectionStrategy">
-            <summary>
-            Defines a strategy for determining transient SQL Server errors.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerTransientErrorDetectionStrategy.ShouldHandle(Microsoft.Data.SqlClient.SqlException)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Cadru.Polly.Sql.SqlServer.NetworkConnectivityErrorDetectionStrategy">
-            <summary>
-            Defines a strategy for determining transient SQL Server network connectivity errors.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.NetworkConnectivityErrorDetectionStrategy.ShouldHandle(Microsoft.Data.SqlClient.SqlException)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Cadru.Polly.Sql.SqlServer.SqlServerTransientTransactionErrorDetectionStrategy">
-            <summary>
-            Defines a strategy for determining transient SQL Server transaction errors.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerTransientTransactionErrorDetectionStrategy.ShouldHandle(Microsoft.Data.SqlClient.SqlException)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Cadru.Polly.Sql.SqlServer.SqlServerTimeoutErrorDetectionStrategy">
-            <summary>
-            Defines a strategy for determining SQL Server timeout errors.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.SqlServerTimeoutErrorDetectionStrategy.ShouldHandle(Microsoft.Data.SqlClient.SqlException)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Cadru.Polly.Sql.SqlServer.ThrottlingMode">
-            <summary>
-            Defines the possible throttling modes in SQL Database.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottlingMode.NoThrottling">
-            <summary>
-            Corresponds to the "No Throttling" throttling mode, in which all SQL statements can be processed.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottlingMode.RejectUpdateInsert">
-            <summary>
-            Corresponds to the "Reject Update / Insert" throttling mode, in which SQL statements such as INSERT, UPDATE, CREATE TABLE, and CREATE INDEX are rejected.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottlingMode.RejectAllWrites">
-            <summary>
-            Corresponds to the "Reject All Writes" throttling mode, in which SQL statements such as INSERT, UPDATE, DELETE, CREATE, and DROP are rejected.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottlingMode.RejectAll">
-            <summary>
-            Corresponds to the "Reject All" throttling mode, in which all SQL statements are rejected.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottlingMode.Unknown">
-            <summary>
-            Corresponds to an unknown throttling mode whereby throttling mode cannot be determined with certainty.
-            </summary>
-        </member>
-        <member name="T:Cadru.Polly.Sql.SqlServer.ThrottlingType">
-            <summary>
-            Defines the possible throttling types in SQL Database.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottlingType.None">
-            <summary>
-            Indicates that no throttling was applied to a given resource.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottlingType.Soft">
-            <summary>
-            Corresponds to a soft throttling type. Soft throttling is applied when machine resources such as, CPU, I/O, storage, and worker threads exceed
-            predefined safety thresholds despite the load balancer’s best efforts.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottlingType.Hard">
-            <summary>
-            Corresponds to a hard throttling type. Hard throttling is applied when the machine is out of resources, for example storage space.
-            With hard throttling, no new connections are allowed to the databases hosted on the machine until resources are freed up.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottlingType.Unknown">
-            <summary>
-            Corresponds to an unknown throttling type in the event that the throttling type cannot be determined with certainty.
-            </summary>
-        </member>
-        <member name="T:Cadru.Polly.Sql.SqlServer.ThrottledResourceType">
-            <summary>
-            Defines the types of resources in SQL Database that may be subject to throttling conditions.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottledResourceType.PhysicalDatabaseSpace">
-            <summary>
-            Corresponds to the "Physical Database Space" resource, which may be subject to throttling.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottledResourceType.PhysicalLogSpace">
-            <summary>
-            Corresponds to the "Physical Log File Space" resource, which may be subject to throttling.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottledResourceType.LogWriteIoDelay">
-            <summary>
-            Corresponds to the "Transaction Log Write IO Delay" resource, which may be subject to throttling.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottledResourceType.DataReadIoDelay">
-            <summary>
-            Corresponds to the "Database Read IO Delay" resource, which may be subject to throttling.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottledResourceType.Cpu">
-            <summary>
-            Corresponds to the "CPU" resource, which may be subject to throttling.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottledResourceType.DatabaseSize">
-            <summary>
-            Corresponds to the "Database Size" resource, which may be subject to throttling.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottledResourceType.WorkerThreads">
-            <summary>
-            Corresponds to the "SQL Worker Thread Pool" resource, which may be subject to throttling.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottledResourceType.Internal">
-            <summary>
-            Corresponds to an internal resource that may be subject to throttling.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottledResourceType.Unknown">
-            <summary>
-            Corresponds to an unknown resource type in the event that the actual resource cannot be determined with certainty.
-            </summary>
-        </member>
-        <member name="T:Cadru.Polly.Sql.SqlServer.ThrottlingCondition">
-            <summary>
-            Implements an object that holds the decoded reason code returned from SQL Database when throttling conditions are encountered.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.ThrottlingErrorNumber">
-            <summary>
-            Gets the error number that corresponds to the throttling conditions reported by SQL Database.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.throttledResources">
-            <summary>
-            Maintains a collection of key/value pairs where a key is the resource type and a value is the type of throttling applied to the given resource type.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.sqlErrorCodeRegEx">
-            <summary>
-            Provides a compiled regular expression used to extract the reason code from the error message.
-            </summary>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.Unknown">
-            <summary>
-            Gets an unknown throttling condition in the event that the actual throttling condition cannot be determined.
-            </summary>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.ThrottlingMode">
-            <summary>
-            Gets the value that reflects the throttling mode in SQL Database.
-            </summary>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.ThrottledResources">
-            <summary>
-            Gets a list of the resources in the SQL Database that were subject to throttling conditions.
-            </summary>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.IsThrottledOnDataSpace">
-            <summary>
-            Gets a value that indicates whether physical data file space throttling was reported by SQL Database.
-            </summary>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.IsThrottledOnLogSpace">
-            <summary>
-            Gets a value that indicates whether physical log space throttling was reported by SQL Database.
-            </summary>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.IsThrottledOnLogWrite">
-            <summary>
-            Gets a value that indicates whether transaction activity throttling was reported by SQL Database.
-            </summary>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.IsThrottledOnDataRead">
-            <summary>
-            Gets a value that indicates whether data read activity throttling was reported by SQL Database.
-            </summary>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.IsThrottledOnCpu">
-            <summary>
-            Gets a value that indicates whether CPU throttling was reported by SQL Database.
-            </summary>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.IsThrottledOnDatabaseSize">
-            <summary>
-            Gets a value that indicates whether database size throttling was reported by SQL Database.
-            </summary>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.IsThrottledOnWorkerThreads">
-            <summary>
-            Gets a value that indicates whether concurrent requests throttling was reported by SQL Database.
-            </summary>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.IsUnknown">
-            <summary>
-            Gets a value that indicates whether throttling conditions were not determined with certainty.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.FromException(Microsoft.Data.SqlClient.SqlException)">
-            <summary>
-            Determines throttling conditions from the specified SQL exception.
-            </summary>
-            <param name="ex">The <see cref="T:Microsoft.Data.SqlClient.SqlException"/> object that contains information relevant to an error returned by SQL Server when throttling conditions were encountered.</param>
-            <returns>An instance of the object that holds the decoded reason codes returned from SQL Database when throttling conditions were encountered.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.FromError(Microsoft.Data.SqlClient.SqlError)">
-            <summary>
-            Determines the throttling conditions from the specified SQL error.
-            </summary>
-            <param name="error">The <see cref="T:Microsoft.Data.SqlClient.SqlError"/> object that contains information relevant to a warning or error returned by SQL Server.</param>
-            <returns>An instance of the object that holds the decoded reason codes returned from SQL Database when throttling conditions were encountered.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.FromReasonCode(System.Int32)">
-            <summary>
-            Determines the throttling conditions from the specified reason code.
-            </summary>
-            <param name="reasonCode">The reason code returned by SQL Database that contains the throttling mode and the exceeded resource types.</param>
-            <returns>An instance of the object holding the decoded reason codes returned from SQL Database when encountering throttling conditions.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlServer.ThrottlingCondition.ToString">
-            <summary>
-             Returns a textual representation of the current ThrottlingCondition object, including the information held with respect to throttled resources.
-            </summary>
-            <returns>A string that represents the current ThrottlingCondition object.</returns>
-        </member>
-        <member name="T:Cadru.Polly.Sql.SqlStrategy">
-            <summary>
-            Represents the policies used for performing database operations.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlStrategy.AsyncPolicyKey">
-            <summary>
-            The asynchronous policy key.
-            </summary>
-        </member>
-        <member name="F:Cadru.Polly.Sql.SqlStrategy.SyncPolicyKey">
-            <summary>
-            The synchronous policy key.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategy.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Polly.Sql.SqlStrategy"/> class.
-            </summary>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlStrategy.AsyncPolicy">
-            <inheritdoc/>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlStrategy.SyncPolicy">
-            <inheritdoc/>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategy.NoOp">
-            <summary>
-            Builds a NoOp <see cref="P:Cadru.Polly.Sql.SqlStrategy.SyncPolicy"/> that will execute without any custom behavior.
-            </summary>
-            <returns>The policy instance.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategy.NoOpAsync">
-            <summary>
-            Builds a NoOp <see cref="P:Cadru.Polly.Sql.SqlStrategy.AsyncPolicy"/> that will execute without any custom behavior.
-            </summary>
-            <returns>The policy instance.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategy.GetOrderedAsyncPolicies">
-            <summary>
-            Gets the ordered set of asynchronous policies to build.
-            </summary>
-            <returns>An ordered set of asynchronous policies.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategy.GetOrderedSyncPolicies">
-            <summary>
-            Gets the ordered set of synchronous policies to build.
-            </summary>
-            <returns>An ordered set of synchronous policies.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategy.Validate">
-            <summary>
-            Validates the policies before building them.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategy.ValidatePolicies">
-            <summary>
-            When overridden in a derived class, provides additional validation
-            for the policies before building them.
-            </summary>
-        </member>
-        <member name="T:Cadru.Polly.Sql.SqlStrategyConfiguration">
-            <summary>
-            Represents a collection of key/value pairs used for configuring an <see
-            cref="T:Cadru.Polly.Sql.ISqlStrategy"/>.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Polly.Sql.SqlStrategyConfiguration"/> class.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.#ctor(System.Collections.Generic.IDictionary{System.String,System.Object})">
-            <summary>
-            Initializes a new instance of the <see
-            cref="T:Cadru.Polly.Sql.SqlStrategyConfiguration"/> class.
-            </summary>
-            <param name="contextData">The <see cref="T:System.Collections.Generic.IDictionary`2"/> whose elements are copied into the <see
-            cref="T:Cadru.Polly.Sql.SqlStrategyConfiguration"/>.</param>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
-            <summary>
-            Initializes a new instance of the <see
-            cref="T:Cadru.Polly.Sql.SqlStrategyConfiguration"/> class.
-            </summary>
-            <param name="contextData">The <see cref="T:System.Collections.Generic.IDictionary`2"/> whose elements are copied into the <see
-            cref="T:Cadru.Polly.Sql.SqlStrategyConfiguration"/>.</param>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlStrategyConfiguration.Keys">
-            <inheritdoc cref="P:System.Collections.Generic.IDictionary`2.Keys"/>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlStrategyConfiguration.Values">
-            <inheritdoc cref="P:System.Collections.Generic.IDictionary`2.Values"/>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlStrategyConfiguration.Count">
-            <inheritdoc cref="P:System.Collections.Generic.Dictionary`2.Count"/>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlStrategyConfiguration.System#Collections#Generic#ICollection{System#Collections#Generic#KeyValuePair{System#String,System#Object}}#IsReadOnly">
-            <inheritdoc cref="P:System.Collections.Generic.ICollection`1.IsReadOnly"/>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlStrategyConfiguration.Item(System.String)">
-            <inheritdoc cref="P:IDictionary{TKey,Value}.Item(String)"/>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.Add(System.String,System.Object)">
-            <inheritdoc cref="M:System.Collections.Generic.IDictionary`2.Add(`0,`1)"/>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.ContainsKey(System.String)">
-            <inheritdoc cref="M:System.Collections.Generic.IDictionary`2.ContainsKey(`0)"/>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.Remove(System.String)">
-            <inheritdoc cref="M:System.Collections.Generic.IDictionary`2.Remove(`0)"/>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.TryGetValue(System.String,System.Object@)">
-            <inheritdoc cref="M:System.Collections.Generic.IDictionary`2.TryGetValue(`0,`1@)"/>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.System#Collections#Generic#ICollection{System#Collections#Generic#KeyValuePair{System#String,System#Object}}#Add(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
-            <inheritdoc cref="M:System.Collections.Generic.ICollection`1.Add(`0)"/>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.Clear">
-            <inheritdoc cref="M:System.Collections.Generic.Dictionary`2.Clear"/>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.System#Collections#Generic#ICollection{System#Collections#Generic#KeyValuePair{System#String,System#Object}}#Contains(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
-            <inheritdoc cref="M:System.Collections.Generic.ICollection`1.Contains(`0)"/>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.System#Collections#Generic#ICollection{System#Collections#Generic#KeyValuePair{System#String,System#Object}}#CopyTo(System.Collections.Generic.KeyValuePair{System.String,System.Object}[],System.Int32)">
-            <inheritdoc cref="M:System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)"/>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.System#Collections#Generic#ICollection{System#Collections#Generic#KeyValuePair{System#String,System#Object}}#Remove(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
-            <inheritdoc cref="M:System.Collections.Generic.ICollection`1.Remove(`0)"/>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.GetEnumerator">
-            <inheritdoc cref="M:System.Collections.Generic.Dictionary`2.GetEnumerator"/>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.System#Collections#IEnumerable#GetEnumerator">
-            <inheritdoc cref="M:System.Collections.IEnumerable.GetEnumerator"/>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.Add(System.Object,System.Object)">
-            <inheritdoc cref="M:System.Collections.IDictionary.Add(System.Object,System.Object)"/>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.Contains(System.Object)">
-            <inheritdoc cref="M:System.Collections.IDictionary.Contains(System.Object)"/>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.System#Collections#IDictionary#GetEnumerator">
-            <inheritdoc cref="M:System.Collections.IDictionary.GetEnumerator"/>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.Remove(System.Object)">
-            <inheritdoc cref="M:System.Collections.IDictionary.Remove(System.Object)"/>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyConfiguration.CopyTo(System.Array,System.Int32)">
-            <inheritdoc cref="M:System.Collections.ICollection.CopyTo(System.Array,System.Int32)"/>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlStrategyConfiguration.System#Collections#Generic#IReadOnlyDictionary{System#String,System#Object}#Keys">
-            <inheritdoc cref="P:System.Collections.Generic.IReadOnlyDictionary`2.Keys"/>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlStrategyConfiguration.System#Collections#Generic#IReadOnlyDictionary{System#String,System#Object}#Values">
-            <inheritdoc cref="P:System.Collections.Generic.IReadOnlyDictionary`2.Values"/>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlStrategyConfiguration.System#Collections#IDictionary#IsFixedSize">
-            <inheritdoc cref="P:System.Collections.IDictionary.IsFixedSize"/>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlStrategyConfiguration.System#Collections#IDictionary#IsReadOnly">
-            <inheritdoc cref="P:System.Collections.IDictionary.IsReadOnly"/>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlStrategyConfiguration.System#Collections#IDictionary#Keys">
-            <inheritdoc cref="P:System.Collections.IDictionary.Keys"/>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlStrategyConfiguration.System#Collections#IDictionary#Values">
-            <inheritdoc cref="P:System.Collections.IDictionary.Values"/>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlStrategyConfiguration.System#Collections#ICollection#IsSynchronized">
-            <inheritdoc cref="P:System.Collections.ICollection.IsSynchronized"/>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlStrategyConfiguration.System#Collections#ICollection#SyncRoot">
-            <inheritdoc cref="P:System.Collections.ICollection.SyncRoot"/>
-        </member>
-        <member name="P:Cadru.Polly.Sql.SqlStrategyConfiguration.System#Collections#IDictionary#Item(System.Object)">
-            <inheritdoc cref="P:IDictionary.Item(Object)"/>
-        </member>
-        <member name="T:Cadru.Polly.Sql.SqlStrategyFactory">
-            <summary>
-            Represents a set of methods for creating instances of an <see
-            cref="T:Cadru.Polly.Sql.ISqlStrategy"/>.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyFactory.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Polly.Sql.SqlStrategyFactory"/> class.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyFactory.CreateStrategyImplementation(Cadru.Polly.Sql.ISqlStrategyConfiguration)">
-            <summary>
-            When overridden in a derived class, creates a new <see
-            cref="T:Cadru.Polly.Sql.ISqlStrategy"/> instance.
-            </summary>
-            <param name="strategyConfiguration">An optional strategy
-            configuration.</param>
-            <returns>A new <see cref="T:Cadru.Polly.Sql.ISqlStrategy"/>.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Sql.SqlStrategyFactory.CreateStrategy(Cadru.Polly.Sql.ISqlStrategyConfiguration)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Cadru.Polly.Utilities.SqlStrategyConfigurationExtensions">
-            <summary>
-            Helper methods for getting strongly typed values from an <see cref="T:Cadru.Polly.Sql.ISqlStrategyConfiguration"/>.
-            </summary>
-        </member>
-        <member name="M:Cadru.Polly.Utilities.SqlStrategyConfigurationExtensions.TryGetBoolean(Cadru.Polly.Sql.ISqlStrategyConfiguration,System.String,System.Nullable{System.Boolean}@)">
-            <summary>
-            Gets the value of the specified element as a <see cref="T:System.Boolean"/>.
-            </summary>
-            <param name="sqlStrategyConfiguration"></param>
-            <param name="key">The key of the element.</param>
-            <param name="value">When this method returns, contains the value
-            associated with the specified key, if the key is found in the
-            <paramref name="sqlStrategyConfiguration"/>; otherwise, <see
-            langword="null"/>. This parameter is passed uninitialized.</param>
-            <returns><see langword="true"/> if the <paramref
-            name="sqlStrategyConfiguration"/> contains an element with the
-            specified key; otherwise, <see langword="false"/>.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Utilities.SqlStrategyConfigurationExtensions.TryGetDecimal(Cadru.Polly.Sql.ISqlStrategyConfiguration,System.String,System.Nullable{System.Decimal}@)">
-            <summary>
-            Gets the value of the specified element as a <see cref="T:System.Decimal"/>.
-            </summary>
-            <param name="sqlStrategyConfiguration"></param>
-            <param name="key">The key of the element.</param>
-            <param name="value">When this method returns, contains the value
-            associated with the specified key, if the key is found in the
-            <paramref name="sqlStrategyConfiguration"/>; otherwise, <see
-            langword="null"/>. This parameter is passed uninitialized.</param>
-            <returns><see langword="true"/> if the <paramref
-            name="sqlStrategyConfiguration"/> contains an element with the
-            specified key; otherwise, <see langword="false"/>.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Utilities.SqlStrategyConfigurationExtensions.TryGetDouble(Cadru.Polly.Sql.ISqlStrategyConfiguration,System.String,System.Nullable{System.Double}@)">
-            <summary>
-            Gets the value of the specified element as a <see cref="T:System.Double"/>.
-            </summary>
-            <param name="sqlStrategyConfiguration"></param>
-            <param name="key">The key of the element.</param>
-            <param name="value">When this method returns, contains the value
-            associated with the specified key, if the key is found in the
-            <paramref name="sqlStrategyConfiguration"/>; otherwise, <see
-            langword="null"/>. This parameter is passed uninitialized.</param>
-            <returns><see langword="true"/> if the <paramref
-            name="sqlStrategyConfiguration"/> contains an element with the
-            specified key; otherwise, <see langword="false"/>.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Utilities.SqlStrategyConfigurationExtensions.TryGetFloat(Cadru.Polly.Sql.ISqlStrategyConfiguration,System.String,System.Nullable{System.Single}@)">
-            <summary>
-            Gets the value of the specified element as a <see cref="T:System.Single"/>.
-            </summary>
-            <param name="sqlStrategyConfiguration"></param>
-            <param name="key">The key of the element.</param>
-            <param name="value">When this method returns, contains the value
-            associated with the specified key, if the key is found in the
-            <paramref name="sqlStrategyConfiguration"/>; otherwise, <see
-            langword="null"/>. This parameter is passed uninitialized.</param>
-            <returns><see langword="true"/> if the <paramref
-            name="sqlStrategyConfiguration"/> contains an element with the
-            specified key; otherwise, <see langword="false"/>.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Utilities.SqlStrategyConfigurationExtensions.TryGetInt16(Cadru.Polly.Sql.ISqlStrategyConfiguration,System.String,System.Nullable{System.Int16}@)">
-            <summary>
-            Gets the value of the specified element as a <see cref="T:System.Int16"/>.
-            </summary>
-            <param name="sqlStrategyConfiguration"></param>
-            <param name="key">The key of the element.</param>
-            <param name="value">When this method returns, contains the value
-            associated with the specified key, if the key is found in the
-            <paramref name="sqlStrategyConfiguration"/>; otherwise, <see
-            langword="null"/>. This parameter is passed uninitialized.</param>
-            <returns><see langword="true"/> if the <paramref
-            name="sqlStrategyConfiguration"/> contains an element with the
-            specified key; otherwise, <see langword="false"/>.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Utilities.SqlStrategyConfigurationExtensions.TryGetInt32(Cadru.Polly.Sql.ISqlStrategyConfiguration,System.String,System.Nullable{System.Int32}@)">
-            <summary>
-            Gets the value of the specified element as a <see cref="T:System.Int32"/>.
-            </summary>
-            <param name="sqlStrategyConfiguration"></param>
-            <param name="key">The key of the element.</param>
-            <param name="value">When this method returns, contains the value
-            associated with the specified key, if the key is found in the
-            <paramref name="sqlStrategyConfiguration"/>; otherwise, <see
-            langword="null"/>. This parameter is passed uninitialized.</param>
-            <returns><see langword="true"/> if the <paramref
-            name="sqlStrategyConfiguration"/> contains an element with the
-            specified key; otherwise, <see langword="false"/>.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Utilities.SqlStrategyConfigurationExtensions.TryGetInt64(Cadru.Polly.Sql.ISqlStrategyConfiguration,System.String,System.Nullable{System.Int64}@)">
-            <summary>
-            Gets the value of the specified element as a <see cref="T:System.Int64"/>.
-            </summary>
-            <param name="sqlStrategyConfiguration"></param>
-            <param name="key">The key of the element.</param>
-            <param name="value">When this method returns, contains the value
-            associated with the specified key, if the key is found in the
-            <paramref name="sqlStrategyConfiguration"/>; otherwise, <see
-            langword="null"/>. This parameter is passed uninitialized.</param>
-            <returns><see langword="true"/> if the <paramref
-            name="sqlStrategyConfiguration"/> contains an element with the
-            specified key; otherwise, <see langword="false"/>.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Utilities.SqlStrategyConfigurationExtensions.TryGetString(Cadru.Polly.Sql.ISqlStrategyConfiguration,System.String,System.String@)">
-            <summary>
-            Gets the value of the specified element as a <see cref="T:System.String"/>.
-            </summary>
-            <param name="sqlStrategyConfiguration"></param>
-            <param name="key">The key of the element.</param>
-            <param name="value">When this method returns, contains the value
-            associated with the specified key, if the key is found in the
-            <paramref name="sqlStrategyConfiguration"/>; otherwise, <see
-            langword="null"/>. This parameter is passed uninitialized.</param>
-            <returns><see langword="true"/> if the <paramref
-            name="sqlStrategyConfiguration"/> contains an element with the
-            specified key; otherwise, <see langword="false"/>.</returns>
-        </member>
-        <member name="M:Cadru.Polly.Utilities.SqlStrategyConfigurationExtensions.TryGetTimeSpan(Cadru.Polly.Sql.ISqlStrategyConfiguration,System.String,System.Nullable{System.TimeSpan}@)">
-            <summary>
-            Gets the value of the specified element as a <see cref="T:System.TimeSpan"/>.
-            </summary>
-            <param name="sqlStrategyConfiguration"></param>
-            <param name="key">The key of the element.</param>
-            <param name="value">When this method returns, contains the value
-            associated with the specified key, if the key is found in the
-            <paramref name="sqlStrategyConfiguration"/>; otherwise, <see
-            langword="null"/>. This parameter is passed uninitialized.</param>
-            <returns><see langword="true"/> if the <paramref
-            name="sqlStrategyConfiguration"/> contains an element with the
-            specified key; otherwise, <see langword="false"/>.</returns>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to add services to.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional calls can be chained.</returns>
         </member>
         <member name="T:Cadru.Polly.Utilities.TimeoutHelper">
             <summary>

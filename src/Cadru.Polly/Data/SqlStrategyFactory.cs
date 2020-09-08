@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="ISqlStrategyFactory.cs"
+// <copyright file="SqlStrategyFactory.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2020 Scott Dorman.
@@ -20,20 +20,35 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.Polly.Sql
+using System;
+using System.Collections.Generic;
+
+namespace Cadru.Polly.Data
 {
     /// <summary>
     /// Represents a set of methods for creating instances of an <see
     /// cref="ISqlStrategy"/>.
     /// </summary>
-    public interface ISqlStrategyFactory
+    public abstract class SqlStrategyFactory : ISqlStrategyFactory
     {
         /// <summary>
-        /// Create a new <see cref="ISqlStrategy"/> instance.
+        /// Initializes a new instance of the <see cref="SqlStrategyFactory"/> class.
         /// </summary>
-        /// <param name="strategyConfiguration">An optional strategy
-        /// configuration.</param>
+        protected SqlStrategyFactory()
+        {
+        }
+
+        /// <summary>
+        /// When overridden in a derived class, creates a new <see
+        /// cref="ISqlStrategy"/> instance.
+        /// </summary>
         /// <returns>A new <see cref="ISqlStrategy"/>.</returns>
-        ISqlStrategy CreateStrategy(ISqlStrategyConfiguration? strategyConfiguration);
+        protected abstract SqlStrategyBuilder CreateStrategyBuilder(IServiceProvider serviceProvider, IEnumerable<IExceptionHandlingStrategy> exceptionHandlingStrategies);
+
+        /// <inheritdoc/>
+        public ISqlStrategy Create(IServiceProvider serviceProvider, IEnumerable<IExceptionHandlingStrategy> exceptionHandlingStrategies)
+        {
+            return this.CreateStrategyBuilder(serviceProvider, exceptionHandlingStrategies).Build();
+        }
     }
 }
