@@ -75,6 +75,7 @@ namespace Cadru.Scim.Filters
         /// <param name="right">The second <see cref="FilterLogicalOperator"/> to compare.</param>
         /// <returns>True if <paramref name="left"/> and <paramref name="right"/> are the same; otherwise, false.</returns>
         public static bool operator ==(FilterLogicalOperator left, FilterLogicalOperator right) => left.Equals(right);
+
         /// <inheritdoc/>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FilterLogicalOperator other && this.Equals(other);

@@ -166,6 +166,7 @@ namespace Cadru.Scim.Filters
         /// <param name="right">The second <see cref="FilterExpressionOperator"/> to compare.</param>
         /// <returns>True if <paramref name="left"/> and <paramref name="right"/> are the same; otherwise, false.</returns>
         public static bool operator ==(FilterExpressionOperator left, FilterExpressionOperator right) => left.Equals(right);
+
         /// <inheritdoc/>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FilterExpressionOperator other && this.Equals(other);
