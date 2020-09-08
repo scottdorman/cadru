@@ -4,6 +4,9 @@ using System.Text.RegularExpressions;
 
 namespace Cadru.Data.Dapper
 {
+    /// <summary>
+    /// Represents a way to create provider specific SQL statements.
+    /// </summary>
     public class CommandAdapter : ICommandAdapter
     {
         internal const string And = " AND ";
@@ -12,7 +15,6 @@ namespace Cadru.Data.Dapper
         internal const string Comma = ", ";
         internal const string DefaultValues = " DEFAULT VALUES";
         internal const string DeleteFrom = "DELETE FROM ";
-
         internal const string Equal = " = ";
         internal const string EqualOne = " = 1";
         internal const string Exists = " EXISTS ";
@@ -39,92 +41,37 @@ namespace Cadru.Data.Dapper
         internal const string Values = " VALUES ";
         internal const string Where = " WHERE ";
 
+        /// <inheritdoc/>
         public virtual string CatalogSeparator => this.NameSeparator;
-        public virtual string NameSeparator => ".";
-        public virtual int ParameterNameMaxLength => 128;
-        public virtual string ParameterNamePattern => "{parameterMarker}{parameterName}";
-        public virtual string ParameterPrefix => "@";
-        public virtual string QuotePrefix => "'";
-        public virtual string QuoteSuffix => this.QuotePrefix;
-        public virtual string SchemaSeparator => this.NameSeparator;
+
+        /// <inheritdoc/>
         public virtual string IdentifierPrefix => String.Empty;
+
+        /// <inheritdoc/>
         public virtual string IdentifierSuffix => String.Empty;
 
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="identifier"></param>
-        /// <returns></returns>
-        /// <remarks>
-        /// <list type="number">
-        /// <item>
-        /// <description>
-        /// The first character must be one of the following:
-        /// <list type="bullet">
-        /// <item>
-        /// <description>
-        /// A letter as defined by the Unicode Standard 3.2. The Unicode
-        /// definition of letters includes Latin characters from a through z,
-        /// from A through Z, and also letter characters from other languages.
-        /// </description>
-        /// </item>
-        /// <item>
-        /// <description>
-        /// <para>The underscore (_), at sign (@), or number sign (#).</para>
-        /// <para>
-        /// Certain symbols at the beginning of an identifier have special
-        /// meaning in SQL Server. A regular identifier that starts with the at
-        /// sign always denotes a local variable or parameter and cannot be used
-        /// as the name of any other type of object. An identifier that starts
-        /// with a number sign denotes a temporary table or procedure. An
-        /// identifier that starts with double number signs (##) denotes a
-        /// global temporary object. Although the number sign or double number
-        /// sign characters can be used to begin the names of other types of
-        /// objects, we do not recommend this practice.
-        /// </para>
-        /// <para>
-        /// Some Transact-SQL functions have names that start with double at
-        /// signs (@@). To avoid confusion with these functions, you should not
-        /// use names that start with @@.
-        /// </para>
-        /// </description>
-        /// </item>
-        /// </list>
-        /// </description>
-        /// </item>
-        /// <item>
-        /// <description>
-        /// Subsequent characters can include the following:
-        /// <list type="bullet">
-        /// <item>
-        /// <description>Letters as defined in the Unicode Standard
-        /// 3.2.</description>
-        /// </item>
-        /// <item>
-        /// <description>Decimal numbers from either Basic Latin or other
-        /// national scripts.</description>
-        /// </item>
-        /// <item>
-        /// <description>The at sign, dollar sign ($), number sign, or
-        /// underscore.</description>
-        /// </item>
-        /// </list>
-        /// </description>
-        /// </item>
-        /// <item>
-        /// <description>Embedded spaces or special characters are not
-        /// allowed.</description>
-        /// </item>
-        /// <item>
-        /// <description>Supplementary characters are not allowed.</description>
-        /// </item>
-        /// </list>
-        /// </remarks>
-        public virtual bool IsValidIdentifier(string identifier)
-        {
-            return Regex.IsMatch(identifier, @"^[\p{L}_@#]{1}[\p{L}\p{Nd}$@#_]+$");
-        }
+        /// <inheritdoc/>
+        public virtual string NameSeparator => ".";
 
+        /// <inheritdoc/>
+        public virtual int ParameterNameMaxLength => 128;
+
+        /// <inheritdoc/>
+        public virtual string ParameterNamePattern => "{parameterMarker}{parameterName}";
+
+        /// <inheritdoc/>
+        public virtual string ParameterPrefix => "@";
+
+        /// <inheritdoc/>
+        public virtual string QuotePrefix => "'";
+
+        /// <inheritdoc/>
+        public virtual string QuoteSuffix => this.QuotePrefix;
+
+        /// <inheritdoc/>
+        public virtual string SchemaSeparator => this.NameSeparator;
+
+        /// <inheritdoc/>
         public virtual string GetParameterName(string parameterName)
         {
             if (!parameterName.StartsWith(this.ParameterPrefix, StringComparison.InvariantCultureIgnoreCase))
@@ -135,11 +82,10 @@ namespace Cadru.Data.Dapper
             return parameterName;
         }
 
-        public virtual string QouteStringLiteral(string value)
+        /// <inheritdoc/>
+        public virtual bool IsValidIdentifier(string identifier)
         {
-            Contracts.Requires.NotNullOrWhiteSpace(value, nameof(value));
-            this.ConsistentQuoteDelimiters(this.QuotePrefix, this.QuoteSuffix);
-            return this.BuildQuotedString(this.QuotePrefix, this.QuoteSuffix, value);
+            return Regex.IsMatch(identifier, @"^[\p{L}_@#]{1}[\p{L}\p{Nd}$@#_]+$");
         }
 
         /// <inheritdoc/>
@@ -152,6 +98,13 @@ namespace Cadru.Data.Dapper
             return this.BuildQuotedString(this.IdentifierPrefix, this.IdentifierSuffix, identifier);
         }
 
+        /// <inheritdoc/>
+        public virtual string QuoteStringLiteral(string value)
+        {
+            Contracts.Requires.NotNullOrWhiteSpace(value, nameof(value));
+            this.ConsistentQuoteDelimiters(this.QuotePrefix, this.QuoteSuffix);
+            return this.BuildQuotedString(this.QuotePrefix, this.QuoteSuffix, value);
+        }
         /// <inheritdoc/>
         public virtual string UnquoteIdentifier(string identifier)
         {
@@ -166,6 +119,17 @@ namespace Cadru.Data.Dapper
             }
 
             return unquotedIdentifier;
+        }
+
+        internal string BuildQuotedString(string prefix, string suffix, string value)
+        {
+            var resultString = new StringBuilder(value.Length + prefix.Length + suffix.Length);
+            AppendQuotedString(resultString, prefix, suffix, value);
+            return resultString.ToString();
+        }
+
+        internal virtual void ConsistentQuoteDelimiters(string quotePrefix, string quoteSuffix)
+        {
         }
 
         private static void AppendQuotedString(StringBuilder buffer, string quotePrefix, string quoteSuffix, string unQuotedString)
@@ -188,13 +152,6 @@ namespace Cadru.Data.Dapper
             {
                 buffer.Append(unQuotedString);
             }
-        }
-
-        internal string BuildQuotedString(string prefix, string suffix, string value)
-        {
-            var resultString = new StringBuilder(value.Length + prefix.Length + suffix.Length);
-            AppendQuotedString(resultString, prefix, suffix, value);
-            return resultString.ToString();
         }
 
         // the return value is true if the string was quoted and false if it was not
@@ -242,10 +199,6 @@ namespace Cadru.Data.Dapper
                 unquotedString = quotedString[prefixLength..quotedStringLength];
             }
             return true;
-        }
-
-        internal virtual void ConsistentQuoteDelimiters(string quotePrefix, string quoteSuffix)
-        {
         }
     }
 }

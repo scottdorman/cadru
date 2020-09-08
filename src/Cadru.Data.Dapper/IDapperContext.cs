@@ -28,18 +28,73 @@ using Microsoft.Extensions.Logging;
 
 namespace Cadru.Data.Dapper
 {
+    /// <summary>
+    /// Represents a session with the database and can be used to query and save
+    /// instances of your entities.
+    /// </summary>
     public interface IDapperContext
     {
-        IDbConnection? Connection { get; }
-        ObjectMappingDictionary Mappings { get; }
+        /// <summary>
+        /// Gets the <see cref="ICommandAdapter"/> used by the context to create
+        /// SQL statements.
+        /// </summary>
         ICommandAdapter CommandAdapter { get; }
-        DapperContextOptions Options { get; }
 
+        /// <summary>
+        /// Gets the <see cref="IDbConnection"/> for the context.
+        /// </summary>
+        IDbConnection? Connection { get; }
+
+        /// <summary>
+        /// Gets a value indicating if the current operation as an active transaction.
+        /// </summary>
+        bool HasActiveTransaction { get; }
+
+        /// <summary>
+        /// Gets the instance of the <see cref="ILogger"/> used by the context.
+        /// </summary>
         ILogger<IDapperContext> Logger { get; }
 
-        bool HasActiveTransaction { get; }
-        void BeginTransaction(IsolationLevel isolation = IsolationLevel.ReadCommitted);
+        /// <summary>
+        /// Gets the <see cref="ObjectMappingDictionary"/> for all database
+        /// objects contained in the context.
+        /// </summary>
+        ObjectMappingDictionary Mappings { get; }
+
+        /// <summary>
+        /// Gets the context configuration options.
+        /// </summary>
+        DapperContextOptions Options { get; }
+
+        /// <summary>
+        /// Starts a database transaction with the specified isolation level.
+        /// </summary>
+        /// <param name="ensureOpenConnection">Indicates whether the connection
+        /// should be opened before starting the transaction.</param>
+        /// <param name="isolationLevel">An optional isolation level under which
+        /// the transaction should run.</param>
+        /// <remarks>If you do not specify an isolation level, the isolation
+        /// level for <see cref="IsolationLevel.ReadCommitted"/> is
+        /// used.</remarks>
+        void BeginTransaction(bool ensureOpenConnection, IsolationLevel isolationLevel = IsolationLevel.ReadCommitted);
+
+        /// <summary>
+        /// Starts a database transaction with the specified isolation level.
+        /// </summary>
+        /// <param name="isolationLevel">An optional isolation level under which the transaction should run.</param>
+        /// <remarks>If you do not specify an isolation level, the isolation
+        /// level for <see cref="IsolationLevel.ReadCommitted"/> is
+        /// used.</remarks>
+        void BeginTransaction(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted);
+
+        /// <summary>
+        /// Commits the database transaction, if active.
+        /// </summary>
         void CommitTransaction();
+
+        /// <summary>
+        /// Rolls back a transaction from a pending state, if active.
+        /// </summary>
         void RollbackTransaction();
     }
 }

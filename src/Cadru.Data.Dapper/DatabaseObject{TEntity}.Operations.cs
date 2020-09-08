@@ -1,0 +1,135 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+
+using Cadru.Contracts;
+using Cadru.Data.Dapper.Predicates;
+
+using Dapper;
+
+using Microsoft.Extensions.Logging;
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+namespace Cadru.Data.Dapper
+{
+    public partial class DatabaseObject<TEntity>
+    {
+        /// <summary>
+        /// Logs the given <see cref="CommandDefinition"/>
+        /// </summary>
+        /// <param name="commandDefinition">The <see cref="CommandDefinition"/> instance to be logged.</param>
+        protected void LogCommandDefinition(CommandDefinition commandDefinition)
+        {
+            if (this.Context.Options.Logging.CommandDefinitionLoggingEnabled)
+            {
+                var jsonString = JsonConvert.SerializeObject(new JObject
+                {
+                    { "CommandText", commandDefinition.CommandText },
+                    { "CommandType", commandDefinition.CommandType?.ToString() ?? String.Empty },
+                    { "CommandTimeout", commandDefinition.CommandTimeout },
+                    { "HasTransaction", commandDefinition.Transaction != null },
+                });
+
+                this.Context.Logger.LogDebug(jsonString);
+            }
+        }
+
+        /// <summary>
+        /// Gets the first record which matches the predicate, if provided.
+        /// </summary>
+        /// <param name="predicate">The predicate to match.</param>
+        /// <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
+        /// <returns>An instance of <typeparamref name="TEntity"/> representing the matched record.</returns>
+        public TEntity First(IPredicate? predicate = null, int? commandTimeout = null)
+        {
+            var command = this.CommandBuilder.GetSelectTopCommand(predicate: predicate, commandTimeout: commandTimeout);
+            this.LogCommandDefinition(command);
+
+            var executionContext = this.Context.GetSyncExecutionEnvironment();
+            return executionContext.Policy.Execute((context) => this.Context.Connection.QueryFirstOrDefault<TEntity>(command), executionContext.Context);
+        }
+
+        /// <summary>
+        /// Gets the first record which matches the predicate, if provided.
+        /// </summary>
+        /// <param name="predicate">The predicate to match.</param>
+        /// <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
+        /// <param name="cancellationToken">An optional <see cref="CancellationToken"/> for this command.</param>
+        /// <returns>An instance of <typeparamref name="TEntity"/> representing the matched record.</returns>
+        public virtual async Task<TEntity> FirstAsync(IPredicate? predicate = null, int? commandTimeout = null, CancellationToken cancellationToken = default)
+        {
+            var command = this.CommandBuilder.GetSelectTopCommand(predicate: predicate, commandTimeout: commandTimeout, cancellationToken: cancellationToken);
+            this.LogCommandDefinition(command);
+
+            var executionContext = this.Context.GetAsyncExecutionEnvironment();
+            return await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.QueryFirstOrDefaultAsync<TEntity>(command), executionContext.Context);
+        }
+
+        /// <summary>
+        /// Gets the record which matches the predicate, if provided.
+        /// </summary>
+        /// <param name="predicate">The predicate to match.</param>
+        /// <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
+        /// <returns>An instance of <typeparamref name="TEntity"/> representing the matched record.</returns>
+        public virtual TEntity Get(IPredicate predicate, int? commandTimeout = null)
+        {
+            Requires.NotNull(predicate, "predicate");
+            var command = this.CommandBuilder.GetSelectCommand(predicate: predicate, commandTimeout: commandTimeout);
+            this.LogCommandDefinition(command);
+
+            var executionContext = this.Context.GetSyncExecutionEnvironment();
+            return executionContext.Policy.Execute((context) => this.Context.Connection.QueryFirstOrDefault<TEntity>(command), executionContext.Context);
+        }
+
+        /// <summary>
+        /// Gets the record which matches the predicate, if provided.
+        /// </summary>
+        /// <param name="predicate">The predicate to match.</param>
+        /// <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
+        /// <param name="cancellationToken">An optional <see cref="CancellationToken"/> for this command.</param>
+        /// <returns>An instance of <typeparamref name="TEntity"/> representing the matched record.</returns>
+        public virtual async Task<TEntity> GetAsync(IPredicate predicate, int? commandTimeout = null, CancellationToken cancellationToken = default)
+        {
+            Requires.NotNull(predicate, "predicate");
+            var command = this.CommandBuilder.GetSelectCommand(predicate: predicate, commandTimeout: commandTimeout, cancellationToken: cancellationToken);
+            this.LogCommandDefinition(command);
+
+            var executionContext = this.Context.GetAsyncExecutionEnvironment();
+            return await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.QueryFirstOrDefaultAsync<TEntity>(command), executionContext.Context);
+        }
+
+        /// <summary>
+        /// Gets all of the records which matches the predicate, if provided.
+        /// </summary>
+        /// <param name="predicate">The predicate to match.</param>
+        /// <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
+        /// <returns>An instance of <typeparamref name="TEntity"/> representing the matched record.</returns>
+        public virtual IEnumerable<TEntity> All(IPredicate? predicate = null, int? commandTimeout = null)
+        {
+            var command = this.CommandBuilder.GetSelectCommand(predicate: predicate, commandTimeout: commandTimeout);
+            this.LogCommandDefinition(command);
+
+            var executionContext = this.Context.GetSyncExecutionEnvironment();
+            return executionContext.Policy.Execute((context) => this.Context.Connection.Query<TEntity>(command), executionContext.Context);
+        }
+
+        /// <summary>
+        /// Gets all of the records which matches the predicate, if provided.
+        /// </summary>
+        /// <param name="predicate">The predicate to match.</param>
+        /// <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
+        /// <param name="cancellationToken">An optional <see cref="CancellationToken"/> for this command.</param>
+        /// <returns>An instance of <typeparamref name="TEntity"/> representing the matched record.</returns>
+        public virtual async Task<IEnumerable<TEntity>> AllAsync(IPredicate? predicate = null, int? commandTimeout = null, CancellationToken cancellationToken = default)
+        {
+            var command = this.CommandBuilder.GetSelectCommand(predicate: predicate, commandTimeout: commandTimeout, cancellationToken: cancellationToken);
+            this.LogCommandDefinition(command);
+
+            var executionContext = this.Context.GetAsyncExecutionEnvironment();
+            return await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.QueryAsync<TEntity>(command), executionContext.Context);
+        }
+    }
+}

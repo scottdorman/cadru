@@ -23,6 +23,7 @@
 namespace Cadru.Data.Dapper
 {
     using System;
+#pragma warning disable 1591
 
     [Obsolete("Use ObjectMap<T> directly instead.")]
     public class TableMap<T> : ObjectMap<T> where T : class
@@ -31,4 +32,5 @@ namespace Cadru.Data.Dapper
         {
         }
     }
+#pragma warning restore 1591
 }

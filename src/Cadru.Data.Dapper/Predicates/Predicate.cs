@@ -35,10 +35,11 @@ namespace Cadru.Data.Dapper.Predicates
     /// </summary>
     public static class Predicate
     {
-        public static IPredicate Empty()
-        {
-            return new EmptyPredicate();
-        }
+        /// <summary>
+        /// Represents an empty predicate.
+        /// </summary>
+        /// <returns>An <see cref="IPredicate"/> instance representing the predicate.</returns>
+        public static IPredicate Empty() => new EmptyPredicate();
 
         /// <summary>
         /// Creates a predicate group whose predicates are joined using an AND operator.
@@ -227,7 +228,6 @@ namespace Cadru.Data.Dapper.Predicates
         /// </summary>
         /// <typeparam name="TModel">The type of the entity for the left operand.</typeparam>
         /// <typeparam name="TModel2">The type of the entity for the right operand.</typeparam>
-        /// <typeparam name="TFieldType">The data type of the property.</typeparam>
         /// <param name="left">The [FieldName1] operand.</param>
         /// <param name="op">One of the <see cref="Operator"/> values.</param>
         /// <param name="right">The [FieldName2] operand.</param>
@@ -251,7 +251,6 @@ namespace Cadru.Data.Dapper.Predicates
         /// <summary>
         /// Creates a predicate which represents an EXISTS clause.
         /// </summary>
-        /// <typeparam name="TSub">The type of the entity for the predicate.</typeparam>
         /// <param name="predicate"></param>
         /// <param name="not"><see langword="true"/> to invert the comparison operator.</param>
         /// <returns>An <see cref="IPredicate"/> instance representing the predicate.</returns>

@@ -20,30 +20,49 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Data;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+
+using Cadru.Data.Dapper.Configuration;
+using Cadru.Extensions;
+
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+
 namespace Cadru.Data.Dapper
 {
-    using System;
-    using System.Data;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
-
-    using Cadru.Data.Dapper.Configuration;
-    using Cadru.Extensions;
-    using Cadru.Polly.Data;
-
-    using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.Options;
-
+    /// <summary>
+    /// A <see cref="DapperContext"/> represents a session with the database and
+    /// can be used to query and save instances of your entities.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Typically you create a class that derives from DbContext and contains
+    /// <see cref="IDatabaseObject" /> properties for each entity in the model.
+    /// </para>
+    /// <para>
+    /// The model is discovered by running a set of conventions over the entity
+    /// classes found in the <see cref="IDatabaseObject" /> properties on the
+    /// derived context.
+    /// </para>
+    /// </remarks>
     public abstract partial class DapperContext : IDapperContext
     {
-        protected readonly ILogger<IDapperContext> logger;
         private readonly DapperContextBuilder contextBuilder;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DapperContext"/> class.
+        /// </summary>
+        /// <param name="contextBuilder">Additional information for creating the context.</param>
+        /// <param name="optionsAccessor">The context configuration options.</param>
+        /// <param name="loggerFactory">An <see cref="ILoggerFactory"/> instance used to create a logger.</param>
         protected DapperContext([NotNull] DapperContextBuilder contextBuilder, IOptions<DapperContextOptions> optionsAccessor, ILoggerFactory loggerFactory)
         {
             this.Options = optionsAccessor.Value;
             this.contextBuilder = contextBuilder;
-            this.logger = loggerFactory.CreateLogger<IDapperContext>();
+            this.Logger = loggerFactory.CreateLogger<IDapperContext>();
             this.Connection = this.contextBuilder.CreateConnection();
 
             var contextProperties = this.GetType().GetProperties()
@@ -64,21 +83,29 @@ namespace Cadru.Data.Dapper
             }
         }
 
+        /// <inheritdoc/>
         public ICommandAdapter CommandAdapter => this.contextBuilder.CommandAdapter;
+
+        /// <inheritdoc/>
         public IDbConnection? Connection { get; }
+
+        /// <inheritdoc/>
         public bool HasActiveTransaction => this.Transaction != null;
-        public ILogger<IDapperContext> Logger => this.logger;
+
+        /// <inheritdoc/>
+        public ILogger<IDapperContext> Logger { get; }
+
+        /// <inheritdoc/>
         public ObjectMappingDictionary Mappings { get; } = new ObjectMappingDictionary();
+
+        /// <inheritdoc/>
         public DapperContextOptions Options { get; internal set; }
+
+        /// <inheritdoc/>
         public IDbTransaction? Transaction { get; private set; }
 
-        /// <summary>
-        /// Starts a database transaction.
-        /// </summary>
-        /// <param name="ensureOpenConnection"></param>
-        /// <param name="isolation">Specifies the isolation level for the transaction.</param>
-        /// <remarks>If you do not specify an isolation level, the isolation level for <see cref="IsolationLevel.ReadCommitted"/> is used.</remarks>
-        public void BeginTransaction(bool ensureOpenConnection, IsolationLevel isolation = IsolationLevel.ReadCommitted)
+        /// <inheritdoc/>
+        public void BeginTransaction(bool ensureOpenConnection, IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)
         {
             if (this.Connection != null)
             {
@@ -87,15 +114,17 @@ namespace Cadru.Data.Dapper
                     this.Connection.Open();
                 }
 
-                this.Transaction = this.Connection.BeginTransaction(isolation);
+                this.Transaction = this.Connection.BeginTransaction(isolationLevel);
             }
         }
 
-        public void BeginTransaction(IsolationLevel isolation = IsolationLevel.ReadCommitted)
+        /// <inheritdoc/>
+        public void BeginTransaction(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)
         {
-            this.BeginTransaction(false, isolation);
+            this.BeginTransaction(false, isolationLevel);
         }
 
+        /// <inheritdoc/>
         public void CommitTransaction()
         {
             if (this.HasActiveTransaction)
@@ -105,6 +134,7 @@ namespace Cadru.Data.Dapper
             }
         }
 
+        /// <inheritdoc/>
         public void RollbackTransaction()
         {
             if (this.HasActiveTransaction)

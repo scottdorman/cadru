@@ -20,18 +20,21 @@
 // </license>
 //------------------------------------------------------------------------------
 
-using System;
-
 namespace Cadru.Data.Dapper
 {
+    /// <summary>
+    /// Represents basic properties about a database object.
+    /// </summary>
     public interface IDatabaseObject
     {
-        string FullyQualifiedObjectName { get; }
-        string ObjectName { get; }
-        DatabaseObjectType ObjectType { get; }
-        string Schema { get; }
-        Type UnderlyingType { get; }
-        internal ICommandAdapter CommandAdapter { get; }
+        /// <summary>
+        /// The context which contains this database object.
+        /// </summary>
+        IDapperContext Context { get; }
+
+        /// <summary>
+        /// Gets the property mapping information between the database object and it's entity.
+        /// </summary>
         IObjectMap ObjectMap { get; }
     }
 }

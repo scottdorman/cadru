@@ -20,19 +20,25 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Reflection;
+
+using Cadru.Data.Annotations;
+
 namespace Cadru.Data.Dapper
 {
-    using Cadru.Data.Annotations;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
-    using System.Reflection;
-
     /// <summary>
     /// Maps an entity property to its corresponding column in the database.
     /// </summary>
     public class PropertyMap : IPropertyMap
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PropertyMap"/> class.
+        /// </summary>
+        /// <param name="propertyInfo">The <see cref="PropertyInfo"/> for the
+        /// entity model property that maps to the database column.</param>
         public PropertyMap(PropertyInfo propertyInfo)
         {
             this.PropertyInfo = propertyInfo;
@@ -81,74 +87,55 @@ namespace Cadru.Data.Dapper
             }
         }
 
-        /// <summary>
-        /// Gets the option for handling string values.
-        /// </summary>
+        /// <inheritdoc/>
         public StringHandlingOption StringHandlingOption { get; }
 
-        /// <summary>
-        /// Gets a value that indicates whether a field is exportable.
-        /// </summary>
+        /// <inheritdoc/>
         public bool IsExportable { get; }
 
-        /// <summary>
-        /// Gets a value that can be used to display a description in the UI.
-        /// </summary>
+        /// <inheritdoc/>
         public string? Description { get; }
 
-        /// <summary>
-        /// Gets a value that can be used to set the watermark for prompts in the UI.
-        /// </summary>
+        /// <inheritdoc/>
         public string? Prompt { get; }
 
-        /// <summary>
-        /// Gets a value that can be used for the grid column label.
-        /// </summary>
+        /// <inheritdoc/>
         public string? Caption { get; }
 
-        /// <summary>
-        /// Gets a value that is used for field display in the UI.
-        /// </summary>
+        /// <inheritdoc/>
         public string? Name { get; }
 
-        /// <summary>
-        /// Gets the order weight of the column.
-        /// </summary>
+        /// <inheritdoc/>
         public int? Order { get; }
 
-        /// <summary>
-        /// Gets the column name for the current property.
-        /// </summary>
+        /// <inheritdoc/>
         public string ColumnName { get; private set; }
 
-        /// <summary>
-        /// Gets the ignore status of the current property. If ignored, the current property will not be included in queries.
-        /// </summary>
+        /// <inheritdoc/>
         public bool Ignored { get; private set; }
 
+        /// <inheritdoc/>
         public DatabaseGeneratedOption DatabaseGeneratedOption { get; private set; }
 
+        /// <inheritdoc/>
         public bool AllowEmptyStrings { get; private set; }
 
+        /// <inheritdoc/>
         public bool IsRequired { get; private set; }
 
-        /// <summary>
-        /// Gets the read-only status of the current property. If read-only, the current property will not be included in INSERT and UPDATE queries.
-        /// </summary>
+        /// <inheritdoc/>
         public bool IsReadOnly { get; private set; }
 
+        /// <inheritdoc/>
         public bool IsUpdatable => !(this.Ignored || this.IsReadOnly || this.DatabaseGeneratedOption != DatabaseGeneratedOption.None);
 
+        /// <inheritdoc/>
         public bool IsKey { get; private set; }
 
-        /// <summary>
-        /// Gets the name of the property by using the specified propertyInfo.
-        /// </summary>
+        /// <inheritdoc/>
         public string PropertyName => this.PropertyInfo.Name;
 
-        /// <summary>
-        /// Gets the property info for the current property.
-        /// </summary>
+        /// <inheritdoc/>
         public PropertyInfo PropertyInfo { get; private set; }
     }
 }

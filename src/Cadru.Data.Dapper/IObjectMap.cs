@@ -20,32 +20,59 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.Collections.Generic;
+using System.Reflection;
+
 namespace Cadru.Data.Dapper
 {
-    using System.Collections.Generic;
-    using System.Reflection;
-
+    /// <summary>
+    /// Represents the type mapping information between the database object and it's entity.
+    /// </summary>
     public interface IObjectMap
     {
+        /// <summary>
+        /// A dictionary containing additional metadata information about the entity.
+        /// </summary>
+        IReadOnlyDictionary<string, object> AdditionalValues { get; }
+
+        /// <summary>
+        /// The <see cref="ICommandAdapter"/> used by this object to create SQL statements.
+        /// </summary>
         ICommandAdapter CommandAdapter { get; }
 
-        string Schema { get; }
+        /// <summary>
+        /// Gets the <see cref="TypeInfo"/> for entity model of the database object.
+        /// </summary>
+        TypeInfo EntityType { get; }
 
-        string ObjectName { get; }
-
-        DatabaseObjectType ObjectType { get; }
-
+        /// <summary>
+        /// Gets the fully qualified identifier for the database object.
+        /// </summary>
         string FullyQualifiedObjectName { get; }
 
-        TypeInfo EntityType { get; }
+        /// <summary>
+        /// Gets the identifier for the database object.
+        /// </summary>
+        string ObjectName { get; }
+
+        /// <summary>
+        /// Gets a value indicating if the database object is a View or a Table.
+        /// </summary>
+        DatabaseObjectType ObjectType { get; }
 
         /// <summary>
         /// A collection of properties that will map to columns in the database table.
         /// </summary>
         IList<IPropertyMap> Properties { get; }
 
-        IReadOnlyDictionary<string, object> AdditionalValues { get; }
+        /// <summary>
+        /// Gets the schema identifier for the database object.
+        /// </summary>
+        string Schema { get; }
 
+        /// <summary>
+        /// Maps the database object to it's entity.
+        /// </summary>
         void Map();
     }
 }

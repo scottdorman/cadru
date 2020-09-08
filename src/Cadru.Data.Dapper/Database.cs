@@ -23,6 +23,8 @@
 namespace Cadru.Data.Dapper
 {
 #nullable disable
+#pragma warning disable 1591
+#pragma warning disable CA2213 // Disposable fields should be disposed
     using System;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
@@ -194,4 +196,6 @@ namespace Cadru.Data.Dapper
         }
     }
 #nullable enable
+#pragma warning restore CA2213 // Disposable fields should be disposed
+#pragma warning restore 1591
 }

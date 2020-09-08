@@ -22,9 +22,19 @@
 
 namespace Cadru.Data.Dapper
 {
+    /// <summary>
+    /// The database object type.
+    /// </summary>
     public enum DatabaseObjectType
     {
+        /// <summary>
+        /// The database object is a table.
+        /// </summary>
         Table = 0,
+
+        /// <summary>
+        /// The database object is a view.
+        /// </summary>
         View = 1
     }
 }

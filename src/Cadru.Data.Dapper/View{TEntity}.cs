@@ -22,12 +22,18 @@
 
 namespace Cadru.Data.Dapper
 {
+    /// <summary>
+    /// Represents a database object that is a view.
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
     public partial class View<TEntity> : DatabaseObject<TEntity> where TEntity : class
     {
-        public View(IDapperContext database) : base(database)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="View{TEntity}"/> class.
+        /// </summary>
+        /// <param name="context">The context which contains this entity.</param>
+        public View(IDapperContext context) : base(context, DatabaseObjectType.View)
         {
         }
-
-        public override DatabaseObjectType ObjectType => DatabaseObjectType.View;
     }
 }

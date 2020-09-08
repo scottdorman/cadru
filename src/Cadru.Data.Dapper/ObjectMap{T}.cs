@@ -20,21 +20,30 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Reflection;
+
+using Cadru.Data.Annotations;
+
 namespace Cadru.Data.Dapper
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
-    using System.Reflection;
-
-    using Cadru.Data.Annotations;
-
+    /// <summary>
+    /// Represents the type mapping information between the database object and it's entity.
+    /// </summary>
+    /// <typeparam name="T">The entity type to map the database object to.</typeparam>
     public class ObjectMap<T> : IObjectMap where T : class
     {
         private readonly Dictionary<string, object> additionalValues = new Dictionary<string, object>();
         private readonly List<IPropertyMap> properties = new List<IPropertyMap>();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ObjectMap{T}"/> class.
+        /// </summary>
+        /// <param name="commandAdapter">The <see cref="ICommandAdapter"/> used by this object to create SQL statements.</param>
+        /// <param name="databaseObjectType">A value indicating if the database object is a View or a Table.</param>
         protected internal ObjectMap(ICommandAdapter commandAdapter, DatabaseObjectType databaseObjectType)
         {
             this.CommandAdapter = commandAdapter;
@@ -74,31 +83,31 @@ namespace Cadru.Data.Dapper
             }
         }
 
+        /// <inheritdoc/>
         public IReadOnlyDictionary<string, object> AdditionalValues => this.additionalValues;
 
+        /// <inheritdoc/>
         public ICommandAdapter CommandAdapter { get; private set; }
 
+        /// <inheritdoc/>
         public TypeInfo EntityType { get; } = typeof(T).GetTypeInfo();
 
+        /// <inheritdoc/>
         public string FullyQualifiedObjectName { get; internal set; }
 
-        /// <summary>
-        /// Gets the object to use in the database.
-        /// </summary>
+        /// <inheritdoc/>
         public string ObjectName { get; }
 
+        /// <inheritdoc/>
         public DatabaseObjectType ObjectType { get; }
 
-        /// <summary>
-        /// A collection of properties that will map to columns in the database table.
-        /// </summary>
+        /// <inheritdoc/>
         public IList<IPropertyMap> Properties => this.properties;
 
-        /// <summary>
-        /// Gets the schema to use when referring to the corresponding table name in the database.
-        /// </summary>
+        /// <inheritdoc/>
         public string Schema { get; protected set; }
 
+        /// <inheritdoc/>
         public virtual void Map()
         {
             this.AutoMap();
@@ -114,7 +123,7 @@ namespace Cadru.Data.Dapper
             };
         }
 
-        protected void AutoMap()
+        private void AutoMap()
         {
             var type = typeof(T);
             foreach (var propertyInfo in type.GetProperties())
@@ -128,7 +137,7 @@ namespace Cadru.Data.Dapper
             }
         }
 
-        protected string GetFullyQualifiedObjectName()
+        private string GetFullyQualifiedObjectName()
         {
             return $"{(String.IsNullOrWhiteSpace(this.Schema) ? String.Empty : $"{ this.CommandAdapter.QuoteIdentifier(this.Schema)}{ this.CommandAdapter.SchemaSeparator }")}{this.CommandAdapter.QuoteIdentifier(this.ObjectName)}";
         }

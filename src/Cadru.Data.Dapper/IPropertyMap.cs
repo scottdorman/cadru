@@ -20,13 +20,17 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection;
+
+using Cadru.Data.Annotations;
+
 namespace Cadru.Data.Dapper
 {
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Reflection;
-
-    using Cadru.Data.Annotations;
-
+    /// <summary>
+    /// Represents the property mapping information between a column in the
+    /// database object and a property in it's entity.
+    /// </summary>
     public interface IPropertyMap
     {
         /// <summary>
@@ -70,16 +74,29 @@ namespace Cadru.Data.Dapper
         string? Name { get; }
 
         /// <summary>
-        /// Gets the ignore status of the current property. If ignored, the current property will not be included in queries.
+        /// Gets the ignore status of the current property. If ignored, the
+        /// current property will not be included in queries.
         /// </summary>
         bool Ignored { get; }
 
+        /// <summary>
+        /// Gets a value indicating the pattern used to generate values for a property in the database.
+        /// </summary>
         DatabaseGeneratedOption DatabaseGeneratedOption { get; }
 
+        /// <summary>
+        /// Gets a value indicating if the column is a database key.
+        /// </summary>
         bool IsKey { get; }
 
+        /// <summary>
+        /// Gets a value indicating if the column allows empty string values.
+        /// </summary>
         bool AllowEmptyStrings { get; }
 
+        /// <summary>
+        /// Gets a value indicating if the column is required.
+        /// </summary>
         bool IsRequired { get; }
 
         /// <summary>
@@ -88,6 +105,12 @@ namespace Cadru.Data.Dapper
         /// </summary>
         bool IsReadOnly { get; }
 
+        /// <summary>
+        /// Gets a value indicating if the column is updatable.
+        /// </summary>
+        /// <value><see langword="true"/> if <see cref="Ignored"/> is <see langword="false"/>,
+        /// <see cref="IsReadOnly"/> is <see langword="false"/>, or 
+        /// <see cref="DatabaseGeneratedOption"/> is <see cref="DatabaseGeneratedOption.None"/>.</value>
         bool IsUpdatable { get; }
 
         /// <summary>
@@ -96,7 +119,7 @@ namespace Cadru.Data.Dapper
         string PropertyName { get; }
 
         /// <summary>
-        /// Gets the <see cref="System.Reflection.PropertyInfo"/> for the current property.
+        /// Gets the <see cref="PropertyInfo"/> for the current property.
         /// </summary>
         PropertyInfo PropertyInfo { get; }
     }

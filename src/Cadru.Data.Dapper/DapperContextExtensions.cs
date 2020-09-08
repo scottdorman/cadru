@@ -1,6 +1,6 @@
 ﻿namespace Cadru.Data.Dapper
 {
-    public static class DapperContextExtensions
+    internal static class DapperContextExtensions
     {
         internal static IObjectMap MapObject<T>(this IDapperContext dapperContext, DatabaseObjectType databaseObjectType) where T : class
         {

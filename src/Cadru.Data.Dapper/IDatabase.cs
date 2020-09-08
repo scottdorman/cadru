@@ -29,6 +29,7 @@ namespace Cadru.Data.Dapper
     using global::Dapper;
 
 #nullable disable
+#pragma warning disable 1591
     [Obsolete("Use IDapperContext.")]
     public interface IDatabase : IDisposable
     {
@@ -47,5 +48,6 @@ namespace Cadru.Data.Dapper
         SqlMapper.GridReader QueryMultiple(string sql, dynamic param = null, int? commandTimeout = default, CommandType? commandType = default);
         void RollbackTransaction();
     }
+#pragma warning restore 1591
 #nullable enable
 }
