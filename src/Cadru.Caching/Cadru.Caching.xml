@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cadru.Caching</name>
+    </assembly>
+    <members>
+        <member name="T:Cadru.Caching.CacheKey">
+            <summary>
+            An object which can be used as a key for caching.
+            </summary>
+        </member>
+        <member name="M:Cadru.Caching.CacheKey.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Caching.CacheKey"/> class using
+            the specified <paramref name="prefix"/> value.
+            </summary>
+            <param name="prefix">The value used as the cache key prefix.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="prefix"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="prefix"/> is a zero-length string.</exception>
+        </member>
+        <member name="M:Cadru.Caching.CacheKey.#ctor(System.String,System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Caching.CacheKey"/> class using
+            the specified <paramref name="prefix"/> value and the values in
+            <paramref name="data"/> to form the key.
+            </summary>
+            <param name="prefix">The value used as the cache key prefix.</param>
+            <param name="data">Additional values used to form the key.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="prefix"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="prefix"/> is a zero-length string.</exception>
+        </member>
+        <member name="P:Cadru.Caching.CacheKey.CancellationToken">
+            <summary>
+            Gets or sets a <see cref="T:System.Threading.CancellationTokenSource"/> that can be
+            used to invalidate the key.
+            </summary>
+        </member>
+        <member name="P:Cadru.Caching.CacheKey.Key">
+            <summary>
+            Gets the value of the cache key.
+            </summary>
+        </member>
+        <member name="M:Cadru.Caching.CacheKey.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Caching.CacheKey.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Caching.CacheKey.ToString">
+            <inheritdoc/>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Cadru.Caching.CacheKeys" -->
+        <member name="P:Cadru.Caching.CacheKeys.Count">
+            <summary>
+            Gets the number of cache key elements in the set.
+            </summary>
+            <remarks>The number of elements that are contained in the set.</remarks>
+        </member>
+        <member name="P:Cadru.Caching.CacheKeys.Keys">
+            <summary>
+            The set of cache key elements.
+            </summary>
+        </member>
+        <member name="M:Cadru.Caching.CacheKeys.Add(System.String,System.Object[])">
+            <summary>
+            Adds a new <see cref="T:Cadru.Caching.CacheKey"/> instance to the set.
+            </summary>
+            <param name="prefix">The value used as the cache key prefix.</param>
+            <param name="data">Additional values used to form the key.</param>
+            <returns>The <see cref="T:Cadru.Caching.CacheKey"/> instance if it was added to the
+            set; otherwise <see langword="null"/>.</returns>
+        </member>
+        <member name="M:Cadru.Caching.CacheKeys.Add(System.String)">
+            <summary>
+            Adds the specified cache key to the set.
+            </summary>
+            <param name="prefix">The value used as the cache key prefix.</param>
+            <returns>The <see cref="T:Cadru.Caching.CacheKey"/> instance if it was added to the
+            set; otherwise <see langword="null"/>.</returns>
+        </member>
+        <member name="M:Cadru.Caching.CacheKeys.Add(Cadru.Caching.CacheKey)">
+            <summary>
+            Adds the specified cache key to the set.
+            </summary>
+            <param name="item">The <see cref="T:Cadru.Caching.CacheKey"/> to add to the
+            set.</param>
+            <returns>The <see cref="T:Cadru.Caching.CacheKey"/> instance if it was added to the
+            set; otherwise <see langword="null"/>.</returns>
+        </member>
+        <member name="M:Cadru.Caching.CacheKeys.Clear">
+            <summary>
+            Removes all cache key elements from the set.
+            </summary>
+        </member>
+        <member name="M:Cadru.Caching.CacheKeys.Contains(Cadru.Caching.CacheKey)">
+            <summary>
+            Determines whether the set contains the specified cache key.
+            </summary>
+            <param name="item">The <see cref="T:Cadru.Caching.CacheKey"/> to locate.</param>
+            <returns><see langword="true"/> if the set contains the specified
+            key; otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="M:Cadru.Caching.CacheKeys.Remove(Cadru.Caching.CacheKey)">
+            <summary>
+            Removes the specified cache key.
+            </summary>
+            <param name="item">>The <see cref="T:Cadru.Caching.CacheKey"/> to remove.</param>
+            <returns><see langword="true"/> if the cache key is successfully
+            found and removed; otherwise <see langword="false"/>. This method
+            returns <see langword="false"/> if <paramref name="item"/> is not
+            found.</returns>
+        </member>
+        <member name="M:Cadru.Caching.CacheKeys.RemoveWhere(System.Predicate{Cadru.Caching.CacheKey})">
+            <summary>
+             Removes all cache keys that match the conditions defined by the
+             specified predicate.
+            </summary>
+            <param name="match">The <see cref="T:System.Predicate`1"/> delegate that
+            defines the conditions of the cache keys to remove.</param>
+            <returns>The number of cache keys that were removed.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="match"/> is
+            <see langword="null"/>.</exception>
+        </member>
+        <member name="M:Cadru.Caching.CacheKeys.TrimExcess">
+            <summary>
+            Sets the capacity to the actual number of elements contained,
+            rounded up to a nearby value.
+            </summary>
+        </member>
+    </members>
+</doc>
