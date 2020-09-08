@@ -26,7 +26,7 @@ using System.Collections.Generic;
 namespace Cadru.Caching
 {
     /// <summary>
-    /// Represents a set of <see cref="CacheKey"/see> instances.
+    /// Represents a set of <see cref="CacheKey"/> instances.
     /// </summary>
     public static partial class CacheKeys
     {
@@ -42,7 +42,6 @@ namespace Cadru.Caching
         /// The set of cache key elements.
         /// </summary>
         public static IEnumerable<CacheKey> Keys => keys;
-
 
         /// <summary>
         /// Adds a new <see cref="CacheKey"/> instance to the set.
