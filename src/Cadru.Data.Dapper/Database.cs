@@ -2,7 +2,7 @@
 // <copyright file="Database.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -25,6 +25,7 @@ namespace Cadru.Data.Dapper
 #nullable disable
 #pragma warning disable 1591
 #pragma warning disable CA2213 // Disposable fields should be disposed
+
     using System;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
@@ -82,7 +83,6 @@ namespace Cadru.Data.Dapper
             this.transaction.Commit();
             this.transaction = null;
         }
-
 
         public int Execute(string sql, dynamic param = null, int? commandTimeout = null)
         {
@@ -156,6 +156,7 @@ namespace Cadru.Data.Dapper
 
             return map;
         }
+
         internal void InitializeDatabase(DbConnection connection, int commandTimeout, CommandAdapter commandAdapter = null)
         {
             this.connection = connection;
@@ -195,6 +196,7 @@ namespace Cadru.Data.Dapper
             return db;
         }
     }
+
 #nullable enable
 #pragma warning restore CA2213 // Disposable fields should be disposed
 #pragma warning restore 1591

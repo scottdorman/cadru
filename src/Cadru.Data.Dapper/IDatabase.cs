@@ -2,7 +2,7 @@
 // <copyright file="IDatabase.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -30,6 +30,7 @@ namespace Cadru.Data.Dapper
 
 #nullable disable
 #pragma warning disable 1591
+
     [Obsolete("Use IDapperContext.")]
     public interface IDatabase : IDisposable
     {
@@ -37,17 +38,28 @@ namespace Cadru.Data.Dapper
         bool HasActiveTransaction { get; }
 
         void BeginTransaction(IsolationLevel isolation = IsolationLevel.ReadCommitted);
+
         void CommitTransaction();
+
         int Execute(string sql, dynamic param = null, int? commandTimeout = default);
+
         System.Collections.Generic.IEnumerable<dynamic> Query(string sql, dynamic param = null, bool buffered = true, int? commandTimeout = default);
+
         System.Collections.Generic.IEnumerable<T> Query<T>(string sql, dynamic param = null, bool buffered = true, int? commandTimeout = default);
+
         System.Collections.Generic.IEnumerable<TReturn> Query<TFirst, TSecond, TReturn>(string sql, System.Func<TFirst, TSecond, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = default);
+
         System.Collections.Generic.IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TReturn>(string sql, System.Func<TFirst, TSecond, TThird, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = default);
+
         System.Collections.Generic.IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TReturn>(string sql, System.Func<TFirst, TSecond, TThird, TFourth, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = default);
+
         System.Collections.Generic.IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TFifth, TReturn>(string sql, System.Func<TFirst, TSecond, TThird, TFourth, TFifth, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = default);
+
         SqlMapper.GridReader QueryMultiple(string sql, dynamic param = null, int? commandTimeout = default, CommandType? commandType = default);
+
         void RollbackTransaction();
     }
+
 #pragma warning restore 1591
 #nullable enable
 }

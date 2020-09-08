@@ -2,7 +2,7 @@
 // <copyright file="TableMap{T}.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -23,6 +23,7 @@
 namespace Cadru.Data.Dapper
 {
     using System;
+
 #pragma warning disable 1591
 
     [Obsolete("Use ObjectMap<T> directly instead.")]
@@ -32,5 +33,6 @@ namespace Cadru.Data.Dapper
         {
         }
     }
+
 #pragma warning restore 1591
 }

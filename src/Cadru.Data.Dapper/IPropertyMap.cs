@@ -2,7 +2,7 @@
 // <copyright file="IPropertyMap.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -109,7 +109,7 @@ namespace Cadru.Data.Dapper
         /// Gets a value indicating if the column is updatable.
         /// </summary>
         /// <value><see langword="true"/> if <see cref="Ignored"/> is <see langword="false"/>,
-        /// <see cref="IsReadOnly"/> is <see langword="false"/>, or 
+        /// <see cref="IsReadOnly"/> is <see langword="false"/>, or
         /// <see cref="DatabaseGeneratedOption"/> is <see cref="DatabaseGeneratedOption.None"/>.</value>
         bool IsUpdatable { get; }
 
