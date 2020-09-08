@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="IPredicateBase.cs"
+// <copyright file="Database.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2017 Scott Dorman.
@@ -20,12 +20,26 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.Data.Dapper.Predicates.Internal
-{
-    internal interface IPredicateBase : IPredicate
-    {
-        bool Not { get; set; }
+using System.Data;
 
-        string? PropertyName { get; set; }
+using Cadru.Data.Dapper.Configuration;
+
+using Microsoft.Extensions.Logging;
+
+namespace Cadru.Data.Dapper
+{
+    public interface IDapperContext
+    {
+        IDbConnection? Connection { get; }
+        ObjectMappingDictionary Mappings { get; }
+        ICommandAdapter CommandAdapter { get; }
+        DapperContextOptions Options { get; }
+
+        ILogger<IDapperContext> Logger { get; }
+
+        bool HasActiveTransaction { get; }
+        void BeginTransaction(IsolationLevel isolation = IsolationLevel.ReadCommitted);
+        void CommitTransaction();
+        void RollbackTransaction();
     }
 }

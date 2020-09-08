@@ -26,6 +26,7 @@ namespace Cadru.Data.Dapper.Predicates
     using System.Collections.Generic;
     using System.Linq.Expressions;
 
+    using Cadru.Contracts;
     using Cadru.Data.Dapper.Internal;
     using Cadru.Data.Dapper.Predicates.Internal;
 
@@ -34,6 +35,11 @@ namespace Cadru.Data.Dapper.Predicates
     /// </summary>
     public static class Predicate
     {
+        public static IPredicate Empty()
+        {
+            return new EmptyPredicate();
+        }
+
         /// <summary>
         /// Creates a predicate group whose predicates are joined using an AND operator.
         /// </summary>
@@ -55,7 +61,7 @@ namespace Cadru.Data.Dapper.Predicates
         /// <returns>An <see cref="IPredicateGroup"/> instance representing the predicate.</returns>
         public static IPredicateGroup And(IList<IPredicate> predicates)
         {
-            var group = (PredicateGroup)Predicate.And();
+            var group = (PredicateGroup)And();
             group.AddRange(predicates);
             return group;
         }
@@ -81,7 +87,7 @@ namespace Cadru.Data.Dapper.Predicates
         /// <returns>An <see cref="IPredicateGroup"/> instance representing the predicate.</returns>
         public static IPredicateGroup Or(IList<IPredicate> predicates)
         {
-            var group = (PredicateGroup)Predicate.Or();
+            var group = (PredicateGroup)Or();
             group.AddRange(predicates);
             return group;
         }
@@ -100,10 +106,12 @@ namespace Cadru.Data.Dapper.Predicates
         public static IPredicate FieldComparison<TModel, TFieldType>(Expression<Func<TModel, TFieldType>> expression, Operator op, TFieldType value, bool not = false)
             where TModel : class
         {
+            Requires.NotNull(expression, nameof(expression));
+
             var predicate = new FieldPredicate<TModel, TFieldType>
             {
                 Not = not,
-                PropertyName = expression.GetProperty().Name,
+                PropertyName = expression!.GetProperty()?.Name!,
                 Operator = op,
                 Value = value,
             };
@@ -128,7 +136,7 @@ namespace Cadru.Data.Dapper.Predicates
             var predicate = new FieldPredicate<TModel, TFieldType>
             {
                 Not = not,
-                PropertyName = expression.GetProperty().Name,
+                PropertyName = expression?.GetProperty()?.Name,
                 Operator = op,
                 Value = value,
             };
@@ -205,9 +213,9 @@ namespace Cadru.Data.Dapper.Predicates
             var predicate = new PropertyPredicate<TModel, TModel2>
             {
                 Not = not,
-                PropertyName = left.GetProperty().Name,
+                PropertyName = left?.GetProperty()?.Name,
                 Operator = op,
-                PropertyName2 = right.GetProperty().Name
+                PropertyName2 = right?.GetProperty()?.Name
             };
 
             return predicate;
@@ -225,7 +233,7 @@ namespace Cadru.Data.Dapper.Predicates
         /// <param name="right">The [FieldName2] operand.</param>
         /// <param name="not"><see langword="true"/> to invert the comparison operator.</param>
         /// <returns>An <see cref="IPredicate"/> instance representing the predicate.</returns>
-        public static IPredicate PropertyComparison<TModel, TModel2, TFieldType>(string left, Operator op, string right, bool not = false)
+        public static IPredicate PropertyComparison<TModel, TModel2>(string left, Operator op, string right, bool not = false)
             where TModel : class
             where TModel2 : class
         {
@@ -247,10 +255,9 @@ namespace Cadru.Data.Dapper.Predicates
         /// <param name="predicate"></param>
         /// <param name="not"><see langword="true"/> to invert the comparison operator.</param>
         /// <returns>An <see cref="IPredicate"/> instance representing the predicate.</returns>
-        public static IPredicate Exists<TSub>(IPredicate predicate, bool not = false)
-            where TSub : class
+        public static IPredicate Exists(IPredicate predicate, bool not = false)
         {
-            return new ExistsPredicate<TSub>
+            return new ExistsPredicate
             {
                 Not = not,
                 Predicate = predicate

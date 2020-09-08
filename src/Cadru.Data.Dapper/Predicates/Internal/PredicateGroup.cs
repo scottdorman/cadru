@@ -49,13 +49,13 @@ namespace Cadru.Data.Dapper.Predicates.Internal
             this.predicates.AddRange(predicates);
         }
 
-        public string GetSql(DynamicParameters parameters)
+        public string GetSql(DynamicParameters parameters, IObjectMap objectMap)
         {
             var seperator = this.Operator == GroupOperator.And ? CommandAdapter.And : CommandAdapter.Or;
             var predicateList = new List<string>();
             foreach (var predicate in this.Predicates)
             {
-                var sql = predicate.GetSql(parameters);
+                var sql = predicate.GetSql(parameters, objectMap);
                 if (!String.IsNullOrWhiteSpace(sql))
                 {
                     predicateList.Add(sql);

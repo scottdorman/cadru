@@ -23,29 +23,12 @@
 namespace Cadru.Data.Dapper
 {
     using System;
-    using System.Reflection;
 
-    using Cadru.Data.Annotations;
-
+    [Obsolete("Use ObjectMap<T> directly instead.")]
     public class ViewMap<T> : ObjectMap<T> where T : class
     {
-        internal ViewMap(CommandAdapter commandAdapter) : base(commandAdapter)
+        internal ViewMap(CommandAdapter commandAdapter) : base(commandAdapter, DatabaseObjectType.View)
         {
-            this.ObjectType = DatabaseObjectType.View;
-            var viewAttribute = this.EntityType.GetCustomAttribute<ViewAttribute>(inherit: true);
-            if (viewAttribute != null)
-            {
-                this.Schema = viewAttribute.Schema;
-                this.ObjectName = viewAttribute.Name;
-            }
-            else
-            {
-                this.Schema = String.Empty;
-                this.ObjectName = this.EntityType.Name;
-            }
-
-            this.FullyQualifiedObjectName = this.GetFullyQualifiedObjectName();
-            this.AutoMap();
         }
     }
 }

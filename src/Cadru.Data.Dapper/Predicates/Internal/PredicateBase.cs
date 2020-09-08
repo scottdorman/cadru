@@ -34,36 +34,37 @@ namespace Cadru.Data.Dapper.Predicates.Internal
     {
         public bool Not { get; set; }
 
-        public string PropertyName { get; set; }
+        public string? PropertyName { get; set; }
 
-        public abstract string GetSql(DynamicParameters parameters);
+        public abstract string GetSql(DynamicParameters parameters, IObjectMap objectMap);
 
-        internal static string GetColumnName<T>(string propertyName, bool alias) where T : class
+        internal static bool IsValidPropertyName(string? propertyName)
         {
-            Contracts.Requires.NotNullOrWhiteSpace(propertyName, nameof(propertyName));
-
-            var columnName = String.Empty;
-            if (Database.Mappings.TryGetValue(typeof(T), out var tableMap))
-            {
-                var propertyMap = tableMap.Properties.SingleOrDefault(p => p.PropertyName == propertyName);
-                if (propertyMap == null)
-                {
-                    throw new NullReferenceException($"{propertyName} was not found for {typeof(T)}");
-                }
-
-                string columnAlias = null;
-                if (propertyMap.ColumnName != propertyMap.PropertyName && alias)
-                {
-                    columnAlias = propertyMap.PropertyName;
-                }
-
-                columnName = GetColumnName(tableMap.CommandAdapter, GetTableName(tableMap, null), propertyMap.ColumnName, columnAlias);
-            }
-
-            return columnName;
+            return !String.IsNullOrWhiteSpace(propertyName);
         }
 
-        private static string GetColumnName(CommandAdapter commandAdapter, string prefix, string columnName, string alias)
+        internal static string GetColumnName<T>(IObjectMap objectMap, string propertyName, bool alias) where T : class
+        {
+            string? columnName = null;
+            if (objectMap != null && IsValidPropertyName(propertyName))
+            {
+                var propertyMap = objectMap.Properties.SingleOrDefault(p => p.PropertyName == propertyName);
+                if (propertyMap != null)
+                {
+                    string? columnAlias = null;
+                    if (propertyMap.ColumnName != propertyMap.PropertyName && alias)
+                    {
+                        columnAlias = propertyMap.PropertyName;
+                    }
+
+                    columnName = GetColumnName(objectMap.CommandAdapter, GetTableName(objectMap, null), propertyMap.ColumnName, columnAlias);
+                }
+            }
+
+            return columnName ?? throw new InvalidOperationException($"Property '{propertyName}' was not found for {typeof(T)}.");
+        }
+
+        private static string GetColumnName(ICommandAdapter commandAdapter, string? prefix, string columnName, string? alias)
         {
             Contracts.Requires.NotNullOrWhiteSpace(columnName, nameof(columnName));
 
@@ -73,13 +74,13 @@ namespace Cadru.Data.Dapper.Predicates.Internal
 
             if (!String.IsNullOrWhiteSpace(alias))
             {
-                result.Append($"{CommandAdapter.As}{commandAdapter.QuoteIdentifier(alias)}");
+                result.Append($"{CommandAdapter.As}{commandAdapter.QuoteIdentifier(alias!)}");
             }
 
             return result.ToString();
         }
 
-        private static string GetTableName(IObjectMap objectMap, string alias)
+        private static string GetTableName(IObjectMap objectMap, string? alias)
         {
             Contracts.Requires.NotNull(objectMap, nameof(objectMap));
 
@@ -87,7 +88,7 @@ namespace Cadru.Data.Dapper.Predicates.Internal
             result.Append(objectMap.FullyQualifiedObjectName);
             if (!String.IsNullOrWhiteSpace(alias))
             {
-                result.Append($"{CommandAdapter.As}{objectMap.CommandAdapter.QuoteIdentifier(alias)}");
+                result.Append($"{CommandAdapter.As}{objectMap.CommandAdapter.QuoteIdentifier(alias!)}");
             }
 
             return result.ToString();

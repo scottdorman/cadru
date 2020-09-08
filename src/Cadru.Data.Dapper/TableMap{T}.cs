@@ -23,28 +23,12 @@
 namespace Cadru.Data.Dapper
 {
     using System;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Reflection;
 
+    [Obsolete("Use ObjectMap<T> directly instead.")]
     public class TableMap<T> : ObjectMap<T> where T : class
     {
-        internal TableMap(CommandAdapter commandAdapter) : base(commandAdapter)
+        internal TableMap(CommandAdapter commandAdapter) : base(commandAdapter, DatabaseObjectType.Table)
         {
-            this.ObjectType = DatabaseObjectType.Table;
-            var tableAttribute = this.EntityType.GetCustomAttribute<TableAttribute>(inherit: true);
-            if (tableAttribute != null)
-            {
-                this.Schema = tableAttribute.Schema;
-                this.ObjectName = tableAttribute.Name;
-            }
-            else
-            {
-                this.Schema = String.Empty;
-                this.ObjectName = this.EntityType.Name;
-            }
-
-            this.FullyQualifiedObjectName = this.GetFullyQualifiedObjectName();
-            this.AutoMap();
         }
     }
 }

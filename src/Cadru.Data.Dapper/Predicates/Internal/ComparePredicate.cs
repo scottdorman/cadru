@@ -28,25 +28,17 @@ namespace Cadru.Data.Dapper.Predicates.Internal
 
         internal string GetOperatorString()
         {
-            switch (this.Operator)
+            return this.Operator switch
             {
-                case Operator.GreaterThan:
-                    return this.Not ? "<=" : ">";
-                case Operator.GreaterThanOrEqual:
-                    return this.Not ? "<" : ">=";
-                case Operator.LessThan:
-                    return this.Not ? ">=" : "<";
-                case Operator.LessThanOrEqual:
-                    return this.Not ? ">" : "<=";
-                case Operator.Like:
-                    return this.Not ? CommandAdapter.NotLike : CommandAdapter.Like;
-                case Operator.Between:
-                    return this.Not ? CommandAdapter.NotBetween : CommandAdapter.Between;
-                case Operator.In:
-                    return this.Not ? CommandAdapter.NotIn : CommandAdapter.In;
-                default:
-                    return this.Not ? "<>" : "=";
-            }
+                Operator.GreaterThan => this.Not ? "<=" : ">",
+                Operator.GreaterThanOrEqual => this.Not ? "<" : ">=",
+                Operator.LessThan => this.Not ? ">=" : "<",
+                Operator.LessThanOrEqual => this.Not ? ">" : "<=",
+                Operator.Like => this.Not ? CommandAdapter.NotLike : CommandAdapter.Like,
+                Operator.Between => this.Not ? CommandAdapter.NotBetween : CommandAdapter.Between,
+                Operator.In => this.Not ? CommandAdapter.NotIn : CommandAdapter.In,
+                _ => this.Not ? "<>" : "=",
+            };
         }
     }
 }

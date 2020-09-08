@@ -36,78 +36,85 @@ namespace Cadru.Data.Dapper
         public PropertyMap(PropertyInfo propertyInfo)
         {
             this.PropertyInfo = propertyInfo;
+            this.ColumnName = this.PropertyInfo.Name;
 
             var attributes = propertyInfo.GetCustomAttributes();
-
-            this.Ignored = attributes.OfType<NotMappedAttribute>().SingleOrDefault() != null;
-            this.IsKey = attributes.OfType<KeyAttribute>().SingleOrDefault() != null;
-            var requiredAttribute = attributes.OfType<RequiredAttribute>().SingleOrDefault();
-            if (requiredAttribute != null)
+            if (attributes != null)
             {
-                this.IsRequired = true;
-                this.AllowEmptyStrings = requiredAttribute.AllowEmptyStrings;
+                this.Ignored = attributes.OfType<NotMappedAttribute>().SingleOrDefault() != null;
+                this.IsKey = attributes.OfType<KeyAttribute>().SingleOrDefault() != null;
+
+                var requiredAttribute = attributes.OfType<RequiredAttribute>().SingleOrDefault();
+                if (requiredAttribute != null)
+                {
+                    this.IsRequired = true;
+                    this.AllowEmptyStrings = requiredAttribute.AllowEmptyStrings;
+                }
+
+                var columnAttribute = attributes.OfType<ColumnAttribute>().SingleOrDefault();
+                if (columnAttribute != null)
+                {
+                    this.ColumnName = columnAttribute.Name;
+                }
+
+                var databaseGeneratedAttribute = attributes.OfType<DatabaseGeneratedAttribute>().SingleOrDefault();
+                this.DatabaseGeneratedOption = databaseGeneratedAttribute?.DatabaseGeneratedOption ?? DatabaseGeneratedOption.None;
+
+                var displayAttribute = attributes.OfType<DisplayAttribute>().SingleOrDefault();
+                if (displayAttribute != null)
+                {
+                    this.Name = displayAttribute.GetName();
+                    this.Caption = displayAttribute.GetShortName();
+                    this.Prompt = displayAttribute.GetPrompt();
+                    this.Description = displayAttribute.GetDescription();
+                    this.Order = displayAttribute.GetOrder();
+                }
+
+                var editableAttribute = attributes.OfType<EditableAttribute>().SingleOrDefault();
+                this.IsReadOnly = (!editableAttribute?.AllowEdit) ?? false;
+
+                var exportAttribute = attributes.OfType<ExportableAttribute>().SingleOrDefault();
+                this.IsExportable = exportAttribute?.AllowExport ?? true;
+
+                var stringHandlingAttribute = attributes.OfType<StringHandlingAttribute>().SingleOrDefault();
+                this.StringHandlingOption = stringHandlingAttribute?.StringHandlingOption ?? StringHandlingOption.None;
             }
-
-            var columnAttribute = attributes.OfType<ColumnAttribute>().SingleOrDefault();
-            this.ColumnName = columnAttribute?.Name ?? this.PropertyInfo.Name;
-
-            var databaseGeneratedAttribute = attributes.OfType<DatabaseGeneratedAttribute>().SingleOrDefault();
-            this.DatabaseGeneratedOption = databaseGeneratedAttribute?.DatabaseGeneratedOption ?? DatabaseGeneratedOption.None;
-
-            var displayAttribute = attributes.OfType<DisplayAttribute>().SingleOrDefault();
-            if (displayAttribute != null)
-            {
-                this.Name = displayAttribute.GetName();
-                this.Caption = displayAttribute.GetShortName();
-                this.Prompt = displayAttribute.GetPrompt();
-                this.Description = displayAttribute.GetDescription();
-                this.Order = displayAttribute.GetOrder();
-            }
-
-            var editableAttribute = attributes.OfType<EditableAttribute>().SingleOrDefault();
-            this.IsReadOnly = (!editableAttribute?.AllowEdit) ?? false;
-
-            var exportAttribute = attributes.OfType<ExportableAttribute>().SingleOrDefault();
-            this.IsExportable = exportAttribute?.AllowExport ?? true;
-
-            var stringHandlingAttribute = attributes.OfType<StringHandlingAttribute>().SingleOrDefault();
-            this.StringHandlingOption = stringHandlingAttribute?.StringHandlingOption ?? StringHandlingOption.None;
         }
 
         /// <summary>
         /// Gets the option for handling string values.
         /// </summary>
-        public StringHandlingOption StringHandlingOption { get; private set; }
+        public StringHandlingOption StringHandlingOption { get; }
 
         /// <summary>
         /// Gets a value that indicates whether a field is exportable.
         /// </summary>
-        public bool IsExportable { get; private set; }
+        public bool IsExportable { get; }
 
         /// <summary>
         /// Gets a value that can be used to display a description in the UI.
         /// </summary>
-        public string Description { get; private set; }
+        public string? Description { get; }
 
         /// <summary>
         /// Gets a value that can be used to set the watermark for prompts in the UI.
         /// </summary>
-        public string Prompt { get; private set; }
+        public string? Prompt { get; }
 
         /// <summary>
         /// Gets a value that can be used for the grid column label.
         /// </summary>
-        public string Caption { get; private set; }
+        public string? Caption { get; }
 
         /// <summary>
         /// Gets a value that is used for field display in the UI.
         /// </summary>
-        public string Name { get; private set; }
+        public string? Name { get; }
 
         /// <summary>
         /// Gets the order weight of the column.
         /// </summary>
-        public int? Order { get; private set; }
+        public int? Order { get; }
 
         /// <summary>
         /// Gets the column name for the current property.

@@ -35,55 +35,52 @@ namespace Cadru.Data.Dapper.Predicates.Internal
     internal class FieldPredicate<T, TFieldType> : ComparePredicate
             where T : class
     {
-        public object Value { get; set; }
+        public object? Value { get; set; }
 
-        public override string GetSql(DynamicParameters parameters)
+        public override string GetSql(DynamicParameters parameters, IObjectMap objectMap)
         {
-            var notText = this.Not ? CommandAdapter.Not : String.Empty;
-
-            var columnName = GetColumnName<T>(this.PropertyName, false);
-
-            if (this.Operator == Operator.In)
+            if (this.Value != null && IsValidPropertyName(this.PropertyName))
             {
-                if (this.Value is IEnumerable enumerable)
-                {
-                    var @params = new List<string>();
-                    foreach (var value in enumerable)
-                    {
-                        var valueParameterName = parameters.SetParameterName(this.PropertyName, value, '@');
-                        @params.Add(valueParameterName);
-                    }
+                var columnName = GetColumnName<T>(objectMap, this.PropertyName!, false);
 
-                    if (@params.Any())
+                if (this.Operator == Operator.In)
+                {
+                    if (this.Value is IEnumerable enumerable)
                     {
-                        var paramStrings = @params.Aggregate(new StringBuilder(), (sb, s) => sb.Append((sb.Length != 0 ? ", " : String.Empty) + s), sb => sb.ToString());
-                        return $"{CommandAdapter.LeftParenthesis}{columnName}{this.GetOperatorString()}{CommandAdapter.SpaceLeftParenthesis}{paramStrings}{CommandAdapter.RightParenthesis}{CommandAdapter.RightParenthesis}";
+                        var @params = new List<string>();
+                        foreach (var value in enumerable)
+                        {
+                            var valueParameterName = parameters.SetParameterName(this.PropertyName!, value, '@');
+                            @params.Add(valueParameterName);
+                        }
+
+                        if (@params.Any())
+                        {
+                            var paramStrings = @params.Aggregate(new StringBuilder(), (sb, s) => sb.Append((sb.Length != 0 ? ", " : String.Empty) + s), sb => sb.ToString());
+                            return $"{CommandAdapter.LeftParenthesis}{columnName}{this.GetOperatorString()}{CommandAdapter.SpaceLeftParenthesis}{paramStrings}{CommandAdapter.RightParenthesis}{CommandAdapter.RightParenthesis}";
+                        }
+                        else
+                        {
+                            return String.Empty;
+                        }
                     }
                     else
                     {
-                        return String.Empty;
+                        throw new ArgumentException("Value must be enumerable for IN operations");
+
                     }
                 }
-                else
-                {
-                    throw new ArgumentException("Value must be enumerable for IN operations");
 
+                if (this.Operator == Operator.Between && this.Value is Tuple<TFieldType, TFieldType> values && values.Item1 != null && values.Item2 != null)
+                {
+                    return $"({columnName} {this.GetOperatorString()} {parameters.SetParameterName(this.PropertyName!, values.Item1, '@')}{CommandAdapter.And}{parameters.SetParameterName(this.PropertyName!, values.Item2, '@')})";
                 }
+
+                var parameterName = parameters.SetParameterName(this.PropertyName!, this.Value, '@');
+                return $"({columnName} {this.GetOperatorString()} {parameterName})";
             }
 
-            if (this.Operator == Operator.Between)
-            {
-#pragma warning disable IDE0019
-                var values = this.Value as Tuple<TFieldType, TFieldType>;
-                if (values != null)
-                {
-                    return $"({columnName} {this.GetOperatorString()} {parameters.SetParameterName(this.PropertyName, values.Item1, '@')}{CommandAdapter.And}{parameters.SetParameterName(this.PropertyName, values.Item2, '@')})";
-                }
-#pragma warning restore IDE0019
-            }
-
-            var parameterName = parameters.SetParameterName(this.PropertyName, this.Value, '@');
-            return $"({columnName} {this.GetOperatorString()} {parameterName})";
+            return String.Empty;
         }
     }
 }

@@ -25,25 +25,29 @@ namespace Cadru.Data.Dapper.Internal
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
+
     using global::Dapper;
 
     internal static class TypeHelpers
     {
-        public static PropertyInfo GetProperty(this LambdaExpression lambda)
+        public static PropertyInfo? GetProperty(this LambdaExpression lambda)
         {
-            Expression expr = lambda;
-            for (;;)
+            Expression? expr = lambda;
+            while (true)
             {
                 switch (expr.NodeType)
                 {
                     case ExpressionType.Lambda:
                         expr = ((LambdaExpression)expr).Body;
                         break;
+
                     case ExpressionType.Convert:
                         expr = ((UnaryExpression)expr).Operand;
                         break;
+
                     case ExpressionType.MemberAccess:
                         return (expr as MemberExpression)?.Member as PropertyInfo;
+
                     default:
                         return null;
                 }

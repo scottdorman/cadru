@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="IPredicateBase.cs"
+// <copyright file="Database.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2017 Scott Dorman.
@@ -20,12 +20,12 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.Data.Dapper.Predicates.Internal
+namespace Cadru.Data.Dapper
 {
-    internal interface IPredicateBase : IPredicate
-    {
-        bool Not { get; set; }
+    using System;
+    using System.Collections.Concurrent;
 
-        string? PropertyName { get; set; }
+    public class ObjectMappingDictionary : ConcurrentDictionary<Type, IObjectMap>
+    {
     }
 }

@@ -1,101 +1,174 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Cadru.Data.Dapper
 {
-    public class CommandAdapter
+    public class CommandAdapter : ICommandAdapter
     {
+        internal const string And = " AND ";
+        internal const string As = " AS ";
+        internal const string Between = " BETWEEN ";
+        internal const string Comma = ", ";
+        internal const string DefaultValues = " DEFAULT VALUES";
         internal const string DeleteFrom = "DELETE FROM ";
 
-        internal const string InsertInto = "INSERT INTO ";
-        internal const string DefaultValues = " DEFAULT VALUES";
-        internal const string Values = " VALUES ";
-
-        internal const string Update = "UPDATE ";
-
-        internal const string Set = " SET ";
-        internal const string Where = " WHERE ";
-        internal const string SpaceLeftParenthesis = " (";
-
-        internal const string Comma = ", ";
         internal const string Equal = " = ";
-        internal const string LeftParenthesis = "(";
-        internal const string RightParenthesis = ")";
-        internal const string NameSeparator = ".";
-
-        internal const string Exists = " EXISTS ";
-        internal const string NotExists = " NOT EXISTS ";
-        internal const string IsNull = " IS NULL";
-        internal const string IsNotNull = " IS NOT NULL";
-        internal const string Like = " LIKE ";
-        internal const string NotLike = " NOT LIKE ";
-        internal const string Between = " BETWEEN ";
-        internal const string NotBetween = " NOT BETWEEN ";
-        internal const string In = " IN ";
-        internal const string NotIn = " NOT IN ";
         internal const string EqualOne = " = 1";
-        internal const string And = " AND ";
-        internal const string Or = " OR ";
+        internal const string Exists = " EXISTS ";
+        internal const string In = " IN ";
+        internal const string InsertInto = "INSERT INTO ";
+        internal const string IsNotNull = " IS NOT NULL";
+        internal const string IsNull = " IS NULL";
+        internal const string LeftParenthesis = "(";
+        internal const string Like = " LIKE ";
         internal const string Not = " NOT ";
+        internal const string NotBetween = " NOT BETWEEN ";
+        internal const string NotExists = " NOT EXISTS ";
+        internal const string NotIn = " NOT IN ";
+        internal const string NotLike = " NOT LIKE ";
+        internal const string Or = " OR ";
+        internal const string RightParenthesis = ")";
         internal const string SelectOne = "SELECT 1 FROM ";
         internal const string SelectStar = "SELECT * FROM ";
         internal const string SelectTopOne = "SELECT TOP 1 * FROM ";
-        internal const string As = " AS ";
+        internal const string Set = " SET ";
         internal const string SetNoCountOn = "SET NOCOUNT ON ";
+        internal const string SpaceLeftParenthesis = " (";
+        internal const string Update = "UPDATE ";
+        internal const string Values = " VALUES ";
+        internal const string Where = " WHERE ";
 
-        private string _catalogSeparator = NameSeparator;
-        private string _schemaSeparator = NameSeparator;
-        private string _quotePrefix = String.Empty;
-        private string _quoteSuffix = String.Empty;
-        private string _parameterNamePattern = null;
-        private string _parameterMarkerFormat = null;
-        private int _parameterNameMaxLength = 0;
+        public virtual string CatalogSeparator => this.NameSeparator;
+        public virtual string NameSeparator => ".";
+        public virtual int ParameterNameMaxLength => 128;
+        public virtual string ParameterNamePattern => "{parameterMarker}{parameterName}";
+        public virtual string ParameterPrefix => "@";
+        public virtual string QuotePrefix => "'";
+        public virtual string QuoteSuffix => this.QuotePrefix;
+        public virtual string SchemaSeparator => this.NameSeparator;
+        public virtual string IdentifierPrefix => String.Empty;
+        public virtual string IdentifierSuffix => String.Empty;
 
-        [DefaultValueAttribute("")]
-        public virtual string QuotePrefix
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="identifier"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// <list type="number">
+        /// <item>
+        /// <description>
+        /// The first character must be one of the following:
+        /// <list type="bullet">
+        /// <item>
+        /// <description>
+        /// A letter as defined by the Unicode Standard 3.2. The Unicode
+        /// definition of letters includes Latin characters from a through z,
+        /// from A through Z, and also letter characters from other languages.
+        /// </description>
+        /// </item>
+        /// <item>
+        /// <description>
+        /// <para>The underscore (_), at sign (@), or number sign (#).</para>
+        /// <para>
+        /// Certain symbols at the beginning of an identifier have special
+        /// meaning in SQL Server. A regular identifier that starts with the at
+        /// sign always denotes a local variable or parameter and cannot be used
+        /// as the name of any other type of object. An identifier that starts
+        /// with a number sign denotes a temporary table or procedure. An
+        /// identifier that starts with double number signs (##) denotes a
+        /// global temporary object. Although the number sign or double number
+        /// sign characters can be used to begin the names of other types of
+        /// objects, we do not recommend this practice.
+        /// </para>
+        /// <para>
+        /// Some Transact-SQL functions have names that start with double at
+        /// signs (@@). To avoid confusion with these functions, you should not
+        /// use names that start with @@.
+        /// </para>
+        /// </description>
+        /// </item>
+        /// </list>
+        /// </description>
+        /// </item>
+        /// <item>
+        /// <description>
+        /// Subsequent characters can include the following:
+        /// <list type="bullet">
+        /// <item>
+        /// <description>Letters as defined in the Unicode Standard
+        /// 3.2.</description>
+        /// </item>
+        /// <item>
+        /// <description>Decimal numbers from either Basic Latin or other
+        /// national scripts.</description>
+        /// </item>
+        /// <item>
+        /// <description>The at sign, dollar sign ($), number sign, or
+        /// underscore.</description>
+        /// </item>
+        /// </list>
+        /// </description>
+        /// </item>
+        /// <item>
+        /// <description>Embedded spaces or special characters are not
+        /// allowed.</description>
+        /// </item>
+        /// <item>
+        /// <description>Supplementary characters are not allowed.</description>
+        /// </item>
+        /// </list>
+        /// </remarks>
+        public virtual bool IsValidIdentifier(string identifier)
         {
-            get { return _quotePrefix ?? String.Empty; }
-            set
-            {
-                _quotePrefix = value;
-            }
+            return Regex.IsMatch(identifier, @"^[\p{L}_@#]{1}[\p{L}\p{Nd}$@#_]+$");
         }
 
-        [DefaultValueAttribute("")]
-        public virtual string QuoteSuffix
+        public virtual string GetParameterName(string parameterName)
         {
-            get
+            if (!parameterName.StartsWith(this.ParameterPrefix, StringComparison.InvariantCultureIgnoreCase))
             {
-                var quoteSuffix = _quoteSuffix;
-                return ((null != quoteSuffix) ? quoteSuffix : String.Empty);
+                parameterName = $"{this.ParameterPrefix}{parameterName}";
             }
-            set
-            {
-                _quoteSuffix = value;
-            }
+
+            return parameterName;
         }
 
-
-        [DefaultValueAttribute(CommandAdapter.NameSeparator)]
-        public virtual string SchemaSeparator
+        public virtual string QouteStringLiteral(string value)
         {
-            get
-            {
-                var schemaSeparator = _schemaSeparator;
-                return (((null != schemaSeparator) && (0 < schemaSeparator.Length)) ? schemaSeparator : NameSeparator);
-            }
-            set
-            {
-                _schemaSeparator = value;
-            }
+            Contracts.Requires.NotNullOrWhiteSpace(value, nameof(value));
+            this.ConsistentQuoteDelimiters(this.QuotePrefix, this.QuoteSuffix);
+            return this.BuildQuotedString(this.QuotePrefix, this.QuoteSuffix, value);
         }
 
-        internal virtual void ConsistentQuoteDelimiters(string quotePrefix, string quoteSuffix)
+        /// <inheritdoc/>
+        public virtual string QuoteIdentifier(string identifier)
         {
+            Contracts.Requires.NotNullOrWhiteSpace(identifier, nameof(identifier));
+            Contracts.Requires.IsTrue(this.IsValidIdentifier(identifier));
+
+            this.ConsistentQuoteDelimiters(this.IdentifierPrefix, this.IdentifierSuffix);
+            return this.BuildQuotedString(this.IdentifierPrefix, this.IdentifierSuffix, identifier);
         }
 
-        internal static string AppendQuotedString(StringBuilder buffer, string quotePrefix, string quoteSuffix, string unQuotedString)
+        /// <inheritdoc/>
+        public virtual string UnquoteIdentifier(string identifier)
+        {
+            Contracts.Requires.NotNullOrWhiteSpace(identifier, nameof(identifier));
+
+            this.ConsistentQuoteDelimiters(this.IdentifierPrefix, this.IdentifierSuffix);
+
+            if (this.RemoveStringQuotes(identifier, this.IdentifierPrefix, this.IdentifierSuffix, out var unquotedIdentifier)
+                && !this.IsValidIdentifier(unquotedIdentifier))
+            {
+                throw new InvalidOperationException();
+            }
+
+            return unquotedIdentifier;
+        }
+
+        private static void AppendQuotedString(StringBuilder buffer, string quotePrefix, string quoteSuffix, string unQuotedString)
         {
 
             if (!String.IsNullOrEmpty(quotePrefix))
@@ -115,31 +188,23 @@ namespace Cadru.Data.Dapper
             {
                 buffer.Append(unQuotedString);
             }
-
-            return buffer.ToString();
         }
 
-        internal static string BuildQuotedString(string quotePrefix, string quoteSuffix, string unQuotedString)
+        internal string BuildQuotedString(string prefix, string suffix, string value)
         {
-            var resultString = new StringBuilder(unQuotedString.Length + quoteSuffix.Length + quoteSuffix.Length);
-            AppendQuotedString(resultString, quotePrefix, quoteSuffix, unQuotedString);
+            var resultString = new StringBuilder(value.Length + prefix.Length + suffix.Length);
+            AppendQuotedString(resultString, prefix, suffix, value);
             return resultString.ToString();
         }
 
         // the return value is true if the string was quoted and false if it was not
         // this allows the caller to determine if it is an error or not for the quotedString to not be quoted
-        internal static bool RemoveStringQuotes(string quotePrefix, string quoteSuffix, string quotedString, out string unquotedString)
+        private bool RemoveStringQuotes(string quotedString, string prefix, string suffix, out string unquotedString)
         {
-            var prefixLength = quotePrefix != null ? quotePrefix.Length : 0;
-            var suffixLength = quoteSuffix != null ? quoteSuffix.Length : 0;
+            var prefixLength = prefix != null ? prefix.Length : 0;
+            var suffixLength = suffix != null ? suffix.Length : 0;
 
             if ((suffixLength + prefixLength) == 0)
-            {
-                unquotedString = quotedString;
-                return true;
-            }
-
-            if (quotedString == null)
             {
                 unquotedString = quotedString;
                 return false;
@@ -155,51 +220,32 @@ namespace Cadru.Data.Dapper
             }
 
             // is the prefix present?
-            if (prefixLength > 0)
+            if (prefixLength > 0 && !quotedString.StartsWith(prefix, StringComparison.Ordinal))
             {
-                if (!quotedString.StartsWith(quotePrefix, StringComparison.Ordinal))
-                {
-                    unquotedString = quotedString;
-                    return false;
-                }
+                unquotedString = quotedString;
+                return false;
             }
 
             // is the suffix present?
             if (suffixLength > 0)
             {
-                if (!quotedString.EndsWith(quoteSuffix, StringComparison.Ordinal))
+                if (!quotedString.EndsWith(suffix, StringComparison.Ordinal))
                 {
                     unquotedString = quotedString;
                     return false;
                 }
-                unquotedString = quotedString.Substring(prefixLength, quotedStringLength - (prefixLength + suffixLength)).Replace(quoteSuffix + quoteSuffix, quoteSuffix);
+
+                unquotedString = quotedString.Substring(prefixLength, quotedStringLength - (prefixLength + suffixLength)).Replace(suffix + suffix, suffix);
             }
             else
             {
-                unquotedString = quotedString.Substring(prefixLength, quotedStringLength - prefixLength);
+                unquotedString = quotedString[prefixLength..quotedStringLength];
             }
             return true;
         }
 
-        public virtual string QuoteIdentifier(string unquotedIdentifier)
+        internal virtual void ConsistentQuoteDelimiters(string quotePrefix, string quoteSuffix)
         {
-            Contracts.Requires.NotNullOrWhiteSpace(unquotedIdentifier, nameof(unquotedIdentifier));
-            var quoteSuffixLocal = QuoteSuffix;
-            var quotePrefixLocal = QuotePrefix;
-            ConsistentQuoteDelimiters(quotePrefixLocal, quoteSuffixLocal);
-            return BuildQuotedString(quotePrefixLocal, quoteSuffixLocal, unquotedIdentifier);
-        }
-
-        public virtual string UnquoteIdentifier(string quotedIdentifier)
-        {
-            Contracts.Requires.NotNullOrWhiteSpace(quotedIdentifier, nameof(quotedIdentifier));
-            string unquotedIdentifier;
-            var quoteSuffixLocal = QuoteSuffix;
-            var quotePrefixLocal = QuotePrefix;
-            ConsistentQuoteDelimiters(quotePrefixLocal, quoteSuffixLocal);
-            // ignoring the return value because an unquoted source string is OK here
-            RemoveStringQuotes(quotePrefixLocal, quoteSuffixLocal, quotedIdentifier, out unquotedIdentifier);
-            return unquotedIdentifier;
         }
     }
 }

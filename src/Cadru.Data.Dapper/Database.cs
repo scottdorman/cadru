@@ -22,18 +22,22 @@
 
 namespace Cadru.Data.Dapper
 {
+#nullable disable
     using System;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Data;
     using System.Data.Common;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using System.Reflection;
 
     using Cadru.Extensions;
 
     using global::Dapper;
 
+    [Obsolete("Use DapperContext.")]
+    [SuppressMessage("Design", "CA1063:Implement IDisposable Correctly", Justification = "<Pending>")]
+    [SuppressMessage("Major Code Smell", "S3881:\"IDisposable\" should be implemented correctly", Justification = "<Pending>")]
     public abstract partial class Database : IDatabase
     {
         private static readonly ConcurrentDictionary<Type, IObjectMap> mappings = new ConcurrentDictionary<Type, IObjectMap>();
@@ -178,6 +182,7 @@ namespace Cadru.Data.Dapper
     /// A container for a database, assumes all the tables have an Id column named Id
     /// </summary>
     /// <typeparam name="TDatabase"></typeparam>
+    [Obsolete("Use DapperContext.")]
     public abstract partial class Database<TDatabase> : Database where TDatabase : Database<TDatabase>, new()
     {
         public static TDatabase Initialize(DbConnection connection, int commandTimeout, CommandAdapter commandAdapter = null)
@@ -188,4 +193,5 @@ namespace Cadru.Data.Dapper
             return db;
         }
     }
+#nullable enable
 }

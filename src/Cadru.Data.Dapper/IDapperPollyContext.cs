@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="IPredicateBase.cs"
+// <copyright file="Database.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2017 Scott Dorman.
@@ -20,12 +20,18 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.Data.Dapper.Predicates.Internal
-{
-    internal interface IPredicateBase : IPredicate
-    {
-        bool Not { get; set; }
+using System.Collections.Generic;
 
-        string? PropertyName { get; set; }
+using Cadru.Polly;
+using Cadru.Polly.Data;
+
+namespace Cadru.Data.Dapper
+{
+    internal interface IDapperPollyContext
+    {
+        bool PollyEnabled { get; }
+        ISqlStrategy SqlStrategy { get; set; }
+        ISqlStrategyFactory? SqlStrategyFactory { get; }
+        IEnumerable<IExceptionHandlingStrategy> ExceptionHandlingStrategies { get; }
     }
 }

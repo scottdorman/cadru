@@ -24,38 +24,51 @@ namespace Cadru.Data.Dapper
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using System.Reflection;
 
     using Cadru.Data.Annotations;
 
-    public abstract class ObjectMap<T> : IObjectMap where T : class
+    public class ObjectMap<T> : IObjectMap where T : class
     {
-        private readonly TypeInfo entityType = typeof(T).GetTypeInfo();
         private readonly Dictionary<string, object> additionalValues = new Dictionary<string, object>();
-        private CommandAdapter commandAdapter;
+        private readonly List<IPropertyMap> properties = new List<IPropertyMap>();
 
-        public static IObjectMap CreateMap(DatabaseObjectType databaseObjectType, CommandAdapter commandAdapter)
+        protected internal ObjectMap(ICommandAdapter commandAdapter, DatabaseObjectType databaseObjectType)
         {
-            IObjectMap map = null;
+            this.CommandAdapter = commandAdapter;
+            this.ObjectType = databaseObjectType;
+            this.Schema = String.Empty;
+            this.ObjectName = this.EntityType.Name;
+
             switch (databaseObjectType)
             {
                 case DatabaseObjectType.Table:
-                    map = new TableMap<T>(commandAdapter);
+                    var tableAttribute = this.EntityType.GetCustomAttribute<TableAttribute>(inherit: true);
+                    if (tableAttribute != null)
+                    {
+                        this.Schema = tableAttribute.Schema;
+                        this.ObjectName = tableAttribute.Name;
+                    }
+
                     break;
+
                 case DatabaseObjectType.View:
-                    map = new ViewMap<T>(commandAdapter);
+                    var viewAttribute = this.EntityType.GetCustomAttribute<ViewAttribute>(inherit: true);
+                    if (viewAttribute != null)
+                    {
+                        this.Schema = viewAttribute.Schema;
+                        this.ObjectName = viewAttribute.Name;
+                    }
+
                     break;
             }
 
-            return map;
-        }
+            this.FullyQualifiedObjectName = this.GetFullyQualifiedObjectName();
+            this.AutoMap();
 
-        protected ObjectMap(CommandAdapter commandAdapter)
-        {
-            this.commandAdapter = commandAdapter;
-            this.Properties = new List<IPropertyMap>();
-            foreach (var attribute in this.entityType.GetCustomAttributes<ExtendedPropertyAttribute>())
+            foreach (var attribute in this.EntityType.GetCustomAttributes<ExtendedPropertyAttribute>())
             {
                 this.additionalValues.Add(attribute.Name, attribute.Value);
             }
@@ -63,32 +76,42 @@ namespace Cadru.Data.Dapper
 
         public IReadOnlyDictionary<string, object> AdditionalValues => this.additionalValues;
 
-        public CommandAdapter CommandAdapter => this.commandAdapter;
+        public ICommandAdapter CommandAdapter { get; private set; }
+
+        public TypeInfo EntityType { get; } = typeof(T).GetTypeInfo();
 
         public string FullyQualifiedObjectName { get; internal set; }
+
+        /// <summary>
+        /// Gets the object to use in the database.
+        /// </summary>
+        public string ObjectName { get; }
+
+        public DatabaseObjectType ObjectType { get; }
+
+        /// <summary>
+        /// A collection of properties that will map to columns in the database table.
+        /// </summary>
+        public IList<IPropertyMap> Properties => this.properties;
 
         /// <summary>
         /// Gets the schema to use when referring to the corresponding table name in the database.
         /// </summary>
         public string Schema { get; protected set; }
 
-        /// <summary>
-        /// Gets or sets the table to use in the database.
-        /// </summary>
-        public string ObjectName { get; protected set; }
-
-        public DatabaseObjectType ObjectType { get; protected set; }
-
-        public TypeInfo EntityType => this.entityType;
-
-        /// <summary>
-        /// A collection of properties that will map to columns in the database table.
-        /// </summary>
-        public IList<IPropertyMap> Properties { get; private set; }
-
         public virtual void Map()
         {
             this.AutoMap();
+        }
+
+        internal static IObjectMap CreateMap(DatabaseObjectType databaseObjectType, ICommandAdapter commandAdapter)
+        {
+            return databaseObjectType switch
+            {
+                DatabaseObjectType.Table => new ObjectMap<T>(commandAdapter, databaseObjectType),
+                DatabaseObjectType.View => new ObjectMap<T>(commandAdapter, databaseObjectType),
+                _ => throw new InvalidOperationException("Unknown database object type.")
+            };
         }
 
         protected void AutoMap()
@@ -96,18 +119,18 @@ namespace Cadru.Data.Dapper
             var type = typeof(T);
             foreach (var propertyInfo in type.GetProperties())
             {
-                if (this.Properties.Any(p => p.PropertyName.Equals(propertyInfo.Name, StringComparison.OrdinalIgnoreCase)))
+                if (this.properties.Any(p => p.PropertyName.Equals(propertyInfo.Name, StringComparison.OrdinalIgnoreCase)))
                 {
                     continue;
                 }
 
-                this.Properties.Add(new PropertyMap(propertyInfo));
+                this.properties.Add(new PropertyMap(propertyInfo));
             }
         }
 
         protected string GetFullyQualifiedObjectName()
         {
-            return $"{(String.IsNullOrWhiteSpace(this.Schema) ? String.Empty : $"{ this.commandAdapter.QuoteIdentifier(this.Schema)}{ this.commandAdapter.SchemaSeparator }")}{this.commandAdapter.QuoteIdentifier(this.ObjectName)}";
+            return $"{(String.IsNullOrWhiteSpace(this.Schema) ? String.Empty : $"{ this.CommandAdapter.QuoteIdentifier(this.Schema)}{ this.CommandAdapter.SchemaSeparator }")}{this.CommandAdapter.QuoteIdentifier(this.ObjectName)}";
         }
     }
 }

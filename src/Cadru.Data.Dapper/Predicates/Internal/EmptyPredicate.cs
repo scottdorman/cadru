@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="IPredicateBase.cs"
+// <copyright file="ExistsPredicate.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2017 Scott Dorman.
@@ -22,10 +22,15 @@
 
 namespace Cadru.Data.Dapper.Predicates.Internal
 {
-    internal interface IPredicateBase : IPredicate
-    {
-        bool Not { get; set; }
+    using System;
 
-        string? PropertyName { get; set; }
+    using global::Dapper;
+
+    internal class EmptyPredicate : IPredicate
+    {
+        public string GetSql(DynamicParameters parameters, IObjectMap objectMap)
+        {
+            return String.Empty;
+        }
     }
 }

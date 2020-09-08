@@ -22,22 +22,26 @@
 
 namespace Cadru.Data.Dapper.Predicates.Internal
 {
+    using System;
+
     using global::Dapper;
 
-    internal class ExistsPredicate<TModel> : IExistsPredicate
-        where TModel : class
+    internal class ExistsPredicate : IExistsPredicate
     {
         public bool Not { get; set; }
 
-        public IPredicate Predicate { get; set; }
+        public IPredicate Predicate { get; set; } = Predicates.Predicate.Empty();
 
-        public string GetSql(DynamicParameters parameters)
+        public string GetSql(DynamicParameters parameters, IObjectMap objectMap)
         {
-            var operatorString = this.Not ? CommandAdapter.NotExists : CommandAdapter.Exists;
-            string sql = null;
-            if (Database.Mappings.TryGetValue(typeof(TModel), out var classMap))
+            var sql = String.Empty;
+            if (this.Predicate != null)
             {
-                sql = $"{CommandAdapter.LeftParenthesis}{operatorString}{CommandAdapter.SpaceLeftParenthesis}{CommandAdapter.SelectOne}{classMap.ObjectName}{CommandAdapter.Where}{this.Predicate.GetSql(parameters)}{CommandAdapter.RightParenthesis}{CommandAdapter.RightParenthesis}";
+                var operatorString = this.Not ? CommandAdapter.NotExists : CommandAdapter.Exists;
+                if (objectMap != null)
+                {
+                    sql = $"{CommandAdapter.LeftParenthesis}{operatorString}{CommandAdapter.SpaceLeftParenthesis}{CommandAdapter.SelectOne}{objectMap.ObjectName}{CommandAdapter.Where}{this.Predicate.GetSql(parameters, objectMap)}{CommandAdapter.RightParenthesis}{CommandAdapter.RightParenthesis}";
+                }
             }
 
             return sql;

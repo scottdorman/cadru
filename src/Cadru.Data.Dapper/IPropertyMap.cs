@@ -24,6 +24,7 @@ namespace Cadru.Data.Dapper
 {
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Reflection;
+
     using Cadru.Data.Annotations;
 
     public interface IPropertyMap
@@ -41,17 +42,17 @@ namespace Cadru.Data.Dapper
         /// <summary>
         /// Gets a value that can be used to display a description in the UI.
         /// </summary>
-        string Description { get; }
+        string? Description { get; }
 
         /// <summary>
         /// Gets a value that can be used to set the watermark for prompts in the UI.
         /// </summary>
-        string Prompt { get; }
+        string? Prompt { get; }
 
         /// <summary>
         /// Gets a value that can be used for the grid column label.
         /// </summary>
-        string Caption { get; }
+        string? Caption { get; }
 
         /// <summary>
         /// Gets the order weight of the column.
@@ -66,7 +67,7 @@ namespace Cadru.Data.Dapper
         /// <summary>
         /// Gets a value that is used for field display in the UI.
         /// </summary>
-        string Name { get; }
+        string? Name { get; }
 
         /// <summary>
         /// Gets the ignore status of the current property. If ignored, the current property will not be included in queries.

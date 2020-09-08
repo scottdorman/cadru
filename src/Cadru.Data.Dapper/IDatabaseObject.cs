@@ -20,13 +20,18 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace Cadru.Data.Dapper
 {
     public interface IDatabaseObject
     {
-        string Schema { get; }
-        string ObjectName { get; }
         string FullyQualifiedObjectName { get; }
+        string ObjectName { get; }
         DatabaseObjectType ObjectType { get; }
+        string Schema { get; }
+        Type UnderlyingType { get; }
+        internal ICommandAdapter CommandAdapter { get; }
+        IObjectMap ObjectMap { get; }
     }
 }

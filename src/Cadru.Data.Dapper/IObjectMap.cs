@@ -27,7 +27,7 @@ namespace Cadru.Data.Dapper
 
     public interface IObjectMap
     {
-        CommandAdapter CommandAdapter { get; }
+        ICommandAdapter CommandAdapter { get; }
 
         string Schema { get; }
 

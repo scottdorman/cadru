@@ -22,19 +22,27 @@
 
 namespace Cadru.Data.Dapper.Predicates.Internal
 {
+    using System;
+
     using global::Dapper;
 
     internal class PropertyPredicate<T, T2> : ComparePredicate
         where T : class
         where T2 : class
     {
-        public string PropertyName2 { get; set; }
+        public string? PropertyName2 { get; set; }
 
-        public override string GetSql(DynamicParameters parameters)
+        public override string GetSql(DynamicParameters parameters, IObjectMap objectMap)
         {
-            var columnName = GetColumnName<T>(this.PropertyName, false);
-            var columnName2 = GetColumnName<T2>(this.PropertyName2, false);
-            return $"{CommandAdapter.LeftParenthesis}{columnName}{this.GetOperatorString()}{columnName2}{CommandAdapter.RightParenthesis}";
+            var sql = String.Empty;
+            if (IsValidPropertyName(this.PropertyName) && IsValidPropertyName(this.PropertyName2))
+            {
+                var columnName = GetColumnName<T>(objectMap, this.PropertyName!, false);
+                var columnName2 = GetColumnName<T2>(objectMap, this.PropertyName2!, false);
+                sql = $"{CommandAdapter.LeftParenthesis}{columnName}{this.GetOperatorString()}{columnName2}{CommandAdapter.RightParenthesis}";
+            }
+
+            return sql;
         }
     }
 }

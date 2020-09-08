@@ -1,0 +1,626 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cadru.Data.Dapper</name>
+    </assembly>
+    <members>
+        <member name="M:Cadru.Data.Dapper.CommandAdapter.IsValidIdentifier(System.String)">
+             <summary>
+            
+             </summary>
+             <param name="identifier"></param>
+             <returns></returns>
+             <remarks>
+             <list type="number">
+             <item>
+             <description>
+             The first character must be one of the following:
+             <list type="bullet">
+             <item>
+             <description>
+             A letter as defined by the Unicode Standard 3.2. The Unicode
+             definition of letters includes Latin characters from a through z,
+             from A through Z, and also letter characters from other languages.
+             </description>
+             </item>
+             <item>
+             <description>
+             <para>The underscore (_), at sign (@), or number sign (#).</para>
+             <para>
+             Certain symbols at the beginning of an identifier have special
+             meaning in SQL Server. A regular identifier that starts with the at
+             sign always denotes a local variable or parameter and cannot be used
+             as the name of any other type of object. An identifier that starts
+             with a number sign denotes a temporary table or procedure. An
+             identifier that starts with double number signs (##) denotes a
+             global temporary object. Although the number sign or double number
+             sign characters can be used to begin the names of other types of
+             objects, we do not recommend this practice.
+             </para>
+             <para>
+             Some Transact-SQL functions have names that start with double at
+             signs (@@). To avoid confusion with these functions, you should not
+             use names that start with @@.
+             </para>
+             </description>
+             </item>
+             </list>
+             </description>
+             </item>
+             <item>
+             <description>
+             Subsequent characters can include the following:
+             <list type="bullet">
+             <item>
+             <description>Letters as defined in the Unicode Standard
+             3.2.</description>
+             </item>
+             <item>
+             <description>Decimal numbers from either Basic Latin or other
+             national scripts.</description>
+             </item>
+             <item>
+             <description>The at sign, dollar sign ($), number sign, or
+             underscore.</description>
+             </item>
+             </list>
+             </description>
+             </item>
+             <item>
+             <description>Embedded spaces or special characters are not
+             allowed.</description>
+             </item>
+             <item>
+             <description>Supplementary characters are not allowed.</description>
+             </item>
+             </list>
+             </remarks>
+        </member>
+        <member name="M:Cadru.Data.Dapper.CommandAdapter.QuoteIdentifier(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Dapper.CommandAdapter.UnquoteIdentifier(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Dapper.DapperContext.BeginTransaction(System.Boolean,System.Data.IsolationLevel)">
+            <summary>
+            Starts a database transaction.
+            </summary>
+            <param name="ensureOpenConnection"></param>
+            <param name="isolation">Specifies the isolation level for the transaction.</param>
+            <remarks>If you do not specify an isolation level, the isolation level for <see cref="F:System.Data.IsolationLevel.ReadCommitted"/> is used.</remarks>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Database.BeginTransaction(System.Boolean,System.Data.IsolationLevel)">
+            <summary>
+            Starts a database transaction.
+            </summary>
+            <param name="ensureOpenConnection"></param>
+            <param name="isolation">Specifies the isolation level for the transaction.</param>
+            <remarks>If you do not specify an isolation level, the isolation level for <see cref="F:System.Data.IsolationLevel.ReadCommitted"/> is used.</remarks>
+        </member>
+        <member name="T:Cadru.Data.Dapper.Database`1">
+            <summary>
+            A container for a database, assumes all the tables have an Id column named Id
+            </summary>
+            <typeparam name="TDatabase"></typeparam>
+        </member>
+        <member name="M:Cadru.Data.Dapper.DatabaseObject`1.First(Cadru.Data.Dapper.Predicates.IPredicate,System.Nullable{System.Int32})">
+            <summary>
+            Gets the first record which matches the predicate, if provided.
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.DatabaseObject`1.FirstAsync(Cadru.Data.Dapper.Predicates.IPredicate,System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <summary>
+            Gets the first record which matches the predicate, if provided.
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.DatabaseObject`1.Get(Cadru.Data.Dapper.Predicates.IPredicate,System.Nullable{System.Int32})">
+            <summary>
+            Gets the first record which matches the given predicate.
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.DatabaseObject`1.GetAsync(Cadru.Data.Dapper.Predicates.IPredicate,System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <summary>
+            Gets the first record which matches the given predicate.
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.DatabaseObject`1.All(Cadru.Data.Dapper.Predicates.IPredicate,System.Nullable{System.Int32})">
+            <summary>
+            Gets all of the records which match the predicate, if provided.
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.DatabaseObject`1.AllAsync(Cadru.Data.Dapper.Predicates.IPredicate,System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <summary>
+            Gets all of the records which match the predicate, if provided.
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.ICommandAdapter.QouteStringLiteral(System.String)">
+            <summary>
+            Escapes a string as a SQL literal.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.ICommandAdapter.QuoteIdentifier(System.String)">
+            <summary>
+            Escapes the identifier.
+            </summary>
+            <param name="identifier">The identifier name, in unescaped form.</param>
+            <returns>The escaped identifier.</returns>
+            <remarks>
+            This uses the <see cref="!:IdentifierPrefix"/> and <see
+            cref="!:IdentifierSuffix"/> values.
+            </remarks>
+        </member>
+        <member name="M:Cadru.Data.Dapper.ICommandAdapter.UnquoteIdentifier(System.String)">
+            <summary>
+            Unescapes the identifier.
+            </summary>
+            <param name="identifier">The identifier name</param>
+            <returns>The unescaped identifier.</returns>
+            <remarks>
+            This uses the <see cref="!:IdentifierPrefix"/> and <see
+            cref="!:IdentifierSuffix"/> values.
+            </remarks>
+        </member>
+        <member name="P:Cadru.Data.Dapper.IObjectMap.Properties">
+            <summary>
+            A collection of properties that will map to columns in the database table.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.IPropertyMap.StringHandlingOption">
+            <summary>
+            Gets the option for handling string values.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.IPropertyMap.IsExportable">
+            <summary>
+            Gets a value that indicates whether a field is exportable.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.IPropertyMap.Description">
+            <summary>
+            Gets a value that can be used to display a description in the UI.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.IPropertyMap.Prompt">
+            <summary>
+            Gets a value that can be used to set the watermark for prompts in the UI.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.IPropertyMap.Caption">
+            <summary>
+            Gets a value that can be used for the grid column label.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.IPropertyMap.Order">
+            <summary>
+            Gets the order weight of the column.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.IPropertyMap.ColumnName">
+            <summary>
+            Gets the column name for the current property.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.IPropertyMap.Name">
+            <summary>
+            Gets a value that is used for field display in the UI.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.IPropertyMap.Ignored">
+            <summary>
+            Gets the ignore status of the current property. If ignored, the current property will not be included in queries.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.IPropertyMap.IsReadOnly">
+            <summary>
+            Gets the read-only status of the current property.
+            If read-only, the current property will not be included in INSERT and UPDATE queries.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.IPropertyMap.PropertyName">
+            <summary>
+            Gets the name of the property by using the specified <see cref="P:Cadru.Data.Dapper.IPropertyMap.PropertyInfo"/>.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.IPropertyMap.PropertyInfo">
+            <summary>
+            Gets the <see cref="T:System.Reflection.PropertyInfo"/> for the current property.
+            </summary>
+        </member>
+        <member name="T:Cadru.Data.Dapper.KeyType">
+            <summary>
+            Used by ClassMapper to determine which entity property represents the key.
+            </summary>
+        </member>
+        <member name="F:Cadru.Data.Dapper.KeyType.NotAKey">
+            <summary>
+            The property is not a key and is not automatically managed.
+            </summary>
+        </member>
+        <member name="F:Cadru.Data.Dapper.KeyType.Identity">
+            <summary>
+            The property is an integer-based identity generated from the database.
+            </summary>
+        </member>
+        <member name="F:Cadru.Data.Dapper.KeyType.Guid">
+            <summary>
+            The property is a GUID identity which is automatically managed.
+            </summary>
+        </member>
+        <member name="F:Cadru.Data.Dapper.KeyType.Assigned">
+            <summary>
+            The property is a key that is not automatically managed.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.ObjectMap`1.ObjectName">
+            <summary>
+            Gets the object to use in the database.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.ObjectMap`1.Properties">
+            <summary>
+            A collection of properties that will map to columns in the database table.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.ObjectMap`1.Schema">
+            <summary>
+            Gets the schema to use when referring to the corresponding table name in the database.
+            </summary>
+        </member>
+        <member name="T:Cadru.Data.Dapper.Predicates.Internal.PredicateGroup">
+            <summary>
+            Groups IPredicates together using the specified group operator.
+            </summary>
+        </member>
+        <member name="T:Cadru.Data.Dapper.Predicates.GroupOperator">
+            <summary>
+            Operator to use when joining predicates in a <see cref="T:Cadru.Data.Dapper.Predicates.Internal.PredicateGroup"/>.
+            </summary>
+        </member>
+        <member name="F:Cadru.Data.Dapper.Predicates.GroupOperator.And">
+            <summary>
+            The predicates should be joined using the AND operator.
+            </summary>
+        </member>
+        <member name="F:Cadru.Data.Dapper.Predicates.GroupOperator.Or">
+            <summary>
+            The predicates should be joined using the OR operator.
+            </summary>
+        </member>
+        <member name="T:Cadru.Data.Dapper.Predicates.IPredicate">
+            <summary>
+            Represents a basic predicate.
+            </summary>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Predicates.IPredicate.GetSql(Dapper.DynamicParameters,Cadru.Data.Dapper.IObjectMap)">
+            <summary>
+            Gets the SQL text representing the given predicate.
+            </summary>
+            <param name="parameters">A <see cref="T:Dapper.DynamicParameters"/>
+            collection to which the parameters and values for the predicate
+            will be added.</param>
+            <param name="objectMap"></param>
+            <returns>A string containing the SQL representation of the predicate.</returns>
+        </member>
+        <member name="T:Cadru.Data.Dapper.Predicates.IPredicateGroup">
+            <summary>
+            Represents a collection of <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instances to
+            be joined together.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.Predicates.IPredicateGroup.Predicates">
+            <summary>
+            Gets the collection containing the <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instances.
+            </summary>
+        </member>
+        <member name="T:Cadru.Data.Dapper.Predicates.Operator">
+            <summary>
+            Comparison operator for predicates.
+            </summary>
+        </member>
+        <member name="F:Cadru.Data.Dapper.Predicates.Operator.Equal">
+            <summary>
+            Equal to
+            </summary>
+        </member>
+        <member name="F:Cadru.Data.Dapper.Predicates.Operator.GreaterThan">
+            <summary>
+            Greater than
+            </summary>
+        </member>
+        <member name="F:Cadru.Data.Dapper.Predicates.Operator.GreaterThanOrEqual">
+            <summary>
+            Greater than or equal to
+            </summary>
+        </member>
+        <member name="F:Cadru.Data.Dapper.Predicates.Operator.LessThan">
+            <summary>
+            Less than
+            </summary>
+        </member>
+        <member name="F:Cadru.Data.Dapper.Predicates.Operator.LessThanOrEqual">
+            <summary>
+            Less than or equal to
+            </summary>
+        </member>
+        <member name="F:Cadru.Data.Dapper.Predicates.Operator.Like">
+            <summary>
+            Like (You can use % in the value to do wilcard searching)
+            </summary>
+        </member>
+        <member name="F:Cadru.Data.Dapper.Predicates.Operator.Between">
+            <summary>
+            Between
+            </summary>
+        </member>
+        <member name="F:Cadru.Data.Dapper.Predicates.Operator.In">
+            <summary>
+            In
+            </summary>
+        </member>
+        <member name="T:Cadru.Data.Dapper.Predicates.Predicate">
+            <summary>
+            Provides factory methods for creating <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instances.
+            </summary>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Predicates.Predicate.And">
+            <summary>
+            Creates a predicate group whose predicates are joined using an AND operator.
+            </summary>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicateGroup"/> instance representing the predicate.</returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Predicates.Predicate.And(System.Collections.Generic.IList{Cadru.Data.Dapper.Predicates.IPredicate})">
+            <summary>
+            Creates a predicate group whose predicates are joined using an AND operator.
+            </summary>
+            <param name="predicates">A collection of predicates to add the group.</param>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicateGroup"/> instance representing the predicate.</returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Predicates.Predicate.Or">
+            <summary>
+            Creates a predicate group whose predicates are joined using an OR operator.
+            </summary>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicateGroup"/> instance representing the predicate.</returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Predicates.Predicate.Or(System.Collections.Generic.IList{Cadru.Data.Dapper.Predicates.IPredicate})">
+            <summary>
+            Creates a predicate group whose predicates are joined using an OR operator.
+            </summary>
+            <param name="predicates">A collection of predicates to add the group.</param>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicateGroup"/> instance representing the predicate.</returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Predicates.Predicate.FieldComparison``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},Cadru.Data.Dapper.Predicates.Operator,``1,System.Boolean)">
+            <summary>
+            Creates a predicate which represents a standard comparison clause,
+            of the form [FieldName] [Operator] [Value].
+            </summary>
+            <typeparam name="TModel">The type of the entity.</typeparam>
+            <typeparam name="TFieldType">The data type of the property.</typeparam>
+            <param name="expression">An expression that returns the [FieldName] operand.</param>
+            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator"/> values.</param>
+            <param name="value">The value for the predicate.</param>
+            <param name="not"><see langword="true"/> to invert the comparison operator.</param>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instance representing the predicate.</returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Predicates.Predicate.FieldComparison``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},Cadru.Data.Dapper.Predicates.Operator,System.Collections.Generic.IEnumerable{``1},System.Boolean)">
+            <summary>
+            Creates a predicate which represents a standard comparison clause,
+            of the form [FieldName] [Operator] [Value].
+            </summary>
+            <typeparam name="TModel">The type of the entity.</typeparam>
+            <typeparam name="TFieldType">The data type of the property.</typeparam>
+            <param name="expression">An expression that returns the [FieldName] operand.</param>
+            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator"/> values.</param>
+            <param name="value">The value for the predicate.</param>
+            <param name="not"><see langword="true"/> to invert the comparison operator.</param>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instance representing the predicate.</returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Predicates.Predicate.FieldComparison``2(System.String,Cadru.Data.Dapper.Predicates.Operator,``1,System.Boolean)">
+            <summary>
+            Creates a predicate which represents a standard comparison clause,
+            of the form [FieldName] [Operator] [Value].
+            </summary>
+            <typeparam name="TModel">The type of the entity.</typeparam>
+            <typeparam name="TFieldType">The data type of the property.</typeparam>
+            <param name="fieldName">The [FieldName] operand.</param>
+            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator"/> values.</param>
+            <param name="value">The value for the predicate.</param>
+            <param name="not"><see langword="true"/> to invert the comparison operator.</param>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instance representing the predicate.</returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Predicates.Predicate.FieldComparison``2(System.String,Cadru.Data.Dapper.Predicates.Operator,System.Collections.Generic.IEnumerable{``1},System.Boolean)">
+            <summary>
+            Creates a predicate which represents a standard comparison clause,
+            of the form [FieldName] [Operator] [Value].
+            </summary>
+            <typeparam name="TModel">The type of the entity.</typeparam>
+            <typeparam name="TFieldType">The data type of the property.</typeparam>
+            <param name="fieldName">The [FieldName] operand.</param>
+            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator"/> values.</param>
+            <param name="value">The value for the predicate.</param>
+            <param name="not"><see langword="true"/> to invert the comparison operator.</param>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instance representing the predicate.</returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Predicates.Predicate.PropertyComparison``3(System.Linq.Expressions.Expression{System.Func{``0,``2}},Cadru.Data.Dapper.Predicates.Operator,System.Linq.Expressions.Expression{System.Func{``1,``2}},System.Boolean)">
+            <summary>
+            Creates a predicate which represents a standard comparison clause,
+            of the form [FieldName1] [Operator] [FieldName2].
+            </summary>
+            <typeparam name="TModel">The type of the entity for the left operand.</typeparam>
+            <typeparam name="TModel2">The type of the entity for the right operand.</typeparam>
+            <typeparam name="TFieldType">The data type of the property.</typeparam>
+            <param name="left">An expression that returns the [FieldName1] operand.</param>
+            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator"/> values.</param>
+            <param name="right">An expression that returns the [FieldName2] operand.</param>
+            <param name="not"><see langword="true"/> to invert the comparison operator.</param>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instance representing the predicate.</returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Predicates.Predicate.PropertyComparison``2(System.String,Cadru.Data.Dapper.Predicates.Operator,System.String,System.Boolean)">
+            <summary>
+            Creates a predicate which represents a standard comparison clause,
+            of the form [FieldName1] [Operator] [FieldName2].
+            </summary>
+            <typeparam name="TModel">The type of the entity for the left operand.</typeparam>
+            <typeparam name="TModel2">The type of the entity for the right operand.</typeparam>
+            <typeparam name="TFieldType">The data type of the property.</typeparam>
+            <param name="left">The [FieldName1] operand.</param>
+            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator"/> values.</param>
+            <param name="right">The [FieldName2] operand.</param>
+            <param name="not"><see langword="true"/> to invert the comparison operator.</param>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instance representing the predicate.</returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Predicates.Predicate.Exists(Cadru.Data.Dapper.Predicates.IPredicate,System.Boolean)">
+            <summary>
+            Creates a predicate which represents an EXISTS clause.
+            </summary>
+            <typeparam name="TSub">The type of the entity for the predicate.</typeparam>
+            <param name="predicate"></param>
+            <param name="not"><see langword="true"/> to invert the comparison operator.</param>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instance representing the predicate.</returns>
+        </member>
+        <member name="T:Cadru.Data.Dapper.PropertyMap">
+            <summary>
+            Maps an entity property to its corresponding column in the database.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.PropertyMap.StringHandlingOption">
+            <summary>
+            Gets the option for handling string values.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.PropertyMap.IsExportable">
+            <summary>
+            Gets a value that indicates whether a field is exportable.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.PropertyMap.Description">
+            <summary>
+            Gets a value that can be used to display a description in the UI.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.PropertyMap.Prompt">
+            <summary>
+            Gets a value that can be used to set the watermark for prompts in the UI.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.PropertyMap.Caption">
+            <summary>
+            Gets a value that can be used for the grid column label.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.PropertyMap.Name">
+            <summary>
+            Gets a value that is used for field display in the UI.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.PropertyMap.Order">
+            <summary>
+            Gets the order weight of the column.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.PropertyMap.ColumnName">
+            <summary>
+            Gets the column name for the current property.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.PropertyMap.Ignored">
+            <summary>
+            Gets the ignore status of the current property. If ignored, the current property will not be included in queries.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.PropertyMap.IsReadOnly">
+            <summary>
+            Gets the read-only status of the current property. If read-only, the current property will not be included in INSERT and UPDATE queries.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.PropertyMap.PropertyName">
+            <summary>
+            Gets the name of the property by using the specified propertyInfo.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.PropertyMap.PropertyInfo">
+            <summary>
+            Gets the property info for the current property.
+            </summary>
+        </member>
+        <member name="T:Cadru.Data.Dapper.Resources.Strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.Resources.Strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.Resources.Strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Dapper.Resources.Strings.InvalidPrefixSuffix">
+            <summary>
+              Looks up a localized string similar to Specified QuotePrefix and QuoteSuffix values do not match..
+            </summary>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Table`1.Delete(Cadru.Data.Dapper.Predicates.IPredicate,System.Nullable{System.Int32})">
+            <summary>
+            Deletes all records which match the given predicate.
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Table`1.DeleteAsync(Cadru.Data.Dapper.Predicates.IPredicate,System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <summary>
+            Deletes all records which match the given predicate.
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Table`1.Insert(System.Object)">
+            <summary>
+            Insert a row into the db
+            </summary>
+            <param name="data">Either DynamicParameters or an anonymous type or concrete type</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Table`1.InsertAsync(System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Insert a row into the db
+            </summary>
+            <param name="data">Either DynamicParameters or an anonymous type or concrete type</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Table`1.Update(System.Object,Cadru.Data.Dapper.Predicates.IPredicate)">
+            <summary>
+            Update a record in the DB
+            </summary>
+            <param name="data"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Data.Dapper.Table`1.UpdateAsync(System.Object,Cadru.Data.Dapper.Predicates.IPredicate,System.Threading.CancellationToken)">
+            <summary>
+            Update a record in the DB
+            </summary>
+            <param name="data"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

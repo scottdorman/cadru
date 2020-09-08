@@ -27,7 +27,7 @@ namespace Cadru.Data.Dapper
 
     public abstract class TrackedEntity : INotifyPropertyChanged, IChangeTracking
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public bool IsChanged
         {
@@ -52,7 +52,7 @@ namespace Cadru.Data.Dapper
                 propertyChanged = true;
                 this.IsChanged = true;
                 field = newValue;
-                RaisePropertyChanged(propertyName);
+                this.RaisePropertyChanged(propertyName);
             }
 
             return propertyChanged;
