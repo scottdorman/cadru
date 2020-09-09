@@ -25,23 +25,24 @@ using Polly;
 namespace Cadru.Polly
 {
     /// <summary>
-    /// Represents both a <see cref="Context"/> and a Policy for execution.
+    /// Represents both a <see cref="Context"/> and an <see cref="IAsyncPolicy"/> for execution.
     /// </summary>
-    public abstract class PolicyExecutionEnvironment
+    public class AsyncExecutionEnvironment : PolicyExecutionEnvironment
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PolicyExecutionEnvironment"/>.
+        /// Initializes a new instance of the <see cref="ExecutionEnvironment"/>.
         /// </summary>
+        /// <param name="policy">The policy for executing actions.</param>
         /// <param name="context">The context for a single execution through a Policy.</param>
-        protected PolicyExecutionEnvironment(Context context)
+        public AsyncExecutionEnvironment(IAsyncPolicy policy, Context context) : base(context)
         {
-            this.Context = context;
+            this.Policy = policy;
         }
 
         /// <summary>
-        /// Context for a single execution through a Policy.
+        /// The asynchronous policy for execution.
         /// </summary>
-        public Context Context { get; }
+        public IAsyncPolicy Policy { get; }
     }
 
     /// <summary>
@@ -66,23 +67,22 @@ namespace Cadru.Polly
     }
 
     /// <summary>
-    /// Represents both a <see cref="Context"/> and an <see cref="IAsyncPolicy"/> for execution.
+    /// Represents both a <see cref="Context"/> and a Policy for execution.
     /// </summary>
-    public class AsyncExecutionEnvironment : PolicyExecutionEnvironment
+    public abstract class PolicyExecutionEnvironment
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExecutionEnvironment"/>.
+        /// Initializes a new instance of the <see cref="PolicyExecutionEnvironment"/>.
         /// </summary>
-        /// <param name="policy">The policy for executing actions.</param>
         /// <param name="context">The context for a single execution through a Policy.</param>
-        public AsyncExecutionEnvironment(IAsyncPolicy policy, Context context) : base(context)
+        protected PolicyExecutionEnvironment(Context context)
         {
-            this.Policy = policy;
+            this.Context = context;
         }
 
         /// <summary>
-        /// The asynchronous policy for execution.
+        /// Context for a single execution through a Policy.
         /// </summary>
-        public IAsyncPolicy Policy { get; }
+        public Context Context { get; }
     }
 }

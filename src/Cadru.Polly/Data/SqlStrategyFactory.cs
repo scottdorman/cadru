@@ -38,17 +38,17 @@ namespace Cadru.Polly.Data
         {
         }
 
+        /// <inheritdoc/>
+        public ISqlStrategy Create(IServiceProvider serviceProvider, IEnumerable<IExceptionHandlingStrategy> exceptionHandlingStrategies)
+        {
+            return this.CreateStrategyBuilder(serviceProvider, exceptionHandlingStrategies).Build();
+        }
+
         /// <summary>
         /// When overridden in a derived class, creates a new <see
         /// cref="ISqlStrategy"/> instance.
         /// </summary>
         /// <returns>A new <see cref="ISqlStrategy"/>.</returns>
         protected abstract SqlStrategyBuilder CreateStrategyBuilder(IServiceProvider serviceProvider, IEnumerable<IExceptionHandlingStrategy> exceptionHandlingStrategies);
-
-        /// <inheritdoc/>
-        public ISqlStrategy Create(IServiceProvider serviceProvider, IEnumerable<IExceptionHandlingStrategy> exceptionHandlingStrategies)
-        {
-            return this.CreateStrategyBuilder(serviceProvider, exceptionHandlingStrategies).Build();
-        }
     }
 }

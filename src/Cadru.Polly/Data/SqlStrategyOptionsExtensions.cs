@@ -33,25 +33,14 @@ namespace Cadru.Polly.Data
     public static class SqlStrategyOptionsExtensions
     {
         /// <summary>
-        /// Generates sleep durations in an exponential manner.
-        /// </summary>
-        /// <param name="sqlStrategyOptions">The <see cref="SqlStrategyOptions"/> instance.</param>
-        /// <returns>The configured value if it is not <see langword="null"/>
-        /// otherwise, the default value.</returns>
-        public static IEnumerable<TimeSpan> ExponentialBackoff(this SqlStrategyOptions sqlStrategyOptions)
-        {
-            return Backoff.ExponentialBackoff(TimeSpan.FromSeconds(2), sqlStrategyOptions.RetryCount());
-        }
-
-        /// <summary>
-        /// The retry count.
+        /// The duration the circuit will stay open before resetting.
         /// </summary>
         /// <param name="sqlStrategyOptions">The <see cref="SqlStrategyOptions"/> instance.</param>
         /// <returns>The configured value if it is not <see langword="null"/>;
         /// otherwise, the default value.</returns>
-        public static int RetryCount(this SqlStrategyOptions sqlStrategyOptions)
+        public static TimeSpan DurationOfBreak(this SqlStrategyOptions sqlStrategyOptions)
         {
-            return (sqlStrategyOptions.RetryCount ?? SqlStrategyOptions.Defaults.RetryCount)!.Value;
+            return (sqlStrategyOptions.DurationOfBreak ?? SqlStrategyOptions.Defaults.DurationOfBreak)!.Value;
         }
 
         /// <summary>
@@ -66,14 +55,14 @@ namespace Cadru.Polly.Data
         }
 
         /// <summary>
-        /// The duration the circuit will stay open before resetting.
+        /// Generates sleep durations in an exponential manner.
         /// </summary>
         /// <param name="sqlStrategyOptions">The <see cref="SqlStrategyOptions"/> instance.</param>
-        /// <returns>The configured value if it is not <see langword="null"/>;
+        /// <returns>The configured value if it is not <see langword="null"/>
         /// otherwise, the default value.</returns>
-        public static TimeSpan DurationOfBreak(this SqlStrategyOptions sqlStrategyOptions)
+        public static IEnumerable<TimeSpan> ExponentialBackoff(this SqlStrategyOptions sqlStrategyOptions)
         {
-            return (sqlStrategyOptions.DurationOfBreak ?? SqlStrategyOptions.Defaults.DurationOfBreak)!.Value;
+            return Backoff.ExponentialBackoff(TimeSpan.FromSeconds(2), sqlStrategyOptions.RetryCount());
         }
 
         /// <summary>
@@ -85,6 +74,17 @@ namespace Cadru.Polly.Data
         public static TimeSpan OverallTimeout(this SqlStrategyOptions sqlStrategyOptions)
         {
             return (sqlStrategyOptions.OverallTimeout ?? SqlStrategyOptions.Defaults.OverallTimeout)!.Value;
+        }
+
+        /// <summary>
+        /// The retry count.
+        /// </summary>
+        /// <param name="sqlStrategyOptions">The <see cref="SqlStrategyOptions"/> instance.</param>
+        /// <returns>The configured value if it is not <see langword="null"/>;
+        /// otherwise, the default value.</returns>
+        public static int RetryCount(this SqlStrategyOptions sqlStrategyOptions)
+        {
+            return (sqlStrategyOptions.RetryCount ?? SqlStrategyOptions.Defaults.RetryCount)!.Value;
         }
 
         /// <summary>

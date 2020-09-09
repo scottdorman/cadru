@@ -24,17 +24,17 @@ namespace Cadru.Polly.Data.SqlServer
 {
     internal static class SqlServerPolicyKeys
     {
-        internal const string FallbackPolicyAsync = "A.FallbackPolicyAsync";
-        internal const string FallbackPolicy = "A.FallbackPolicy";
-        internal const string OverallTimeoutPolicy = "B.OverallTimeoutPolicy";
-        internal const string OverallTimeoutPolicyAsync = "B.OverallTimeoutPolicyAsync";
+        internal const string CircuitBreakerPolicy = "CircuitBreakerPolicy";
+        internal const string CircuitBreakerPolicyAsync = "CircuitBreakerPolicyAsync";
         internal const string CommonTransientErrorsPolicy = "C.CommonTransientErrorsPolicy";
         internal const string CommonTransientErrorsPolicyAsync = "C.CommonTransientErrorsPolicyAsync";
-        internal const string TransactionPolicyAsync = "D.TransactionPolicyAsync";
-        internal const string TransactionPolicy = "D.TransactionPolicy";
+        internal const string FallbackPolicy = "A.FallbackPolicy";
+        internal const string FallbackPolicyAsync = "A.FallbackPolicyAsync";
+        internal const string OverallTimeoutPolicy = "B.OverallTimeoutPolicy";
+        internal const string OverallTimeoutPolicyAsync = "B.OverallTimeoutPolicyAsync";
         internal const string TimeoutPerRetryPolicy = "E.TimeoutPerRetryPolicy";
         internal const string TimeoutPerRetryPolicyAsync = "E.TimeoutPerRetryPolicyAsync";
-        internal const string CircuitBreakerPolicyAsync = "CircuitBreakerPolicyAsync";
-        internal const string CircuitBreakerPolicy = "CircuitBreakerPolicy";
+        internal const string TransactionPolicy = "D.TransactionPolicy";
+        internal const string TransactionPolicyAsync = "D.TransactionPolicyAsync";
     }
 }

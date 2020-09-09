@@ -32,6 +32,59 @@ using Microsoft.Data.SqlClient;
 namespace Cadru.Polly.Data.SqlServer
 {
     /// <summary>
+    /// Defines the types of resources in SQL Database that may be subject to throttling conditions.
+    /// </summary>
+    public enum ThrottledResourceType
+    {
+        /// <summary>
+        /// Corresponds to the "Physical Database Space" resource, which may be subject to throttling.
+        /// </summary>
+        PhysicalDatabaseSpace = 0,
+
+        /// <summary>
+        /// Corresponds to the "Physical Log File Space" resource, which may be subject to throttling.
+        /// </summary>
+        PhysicalLogSpace = 1,
+
+        /// <summary>
+        /// Corresponds to the "Transaction Log Write IO Delay" resource, which may be subject to throttling.
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Io", Justification = "As designed")]
+        LogWriteIoDelay = 2,
+
+        /// <summary>
+        /// Corresponds to the "Database Read IO Delay" resource, which may be subject to throttling.
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Io", Justification = "As designed")]
+        DataReadIoDelay = 3,
+
+        /// <summary>
+        /// Corresponds to the "CPU" resource, which may be subject to throttling.
+        /// </summary>
+        Cpu = 4,
+
+        /// <summary>
+        /// Corresponds to the "Database Size" resource, which may be subject to throttling.
+        /// </summary>
+        DatabaseSize = 5,
+
+        /// <summary>
+        /// Corresponds to the "SQL Worker Thread Pool" resource, which may be subject to throttling.
+        /// </summary>
+        WorkerThreads = 7,
+
+        /// <summary>
+        /// Corresponds to an internal resource that may be subject to throttling.
+        /// </summary>
+        Internal = 6,
+
+        /// <summary>
+        /// Corresponds to an unknown resource type in the event that the actual resource cannot be determined with certainty.
+        /// </summary>
+        Unknown = -1
+    }
+
+    /// <summary>
     /// Defines the possible throttling modes in SQL Database.
     /// </summary>
     public enum ThrottlingMode
@@ -91,59 +144,6 @@ namespace Cadru.Polly.Data.SqlServer
     }
 
     /// <summary>
-    /// Defines the types of resources in SQL Database that may be subject to throttling conditions.
-    /// </summary>
-    public enum ThrottledResourceType
-    {
-        /// <summary>
-        /// Corresponds to the "Physical Database Space" resource, which may be subject to throttling.
-        /// </summary>
-        PhysicalDatabaseSpace = 0,
-
-        /// <summary>
-        /// Corresponds to the "Physical Log File Space" resource, which may be subject to throttling.
-        /// </summary>
-        PhysicalLogSpace = 1,
-
-        /// <summary>
-        /// Corresponds to the "Transaction Log Write IO Delay" resource, which may be subject to throttling.
-        /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Io", Justification = "As designed")]
-        LogWriteIoDelay = 2,
-
-        /// <summary>
-        /// Corresponds to the "Database Read IO Delay" resource, which may be subject to throttling.
-        /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Io", Justification = "As designed")]
-        DataReadIoDelay = 3,
-
-        /// <summary>
-        /// Corresponds to the "CPU" resource, which may be subject to throttling.
-        /// </summary>
-        Cpu = 4,
-
-        /// <summary>
-        /// Corresponds to the "Database Size" resource, which may be subject to throttling.
-        /// </summary>
-        DatabaseSize = 5,
-
-        /// <summary>
-        /// Corresponds to the "SQL Worker Thread Pool" resource, which may be subject to throttling.
-        /// </summary>
-        WorkerThreads = 7,
-
-        /// <summary>
-        /// Corresponds to an internal resource that may be subject to throttling.
-        /// </summary>
-        Internal = 6,
-
-        /// <summary>
-        /// Corresponds to an unknown resource type in the event that the actual resource cannot be determined with certainty.
-        /// </summary>
-        Unknown = -1
-    }
-
-    /// <summary>
     /// Implements an object that holds the decoded reason code returned from SQL Database when throttling conditions are encountered.
     /// </summary>
     [Serializable]
@@ -155,14 +155,14 @@ namespace Cadru.Polly.Data.SqlServer
         public const int ThrottlingErrorNumber = 40501;
 
         /// <summary>
-        /// Maintains a collection of key/value pairs where a key is the resource type and a value is the type of throttling applied to the given resource type.
-        /// </summary>
-        private readonly IList<Tuple<ThrottledResourceType, ThrottlingType>> throttledResources = new List<Tuple<ThrottledResourceType, ThrottlingType>>(9);
-
-        /// <summary>
         /// Provides a compiled regular expression used to extract the reason code from the error message.
         /// </summary>
         private static readonly Regex sqlErrorCodeRegEx = new Regex(@"Code:\s*(\d+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+
+        /// <summary>
+        /// Maintains a collection of key/value pairs where a key is the resource type and a value is the type of throttling applied to the given resource type.
+        /// </summary>
+        private readonly IList<Tuple<ThrottledResourceType, ThrottlingType>> throttledResources = new List<Tuple<ThrottledResourceType, ThrottlingType>>(9);
 
         /// <summary>
         /// Gets an unknown throttling condition in the event that the actual throttling condition cannot be determined.
@@ -179,15 +179,19 @@ namespace Cadru.Polly.Data.SqlServer
         }
 
         /// <summary>
-        /// Gets the value that reflects the throttling mode in SQL Database.
+        /// Gets a value that indicates whether CPU throttling was reported by SQL Database.
         /// </summary>
-        public ThrottlingMode ThrottlingMode { get; private set; }
+        public bool IsThrottledOnCpu => this.throttledResources.Any(x => x.Item1 == ThrottledResourceType.Cpu);
 
         /// <summary>
-        /// Gets a list of the resources in the SQL Database that were subject to throttling conditions.
+        /// Gets a value that indicates whether database size throttling was reported by SQL Database.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures", Justification = "As designed")]
-        public IEnumerable<Tuple<ThrottledResourceType, ThrottlingType>> ThrottledResources => this.throttledResources;
+        public bool IsThrottledOnDatabaseSize => this.throttledResources.Any(x => x.Item1 == ThrottledResourceType.DatabaseSize);
+
+        /// <summary>
+        /// Gets a value that indicates whether data read activity throttling was reported by SQL Database.
+        /// </summary>
+        public bool IsThrottledOnDataRead => this.throttledResources.Any(x => x.Item1 == ThrottledResourceType.DataReadIoDelay);
 
         /// <summary>
         /// Gets a value that indicates whether physical data file space throttling was reported by SQL Database.
@@ -205,21 +209,6 @@ namespace Cadru.Polly.Data.SqlServer
         public bool IsThrottledOnLogWrite => this.throttledResources.Any(x => x.Item1 == ThrottledResourceType.LogWriteIoDelay);
 
         /// <summary>
-        /// Gets a value that indicates whether data read activity throttling was reported by SQL Database.
-        /// </summary>
-        public bool IsThrottledOnDataRead => this.throttledResources.Any(x => x.Item1 == ThrottledResourceType.DataReadIoDelay);
-
-        /// <summary>
-        /// Gets a value that indicates whether CPU throttling was reported by SQL Database.
-        /// </summary>
-        public bool IsThrottledOnCpu => this.throttledResources.Any(x => x.Item1 == ThrottledResourceType.Cpu);
-
-        /// <summary>
-        /// Gets a value that indicates whether database size throttling was reported by SQL Database.
-        /// </summary>
-        public bool IsThrottledOnDatabaseSize => this.throttledResources.Any(x => x.Item1 == ThrottledResourceType.DatabaseSize);
-
-        /// <summary>
         /// Gets a value that indicates whether concurrent requests throttling was reported by SQL Database.
         /// </summary>
         public bool IsThrottledOnWorkerThreads => this.throttledResources.Any(x => x.Item1 == ThrottledResourceType.WorkerThreads);
@@ -228,6 +217,37 @@ namespace Cadru.Polly.Data.SqlServer
         /// Gets a value that indicates whether throttling conditions were not determined with certainty.
         /// </summary>
         public bool IsUnknown => this.ThrottlingMode == ThrottlingMode.Unknown;
+
+        /// <summary>
+        /// Gets a list of the resources in the SQL Database that were subject to throttling conditions.
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures", Justification = "As designed")]
+        public IEnumerable<Tuple<ThrottledResourceType, ThrottlingType>> ThrottledResources => this.throttledResources;
+
+        /// <summary>
+        /// Gets the value that reflects the throttling mode in SQL Database.
+        /// </summary>
+        public ThrottlingMode ThrottlingMode { get; private set; }
+
+        /// <summary>
+        /// Determines the throttling conditions from the specified SQL error.
+        /// </summary>
+        /// <param name="error">The <see cref="SqlError"/> object that contains information relevant to a warning or error returned by SQL Server.</param>
+        /// <returns>An instance of the object that holds the decoded reason codes returned from SQL Database when throttling conditions were encountered.</returns>
+        public static ThrottlingCondition FromError(SqlError error)
+        {
+            if (error != null)
+            {
+                var match = sqlErrorCodeRegEx.Match(error.Message);
+
+                if (match.Success && Int32.TryParse(match.Groups[1].Value, out var reasonCode))
+                {
+                    return FromReasonCode(reasonCode);
+                }
+            }
+
+            return Unknown;
+        }
 
         /// <summary>
         /// Determines throttling conditions from the specified SQL exception.
@@ -244,26 +264,6 @@ namespace Cadru.Polly.Data.SqlServer
                     {
                         return FromError(error);
                     }
-                }
-            }
-
-            return Unknown;
-        }
-
-        /// <summary>
-        /// Determines the throttling conditions from the specified SQL error.
-        /// </summary>
-        /// <param name="error">The <see cref="SqlError"/> object that contains information relevant to a warning or error returned by SQL Server.</param>
-        /// <returns>An instance of the object that holds the decoded reason codes returned from SQL Database when throttling conditions were encountered.</returns>
-        public static ThrottlingCondition FromError(SqlError error)
-        {
-            if (error != null)
-            {
-                var match = sqlErrorCodeRegEx.Match(error.Message);
-
-                if (match.Success && Int32.TryParse(match.Groups[1].Value, out var reasonCode))
-                {
-                    return FromReasonCode(reasonCode);
                 }
             }
 

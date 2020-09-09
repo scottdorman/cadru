@@ -33,27 +33,16 @@ namespace Cadru.Polly.Logging
 {
     internal static class LoggingEngine
     {
-        private static TResult LogResult<TResult>(TResult result, Context context, ResultPredicates<TResult> shouldHandleResultPredicates, Func<Context, ILogger> loggerProvider, Action<ILogger, Context, DelegateResult<TResult>> logAction)
+        internal static TResult Implementation<TResult>(Func<Context, CancellationToken, TResult> action, Context context, ExceptionPredicates shouldHandleExceptionPredicates, ResultPredicates<TResult> shouldHandleResultPredicates, Func<Context, ILogger> loggerProvider, Action<ILogger, Context, DelegateResult<TResult>> logAction, CancellationToken cancellationToken)
         {
-            if (shouldHandleResultPredicates.AnyMatch(result))
+            try
             {
-                var logger = loggerProvider(context);
-                logAction(logger, context, new DelegateResult<TResult>(result));
+                return LogResult(action(context, cancellationToken), context, shouldHandleResultPredicates, loggerProvider, logAction);
             }
-
-            return result;
-        }
-
-        private static void LogException<TResult>(Exception exception, Context context, ExceptionPredicates shouldHandleExceptionPredicates, Func<Context, ILogger> loggerProvider, Action<ILogger, Context, DelegateResult<TResult>> logAction)
-        {
-            var handledException = shouldHandleExceptionPredicates.FirstMatchOrDefault(exception);
-            if (handledException != null)
+            catch (Exception exception)
             {
-                var logger = loggerProvider(context);
-                logAction(logger, context, new DelegateResult<TResult>(exception));
-
-                // The policy intentionally bubbles the exception outwards after logging.
-                handledException.RethrowWithOriginalStackTraceIfDiffersFrom(exception);
+                LogException(exception, context, shouldHandleExceptionPredicates, loggerProvider, logAction);
+                throw;
             }
         }
 
@@ -70,17 +59,28 @@ namespace Cadru.Polly.Logging
             }
         }
 
-        internal static TResult Implementation<TResult>(Func<Context, CancellationToken, TResult> action, Context context, ExceptionPredicates shouldHandleExceptionPredicates, ResultPredicates<TResult> shouldHandleResultPredicates, Func<Context, ILogger> loggerProvider, Action<ILogger, Context, DelegateResult<TResult>> logAction, CancellationToken cancellationToken)
+        private static void LogException<TResult>(Exception exception, Context context, ExceptionPredicates shouldHandleExceptionPredicates, Func<Context, ILogger> loggerProvider, Action<ILogger, Context, DelegateResult<TResult>> logAction)
         {
-            try
+            var handledException = shouldHandleExceptionPredicates.FirstMatchOrDefault(exception);
+            if (handledException != null)
             {
-                return LogResult(action(context, cancellationToken), context, shouldHandleResultPredicates, loggerProvider, logAction);
+                var logger = loggerProvider(context);
+                logAction(logger, context, new DelegateResult<TResult>(exception));
+
+                // The policy intentionally bubbles the exception outwards after logging.
+                handledException.RethrowWithOriginalStackTraceIfDiffersFrom(exception);
             }
-            catch (Exception exception)
+        }
+
+        private static TResult LogResult<TResult>(TResult result, Context context, ResultPredicates<TResult> shouldHandleResultPredicates, Func<Context, ILogger> loggerProvider, Action<ILogger, Context, DelegateResult<TResult>> logAction)
+        {
+            if (shouldHandleResultPredicates.AnyMatch(result))
             {
-                LogException(exception, context, shouldHandleExceptionPredicates, loggerProvider, logAction);
-                throw;
+                var logger = loggerProvider(context);
+                logAction(logger, context, new DelegateResult<TResult>(result));
             }
+
+            return result;
         }
     }
 }

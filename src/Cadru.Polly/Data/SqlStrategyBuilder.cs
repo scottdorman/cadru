@@ -56,9 +56,9 @@ namespace Cadru.Polly.Data
         }
 
         /// <summary>
-        /// Gets the list of policies which make up the strategy.
+        /// Gets the default <see cref="IExceptionHandlingStrategy"/>.
         /// </summary>
-        public IList<IsPolicy> Policies { get; } = new List<IsPolicy>();
+        public IExceptionHandlingStrategy DefaultStrategy { get; }
 
         /// <summary>
         /// Gets the <see cref="IExceptionHandlingStrategy">exception handling
@@ -67,14 +67,14 @@ namespace Cadru.Polly.Data
         public IEnumerable<IExceptionHandlingStrategy> ExceptionHandlingStrategies { get; }
 
         /// <summary>
+        /// Gets the list of policies which make up the strategy.
+        /// </summary>
+        public IList<IsPolicy> Policies { get; } = new List<IsPolicy>();
+
+        /// <summary>
         /// Gets the <see cref="SqlStrategyOptions"/> used to configure the policies.
         /// </summary>
         public SqlStrategyOptions StrategyOptions { get; }
-
-        /// <summary>
-        /// Gets the default <see cref="IExceptionHandlingStrategy"/>.
-        /// </summary>
-        public IExceptionHandlingStrategy DefaultStrategy { get; }
 
         /// <summary>
         /// Builds a NoOp <see cref="Policy"/> that will execute without any custom behavior.
@@ -87,32 +87,6 @@ namespace Cadru.Polly.Data
         /// </summary>
         /// <returns>The policy instance.</returns>
         public static IAsyncPolicy NoOpAsync() => Policy.NoOpAsync();
-
-        /// <summary>
-        /// Gets a <see cref="PolicyBuilder"/> which handles all of the exceptions
-        /// in <see cref="ExceptionHandlingStrategies"/>.
-        /// </summary>
-        /// <returns>A <see cref="PolicyBuilder"/> instance.</returns>
-        public PolicyBuilder GetPolicyBuilder()
-        {
-            var policyBuilder = this.GetDefaultPolicyBuilder();
-            foreach (var strategy in this.ExceptionHandlingStrategies.Where(e => !e.IsDefaultStrategy))
-            {
-                policyBuilder = policyBuilder.Or<Exception>(strategy.ShouldHandle);
-            }
-
-            return policyBuilder;
-        }
-
-        /// <summary>
-        /// Gets a <see cref="PolicyBuilder"/> which handles the exceptions
-        /// in the default <see cref="IExceptionHandlingStrategy"/>.
-        /// </summary>
-        /// <returns>A <see cref="PolicyBuilder"/> instance.</returns>
-        public PolicyBuilder GetDefaultPolicyBuilder()
-        {
-            return Policy.Handle<Exception>(this.DefaultStrategy.ShouldHandle);
-        }
 
         /// <summary>
         /// Builds a <see cref="ISqlStrategy"/>.
@@ -137,6 +111,32 @@ namespace Cadru.Polly.Data
             };
 
             return sqlStrategy;
+        }
+
+        /// <summary>
+        /// Gets a <see cref="PolicyBuilder"/> which handles the exceptions
+        /// in the default <see cref="IExceptionHandlingStrategy"/>.
+        /// </summary>
+        /// <returns>A <see cref="PolicyBuilder"/> instance.</returns>
+        public PolicyBuilder GetDefaultPolicyBuilder()
+        {
+            return Policy.Handle<Exception>(this.DefaultStrategy.ShouldHandle);
+        }
+
+        /// <summary>
+        /// Gets a <see cref="PolicyBuilder"/> which handles all of the exceptions
+        /// in <see cref="ExceptionHandlingStrategies"/>.
+        /// </summary>
+        /// <returns>A <see cref="PolicyBuilder"/> instance.</returns>
+        public PolicyBuilder GetPolicyBuilder()
+        {
+            var policyBuilder = this.GetDefaultPolicyBuilder();
+            foreach (var strategy in this.ExceptionHandlingStrategies.Where(e => !e.IsDefaultStrategy))
+            {
+                policyBuilder = policyBuilder.Or<Exception>(strategy.ShouldHandle);
+            }
+
+            return policyBuilder;
         }
 
         /// <summary>

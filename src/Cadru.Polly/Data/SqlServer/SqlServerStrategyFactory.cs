@@ -33,14 +33,14 @@ namespace Cadru.Polly.Data.SqlServer
     /// </summary>
     public sealed class SqlServerStrategyFactory : SqlStrategyFactory
     {
+        private SqlServerStrategyFactory()
+        {
+        }
+
         /// <summary>
         /// Gets an instance of the <see cref="SqlServerStrategyFactory"/>.
         /// </summary>
         public static SqlServerStrategyFactory Instance => new SqlServerStrategyFactory();
-
-        private SqlServerStrategyFactory()
-        {
-        }
 
         /// <inheritdoc/>
         protected override SqlStrategyBuilder CreateStrategyBuilder(IServiceProvider serviceProvider, IEnumerable<IExceptionHandlingStrategy> exceptionHandlingStrategies)

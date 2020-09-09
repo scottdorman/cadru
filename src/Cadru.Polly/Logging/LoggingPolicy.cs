@@ -34,8 +34,8 @@ namespace Cadru.Polly.Logging
     /// </summary>
     public class LoggingPolicy : Policy, ILoggingPolicy
     {
-        private readonly Func<Context, ILogger> _loggerProvider;
         private readonly Action<ILogger, Context, Exception> _logAction;
+        private readonly Func<Context, ILogger> _loggerProvider;
 
         internal LoggingPolicy(PolicyBuilder policyBuilder, Func<Context, ILogger> loggerProvider, Action<ILogger, Context, Exception> logAction)
             : base(policyBuilder)
@@ -65,8 +65,8 @@ namespace Cadru.Polly.Logging
     /// <typeparam name="TResult">The type of return values this policy will handle.</typeparam>
     public class LoggingPolicy<TResult> : Policy<TResult>, ILoggingPolicy<TResult>
     {
-        private readonly Func<Context, ILogger> _loggerProvider;
         private readonly Action<ILogger, Context, DelegateResult<TResult>> _logAction;
+        private readonly Func<Context, ILogger> _loggerProvider;
 
         internal LoggingPolicy(PolicyBuilder<TResult> policyBuilder, Func<Context, ILogger> loggerProvider, Action<ILogger, Context, DelegateResult<TResult>> logAction)
             : base(policyBuilder)

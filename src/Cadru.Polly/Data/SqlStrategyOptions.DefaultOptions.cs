@@ -28,9 +28,9 @@ namespace Cadru.Polly.Data
 {
     public partial class SqlStrategyOptions
     {
-        internal const int retryCountDefault = 5;
-        internal const int exeptionsAllowedBeforeBreakingDefault = 3;
         internal const int durationOfBreakSecondsDefault = 30;
+        internal const int exeptionsAllowedBeforeBreakingDefault = 3;
+        internal const int retryCountDefault = 5;
 
         /// <summary>
         /// Gets the default options values.

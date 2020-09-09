@@ -38,6 +38,26 @@ namespace Cadru.Polly.Data.SqlServer
     public static class SqlServerStrategySyntax
     {
         /// <summary>
+        /// Builds a <see cref="SqlStrategy"/> with a policy for retrying
+        /// actions on transaction failures.
+        /// </summary>
+        /// <param name="sqlStrategy">The SQL strategy.</param>
+        /// <param name="exceptionHandlingStrategy">The exception handling
+        /// strategy used to determine which exceptions should be
+        /// retried.</param>
+        /// <param name="sqlStrategyConfiguration">An <see
+        /// cref="SqlStrategyOptions"/> containing configuration
+        /// parameters.</param>
+        /// <returns>The strategy instance.</returns>
+        public static SqlStrategyBuilder Retry(this SqlStrategyBuilder sqlStrategy, IExceptionHandlingStrategy exceptionHandlingStrategy, SqlStrategyOptions sqlStrategyConfiguration)
+        {
+            var backoff = Backoff.ExponentialBackoff(TimeSpan.FromSeconds(2), sqlStrategyConfiguration.RetryCount());
+            sqlStrategy.Policies.Add(Policy.Handle<SqlException>(exceptionHandlingStrategy.ShouldHandle).WaitAndRetry(backoff, SqlStrategyLoggingDelegates.OnRetry).WithPolicyKey(SqlServerPolicyKeys.TransactionPolicy));
+            sqlStrategy.Policies.Add(Policy.Handle<SqlException>(exceptionHandlingStrategy.ShouldHandle).WaitAndRetryAsync(backoff, SqlStrategyLoggingDelegates.OnRetryAsync).WithPolicyKey(SqlServerPolicyKeys.TransactionPolicyAsync));
+            return sqlStrategy;
+        }
+
+        /// <summary>
         /// Builds a <see cref="SqlStrategy"/> with policies that will function
         /// like a Circuit Breaker.
         /// </summary>
@@ -183,26 +203,6 @@ namespace Cadru.Polly.Data.SqlServer
             var timeoutPerRetry = sqlStrategyConfiguration.TimeoutPerRetry();
             sqlStrategy.Policies.Add(Policy.Timeout(timeoutPerRetry, TimeoutStrategy.Pessimistic, SqlStrategyLoggingDelegates.OnTimeout).WithPolicyKey(SqlServerPolicyKeys.TimeoutPerRetryPolicy));
             sqlStrategy.Policies.Add(Policy.TimeoutAsync(timeoutPerRetry, TimeoutStrategy.Pessimistic, SqlStrategyLoggingDelegates.OnTimeoutAsync).WithPolicyKey(SqlServerPolicyKeys.TimeoutPerRetryPolicyAsync));
-            return sqlStrategy;
-        }
-
-        /// <summary>
-        /// Builds a <see cref="SqlStrategy"/> with a policy for retrying
-        /// actions on transaction failures.
-        /// </summary>
-        /// <param name="sqlStrategy">The SQL strategy.</param>
-        /// <param name="exceptionHandlingStrategy">The exception handling
-        /// strategy used to determine which exceptions should be
-        /// retried.</param>
-        /// <param name="sqlStrategyConfiguration">An <see
-        /// cref="SqlStrategyOptions"/> containing configuration
-        /// parameters.</param>
-        /// <returns>The strategy instance.</returns>
-        public static SqlStrategyBuilder Retry(this SqlStrategyBuilder sqlStrategy, IExceptionHandlingStrategy exceptionHandlingStrategy, SqlStrategyOptions sqlStrategyConfiguration)
-        {
-            var backoff = Backoff.ExponentialBackoff(TimeSpan.FromSeconds(2), sqlStrategyConfiguration.RetryCount());
-            sqlStrategy.Policies.Add(Policy.Handle<SqlException>(exceptionHandlingStrategy.ShouldHandle).WaitAndRetry(backoff, SqlStrategyLoggingDelegates.OnRetry).WithPolicyKey(SqlServerPolicyKeys.TransactionPolicy));
-            sqlStrategy.Policies.Add(Policy.Handle<SqlException>(exceptionHandlingStrategy.ShouldHandle).WaitAndRetryAsync(backoff, SqlStrategyLoggingDelegates.OnRetryAsync).WithPolicyKey(SqlServerPolicyKeys.TransactionPolicyAsync));
             return sqlStrategy;
         }
     }

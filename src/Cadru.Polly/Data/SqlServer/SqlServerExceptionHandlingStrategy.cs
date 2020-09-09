@@ -30,6 +30,62 @@ using Microsoft.Data.SqlClient;
 namespace Cadru.Polly.Data.SqlServer
 {
     /// <summary>
+    /// Defines a strategy for determining transient SQL Server network connectivity errors.
+    /// </summary>
+    public class NetworkConnectivityExceptionHandlingStrategy : IExceptionHandlingStrategy
+    {
+        /// <inheritdoc/>
+        public bool IsDefaultStrategy => false;
+
+        /// <inheritdoc/>
+        public bool ShouldHandle([NotNull] Exception exception)
+        {
+            if (exception is SqlException sqlException)
+            {
+                return sqlException.Number switch
+                {
+                    // SQL Error Code: 11001
+                    // A network-related or instance-specific error occurred while establishing a connection to SQL Server.
+                    // The server was not found or was not accessible. Verify that the instance name is correct and that SQL
+                    // Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+                    11001 => true,
+                    _ => false,
+                };
+            }
+
+            return false;
+        }
+    }
+
+    /// <summary>
+    /// Defines a strategy for determining SQL Server timeout errors.
+    /// </summary>
+    public class SqlServerTimeoutExceptionHandlingStrategy : IExceptionHandlingStrategy
+    {
+        /// <inheritdoc/>
+        public bool IsDefaultStrategy => false;
+
+        /// <inheritdoc/>
+        public bool ShouldHandle([NotNull] Exception exception)
+        {
+            if (exception is SqlException sqlException)
+            {
+                foreach (SqlError err in sqlException.Errors)
+                {
+                    switch (err.Number)
+                    {
+                        // SQL Error Code: -2
+                        case -2:
+                            return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+    }
+
+    /// <summary>
     /// Defines a strategy for determining transient SQL Server errors.
     /// </summary>
     public class SqlServerTransientExceptionHandlingStrategy : IExceptionHandlingStrategy
@@ -171,34 +227,6 @@ namespace Cadru.Polly.Data.SqlServer
     }
 
     /// <summary>
-    /// Defines a strategy for determining transient SQL Server network connectivity errors.
-    /// </summary>
-    public class NetworkConnectivityExceptionHandlingStrategy : IExceptionHandlingStrategy
-    {
-        /// <inheritdoc/>
-        public bool IsDefaultStrategy => false;
-
-        /// <inheritdoc/>
-        public bool ShouldHandle([NotNull] Exception exception)
-        {
-            if (exception is SqlException sqlException)
-            {
-                return sqlException.Number switch
-                {
-                    // SQL Error Code: 11001
-                    // A network-related or instance-specific error occurred while establishing a connection to SQL Server.
-                    // The server was not found or was not accessible. Verify that the instance name is correct and that SQL
-                    // Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
-                    11001 => true,
-                    _ => false,
-                };
-            }
-
-            return false;
-        }
-    }
-
-    /// <summary>
     /// Defines a strategy for determining transient SQL Server transaction errors.
     /// </summary>
     public class SqlServerTransientTransactionExceptionHandlingStrategy : IExceptionHandlingStrategy
@@ -219,34 +247,6 @@ namespace Cadru.Polly.Data.SqlServer
                         case 40549:
                         // SQL Error Code: 40550
                         case 40550:
-                            return true;
-                    }
-                }
-            }
-
-            return false;
-        }
-    }
-
-    /// <summary>
-    /// Defines a strategy for determining SQL Server timeout errors.
-    /// </summary>
-    public class SqlServerTimeoutExceptionHandlingStrategy : IExceptionHandlingStrategy
-    {
-        /// <inheritdoc/>
-        public bool IsDefaultStrategy => false;
-
-        /// <inheritdoc/>
-        public bool ShouldHandle([NotNull] Exception exception)
-        {
-            if (exception is SqlException sqlException)
-            {
-                foreach (SqlError err in sqlException.Errors)
-                {
-                    switch (err.Number)
-                    {
-                        // SQL Error Code: -2
-                        case -2:
                             return true;
                     }
                 }

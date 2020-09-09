@@ -33,6 +33,22 @@ namespace Cadru.Polly.Data
 {
     internal static class SqlStrategyLoggingDelegates
     {
+        internal static void OnCircuitBreak(Exception exception, TimeSpan timeSpan, Context context)
+        {
+            if (context.TryGetLogger(out var logger))
+            {
+                logger.LogError(Strings.SqlServer_LoggingMessage_CircuitBroken, new object[] { timeSpan, exception.Message });
+            }
+        }
+
+        internal static void OnCircuitReset(Context context)
+        {
+            if (context.TryGetLogger(out var logger))
+            {
+                logger.LogError(Strings.SqlServer_LoggingMessage_CircuitReset);
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required to match delegate call site.")]
         internal static void OnRetry(Exception exception, TimeSpan timeSpan, int retries, Context context)
         {
@@ -53,19 +69,12 @@ namespace Cadru.Polly.Data
             return Task.CompletedTask;
         }
 
-        internal static void OnCircuitBreak(Exception exception, TimeSpan timeSpan, Context context)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required to match delegate call site.")]
+        internal static void OnTimeout(Context context, TimeSpan timeSpan, Task task, Exception exception)
         {
             if (context.TryGetLogger(out var logger))
             {
-                logger.LogError(Strings.SqlServer_LoggingMessage_CircuitBroken, new object[] { timeSpan, exception.Message });
-            }
-        }
-
-        internal static void OnCircuitReset(Context context)
-        {
-            if (context.TryGetLogger(out var logger))
-            {
-                logger.LogError(Strings.SqlServer_LoggingMessage_CircuitReset);
+                logger.LogError(Strings.SqlServer_LoggingMessage_Timeout, new object[] { exception.Message });
             }
         }
 
@@ -78,15 +87,6 @@ namespace Cadru.Polly.Data
             }
 
             return Task.CompletedTask;
-        }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required to match delegate call site.")]
-        internal static void OnTimeout(Context context, TimeSpan timeSpan, Task task, Exception exception)
-        {
-            if (context.TryGetLogger(out var logger))
-            {
-                logger.LogError(Strings.SqlServer_LoggingMessage_Timeout, new object[] { exception.Message });
-            }
         }
     }
 }

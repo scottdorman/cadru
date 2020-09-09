@@ -45,14 +45,14 @@ namespace Cadru.Polly.Data
         public int? ExceptionsAllowedBeforeBreaking { get; set; }
 
         /// <summary>
-        /// The retry count.
-        /// </summary>
-        public int? RetryCount { get; set; }
-
-        /// <summary>
         /// The timeout for the overall strategy.
         /// </summary>
         public TimeSpan? OverallTimeout { get; set; }
+
+        /// <summary>
+        /// The retry count.
+        /// </summary>
+        public int? RetryCount { get; set; }
 
         /// <summary>
         /// The timeout for each retry.
