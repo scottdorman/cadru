@@ -2,7 +2,7 @@
 // <copyright file="ValidatedNotNullAttribute.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -19,6 +19,7 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
+
 using System;
 
 namespace Cadru.Contracts.Internal
@@ -29,19 +30,5 @@ namespace Cadru.Contracts.Internal
     [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
     internal sealed class ValidatedNotNullAttribute : Attribute
     {
-        #region fields
-        #endregion
-
-        #region constructors
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methods
-        #endregion
     }
 }

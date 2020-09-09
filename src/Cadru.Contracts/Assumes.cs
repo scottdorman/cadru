@@ -2,7 +2,7 @@
 // <copyright file="Assumes.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -19,6 +19,7 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
+
 using System;
 using System.Diagnostics;
 using System.Globalization;
@@ -33,21 +34,6 @@ namespace Cadru.Contracts
     /// </summary>
     public static class Assumes
     {
-        #region fields
-        #endregion
-
-        #region constructors
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methods
-
-        #region Fail
         /// <summary>
         /// Fails with the provided message as the reason.
         /// </summary>
@@ -59,11 +45,7 @@ namespace Cadru.Contracts
         {
             FailFast(message);
         }
-        #endregion
 
-        #region IsEnum
-
-        #region IsEnum(Enum value, string parameterName)
         /// <summary>
         /// Checks that <paramref name="value"/> is an enumerated type.
         /// </summary>
@@ -78,9 +60,7 @@ namespace Cadru.Contracts
             Requires.NotNull(value, parameterName);
             IsTrue(value.GetType().GetTypeInfo().IsEnum);
         }
-        #endregion
 
-        #region IsEnum(object value, string parameterName)
         /// <summary>
         /// Checks that <paramref name="value"/> is an enumerated type.
         /// </summary>
@@ -95,13 +75,7 @@ namespace Cadru.Contracts
             Requires.NotNull(value, parameterName);
             IsTrue(value.GetType().GetTypeInfo().IsEnum);
         }
-        #endregion
 
-        #endregion
-
-        #region IsFalse
-
-        #region IsFalse(bool condition)
         /// <summary>
         /// Checks for a condition and displays a message and throws an exception if the condition is <see langword="true"/>.
         /// </summary>
@@ -113,9 +87,7 @@ namespace Cadru.Contracts
         {
             IsFalse(condition, null);
         }
-        #endregion
 
-        #region IsFalse(bool condition, string message)
         /// <summary>
         /// Checks for a condition and displays a message and throws an exception if the condition is <see langword="true"/>.
         /// </summary>
@@ -131,13 +103,7 @@ namespace Cadru.Contracts
                 Fail(message);
             }
         }
-        #endregion
 
-        #endregion
-
-        #region IsTrue
-
-        #region IsTrue(bool condition)
         /// <summary>
         /// Checks for a condition and displays a message and throws an exception if the condition is <see langword="false"/>.
         /// </summary>
@@ -149,9 +115,7 @@ namespace Cadru.Contracts
         {
             IsTrue(condition, null);
         }
-        #endregion
 
-        #region IsTrue(bool condition, string message)
         /// <summary>
         /// Checks for a condition and displays a message and throws an exception if the condition is <see langword="false"/>.
         /// </summary>
@@ -167,13 +131,7 @@ namespace Cadru.Contracts
                 Fail(message);
             }
         }
-        #endregion
 
-        #endregion
-
-        #region IsType
-
-        #region IsType(object value, Type expectedType, string parameterName)
         /// <summary>
         /// Checks that <paramref name="value"/> is an enumerated type.
         /// </summary>
@@ -189,9 +147,7 @@ namespace Cadru.Contracts
             Requires.NotNull(value, parameterName);
             IsTrue(value.GetType() == expectedType);
         }
-        #endregion
 
-        #region IsType<T>(object value, string parameterName)
         /// <summary>
         /// Checks that <paramref name="value"/> is an enumerated type.
         /// </summary>
@@ -206,13 +162,7 @@ namespace Cadru.Contracts
         {
             IsType(value, typeof(T), parameterName);
         }
-        #endregion
 
-        #endregion
-
-        #region NotNull
-
-        #region NotNull<T>(T value)
         /// <summary>
         /// Checks that <paramref name="value"/> is not <see langword="null"/>.
         /// </summary>
@@ -225,9 +175,7 @@ namespace Cadru.Contracts
         {
             IsTrue(value != null);
         }
-        #endregion
 
-        #region NotNull<T1, T2>(T1 value1, T2 value2)
         /// <summary>
         /// Checks that <paramref name="value1"/> and <paramref name="value2"/> are not <see langword="null"/>.
         /// </summary>
@@ -249,9 +197,7 @@ namespace Cadru.Contracts
             NotNull(value1);
             NotNull(value2);
         }
-        #endregion
 
-        #region NotNull<T1, T2, T3>(T1 value1, T2 value2, T3 value3)
         /// <summary>
         /// Checks that <paramref name="value1"/>, <paramref name="value2"/>, and <paramref name="value3"/> are not <see langword="null"/>.
         /// </summary>
@@ -279,9 +225,7 @@ namespace Cadru.Contracts
             NotNull(value2);
             NotNull(value3);
         }
-        #endregion
 
-        #region NotNull<T1, T2, T3, T4>(T1 value1, T2 value2, T3 value3, T4 value4)
         /// <summary>
         /// Checks that <paramref name="value1"/>, <paramref name="value2"/>,
         /// <paramref name="value3"/>, and <paramref name="value4"/> are not <see langword="null"/>.
@@ -316,11 +260,7 @@ namespace Cadru.Contracts
             NotNull(value3);
             NotNull(value4);
         }
-        #endregion
 
-        #endregion
-
-        #region NotNullOrEmpty
         /// <summary>
         /// Checks that <paramref name="value"/> is not <see langword="null"/> or a zero-length string.
         /// </summary>
@@ -334,9 +274,7 @@ namespace Cadru.Contracts
             NotNull(value);
             IsTrue(value.Length > 0);
         }
-        #endregion
 
-        #region Null
         /// <summary>
         /// Checks that <paramref name="value"/> is <see langword="null"/>.
         /// </summary>
@@ -348,9 +286,7 @@ namespace Cadru.Contracts
         {
             IsTrue(value == null);
         }
-        #endregion
 
-        #region FailFast
         /// <summary>
         /// Throws a new <see cref="AssumptionException"/> and a <see cref="Debug.Assert(Boolean, String)"/> assertion failure.
         /// </summary>
@@ -371,8 +307,5 @@ namespace Cadru.Contracts
             Debug.Assert(false, message);
             throw new AssumptionException(message);
         }
-        #endregion
-
-        #endregion
     }
 }

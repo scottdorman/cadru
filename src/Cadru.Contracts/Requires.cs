@@ -2,7 +2,7 @@
 // <copyright file="Requires.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -19,6 +19,7 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,23 +37,6 @@ namespace Cadru.Contracts
     /// </summary>
     public static class Requires
     {
-        #region fields
-        #endregion
-
-        #region constructors
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methods
-
-        #region IsEnum
-
-        #region IsEnum(Enum value, string parameterName)
         /// <summary>
         /// Checks that <paramref name="value"/> is an enumerated type.
         /// </summary>
@@ -68,9 +52,7 @@ namespace Cadru.Contracts
             IsTrue(value.GetType().GetTypeInfo().IsEnum);
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #region IsEnum(object value, string parameterName)
         /// <summary>
         /// Checks that <paramref name="value"/> is an enumerated type.
         /// </summary>
@@ -86,13 +68,7 @@ namespace Cadru.Contracts
             IsTrue(value.GetType().GetTypeInfo().IsEnum);
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #endregion
-
-        #region IsFalse
-
-        #region IsFalse(bool condition)
         /// <summary>
         /// Checks for a condition and throws an exception if the condition is <see langword="true"/>.
         /// </summary>
@@ -106,9 +82,7 @@ namespace Cadru.Contracts
             IsFalse(condition, null);
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #region IsFalse(bool condition, string message)
         /// <summary>
         /// Checks for a condition and throws an exception if the condition is <see langword="true"/>.
         /// </summary>
@@ -127,9 +101,7 @@ namespace Cadru.Contracts
 
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #region IsFalse(bool condition, string parameterName, string message)
         /// <summary>
         /// Checks for a condition and throws an exception if the condition is <see langword="true"/>.
         /// </summary>
@@ -149,13 +121,7 @@ namespace Cadru.Contracts
 
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #endregion
-
-        #region IsTrue
-
-        #region IsTrue(bool condition)
         /// <summary>
         /// Checks for a condition and throws an exception if the condition is <see langword="false"/>.
         /// </summary>
@@ -169,9 +135,7 @@ namespace Cadru.Contracts
             IsTrue(condition, null);
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #region IsTrue(bool condition, string message)
         /// <summary>
         /// Checks for a condition and throws an exception if the condition is <see langword="false"/>.
         /// </summary>
@@ -190,9 +154,7 @@ namespace Cadru.Contracts
 
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #region IsTrue(bool condition, string parameterName, string message)
         /// <summary>
         /// Checks for a condition and throws an exception if the condition is <see langword="false"/>.
         /// </summary>
@@ -212,13 +174,7 @@ namespace Cadru.Contracts
 
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #endregion
-
-        #region IsType
-
-        #region IsType(object value, Type expectedType, string parameterName)
         /// <summary>
         /// Checks that <paramref name="value"/> is an enumerated type.
         /// </summary>
@@ -235,9 +191,7 @@ namespace Cadru.Contracts
             IsTrue(value.GetType() == expectedType);
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #region IsType<T>(object value, string parameterName)
         /// <summary>
         /// Checks that <paramref name="value"/> is an enumerated type.
         /// </summary>
@@ -253,13 +207,7 @@ namespace Cadru.Contracts
             IsType(value, typeof(T), parameterName);
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #endregion
-
-        #region NotNull
-
-        #region NotNull<T>([ValidatedNotNull]T value, string parameterName)
         /// <summary>
         /// Checks that <paramref name="value"/> is not <see langword="null"/>.
         /// </summary>
@@ -274,9 +222,7 @@ namespace Cadru.Contracts
             NotNull(value, parameterName, null);
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #region NotNull<T>([ValidatedNotNull]T value, string parameterName, string message)
         /// <summary>
         /// Checks that <paramref name="value"/> is not <see langword="null"/>.
         /// </summary>
@@ -296,13 +242,31 @@ namespace Cadru.Contracts
 
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #endregion
+        /// <summary>
+        /// Checks that <paramref name="values"/> is not <see langword="null"/>
+        /// and contains no <see langword="null"/> elements.
+        /// </summary>
+        /// <param name="values">The parameter to test.</param>
+        /// <param name="parameterName">The name of the parameter being tested.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="values"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentException"><paramref name="values"/> contains a <see langword="null"/> element.</exception>
+        [DebuggerStepThrough]
+        [ContractArgumentValidatorAttribute]
+        public static void NotNullElements([ValidatedNotNull] IEnumerable values, string parameterName)
+        {
+            NotNull(values, "values");
+            foreach (var value in values)
+            {
+                if (value == null)
+                {
+                    throw ExceptionBuilder.CreateContainsNullElement(parameterName);
+                }
+            }
 
-        #region NotNullOrEmpty
+            Contract.EndContractBlock();
+        }
 
-        #region NotNullOrEmpty([ValidatedNotNull]string value, string parameterName)
         /// <summary>
         /// Checks that <paramref name="value"/> is not <see langword="null"/> or a zero-length string.
         /// </summary>
@@ -318,9 +282,7 @@ namespace Cadru.Contracts
             NotNullOrEmpty(value, parameterName, ExceptionBuilder.Format(Resources.Strings.ArgumentException_EmptyString, parameterName));
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #region NotNullOrEmpty([ValidatedNotNull]string value, string parameterName, string message)
         /// <summary>
         /// Checks that <paramref name="value"/> is not <see langword="null"/> or a zero-length string.
         /// </summary>
@@ -342,9 +304,7 @@ namespace Cadru.Contracts
 
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #region NotNullOrEmpty([ValidatedNotNull]IEnumerable values, string parameterName)
         /// <summary>
         /// Checks that <paramref name="values"/> is not <see langword="null"/> or empty.
         /// </summary>
@@ -369,9 +329,7 @@ namespace Cadru.Contracts
 
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #region NotNullOrEmpty([ValidatedNotNull]IEnumerable values, string parameterName, string message)
         /// <summary>
         /// Checks that <paramref name="values"/> is not <see langword="null"/> or empty.
         /// </summary>
@@ -397,13 +355,7 @@ namespace Cadru.Contracts
 
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #endregion
-
-        #region NotNullOrWhiteSpace
-
-        #region NotNullOrWhiteSpace([ValidatedNotNull]string value, string parameterName)
         /// <summary>
         /// Checks that <paramref name="value"/> is not <see langword="null"/> or a zero-length string.
         /// </summary>
@@ -419,9 +371,7 @@ namespace Cadru.Contracts
             NotNullOrWhiteSpace(value, parameterName, ExceptionBuilder.Format(Resources.Strings.ArgumentException_EmptyString, parameterName));
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #region NotNullOrWhiteSpace([ValidatedNotNull]string value, string parameterName, string message)
         /// <summary>
         /// Checks that <paramref name="value"/> is not <see langword="null"/> or a zero-length string.
         /// </summary>
@@ -443,37 +393,7 @@ namespace Cadru.Contracts
 
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #endregion
-
-        #region NotNullElements
-        /// <summary>
-        /// Checks that <paramref name="values"/> is not <see langword="null"/>
-        /// and contains no <see langword="null"/> elements.
-        /// </summary>
-        /// <param name="values">The parameter to test.</param>
-        /// <param name="parameterName">The name of the parameter being tested.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="values"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="values"/> contains a <see langword="null"/> element.</exception>
-        [DebuggerStepThrough]
-        [ContractArgumentValidatorAttribute]
-        public static void NotNullElements([ValidatedNotNull] IEnumerable values, string parameterName)
-        {
-            NotNull(values, "values");
-            foreach (var value in values)
-            {
-                if (value == null)
-                {
-                    throw ExceptionBuilder.CreateContainsNullElement(parameterName);
-                }
-            }
-
-            Contract.EndContractBlock();
-        }
-        #endregion
-
-        #region ValidElements
         /// <summary>
         /// Checks that <paramref name="values"/> is not <see langword="null"/>
         /// and contains valid elements based on the given predicate.
@@ -497,11 +417,7 @@ namespace Cadru.Contracts
 
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #region ValidRange
-
-        #region ValidRange(bool condition, string parameterName)
         /// <summary>
         /// Checks for a condition and throws an exception if the condition is <see langword="true"/>.
         /// </summary>
@@ -516,9 +432,7 @@ namespace Cadru.Contracts
             ValidRange(condition, parameterName, String.Empty);
             Contract.EndContractBlock();
         }
-        #endregion
 
-        #region ValidRange(bool condition, string parameterName, string message)
         /// <summary>
         /// Checks for a condition and throws an exception if the condition is <see langword="true"/>.
         /// </summary>
@@ -540,10 +454,5 @@ namespace Cadru.Contracts
 
             Contract.EndContractBlock();
         }
-        #endregion
-
-        #endregion
-
-        #endregion
     }
 }

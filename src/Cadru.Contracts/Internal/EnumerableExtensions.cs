@@ -2,7 +2,7 @@
 // <copyright file="EnumerableExtensions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -19,6 +19,7 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
+
 using System.Collections;
 
 namespace Cadru.Contracts.Internal
@@ -28,21 +29,6 @@ namespace Cadru.Contracts.Internal
     /// </summary>
     internal static class EnumerableExtensions
     {
-        #region fields
-        #endregion
-
-        #region constructors
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methods
-
-        #region IsEmpty
         /// <summary>
         /// Determines if the collection contains values.
         /// </summary>
@@ -70,9 +56,7 @@ namespace Cadru.Contracts.Internal
 
             return empty;
         }
-        #endregion
 
-        #region IsNull
         /// <summary>
         /// Determines if the collection is <see langword="null"/>.
         /// </summary>
@@ -83,9 +67,7 @@ namespace Cadru.Contracts.Internal
         {
             return source == null;
         }
-        #endregion
 
-        #region IsNullOrEmpty
         /// <summary>
         /// Determines if the collection is <see langword="null"/> or contains values.
         /// </summary>
@@ -96,8 +78,5 @@ namespace Cadru.Contracts.Internal
         {
             return source == null || source.IsEmpty();
         }
-        #endregion
-
-        #endregion
     }
 }

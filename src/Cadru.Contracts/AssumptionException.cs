@@ -2,7 +2,7 @@
 // <copyright file="AssumptionException.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -19,6 +19,7 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
+
 using System;
 using System.Runtime.Serialization;
 
@@ -30,12 +31,6 @@ namespace Cadru.Contracts
     [DataContract]
     public sealed class AssumptionException : Exception
     {
-        #region fields
-        #endregion
-
-        #region constructors
-
-        #region AssumptionException()
         /// <summary>
         /// Initializes a new instance of the <see cref="AssumptionException"/> class.
         /// </summary>
@@ -43,9 +38,7 @@ namespace Cadru.Contracts
             : base(Resources.Strings.AssumptionException_EmptyMessage)
         {
         }
-        #endregion
 
-        #region AssumptionException(string message)
         /// <summary>
         /// Initializes a new instance of the <see cref="AssumptionException"/> class with a specified error message.
         /// </summary>
@@ -54,9 +47,7 @@ namespace Cadru.Contracts
             : base(message)
         {
         }
-        #endregion
 
-        #region AssumptionException(string message, Exception inner)
         /// <summary>
         /// Initializes a new instance of the <see cref="AssumptionException"/> class with a specified
         /// error message and a reference to the inner exception that is the cause of
@@ -68,17 +59,5 @@ namespace Cadru.Contracts
             : base(message, inner)
         {
         }
-        #endregion
-
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methods
-        #endregion
     }
 }
