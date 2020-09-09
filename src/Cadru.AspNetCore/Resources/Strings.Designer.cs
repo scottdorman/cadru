@@ -61,6 +61,15 @@ namespace Cadru.AspNetCore.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Argument cannot be null or empty..
+        /// </summary>
+        internal static string ArgumentCannotBeNullOrEmpty {
+            get {
+                return ResourceManager.GetString("ArgumentCannotBeNullOrEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} ({0:D}) .
         /// </summary>
         internal static string Debugging_HttpMessage_Response {
@@ -111,6 +120,132 @@ namespace Cadru.AspNetCore.Resources {
         internal static string Debugging_HttpMessages_Location {
             get {
                 return ResourceManager.GetString("Debugging_HttpMessages_Location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &apos;{0}&apos; method must not have ref or out parameters..
+        /// </summary>
+        internal static string Exception_InvokeDoesNotSupportRefOrOutParams {
+            get {
+                return ResourceManager.GetString("Exception_InvokeDoesNotSupportRefOrOutParams", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to resolve service for type &apos;{0}&apos; while attempting to Invoke middleware &apos;{1}&apos;..
+        /// </summary>
+        internal static string Exception_InvokeMiddlewareNoService {
+            get {
+                return ResourceManager.GetString("Exception_InvokeMiddlewareNoService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The path in &apos;{0}&apos; must start with &apos;/&apos;..
+        /// </summary>
+        internal static string Exception_PathMustStartWithSlash {
+            get {
+                return ResourceManager.GetString("Exception_PathMustStartWithSlash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value must be greater than zero..
+        /// </summary>
+        internal static string Exception_PortMustBeGreaterThanZero {
+            get {
+                return ResourceManager.GetString("Exception_PortMustBeGreaterThanZero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multiple public &apos;{0}&apos; or &apos;{1}&apos; methods are available..
+        /// </summary>
+        internal static string Exception_UseMiddleMutlipleInvokes {
+            get {
+                return ResourceManager.GetString("Exception_UseMiddleMutlipleInvokes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Types that implement &apos;{0}&apos; do not support explicit arguments..
+        /// </summary>
+        internal static string Exception_UseMiddlewareExplicitArgumentsNotSupported {
+            get {
+                return ResourceManager.GetString("Exception_UseMiddlewareExplicitArgumentsNotSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; is not available..
+        /// </summary>
+        internal static string Exception_UseMiddlewareIServiceProviderNotAvailable {
+            get {
+                return ResourceManager.GetString("Exception_UseMiddlewareIServiceProviderNotAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No public &apos;{0}&apos; or &apos;{1}&apos; method found for middleware of type &apos;{2}&apos;..
+        /// </summary>
+        internal static string Exception_UseMiddlewareNoInvokeMethod {
+            get {
+                return ResourceManager.GetString("Exception_UseMiddlewareNoInvokeMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No service for type &apos;{0}&apos; has been registered..
+        /// </summary>
+        internal static string Exception_UseMiddlewareNoMiddlewareFactory {
+            get {
+                return ResourceManager.GetString("Exception_UseMiddlewareNoMiddlewareFactory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; or &apos;{1}&apos; does not return an object of type &apos;{2}&apos;..
+        /// </summary>
+        internal static string Exception_UseMiddlewareNonTaskReturnType {
+            get {
+                return ResourceManager.GetString("Exception_UseMiddlewareNonTaskReturnType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &apos;{0}&apos; or &apos;{1}&apos; method&apos;s first argument must be of type &apos;{2}&apos;..
+        /// </summary>
+        internal static string Exception_UseMiddlewareNoParameters {
+            get {
+                return ResourceManager.GetString("Exception_UseMiddlewareNoParameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; failed to create middleware of type &apos;{1}&apos;..
+        /// </summary>
+        internal static string Exception_UseMiddlewareUnableToCreateMiddleware {
+            get {
+                return ResourceManager.GetString("Exception_UseMiddlewareUnableToCreateMiddleware", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An element with the key &apos;{0}&apos; already exists in the {1}..
+        /// </summary>
+        internal static string HtmlAttributesDictionary_DuplicateKey {
+            get {
+                return ResourceManager.GetString("HtmlAttributesDictionary_DuplicateKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The type &apos;{0}&apos; defines properties &apos;{1}&apos; and &apos;{2}&apos; which differ only by casing. This is not supported by {3} which uses case-insensitive comparisons..
+        /// </summary>
+        internal static string HtmlAttributesDictionary_DuplicatePropertyName {
+            get {
+                return ResourceManager.GetString("HtmlAttributesDictionary_DuplicatePropertyName", resourceCulture);
             }
         }
     }

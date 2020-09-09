@@ -135,4 +135,49 @@
   <data name="Debugging_HttpMessage_Response" xml:space="preserve">
     <value>{0} ({0:D}) </value>
   </data>
+  <data name="Exception_UseMiddlewareIServiceProviderNotAvailable" xml:space="preserve">
+    <value>'{0}' is not available.</value>
+  </data>
+  <data name="Exception_UseMiddlewareNoInvokeMethod" xml:space="preserve">
+    <value>No public '{0}' or '{1}' method found for middleware of type '{2}'.</value>
+  </data>
+  <data name="Exception_UseMiddlewareNonTaskReturnType" xml:space="preserve">
+    <value>'{0}' or '{1}' does not return an object of type '{2}'.</value>
+  </data>
+  <data name="Exception_UseMiddlewareNoParameters" xml:space="preserve">
+    <value>The '{0}' or '{1}' method's first argument must be of type '{2}'.</value>
+  </data>
+  <data name="Exception_UseMiddleMutlipleInvokes" xml:space="preserve">
+    <value>Multiple public '{0}' or '{1}' methods are available.</value>
+  </data>
+  <data name="Exception_PathMustStartWithSlash" xml:space="preserve">
+    <value>The path in '{0}' must start with '/'.</value>
+  </data>
+  <data name="Exception_InvokeMiddlewareNoService" xml:space="preserve">
+    <value>Unable to resolve service for type '{0}' while attempting to Invoke middleware '{1}'.</value>
+  </data>
+  <data name="Exception_InvokeDoesNotSupportRefOrOutParams" xml:space="preserve">
+    <value>The '{0}' method must not have ref or out parameters.</value>
+  </data>
+  <data name="Exception_PortMustBeGreaterThanZero" xml:space="preserve">
+    <value>The value must be greater than zero.</value>
+  </data>
+  <data name="Exception_UseMiddlewareNoMiddlewareFactory" xml:space="preserve">
+    <value>No service for type '{0}' has been registered.</value>
+  </data>
+  <data name="Exception_UseMiddlewareUnableToCreateMiddleware" xml:space="preserve">
+    <value>'{0}' failed to create middleware of type '{1}'.</value>
+  </data>
+  <data name="Exception_UseMiddlewareExplicitArgumentsNotSupported" xml:space="preserve">
+    <value>Types that implement '{0}' do not support explicit arguments.</value>
+  </data>
+  <data name="ArgumentCannotBeNullOrEmpty" xml:space="preserve">
+    <value>Argument cannot be null or empty.</value>
+  </data>
+  <data name="HtmlAttributesDictionary_DuplicateKey" xml:space="preserve">
+    <value>An element with the key '{0}' already exists in the {1}.</value>
+  </data>
+  <data name="HtmlAttributesDictionary_DuplicatePropertyName" xml:space="preserve">
+    <value>The type '{0}' defines properties '{1}' and '{2}' which differ only by casing. This is not supported by {3} which uses case-insensitive comparisons.</value>
+  </data>
 </root>

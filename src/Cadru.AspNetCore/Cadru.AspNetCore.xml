@@ -1,0 +1,477 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cadru.AspNetCore</name>
+    </assembly>
+    <members>
+        <member name="M:Cadru.AspNetCore.Http.Internal.Extensions.IsSuccessStatusCode(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Gets a value that indicates if the HTTP response was successful.
+            </summary>
+            <param name="responseMessage"></param>
+            <returns><see langword="true"/> if <see
+            cref="P:System.Net.Http.HttpResponseMessage.StatusCode"/> was in the range 200-299;
+            otherwise, <see langword="false"/>.</returns>
+            <remarks>As <see cref="T:Microsoft.AspNetCore.Http.HttpResponse"/> does not have a built-in way
+            to check for a successful response, this is a wrapper over <see
+            cref="P:System.Net.Http.HttpResponseMessage.IsSuccessStatusCode"/> to standardize
+            checking between <see cref="T:Microsoft.AspNetCore.Http.HttpResponse"/> and <see
+            cref="T:System.Net.Http.HttpResponseMessage"/>.</remarks>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.Internal.Extensions.IsSuccessStatusCode(Microsoft.AspNetCore.Http.HttpResponse)">
+            <summary>
+            Gets a value that indicates if the HTTP response was successful.
+            </summary>
+            <param name="response"></param>
+            <returns><see langword="true"/> if <see cref="P:Microsoft.AspNetCore.Http.HttpResponse.StatusCode"/>
+            was in the range 200-299; otherwise, <see langword="false"/>.</returns>
+            <remarks>As <see cref="T:Microsoft.AspNetCore.Http.HttpResponse"/> does not have a built-in way
+            to check for a successful response, this is a wrapper over <see
+            cref="P:System.Net.Http.HttpResponseMessage.IsSuccessStatusCode"/> to standardize
+            checking between <see cref="T:Microsoft.AspNetCore.Http.HttpResponse"/> and <see
+            cref="T:System.Net.Http.HttpResponseMessage"/>.</remarks>
+        </member>
+        <member name="T:Cadru.AspNetCore.Http.IRequestResponseLoggingScopeFactory">
+            <summary>
+            Provides methods for creating a <see
+            cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> from an <see
+            cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>.
+            </summary>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.IRequestResponseLoggingScopeFactory.ToScopeObjectAsync(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Creates a <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> instance from
+            the given <see cref="T:System.Net.Http.HttpRequestMessage"/>.
+            </summary>
+            <param name="requestMessage">The <see cref="T:System.Net.Http.HttpRequestMessage"/>
+            whose properties will be added to the logging scope.</param>
+            <returns>A <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> with properties
+            populated from the <paramref name="requestMessage"/>.</returns>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.IRequestResponseLoggingScopeFactory.ToScopeObjectAsync(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            Creates a <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> instance from
+            the given <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>.
+            </summary>
+            <param name="request">The <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>
+            whose properties will be added to the logging scope.</param>
+            <returns>A <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> with properties
+            populated from the <paramref name="request"/>.</returns>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.IRequestResponseLoggingScopeFactory.ToScopeObjectAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Creates a <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> instance from
+            the given <see cref="T:Microsoft.AspNetCore.Http.HttpContext"/>.
+            </summary>
+            <param name="httpContext">The <see cref="T:Microsoft.AspNetCore.Http.HttpContext"/>
+            whose properties will be added to the logging scope.</param>
+            <returns>A <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> with properties
+            populated from the <paramref name="httpContext"/>.</returns>
+        </member>
+        <member name="T:Cadru.AspNetCore.Http.IRequestResponseLoggingSerializer">
+            <summary>
+            Provides methods for serializing an <see
+            cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>
+            to a format suitable for logging.
+            </summary>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.IRequestResponseLoggingSerializer.SerializeRequest(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            Serialize a request to a string suitable for logging.
+            </summary>
+            <param name="request">The request to be serialized.</param>
+            <returns>A string representing the serialized request.</returns>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.IRequestResponseLoggingSerializer.SerializeRequest(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Serialize a request to a string suitable for logging.
+            </summary>
+            <param name="request">The request to be serialized.</param>
+            <returns>A string representing the serialized request.</returns>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.IRequestResponseLoggingSerializer.SerializeResponseAsync(Microsoft.AspNetCore.Http.HttpResponse,System.IO.MemoryStream)">
+            <summary>
+            Serialize a response to a string suitable for logging.
+            </summary>
+            <param name="response">The response to be serialized.</param>
+            <param name="responseStream">A <see cref="T:System.IO.MemoryStream"/> used to serialize the response body.</param>
+            <returns>A string representing the serialized response.</returns>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.IRequestResponseLoggingSerializer.SerializeResponseAsync(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Serialize a response to a string suitable for logging.
+            </summary>
+            <param name="response">The response to be serialized.</param>
+            <returns>A string representing the serialized response.</returns>
+        </member>
+        <member name="T:Cadru.AspNetCore.Http.RequestResponseLoggingDelegatingHandler">
+            <summary>
+            A delegating handler which logs requests, optionally
+            including logging scope information.
+            </summary>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingDelegatingHandler.#ctor(Microsoft.Extensions.Options.IOptions{Cadru.AspNetCore.Http.RequestResponseLoggingOptions},Cadru.AspNetCore.Http.IRequestResponseLoggingSerializer,Cadru.AspNetCore.Http.IRequestResponseLoggingScopeFactory,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Initializes a new instance of the <see
+            cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingDelegatingHandler"></see> class.
+            </summary>
+            <param name="optionsAccessor">The logging configuration options.</param>
+            <param name="requestResponseLoggingSerializer">The serializer used for creating the log message content.</param>
+            <param name="loggingScopeFactory">A factory instance for creating the scope object.</param>
+            <param name="loggerFactory">An <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/> instance used to create a logger.</param>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingDelegatingHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware">
+            <summary>
+            Provides support for logging requests, optionally
+            including logging scope information.
+            </summary>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Options.IOptions{Cadru.AspNetCore.Http.RequestResponseLoggingOptions},Cadru.AspNetCore.Http.IRequestResponseLoggingSerializer,Cadru.AspNetCore.Http.IRequestResponseLoggingScopeFactory,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware"/> class.
+            </summary>
+            <param name="next"></param>
+            <param name="optionsAccessor">The logging configuration options.</param>
+            <param name="requestResponseLoggingSerializer">The serializer used for creating the log message content.</param>
+            <param name="loggingScopeFactory">A factory instance for creating the scope object.</param>
+            <param name="loggerFactory">An <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/> instance used to create a logger.</param>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Optionally logs the request and response.
+            </summary>
+            <param name="context">The <see cref="T:Microsoft.AspNetCore.Http.HttpContext"/> of the request.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Cadru.AspNetCore.Http.RequestResponseLoggingMiddlewareExtensions">
+            <summary>
+            Extension methods for setting up request/response related services.
+            </summary>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingMiddlewareExtensions.AddRequestResponseLogging(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+             <summary>
+            
+             </summary>
+             <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to add services to.</param>
+             <param name="configuration">A set of key/value configuration properties.</param>
+             <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional calls can be chained.</returns>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingMiddlewareExtensions.UseRequestResponseLogging(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Adds the <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware"/> to the application's request pipeline.
+            </summary>
+            <param name="builder">The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> to add middleware to.</param>
+            <returns>The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> so that additional calls can be chained.</returns>
+        </member>
+        <member name="T:Cadru.AspNetCore.Http.RequestResponseLoggingOptions">
+            <summary>
+            The options for <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingDelegatingHandler"/>
+            or <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware"/>.
+            </summary>
+        </member>
+        <member name="F:Cadru.AspNetCore.Http.RequestResponseLoggingOptions.SectionKey">
+            <summary>
+            The configuration section key.
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Http.RequestResponseLoggingOptions.CaptureScopes">
+            <summary>
+            Gets or sets a value indicating whether logging scopes are being captured.
+            Defaults to <see langword="true"/>.
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Http.RequestResponseLoggingOptions.LogLevel">
+            <summary>
+            Gets or sets the log level of messages.
+            </summary>
+        </member>
+        <member name="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope">
+            <summary>
+            An object that can be used to provide additional logging data through a
+            logging scope.
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Http.RequestResponseLoggingScope.AdditionalItems">
+            <summary>
+            Additional key-value pairs to be added to the logging scope.
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Http.RequestResponseLoggingScope.ContentType">
+            <summary>
+            The value of the Content-Type content header on an HTTP response.
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Http.RequestResponseLoggingScope.HttpMethod">
+            <summary>
+            The HTTP method used by the request message. The default is the GET method.
+            </summary>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingScope.ToLoggingScope">
+            <summary>
+            Returns a collection of key-value pairs to be used in the logging scope.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer">
+            <summary>
+            Provides methods for serializing an <see
+            cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>
+            to a format suitable for logging.
+            </summary>
+        </member>
+        <member name="F:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.Location">
+            <summary>
+            The Location header name.
+            </summary>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.SerializeRequest(Microsoft.AspNetCore.Http.HttpRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.SerializeRequest(System.Net.Http.HttpRequestMessage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.SerializeResponseAsync(Microsoft.AspNetCore.Http.HttpResponse,System.IO.MemoryStream)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.SerializeResponseAsync(System.Net.Http.HttpResponseMessage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.GetRawTarget(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            The request target as it was sent in the HTTP request. This property contains
+            the raw path and full query, as well as other request targets such as * for OPTIONS
+            requests (https://tools.ietf.org/html/rfc7230#section-5.3).
+            </summary>
+            <param name="request">The HTTP request.</param>
+            <returns>A string representing the raw target URI.</returns>
+            <remarks>
+            It has not been UrlDecoded and care should be taken in its use.
+            </remarks>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.ReadToEndAsync(System.IO.MemoryStream)">
+            <summary>
+            Reads all characters from the current position to the end of the stream asynchronously
+            and returns them as one string.
+            </summary>
+            <param name="stream"></param>
+            <returns>A task that represents the asynchronous read operation. The value contains
+            a string with the characters from the current position to the end of the stream.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">The number of characters is larger than <see cref="F:System.Int32.MaxValue"/>.</exception>
+            <exception cref="T:System.ObjectDisposedException">The <paramref name="stream"/> has been disposed.</exception>
+            <exception cref="T:System.InvalidOperationException">The reader is currently in use by a previous read operation..</exception>
+        </member>
+        <member name="T:Cadru.AspNetCore.IMimeMappingProvider">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cadru.AspNetCore.IMimeMappingProvider.Mappings">
+            <summary>
+            The cross reference table of file extensions and content-types.
+            </summary>
+        </member>
+        <member name="M:Cadru.AspNetCore.IMimeMappingProvider.GetContentType(System.String)">
+            <summary>
+            Given a file path, determine the MIME type.
+            </summary>
+            <param name="subpath">A file path</param>
+            <returns>The resulting MIME type</returns>
+            <remarks>If the MIME type can't be determined, <see
+            cref="F:Cadru.AspNetCore.MimeTypes.OctetStream"/> will be returned.</remarks>
+        </member>
+        <member name="T:Cadru.AspNetCore.MimeMappingProvider">
+            <summary>
+            Used to look up MIME types given a file path
+            </summary>
+        </member>
+        <member name="M:Cadru.AspNetCore.MimeMappingProvider.#ctor">
+            <summary>
+            Creates a new provider with a set of default mappings.
+            </summary>
+        </member>
+        <member name="M:Cadru.AspNetCore.MimeMappingProvider.#ctor(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Creates a lookup engine using the provided mapping.
+            </summary>
+            <param name="mappings">The cross reference table of file extensions
+            and content-types.</param>
+            <remarks>
+            It is recommended that the <see cref="T:System.Collections.Generic.IDictionary`2"/> instance
+            use <see cref="P:System.StringComparer.OrdinalIgnoreCase"/>. This <see
+            cref="T:System.Collections.Generic.IDictionary`2"/> instance replaces the default mappings.
+            </remarks>
+        </member>
+        <member name="M:Cadru.AspNetCore.MimeMappingProvider.#ctor(System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
+            <summary>
+            Creates a new provider with a set of default mappings plus the
+            additional mappings provided.
+            </summary>
+            <param name="mappings">The mappings to add to the cross reference
+            table.</param>
+        </member>
+        <member name="P:Cadru.AspNetCore.MimeMappingProvider.Mappings">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.AspNetCore.MimeMappingProvider.GetContentType(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.AspNetCore.MimeMappingProvider.TryGetContentType(System.String,System.String@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.AspNetCore.MimeTypes">
+            <summary>
+            Common MIME type constants
+            </summary>
+        </member>
+        <member name="F:Cadru.AspNetCore.MimeTypes.Json">
+            <summary>
+            JavaScript Object Notation (JSON)
+            </summary>
+        </member>
+        <member name="F:Cadru.AspNetCore.MimeTypes.OctetStream">
+            <summary>
+            This is the default for binary files. As it means unknown binary
+            file, browsers usually don't execute it, or even ask if it should be
+            executed.
+            </summary>
+        </member>
+        <member name="F:Cadru.AspNetCore.MimeTypes.OpenXML_Excel">
+            <summary>
+            Microsoft Excel (OpenXML) Spreadsheet
+            </summary>
+        </member>
+        <member name="F:Cadru.AspNetCore.MimeTypes.PlainText">
+            <summary>
+            This is the default for textual files. Even if it really means
+            "unknown textual file," browsers assume they can display it.
+            </summary>
+        </member>
+        <member name="F:Cadru.AspNetCore.MimeTypes.RemoteDesktopProtocol">
+            <summary>
+            Microsoft Remote Desktop Protocol (RDP)
+            </summary>
+        </member>
+        <member name="T:Cadru.AspNetCore.Resources.Strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.ArgumentCannotBeNullOrEmpty">
+            <summary>
+              Looks up a localized string similar to Argument cannot be null or empty..
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Debugging_HttpMessage_Response">
+            <summary>
+              Looks up a localized string similar to {0} ({0:D}) .
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Debugging_HttpMessages">
+            <summary>
+              Looks up a localized string similar to Request: {0}, Response: {1}.
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Debugging_HttpMessages_Body">
+            <summary>
+              Looks up a localized string similar to Body: {0}.
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Debugging_HttpMessages_ContentType">
+            <summary>
+              Looks up a localized string similar to Content-Type: {0}.
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Debugging_HttpMessages_EmptyResponse">
+            <summary>
+              Looks up a localized string similar to Received an empty response..
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Debugging_HttpMessages_Location">
+            <summary>
+              Looks up a localized string similar to Location: {0}.
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Exception_InvokeDoesNotSupportRefOrOutParams">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; method must not have ref or out parameters..
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Exception_InvokeMiddlewareNoService">
+            <summary>
+              Looks up a localized string similar to Unable to resolve service for type &apos;{0}&apos; while attempting to Invoke middleware &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Exception_PathMustStartWithSlash">
+            <summary>
+              Looks up a localized string similar to The path in &apos;{0}&apos; must start with &apos;/&apos;..
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Exception_PortMustBeGreaterThanZero">
+            <summary>
+              Looks up a localized string similar to The value must be greater than zero..
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Exception_UseMiddleMutlipleInvokes">
+            <summary>
+              Looks up a localized string similar to Multiple public &apos;{0}&apos; or &apos;{1}&apos; methods are available..
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Exception_UseMiddlewareExplicitArgumentsNotSupported">
+            <summary>
+              Looks up a localized string similar to Types that implement &apos;{0}&apos; do not support explicit arguments..
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Exception_UseMiddlewareIServiceProviderNotAvailable">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; is not available..
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Exception_UseMiddlewareNoInvokeMethod">
+            <summary>
+              Looks up a localized string similar to No public &apos;{0}&apos; or &apos;{1}&apos; method found for middleware of type &apos;{2}&apos;..
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Exception_UseMiddlewareNoMiddlewareFactory">
+            <summary>
+              Looks up a localized string similar to No service for type &apos;{0}&apos; has been registered..
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Exception_UseMiddlewareNonTaskReturnType">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; or &apos;{1}&apos; does not return an object of type &apos;{2}&apos;..
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Exception_UseMiddlewareNoParameters">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; or &apos;{1}&apos; method&apos;s first argument must be of type &apos;{2}&apos;..
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.Exception_UseMiddlewareUnableToCreateMiddleware">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; failed to create middleware of type &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.HtmlAttributesDictionary_DuplicateKey">
+            <summary>
+              Looks up a localized string similar to An element with the key &apos;{0}&apos; already exists in the {1}..
+            </summary>
+        </member>
+        <member name="P:Cadru.AspNetCore.Resources.Strings.HtmlAttributesDictionary_DuplicatePropertyName">
+            <summary>
+              Looks up a localized string similar to The type &apos;{0}&apos; defines properties &apos;{1}&apos; and &apos;{2}&apos; which differ only by casing. This is not supported by {3} which uses case-insensitive comparisons..
+            </summary>
+        </member>
+    </members>
+</doc>
