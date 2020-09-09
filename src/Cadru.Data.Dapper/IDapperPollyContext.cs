@@ -29,9 +29,9 @@ namespace Cadru.Data.Dapper
 {
     internal interface IDapperPollyContext
     {
+        IEnumerable<IExceptionHandlingStrategy> ExceptionHandlingStrategies { get; }
         bool PollyEnabled { get; }
         ISqlStrategy SqlStrategy { get; set; }
         ISqlStrategyFactory? SqlStrategyFactory { get; }
-        IEnumerable<IExceptionHandlingStrategy> ExceptionHandlingStrategies { get; }
     }
 }

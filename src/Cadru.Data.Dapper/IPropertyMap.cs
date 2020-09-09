@@ -34,24 +34,9 @@ namespace Cadru.Data.Dapper
     public interface IPropertyMap
     {
         /// <summary>
-        /// Gets the option for handling string values.
+        /// Gets a value indicating if the column allows empty string values.
         /// </summary>
-        StringHandlingOption StringHandlingOption { get; }
-
-        /// <summary>
-        /// Gets a value that indicates whether a field is exportable.
-        /// </summary>
-        bool IsExportable { get; }
-
-        /// <summary>
-        /// Gets a value that can be used to display a description in the UI.
-        /// </summary>
-        string? Description { get; }
-
-        /// <summary>
-        /// Gets a value that can be used to set the watermark for prompts in the UI.
-        /// </summary>
-        string? Prompt { get; }
+        bool AllowEmptyStrings { get; }
 
         /// <summary>
         /// Gets a value that can be used for the grid column label.
@@ -59,19 +44,19 @@ namespace Cadru.Data.Dapper
         string? Caption { get; }
 
         /// <summary>
-        /// Gets the order weight of the column.
-        /// </summary>
-        int? Order { get; }
-
-        /// <summary>
         /// Gets the column name for the current property.
         /// </summary>
         string ColumnName { get; }
 
         /// <summary>
-        /// Gets a value that is used for field display in the UI.
+        /// Gets a value indicating the pattern used to generate values for a property in the database.
         /// </summary>
-        string? Name { get; }
+        DatabaseGeneratedOption DatabaseGeneratedOption { get; }
+
+        /// <summary>
+        /// Gets a value that can be used to display a description in the UI.
+        /// </summary>
+        string? Description { get; }
 
         /// <summary>
         /// Gets the ignore status of the current property. If ignored, the
@@ -80,9 +65,9 @@ namespace Cadru.Data.Dapper
         bool Ignored { get; }
 
         /// <summary>
-        /// Gets a value indicating the pattern used to generate values for a property in the database.
+        /// Gets a value that indicates whether a field is exportable.
         /// </summary>
-        DatabaseGeneratedOption DatabaseGeneratedOption { get; }
+        bool IsExportable { get; }
 
         /// <summary>
         /// Gets a value indicating if the column is a database key.
@@ -90,20 +75,15 @@ namespace Cadru.Data.Dapper
         bool IsKey { get; }
 
         /// <summary>
-        /// Gets a value indicating if the column allows empty string values.
+        /// Gets the read-only status of the current property.
+        /// If read-only, the current property will not be included in INSERT and UPDATE queries.
         /// </summary>
-        bool AllowEmptyStrings { get; }
+        bool IsReadOnly { get; }
 
         /// <summary>
         /// Gets a value indicating if the column is required.
         /// </summary>
         bool IsRequired { get; }
-
-        /// <summary>
-        /// Gets the read-only status of the current property.
-        /// If read-only, the current property will not be included in INSERT and UPDATE queries.
-        /// </summary>
-        bool IsReadOnly { get; }
 
         /// <summary>
         /// Gets a value indicating if the column is updatable.
@@ -114,13 +94,33 @@ namespace Cadru.Data.Dapper
         bool IsUpdatable { get; }
 
         /// <summary>
-        /// Gets the name of the property by using the specified <see cref="PropertyInfo"/>.
+        /// Gets a value that is used for field display in the UI.
         /// </summary>
-        string PropertyName { get; }
+        string? Name { get; }
+
+        /// <summary>
+        /// Gets the order weight of the column.
+        /// </summary>
+        int? Order { get; }
+
+        /// <summary>
+        /// Gets a value that can be used to set the watermark for prompts in the UI.
+        /// </summary>
+        string? Prompt { get; }
 
         /// <summary>
         /// Gets the <see cref="PropertyInfo"/> for the current property.
         /// </summary>
         PropertyInfo PropertyInfo { get; }
+
+        /// <summary>
+        /// Gets the name of the property by using the specified <see cref="PropertyInfo"/>.
+        /// </summary>
+        string PropertyName { get; }
+
+        /// <summary>
+        /// Gets the option for handling string values.
+        /// </summary>
+        StringHandlingOption StringHandlingOption { get; }
     }
 }

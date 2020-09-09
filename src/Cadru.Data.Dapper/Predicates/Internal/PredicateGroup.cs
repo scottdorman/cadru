@@ -40,14 +40,8 @@ namespace Cadru.Data.Dapper.Predicates.Internal
             this.predicates = new List<IPredicate>();
         }
 
-        internal GroupOperator Operator { get; set; }
-
         public IList<IPredicate> Predicates => this.predicates;
-
-        internal void AddRange(IEnumerable<IPredicate> predicates)
-        {
-            this.predicates.AddRange(predicates);
-        }
+        internal GroupOperator Operator { get; set; }
 
         public string GetSql(DynamicParameters parameters, IObjectMap objectMap)
         {
@@ -63,6 +57,11 @@ namespace Cadru.Data.Dapper.Predicates.Internal
             }
 
             return predicateList.Any() ? $"{CommandAdapter.LeftParenthesis}{ String.Join(seperator, predicateList) }{CommandAdapter.RightParenthesis}" : String.Empty;
+        }
+
+        internal void AddRange(IEnumerable<IPredicate> predicates)
+        {
+            this.predicates.AddRange(predicates);
         }
     }
 }

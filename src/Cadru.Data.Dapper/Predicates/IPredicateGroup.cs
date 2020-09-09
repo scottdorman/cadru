@@ -24,7 +24,6 @@ using System.Collections.Generic;
 
 namespace Cadru.Data.Dapper.Predicates
 {
-
     /// <summary>
     /// Represents a collection of <see cref="IPredicate"/> instances to
     /// be joined together.

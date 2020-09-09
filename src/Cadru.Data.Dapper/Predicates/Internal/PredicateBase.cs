@@ -38,11 +38,6 @@ namespace Cadru.Data.Dapper.Predicates.Internal
 
         public abstract string GetSql(DynamicParameters parameters, IObjectMap objectMap);
 
-        internal static bool IsValidPropertyName(string? propertyName)
-        {
-            return !String.IsNullOrWhiteSpace(propertyName);
-        }
-
         internal static string GetColumnName<T>(IObjectMap objectMap, string propertyName, bool alias) where T : class
         {
             string? columnName = null;
@@ -62,6 +57,11 @@ namespace Cadru.Data.Dapper.Predicates.Internal
             }
 
             return columnName ?? throw new InvalidOperationException($"Property '{propertyName}' was not found for {typeof(T)}.");
+        }
+
+        internal static bool IsValidPropertyName(string? propertyName)
+        {
+            return !String.IsNullOrWhiteSpace(propertyName);
         }
 
         private static string GetColumnName(ICommandAdapter commandAdapter, string? prefix, string columnName, string? alias)

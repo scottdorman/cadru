@@ -40,23 +40,34 @@ namespace Cadru.Data.Dapper
     public partial class DatabaseObject<TEntity>
     {
         /// <summary>
-        /// Logs the given <see cref="CommandDefinition"/>
+        /// Gets all of the records which matches the predicate, if provided.
         /// </summary>
-        /// <param name="commandDefinition">The <see cref="CommandDefinition"/> instance to be logged.</param>
-        protected void LogCommandDefinition(CommandDefinition commandDefinition)
+        /// <param name="predicate">The predicate to match.</param>
+        /// <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
+        /// <returns>An instance of <typeparamref name="TEntity"/> representing the matched record.</returns>
+        public virtual IEnumerable<TEntity> All(IPredicate? predicate = null, int? commandTimeout = null)
         {
-            if (this.Context.Options.Logging.CommandDefinitionLoggingEnabled)
-            {
-                var jsonString = JsonConvert.SerializeObject(new JObject
-                {
-                    { "CommandText", commandDefinition.CommandText },
-                    { "CommandType", commandDefinition.CommandType?.ToString() ?? String.Empty },
-                    { "CommandTimeout", commandDefinition.CommandTimeout },
-                    { "HasTransaction", commandDefinition.Transaction != null },
-                });
+            var command = this.CommandBuilder.GetSelectCommand(predicate: predicate, commandTimeout: commandTimeout);
+            this.LogCommandDefinition(command);
 
-                this.Context.Logger.LogDebug(jsonString);
-            }
+            var executionContext = this.Context.GetSyncExecutionEnvironment();
+            return executionContext.Policy.Execute((context) => this.Context.Connection.Query<TEntity>(command), executionContext.Context);
+        }
+
+        /// <summary>
+        /// Gets all of the records which matches the predicate, if provided.
+        /// </summary>
+        /// <param name="predicate">The predicate to match.</param>
+        /// <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
+        /// <param name="cancellationToken">An optional <see cref="CancellationToken"/> for this command.</param>
+        /// <returns>An instance of <typeparamref name="TEntity"/> representing the matched record.</returns>
+        public virtual async Task<IEnumerable<TEntity>> AllAsync(IPredicate? predicate = null, int? commandTimeout = null, CancellationToken cancellationToken = default)
+        {
+            var command = this.CommandBuilder.GetSelectCommand(predicate: predicate, commandTimeout: commandTimeout, cancellationToken: cancellationToken);
+            this.LogCommandDefinition(command);
+
+            var executionContext = this.Context.GetAsyncExecutionEnvironment();
+            return await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.QueryAsync<TEntity>(command), executionContext.Context);
         }
 
         /// <summary>
@@ -124,34 +135,23 @@ namespace Cadru.Data.Dapper
         }
 
         /// <summary>
-        /// Gets all of the records which matches the predicate, if provided.
+        /// Logs the given <see cref="CommandDefinition"/>
         /// </summary>
-        /// <param name="predicate">The predicate to match.</param>
-        /// <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
-        /// <returns>An instance of <typeparamref name="TEntity"/> representing the matched record.</returns>
-        public virtual IEnumerable<TEntity> All(IPredicate? predicate = null, int? commandTimeout = null)
+        /// <param name="commandDefinition">The <see cref="CommandDefinition"/> instance to be logged.</param>
+        protected void LogCommandDefinition(CommandDefinition commandDefinition)
         {
-            var command = this.CommandBuilder.GetSelectCommand(predicate: predicate, commandTimeout: commandTimeout);
-            this.LogCommandDefinition(command);
+            if (this.Context.Options.Logging.CommandDefinitionLoggingEnabled)
+            {
+                var jsonString = JsonConvert.SerializeObject(new JObject
+                {
+                    { "CommandText", commandDefinition.CommandText },
+                    { "CommandType", commandDefinition.CommandType?.ToString() ?? String.Empty },
+                    { "CommandTimeout", commandDefinition.CommandTimeout },
+                    { "HasTransaction", commandDefinition.Transaction != null },
+                });
 
-            var executionContext = this.Context.GetSyncExecutionEnvironment();
-            return executionContext.Policy.Execute((context) => this.Context.Connection.Query<TEntity>(command), executionContext.Context);
-        }
-
-        /// <summary>
-        /// Gets all of the records which matches the predicate, if provided.
-        /// </summary>
-        /// <param name="predicate">The predicate to match.</param>
-        /// <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
-        /// <param name="cancellationToken">An optional <see cref="CancellationToken"/> for this command.</param>
-        /// <returns>An instance of <typeparamref name="TEntity"/> representing the matched record.</returns>
-        public virtual async Task<IEnumerable<TEntity>> AllAsync(IPredicate? predicate = null, int? commandTimeout = null, CancellationToken cancellationToken = default)
-        {
-            var command = this.CommandBuilder.GetSelectCommand(predicate: predicate, commandTimeout: commandTimeout, cancellationToken: cancellationToken);
-            this.LogCommandDefinition(command);
-
-            var executionContext = this.Context.GetAsyncExecutionEnvironment();
-            return await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.QueryAsync<TEntity>(command), executionContext.Context);
+                this.Context.Logger.LogDebug(jsonString);
+            }
         }
     }
 }

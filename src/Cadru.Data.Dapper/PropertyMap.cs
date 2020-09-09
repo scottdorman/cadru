@@ -88,19 +88,37 @@ namespace Cadru.Data.Dapper
         }
 
         /// <inheritdoc/>
-        public StringHandlingOption StringHandlingOption { get; }
+        public bool AllowEmptyStrings { get; private set; }
 
         /// <inheritdoc/>
-        public bool IsExportable { get; }
+        public string? Caption { get; }
+
+        /// <inheritdoc/>
+        public string ColumnName { get; private set; }
+
+        /// <inheritdoc/>
+        public DatabaseGeneratedOption DatabaseGeneratedOption { get; private set; }
 
         /// <inheritdoc/>
         public string? Description { get; }
 
         /// <inheritdoc/>
-        public string? Prompt { get; }
+        public bool Ignored { get; private set; }
 
         /// <inheritdoc/>
-        public string? Caption { get; }
+        public bool IsExportable { get; }
+
+        /// <inheritdoc/>
+        public bool IsKey { get; private set; }
+
+        /// <inheritdoc/>
+        public bool IsReadOnly { get; private set; }
+
+        /// <inheritdoc/>
+        public bool IsRequired { get; private set; }
+
+        /// <inheritdoc/>
+        public bool IsUpdatable => !(this.Ignored || this.IsReadOnly || this.DatabaseGeneratedOption != DatabaseGeneratedOption.None);
 
         /// <inheritdoc/>
         public string? Name { get; }
@@ -109,33 +127,15 @@ namespace Cadru.Data.Dapper
         public int? Order { get; }
 
         /// <inheritdoc/>
-        public string ColumnName { get; private set; }
+        public string? Prompt { get; }
 
         /// <inheritdoc/>
-        public bool Ignored { get; private set; }
-
-        /// <inheritdoc/>
-        public DatabaseGeneratedOption DatabaseGeneratedOption { get; private set; }
-
-        /// <inheritdoc/>
-        public bool AllowEmptyStrings { get; private set; }
-
-        /// <inheritdoc/>
-        public bool IsRequired { get; private set; }
-
-        /// <inheritdoc/>
-        public bool IsReadOnly { get; private set; }
-
-        /// <inheritdoc/>
-        public bool IsUpdatable => !(this.Ignored || this.IsReadOnly || this.DatabaseGeneratedOption != DatabaseGeneratedOption.None);
-
-        /// <inheritdoc/>
-        public bool IsKey { get; private set; }
+        public PropertyInfo PropertyInfo { get; private set; }
 
         /// <inheritdoc/>
         public string PropertyName => this.PropertyInfo.Name;
 
         /// <inheritdoc/>
-        public PropertyInfo PropertyInfo { get; private set; }
+        public StringHandlingOption StringHandlingOption { get; }
     }
 }

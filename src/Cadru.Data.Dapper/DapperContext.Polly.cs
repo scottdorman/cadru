@@ -29,9 +29,9 @@ namespace Cadru.Data.Dapper
 {
     public abstract partial class DapperContext : IDapperPollyContext
     {
+        IEnumerable<IExceptionHandlingStrategy> IDapperPollyContext.ExceptionHandlingStrategies => this.contextBuilder.ExceptionHandlingStrategies;
+        bool IDapperPollyContext.PollyEnabled => this.contextBuilder.RetryOnFailureEnabled;
         ISqlStrategy IDapperPollyContext.SqlStrategy { get; set; } = SqlStrategy.Default;
         ISqlStrategyFactory? IDapperPollyContext.SqlStrategyFactory => this.contextBuilder.SqlStrategyFactory;
-        bool IDapperPollyContext.PollyEnabled => this.contextBuilder.RetryOnFailureEnabled;
-        IEnumerable<IExceptionHandlingStrategy> IDapperPollyContext.ExceptionHandlingStrategies => this.contextBuilder.ExceptionHandlingStrategies;
     }
 }

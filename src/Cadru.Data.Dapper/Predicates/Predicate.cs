@@ -36,12 +36,6 @@ namespace Cadru.Data.Dapper.Predicates
     public static class Predicate
     {
         /// <summary>
-        /// Represents an empty predicate.
-        /// </summary>
-        /// <returns>An <see cref="IPredicate"/> instance representing the predicate.</returns>
-        public static IPredicate Empty() => new EmptyPredicate();
-
-        /// <summary>
         /// Creates a predicate group whose predicates are joined using an AND operator.
         /// </summary>
         /// <returns>An <see cref="IPredicateGroup"/> instance representing the predicate.</returns>
@@ -68,29 +62,24 @@ namespace Cadru.Data.Dapper.Predicates
         }
 
         /// <summary>
-        /// Creates a predicate group whose predicates are joined using an OR operator.
+        /// Represents an empty predicate.
         /// </summary>
-        /// <returns>An <see cref="IPredicateGroup"/> instance representing the predicate.</returns>
-        public static IPredicateGroup Or()
-        {
-            var group = new PredicateGroup
-            {
-                Operator = GroupOperator.Or,
-            };
-
-            return group;
-        }
+        /// <returns>An <see cref="IPredicate"/> instance representing the predicate.</returns>
+        public static IPredicate Empty() => new EmptyPredicate();
 
         /// <summary>
-        /// Creates a predicate group whose predicates are joined using an OR operator.
+        /// Creates a predicate which represents an EXISTS clause.
         /// </summary>
-        /// <param name="predicates">A collection of predicates to add the group.</param>
-        /// <returns>An <see cref="IPredicateGroup"/> instance representing the predicate.</returns>
-        public static IPredicateGroup Or(IList<IPredicate> predicates)
+        /// <param name="predicate"></param>
+        /// <param name="not"><see langword="true"/> to invert the comparison operator.</param>
+        /// <returns>An <see cref="IPredicate"/> instance representing the predicate.</returns>
+        public static IPredicate Exists(IPredicate predicate, bool not = false)
         {
-            var group = (PredicateGroup)Or();
-            group.AddRange(predicates);
-            return group;
+            return new ExistsPredicate
+            {
+                Not = not,
+                Predicate = predicate
+            };
         }
 
         /// <summary>
@@ -196,6 +185,32 @@ namespace Cadru.Data.Dapper.Predicates
         }
 
         /// <summary>
+        /// Creates a predicate group whose predicates are joined using an OR operator.
+        /// </summary>
+        /// <returns>An <see cref="IPredicateGroup"/> instance representing the predicate.</returns>
+        public static IPredicateGroup Or()
+        {
+            var group = new PredicateGroup
+            {
+                Operator = GroupOperator.Or,
+            };
+
+            return group;
+        }
+
+        /// <summary>
+        /// Creates a predicate group whose predicates are joined using an OR operator.
+        /// </summary>
+        /// <param name="predicates">A collection of predicates to add the group.</param>
+        /// <returns>An <see cref="IPredicateGroup"/> instance representing the predicate.</returns>
+        public static IPredicateGroup Or(IList<IPredicate> predicates)
+        {
+            var group = (PredicateGroup)Or();
+            group.AddRange(predicates);
+            return group;
+        }
+
+        /// <summary>
         /// Creates a predicate which represents a standard comparison clause,
         /// of the form [FieldName1] [Operator] [FieldName2].
         /// </summary>
@@ -246,21 +261,6 @@ namespace Cadru.Data.Dapper.Predicates
             };
 
             return predicate;
-        }
-
-        /// <summary>
-        /// Creates a predicate which represents an EXISTS clause.
-        /// </summary>
-        /// <param name="predicate"></param>
-        /// <param name="not"><see langword="true"/> to invert the comparison operator.</param>
-        /// <returns>An <see cref="IPredicate"/> instance representing the predicate.</returns>
-        public static IPredicate Exists(IPredicate predicate, bool not = false)
-        {
-            return new ExistsPredicate
-            {
-                Not = not,
-                Predicate = predicate
-            };
         }
     }
 }
