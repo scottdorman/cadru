@@ -24,8 +24,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Data.Dapper", "src\Ca
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.AspNetCore", "src\Cadru.AspNetCore\Cadru.AspNetCore.csproj", "{0A0A9408-7745-4F3B-9E78-5CD3A4951591}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.TransientFaultHandling", "src\Cadru.TransientFaultHandling\Cadru.TransientFaultHandling.csproj", "{9ECA0E2F-7F6D-4201-B5B2-7EE78A0FE5D5}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Net.Http", "src\Cadru.Net.Http\Cadru.Net.Http.csproj", "{70550251-695D-4045-84E5-4ECB7C548B63}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Net.NetworkInformation", "src\Cadru.Net.NetworkInformation\Cadru.Net.NetworkInformation.csproj", "{14B3A2A6-26D8-4166-9913-7C958CDBECB7}"
@@ -39,8 +37,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Net.Tests", "tests\Cadru.Net.Tests\Cadru.Net.Tests.csproj", "{87DDB23C-F28C-4C4D-B87E-4EAE4AAA7F42}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Net.NetworkInformation.Tests", "tests\Cadru.Net.NetworkInformation.Tests\Cadru.Net.NetworkInformation.Tests.csproj", "{D65EA883-6347-498A-8DEB-E60EB6187A74}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.TransientFaultHandling.Tests", "tests\Cadru.TransientFaultHandling.Tests\Cadru.TransientFaultHandling.Tests.csproj", "{E27D96E8-6DB0-4B56-9350-D1CD78C468A8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Core.Tests", "tests\Cadru.Core.Tests\Cadru.Core.Tests.csproj", "{51A7DC24-BA12-47BD-970D-63B86F470F48}"
 EndProject
@@ -74,6 +70,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Caching", "src\Cadru.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Scim", "src\Cadru.Scim\Cadru.Scim.csproj", "{FEAB8DFA-828E-4F7E-AE7E-F15AA0F282F5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Extensions.FileProviders", "src\Cadru.Extensions.FileProviders\Cadru.Extensions.FileProviders.csproj", "{DCB670D0-C10F-4F2A-A6D3-1DD9024F0218}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Polly", "src\Cadru.Polly\Cadru.Polly.csproj", "{8674F19C-F45E-46F9-98BB-6EF256A7C2C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,10 +100,6 @@ Global
 		{0A0A9408-7745-4F3B-9E78-5CD3A4951591}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A0A9408-7745-4F3B-9E78-5CD3A4951591}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A0A9408-7745-4F3B-9E78-5CD3A4951591}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9ECA0E2F-7F6D-4201-B5B2-7EE78A0FE5D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9ECA0E2F-7F6D-4201-B5B2-7EE78A0FE5D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9ECA0E2F-7F6D-4201-B5B2-7EE78A0FE5D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9ECA0E2F-7F6D-4201-B5B2-7EE78A0FE5D5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{70550251-695D-4045-84E5-4ECB7C548B63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{70550251-695D-4045-84E5-4ECB7C548B63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70550251-695D-4045-84E5-4ECB7C548B63}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -132,10 +128,6 @@ Global
 		{D65EA883-6347-498A-8DEB-E60EB6187A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D65EA883-6347-498A-8DEB-E60EB6187A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D65EA883-6347-498A-8DEB-E60EB6187A74}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E27D96E8-6DB0-4B56-9350-D1CD78C468A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E27D96E8-6DB0-4B56-9350-D1CD78C468A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E27D96E8-6DB0-4B56-9350-D1CD78C468A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E27D96E8-6DB0-4B56-9350-D1CD78C468A8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{51A7DC24-BA12-47BD-970D-63B86F470F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{51A7DC24-BA12-47BD-970D-63B86F470F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51A7DC24-BA12-47BD-970D-63B86F470F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -200,6 +192,14 @@ Global
 		{FEAB8DFA-828E-4F7E-AE7E-F15AA0F282F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEAB8DFA-828E-4F7E-AE7E-F15AA0F282F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEAB8DFA-828E-4F7E-AE7E-F15AA0F282F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCB670D0-C10F-4F2A-A6D3-1DD9024F0218}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCB670D0-C10F-4F2A-A6D3-1DD9024F0218}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCB670D0-C10F-4F2A-A6D3-1DD9024F0218}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCB670D0-C10F-4F2A-A6D3-1DD9024F0218}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8674F19C-F45E-46F9-98BB-6EF256A7C2C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8674F19C-F45E-46F9-98BB-6EF256A7C2C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8674F19C-F45E-46F9-98BB-6EF256A7C2C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8674F19C-F45E-46F9-98BB-6EF256A7C2C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -208,7 +208,6 @@ Global
 		{AE570C0B-34F5-4585-9377-5D46DF4EDECC} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
 		{87DDB23C-F28C-4C4D-B87E-4EAE4AAA7F42} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
 		{D65EA883-6347-498A-8DEB-E60EB6187A74} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
-		{E27D96E8-6DB0-4B56-9350-D1CD78C468A8} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
 		{51A7DC24-BA12-47BD-970D-63B86F470F48} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
 		{E6B0B7D9-C152-4720-9FD2-2F0192FB572B} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
 		{E25F60B9-5BC8-4165-8BF3-0A16AC2E7130} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
