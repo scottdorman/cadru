@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cadru.Core\Cadru.Core.csproj" />
-    <ProjectReference Include="..\Cadru.Data.Abstractions\Cadru.Data.Annotations.csproj" />
+    <ProjectReference Include="..\Cadru.Data.Annotations\Cadru.Data.Annotations.csproj" />
   </ItemGroup>
 
   <ItemGroup>
