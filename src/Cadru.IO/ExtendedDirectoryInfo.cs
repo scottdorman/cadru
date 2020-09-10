@@ -25,59 +25,47 @@ namespace Cadru.IO
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
-    using System.Runtime.InteropServices;
-    using System.Runtime.Serialization;
     using System.Security;
     using System.Security.AccessControl;
     using System.Security.Principal;
+
 #if NET40
     using System.Security.Permissions;
 #endif
 
     /// <summary>
     /// Provides an encapsulated implementation of the standard .NET
-    /// <see cref="DirectoryInfo"/> and the
+    /// <see cref="DirectoryInfo" /> and the
     /// <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb762179(v=vs.85).aspx">SHGetFileInfo</see>
     /// API method.
     /// </summary>
 #if NET40
     public sealed partial class ExtendedDirectoryInfo : MarshalByRefObject
 #else
+
     public sealed partial class ExtendedDirectoryInfo
 #endif
     {
-        #region fields
-
         private DirectoryInfo directoryInfo;
         private string directoryOwner;
         private string originalPath;
 
-        #endregion
-
-        #region constructors
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExtendedDirectoryInfo"/> class, which acts as a wrapper for a file path.
+        /// Initializes a new instance of the <see cref="ExtendedDirectoryInfo" /> class, which acts as a wrapper for a file path.
         /// </summary>
         /// <param name="path">The fully qualified name of the new file, or the relative file name.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="path"/> is a <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="path" /> is a <see langword="null" />.</exception>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
-        /// <exception cref="ArgumentException"><paramref name="path"/> is empty, contains only white spaces, or contains invalid characters.</exception>
+        /// <exception cref="ArgumentException"><paramref name="path" /> is empty, contains only white spaces, or contains invalid characters.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to fileName is denied.</exception>
         /// <exception cref="PathTooLongException">The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters. </exception>
-        /// <exception cref="NotSupportedException"><paramref name="path"/> contains a colon (:) in the middle of the string.</exception>
+        /// <exception cref="NotSupportedException"><paramref name="path" /> contains a colon (:) in the middle of the string.</exception>
         /// <remarks>You can specify either the fully qualified or the relative file name, but the security check gets the fully qualified name.</remarks>
         public ExtendedDirectoryInfo(string path)
         {
             this.Initialize(path);
         }
-        #endregion
 
-        #region events
-        #endregion
-
-        #region properties
-
-        #region Attributes
         /// <summary>
         /// Gets or sets the FileAttributes of the current FileSystemInfo.
         /// </summary>
@@ -103,9 +91,7 @@ namespace Cadru.IO
                 this.directoryInfo.Attributes = value;
             }
         }
-        #endregion
 
-        #region CreationTime
         /// <summary>
         /// Gets or sets the creation time of the current FileSystemInfo object.
         /// </summary>
@@ -133,9 +119,7 @@ namespace Cadru.IO
                 this.directoryInfo.CreationTime = value;
             }
         }
-        #endregion
 
-        #region CreationTimeUtc
         /// <summary>
         /// Gets the creation time, in coordinated universal time (UTC), of the current FileSystemInfo object.
         /// </summary>
@@ -151,35 +135,27 @@ namespace Cadru.IO
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
         public DateTime CreateTimeUtc => this.directoryInfo.CreationTimeUtc;
-        #endregion
 
-        #region Exists
         /// <summary>
         /// Gets a value indicating whether the directory exists.
         /// </summary>
-        /// <value><see langword="true"/> if the directory exists;
-        /// otherwise, <see langword="false"/>.</value>
+        /// <value><see langword="true" /> if the directory exists;
+        /// otherwise, <see langword="false" />.</value>
         public bool Exists => this.directoryInfo.Exists;
-        #endregion
 
-        #region Extension
         /// <summary>
         /// Gets the string representing the extension part of the file.
         /// </summary>
         /// <value>A string containing the FileSystemInfo extension.</value>
         /// <remarks>The Extension property returns the FileSystemInfo extension, including the period (.). For example, for a file C:\NewFile.txt, this property returns ".txt".</remarks>
         public string Extension => this.directoryInfo.Extension;
-        #endregion
 
-        #region DirectoryOwner
         /// <summary>
         /// Gets the Windows owner associated with the directory.
         /// </summary>
-        /// <value>A string representing the owner of the directory or <see langword="null"/> if the owner cannot be determined.</value>
+        /// <value>A string representing the owner of the directory or <see langword="null" /> if the owner cannot be determined.</value>
         public string DirectoryOwner => this.directoryOwner;
-        #endregion
 
-        #region FullName
         /// <summary>
         /// Gets the full path of the directory or file.
         /// </summary>
@@ -187,9 +163,7 @@ namespace Cadru.IO
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         /// <remarks>For example, for a file C:\NewFile.txt, this property returns "C:\NewFile.txt".</remarks>
         public string FullName => this.directoryInfo.FullName;
-        #endregion
 
-        #region LastAccessTime
         /// <summary>
         /// Gets the time the current file or directory was last accessed.
         /// </summary>
@@ -205,9 +179,7 @@ namespace Cadru.IO
         /// <para>Windows Mobile for Pocket PC, Windows Mobile for Smartphone, Windows CE Platform Note: This property is read-only.</para>
         /// </remarks>
         public DateTime LastAccessTime => this.directoryInfo.LastAccessTime;
-        #endregion
 
-        #region LastAccessTimeUtc
         /// <summary>
         /// Gets the time, in coordinated universal time (UTC), that the current file or directory was last accessed.
         /// </summary>
@@ -222,9 +194,7 @@ namespace Cadru.IO
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
         public DateTime LastAccessTimeUtc => this.directoryInfo.LastAccessTimeUtc;
-        #endregion
 
-        #region LastWriteTime
         /// <summary>
         /// Gets the time when the current file or directory was last written to.
         /// </summary>
@@ -240,9 +210,7 @@ namespace Cadru.IO
         /// <para>Windows Mobile for Pocket PC, Windows Mobile for Smartphone, Windows CE Platform Note: This property is read-only.</para>
         /// </remarks>
         public DateTime LastWriteTime => this.directoryInfo.LastWriteTime;
-        #endregion
 
-        #region LastWriteTimeUtc
         /// <summary>
         /// Gets the time, in coordinated universal time (UTC), when the current file or directory was last written to.
         /// </summary>
@@ -257,9 +225,7 @@ namespace Cadru.IO
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
         public DateTime LastWriteTimUtc => this.directoryInfo.LastWriteTimeUtc;
-        #endregion
 
-        #region Name
         /// <summary>
         /// Gets the name of this DirectoryInfo instance.
         /// </summary>
@@ -269,33 +235,21 @@ namespace Cadru.IO
         /// <para>The Name property of a DirectoryInfo requires no permission (beyond the read permission to the directory necessary to construct the Exists) but can give out the directory name. If it is necessary to hand out a DirectoryInfo to a protected directory with a cryptographically secure name, create a dummy directory for the untrusted code’s use.</para>
         /// </remarsk>
         public string Name => this.directoryInfo.Name;
-        #endregion
 
-        #region Parent
         /// <summary>
         /// Gets the parent directory of a specified subdirectory.
         /// </summary>
         /// <value>The parent directory, or a <see langword="null" /> if the path is null or if the file path denotes a root (such as "\", "C:", or * "\\server\share").</value>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         public DirectoryInfo Parent => this.directoryInfo.Parent;
-        #endregion
 
-        #region Root
         /// <summary>
         /// Gets the root portion of a path.
         /// </summary>
         /// <value>A DirectoryInfo object representing the root of a path.</value>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         public DirectoryInfo Root => this.directoryInfo.Root;
-        #endregion
 
-        #endregion
-
-        #region methods
-
-        #region Create
-
-        #region Create()
         /// <summary>
         /// Creates a directory.
         /// </summary>
@@ -305,9 +259,7 @@ namespace Cadru.IO
         {
             this.directoryInfo.Create();
         }
-        #endregion
 
-        #region Create(DirectorySecurity directorySecurity)
         /// <summary>
         /// Creates a directory using a DirectorySecurity object.
         /// </summary>
@@ -326,13 +278,7 @@ namespace Cadru.IO
         {
             this.directoryInfo.Create();
         }
-        #endregion
 
-        #endregion
-
-        #region CreateSubdirectory
-
-        #region CreateSubdirectory(string path)
         /// <summary>
         /// Creates a subdirectory or subdirectories on the specified path. The specified path can be relative to this instance of the DirectoryInfo class.
         /// </summary>
@@ -341,8 +287,8 @@ namespace Cadru.IO
         /// <remarks>
         /// <para>Any and all directories specified in path are created, unless some part of path is invalid. The path parameter specifies a directory path, not a file path. If the subdirectory already exists, this method does nothing.</para>
         /// <para type="note">Path names are limited to 248 characters.</para></remarks>
-        /// <exception cref="ArgumentException"><paramref name="path"/> does not specify a valid file path or contains invalid DirectoryInfo characters.</exception>
-        /// <exception cref="ArgumentNullException"><paramref name="path"/> is a <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="path" /> does not specify a valid file path or contains invalid DirectoryInfo characters.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="path" /> is a <see langword="null" />.</exception>
         /// <exception cref="DirectoryNotFoundException">The specified path is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="IOException"><para>The subdirectory cannot be created.</para>
         /// <para>-or-</para>
@@ -355,9 +301,7 @@ namespace Cadru.IO
         {
             return this.directoryInfo.CreateSubdirectory(path);
         }
-        #endregion
 
-        #region Create(string path, DirectorySecurity directorySecurity)
         /// <summary>
         /// Creates a subdirectory or subdirectories on the specified path with the specified security. The specified path can be relative to this instance of the DirectoryInfo class.
         /// </summary>
@@ -367,8 +311,8 @@ namespace Cadru.IO
         /// <remarks>
         /// <para>Any and all directories specified in path are created, unless some part of path is invalid. The path parameter specifies a directory path, not a file path. If the subdirectory already exists, this method does nothing.</para>
         /// <para type="note">Path names are limited to 248 characters.</para></remarks>
-        /// <exception cref="ArgumentException"><paramref name="path"/> does not specify a valid file path or contains invalid DirectoryInfo characters.</exception>
-        /// <exception cref="ArgumentNullException"><paramref name="path"/> is a <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentException"><paramref name="path" /> does not specify a valid file path or contains invalid DirectoryInfo characters.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="path" /> is a <see langword="null" />.</exception>
         /// <exception cref="DirectoryNotFoundException">The specified path is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="IOException"><para>The subdirectory cannot be created.</para>
         /// <para>-or-</para>
@@ -381,13 +325,7 @@ namespace Cadru.IO
         {
             return this.directoryInfo.CreateSubdirectory(path);
         }
-        #endregion
 
-        #endregion
-
-        #region Delete
-
-        #region Delete()
         /// <summary>
         /// Deletes this DirectoryInfo if it is empty.
         /// </summary>
@@ -400,20 +338,18 @@ namespace Cadru.IO
         {
             this.directoryInfo.Delete();
         }
-        #endregion
 
-        #region Delete(bool recursive)
         /// <summary>
         /// Deletes this instance of a DirectoryInfo, specifying whether to delete subdirectories and files.
         /// </summary>
-        /// <param name="recursive"><see langword="true"/> to delete this directory, its subdirectories, and all files;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="recursive"><see langword="true" /> to delete this directory, its subdirectories, and all files;
+        /// otherwise, <see langword="false" />.</param>
         /// <exception cref="SecurityException">The caller does not have
         /// the required permission.</exception>
         /// <exception cref="IOException"><para>The directory is read-only.</para>
         /// <para>-or-</para>
         /// <para>The directory contains one or more files or subdirectories and
-        /// <paramref name="recursive"/> is <see langword="false"/>.</para>
+        /// <paramref name="recursive" /> is <see langword="false" />.</para>
         /// <para>-or-</para>
         /// <para>The directory is the application's current working directory.</para></exception>
         /// <remarks>If the DirectoryInfo has no files or subdirectories, this method deletes the DirectoryInfo even if recursive is false. Attempting to delete a DirectoryInfo that is not empty when recursive is false throws an IOException.</remarks>
@@ -421,13 +357,7 @@ namespace Cadru.IO
         {
             this.directoryInfo.Delete(recursive);
         }
-        #endregion
 
-        #endregion
-
-        #region GetAccessControl
-
-        #region GetAccessControl()
         /// <summary>
         /// Gets a DirectorySecurity object that encapsulates the access control list (ACL) entries for the directory described by the current DirectoryInfo object.
         /// </summary>
@@ -455,14 +385,12 @@ namespace Cadru.IO
         {
             return this.directoryInfo.GetAccessControl();
         }
-        #endregion
 
-        #region GetAccessControl(AccessControlSections includeSections)
         /// <summary>
         /// Gets a DirectorySecurity object that encapsulates the specified type of access control list (ACL) entries for the directory described by the current DirectoryInfo object.
         /// </summary>
         /// <param name="includeSections">One of the
-        /// <see cref="AccessControlSections"/> values that specifies which
+        /// <see cref="AccessControlSections" /> values that specifies which
         /// group of access control entries to retrieve.</param>
         /// <returns>A DirectorySecurity object that encapsulates the access control rules for the file described by the path parameter.</returns>
         /// <exception cref="IOException">An I/O error occurred while opening
@@ -487,13 +415,7 @@ namespace Cadru.IO
         {
             return this.directoryInfo.GetAccessControl(includeSections);
         }
-        #endregion
 
-        #endregion
-
-        #region GetDirectories
-
-        #region GetDirectories()
         /// <summary>
         /// Returns the subdirectories of the current directory.
         /// </summary>
@@ -504,9 +426,7 @@ namespace Cadru.IO
         {
             return this.directoryInfo.GetDirectories();
         }
-        #endregion
 
-        #region GetDirectories(String searchPattern)
         /// <summary>
         /// Returns an array of directories in the current DirectoryInfo matching the given search criteria.
         /// </summary>
@@ -516,40 +436,32 @@ namespace Cadru.IO
         /// <para>The string ".." can only be used in searchPattern if it is specified as a part of a valid directory name, such as in the directory name "a..b". It cannot be used to move up the directory hierarchy.</para>
         /// <para>If there are no subdirectories, or no subdirectories match the searchPattern parameter, this method returns an empty array.</para>
         /// </remarks>
-        /// <exception cref="ArgumentNullException"><paramref name="searchPattern"/> is a <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="searchPattern" /> is a <see langword="null" />.</exception>
         /// <exception cref="DirectoryNotFoundException">The path encapsulated in the DirectoryInfo object is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         public DirectoryInfo[] GetDirectories(string searchPattern)
         {
             return this.directoryInfo.GetDirectories(searchPattern);
         }
-        #endregion
 
-        #region GetDirectories(String searchPattern, SearchOption searchOption)
         /// <summary>
         /// Returns an array of directories in the current DirectoryInfo matching the given search criteria and using a value to determine whether to search subdirectories.
         /// </summary>
         /// <param name="searchPattern">The search string, such as "System*", used to search for all directories beginning with the word "System".</param>
         /// <param name="searchOption">One of the values of the SearchOption enumeration that specifies whether the search operation should include only the current directory or should include all subdirectories.</param>
-        /// <returns>An array of type DirectoryInfo matching <paramref name="searchPattern"/>.</returns>
+        /// <returns>An array of type DirectoryInfo matching <paramref name="searchPattern" />.</returns>
         /// <remarks><para>Wildcards are permitted. For example, the searchPattern string "*t" searches for all directory names in path ending with the letter "t". The searchPattern string "s*" searches for all directory names in path beginning with the letter "s".</para>
-        /// <para>The string ".." can only be used in <paramref name="searchPattern"/> if it is specified as a part of a valid directory name, such as in the directory name "a..b". It cannot be used to move up the directory hierarchy.</para>
+        /// <para>The string ".." can only be used in <paramref name="searchPattern" /> if it is specified as a part of a valid directory name, such as in the directory name "a..b". It cannot be used to move up the directory hierarchy.</para>
         /// <para>If there are no subdirectories, or no subdirectories match the searchPattern parameter, this method returns an empty array.</para>
         /// </remarks>
-        /// <exception cref="ArgumentNullException"><paramref name="searchPattern"/> is a <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="searchPattern" /> is a <see langword="null" />.</exception>
         /// <exception cref="DirectoryNotFoundException">The path encapsulated in the DirectoryInfo object is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         public DirectoryInfo[] GetDirectories(string searchPattern, SearchOption searchOption)
         {
             return this.directoryInfo.GetDirectories(searchPattern, searchOption);
         }
-        #endregion
 
-        #endregion
-
-        #region GetFiles
-
-        #region GetFiles()
         /// <summary>
         /// Returns a file list from the current directory.
         /// </summary>
@@ -561,9 +473,7 @@ namespace Cadru.IO
         {
             return this.directoryInfo.GetFiles();
         }
-        #endregion
 
-        #region GetFiles(String searchPattern)
         /// <summary>
         /// Returns a file list from the current directory matching the given searchPattern.
         /// </summary>
@@ -591,16 +501,14 @@ namespace Cadru.IO
         /// </list>
         /// <para type="note">Because this method checks against file names with both the 8.3 file name format and the long file name format, a search pattern similar to "*1*.txt" may return unexpected file names. For example, using a search pattern of "*1*.txt" will return "longfilename.txt" because the equivalent 8.3 file name format would be "longf~1.txt".</para>
         /// </remarks>
-        /// <exception cref="ArgumentNullException"><paramref name="searchPattern"/> is a <see langword="null" />.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="searchPattern" /> is a <see langword="null" />.</exception>
         /// <exception cref="DirectoryNotFoundException">The path is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         public FileInfo[] GetFiles(string searchPattern)
         {
             return this.directoryInfo.GetFiles(searchPattern);
         }
-        #endregion
 
-        #region GetFiles(String searchPattern, SearchOption searchOption)
         /// <summary>
         /// Returns a file list from the current directory matching the given searchPattern and using a value to determine whether to search subdirectories.
         /// </summary>
@@ -629,20 +537,14 @@ namespace Cadru.IO
         /// </list>
         /// <para type="note">Because this method checks against file names with both the 8.3 file name format and the long file name format, a search pattern similar to "*1*.txt" may return unexpected file names. For example, using a search pattern of "*1*.txt" will return "longfilename.txt" because the equivalent 8.3 file name format would be "longf~1.txt".</para>
         /// </remarks>
-        /// <exception cref="ArgumentNullException"><paramref name="searchPattern"/> is a <see langword="null" />.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="searchPattern" /> is a <see langword="null" />.</exception>
         /// <exception cref="DirectoryNotFoundException">The path is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         public FileInfo[] GetFiles(string searchPattern, SearchOption searchOption)
         {
             return this.directoryInfo.GetFiles(searchPattern, searchOption);
         }
-        #endregion
 
-        #endregion
-
-        #region GetFileSystemInfos
-
-        #region GetFileSystemInfos()
         /// <summary>
         /// Returns an array of strongly typed FileSystemInfo entries representing all the files and subdirectories in a directory.
         /// </summary>
@@ -656,9 +558,7 @@ namespace Cadru.IO
         {
             return this.directoryInfo.GetFileSystemInfos();
         }
-        #endregion
 
-        #region GetFileSystemInfos(String searchPattern)
         /// <summary>
         /// Retrieves an array of strongly typed FileSystemInfo objects representing the files and subdirectories matching the specified search criteria.
         /// </summary>
@@ -675,28 +575,24 @@ namespace Cadru.IO
         {
             return this.directoryInfo.GetFileSystemInfos(searchPattern);
         }
-        #endregion
 
-        #endregion
-
-        #region MoveTo
         /// <summary>
         /// Moves a DirectoryInfo instance and its contents to a new path.
         /// </summary>
         /// <param name="destinationDirectoryName">The name and path to which to move this directory. The destination cannot be another disk volume or a directory with the identical name. It can be an existing directory to which you want to add this directory as a subdirectory.</param>
-        /// <remarks><para>This method throws an IOException if, for example, you try to move c:\mydir to c:\public, and c:\public already exists. You must specify "c:\\public\\mydir" as the <paramref name="destinationDirectoryName"/> parameter, or specify a new directory name such as "c:\\newdir".</para>
+        /// <remarks><para>This method throws an IOException if, for example, you try to move c:\mydir to c:\public, and c:\public already exists. You must specify "c:\\public\\mydir" as the <paramref name="destinationDirectoryName" /> parameter, or specify a new directory name such as "c:\\newdir".</para>
         /// <para>This method permits moving a directory to a read-only directory. The read/write attribute of neither directory is affected.
         /// </para></remarks>
         /// <exception cref="ArgumentNullException">
-        /// <para><paramref name="destinationDirectoryName"/> is a <see langword="null" />.</para>
+        /// <para><paramref name="destinationDirectoryName" /> is a <see langword="null" />.</para>
         /// <para>-or-</para>
         /// <para>The directory being moved and the destination directory have the same name.</para>
         /// </exception>
-        /// <exception cref="ArgumentException"><paramref name="destinationDirectoryName"/> is an empty string ("").</exception>
+        /// <exception cref="ArgumentException"><paramref name="destinationDirectoryName" /> is an empty string ("").</exception>
         /// <exception cref="IOException">
         /// <para>An attempt was made to move a directory to a different volume.</para>
         /// <para>-or-</para>
-        /// <para><paramref name="destinationDirectoryName"/> already exists.</para>
+        /// <para><paramref name="destinationDirectoryName" /> already exists.</para>
         /// <para>-or-</para>
         /// <para>You are not authorized to access this path.</para>
         /// </exception>
@@ -706,9 +602,7 @@ namespace Cadru.IO
         {
             this.directoryInfo.MoveTo(destinationDirectoryName);
         }
-        #endregion
 
-        #region Refresh
         /// <summary>
         /// Refreshes the state of the object.
         /// </summary>
@@ -721,14 +615,12 @@ namespace Cadru.IO
         {
             this.directoryInfo.Refresh();
         }
-        #endregion
 
-        #region SetAccessControl
         /// <summary>
         /// Applies access control list (ACL) entries described by a DirectorySecurity object to the directory described by the current DirectoryInfo object.
         /// </summary>
         /// <param name="directorySecurity">A DirectorySecurity object that describes an ACL entry to apply to the directory described by the path parameter.</param>
-        /// <exception cref="ArgumentNullException">The <paramref name="directorySecurity"/> parameter is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentNullException">The <paramref name="directorySecurity" /> parameter is <see langword="null" />.</exception>
         /// <exception cref="SystemException">The file could not be found or modified.</exception>
         /// <exception cref="UnauthorizedAccessException">The current process does not have access to open the file.</exception>
         /// <exception cref="PlatformNotSupportedException">The current operating system is not Microsoft Windows 2000 or later.</exception>
@@ -751,9 +643,7 @@ namespace Cadru.IO
         {
             this.directoryInfo.SetAccessControl(directorySecurity);
         }
-        #endregion
 
-        #region ToString
         /// <summary>
         /// Returns the path as a string.
         /// </summary>
@@ -763,12 +653,11 @@ namespace Cadru.IO
         {
             return this.directoryInfo.ToString();
         }
-        #endregion
 
-        #region Initialize
 #if NET40
         [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
 #endif
+
         private void Initialize(string path)
         {
             Contracts.Requires.NotNullOrEmpty(path, "path");
@@ -785,8 +674,5 @@ namespace Cadru.IO
 
             this.directoryOwner = owner;
         }
-        #endregion
-
-        #endregion
     }
 }

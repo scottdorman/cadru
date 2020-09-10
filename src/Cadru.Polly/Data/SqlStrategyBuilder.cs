@@ -39,10 +39,10 @@ namespace Cadru.Polly.Data
     public abstract class SqlStrategyBuilder
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlStrategyBuilder"/> class.
+        /// Initializes a new instance of the <see cref="SqlStrategyBuilder" /> class.
         /// </summary>
         /// <param name="exceptionHandlingStrategies">The collection of <see
-        /// cref="IExceptionHandlingStrategy"/> strategies to use.</param>
+        /// cref="IExceptionHandlingStrategy" /> strategies to use.</param>
         /// <param name="strategyOptionsAccessor">An optional strategy
         /// configuration.</param>
         protected SqlStrategyBuilder(IEnumerable<IExceptionHandlingStrategy> exceptionHandlingStrategies, IOptions<SqlStrategyOptions>? strategyOptionsAccessor)
@@ -56,7 +56,7 @@ namespace Cadru.Polly.Data
         }
 
         /// <summary>
-        /// Gets the default <see cref="IExceptionHandlingStrategy"/>.
+        /// Gets the default <see cref="IExceptionHandlingStrategy" />.
         /// </summary>
         public IExceptionHandlingStrategy DefaultStrategy { get; }
 
@@ -72,24 +72,24 @@ namespace Cadru.Polly.Data
         public IList<IsPolicy> Policies { get; } = new List<IsPolicy>();
 
         /// <summary>
-        /// Gets the <see cref="SqlStrategyOptions"/> used to configure the policies.
+        /// Gets the <see cref="SqlStrategyOptions" /> used to configure the policies.
         /// </summary>
         public SqlStrategyOptions StrategyOptions { get; }
 
         /// <summary>
-        /// Builds a NoOp <see cref="Policy"/> that will execute without any custom behavior.
+        /// Builds a NoOp <see cref="Policy" /> that will execute without any custom behavior.
         /// </summary>
         /// <returns>The policy instance.</returns>
         public static ISyncPolicy NoOp() => Policy.NoOp();
 
         /// <summary>
-        /// Builds a NoOp <see cref="AsyncPolicy"/> that will execute without any custom behavior.
+        /// Builds a NoOp <see cref="AsyncPolicy" /> that will execute without any custom behavior.
         /// </summary>
         /// <returns>The policy instance.</returns>
         public static IAsyncPolicy NoOpAsync() => Policy.NoOpAsync();
 
         /// <summary>
-        /// Builds a <see cref="ISqlStrategy"/>.
+        /// Builds a <see cref="ISqlStrategy" />.
         /// </summary>
         /// <returns>The SQL strategy instance.</returns>
         public ISqlStrategy Build()
@@ -114,20 +114,20 @@ namespace Cadru.Polly.Data
         }
 
         /// <summary>
-        /// Gets a <see cref="PolicyBuilder"/> which handles the exceptions
-        /// in the default <see cref="IExceptionHandlingStrategy"/>.
+        /// Gets a <see cref="PolicyBuilder" /> which handles the exceptions
+        /// in the default <see cref="IExceptionHandlingStrategy" />.
         /// </summary>
-        /// <returns>A <see cref="PolicyBuilder"/> instance.</returns>
+        /// <returns>A <see cref="PolicyBuilder" /> instance.</returns>
         public PolicyBuilder GetDefaultPolicyBuilder()
         {
             return Policy.Handle<Exception>(this.DefaultStrategy.ShouldHandle);
         }
 
         /// <summary>
-        /// Gets a <see cref="PolicyBuilder"/> which handles all of the exceptions
-        /// in <see cref="ExceptionHandlingStrategies"/>.
+        /// Gets a <see cref="PolicyBuilder" /> which handles all of the exceptions
+        /// in <see cref="ExceptionHandlingStrategies" />.
         /// </summary>
-        /// <returns>A <see cref="PolicyBuilder"/> instance.</returns>
+        /// <returns>A <see cref="PolicyBuilder" /> instance.</returns>
         public PolicyBuilder GetPolicyBuilder()
         {
             var policyBuilder = this.GetDefaultPolicyBuilder();

@@ -28,7 +28,7 @@ namespace Cadru.AspNetCore.Mvc.ModelBinding.Metadata
 {
     /// <summary>
     /// Represents the base class for attributes which implement the <see
-    /// cref="IMetadataAware"/> interface in order to support additional
+    /// cref="IMetadataAware" /> interface in order to support additional
     /// metadata.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Property, AllowMultiple = true)]
@@ -36,7 +36,7 @@ namespace Cadru.AspNetCore.Mvc.ModelBinding.Metadata
     {
         /// <summary>
         /// The key used to reference this attribute in the <see
-        /// cref="DisplayMetadata.AdditionalValues"/> dictionary.
+        /// cref="DisplayMetadata.AdditionalValues" /> dictionary.
         /// </summary>
         public abstract string Key { get; }
 

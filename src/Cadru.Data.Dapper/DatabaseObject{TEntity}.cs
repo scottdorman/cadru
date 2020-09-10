@@ -51,8 +51,8 @@ namespace Cadru.Data.Dapper
         public IObjectMap ObjectMap { get; }
 
         /// <summary>
-        /// The <see cref="IDapperCommandBuilder"/> used by this object to
-        /// create <see cref="CommandDefinition"/> instances.
+        /// The <see cref="IDapperCommandBuilder" /> used by this object to
+        /// create <see cref="CommandDefinition" /> instances.
         /// </summary>
         protected IDapperCommandBuilder CommandBuilder { get; set; }
     }

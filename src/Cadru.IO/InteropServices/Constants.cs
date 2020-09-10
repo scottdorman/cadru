@@ -29,9 +29,9 @@ namespace Cadru.IO.Interop
     [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1310:FieldNamesMustNotContainUnderscore", Justification = "Reviewed.")]
     internal static class Constants
     {
-        internal const int ERROR_SUCCESS = 0;
         internal const int ERROR_ACCESS_DENIED = 5;
         internal const int ERROR_MORE_DATA = 234;
+        internal const int ERROR_SUCCESS = 0;
         internal const int MAX_PATH = 260;
 
         internal const int STD_OUTPUT_HANDLE = 11;

@@ -45,10 +45,28 @@ namespace Cadru.Data.Csv
             this.DateParseExact = null;
         }
 
+        public CultureInfo Culture { get; set; }
+
+        public string DateParseExact { get; set; }
+
+        public DateTimeStyles DateTimeStyles { get; set; }
+
+        /// <summary>
+        /// Get or set the default value of the column.
+        /// </summary>
+        public string DefaultValue { get; set; }
+
         /// <summary>
         /// Get or set the name.
         /// </summary>
         public string Name { get; set; }
+
+        public NumberStyles NumberStyles { get; set; }
+
+        /// <summary>
+        /// Get or set the override value of the column.
+        /// </summary>
+        public string OverrideValue { get; set; }
 
         /// <summary>
         /// Get or set the type.
@@ -62,24 +80,6 @@ namespace Cadru.Data.Csv
                 this.typeName = value.Name;
             }
         }
-
-        /// <summary>
-        /// Get or set the default value of the column.
-        /// </summary>
-        public string DefaultValue { get; set; }
-
-        /// <summary>
-        /// Get or set the override value of the column.
-        /// </summary>
-        public string OverrideValue { get; set; }
-
-        public CultureInfo Culture { get; set; }
-
-        public NumberStyles NumberStyles { get; set; }
-        
-        public DateTimeStyles DateTimeStyles { get; set; }
-        
-        public string DateParseExact { get; set; }
 
         /// <summary>
         /// Converts the value into the column type.

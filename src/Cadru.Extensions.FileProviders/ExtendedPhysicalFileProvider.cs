@@ -35,8 +35,8 @@ namespace Cadru.Extensions.FileProviders
     /// </summary>
     /// <remarks>
     /// <para>
-    /// This extends  <see cref="PhysicalFileProvider"/> and adds support for
-    /// working with files or folders returned as an <see cref="IFileInfo"/>.
+    /// This extends  <see cref="PhysicalFileProvider" /> and adds support for
+    /// working with files or folders returned as an <see cref="IFileInfo" />.
     /// </para>
     /// <para>
     /// When the environment variable "DOTNET_USE_POLLING_FILE_WATCHER" is set to "1" or "true", calls to
@@ -72,7 +72,7 @@ namespace Cadru.Extensions.FileProviders
         /// Creates a directory at the given path.
         /// </summary>
         /// <param name="subpath">A path under the root directory</param>
-        /// <returns>The directory information. Caller must check <see cref="IFileInfo.Exists"/> property. </returns>
+        /// <returns>The directory information. Caller must check <see cref="IFileInfo.Exists" /> property. </returns>
         public IFileInfo CreateDirectory(string subpath)
         {
             PhysicalDirectoryInfo physicalDirectoryInfo = null;
@@ -96,7 +96,7 @@ namespace Cadru.Extensions.FileProviders
         /// Creates a file at the given path.
         /// </summary>
         /// <param name="subpath">A path under the root directory</param>
-        /// <returns>The file information. Caller must check <see cref="IFileInfo.Exists"/> property. </returns>
+        /// <returns>The file information. Caller must check <see cref="IFileInfo.Exists" /> property. </returns>
         public IFileInfo CreateFile(string subpath)
         {
             PhysicalFileInfo physicalFileInfo = null;
@@ -120,7 +120,7 @@ namespace Cadru.Extensions.FileProviders
         /// Locate a directory at the given path by directly mapping path segments to physical directories.
         /// </summary>
         /// <param name="subpath">A path under the root directory</param>
-        /// <returns>The directory information. Caller must check <see cref="IFileInfo.Exists"/> property.</returns>
+        /// <returns>The directory information. Caller must check <see cref="IFileInfo.Exists" /> property.</returns>
         public IFileInfo GetDirectoryInfo(string subpath)
         {
             if (String.IsNullOrEmpty(subpath) || PathUtils.HasInvalidPathChars(subpath))

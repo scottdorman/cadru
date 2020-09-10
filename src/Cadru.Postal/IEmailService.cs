@@ -38,6 +38,22 @@ namespace Cadru.Postal
         //void SaveToFile(Email email, string path);
 
         /// <summary>
+        /// Renders the email view and builds a <see cref="MailMessage" />.
+        /// </summary>
+        /// <param name="email">The email to render.</param>
+        /// <returns>A <see cref="MailMessage" /> containing the rendered email.</returns>
+        Task<MailMessage> CreateMailMessageAsync(IEmail email);
+
+        /// <summary>
+        /// Renders the email view.
+        /// </summary>
+        /// <param name="email">The email to render.</param>
+        /// <param name="viewName">The email view name. If <see langword="null" /> then the
+        /// <see cref="Email.ViewName" /> property is used.</param>
+        /// <returns>The rendered email view output.</returns>
+        string Render(IEmail email, string viewName = null);
+
+        /// <summary>
         /// Saves the email to the specified directory as an asynchronous operation.
         /// </summary>
         /// <param name="email">The email to save.</param>
@@ -55,22 +71,5 @@ namespace Cadru.Postal
         /// </summary>
         /// <param name="email">The email to send.</param>
         Task SendAsync(IEmail email);
-
-        /// <summary>
-        /// Renders the email view and builds a <see cref="MailMessage"/>.
-        /// </summary>
-        /// <param name="email">The email to render.</param>
-        /// <returns>A <see cref="MailMessage"/> containing the rendered email.</returns>
-        Task<MailMessage> CreateMailMessageAsync(IEmail email);
-
-        /// <summary>
-        /// Renders the email view.
-        /// </summary>
-        /// <param name="email">The email to render.</param>
-        /// <param name="viewName">The email view name. If <see langword="null"/> then the
-        /// <see cref="Email.ViewName"/> property is used.</param>
-        /// <returns>The rendered email view output.</returns>
-        string Render(IEmail email, string viewName = null);
-
     }
 }

@@ -105,7 +105,7 @@ namespace Cadru.Net.Http
         public static UriScheme News => newsScheme;
 
         /// <summary>
-        /// Defines an implicit conversion from <see cref="UriScheme"/> to <see cref="System.String"/>.
+        /// Defines an implicit conversion from <see cref="UriScheme" /> to <see cref="System.String" />.
         /// </summary>
         /// <param name="value">The object to convert.</param>
         /// <returns>
@@ -119,15 +119,15 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Determines whether two specified <see cref="UriScheme"/>
+        /// Determines whether two specified <see cref="UriScheme" />
         /// objects represent different schemes.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true"/> if <paramref name="left"/> and
-        /// <paramref name="right"/> do not represent the same scheme;
-        /// otherwise, <see langword="false"/>.
+        /// <see langword="true" /> if <paramref name="left" /> and
+        /// <paramref name="right" /> do not represent the same scheme;
+        /// otherwise, <see langword="false" />.
         /// </returns>
         public static bool operator !=(UriScheme left, UriScheme right)
         {
@@ -135,14 +135,14 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Determines whether two specified <see cref="UriScheme"/>
+        /// Determines whether two specified <see cref="UriScheme" />
         /// objects represent the same scheme.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true"/> if both objects represent the same scheme;
-        /// otherwise, <see langword="false"/>.
+        /// <see langword="true" /> if both objects represent the same scheme;
+        /// otherwise, <see langword="false" />.
         /// </returns>
         public static bool operator ==(UriScheme left, UriScheme right)
         {
@@ -156,14 +156,14 @@ namespace Cadru.Net.Http
 
         /// <summary>
         /// Returns a value indicating whether the value of this instance is
-        /// equal to the value of the specified <see cref="UriScheme"/>
+        /// equal to the value of the specified <see cref="UriScheme" />
         /// instance.
         /// </summary>
         /// <param name="obj">The object to compare to this
         /// instance.</param>
         /// <returns>
-        /// <see langword="true"/> if the <paramref name="obj"/> parameter
-        /// equals the value of this instance; otherwise, <see langword="false"/>.
+        /// <see langword="true" /> if the <paramref name="obj" /> parameter
+        /// equals the value of this instance; otherwise, <see langword="false" />.
         /// </returns>
         public override bool Equals(object obj)
         {
@@ -177,14 +177,14 @@ namespace Cadru.Net.Http
 
         /// <summary>
         /// Returns a value indicating whether the value of this instance is
-        /// equal to the value of the specified <see cref="UriScheme"/>
+        /// equal to the value of the specified <see cref="UriScheme" />
         /// instance.
         /// </summary>
-        /// <param name="other">The <see cref="UriScheme"/> to compare to this
+        /// <param name="other">The <see cref="UriScheme" /> to compare to this
         /// instance.</param>
         /// <returns>
-        /// <see langword="true"/> if the <paramref name="other"/> parameter
-        /// equals the value of this instance; otherwise, <see langword="false"/>.
+        /// <see langword="true" /> if the <paramref name="other" /> parameter
+        /// equals the value of this instance; otherwise, <see langword="false" />.
         /// </returns>
         public bool Equals(UriScheme other)
         {
@@ -213,11 +213,11 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Converts the value of the current <see cref="UriScheme"/>
+        /// Converts the value of the current <see cref="UriScheme" />
         /// object to its equivalent string representation.
         /// </summary>
         /// <returns>
-        /// A string representation of the value of the current <see cref="UriScheme"/> object.
+        /// A string representation of the value of the current <see cref="UriScheme" /> object.
         /// </returns>
         public override string ToString()
         {

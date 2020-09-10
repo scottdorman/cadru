@@ -49,7 +49,7 @@ namespace Cadru.Build.Tasks
     public class WriteThisAssemblyCodeFile : Task
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="WriteThisAssemblyCodeFile"/> task.
+        /// Initializes a new instance of the <see cref="WriteThisAssemblyCodeFile" /> task.
         /// </summary>
         public WriteThisAssemblyCodeFile() : base(Strings.ResourceManager)
         {
@@ -63,7 +63,6 @@ namespace Cadru.Build.Tasks
         /// </summary>
         [Required]
         public string Language { get; set; }
-
 
         /// <summary>
         /// Description of attributes to write.

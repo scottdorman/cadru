@@ -23,7 +23,7 @@
 namespace Cadru.Data.Dapper.Configuration
 {
     /// <summary>
-    /// Configuration options for a <see cref="DapperContext"/>
+    /// Configuration options for a <see cref="DapperContext" />
     /// </summary>
     public class DapperContextOptions
     {
@@ -33,18 +33,18 @@ namespace Cadru.Data.Dapper.Configuration
         public const string SectionKey = "DapperContext";
 
         /// <summary>
-        /// Command logging options for a <see cref="DapperContext"/>
+        /// Command logging options for a <see cref="DapperContext" />
         /// </summary>
         public LoggingOptions Logging { get; set; } = new LoggingOptions();
 
         /// <summary>
-        /// Command timeout options for a <see cref="DapperContext"/>
+        /// Command timeout options for a <see cref="DapperContext" />
         /// </summary>
         public TimeoutOptions Timeout { get; set; } = new TimeoutOptions();
     }
 
     /// <summary>
-    /// Command logging options for a <see cref="DapperContext"/>
+    /// Command logging options for a <see cref="DapperContext" />
     /// </summary>
     public class LoggingOptions
     {
@@ -55,7 +55,7 @@ namespace Cadru.Data.Dapper.Configuration
     }
 
     /// <summary>
-    /// Command timeout options for a <see cref="DapperContext"/>
+    /// Command timeout options for a <see cref="DapperContext" />
     /// </summary>
     public class TimeoutOptions
     {

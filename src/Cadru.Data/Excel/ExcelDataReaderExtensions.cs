@@ -24,6 +24,7 @@ namespace Cadru.Data.Excel
 {
     using System;
     using System.Linq;
+
     using Cadru.Extensions;
 
     /// <summary>

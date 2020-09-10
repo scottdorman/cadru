@@ -23,6 +23,7 @@
 namespace Cadru.IO.Interop
 {
 #if !(WP80 || WPA81)
+
     using System;
     using System.Runtime.InteropServices;
 
@@ -66,5 +67,6 @@ namespace Cadru.IO.Interop
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 80)]
         internal string szTypeName;
     }
+
 #endif
 }

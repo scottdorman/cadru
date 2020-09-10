@@ -38,16 +38,6 @@ namespace Cadru.Extensions.FileProviders.Internal
         private static readonly char[] _pathSeparators = new[]
             {Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar};
 
-        internal static bool HasInvalidPathChars(string path)
-        {
-            return path.IndexOfAny(_invalidFileNameChars) != -1;
-        }
-
-        internal static bool HasInvalidFilterChars(string path)
-        {
-            return path.IndexOfAny(_invalidFilterChars) != -1;
-        }
-
         internal static string EnsureTrailingSlash(string path)
         {
             if (!System.String.IsNullOrEmpty(path) &&
@@ -57,6 +47,16 @@ namespace Cadru.Extensions.FileProviders.Internal
             }
 
             return path;
+        }
+
+        internal static bool HasInvalidFilterChars(string path)
+        {
+            return path.IndexOfAny(_invalidFilterChars) != -1;
+        }
+
+        internal static bool HasInvalidPathChars(string path)
+        {
+            return path.IndexOfAny(_invalidFileNameChars) != -1;
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Minor Code Smell", "S3626:Jump statements should not be redundant", Justification = "This is identical to the implementation in https://github.com/dotnet/runtime/tree/master/src/libraries/Microsoft.Extensions.FileProviders.Physical/src/Internal")]

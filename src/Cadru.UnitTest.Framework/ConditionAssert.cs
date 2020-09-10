@@ -63,7 +63,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="arg1">The first value, expected to be greater.</param>
         /// <param name="arg2">The second value, expected to be less.</param>
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
-        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
+        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
         public static void Greater<T>(T arg1, T arg2, string message, params object[] parameters) where T : IComparable
         {
             if (((IComparable)arg1).CompareTo(arg2) <= 0)
@@ -102,7 +102,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="arg1">The first value, expected to be greater.</param>
         /// <param name="arg2">The second value, expected to be less.</param>
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
-        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
+        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
         public static void GreaterOrEqual<T>(T arg1, T arg2, string message, params object[] parameters) where T : IComparable
         {
             if (((IComparable)arg1).CompareTo(arg2) < 0)
@@ -112,41 +112,41 @@ namespace Cadru.UnitTest.Framework
         }
 
         /// <summary>
-        /// Verifies that the specified condition is <see langword="false"/>.
-        /// The assertion fails if the condition is <see langword="true"/>.
+        /// Verifies that the specified condition is <see langword="false" />.
+        /// The assertion fails if the condition is <see langword="true" />.
         /// </summary>
-        /// <param name="condition">The condition to verify is <see langword="false"/>.</param>
+        /// <param name="condition">The condition to verify is <see langword="false" />.</param>
         /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-        /// <paramref name="condition"/> evaluates to <see langword="true"/>.</exception>
+        /// <paramref name="condition" /> evaluates to <see langword="true" />.</exception>
         public static void IsFalse(bool? condition)
         {
             IsFalse(condition, Strings.Assertion_GenericFailure, true, condition);
         }
 
         /// <summary>
-        /// Verifies that the specified condition is <see langword="false"/>.
-        /// The assertion fails if the condition is <see langword="true"/>.
+        /// Verifies that the specified condition is <see langword="false" />.
+        /// The assertion fails if the condition is <see langword="true" />.
         /// Displays a message if the assertion fails.
         /// </summary>
-        /// <param name="condition">The condition to verify is <see langword="false"/>.</param>
+        /// <param name="condition">The condition to verify is <see langword="false" />.</param>
         /// <param name="message">A message to display if the assertion fails. This message can be seen in the unit test results.</param>
         /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-        /// <paramref name="condition"/> evaluates to <see langword="true"/>.</exception>
+        /// <paramref name="condition" /> evaluates to <see langword="true" />.</exception>
         public static void IsFalse(bool? condition, string message)
         {
             IsFalse(condition, message, null);
         }
 
         /// <summary>
-        /// Verifies that the specified condition is <see langword="false"/>.
-        /// The assertion fails if the condition is <see langword="true"/>.
+        /// Verifies that the specified condition is <see langword="false" />.
+        /// The assertion fails if the condition is <see langword="true" />.
         /// Displays a message if the assertion fails, and applies the specified formatting to it.
         /// </summary>
-        /// <param name="condition">The condition to verify is <see langword="false"/>.</param>
+        /// <param name="condition">The condition to verify is <see langword="false" />.</param>
         /// <param name="message">A message to display if the assertion fails. This message can be seen in the unit test results.</param>
-        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
+        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
         /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-        /// <paramref name="condition"/> evaluates to <see langword="true"/>.</exception>
+        /// <paramref name="condition" /> evaluates to <see langword="true" />.</exception>
         public static void IsFalse(bool? condition, string message, params object[] parameters)
         {
             if (!condition.HasValue || condition.Value)
@@ -156,7 +156,7 @@ namespace Cadru.UnitTest.Framework
         }
 
         /// <summary>
-        /// Verifies that the value is <see cref="Double.NaN"/>.
+        /// Verifies that the value is <see cref="Double.NaN" />.
         /// </summary>
         /// <param name="value">The value to test.</param>
         public static void IsNaN(double value)
@@ -165,7 +165,7 @@ namespace Cadru.UnitTest.Framework
         }
 
         /// <summary>
-        /// Verifies that the value is <see cref="Double.NaN"/>.
+        /// Verifies that the value is <see cref="Double.NaN" />.
         /// </summary>
         /// <param name="value">The value to test.</param>
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
@@ -175,11 +175,11 @@ namespace Cadru.UnitTest.Framework
         }
 
         /// <summary>
-        /// Verifies that the value is <see cref="Double.NaN"/>.
+        /// Verifies that the value is <see cref="Double.NaN" />.
         /// </summary>
         /// <param name="value">The value to test.</param>
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
-        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
+        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
         public static void IsNaN(double value, string message, params object[] parameters)
         {
             if (!Double.IsNaN(value))
@@ -189,41 +189,41 @@ namespace Cadru.UnitTest.Framework
         }
 
         /// <summary>
-        /// Verifies that the specified condition is <see langword="true"/>.
-        /// The assertion fails if the condition is <see langword="false"/>.
+        /// Verifies that the specified condition is <see langword="true" />.
+        /// The assertion fails if the condition is <see langword="false" />.
         /// </summary>
-        /// <param name="condition">The condition to verify is <see langword="true"/>.</param>
+        /// <param name="condition">The condition to verify is <see langword="true" />.</param>
         /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-        /// <paramref name="condition"/> evaluates to <see langword="false"/>.</exception>
+        /// <paramref name="condition" /> evaluates to <see langword="false" />.</exception>
         public static void IsTrue(bool? condition)
         {
             IsTrue(condition, Strings.Assertion_GenericFailure, true, condition);
         }
 
         /// <summary>
-        /// Verifies that the specified condition is <see langword="true"/>.
-        /// The assertion fails if the condition is <see langword="false"/>.
+        /// Verifies that the specified condition is <see langword="true" />.
+        /// The assertion fails if the condition is <see langword="false" />.
         /// Displays a message if the assertion fails.
         /// </summary>
-        /// <param name="condition">The condition to verify is <see langword="true"/>.</param>
+        /// <param name="condition">The condition to verify is <see langword="true" />.</param>
         /// <param name="message">A message to display if the assertion fails. This message can be seen in the unit test results.</param>
         /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-        /// <paramref name="condition"/> evaluates to <see langword="false"/>.</exception>
+        /// <paramref name="condition" /> evaluates to <see langword="false" />.</exception>
         public static void IsTrue(bool? condition, string message)
         {
             IsTrue(condition, message, null);
         }
 
         /// <summary>
-        /// Verifies that the specified condition is <see langword="true"/>.
-        /// The assertion fails if the condition is <see langword="false"/>.
+        /// Verifies that the specified condition is <see langword="true" />.
+        /// The assertion fails if the condition is <see langword="false" />.
         /// Displays a message if the assertion fails, and applies the specified formatting to it.
         /// </summary>
-        /// <param name="condition">The condition to verify is <see langword="true"/>.</param>
+        /// <param name="condition">The condition to verify is <see langword="true" />.</param>
         /// <param name="message">A message to display if the assertion fails. This message can be seen in the unit test results.</param>
-        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
+        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
         /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-        /// <paramref name="condition"/> evaluates to <see langword="false"/>.</exception>
+        /// <paramref name="condition" /> evaluates to <see langword="false" />.</exception>
         public static void IsTrue(bool? condition, string message, params object[] parameters)
         {
             if (!condition.HasValue || !condition.Value)
@@ -262,7 +262,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="arg1">The first value, expected to be less.</param>
         /// <param name="arg2">The second value, expected to be greater.</param>
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
-        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
+        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
         public static void Less<T>(T arg1, T arg2, string message, params object[] parameters) where T : IComparable
         {
             if (((IComparable)arg1).CompareTo(arg2) >= 0)
@@ -301,7 +301,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="arg1">The first value, expected to be less.</param>
         /// <param name="arg2">The second value, expected to be greater.</param>
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
-        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
+        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
         public static void LessOrEqual<T>(T arg1, T arg2, string message, params object[] parameters) where T : IComparable
         {
             if (((IComparable)arg1).CompareTo(arg2) > 0)

@@ -26,10 +26,10 @@ namespace Cadru.IO
     using System.Diagnostics;
     using System.IO;
     using System.Runtime.InteropServices;
-    using System.Runtime.Serialization;
     using System.Security;
     using System.Security.AccessControl;
     using System.Security.Principal;
+
     using Cadru.IO.Interop;
 
 #if NET40
@@ -38,17 +38,17 @@ namespace Cadru.IO
 
     /// <summary>
     /// Provides an encapsulated implementation of the standard .NET
-    /// <see cref="FileInfo"/>, <see cref="FileVersionInfo"/> and the
+    /// <see cref="FileInfo" />, <see cref="FileVersionInfo" /> and the
     /// <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb762179(v=vs.85).aspx">SHGetFileInfo</see>
     /// API method.
     /// </summary>
 #if NET40
     public sealed partial class ExtendedFileInfo : MarshalByRefObject
 #else
+
     public sealed partial class ExtendedFileInfo
 #endif
     {
-        #region fields
         private ExecutableType executableType;
 
         private FileInfo fileInfo;
@@ -57,32 +57,22 @@ namespace Cadru.IO
         private string originalFileName;
         private SHFILEINFO shellFileInfo;
 
-        #endregion
-
-        #region constructors
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExtendedFileInfo"/> class, which acts as a wrapper for a file path.
+        /// Initializes a new instance of the <see cref="ExtendedFileInfo" /> class, which acts as a wrapper for a file path.
         /// </summary>
         /// <param name="fileName">The fully qualified name of the new file, or the relative file name.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="fileName"/> is a <see langword="null" />. </exception>
+        /// <exception cref="ArgumentNullException"><paramref name="fileName" /> is a <see langword="null" />. </exception>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         /// <exception cref="ArgumentException">The file name is empty, contains only white spaces, or contains invalid characters. </exception>
-        /// <exception cref="UnauthorizedAccessException">Access to <paramref name="fileName"/> is denied.</exception>
+        /// <exception cref="UnauthorizedAccessException">Access to <paramref name="fileName" /> is denied.</exception>
         /// <exception cref="PathTooLongException">The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters. </exception>
-        /// <exception cref="NotSupportedException"><paramref name="fileName"/> contains a colon (:) in the middle of the string.</exception>
+        /// <exception cref="NotSupportedException"><paramref name="fileName" /> contains a colon (:) in the middle of the string.</exception>
         /// <remarks>You can specify either the fully qualified or the relative file name, but the security check gets the fully qualified name.</remarks>
         public ExtendedFileInfo(string fileName)
         {
             this.Initialize(fileName);
         }
-        #endregion
 
-        #region events
-        #endregion
-
-        #region properties
-
-        #region Attributes
         /// <summary>
         /// Gets or sets the FileAttributes of the current FileSystemInfo.
         /// </summary>
@@ -108,26 +98,20 @@ namespace Cadru.IO
                 this.fileInfo.Attributes = value;
             }
         }
-        #endregion
 
-        #region Comments
         /// <summary>
         /// Gets the comments associated with the file.
         /// </summary>
         /// <value>The comments associated with the file or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks>This property contains additional information that can be displayed for diagnostic purposes.</remarks>
         public string Comments => this.fileVersionInfo.Comments;
-        #endregion
 
-        #region CompanyName
         /// <summary>
         /// Gets the name of the company that produced the file.
         /// </summary>
         /// <value>The name of the company that produced the file or a <see langword="null" /> if the file did not contain version information.</value>
         public string CompanyName => this.fileVersionInfo.CompanyName;
-        #endregion
 
-        #region CreationTime
         /// <summary>
         /// Gets or sets the creation time of the current FileSystemInfo object.
         /// </summary>
@@ -155,9 +139,7 @@ namespace Cadru.IO
                 this.fileInfo.CreationTime = value;
             }
         }
-        #endregion
 
-        #region CreationTimeUtc
         /// <summary>
         /// Gets the creation time, in coordinated universal time (UTC), of the current FileSystemInfo object.
         /// </summary>
@@ -173,74 +155,62 @@ namespace Cadru.IO
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
         public DateTime CreateTimeUtc => this.fileInfo.CreationTimeUtc;
-        #endregion
 
-        #region Directory
         /// <summary>
         /// Gets an instance of the parent directory.
         /// </summary>
-        /// <value>A <see cref="DirectoryInfo"/> object representing the
+        /// <value>A <see cref="DirectoryInfo" /> object representing the
         /// parent directory of this file.</value>
         /// <exception cref="DirectoryNotFoundException">The specified path is
         /// invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="SecurityException">The caller does not have the
         /// required permission.</exception>
         /// <remarks><para>To get the parent directory as a string, use the
-        /// <see cref="DirectoryName"/> property.</para></remarks>
+        /// <see cref="DirectoryName" /> property.</para></remarks>
         public DirectoryInfo Directory => this.fileInfo.Directory;
-        #endregion
 
-        #region DirectoryName
         /// <summary>
         /// Gets a string representing the directory's full path.
         /// </summary>
         /// <value>A string representing the directory's full path.</value>
         /// <exception cref="SecurityException">The caller does not have the
         /// required permission.</exception>
-        /// <exception cref="ArgumentNullException">A <see langword="null"/>
+        /// <exception cref="ArgumentNullException">A <see langword="null" />
         /// was passed in for the directory name.</exception>
         /// <remarks><para>To get the parent directory as a
-        /// <see cref="DirectoryInfo"/> object, use the
-        /// <see cref="Directory"/> property.</para>
-        /// <para>When first called, <see cref="ExtendedFileInfo"/> calls
-        /// <see cref="Refresh"/> and caches information on the file. On
-        /// subsequent calls, you must call <see cref="Refresh"/> to get the
+        /// <see cref="DirectoryInfo" /> object, use the
+        /// <see cref="Directory" /> property.</para>
+        /// <para>When first called, <see cref="ExtendedFileInfo" /> calls
+        /// <see cref="Refresh" /> and caches information on the file. On
+        /// subsequent calls, you must call <see cref="Refresh" /> to get the
         /// latest copy of the information.</para></remarks>
         public string DirectoryName => this.fileInfo.DirectoryName;
-        #endregion
 
-        #region ExecutableType
         /// <summary>
         /// Gets the type of executable that this instance of FileVersionInfo describes.
         /// </summary>
         /// <value>The type of executable of the file described by this instance of FileVersionInfo.</value>
         public ExecutableType ExecutableType => this.executableType;
-        #endregion
 
-        #region Exists
         /// <summary>
         /// Gets a value indicating whether a file exists.
         /// </summary>
-        /// <value><see langword="true"/> if the file exists;
-        /// <see langword="false"/> if the file does not exist or the file
+        /// <value><see langword="true" /> if the file exists;
+        /// <see langword="false" /> if the file does not exist or the file
         /// is a directory.</value>
-        /// <remarks><para>When first called, <see cref="ExtendedFileInfo"/>
-        /// calls <see cref="Refresh"/> and caches information on the file. On
-        /// subsequent calls, you must call <see cref="Refresh"/> to get the
+        /// <remarks><para>When first called, <see cref="ExtendedFileInfo" />
+        /// calls <see cref="Refresh" /> and caches information on the file. On
+        /// subsequent calls, you must call <see cref="Refresh" /> to get the
         /// latest copy of the information.</para></remarks>
         public bool Exists => this.fileInfo.Exists;
-        #endregion
 
-        #region Extension
         /// <summary>
         /// Gets the string representing the extension part of the file.
         /// </summary>
         /// <value>A string containing the FileSystemInfo extension.</value>
         /// <remarks>The Extension property returns the FileSystemInfo extension, including the period (.). For example, for a file C:\NewFile.txt, this property returns ".txt".</remarks>
         public string Extension => this.fileInfo.Extension;
-        #endregion
 
-        #region FileBuildPart
         /// <summary>
         /// Gets the build number of the file.
         /// </summary>
@@ -255,17 +225,13 @@ namespace Cadru.IO
         /// <para>This property gets the third set of 16 bits.</para>
         /// </remarks>
         public int FileBuildPart => this.fileVersionInfo.FileBuildPart;
-        #endregion
 
-        #region FileDescription
         /// <summary>
         /// Gets the description of the file.
         /// </summary>
         /// <value>The description of the file or a <see langword="null" /> if the file did not contain version information.</value>
         public string FileDescription => this.fileVersionInfo.FileDescription;
-        #endregion
 
-        #region FileMajorPart
         /// <summary>
         /// Gets the major part of the version number.
         /// </summary>
@@ -280,9 +246,7 @@ namespace Cadru.IO
         /// <para>This property gets the first set of 16 bits.</para>
         /// </remarks>
         public int FileMajorPart => this.fileVersionInfo.FileMajorPart;
-        #endregion
 
-        #region FileMinorPart
         /// <summary>
         /// Gets the minor part of the version number.
         /// </summary>
@@ -297,25 +261,19 @@ namespace Cadru.IO
         /// <para>This property gets the second set of 16 bits.</para>
         /// </remarks>
         public int FileMinorPart => this.fileVersionInfo.FileMinorPart;
-        #endregion
 
-        #region FileName
         /// <summary>
         /// Gets the name of the file that this instance of FileVersionInfo describes.
         /// </summary>
         /// <value>The name of the file described by this instance of FileVersionInfo.</value>
         public string FileName => this.fileVersionInfo.FileName;
-        #endregion
 
-        #region FileOwner
         /// <summary>
         /// Gets the Windows owner associated with the file.
         /// </summary>
-        /// <value>A string representing the owner of the file or <see langword="null"/> if the owner cannot be determined.</value>
+        /// <value>A string representing the owner of the file or <see langword="null" /> if the owner cannot be determined.</value>
         public string FileOwner => this.fileOwner;
-        #endregion
 
-        #region FilePrivatePart
         /// <summary>
         /// Gets the private part number.
         /// </summary>
@@ -330,17 +288,13 @@ namespace Cadru.IO
         /// <para>This property gets the last set of 16 bits.</para>
         /// </remarks>
         public int FilePrivatePart => this.fileVersionInfo.FilePrivatePart;
-        #endregion
 
-        #region FileType
         /// <summary>
         /// Gets the type of file.
         /// </summary>
         /// <value>The type of the file as displayed by the Shell.</value>
         public string FileType => this.shellFileInfo.szTypeName;
-        #endregion
 
-        #region FileVersion
         /// <summary>
         /// Gets the file version number.
         /// </summary>
@@ -354,9 +308,7 @@ namespace Cadru.IO
         /// </list>
         /// </remarks>
         public string FileVersion => this.fileVersionInfo.FileVersion;
-        #endregion
 
-        #region FullName
         /// <summary>
         /// Gets the full path of the directory or file.
         /// </summary>
@@ -364,79 +316,67 @@ namespace Cadru.IO
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         /// <remarks>For example, for a file C:\NewFile.txt, this property returns "C:\NewFile.txt".</remarks>
         public string FullName => this.fileInfo.FullName;
-        #endregion
 
-        #region InternalName
         /// <summary>
         /// Gets the internal name of the file, if one exists.
         /// </summary>
         /// <value>The internal name of the file. If none exists, this property will contain the original name of the file without the extension.</value>
         public string InternalName => this.fileVersionInfo.InternalName;
-        #endregion
 
-        #region IsDebug
         /// <summary>
         /// Gets a value indicating whether the file contains debugging information or is compiled with debugging features enabled.
         /// </summary>
-        /// <value><see langword="true"/> if the file contains debugging information or is compiled with debugging features enabled; otherwise, <see langword="false"/>.</value>
+        /// <value><see langword="true" /> if the file contains debugging information or is compiled with debugging features enabled; otherwise, <see langword="false" />.</value>
         /// <remarks>
         /// <para>The FileVersionInfo properties are based on version resource information built into the file. Version resources are often built into binary files such as .exe or .dll files; text files do not have version resource information.</para>
         /// <para>Version resources are typically specified in a Win32 resource file, or in assembly attributes. The IsDebug property reflects the VS_FF_DEBUG flag value in the file's VS_FIXEDFILEINFO block, which is built from the VERSIONINFO resource in a Win32 resource file. For more information about specifying version resources in a Win32 resource file, see the Platform SDK About Resource Files topic and VERSIONINFO Resource topic topics.</para>
         /// </remarks>
         public bool IsDebug => this.fileVersionInfo.IsDebug;
-        #endregion
 
-        #region IsPatched
         /// <summary>
         /// Gets a value indicating whether the file has been modified and is not identical to the original shipping file of the same version number.
         /// </summary>
-        /// <value><see langword="true"/> if the file is patched; otherwise, <see langword="false"/>.</value>
+        /// <value><see langword="true" /> if the file is patched; otherwise, <see langword="false" />.</value>
         public bool IsPatched => this.fileVersionInfo.IsPatched;
-        #endregion
 
-        #region IsPreRelease
         /// <summary>
         /// Gets a value indicating whether the file is a development version, rather than a commercially released product.
         /// </summary>
-        /// <value><see langword="true"/> if the file is prerelease; otherwise, <see langword="false"/>.</value>
+        /// <value><see langword="true" /> if the file is prerelease; otherwise, <see langword="false" />.</value>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "PreRelease", Justification = "This property follows the same naming convention as the underlying property in the FileVersionInfo class.")]
         public bool IsPreRelease => this.fileVersionInfo.IsPreRelease;
-        #endregion
 
-        #region IsPrivateBuild
         /// <summary>
         /// Gets a value indicating whether the file was built using standard release procedures.
         /// </summary>
-        /// <value><see langword="true"/> if the file is a private build; <see langword="false"/> if the file was built using standard release procedures or if the file did not contain version information.</value>
+        /// <value><see langword="true" /> if the file is a private build; <see langword="false" /> if the file was built using standard release procedures or if the file did not contain version information.</value>
         /// <remarks>If this value is true, PrivateBuild will describe how this version of the file differs from the standard version.</remarks>
         public bool IsPrivateBuild => this.fileVersionInfo.IsPrivateBuild;
-        #endregion
 
-        #region IsReadOnly
         /// <summary>
         /// Gets or sets a value indicating whether the file is read only.
         /// </summary>
-        /// <value><see langword="true"/> if the current file is read only;
-        /// otherwise <see langword="false"/>.</value>
+        /// <value><see langword="true" /> if the current file is read only;
+        /// otherwise <see langword="false" />.</value>
         /// <exception cref="FileNotFoundException">The file described by the
-        /// current <see cref="ExtendedFileInfo"/> object could not be found.
+        /// current <see cref="ExtendedFileInfo" /> object could not be found.
         /// </exception>
         /// <exception cref="IOException">An I/O error occurred while opening
         /// the file.</exception>
         /// <exception cref="UnauthorizedAccessException">
         /// <para>The file described by the current
-        /// <see cref="ExtendedFileInfo"/> object could not be found.</para>
+        /// <see cref="ExtendedFileInfo" /> object could not be found.</para>
         /// <para>-or-</para>
         /// <para>This operation is not supported on the current paltform.
         /// </para>
         /// <para>-or-</para>
         /// <para>THe called does not have the required permissions.</para>
         /// </exception>
-        /// <remarsk><para>Use the <see cref="IsReadOnly"/> property to quickly
+        /// <remarsk><para>Use the <see cref="IsReadOnly" /> property to quickly
         /// determine or change whether the current file is read only.</para>
-        /// <para>When first called, <see cref="ExtendedFileInfo"/>
-        /// calls <see cref="Refresh"/> and caches information on the file. On
-        /// subsequent calls, you must call <see cref="Refresh"/> to get the
+        /// <para>When first called, <see cref="ExtendedFileInfo" />
+        /// calls <see cref="Refresh" /> and caches information on the file. On
+        /// subsequent calls, you must call <see cref="Refresh" /> to get the
         /// latest copy of the information.</para>
         /// </remarsk>
         public bool IsReadOnly
@@ -451,26 +391,20 @@ namespace Cadru.IO
                 this.fileInfo.IsReadOnly = value;
             }
         }
-        #endregion
 
-        #region IsSpecialBuild
         /// <summary>
         /// Gets a value indicating whether the file is a special build.
         /// </summary>
-        /// <value><see langword="true"/> if the file is a special build; otherwise, <see langword="false"/>.</value>
+        /// <value><see langword="true" /> if the file is a special build; otherwise, <see langword="false" />.</value>
         /// <remarks>A file that is a special build was built using standard release procedures, but the file differs from a standard file of the same version number. If this value is true, the SpecialBuild property must specify how this file differs from the standard version.</remarks>
         public bool IsSpecialBuild => this.fileVersionInfo.IsSpecialBuild;
-        #endregion
 
-        #region Language
         /// <summary>
         /// Gets the default language string for the version info block.
         /// </summary>
         /// <value>The description string for the Microsoft Language Identifier in the version resource or a <see langword="null" /> if the file did not contain version information.</value>
         public string Language => this.fileVersionInfo.Language;
-        #endregion
 
-        #region LastAccessTime
         /// <summary>
         /// Gets the time the current file or directory was last accessed.
         /// </summary>
@@ -486,9 +420,7 @@ namespace Cadru.IO
         /// <para>Windows Mobile for Pocket PC, Windows Mobile for Smartphone, Windows CE Platform Note: This property is read-only.</para>
         /// </remarks>
         public DateTime LastAccessTime => this.fileInfo.LastAccessTime;
-        #endregion
 
-        #region LastAccessTimeUtc
         /// <summary>
         /// Gets the time, in coordinated universal time (UTC), that the current file or directory was last accessed.
         /// </summary>
@@ -503,9 +435,7 @@ namespace Cadru.IO
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
         public DateTime LastAccessTimeUtc => this.fileInfo.LastAccessTimeUtc;
-        #endregion
 
-        #region LastWriteTime
         /// <summary>
         /// Gets the time when the current file or directory was last written to.
         /// </summary>
@@ -521,9 +451,7 @@ namespace Cadru.IO
         /// <para>Windows Mobile for Pocket PC, Windows Mobile for Smartphone, Windows CE Platform Note: This property is read-only.</para>
         /// </remarks>
         public DateTime LastWriteTime => this.fileInfo.LastWriteTime;
-        #endregion
 
-        #region LastWriteTimeUtc
         /// <summary>
         /// Gets the time, in coordinated universal time (UTC), when the current file or directory was last written to.
         /// </summary>
@@ -538,65 +466,55 @@ namespace Cadru.IO
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
         public DateTime LastWriteTimUtc => this.fileInfo.LastWriteTimeUtc;
-        #endregion
 
-        #region LegalCopyright
         /// <summary>
         /// Gets all copyright notices that apply to the specified file.
         /// </summary>
         /// <value>The copyright notices that apply to the specified file.</value>
         /// <remarks>This should include the full text of all notices, legal symbols, copyright dates, and so on or a <see langword="null" /> if the file did not contain version information.</remarks>
         public string LegalCopyright => this.fileVersionInfo.LegalCopyright;
-        #endregion
 
-        #region LegalTrademarks
         /// <summary>
         /// Gets the trademarks and registered trademarks that apply to the file.
         /// </summary>
         /// <value>The trademarks and registered trademarks that apply to the file or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks>The legal trademarks include the full text of all notices, legal symbols, and trademark numbers.</remarks>
         public string LegalTrademarks => this.fileVersionInfo.LegalTrademarks;
-        #endregion
 
-        #region Length
         /// <summary>
         /// Gets the size of the current file.
         /// </summary>
         /// <value>The size of the current file.</value>
-        /// <exception cref="IOException"><see cref="Refresh"/> cannot update
+        /// <exception cref="IOException"><see cref="Refresh" /> cannot update
         /// the state of the file or directory.</exception>
         /// <exception cref="FileNotFoundException"><para>The file does not
         /// exist.</para>
         /// <para>-or-</para>
-        /// <para>The <see cref="Length"/> property is called for a
+        /// <para>The <see cref="Length" /> property is called for a
         /// directory.</para>
         /// </exception>
-        /// <remarsk><para>This property value is a <see langword="null"/>
+        /// <remarsk><para>This property value is a <see langword="null" />
         /// if the file system containing the file does not support this
         /// information.</para>
-        /// <para>When first called, <see cref="ExtendedFileInfo"/>
-        /// calls <see cref="Refresh"/> and caches information on the file. On
-        /// subsequent calls, you must call <see cref="Refresh"/> to get the
+        /// <para>When first called, <see cref="ExtendedFileInfo" />
+        /// calls <see cref="Refresh" /> and caches information on the file. On
+        /// subsequent calls, you must call <see cref="Refresh" /> to get the
         /// latest copy of the information.</para>
         /// </remarsk>
         public long Length => this.fileInfo.Length;
-        #endregion
 
-        #region Name
         /// <summary>
         /// Gets the name of the file.
         /// </summary>
         /// <value>The name of the file.</value>
         /// <remarsk>
-        /// <para>When first called, <see cref="ExtendedFileInfo"/>
-        /// calls <see cref="Refresh"/> and caches information on the file. On
-        /// subsequent calls, you must call <see cref="Refresh"/> to get the
+        /// <para>When first called, <see cref="ExtendedFileInfo" />
+        /// calls <see cref="Refresh" /> and caches information on the file. On
+        /// subsequent calls, you must call <see cref="Refresh" /> to get the
         /// latest copy of the information.</para>
         /// </remarsk>
         public string Name => this.fileInfo.Name;
-        #endregion
 
-        #region OriginalFilename
         /// <summary>
         /// Gets the name the file was created with.
         /// </summary>
@@ -604,18 +522,14 @@ namespace Cadru.IO
         /// <remarks>This property enables an application to determine whether a file has been renamed.</remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "Filename", Justification = "This property follows the same naming convention as the underlying property in the FileVersionInfo class.")]
         public string OriginalFilename => this.fileVersionInfo.OriginalFilename;
-        #endregion
 
-        #region PrivateBuild
         /// <summary>
         /// Gets information about a private version of the file.
         /// </summary>
         /// <value>Information about a private version of the file or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks>This information is present when IsPrivateBuild is true.</remarks>
         public string PrivateBuild => this.fileVersionInfo.PrivateBuild;
-        #endregion
 
-        #region ProductBuildPart
         /// <summary>
         /// Gets the build number of the product this file is associated with.
         /// </summary>
@@ -630,9 +544,7 @@ namespace Cadru.IO
         /// <para>This property gets the third set of 16 bits.</para>
         /// </remarks>
         public int ProductBuildPart => this.fileVersionInfo.ProductBuildPart;
-        #endregion
 
-        #region ProductMajorPart
         /// <summary>
         /// Gets the major part of the version number for the product this file is associated with.
         /// </summary>
@@ -647,9 +559,7 @@ namespace Cadru.IO
         /// <para>This property gets the first set of 16 bits.</para>
         /// </remarks>
         public int ProductMajorPart => this.fileVersionInfo.ProductMajorPart;
-        #endregion
 
-        #region ProductMinorPart
         /// <summary>
         /// Gets the minor part of the version number for the product this file is associated with.
         /// </summary>
@@ -664,17 +574,13 @@ namespace Cadru.IO
         /// <para>This property gets the second set of 16 bits.</para>
         /// </remarks>
         public int ProductMinorPart => this.fileVersionInfo.ProductMinorPart;
-        #endregion
 
-        #region ProductName
         /// <summary>
         /// Gets the name of the product this file is distributed with.
         /// </summary>
         /// <value>The name of the product this file is distributed with or a <see langword="null" /> if the file did not contain version information.</value>
         public string ProductName => this.fileVersionInfo.ProductName;
-        #endregion
 
-        #region ProductPrivatePart
         /// <summary>
         /// Gets the private part number of the product this file is associated with..
         /// </summary>
@@ -689,9 +595,7 @@ namespace Cadru.IO
         /// <para>This property gets the last set of 16 bits.</para>
         /// </remarks>
         public int ProductPrivatePart => this.fileVersionInfo.ProductPrivatePart;
-        #endregion
 
-        #region ProductVersion
         /// <summary>
         /// Gets the version of the product this file is distributed with.
         /// </summary>
@@ -705,36 +609,24 @@ namespace Cadru.IO
         /// </list>
         /// </remarks>
         public string ProductVersion => this.fileVersionInfo.ProductVersion;
-        #endregion
 
-        #region SpecialBuild
         /// <summary>
         /// Gets the special build information for the file.
         /// </summary>
         /// <value>The special build information for the file or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks>If IsSpecialBuild is true, SpecialBuild must specify how this file differs from the standard version of the file.</remarks>
         public string SpecialBuild => this.fileVersionInfo.SpecialBuild;
-        #endregion
 
-        #endregion
-
-        #region methods
-
-        #region AppendText
         /// <summary>
-        /// Creates a <see cref="StreamWriter"/> that appends text to the file
-        /// represented by this instance of the <see cref="ExtendedFileInfo"/>.
+        /// Creates a <see cref="StreamWriter" /> that appends text to the file
+        /// represented by this instance of the <see cref="ExtendedFileInfo" />.
         /// </summary>
-        /// <returns>A new <see cref="StreamWriter"/>.</returns>
+        /// <returns>A new <see cref="StreamWriter" />.</returns>
         public StreamWriter AppendText()
         {
             return this.fileInfo.AppendText();
         }
-        #endregion
 
-        #region CopyTo
-
-        #region CopyTo(string destinationFileName)
         /// <summary>
         /// Copies an existing file to a new file, disallowing the overwriting
         /// of an existing file.
@@ -742,7 +634,7 @@ namespace Cadru.IO
         /// <param name="destinationFileName">The name of the new file to copy to.
         /// </param>
         /// <returns>A new file with a fully qualified path.</returns>
-        /// <exception cref="ArgumentException"><paramref name="destinationFileName"/>
+        /// <exception cref="ArgumentException"><paramref name="destinationFileName" />
         /// is empty, contains only white space, or contains invalid
         /// characters.</exception>
         /// <exception cref="IOException">An error occurs, or the destination
@@ -750,13 +642,13 @@ namespace Cadru.IO
         /// <exception cref="SecurityException">The caller does not have the
         /// required permission.</exception>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="destinationFileName"/> is a <see langword="null"/>.
+        /// <paramref name="destinationFileName" /> is a <see langword="null" />.
         /// </exception>
         /// <exception cref="UnauthorizedAccessException">A directory path is
         /// passed in, or the file is being moved to a differnt drive.
         /// </exception>
         /// <exception cref="DirectoryNotFoundException">The directory
-        /// specified in <paramref name="destinationFileName"/> does not exist.
+        /// specified in <paramref name="destinationFileName" /> does not exist.
         /// </exception>
         /// <exception cref="PathTooLongException">The specified path, file
         /// name, or both exceeded the system-defined maximum length. For
@@ -774,38 +666,36 @@ namespace Cadru.IO
         {
             return this.fileInfo.CopyTo(destinationFileName);
         }
-        #endregion
 
-        #region CopyTo(string destinationFileName, bool overwrite)
         /// <summary>
         /// Copies an existing file to a new file, allowing the overwriting
         /// of an existing file.
         /// </summary>
         /// <param name="destinationFileName">The name of the new file to copy to.
         /// </param>
-        /// <param name="overwrite"><see langword="true"/> to allow an
-        /// existing file to be overwritten; otherwise <see langword="false"/>.
+        /// <param name="overwrite"><see langword="true" /> to allow an
+        /// existing file to be overwritten; otherwise <see langword="false" />.
         /// </param>
         /// <returns>A new file, or an overwrite of an existing file if
-        /// <paramref name="overwrite"/> is <see langword="true"/>. If the file
-        /// exists and <paramref name="overwrite"/> is <see langword="false"/>,
-        /// an <see cref="IOException"/> is thrown.</returns>
-        /// <exception cref="ArgumentException"><paramref name="destinationFileName"/>
+        /// <paramref name="overwrite" /> is <see langword="true" />. If the file
+        /// exists and <paramref name="overwrite" /> is <see langword="false" />,
+        /// an <see cref="IOException" /> is thrown.</returns>
+        /// <exception cref="ArgumentException"><paramref name="destinationFileName" />
         /// is empty, contains only white space, or contains invalid
         /// characters.</exception>
         /// <exception cref="IOException">An error occurs, or the destination
-        /// file already exists and <paramref name="overwrite"/> is
-        /// <see langword="false"/>.</exception>
+        /// file already exists and <paramref name="overwrite" /> is
+        /// <see langword="false" />.</exception>
         /// <exception cref="SecurityException">The caller does not have the
         /// required permission.</exception>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="destinationFileName"/> is a <see langword="null"/>.
+        /// <paramref name="destinationFileName" /> is a <see langword="null" />.
         /// </exception>
         /// <exception cref="UnauthorizedAccessException">A directory path is
         /// passed in, or the file is being moved to a differnt drive.
         /// </exception>
         /// <exception cref="DirectoryNotFoundException">The directory
-        /// specified in <paramref name="destinationFileName"/> does not exist.
+        /// specified in <paramref name="destinationFileName" /> does not exist.
         /// </exception>
         /// <exception cref="PathTooLongException">The specified path, file
         /// name, or both exceeded the system-defined maximum length. For
@@ -813,7 +703,7 @@ namespace Cadru.IO
         /// characters, and file names must be less than 260 characters.
         /// </exception>
         /// <exception cref="NotSupportedException">
-        /// <paramref name="overwrite"/> contains a colon (:) in the middle
+        /// <paramref name="overwrite" /> contains a colon (:) in the middle
         /// of the string.</exception>
         /// <remarks><para>Use this method to allow or prevent overwriting of
         /// an existing file. Use the <see cref="CopyTo(String)"/> method to
@@ -827,11 +717,7 @@ namespace Cadru.IO
         {
             return this.fileInfo.CopyTo(destinationFileName, overwrite);
         }
-        #endregion
 
-        #endregion
-
-        #region Create
         /// <summary>
         /// Creates a file.
         /// </summary>
@@ -844,17 +730,16 @@ namespace Cadru.IO
         {
             return this.fileInfo.Create();
         }
-        #endregion
 
         //#region Decrypt
         ///// <summary>
         ///// Decrypts a file that was encrypted by the current account using
-        ///// the <see cref="Encrypt"/> method.
+        ///// the <see cref="Encrypt" /> method.
         ///// </summary>
         ///// <exception cref="DriveNotFoundException">An invalid drive was
         ///// specified.</exception>
         ///// <exception cref="FileNotFoundException">THe file described by the
-        ///// current <see cref="ExtendedFileInfo"/> object could not be
+        ///// current <see cref="ExtendedFileInfo" /> object could not be
         ///// found.</exception>
         ///// <exception cref="IOException">An I/O error occurred while opening
         ///// the file.</exception>
@@ -864,18 +749,18 @@ namespace Cadru.IO
         ///// operating system is not Microsoft Windows NT or later.</exception>
         ///// <exception cref="UnauthorizedAccessException">
         ///// <para>The file described by the current
-        ///// <see cref="ExtendedFileInfo"/> object is read-only.</para>
+        ///// <see cref="ExtendedFileInfo" /> object is read-only.</para>
         ///// <para>-or-</para>
         ///// <para>This operation is not supported on the current
         ///// platform.</para>
         ///// <para>-or-</para>
         ///// <para>The caller does not have the required permission.</para>
         ///// </exception>
-        ///// <remarks><para>The <see cref="Decrypt"/> method allows you to
-        ///// decrypt a file that was encrypted using the <see cref="Encrypt"/>
-        ///// method. THe <see cref="Decrypt"/> method can decrypt only files
+        ///// <remarks><para>The <see cref="Decrypt" /> method allows you to
+        ///// decrypt a file that was encrypted using the <see cref="Encrypt" />
+        ///// method. THe <see cref="Decrypt" /> method can decrypt only files
         ///// that were encrypted using the current user account.</para>
-        ///// <para>Both the <see cref="Encrypt"/> and <see cref="Decrypt"/>
+        ///// <para>Both the <see cref="Encrypt" /> and <see cref="Decrypt" />
         ///// method use the cryptographic service provider (CSP) installed on
         ///// the computer and the file encryption keys of the process calling
         ///// the method.</para>
@@ -888,7 +773,6 @@ namespace Cadru.IO
         //}
         //#endregion
 
-        #region Delete
         /// <summary>
         /// Permanently deletes a file.
         /// </summary>
@@ -901,14 +785,13 @@ namespace Cadru.IO
         /// directory.</exception>
         /// <remarks><para>If the file does not exist, this method does
         /// nothing.</para>
-        /// <para><b>Windows NT 4.0 Platform Note:</b><see cref="Delete"/>
+        /// <para><b>Windows NT 4.0 Platform Note:</b><see cref="Delete" />
         /// does not delete a file that is open for normal I/O or a file
         /// that is memory-mapped.</para></remarks>
         public void Delete()
         {
             this.fileInfo.Delete();
         }
-        #endregion
 
         //#region Encrypt
         ///// <summary>
@@ -918,7 +801,7 @@ namespace Cadru.IO
         ///// <exception cref="DriveNotFoundException">An invalid drive was
         ///// specified.</exception>
         ///// <exception cref="FileNotFoundException">The file described by the
-        ///// current <see cref="ExtendedFileInfo"/> object could not be
+        ///// current <see cref="ExtendedFileInfo" /> object could not be
         ///// found.</exception>
         ///// <exception cref="IOException">An I/O error occurred while opening
         ///// the file.</exception>
@@ -928,18 +811,18 @@ namespace Cadru.IO
         ///// operating system is not Microsoft Windows NT or later.</exception>
         ///// <exception cref="UnauthorizedAccessException">
         ///// <para>The file described by the current
-        ///// <see cref="ExtendedFileInfo"/> object is read-only.</para>
+        ///// <see cref="ExtendedFileInfo" /> object is read-only.</para>
         ///// <para>-or-</para>
         ///// <para>This operation is not supported on the current
         ///// platform.</para>
         ///// <para>-or-</para>
         ///// <para>The caller does not have the required permission.</para>
         ///// </exception>
-        ///// <remarks><para>The <see cref="Encrypt"/> method allows you to
+        ///// <remarks><para>The <see cref="Encrypt" /> method allows you to
         ///// encrypt a file so that only the current account used to call this
-        ///// method can decrypt it. Use the <see cref="Decrypt"/> method to
-        ///// decrypt a file encrypted by the <see cref="Encrypt"/> method.</para>
-        ///// <para>Both the <see cref="Encrypt"/> and <see cref="Decrypt"/>
+        ///// method can decrypt it. Use the <see cref="Decrypt" /> method to
+        ///// decrypt a file encrypted by the <see cref="Encrypt" /> method.</para>
+        ///// <para>Both the <see cref="Encrypt" /> and <see cref="Decrypt" />
         ///// method use the cryptographic service provider (CSP) installed on
         ///// the computer and the file encryption keys of the process calling
         ///// the method.</para>
@@ -952,15 +835,12 @@ namespace Cadru.IO
         //}
         //#endregion
 
-        #region GetAccessControl
-
-        #region GetAccessControl()
         /// <summary>
-        /// Gets a <see cref="FileSecurity"/> object that encapsulates the
+        /// Gets a <see cref="FileSecurity" /> object that encapsulates the
         /// access control list (ACL) entries for the file described by the
-        /// current <see cref="ExtendedFileInfo"/> object.
+        /// current <see cref="ExtendedFileInfo" /> object.
         /// </summary>
-        /// <returns>A <see cref="FileSecurity"/> object that encapsulates the
+        /// <returns>A <see cref="FileSecurity" /> object that encapsulates the
         /// access control rules for the current file.</returns>
         /// <exception cref="IOException">An I/O error occurred while opening
         /// the file.</exception>
@@ -986,18 +866,16 @@ namespace Cadru.IO
         {
             return this.fileInfo.GetAccessControl();
         }
-        #endregion
 
-        #region GetAccessControl(AccessControlSections includeSections)
         /// <summary>
-        /// Gets a <see cref="FileSecurity"/> object that encapsulates the
+        /// Gets a <see cref="FileSecurity" /> object that encapsulates the
         /// access control list (ACL) entries for the file described by the
-        /// current <see cref="ExtendedFileInfo"/> object.
+        /// current <see cref="ExtendedFileInfo" /> object.
         /// </summary>
         /// <param name="includeSections">One of the
-        /// <see cref="AccessControlSections"/> values that specifies which
+        /// <see cref="AccessControlSections" /> values that specifies which
         /// group of access control entries to retrieve.</param>
-        /// <returns>A <see cref="FileSecurity"/> object that encapsulates the
+        /// <returns>A <see cref="FileSecurity" /> object that encapsulates the
         /// access control rules for the current file.</returns>
         /// <exception cref="IOException">An I/O error occurred while opening
         /// the file.</exception>
@@ -1024,11 +902,7 @@ namespace Cadru.IO
         {
             return this.fileInfo.GetAccessControl(includeSections);
         }
-        #endregion
 
-        #endregion
-
-        #region MoveTo
         /// <summary>
         /// Moves a specified file to a new location, providing the option to
         /// specify a new file name.
@@ -1039,15 +913,15 @@ namespace Cadru.IO
         /// destination file already exists or the destination device is not
         /// ready.</exception>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="destinationFileName"/> is a <see langword="null"/>.
+        /// <paramref name="destinationFileName" /> is a <see langword="null" />.
         /// </exception>
-        /// <exception cref="ArgumentException"><paramref name="destinationFileName"/>
+        /// <exception cref="ArgumentException"><paramref name="destinationFileName" />
         /// is empty, contains only white space, or contains invalid
         /// characters.</exception>
         /// <exception cref="SecurityException">The caller does not have the
         /// required permission.</exception>
         /// <exception cref="UnauthorizedAccessException">
-        /// <paramref name="destinationFileName"/> is read-only or is a directory.
+        /// <paramref name="destinationFileName" /> is read-only or is a directory.
         /// </exception>
         /// <exception cref="FileNotFoundException">The file is not
         /// found.</exception>
@@ -1059,7 +933,7 @@ namespace Cadru.IO
         /// characters, and file names must be less than 260 characters.
         /// </exception>
         /// <exception cref="NotSupportedException">
-        /// <paramref name="destinationFileName"/> contains a colon (:) in the middle
+        /// <paramref name="destinationFileName" /> contains a colon (:) in the middle
         /// of the string.</exception>
         /// <remarks><para>This method works across disk volumes. For example,
         /// the file C:\MyFile.txt can be moved to D:\public and renamed
@@ -1072,11 +946,7 @@ namespace Cadru.IO
         {
             this.fileInfo.MoveTo(destinationFileName);
         }
-        #endregion
 
-        #region Open
-
-        #region Open(FileMode mode)
         /// <summary>
         /// Opens a file in the specified mode.
         /// </summary>
@@ -1090,9 +960,7 @@ namespace Cadru.IO
         {
             return this.fileInfo.Open(mode);
         }
-        #endregion
 
-        #region Open(FileMode mode, FileAccess access)
         /// <summary>
         /// Opens a file in the specified mode with read, write, or read/write access.
         /// </summary>
@@ -1102,7 +970,7 @@ namespace Cadru.IO
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         /// <exception cref="ArgumentException">path is empty or contains only white spaces.</exception>
         /// <exception cref="FileNotFoundException">The file is not found.</exception>
-        /// <exception cref="ArgumentNullException">One or more arguments is a <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentNullException">One or more arguments is a <see langword="null" />.</exception>
         /// <exception cref="UnauthorizedAccessException">path is read-only or is a directory.</exception>
         /// <exception cref="DirectoryNotFoundException">The specified path is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="IOException">The file is already open.</exception>
@@ -1110,9 +978,7 @@ namespace Cadru.IO
         {
             return this.fileInfo.Open(mode, access);
         }
-        #endregion
 
-        #region Open(FileMode mode, FileAccess access, FileShare share)
         /// <summary>
         /// Opens a file in the specified mode with read, write, or read/write access and the specified sharing option.
         /// </summary>
@@ -1123,7 +989,7 @@ namespace Cadru.IO
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         /// <exception cref="ArgumentException">path is empty or contains only white spaces.</exception>
         /// <exception cref="FileNotFoundException">The file is not found.</exception>
-        /// <exception cref="ArgumentNullException">One or more arguments is a <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentNullException">One or more arguments is a <see langword="null" />.</exception>
         /// <exception cref="UnauthorizedAccessException">path is read-only or is a directory.</exception>
         /// <exception cref="DirectoryNotFoundException">The specified path is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="IOException">The file is already open.</exception>
@@ -1131,16 +997,12 @@ namespace Cadru.IO
         {
             return this.fileInfo.Open(mode, access, share);
         }
-        #endregion
 
-        #endregion
-
-        #region OpenRead
         /// <summary>
         /// Creates a read-only FileStream.
         /// </summary>
         /// <returns>A new read-only FileStream object.</returns>
-        /// <exception cref="UnauthorizedAccessException">The path used to construct this <see cref="ExtendedFileInfo"/> instance is read-only or is a directory.</exception>
+        /// <exception cref="UnauthorizedAccessException">The path used to construct this <see cref="ExtendedFileInfo" /> instance is read-only or is a directory.</exception>
         /// <exception cref="DirectoryNotFoundException">The specified path is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="IOException">The file is already open.</exception>
         /// <remarks>This method returns a read-only FileStream object with the FileShare mode set to Read.</remarks>
@@ -1148,9 +1010,7 @@ namespace Cadru.IO
         {
             return this.fileInfo.OpenRead();
         }
-        #endregion
 
-        #region OpenText
         /// <summary>
         /// Creates a StreamReader with UTF8 encoding that reads from an existing text file.
         /// </summary>
@@ -1163,22 +1023,18 @@ namespace Cadru.IO
         {
             return this.fileInfo.OpenText();
         }
-        #endregion
 
-        #region OpenWrite
         /// <summary>
         /// Creates a write-only FileStream.
         /// </summary>
         /// <returns>A new write-only unshared FileStream object.</returns>
-        /// <exception cref="UnauthorizedAccessException">The path used to construct this <see cref="ExtendedFileInfo"/> instance is read-only or is a directory.</exception>
+        /// <exception cref="UnauthorizedAccessException">The path used to construct this <see cref="ExtendedFileInfo" /> instance is read-only or is a directory.</exception>
         /// <exception cref="DirectoryNotFoundException">The specified path is invalid, such as being on an unmapped drive.</exception>
         public FileStream OpenWrite()
         {
             return this.fileInfo.OpenWrite();
         }
-        #endregion
 
-        #region Refresh
         /// <summary>
         /// Refreshes the state of the object.
         /// </summary>
@@ -1191,7 +1047,6 @@ namespace Cadru.IO
         {
             this.fileInfo.Refresh();
         }
-        #endregion
 
         //#region Replace
 
@@ -1202,18 +1057,18 @@ namespace Cadru.IO
         ///// creating a backup of the replaced file.
         ///// </summary>
         ///// <param name="destinationFileName">The name of a file to replace with the current file.</param>
-        ///// <param name="destinationBackupFileName">The name of a file with which to create a backup of the file described by the <paramref name="destinationFileName"/> parameter.</param>
-        ///// <returns>A FileInfo object that encapsulates information about the file described by the <paramref name="destinationFileName"/> parameter.</returns>
+        ///// <param name="destinationBackupFileName">The name of a file with which to create a backup of the file described by the <paramref name="destinationFileName" /> parameter.</param>
+        ///// <returns>A FileInfo object that encapsulates information about the file described by the <paramref name="destinationFileName" /> parameter.</returns>
         ///// <exception cref="ArgumentException">
-        ///// <para>The path described by the <paramref name="destinationFileName"/> parameter was not of a legal form.</para>
+        ///// <para>The path described by the <paramref name="destinationFileName" /> parameter was not of a legal form.</para>
         ///// <para>-or-</para>
-        ///// <para>The path described by the <paramref name="destinationBackupFileName"/> parameter was not of a legal form.</para>
+        ///// <para>The path described by the <paramref name="destinationBackupFileName" /> parameter was not of a legal form.</para>
         ///// </exception>
-        ///// <exception cref="ArgumentNullException">The <paramref name="destinationFileName"/> parameter is a <see langword="null" />.</exception>
+        ///// <exception cref="ArgumentNullException">The <paramref name="destinationFileName" /> parameter is a <see langword="null" />.</exception>
         ///// <exception cref="FileNotFoundException">
         ///// <para>The file described by the current FileInfo object could not be found.</para>
         ///// <para>-or-</para>
-        ///// <para>The file described by the <paramref name="destinationFileName"/> parameter could not be found.</para>
+        ///// <para>The file described by the <paramref name="destinationFileName" /> parameter could not be found.</para>
         ///// </exception>
         ///// <exception cref="PlatformNotSupportedException">The current operating system is not Microsoft Windows NT or later.</exception>
         ///// <remarks>
@@ -1223,11 +1078,11 @@ namespace Cadru.IO
         ///// Finally, it returns a new FileInfo object that describes the
         ///// overwritten file.</para>
         ///// <para type="caution">This method will succeed in Windows 2000
-        ///// environments if the <paramref name="destinationFileName"/>
+        ///// environments if the <paramref name="destinationFileName" />
         ///// is read-only and will not raise an exception. Use the
         ///// IsReadOnly property to check if the
         ///// destination file is read-only before attempting to replace it.</para>
-        ///// <para>Pass a <see langword="null"/> to the <paramref name="destinationBackupFileName"/>
+        ///// <para>Pass a <see langword="null" /> to the <paramref name="destinationBackupFileName" />
         ///// parameter if you do not want to create a backup of the file being replaced.</para>
         ///// </remarks>
         //public FileInfo Replace(string destinationFileName, string destinationBackupFileName)
@@ -1241,25 +1096,25 @@ namespace Cadru.IO
         ///// Replaces the contents of a specified file with the file described by the current FileInfo object, deleting the original file, and creating a backup of the replaced file. Also specifies whether to ignore merge errors.
         ///// </summary>
         ///// <param name="destinationFileName">The name of a file to replace with the current file.</param>
-        ///// <param name="destinationBackupFileName">The name of a file with which to create a backup of the file described by the <paramref name="destinationFileName"/> parameter.</param>
-        ///// <param name="ignoreMetadataErrors"><see langword="true"/> to ignore merge errors (such as attributes and ACLs) from the replaced file to the replacement file; otherwise <see langword="false"/>.</param>
-        ///// <returns>A FileInfo object that encapsulates information about the file described by the <paramref name="destinationFileName"/> parameter.</returns>
+        ///// <param name="destinationBackupFileName">The name of a file with which to create a backup of the file described by the <paramref name="destinationFileName" /> parameter.</param>
+        ///// <param name="ignoreMetadataErrors"><see langword="true" /> to ignore merge errors (such as attributes and ACLs) from the replaced file to the replacement file; otherwise <see langword="false" />.</param>
+        ///// <returns>A FileInfo object that encapsulates information about the file described by the <paramref name="destinationFileName" /> parameter.</returns>
         ///// <exception cref="ArgumentException">
-        ///// <para>The path described by the <paramref name="destinationFileName"/> parameter was not of a legal form.</para>
+        ///// <para>The path described by the <paramref name="destinationFileName" /> parameter was not of a legal form.</para>
         ///// <para>-or-</para>
-        ///// <para>The path described by the <paramref name="destinationBackupFileName"/> parameter was not of a legal form.</para>
+        ///// <para>The path described by the <paramref name="destinationBackupFileName" /> parameter was not of a legal form.</para>
         ///// </exception>
-        ///// <exception cref="ArgumentNullException">The <paramref name="destinationFileName"/> parameter is a <see langword="null" />.</exception>
+        ///// <exception cref="ArgumentNullException">The <paramref name="destinationFileName" /> parameter is a <see langword="null" />.</exception>
         ///// <exception cref="FileNotFoundException">
         ///// <para>The file described by the current FileInfo object could not be found.</para>
         ///// <para>-or-</para>
-        ///// <para>The file described by the <paramref name="destinationFileName"/> parameter could not be found.</para>
+        ///// <para>The file described by the <paramref name="destinationFileName" /> parameter could not be found.</para>
         ///// </exception>
         ///// <exception cref="PlatformNotSupportedException">The current operating system is not Microsoft Windows NT or later.</exception>
         ///// <remarks>
         ///// <para>The Replace method replaces the contents of a specified file with the contents of the file described by the current FileInfo object. It also creates a backup of the file that was replaced. Finally, it returns a new FileInfo object that describes the overwritten file.</para>
-        ///// <para type="caution">This method will succeed in Windows 2000 environments if the <paramref name="destinationFileName"/> is read-only and will not raise an exception. Use the IsReadOnly property to check if the destination file is read-only before attempting to replace it.</para>
-        ///// <para>Pass a <see langword="null" /> to the <paramref name="destinationBackupFileName"/> parameter if you do not want to create a backup of the file being replaced.</para>
+        ///// <para type="caution">This method will succeed in Windows 2000 environments if the <paramref name="destinationFileName" /> is read-only and will not raise an exception. Use the IsReadOnly property to check if the destination file is read-only before attempting to replace it.</para>
+        ///// <para>Pass a <see langword="null" /> to the <paramref name="destinationBackupFileName" /> parameter if you do not want to create a backup of the file being replaced.</para>
         ///// </remarks>
         //public FileInfo Replace(string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors)
         //{
@@ -1269,12 +1124,11 @@ namespace Cadru.IO
 
         //#endregion
 
-        #region SetAccessControl
         /// <summary>
         /// Applies access control list (ACL) entries described by a FileSecurity object to the file described by the current FileInfo object.
         /// </summary>
         /// <param name="fileSecurity">A FileSecurity object that describes an access control list (ACL) entry to apply to the current file.</param>
-        /// <exception cref="ArgumentNullException">The <paramref name="fileSecurity"/> parameter is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentNullException">The <paramref name="fileSecurity" /> parameter is <see langword="null" />.</exception>
         /// <exception cref="SystemException">The file could not be found or modified.</exception>
         /// <exception cref="UnauthorizedAccessException">The current process does not have access to open the file.</exception>
         /// <exception cref="PlatformNotSupportedException">The current operating system is not Microsoft Windows 2000 or later.</exception>
@@ -1297,9 +1151,7 @@ namespace Cadru.IO
         {
             this.fileInfo.SetAccessControl(fileSecurity);
         }
-        #endregion
 
-        #region ToString
         /// <summary>
         /// Returns the path as a string.
         /// </summary>
@@ -1309,9 +1161,7 @@ namespace Cadru.IO
         {
             return this.fileInfo.ToString();
         }
-        #endregion
 
-        #region Initialize
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
 #if NET40
         [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
@@ -1399,8 +1249,5 @@ namespace Cadru.IO
 
             this.fileOwner = owner;
         }
-        #endregion
-
-        #endregion
     }
 }

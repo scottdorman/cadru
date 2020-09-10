@@ -22,8 +22,6 @@
 
 namespace Cadru.Environment.InteropServices
 {
-    using System;
-    using System.IO;
     using System.Runtime.InteropServices;
 
     internal static class SafeNativeMethods

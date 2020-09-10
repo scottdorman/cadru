@@ -14,54 +14,54 @@ Sample license text.
         </member>
         <member name="M:Cadru.Net.Http.Collections.QueryStringParametersDictionary.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary"/>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary" />
             class that is empty and has the default initial capacity.
             </summary>
         </member>
         <member name="M:Cadru.Net.Http.Collections.QueryStringParametersDictionary.#ctor(System.Int32)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary"/>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary" />
             class that is empty and has the specified initial capacity.
             </summary>
             <param name="capacity">The initial number of elements that the
-            <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary"/> can contain.</param>
+            <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary" /> can contain.</param>
             <exception cref="T:System.ArgumentOutOfRangeException">
-            <paramref name="capacity"/> is less than 0.</exception>
+            <paramref name="capacity" /> is less than 0.</exception>
         </member>
         <member name="M:Cadru.Net.Http.Collections.QueryStringParametersDictionary.#ctor(System.Collections.Generic.IDictionary{System.String,System.String})">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary"/>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary" />
             class that contains elements copied from the specified
-            <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            <see cref="T:System.Collections.Generic.IDictionary`2" />.
             </summary>
             <param name="dictionary">
-            The <see cref="T:System.Collections.Generic.IDictionary`2"/>
+            The <see cref="T:System.Collections.Generic.IDictionary`2" />
             whose elements are copied to the new
-            <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary"/>.
+            <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary" />.
             </param>
             <exception cref="T:System.ArgumentNullException">
-            <paramref name="dictionary"/> is <see langword="null"/>.
+            <paramref name="dictionary" /> is <see langword="null" />.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <paramref name="dictionary"/> contains one or more duplicate keys.
+            <paramref name="dictionary" /> contains one or more duplicate keys.
             </exception>
         </member>
         <member name="M:Cadru.Net.Http.Collections.QueryStringParametersDictionary.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary"/>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary" />
             class that contains elements parsed from the given query.
             </summary>
             <remarks>Multiple occurrences of the same query string variable are not supported.</remarks>
             <param name="query">The string to be parsed.</param>
             <exception cref="T:System.ArgumentNullException">
-            <paramref name="query"/> contains one or more keys whose value
-            is <see langword="null"/>.
+            <paramref name="query" /> contains one or more keys whose value
+            is <see langword="null" />.
             </exception>
             <exception cref="T:System.ArgumentException">
-            <paramref name="query"/> contains one or more duplicate keys.
+            <paramref name="query" /> contains one or more duplicate keys.
             </exception>
             <exception cref="T:System.InvalidOperationException">
-            <paramref name="query"/> is not properly formed.
+            <paramref name="query" /> is not properly formed.
             </exception>
         </member>
         <member name="M:Cadru.Net.Http.Collections.QueryStringParametersDictionary.AddRange(Cadru.Net.Http.Collections.QueryStringParametersDictionary)">
@@ -85,7 +85,7 @@ Sample license text.
         </member>
         <member name="M:Cadru.Net.Http.CompressingHttpClientHandler.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.CompressingHttpClientHandler"/> class
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.CompressingHttpClientHandler" /> class
             with a specific inner handler.
             </summary>
         </member>
@@ -243,14 +243,14 @@ Sample license text.
         </member>
         <member name="M:Cadru.Net.Http.Extensions.HttpExtensions.CreateRequestMessage(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.Uri,Cadru.Net.Http.Collections.QueryStringParametersDictionary,System.Collections.Generic.IDictionary{System.String,System.String})">
             <summary>
-            Creates a valid <see cref="T:System.Net.Http.HttpRequestMessage"/> with the given properties.
+            Creates a valid <see cref="T:System.Net.Http.HttpRequestMessage" /> with the given properties.
             </summary>
-            <param name="httpClient">The <see cref="T:System.Net.Http.HttpClient"/> instance used to create the message.</param>
+            <param name="httpClient">The <see cref="T:System.Net.Http.HttpClient" /> instance used to create the message.</param>
             <param name="method">The HTTP method.</param>
-            <param name="uri">The <see cref="T:System.Uri"/> to request.</param>
+            <param name="uri">The <see cref="T:System.Uri" /> to request.</param>
             <param name="queryStringParameters">The query string parameters.</param>
             <param name="headerCollection">Additional request headers to be included.</param>
-            <returns>A valid <see cref="T:System.Net.Http.HttpRequestMessage"/>.</returns>
+            <returns>A valid <see cref="T:System.Net.Http.HttpRequestMessage" />.</returns>
         </member>
         <member name="M:Cadru.Net.Http.Extensions.HttpExtensions.GetContentHeaders(System.Net.Http.HttpRequestMessage)">
             <summary>
@@ -295,11 +295,11 @@ Sample license text.
             <param name="requestMessage"></param>
             <param name="name">The specified header.</param>
             <param name="value">The specified header value.</param>
-            <returns><see langword="true"/> if the specified header name and values are stored in the collection; otherwise, <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if the specified header name and values are stored in the collection; otherwise, <see langword="false" />.</returns>
         </member>
         <member name="T:Cadru.Net.Http.Extensions.UriExtensions">
             <summary>
-            Extensions for working with <see cref="T:System.Uri"/> instances.
+            Extensions for working with <see cref="T:System.Uri" /> instances.
             </summary>
         </member>
         <member name="M:Cadru.Net.Http.Extensions.UriExtensions.GetUriSegment(System.Uri,System.Int32)">
@@ -308,7 +308,7 @@ Sample license text.
             </summary>
             <param name="uri">The URI instance.</param>
             <param name="index">The index of the path segment.</param>
-            <returns>The path segment at the specified index or <see cref="F:System.String.Empty"/> if the segment is not found.</returns>
+            <returns>The path segment at the specified index or <see cref="F:System.String.Empty" /> if the segment is not found.</returns>
         </member>
         <member name="T:Cadru.Net.Http.HttpRequestWithStatusException">
             <summary>
@@ -317,32 +317,32 @@ Sample license text.
         </member>
         <member name="M:Cadru.Net.Http.HttpRequestWithStatusException.#ctor(System.Net.Http.HttpResponseMessage)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.HttpRequestWithStatusException"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.HttpRequestWithStatusException" /> class.
             </summary>
             <param name="responseMessage">The response for this exception.</param>
         </member>
         <member name="M:Cadru.Net.Http.HttpRequestWithStatusException.#ctor(System.Net.Http.HttpResponseMessage,System.Exception)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.HttpRequestWithStatusException"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.HttpRequestWithStatusException" /> class.
             </summary>
             <param name="responseMessage">A message that describes the current exception.</param>
             <param name="inner">The inner exception.</param>
         </member>
         <member name="M:Cadru.Net.Http.HttpRequestWithStatusException.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.HttpRequestWithStatusException"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.HttpRequestWithStatusException" /> class.
             </summary>
         </member>
         <member name="M:Cadru.Net.Http.HttpRequestWithStatusException.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.HttpRequestWithStatusException"/> class
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.HttpRequestWithStatusException" /> class
             with a specific message that describes the current exception.
             </summary>
             <param name="message">A message that describes the current exception.</param>
         </member>
         <member name="M:Cadru.Net.Http.HttpRequestWithStatusException.#ctor(System.String,System.Exception)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.HttpRequestWithStatusException"/> class
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.HttpRequestWithStatusException" /> class
             with a specific message that describes the current exception and an inner
             exception.
             </summary>
@@ -364,15 +364,15 @@ Sample license text.
         </member>
         <member name="T:Cadru.Net.Http.HttpTransientErrorDetectionStrategy">
             <summary>
-            Represents a strategy that determines whether or not a given <see cref="T:System.Net.Http.HttpRequestException"/> should
+            Represents a strategy that determines whether or not a given <see cref="T:System.Net.Http.HttpRequestException" /> should
             be considered as a transient error.
             </summary>
         </member>
         <member name="P:Cadru.Net.Http.HttpTransientErrorDetectionStrategy.IsDefaultStrategy">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Net.Http.HttpTransientErrorDetectionStrategy.ShouldHandle(System.Exception)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.Net.Http.Resources.Strings">
             <summary>
@@ -858,7 +858,7 @@ Sample license text.
         </member>
         <member name="M:Cadru.Net.Http.UriScheme.op_Implicit(Cadru.Net.Http.UriScheme)~System.String">
             <summary>
-            Defines an implicit conversion from <see cref="T:Cadru.Net.Http.UriScheme"/> to <see cref="T:System.String"/>.
+            Defines an implicit conversion from <see cref="T:Cadru.Net.Http.UriScheme" /> to <see cref="T:System.String" />.
             </summary>
             <param name="value">The object to convert.</param>
             <returns>
@@ -867,53 +867,53 @@ Sample license text.
         </member>
         <member name="M:Cadru.Net.Http.UriScheme.op_Inequality(Cadru.Net.Http.UriScheme,Cadru.Net.Http.UriScheme)">
             <summary>
-            Determines whether two specified <see cref="T:Cadru.Net.Http.UriScheme"/>
+            Determines whether two specified <see cref="T:Cadru.Net.Http.UriScheme" />
             objects represent different schemes.
             </summary>
             <param name="left">The first object to compare.</param>
             <param name="right">The second object to compare.</param>
             <returns>
-            <see langword="true"/> if <paramref name="left"/> and
-            <paramref name="right"/> do not represent the same scheme;
-            otherwise, <see langword="false"/>.
+            <see langword="true" /> if <paramref name="left" /> and
+            <paramref name="right" /> do not represent the same scheme;
+            otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:Cadru.Net.Http.UriScheme.op_Equality(Cadru.Net.Http.UriScheme,Cadru.Net.Http.UriScheme)">
             <summary>
-            Determines whether two specified <see cref="T:Cadru.Net.Http.UriScheme"/>
+            Determines whether two specified <see cref="T:Cadru.Net.Http.UriScheme" />
             objects represent the same scheme.
             </summary>
             <param name="left">The first object to compare.</param>
             <param name="right">The second object to compare.</param>
             <returns>
-            <see langword="true"/> if both objects represent the same scheme;
-            otherwise, <see langword="false"/>.
+            <see langword="true" /> if both objects represent the same scheme;
+            otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:Cadru.Net.Http.UriScheme.Equals(System.Object)">
             <summary>
             Returns a value indicating whether the value of this instance is
-            equal to the value of the specified <see cref="T:Cadru.Net.Http.UriScheme"/>
+            equal to the value of the specified <see cref="T:Cadru.Net.Http.UriScheme" />
             instance.
             </summary>
             <param name="obj">The object to compare to this
             instance.</param>
             <returns>
-            <see langword="true"/> if the <paramref name="obj"/> parameter
-            equals the value of this instance; otherwise, <see langword="false"/>.
+            <see langword="true" /> if the <paramref name="obj" /> parameter
+            equals the value of this instance; otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:Cadru.Net.Http.UriScheme.Equals(Cadru.Net.Http.UriScheme)">
             <summary>
             Returns a value indicating whether the value of this instance is
-            equal to the value of the specified <see cref="T:Cadru.Net.Http.UriScheme"/>
+            equal to the value of the specified <see cref="T:Cadru.Net.Http.UriScheme" />
             instance.
             </summary>
-            <param name="other">The <see cref="T:Cadru.Net.Http.UriScheme"/> to compare to this
+            <param name="other">The <see cref="T:Cadru.Net.Http.UriScheme" /> to compare to this
             instance.</param>
             <returns>
-            <see langword="true"/> if the <paramref name="other"/> parameter
-            equals the value of this instance; otherwise, <see langword="false"/>.
+            <see langword="true" /> if the <paramref name="other" /> parameter
+            equals the value of this instance; otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:Cadru.Net.Http.UriScheme.GetHashCode">
@@ -926,35 +926,35 @@ Sample license text.
         </member>
         <member name="M:Cadru.Net.Http.UriScheme.ToString">
             <summary>
-            Converts the value of the current <see cref="T:Cadru.Net.Http.UriScheme"/>
+            Converts the value of the current <see cref="T:Cadru.Net.Http.UriScheme" />
             object to its equivalent string representation.
             </summary>
             <returns>
-            A string representation of the value of the current <see cref="T:Cadru.Net.Http.UriScheme"/> object.
+            A string representation of the value of the current <see cref="T:Cadru.Net.Http.UriScheme" /> object.
             </returns>
         </member>
         <member name="T:Cadru.Net.Http.UrlBuilder">
             <summary>
             Provides a custom constructor for uniform resource identifiers (URIs)
-            and modifies URIs for the <see cref="T:System.Uri"/> class.
+            and modifies URIs for the <see cref="T:System.Uri" /> class.
             </summary>
         </member>
         <member name="M:Cadru.Net.Http.UrlBuilder.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder" /> class.
             </summary>
         </member>
         <member name="M:Cadru.Net.Http.UrlBuilder.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder" /> class
             with the specified URI.
             </summary>
             <param name="uri">A URI string.</param>
             <exception cref="T:System.ArgumentNullException">
-            <paramref name="uri"/> is <see langword="null"/>.
+            <paramref name="uri" /> is <see langword="null" />.
             </exception>
             <exception cref="T:System.FormatException">
-            <para><paramref name="uri"/> is a zero length string or contains
+            <para><paramref name="uri" /> is a zero length string or contains
             only spaces.</para>
             <para>-or-</para>
             <para>The parsing routine detected a scheme in an invalid form.</para>
@@ -962,21 +962,21 @@ Sample license text.
             <para>The parser detected more than two consecutive slashes in a
             URI that does not use the "file" scheme.</para>
             <para>-or-</para>
-            <para>paramref name="uri"/> is not a valid URI.</para>
+            <para>paramref name="uri" /> is not a valid URI.</para>
             </exception>
         </member>
         <member name="M:Cadru.Net.Http.UrlBuilder.#ctor(System.String,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder" /> class
             with the specified URI and path.
             </summary>
             <param name="uri">A URI string.</param>
             <param name="path">The path to the Internet resource.</param>
             <exception cref="T:System.ArgumentNullException">
-            <paramref name="uri"/> is <see langword="null"/>.
+            <paramref name="uri" /> is <see langword="null" />.
             </exception>
             <exception cref="T:System.FormatException">
-            <para><paramref name="uri"/> is a zero length string or contains
+            <para><paramref name="uri" /> is a zero length string or contains
             only spaces.</para>
             <para>-or-</para>
             <para>The parsing routine detected a scheme in an invalid form.</para>
@@ -984,33 +984,33 @@ Sample license text.
             <para>The parser detected more than two consecutive slashes in a
             URI that does not use the "file" scheme.</para>
             <para>-or-</para>
-            <para>paramref name="uri"/> is not a valid URI.</para>
+            <para>paramref name="uri" /> is not a valid URI.</para>
             </exception>
         </member>
         <member name="M:Cadru.Net.Http.UrlBuilder.#ctor(System.Uri)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class
-            with the specified <see cref="T:System.Uri"/> instance.
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder" /> class
+            with the specified <see cref="T:System.Uri" /> instance.
             </summary>
-            <param name="uri">An instance of the <see cref="T:System.Uri"/> class.</param>
+            <param name="uri">An instance of the <see cref="T:System.Uri" /> class.</param>
             <exception cref="T:System.ArgumentNullException">
-            <paramref name="uri"/> is <see langword="null"/>.
+            <paramref name="uri" /> is <see langword="null" />.
             </exception>
         </member>
         <member name="M:Cadru.Net.Http.UrlBuilder.#ctor(System.Uri,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class
-            with the specified <see cref="T:System.Uri"/> instance.
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder" /> class
+            with the specified <see cref="T:System.Uri" /> instance.
             </summary>
-            <param name="uri">An instance of the <see cref="T:System.Uri"/> class.</param>
+            <param name="uri">An instance of the <see cref="T:System.Uri" /> class.</param>
             <param name="path">The path to the Internet resource.</param>
             <exception cref="T:System.ArgumentNullException">
-            <paramref name="uri"/> is <see langword="null"/>.
+            <paramref name="uri" /> is <see langword="null" />.
             </exception>
         </member>
         <member name="M:Cadru.Net.Http.UrlBuilder.#ctor(Cadru.Net.Http.UriScheme,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder" /> class
             with the specified scheme and host.
             </summary>
             <param name="scheme">An Internet access protocol.</param>
@@ -1018,19 +1018,19 @@ Sample license text.
         </member>
         <member name="M:Cadru.Net.Http.UrlBuilder.#ctor(Cadru.Net.Http.UriScheme,System.String,System.Int32)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder" /> class
             with the specified scheme and host.
             </summary>
             <param name="scheme">An Internet access protocol.</param>
             <param name="host">A DNS-style domain name or IP address.</param>
             <param name="port">An IP port number for the service.</param>
             <exception cref="T:System.ArgumentOutOfRangeException">
-            <paramref name="port"/> is less than -1 or greater than 65,535.
+            <paramref name="port" /> is less than -1 or greater than 65,535.
             </exception>
         </member>
         <member name="M:Cadru.Net.Http.UrlBuilder.#ctor(Cadru.Net.Http.UriScheme,System.String,System.Int32,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder" /> class
             with the specified scheme and host.
             </summary>
             <param name="scheme">An Internet access protocol.</param>
@@ -1038,12 +1038,12 @@ Sample license text.
             <param name="port">An IP port number for the service.</param>
             <param name="path">The path to the Internet resource.</param>
             <exception cref="T:System.ArgumentOutOfRangeException">
-            <paramref name="port"/> is less than -1 or greater than 65,535.
+            <paramref name="port" /> is less than -1 or greater than 65,535.
             </exception>
         </member>
         <member name="M:Cadru.Net.Http.UrlBuilder.#ctor(Cadru.Net.Http.UriScheme,System.String,System.Int32,System.String,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder" /> class
             with the specified scheme and host.
             </summary>
             <param name="scheme">An Internet access protocol.</param>
@@ -1052,13 +1052,13 @@ Sample license text.
             <param name="path">The path to the Internet resource.</param>
             <param name="extraValue">A query string or fragment identifier.</param>
             <exception cref="T:System.ArgumentException">
-            <paramref name="extraValue"/> is neither <see langword="null"/>
+            <paramref name="extraValue" /> is neither <see langword="null" />
             nor <see cref="F:System.String.Empty">System.String.Empty</see>, nor
             does a valid fragment identifier begin with a number sign (#), nor
             a valid query string begin with a question mark (?).
             </exception>
             <exception cref="T:System.ArgumentOutOfRangeException">
-            <paramref name="port"/> is less than -1 or greater than 65,535.
+            <paramref name="port" /> is less than -1 or greater than 65,535.
             </exception>
         </member>
         <member name="P:Cadru.Net.Http.UrlBuilder.Fragment">
@@ -1117,13 +1117,13 @@ Sample license text.
         </member>
         <member name="P:Cadru.Net.Http.UrlBuilder.Uri">
             <summary>
-            Gets the <see cref="T:System.Uri"/> instance constructed by the
-            specified <see cref="T:Cadru.Net.Http.UrlBuilder"/> instance.
+            Gets the <see cref="T:System.Uri" /> instance constructed by the
+            specified <see cref="T:Cadru.Net.Http.UrlBuilder" /> instance.
             </summary>
-            <value>A <see cref="T:System.Uri"/> that contains the URI
-            constructed by the <see cref="T:Cadru.Net.Http.UrlBuilder"/>.</value>
+            <value>A <see cref="T:System.Uri" /> that contains the URI
+            constructed by the <see cref="T:Cadru.Net.Http.UrlBuilder" />.</value>
             <exception cref="T:System.FormatException">
-            <para>The URI constructed by the <see cref="T:Cadru.Net.Http.UrlBuilder"/> properties
+            <para>The URI constructed by the <see cref="T:Cadru.Net.Http.UrlBuilder" /> properties
             is invalid.</para>
             </exception>
         </member>
@@ -1135,14 +1135,14 @@ Sample license text.
         </member>
         <member name="M:Cadru.Net.Http.UrlBuilder.Equals(System.Object)">
             <summary>
-            Compares an existing <see cref="T:System.Uri"/> instance with the
-            contents of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> for equality.
+            Compares an existing <see cref="T:System.Uri" /> instance with the
+            contents of the <see cref="T:Cadru.Net.Http.UrlBuilder" /> for equality.
             </summary>
             <param name="obj">The object to compare with the current instance.</param>
-            <returns><see langword="true"/> if <paramref name="obj"/>
-            represents the same <see cref="T:System.Uri"/> as the
-            <see cref="T:System.Uri"/> constructed by this
-            <see cref="T:Cadru.Net.Http.UrlBuilder"/> instance; otherwise, <see langword="false"/>.
+            <returns><see langword="true" /> if <paramref name="obj" />
+            represents the same <see cref="T:System.Uri" /> as the
+            <see cref="T:System.Uri" /> constructed by this
+            <see cref="T:Cadru.Net.Http.UrlBuilder" /> instance; otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:Cadru.Net.Http.UrlBuilder.GetHashCode">
@@ -1154,12 +1154,12 @@ Sample license text.
         <member name="M:Cadru.Net.Http.UrlBuilder.ToString">
             <summary>
             Returns the display string for the specified
-            <see cref="T:Cadru.Net.Http.UrlBuilder"/> instance.
+            <see cref="T:Cadru.Net.Http.UrlBuilder" /> instance.
             </summary>
             <returns>The string that contains the unescaped display string of
-            the <see cref="T:Cadru.Net.Http.UrlBuilder"/>.</returns>
+            the <see cref="T:Cadru.Net.Http.UrlBuilder" />.</returns>
             <exception cref="T:System.FormatException">
-            <para>The <see cref="T:Cadru.Net.Http.UrlBuilder"/> instance has a bad password.</para>
+            <para>The <see cref="T:Cadru.Net.Http.UrlBuilder" /> instance has a bad password.</para>
             </exception>
         </member>
     </members>

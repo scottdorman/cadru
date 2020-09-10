@@ -35,7 +35,7 @@ namespace Cadru.Scim.Filters
         /// modify.</param>
         /// <param name="filter">An <see cref="IFilterExpression"></see> to
         /// add.</param>
-        /// <returns>A reference to the <paramref name="filterGroup"/> after the
+        /// <returns>A reference to the <paramref name="filterGroup" /> after the
         /// operation has completed. </returns>
         public static IFilterGroup AddExpression(this IFilterGroup filterGroup, IFilterExpression filter)
         {
@@ -49,7 +49,7 @@ namespace Cadru.Scim.Filters
         /// <param name="filterGroup">A <see cref="IFilterGroup"></see> to modify.</param>
         /// <param name="group">An <see cref="IFilterGroup"></see> to
         /// add.</param>
-        /// <returns>A reference to the <paramref name="filterGroup"/> after the
+        /// <returns>A reference to the <paramref name="filterGroup" /> after the
         /// operation has completed. </returns>
         public static IFilterGroup AddGroup(this IFilterGroup filterGroup, IFilterGroup group)
         {

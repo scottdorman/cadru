@@ -31,11 +31,14 @@ namespace Cadru.Postal
     {
         string AreaName { get; set; }
         List<Attachment> Attachments { get; }
+        ImageEmbedder ImageEmbedder { get; }
         ViewDataDictionary ViewData { get; set; }
         string ViewName { get; set; }
-        ImageEmbedder ImageEmbedder { get; }
+
         void Attach(Attachment attachment);
+
         Task SaveToFileAsync(string path);
+
         Task SendAsync();
     }
 }

@@ -29,7 +29,7 @@ namespace Cadru.Net.Http
 {
     /// <summary>
     /// Provides a custom constructor for uniform resource identifiers (URIs)
-    /// and modifies URIs for the <see cref="System.Uri"/> class.
+    /// and modifies URIs for the <see cref="System.Uri" /> class.
     /// </summary>
     public class UrlBuilder
     {
@@ -37,7 +37,7 @@ namespace Cadru.Net.Http
         private readonly QueryStringParametersDictionary queryParameters;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UrlBuilder"/> class.
+        /// Initializes a new instance of the <see cref="UrlBuilder" /> class.
         /// </summary>
         public UrlBuilder()
         {
@@ -46,15 +46,15 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UrlBuilder"/> class
+        /// Initializes a new instance of the <see cref="UrlBuilder" /> class
         /// with the specified URI.
         /// </summary>
         /// <param name="uri">A URI string.</param>
         /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="uri"/> is <see langword="null"/>.
+        /// <paramref name="uri" /> is <see langword="null" />.
         /// </exception>
         /// <exception cref="System.FormatException">
-        /// <para><paramref name="uri"/> is a zero length string or contains
+        /// <para><paramref name="uri" /> is a zero length string or contains
         /// only spaces.</para>
         /// <para>-or-</para>
         /// <para>The parsing routine detected a scheme in an invalid form.</para>
@@ -62,7 +62,7 @@ namespace Cadru.Net.Http
         /// <para>The parser detected more than two consecutive slashes in a
         /// URI that does not use the "file" scheme.</para>
         /// <para>-or-</para>
-        /// <para>paramref name="uri"/> is not a valid URI.</para>
+        /// <para>paramref name="uri" /> is not a valid URI.</para>
         /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2234:PassSystemUriObjectsInsteadOfStrings", Justification = "Reviewed.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1057:StringUriOverloadsCallSystemUriOverloads", Justification = "Reviewed.")]
@@ -73,16 +73,16 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UrlBuilder"/> class
+        /// Initializes a new instance of the <see cref="UrlBuilder" /> class
         /// with the specified URI and path.
         /// </summary>
         /// <param name="uri">A URI string.</param>
         /// <param name="path">The path to the Internet resource.</param>
         /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="uri"/> is <see langword="null"/>.
+        /// <paramref name="uri" /> is <see langword="null" />.
         /// </exception>
         /// <exception cref="System.FormatException">
-        /// <para><paramref name="uri"/> is a zero length string or contains
+        /// <para><paramref name="uri" /> is a zero length string or contains
         /// only spaces.</para>
         /// <para>-or-</para>
         /// <para>The parsing routine detected a scheme in an invalid form.</para>
@@ -90,7 +90,7 @@ namespace Cadru.Net.Http
         /// <para>The parser detected more than two consecutive slashes in a
         /// URI that does not use the "file" scheme.</para>
         /// <para>-or-</para>
-        /// <para>paramref name="uri"/> is not a valid URI.</para>
+        /// <para>paramref name="uri" /> is not a valid URI.</para>
         /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2234:PassSystemUriObjectsInsteadOfStrings", Justification = "Reviewed.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1057:StringUriOverloadsCallSystemUriOverloads", Justification = "Reviewed.")]
@@ -102,12 +102,12 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UrlBuilder"/> class
-        /// with the specified <see cref="System.Uri"/> instance.
+        /// Initializes a new instance of the <see cref="UrlBuilder" /> class
+        /// with the specified <see cref="System.Uri" /> instance.
         /// </summary>
-        /// <param name="uri">An instance of the <see cref="System.Uri"/> class.</param>
+        /// <param name="uri">An instance of the <see cref="System.Uri" /> class.</param>
         /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="uri"/> is <see langword="null"/>.
+        /// <paramref name="uri" /> is <see langword="null" />.
         /// </exception>
         public UrlBuilder(Uri uri)
         {
@@ -118,13 +118,13 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UrlBuilder"/> class
-        /// with the specified <see cref="System.Uri"/> instance.
+        /// Initializes a new instance of the <see cref="UrlBuilder" /> class
+        /// with the specified <see cref="System.Uri" /> instance.
         /// </summary>
-        /// <param name="uri">An instance of the <see cref="System.Uri"/> class.</param>
+        /// <param name="uri">An instance of the <see cref="System.Uri" /> class.</param>
         /// <param name="path">The path to the Internet resource.</param>
         /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="uri"/> is <see langword="null"/>.
+        /// <paramref name="uri" /> is <see langword="null" />.
         /// </exception>
         public UrlBuilder(Uri uri, string path)
         {
@@ -136,7 +136,7 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UrlBuilder"/> class
+        /// Initializes a new instance of the <see cref="UrlBuilder" /> class
         /// with the specified scheme and host.
         /// </summary>
         /// <param name="scheme">An Internet access protocol.</param>
@@ -148,14 +148,14 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UrlBuilder"/> class
+        /// Initializes a new instance of the <see cref="UrlBuilder" /> class
         /// with the specified scheme and host.
         /// </summary>
         /// <param name="scheme">An Internet access protocol.</param>
         /// <param name="host">A DNS-style domain name or IP address.</param>
         /// <param name="port">An IP port number for the service.</param>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// <paramref name="port"/> is less than -1 or greater than 65,535.
+        /// <paramref name="port" /> is less than -1 or greater than 65,535.
         /// </exception>
         public UrlBuilder(UriScheme scheme, string host, int port)
         {
@@ -164,7 +164,7 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UrlBuilder"/> class
+        /// Initializes a new instance of the <see cref="UrlBuilder" /> class
         /// with the specified scheme and host.
         /// </summary>
         /// <param name="scheme">An Internet access protocol.</param>
@@ -172,7 +172,7 @@ namespace Cadru.Net.Http
         /// <param name="port">An IP port number for the service.</param>
         /// <param name="path">The path to the Internet resource.</param>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// <paramref name="port"/> is less than -1 or greater than 65,535.
+        /// <paramref name="port" /> is less than -1 or greater than 65,535.
         /// </exception>
         public UrlBuilder(UriScheme scheme, string host, int port, string path)
         {
@@ -181,7 +181,7 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UrlBuilder"/> class
+        /// Initializes a new instance of the <see cref="UrlBuilder" /> class
         /// with the specified scheme and host.
         /// </summary>
         /// <param name="scheme">An Internet access protocol.</param>
@@ -190,13 +190,13 @@ namespace Cadru.Net.Http
         /// <param name="path">The path to the Internet resource.</param>
         /// <param name="extraValue">A query string or fragment identifier.</param>
         /// <exception cref="System.ArgumentException">
-        /// <paramref name="extraValue"/> is neither <see langword="null"/>
+        /// <paramref name="extraValue" /> is neither <see langword="null" />
         /// nor <see cref="System.String.Empty">System.String.Empty</see>, nor
         /// does a valid fragment identifier begin with a number sign (#), nor
         /// a valid query string begin with a question mark (?).
         /// </exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// <paramref name="port"/> is less than -1 or greater than 65,535.
+        /// <paramref name="port" /> is less than -1 or greater than 65,535.
         /// </exception>
         public UrlBuilder(UriScheme scheme, string host, int port, string path, string extraValue)
         {
@@ -288,13 +288,13 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Gets the <see cref="System.Uri"/> instance constructed by the
-        /// specified <see cref="UrlBuilder"/> instance.
+        /// Gets the <see cref="System.Uri" /> instance constructed by the
+        /// specified <see cref="UrlBuilder" /> instance.
         /// </summary>
-        /// <value>A <see cref="System.Uri"/> that contains the URI
-        /// constructed by the <see cref="UrlBuilder"/>.</value>
+        /// <value>A <see cref="System.Uri" /> that contains the URI
+        /// constructed by the <see cref="UrlBuilder" />.</value>
         /// <exception cref="System.FormatException">
-        /// <para>The URI constructed by the <see cref="UrlBuilder"/> properties
+        /// <para>The URI constructed by the <see cref="UrlBuilder" /> properties
         /// is invalid.</para>
         /// </exception>
         public Uri Uri
@@ -318,14 +318,14 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Compares an existing <see cref="System.Uri"/> instance with the
-        /// contents of the <see cref="UrlBuilder"/> for equality.
+        /// Compares an existing <see cref="System.Uri" /> instance with the
+        /// contents of the <see cref="UrlBuilder" /> for equality.
         /// </summary>
         /// <param name="obj">The object to compare with the current instance.</param>
-        /// <returns><see langword="true"/> if <paramref name="obj"/>
-        /// represents the same <see cref="System.Uri"/> as the
-        /// <see cref="System.Uri"/> constructed by this
-        /// <see cref="UrlBuilder"/> instance; otherwise, <see langword="false"/>.
+        /// <returns><see langword="true" /> if <paramref name="obj" />
+        /// represents the same <see cref="System.Uri" /> as the
+        /// <see cref="System.Uri" /> constructed by this
+        /// <see cref="UrlBuilder" /> instance; otherwise, <see langword="false" />.
         /// </returns>
         public override bool Equals(object obj)
         {
@@ -345,12 +345,12 @@ namespace Cadru.Net.Http
 
         /// <summary>
         /// Returns the display string for the specified
-        /// <see cref="UrlBuilder"/> instance.
+        /// <see cref="UrlBuilder" /> instance.
         /// </summary>
         /// <returns>The string that contains the unescaped display string of
-        /// the <see cref="UrlBuilder"/>.</returns>
+        /// the <see cref="UrlBuilder" />.</returns>
         /// <exception cref="System.FormatException">
-        /// <para>The <see cref="UrlBuilder"/> instance has a bad password.</para>
+        /// <para>The <see cref="UrlBuilder" /> instance has a bad password.</para>
         /// </exception>
         [System.Diagnostics.DebuggerStepThrough]
         public override string ToString()

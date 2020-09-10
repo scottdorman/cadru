@@ -31,6 +31,20 @@ namespace Cadru.Build.Tasks
 {
     public class AddReleaseNotesRootEntry : Task
     {
+        [Required]
+        public bool AddIfNotFound { get; set; }
+
+        [Required]
+        public string BuildDate { get; set; }
+
+        [Required]
+        public ITaskItem File { get; set; }
+
+        public string Milestone { get; set; }
+
+        [Required]
+        public string Version { get; set; }
+
         public override bool Execute()
         {
             var document = XDocument.Load(this.File.ItemSpec);
@@ -84,19 +98,5 @@ namespace Cadru.Build.Tasks
 
             return true;
         }
-
-        [Required]
-        public string Version { get; set; }
-
-        [Required]
-        public string BuildDate { get; set; }
-
-        public string Milestone { get; set; }
-
-        [Required]
-        public bool AddIfNotFound { get; set; }
-
-        [Required]
-        public ITaskItem File { get; set; }
     }
 }

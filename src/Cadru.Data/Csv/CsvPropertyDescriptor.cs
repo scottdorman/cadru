@@ -26,6 +26,7 @@ using System.ComponentModel;
 namespace Cadru.Data.Csv
 {
 #if !NETSTANDARD1_3
+
     /// <summary>
     /// Represents a CSV field property descriptor.
     /// </summary>
@@ -54,7 +55,7 @@ namespace Cadru.Data.Csv
 
         public override object GetValue(object component)
         {
-            return ((string[]) component)[this.Index];
+            return ((string[])component)[this.Index];
         }
 
         public override void ResetValue(object component)
@@ -76,5 +77,6 @@ namespace Cadru.Data.Csv
 
         public override Type PropertyType => typeof(string);
     }
+
 #endif
 }

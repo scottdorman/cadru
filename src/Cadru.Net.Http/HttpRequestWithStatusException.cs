@@ -35,7 +35,7 @@ namespace Cadru.Net.Http
     public class HttpRequestWithStatusException : HttpRequestException
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="HttpRequestWithStatusException"/> class.
+        /// Initializes a new instance of the <see cref="HttpRequestWithStatusException" /> class.
         /// </summary>
         /// <param name="responseMessage">The response for this exception.</param>
         public HttpRequestWithStatusException(HttpResponseMessage responseMessage) :
@@ -46,7 +46,7 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HttpRequestWithStatusException"/> class.
+        /// Initializes a new instance of the <see cref="HttpRequestWithStatusException" /> class.
         /// </summary>
         /// <param name="responseMessage">A message that describes the current exception.</param>
         /// <param name="inner">The inner exception.</param>
@@ -58,7 +58,7 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HttpRequestWithStatusException"/> class.
+        /// Initializes a new instance of the <see cref="HttpRequestWithStatusException" /> class.
         /// </summary>
         public HttpRequestWithStatusException()
         {
@@ -66,7 +66,7 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HttpRequestWithStatusException"/> class
+        /// Initializes a new instance of the <see cref="HttpRequestWithStatusException" /> class
         /// with a specific message that describes the current exception.
         /// </summary>
         /// <param name="message">A message that describes the current exception.</param>
@@ -76,7 +76,7 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HttpRequestWithStatusException"/> class
+        /// Initializes a new instance of the <see cref="HttpRequestWithStatusException" /> class
         /// with a specific message that describes the current exception and an inner
         /// exception.
         /// </summary>

@@ -65,13 +65,13 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Gets the string value contained at the index or <see
-        /// langword="null"/> if that value is not found, is <see
-        /// langword="null"/>, empty, or consists of all white-space characters.
+        /// langword="null" /> if that value is not found, is <see
+        /// langword="null" />, empty, or consists of all white-space characters.
         /// </summary>
         /// <param name="record">The string array to search.</param>
         /// <param name="index">An integer that represents the position of
         /// the array element to get.</param>
-        /// <returns>The string value or <see langword="null"/>.</returns>
+        /// <returns>The string value or <see langword="null" />.</returns>
         public static string? GetStringOrNull(this string[] record, int index)
         {
             var val = record.GetValue(index)?.ToString();

@@ -30,6 +30,7 @@ using Debug = System.Diagnostics.Debug;
 namespace Cadru.Data.Csv
 {
 #if !NETSTANDARD1_3
+
     /// <summary>
     /// Represents a CSV record comparer.
     /// </summary>
@@ -70,5 +71,6 @@ namespace Cadru.Data.Csv
             return (this.Direction == ListSortDirection.Ascending ? result : -result);
         }
     }
+
 #endif
 }

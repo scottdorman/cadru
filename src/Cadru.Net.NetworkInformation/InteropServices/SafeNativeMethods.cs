@@ -23,13 +23,15 @@
 namespace Cadru.Net.NetworkInformation.Interop
 {
     using System;
-    using System.IO;
     using System.Runtime.InteropServices;
 
     internal static class SafeNativeMethods
     {
         [DllImport("user32.dll", SetLastError = true)]
         internal static extern int GetSystemMetrics(SystemMetric smIndex);
+
+        [DllImport("netapi32.dll", SetLastError = true)]
+        internal static extern int NetApiBufferFree(IntPtr buffer);
 
         [DllImport("netapi32.dll", SetLastError = false)]
         internal static extern int NetServerEnum(
@@ -48,8 +50,5 @@ namespace Cadru.Net.NetworkInformation.Interop
             [MarshalAs(UnmanagedType.LPWStr)] string servername,
             int level,
             out IntPtr bufptr);
-
-        [DllImport("netapi32.dll", SetLastError = true)]
-        internal static extern int NetApiBufferFree(IntPtr buffer);
     }
 }

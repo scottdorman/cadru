@@ -32,14 +32,14 @@ namespace Cadru.AspNetCore.Http.Internal
         /// Gets a value that indicates if the HTTP response was successful.
         /// </summary>
         /// <param name="responseMessage"></param>
-        /// <returns><see langword="true"/> if <see
-        /// cref="HttpResponseMessage.StatusCode"/> was in the range 200-299;
-        /// otherwise, <see langword="false"/>.</returns>
-        /// <remarks>As <see cref="HttpResponse"/> does not have a built-in way
+        /// <returns><see langword="true" /> if <see
+        /// cref="HttpResponseMessage.StatusCode" /> was in the range 200-299;
+        /// otherwise, <see langword="false" />.</returns>
+        /// <remarks>As <see cref="HttpResponse" /> does not have a built-in way
         /// to check for a successful response, this is a wrapper over <see
-        /// cref="HttpResponseMessage.IsSuccessStatusCode"/> to standardize
-        /// checking between <see cref="HttpResponse"/> and <see
-        /// cref="HttpResponseMessage"/>.</remarks>
+        /// cref="HttpResponseMessage.IsSuccessStatusCode" /> to standardize
+        /// checking between <see cref="HttpResponse" /> and <see
+        /// cref="HttpResponseMessage" />.</remarks>
         public static bool IsSuccessStatusCode(this HttpResponseMessage? responseMessage)
         {
             return responseMessage?.IsSuccessStatusCode ?? false;
@@ -49,13 +49,13 @@ namespace Cadru.AspNetCore.Http.Internal
         /// Gets a value that indicates if the HTTP response was successful.
         /// </summary>
         /// <param name="response"></param>
-        /// <returns><see langword="true"/> if <see cref="HttpResponse.StatusCode"/>
-        /// was in the range 200-299; otherwise, <see langword="false"/>.</returns>
-        /// <remarks>As <see cref="HttpResponse"/> does not have a built-in way
+        /// <returns><see langword="true" /> if <see cref="HttpResponse.StatusCode" />
+        /// was in the range 200-299; otherwise, <see langword="false" />.</returns>
+        /// <remarks>As <see cref="HttpResponse" /> does not have a built-in way
         /// to check for a successful response, this is a wrapper over <see
-        /// cref="HttpResponseMessage.IsSuccessStatusCode"/> to standardize
-        /// checking between <see cref="HttpResponse"/> and <see
-        /// cref="HttpResponseMessage"/>.</remarks>
+        /// cref="HttpResponseMessage.IsSuccessStatusCode" /> to standardize
+        /// checking between <see cref="HttpResponse" /> and <see
+        /// cref="HttpResponseMessage" />.</remarks>
         public static bool IsSuccessStatusCode(this HttpResponse? response)
         {
             return response != null && (response.StatusCode >= 200) && (response.StatusCode <= 299);

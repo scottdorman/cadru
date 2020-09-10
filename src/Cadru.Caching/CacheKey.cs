@@ -35,25 +35,25 @@ namespace Cadru.Caching
     public class CacheKey
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CacheKey"/> class using
-        /// the specified <paramref name="prefix"/> value.
+        /// Initializes a new instance of the <see cref="CacheKey" /> class using
+        /// the specified <paramref name="prefix" /> value.
         /// </summary>
         /// <param name="prefix">The value used as the cache key prefix.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="prefix"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="prefix"/> is a zero-length string.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="prefix" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="prefix" /> is a zero-length string.</exception>
         public CacheKey(string prefix) : this(prefix, null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CacheKey"/> class using
-        /// the specified <paramref name="prefix"/> value and the values in
-        /// <paramref name="data"/> to form the key.
+        /// Initializes a new instance of the <see cref="CacheKey" /> class using
+        /// the specified <paramref name="prefix" /> value and the values in
+        /// <paramref name="data" /> to form the key.
         /// </summary>
         /// <param name="prefix">The value used as the cache key prefix.</param>
         /// <param name="data">Additional values used to form the key.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="prefix"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="prefix"/> is a zero-length string.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="prefix" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="prefix" /> is a zero-length string.</exception>
         public CacheKey(string prefix, IEnumerable<object>? data)
         {
             Requires.NotNullOrWhiteSpace(prefix, nameof(prefix));
@@ -98,7 +98,7 @@ namespace Cadru.Caching
         }
 
         /// <summary>
-        /// Gets or sets a <see cref="CancellationTokenSource"/> that can be
+        /// Gets or sets a <see cref="CancellationTokenSource" /> that can be
         /// used to invalidate the key.
         /// </summary>
         public CancellationTokenSource CancellationToken { get; set; } = new CancellationTokenSource();

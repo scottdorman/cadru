@@ -34,15 +34,15 @@ namespace Cadru.Extensions
     public static class EnumExtensions
     {
         /// <summary>
-        /// Gets an attribute of type <typeparamref name="T"/> on the provided
+        /// Gets an attribute of type <typeparamref name="T" /> on the provided
         /// enumerated value.
         /// </summary>
         /// <typeparam name="T">The type of attribute to search for.</typeparam>
         /// <param name="element">The member to inspect.</param>
-        /// <param name="inherit"><see langword="true"/> to inspect the
-        /// ancestors of element; otherwise, <see langword="false"/>.</param>
-        /// <returns>A custom attribute that matches <typeparamref name="T"/>,
-        /// or <see langword="null"/> if no such attribute is found.</returns>
+        /// <param name="inherit"><see langword="true" /> to inspect the
+        /// ancestors of element; otherwise, <see langword="false" />.</param>
+        /// <returns>A custom attribute that matches <typeparamref name="T" />,
+        /// or <see langword="null" /> if no such attribute is found.</returns>
         /// <remarks>If more than one attribute is found, the first match is
         /// returned.</remarks>
         public static T? GetAttributeOfType<T>(this Enum element, bool inherit = false) where T : Attribute
@@ -53,9 +53,9 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Gets the description of an <see cref="Enum"/> type value.
+        /// Gets the description of an <see cref="Enum" /> type value.
         /// </summary>
-        /// <param name="value">The <see cref="Enum"/> type value.</param>
+        /// <param name="value">The <see cref="Enum" /> type value.</param>
         /// <returns>A string containing the the description or the name of the
         /// enumerated constant if no description is found.</returns>
         public static string GetDescription(this Enum value)
@@ -64,24 +64,24 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Gets the description of an <see cref="Enum"/> type value.
+        /// Gets the description of an <see cref="Enum" /> type value.
         /// </summary>
-        /// <param name="value">The <see cref="Enum"/> type value.</param>
-        /// <param name="useNameAsFallback">If <see langword="true"/>, the name
+        /// <param name="value">The <see cref="Enum" /> type value.</param>
+        /// <param name="useNameAsFallback">If <see langword="true" />, the name
         /// of the enumerated constant is used if no description is found;
-        /// otherwise, <see langword="null"/>.</param>
+        /// otherwise, <see langword="null" />.</param>
         /// <returns>A string containing the the description. If no description
-        /// is found and <paramref name="useNameAsFallback"/> is <see
-        /// langword="true"/> then the name of the enumerated constant;
-        /// otherwise <see langword="null"/>.</returns>
+        /// is found and <paramref name="useNameAsFallback" /> is <see
+        /// langword="true" /> then the name of the enumerated constant;
+        /// otherwise <see langword="null" />.</returns>
         /// <remarks>
         /// This method will use the value from an <see
-        /// cref="EnumDescriptionAttribute"/>, <see cref="DisplayAttribute"/>,
-        /// or <see cref="DescriptionAttribute"/> if found, in that respective
+        /// cref="EnumDescriptionAttribute" />, <see cref="DisplayAttribute" />,
+        /// or <see cref="DescriptionAttribute" /> if found, in that respective
         /// order. If none of those attributes are found, or the value is <see
-        /// langword="null"/>, and <paramref name="useNameAsFallback"/> is <see
-        /// langword="true"/>, then the name of the enumerated constant is used;
-        /// otherwise, a <see langword="null"/> is used.
+        /// langword="null" />, and <paramref name="useNameAsFallback" /> is <see
+        /// langword="true" />, then the name of the enumerated constant is used;
+        /// otherwise, a <see langword="null" /> is used.
         /// </remarks>
         public static string? GetDescription(this Enum value, bool useNameAsFallback)
         {

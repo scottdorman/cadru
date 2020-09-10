@@ -53,7 +53,7 @@ namespace Cadru.Data.Dapper
         /// </summary>
         /// <param name="predicate">The predicate to match.</param>
         /// <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
-        /// <param name="cancellationToken">An optional <see cref="CancellationToken"/> for this command.</param>
+        /// <param name="cancellationToken">An optional <see cref="CancellationToken" /> for this command.</param>
         /// <returns>The number of records deleted.</returns>
         public virtual async Task<int> DeleteAsync(IPredicate predicate, int? commandTimeout = null, CancellationToken cancellationToken = default)
         {
@@ -68,7 +68,7 @@ namespace Cadru.Data.Dapper
         /// <summary>
         /// Inserts a row into the database.
         /// </summary>
-        /// <param name="data">A <see cref="DynamicParameters"/> bag, an anonymous type, or a concrete type representing the data to be inserted.</param>
+        /// <param name="data">A <see cref="DynamicParameters" /> bag, an anonymous type, or a concrete type representing the data to be inserted.</param>
         /// <returns></returns>
         public virtual int? Insert(dynamic data)
         {
@@ -98,8 +98,8 @@ namespace Cadru.Data.Dapper
         /// <summary>
         /// Inserts a row into the database.
         /// </summary>
-        /// <param name="data">A <see cref="DynamicParameters"/> bag, an anonymous type, or a concrete type representing the data to be inserted.</param>
-        /// <param name="cancellationToken">An optional <see cref="CancellationToken"/> for this command.</param>
+        /// <param name="data">A <see cref="DynamicParameters" /> bag, an anonymous type, or a concrete type representing the data to be inserted.</param>
+        /// <param name="cancellationToken">An optional <see cref="CancellationToken" /> for this command.</param>
         /// <returns></returns>
         public virtual async Task<int?> InsertAsync(dynamic data, CancellationToken cancellationToken = default)
         {
@@ -115,7 +115,7 @@ namespace Cadru.Data.Dapper
         /// Inserts a row into the database.
         /// </summary>
         /// <param name="data">A concrete type representing the data to be inserted.</param>
-        /// <param name="cancellationToken">An optional <see cref="CancellationToken"/> for this command.</param>
+        /// <param name="cancellationToken">An optional <see cref="CancellationToken" /> for this command.</param>
         /// <returns></returns>
         public virtual async Task<int?> InsertAsync(TEntity data, CancellationToken cancellationToken = default)
         {
@@ -147,7 +147,7 @@ namespace Cadru.Data.Dapper
         /// <summary>
         /// Updates a row into the database.
         /// </summary>
-        /// <param name="data">A <see cref="DynamicParameters"/> bag, an anonymous type, or a concrete type representing the data to be updated.</param>
+        /// <param name="data">A <see cref="DynamicParameters" /> bag, an anonymous type, or a concrete type representing the data to be updated.</param>
         /// <param name="predicate">The predicate to match.</param>
         /// <returns></returns>
         public virtual int Update(dynamic data, IPredicate predicate)
@@ -166,7 +166,7 @@ namespace Cadru.Data.Dapper
         /// </summary>
         /// <param name="data">A concrete type representing the data to be updated.</param>
         /// <param name="predicate">The predicate to match.</param>
-        /// <param name="cancellationToken">An optional <see cref="CancellationToken"/> for this command.</param>
+        /// <param name="cancellationToken">An optional <see cref="CancellationToken" /> for this command.</param>
         /// <returns></returns>
         public virtual async Task<int> UpdateAsync(TEntity data, IPredicate predicate, CancellationToken cancellationToken = default)
         {
@@ -182,9 +182,9 @@ namespace Cadru.Data.Dapper
         /// <summary>
         /// Updates a row into the database.
         /// </summary>
-        /// <param name="data">A <see cref="DynamicParameters"/> bag, an anonymous type, or a concrete type representing the data to be updated.</param>
+        /// <param name="data">A <see cref="DynamicParameters" /> bag, an anonymous type, or a concrete type representing the data to be updated.</param>
         /// <param name="predicate">The predicate to match.</param>
-        /// <param name="cancellationToken">An optional <see cref="CancellationToken"/> for this command.</param>
+        /// <param name="cancellationToken">An optional <see cref="CancellationToken" /> for this command.</param>
         /// <returns></returns>
         public virtual async Task<int> UpdateAsync(dynamic data, IPredicate predicate, CancellationToken cancellationToken = default)
         {

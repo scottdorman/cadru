@@ -35,13 +35,13 @@ namespace Cadru.Data.Dapper
     public interface IDapperContext
     {
         /// <summary>
-        /// Gets the <see cref="ICommandAdapter"/> used by the context to create
+        /// Gets the <see cref="ICommandAdapter" /> used by the context to create
         /// SQL statements.
         /// </summary>
         ICommandAdapter CommandAdapter { get; }
 
         /// <summary>
-        /// Gets the <see cref="IDbConnection"/> for the context.
+        /// Gets the <see cref="IDbConnection" /> for the context.
         /// </summary>
         IDbConnection? Connection { get; }
 
@@ -51,12 +51,12 @@ namespace Cadru.Data.Dapper
         bool HasActiveTransaction { get; }
 
         /// <summary>
-        /// Gets the instance of the <see cref="ILogger"/> used by the context.
+        /// Gets the instance of the <see cref="ILogger" /> used by the context.
         /// </summary>
         ILogger<IDapperContext> Logger { get; }
 
         /// <summary>
-        /// Gets the <see cref="ObjectMappingDictionary"/> for all database
+        /// Gets the <see cref="ObjectMappingDictionary" /> for all database
         /// objects contained in the context.
         /// </summary>
         ObjectMappingDictionary Mappings { get; }
@@ -74,7 +74,7 @@ namespace Cadru.Data.Dapper
         /// <param name="isolationLevel">An optional isolation level under which
         /// the transaction should run.</param>
         /// <remarks>If you do not specify an isolation level, the isolation
-        /// level for <see cref="IsolationLevel.ReadCommitted"/> is
+        /// level for <see cref="IsolationLevel.ReadCommitted" /> is
         /// used.</remarks>
         void BeginTransaction(bool ensureOpenConnection, IsolationLevel isolationLevel = IsolationLevel.ReadCommitted);
 
@@ -83,7 +83,7 @@ namespace Cadru.Data.Dapper
         /// </summary>
         /// <param name="isolationLevel">An optional isolation level under which the transaction should run.</param>
         /// <remarks>If you do not specify an isolation level, the isolation
-        /// level for <see cref="IsolationLevel.ReadCommitted"/> is
+        /// level for <see cref="IsolationLevel.ReadCommitted" /> is
         /// used.</remarks>
         void BeginTransaction(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted);
 

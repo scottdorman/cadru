@@ -39,9 +39,9 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
         private readonly HtmlEncoder _htmlEncoder;
 
         /// <summary>
-        /// Creates a new <see cref="AnchorTagHelper"/>.
+        /// Creates a new <see cref="BreadcrumbItemTagHelper" />.
         /// </summary>
-        /// <param name="generator">The <see cref="IHtmlGenerator"/>.</param>
+        /// <param name="generator">The <see cref="IHtmlGenerator" />.</param>
         /// <param name="htmlEncoder">The HTML character encoding.</param>
         public BreadcrumbItemTagHelper(IHtmlGenerator generator, HtmlEncoder htmlEncoder) : base()
         {
@@ -53,14 +53,14 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
         public bool Active { get; set; }
 
         /// <summary>
-        /// Gets or sets the <see cref="ViewContext"/> for the current request.
+        /// Gets or sets the <see cref="ViewContext" /> for the current request.
         /// </summary>
         [HtmlAttributeNotBound]
         [ViewContext]
         public ViewContext ViewContext { get; set; }
 
         /// <summary>
-        /// Gets the <see cref="IHtmlGenerator"/> used to generate the <see cref="AnchorTagHelper"/>'s output.
+        /// Gets the <see cref="IHtmlGenerator "/> used to generate the <see cref="AnchorTagHelper" />'s output.
         /// </summary>
         protected IHtmlGenerator Generator { get; }
 

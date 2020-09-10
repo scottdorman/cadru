@@ -28,14 +28,14 @@ namespace Cadru.Data.Dapper
 {
     /// <summary>
     /// Represents a set of methods for creating instances of an <see
-    /// cref="IDapperContext"/>.
+    /// cref="IDapperContext" />.
     /// </summary>
     public static class DapperContextFactory
     {
         /// <summary>
-        /// Create a new <typeparamref name="TDatabaseContext"/> instance.
+        /// Create a new <typeparamref name="TDatabaseContext" /> instance.
         /// </summary>
-        /// <returns>A new <typeparamref name="TDatabaseContext"/>.</returns>
+        /// <returns>A new <typeparamref name="TDatabaseContext" />.</returns>
         /// <typeparam name="TDatabaseContext"></typeparam>
         public static TDatabaseContext Create<TDatabaseContext>(IServiceProvider serviceProvider) where TDatabaseContext : class, IDapperContext
         {

@@ -9,84 +9,84 @@ Sample license text.
     <members>
         <member name="T:Cadru.Polly.ContextExtensions">
             <summary>
-            Extension methods for working with a <see cref="T:Polly.Context"/>.
+            Extension methods for working with a <see cref="T:Polly.Context" />.
             </summary>
         </member>
         <member name="M:Cadru.Polly.ContextExtensions.GetLogger(Polly.Context)">
             <summary>
-            Gets an <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance from the <see
-            cref="T:Polly.Context"/>.
+            Gets an <see cref="T:Microsoft.Extensions.Logging.ILogger" /> instance from the <see
+            cref="T:Polly.Context" />.
             </summary>
             <param name="context">The <see cref="T:Polly.Context" /> to retrieve items
             from.</param>
-            <returns>An <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance if one is found in the
-            <paramref name="context"/>; otherwise, <see
-            langword="null"/>.</returns>
+            <returns>An <see cref="T:Microsoft.Extensions.Logging.ILogger" /> instance if one is found in the
+            <paramref name="context" />; otherwise, <see
+            langword="null" />.</returns>
         </member>
         <member name="M:Cadru.Polly.ContextExtensions.TryGetLogger(Polly.Context,Microsoft.Extensions.Logging.ILogger@)">
             <summary>
-            Gets an <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance from the <see
-            cref="T:Polly.Context"/>.
+            Gets an <see cref="T:Microsoft.Extensions.Logging.ILogger" /> instance from the <see
+            cref="T:Polly.Context" />.
             </summary>
             <param name="context">The <see cref="T:Polly.Context" /> to retrieve items
             from.</param>
             <param name="logger">When this method returns, contains the <see
-            cref="T:Microsoft.Extensions.Logging.ILogger"/> instance if one is found in the <paramref
-            name="context"/>; otherwise, <see langword="null"/>. This parameter
+            cref="T:Microsoft.Extensions.Logging.ILogger" /> instance if one is found in the <paramref
+            name="context" />; otherwise, <see langword="null" />. This parameter
             is passed uninitialized.</param>
-            <returns><see langword="true"/> if the <paramref name="context"/>
-            contains an <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance; otherwise, <see
-            langword="false"/>.</returns>
+            <returns><see langword="true" /> if the <paramref name="context" />
+            contains an <see cref="T:Microsoft.Extensions.Logging.ILogger" /> instance; otherwise, <see
+            langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Polly.ContextExtensions.TryGetValue``1(Polly.Context,System.String,``0@)">
             <summary>
             Gets the value associated with the specified key from the <see
-            cref="T:Polly.Context"/>.
+            cref="T:Polly.Context" />.
             </summary>
             <param name="context">The <see cref="T:Polly.Context" /> to retrieve items
             from.</param>
             <param name="key">The key of the value to get.</param>
             <param name="value">When this method returns, contains the value
             associated with the specified key, if the key is found in the
-            <paramref name="context"/>; otherwise, the default value for the
-            type of the <paramref name="value"/> parameter. This parameter is
+            <paramref name="context" />; otherwise, the default value for the
+            type of the <paramref name="value" /> parameter. This parameter is
             passed uninitialized.</param>
-            <returns><see langword="true"/> if the <paramref name="context"/>
+            <returns><see langword="true" /> if the <paramref name="context" />
             contains an element with the specified key; otherwise, <see
-            langword="false"/>.</returns>
+            langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Polly.ContextExtensions.WithContextData(Polly.Context,System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
-            Adds additional items to the <see cref="T:Polly.Context"/>.
+            Adds additional items to the <see cref="T:Polly.Context" />.
             </summary>
             <param name="context">The <see cref="T:Polly.Context" /> to add items
             to.</param>
-            <param name="contextData">The <see cref="T:System.Collections.Generic.IDictionary`2"/> whose elements are copied into the <paramref
-            name="context"/>.</param>
-            <returns>The <see cref="T:Polly.Context"/> so that additional calls can be
+            <param name="contextData">The <see cref="T:System.Collections.Generic.IDictionary`2" /> whose elements are copied into the <paramref
+            name="context" />.</param>
+            <returns>The <see cref="T:Polly.Context" /> so that additional calls can be
             chained.</returns>
         </member>
         <member name="M:Cadru.Polly.ContextExtensions.WithContextData(Polly.Context,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
             <summary>
-            Adds additional items to the <see cref="T:Polly.Context"/>.
+            Adds additional items to the <see cref="T:Polly.Context" />.
             </summary>
             <param name="context">The <see cref="T:Polly.Context" /> to add items
             to.</param>
             <param name="contextData">The <see
-            cref="T:System.Collections.Generic.IEnumerable`1"/> whose elements are
-            copied into the <paramref name="context"/>.</param>
-            <returns>The <see cref="T:Polly.Context"/> so that additional calls can be
+            cref="T:System.Collections.Generic.IEnumerable`1" /> whose elements are
+            copied into the <paramref name="context" />.</param>
+            <returns>The <see cref="T:Polly.Context" /> so that additional calls can be
             chained.</returns>
         </member>
         <member name="M:Cadru.Polly.ContextExtensions.WithLogger(Polly.Context,Microsoft.Extensions.Logging.ILogger)">
             <summary>
-            Adds the specified <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance to <see
-            cref="T:Polly.Context"/>.
+            Adds the specified <see cref="T:Microsoft.Extensions.Logging.ILogger" /> instance to <see
+            cref="T:Polly.Context" />.
             </summary>
             <param name="context">The <see cref="T:Polly.Context" /> to add the
-            <paramref name="logger"/> to.</param>
-            <param name="logger">The <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance to be added.</param>
-            <returns>The <see cref="T:Polly.Context"/> so that additional calls can be
+            <paramref name="logger" /> to.</param>
+            <param name="logger">The <see cref="T:Microsoft.Extensions.Logging.ILogger" /> instance to be added.</param>
+            <returns>The <see cref="T:Polly.Context" /> so that additional calls can be
             chained.</returns>
         </member>
         <member name="T:Cadru.Polly.Data.ISqlStrategy">
@@ -107,27 +107,27 @@ Sample license text.
         <member name="T:Cadru.Polly.Data.ISqlStrategyFactory">
             <summary>
             Represents a set of methods for creating instances of an <see
-            cref="T:Cadru.Polly.Data.ISqlStrategy"/>.
+            cref="T:Cadru.Polly.Data.ISqlStrategy" />.
             </summary>
         </member>
         <member name="M:Cadru.Polly.Data.ISqlStrategyFactory.Create(System.IServiceProvider,System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy})">
             <summary>
-            Create a new <see cref="T:Cadru.Polly.Data.ISqlStrategy"/> instance.
+            Create a new <see cref="T:Cadru.Polly.Data.ISqlStrategy" /> instance.
             </summary>
-            <returns>A new <see cref="T:Cadru.Polly.Data.ISqlStrategy"/>.</returns>
+            <returns>A new <see cref="T:Cadru.Polly.Data.ISqlStrategy" />.</returns>
         </member>
         <member name="T:Cadru.Polly.Data.SqlServer.ServiceCollectionExtensions">
             <summary>
             Extension methods for adding exception handling strategies in an
-            <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" />.
             </summary>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.ServiceCollectionExtensions.UseExceptionHandlingStrategies(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
-            Adds default exception handling strategies to the specified <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            Adds default exception handling strategies to the specified <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" />.
             </summary>
             <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to add services to.</param>
-            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional calls can be chained.</returns>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> so that additional calls can be chained.</returns>
         </member>
         <member name="T:Cadru.Polly.Data.SqlServer.NetworkConnectivityExceptionHandlingStrategy">
             <summary>
@@ -135,10 +135,10 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Polly.Data.SqlServer.NetworkConnectivityExceptionHandlingStrategy.IsDefaultStrategy">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.NetworkConnectivityExceptionHandlingStrategy.ShouldHandle(System.Exception)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.Polly.Data.SqlServer.SqlServerTimeoutExceptionHandlingStrategy">
             <summary>
@@ -146,10 +146,10 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Polly.Data.SqlServer.SqlServerTimeoutExceptionHandlingStrategy.IsDefaultStrategy">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerTimeoutExceptionHandlingStrategy.ShouldHandle(System.Exception)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.Polly.Data.SqlServer.SqlServerTransientExceptionHandlingStrategy">
             <summary>
@@ -157,10 +157,10 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Polly.Data.SqlServer.SqlServerTransientExceptionHandlingStrategy.IsDefaultStrategy">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerTransientExceptionHandlingStrategy.ShouldHandle(System.Exception)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.Polly.Data.SqlServer.SqlServerTransientTransactionExceptionHandlingStrategy">
             <summary>
@@ -168,10 +168,10 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Polly.Data.SqlServer.SqlServerTransientTransactionExceptionHandlingStrategy.IsDefaultStrategy">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerTransientTransactionExceptionHandlingStrategy.ShouldHandle(System.Exception)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder">
             <summary>
@@ -181,39 +181,39 @@ Sample license text.
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder.#ctor(System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy},Microsoft.Extensions.Options.IOptions{Cadru.Polly.Data.SqlStrategyOptions})">
             <summary>
             Initializes a new instance of the <see
-            cref="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder"/> class.
+            cref="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder" /> class.
             </summary>
             <param name="exceptionHandlingStrategies">The collection of <see
-            cref="T:Cadru.Polly.IExceptionHandlingStrategy"/> strategies to use.</param>
+            cref="T:Cadru.Polly.IExceptionHandlingStrategy" /> strategies to use.</param>
             <param name="strategyOptionsAccessor">The strategy configuration. If
-            <paramref name="strategyOptionsAccessor"/> is <see langword="null"/>,
+            <paramref name="strategyOptionsAccessor" /> is <see langword="null" />,
             a default configuration will be used.</param>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder.Validate">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyFactory">
             <summary>
             Represents a set of methods for creating instances of an <see
-            cref="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder"/>.
+            cref="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder" />.
             </summary>
         </member>
         <member name="P:Cadru.Polly.Data.SqlServer.SqlServerStrategyFactory.Instance">
             <summary>
-            Gets an instance of the <see cref="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyFactory"/>.
+            Gets an instance of the <see cref="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyFactory" />.
             </summary>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategyFactory.CreateStrategyBuilder(System.IServiceProvider,System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy})">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax">
             <summary>
-            Fluent API for defining a <see cref="T:Cadru.Polly.Data.SqlStrategy"/>.
+            Fluent API for defining a <see cref="T:Cadru.Polly.Data.SqlStrategy" />.
             </summary>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.Retry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.IExceptionHandlingStrategy,Cadru.Polly.Data.SqlStrategyOptions)">
             <summary>
-            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy"/> with a policy for retrying
+            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy" /> with a policy for retrying
             actions on transaction failures.
             </summary>
             <param name="sqlStrategy">The SQL strategy.</param>
@@ -221,24 +221,24 @@ Sample license text.
             strategy used to determine which exceptions should be
             retried.</param>
             <param name="sqlStrategyConfiguration">An <see
-            cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> containing configuration
+            cref="T:Cadru.Polly.Data.SqlStrategyOptions" /> containing configuration
             parameters.</param>
             <returns>The strategy instance.</returns>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithCircuitBreakers(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)">
             <summary>
-            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy"/> with policies that will function
+            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy" /> with policies that will function
             like a Circuit Breaker.
             </summary>
             <param name="sqlStrategyBuilder">The SQL strategy.</param>
             <param name="sqlStrategyConfiguration">An <see
-            cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> containing configuration
+            cref="T:Cadru.Polly.Data.SqlStrategyOptions" /> containing configuration
             parameters.</param>
             <returns>The strategy instance.</returns>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithFallback``1(Cadru.Polly.Data.SqlStrategyBuilder,System.Func{System.Threading.Tasks.Task{``0}})">
             <summary>
-            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy"/> with a policy which provides a
+            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy" /> with a policy which provides a
             fallback action if the main execution fails.
             </summary>
             <param name="sqlStrategy">The SQL strategy.</param>
@@ -247,7 +247,7 @@ Sample license text.
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithFallback(Cadru.Polly.Data.SqlStrategyBuilder,System.Func{System.Threading.Tasks.Task})">
             <summary>
-            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy"/> with a policy which provides a
+            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy" /> with a policy which provides a
             fallback action if the main execution fails.
             </summary>
             <param name="sqlStrategy">The SQL strategy.</param>
@@ -256,50 +256,50 @@ Sample license text.
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallAndTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)">
             <summary>
-            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy"/> with policies for both an overall
+            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy" /> with policies for both an overall
             timeout and a per retry timeout.
             </summary>
             <param name="sqlStrategy">The SQL strategy.</param>
             <param name="sqlStrategyConfiguration">An <see
-            cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> containing configuration
+            cref="T:Cadru.Polly.Data.SqlStrategyOptions" /> containing configuration
             parameters.</param>
             <returns>The strategy instance.</returns>
             <remarks>
             This is equivalent to calling <see
-            cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>,
-            <see cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>.
+            cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)" />,
+            <see cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)" />.
             </remarks>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)">
             <summary>
-            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy"/> with a policy for an overall
+            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy" /> with a policy for an overall
             timeout.
             </summary>
             <param name="sqlStrategy">The SQL strategy.</param>
             <param name="sqlStrategyConfiguration">An <see
-            cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> containing configuration
+            cref="T:Cadru.Polly.Data.SqlStrategyOptions" /> containing configuration
             parameters.</param>
             <returns>The strategy instance.</returns>
             <remarks>
             This is equivalent to calling <see
-            cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>,
-            <see cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>.
+            cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)" />,
+            <see cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)" />.
             </remarks>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)">
             <summary>
-            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy"/> with a policy for a per retry
+            Builds a <see cref="T:Cadru.Polly.Data.SqlStrategy" /> with a policy for a per retry
             timeout.
             </summary>
             <param name="sqlStrategy">The SQL strategy.</param>
             <param name="sqlStrategyConfiguration">An <see
-            cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> containing configuration
+            cref="T:Cadru.Polly.Data.SqlStrategyOptions" /> containing configuration
             parameters.</param>
             <returns>The strategy instance.</returns>
             <remarks>
             This is equivalent to calling <see
-            cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>,
-            <see cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>.
+            cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)" />,
+            <see cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)" />.
             </remarks>
         </member>
         <member name="T:Cadru.Polly.Data.SqlServer.ThrottledResourceType">
@@ -488,14 +488,14 @@ Sample license text.
             <summary>
             Determines the throttling conditions from the specified SQL error.
             </summary>
-            <param name="error">The <see cref="T:Microsoft.Data.SqlClient.SqlError"/> object that contains information relevant to a warning or error returned by SQL Server.</param>
+            <param name="error">The <see cref="T:Microsoft.Data.SqlClient.SqlError" /> object that contains information relevant to a warning or error returned by SQL Server.</param>
             <returns>An instance of the object that holds the decoded reason codes returned from SQL Database when throttling conditions were encountered.</returns>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.ThrottlingCondition.FromException(Microsoft.Data.SqlClient.SqlException)">
             <summary>
             Determines throttling conditions from the specified SQL exception.
             </summary>
-            <param name="ex">The <see cref="T:Microsoft.Data.SqlClient.SqlException"/> object that contains information relevant to an error returned by SQL Server when throttling conditions were encountered.</param>
+            <param name="ex">The <see cref="T:Microsoft.Data.SqlClient.SqlException" /> object that contains information relevant to an error returned by SQL Server when throttling conditions were encountered.</param>
             <returns>An instance of the object that holds the decoded reason codes returned from SQL Database when throttling conditions were encountered.</returns>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.ThrottlingCondition.FromReasonCode(System.Int32)">
@@ -518,30 +518,30 @@ Sample license text.
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategy.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Polly.Data.SqlStrategy"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Polly.Data.SqlStrategy" /> class.
             </summary>
         </member>
         <member name="P:Cadru.Polly.Data.SqlStrategy.Default">
             <summary>
-            Gets a <see cref="T:Cadru.Polly.Data.SqlStrategy"/> containing policies that will
+            Gets a <see cref="T:Cadru.Polly.Data.SqlStrategy" /> containing policies that will
             execute without any custom behavior.
             </summary>
         </member>
         <member name="P:Cadru.Polly.Data.SqlStrategy.AsyncPolicy">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Polly.Data.SqlStrategy.SyncPolicy">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategy.NoOp">
             <summary>
-            Builds a NoOp <see cref="P:Cadru.Polly.Data.SqlStrategy.SyncPolicy"/> that will execute without any custom behavior.
+            Builds a NoOp <see cref="P:Cadru.Polly.Data.SqlStrategy.SyncPolicy" /> that will execute without any custom behavior.
             </summary>
             <returns>The policy instance.</returns>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategy.NoOpAsync">
             <summary>
-            Builds a NoOp <see cref="P:Cadru.Polly.Data.SqlStrategy.AsyncPolicy"/> that will execute without any custom behavior.
+            Builds a NoOp <see cref="P:Cadru.Polly.Data.SqlStrategy.AsyncPolicy" /> that will execute without any custom behavior.
             </summary>
             <returns>The policy instance.</returns>
         </member>
@@ -552,16 +552,16 @@ Sample license text.
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.#ctor(System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy},Microsoft.Extensions.Options.IOptions{Cadru.Polly.Data.SqlStrategyOptions})">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Polly.Data.SqlStrategyBuilder"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Polly.Data.SqlStrategyBuilder" /> class.
             </summary>
             <param name="exceptionHandlingStrategies">The collection of <see
-            cref="T:Cadru.Polly.IExceptionHandlingStrategy"/> strategies to use.</param>
+            cref="T:Cadru.Polly.IExceptionHandlingStrategy" /> strategies to use.</param>
             <param name="strategyOptionsAccessor">An optional strategy
             configuration.</param>
         </member>
         <member name="P:Cadru.Polly.Data.SqlStrategyBuilder.DefaultStrategy">
             <summary>
-            Gets the default <see cref="T:Cadru.Polly.IExceptionHandlingStrategy"/>.
+            Gets the default <see cref="T:Cadru.Polly.IExceptionHandlingStrategy" />.
             </summary>
         </member>
         <member name="P:Cadru.Polly.Data.SqlStrategyBuilder.ExceptionHandlingStrategies">
@@ -577,40 +577,40 @@ Sample license text.
         </member>
         <member name="P:Cadru.Polly.Data.SqlStrategyBuilder.StrategyOptions">
             <summary>
-            Gets the <see cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> used to configure the policies.
+            Gets the <see cref="T:Cadru.Polly.Data.SqlStrategyOptions" /> used to configure the policies.
             </summary>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.NoOp">
             <summary>
-            Builds a NoOp <see cref="T:Polly.Policy"/> that will execute without any custom behavior.
+            Builds a NoOp <see cref="T:Polly.Policy" /> that will execute without any custom behavior.
             </summary>
             <returns>The policy instance.</returns>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.NoOpAsync">
             <summary>
-            Builds a NoOp <see cref="T:Polly.AsyncPolicy"/> that will execute without any custom behavior.
+            Builds a NoOp <see cref="T:Polly.AsyncPolicy" /> that will execute without any custom behavior.
             </summary>
             <returns>The policy instance.</returns>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.Build">
             <summary>
-            Builds a <see cref="T:Cadru.Polly.Data.ISqlStrategy"/>.
+            Builds a <see cref="T:Cadru.Polly.Data.ISqlStrategy" />.
             </summary>
             <returns>The SQL strategy instance.</returns>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.GetDefaultPolicyBuilder">
             <summary>
-            Gets a <see cref="T:Polly.PolicyBuilder"/> which handles the exceptions
-            in the default <see cref="T:Cadru.Polly.IExceptionHandlingStrategy"/>.
+            Gets a <see cref="T:Polly.PolicyBuilder" /> which handles the exceptions
+            in the default <see cref="T:Cadru.Polly.IExceptionHandlingStrategy" />.
             </summary>
-            <returns>A <see cref="T:Polly.PolicyBuilder"/> instance.</returns>
+            <returns>A <see cref="T:Polly.PolicyBuilder" /> instance.</returns>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.GetPolicyBuilder">
             <summary>
-            Gets a <see cref="T:Polly.PolicyBuilder"/> which handles all of the exceptions
-            in <see cref="P:Cadru.Polly.Data.SqlStrategyBuilder.ExceptionHandlingStrategies"/>.
+            Gets a <see cref="T:Polly.PolicyBuilder" /> which handles all of the exceptions
+            in <see cref="P:Cadru.Polly.Data.SqlStrategyBuilder.ExceptionHandlingStrategies" />.
             </summary>
-            <returns>A <see cref="T:Polly.PolicyBuilder"/> instance.</returns>
+            <returns>A <see cref="T:Polly.PolicyBuilder" /> instance.</returns>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.GetAsyncPolicies">
             <summary>
@@ -633,23 +633,23 @@ Sample license text.
         <member name="T:Cadru.Polly.Data.SqlStrategyFactory">
             <summary>
             Represents a set of methods for creating instances of an <see
-            cref="T:Cadru.Polly.Data.ISqlStrategy"/>.
+            cref="T:Cadru.Polly.Data.ISqlStrategy" />.
             </summary>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyFactory.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Polly.Data.SqlStrategyFactory"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Polly.Data.SqlStrategyFactory" /> class.
             </summary>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyFactory.Create(System.IServiceProvider,System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy})">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyFactory.CreateStrategyBuilder(System.IServiceProvider,System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy})">
             <summary>
             When overridden in a derived class, creates a new <see
-            cref="T:Cadru.Polly.Data.ISqlStrategy"/> instance.
+            cref="T:Cadru.Polly.Data.ISqlStrategy" /> instance.
             </summary>
-            <returns>A new <see cref="T:Cadru.Polly.Data.ISqlStrategy"/>.</returns>
+            <returns>A new <see cref="T:Cadru.Polly.Data.ISqlStrategy" />.</returns>
         </member>
         <member name="T:Cadru.Polly.Data.SqlStrategyOptions">
             <summary>
@@ -693,65 +693,65 @@ Sample license text.
         </member>
         <member name="T:Cadru.Polly.Data.SqlStrategyOptionsExtensions">
             <summary>
-            Helper methods for getting strongly typed values from an <see cref="T:Cadru.Polly.Data.SqlStrategyOptions"/>.
+            Helper methods for getting strongly typed values from an <see cref="T:Cadru.Polly.Data.SqlStrategyOptions" />.
             </summary>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyOptionsExtensions.DurationOfBreak(Cadru.Polly.Data.SqlStrategyOptions)">
             <summary>
             The duration the circuit will stay open before resetting.
             </summary>
-            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> instance.</param>
-            <returns>The configured value if it is not <see langword="null"/>;
+            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions" /> instance.</param>
+            <returns>The configured value if it is not <see langword="null" />;
             otherwise, the default value.</returns>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyOptionsExtensions.ExceptionsAllowedBeforeBreaking(Cadru.Polly.Data.SqlStrategyOptions)">
             <summary>
             The number of exceptions that are allowed before opening the circuit.
             </summary>
-            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> instance.</param>
-            <returns>The configured value if it is not <see langword="null"/>;
+            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions" /> instance.</param>
+            <returns>The configured value if it is not <see langword="null" />;
             otherwise, the default value.</returns>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyOptionsExtensions.ExponentialBackoff(Cadru.Polly.Data.SqlStrategyOptions)">
             <summary>
             Generates sleep durations in an exponential manner.
             </summary>
-            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> instance.</param>
-            <returns>The configured value if it is not <see langword="null"/>
+            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions" /> instance.</param>
+            <returns>The configured value if it is not <see langword="null" />
             otherwise, the default value.</returns>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyOptionsExtensions.OverallTimeout(Cadru.Polly.Data.SqlStrategyOptions)">
             <summary>
             The timeout for the overall policy.
             </summary>
-            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> instance.</param>
-            <returns>The configured value if it is not <see langword="null"/>;
+            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions" /> instance.</param>
+            <returns>The configured value if it is not <see langword="null" />;
             otherwise, the default value.</returns>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyOptionsExtensions.RetryCount(Cadru.Polly.Data.SqlStrategyOptions)">
             <summary>
             The retry count.
             </summary>
-            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> instance.</param>
-            <returns>The configured value if it is not <see langword="null"/>;
+            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions" /> instance.</param>
+            <returns>The configured value if it is not <see langword="null" />;
             otherwise, the default value.</returns>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyOptionsExtensions.TimeoutPerRetry(Cadru.Polly.Data.SqlStrategyOptions)">
             <summary>
             The timeout for each retry.
             </summary>
-            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions"/> instance.</param>
-            <returns>The configured value if it is not <see langword="null"/>;
+            <param name="sqlStrategyOptions">The <see cref="T:Cadru.Polly.Data.SqlStrategyOptions" /> instance.</param>
+            <returns>The configured value if it is not <see langword="null" />;
             otherwise, the default value.</returns>
         </member>
         <member name="T:Cadru.Polly.AsyncExecutionEnvironment">
             <summary>
-            Represents both a <see cref="T:Polly.Context"/> and an <see cref="T:Polly.IAsyncPolicy"/> for execution.
+            Represents both a <see cref="T:Polly.Context" /> and an <see cref="T:Polly.IAsyncPolicy" /> for execution.
             </summary>
         </member>
         <member name="M:Cadru.Polly.AsyncExecutionEnvironment.#ctor(Polly.IAsyncPolicy,Polly.Context)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Polly.ExecutionEnvironment"/>.
+            Initializes a new instance of the <see cref="T:Cadru.Polly.ExecutionEnvironment" />.
             </summary>
             <param name="policy">The policy for executing actions.</param>
             <param name="context">The context for a single execution through a Policy.</param>
@@ -763,12 +763,12 @@ Sample license text.
         </member>
         <member name="T:Cadru.Polly.ExecutionEnvironment">
             <summary>
-            Represents both a <see cref="T:Polly.Context"/> and an <see cref="T:Polly.ISyncPolicy"/> for execution.
+            Represents both a <see cref="T:Polly.Context" /> and an <see cref="T:Polly.ISyncPolicy" /> for execution.
             </summary>
         </member>
         <member name="M:Cadru.Polly.ExecutionEnvironment.#ctor(Polly.ISyncPolicy,Polly.Context)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Polly.ExecutionEnvironment"/>.
+            Initializes a new instance of the <see cref="T:Cadru.Polly.ExecutionEnvironment" />.
             </summary>
             <param name="policy">The policy for executing actions.</param>
             <param name="context">The context for a single execution through a Policy.</param>
@@ -780,12 +780,12 @@ Sample license text.
         </member>
         <member name="T:Cadru.Polly.PolicyExecutionEnvironment">
             <summary>
-            Represents both a <see cref="P:Cadru.Polly.PolicyExecutionEnvironment.Context"/> and a Policy for execution.
+            Represents both a <see cref="P:Cadru.Polly.PolicyExecutionEnvironment.Context" /> and a Policy for execution.
             </summary>
         </member>
         <member name="M:Cadru.Polly.PolicyExecutionEnvironment.#ctor(Polly.Context)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Polly.PolicyExecutionEnvironment"/>.
+            Initializes a new instance of the <see cref="T:Cadru.Polly.PolicyExecutionEnvironment" />.
             </summary>
             <param name="context">The context for a single execution through a Policy.</param>
         </member>
@@ -818,16 +818,16 @@ Sample license text.
             </summary>
         </member>
         <member name="M:Cadru.Polly.Logging.AsyncLoggingPolicy.ImplementationAsync``1(System.Func{Polly.Context,System.Threading.CancellationToken,System.Threading.Tasks.Task{``0}},Polly.Context,System.Threading.CancellationToken,System.Boolean)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.Polly.Logging.AsyncLoggingPolicy`1">
             <summary>
-            A Logging policy that can be applied to asynchronous delegates returning a value of type <typeparamref name="TResult"/>.
+            A Logging policy that can be applied to asynchronous delegates returning a value of type <typeparamref name="TResult" />.
             </summary>
             <typeparam name="TResult">The type of return values this policy will handle.</typeparam>
         </member>
         <member name="M:Cadru.Polly.Logging.AsyncLoggingPolicy`1.ImplementationAsync(System.Func{Polly.Context,System.Threading.CancellationToken,System.Threading.Tasks.Task{`0}},Polly.Context,System.Threading.CancellationToken,System.Boolean)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.Polly.Logging.ILoggingPolicy">
             <summary>
@@ -845,7 +845,7 @@ Sample license text.
             </summary>
         </member>
         <member name="M:Cadru.Polly.Logging.LoggingPolicy.Implementation``1(System.Func{Polly.Context,System.Threading.CancellationToken,``0},Polly.Context,System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.Polly.Logging.LoggingPolicy`1">
             <summary>
@@ -854,31 +854,31 @@ Sample license text.
             <typeparam name="TResult">The type of return values this policy will handle.</typeparam>
         </member>
         <member name="M:Cadru.Polly.Logging.LoggingPolicy`1.Implementation(System.Func{Polly.Context,System.Threading.CancellationToken,`0},Polly.Context,System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.Polly.Logging.LoggingPolicySyntax">
             <summary>
-            Fluent API for defining an <see cref="T:Cadru.Polly.Logging.AsyncLoggingPolicy"/>.
+            Fluent API for defining an <see cref="T:Cadru.Polly.Logging.AsyncLoggingPolicy" />.
             </summary>
         </member>
         <member name="M:Cadru.Polly.Logging.LoggingPolicySyntax.AsyncLog(Polly.PolicyBuilder,System.Func{Polly.Context,Microsoft.Extensions.Logging.ILogger},System.Action{Microsoft.Extensions.Logging.ILogger,Polly.Context,System.Exception})">
             <summary>
-            Constructs a new instance of <see cref="T:Cadru.Polly.Logging.AsyncLoggingPolicy"/>,
+            Constructs a new instance of <see cref="T:Cadru.Polly.Logging.AsyncLoggingPolicy" />,
             configured to handle the exceptions specified in the <paramref
-            name="policyBuilder"/>.
+            name="policyBuilder" />.
             </summary>
             <param name="policyBuilder">The policy builder.</param>
             <param name="loggerProvider">A func returning a logger to
             use.</param>
             <param name="logAction">A logging action.</param>
-            <returns><see cref="T:Cadru.Polly.Logging.AsyncLoggingPolicy"/></returns>
+            <returns><see cref="T:Cadru.Polly.Logging.AsyncLoggingPolicy" /></returns>
         </member>
         <member name="M:Cadru.Polly.Logging.LoggingPolicySyntax.AsyncLog``1(Polly.PolicyBuilder{``0},System.Func{Polly.Context,Microsoft.Extensions.Logging.ILogger},System.Action{Microsoft.Extensions.Logging.ILogger,Polly.Context,Polly.DelegateResult{``0}})">
             <summary>
             Constructs a new instance of <see
-            cref="T:Cadru.Polly.Logging.AsyncLoggingPolicy`1"/>, configured to handle the
+            cref="T:Cadru.Polly.Logging.AsyncLoggingPolicy`1" />, configured to handle the
             exceptions and results specified in the <paramref
-            name="policyBuilder"/>.
+            name="policyBuilder" />.
             </summary>
             <typeparam name="TResult">The return type of delegates which may be
             executed through the policy.</typeparam>
@@ -886,25 +886,25 @@ Sample license text.
             <param name="loggerProvider">A func returning a logger to
             use.</param>
             <param name="logAction">A logging action.</param>
-            <returns><see cref="T:Cadru.Polly.Logging.AsyncLoggingPolicy`1"/></returns>
+            <returns><see cref="T:Cadru.Polly.Logging.AsyncLoggingPolicy`1" /></returns>
         </member>
         <member name="M:Cadru.Polly.Logging.LoggingPolicySyntax.Log(Polly.PolicyBuilder,System.Func{Polly.Context,Microsoft.Extensions.Logging.ILogger},System.Action{Microsoft.Extensions.Logging.ILogger,Polly.Context,System.Exception})">
             <summary>
-            Constructs a new instance of <see cref="T:Cadru.Polly.Logging.LoggingPolicy"/>, configured
+            Constructs a new instance of <see cref="T:Cadru.Polly.Logging.LoggingPolicy" />, configured
             to handle the exceptions specified in the <paramref
-            name="policyBuilder"/>.
+            name="policyBuilder" />.
             </summary>
             <param name="policyBuilder">The policy builder.</param>
             <param name="loggerProvider">A func returning a logger to
             use.</param>
             <param name="logAction">A logging action.</param>
-            <returns><see cref="T:Cadru.Polly.Logging.LoggingPolicy"/></returns>
+            <returns><see cref="T:Cadru.Polly.Logging.LoggingPolicy" /></returns>
         </member>
         <member name="M:Cadru.Polly.Logging.LoggingPolicySyntax.Log``1(Polly.PolicyBuilder{``0},System.Func{Polly.Context,Microsoft.Extensions.Logging.ILogger},System.Action{Microsoft.Extensions.Logging.ILogger,Polly.Context,Polly.DelegateResult{``0}})">
             <summary>
-            Constructs a new instance of <see cref="T:Cadru.Polly.Logging.LoggingPolicy`1"/>,
+            Constructs a new instance of <see cref="T:Cadru.Polly.Logging.LoggingPolicy`1" />,
             configured to handle the exceptions and results specified in the
-            <paramref name="policyBuilder"/>.
+            <paramref name="policyBuilder" />.
             </summary>
             <typeparam name="TResult">The return type of delegates which may be
             executed through the policy.</typeparam>
@@ -912,7 +912,7 @@ Sample license text.
             <param name="loggerProvider">A func returning a logger to
             use.</param>
             <param name="logAction">A logging action.</param>
-            <returns><see cref="T:Cadru.Polly.Logging.LoggingPolicy`1"/></returns>
+            <returns><see cref="T:Cadru.Polly.Logging.LoggingPolicy`1" /></returns>
         </member>
         <member name="T:Cadru.Polly.PolicyContextItems">
             <summary>
@@ -921,21 +921,21 @@ Sample license text.
         </member>
         <member name="F:Cadru.Polly.PolicyContextItems.Logger">
             <summary>
-            The key for an <see cref="T:Microsoft.Extensions.Logging.ILogger"/> item.
+            The key for an <see cref="T:Microsoft.Extensions.Logging.ILogger" /> item.
             </summary>
         </member>
         <member name="T:Cadru.Polly.PolicyRegistryExtensions">
             <summary>
-            Extension methods for working with a <see cref="T:Polly.Registry.IPolicyRegistry`1"/>.
+            Extension methods for working with a <see cref="T:Polly.Registry.IPolicyRegistry`1" />.
             </summary>
         </member>
         <member name="M:Cadru.Polly.PolicyRegistryExtensions.Add(Polly.Registry.IPolicyRegistry{System.String},Polly.IsPolicy)">
             <summary>
-            Adds the specified <paramref name="policy"/> to the registry using the
-            <see cref="P:Polly.IsPolicy.PolicyKey"/>.
+            Adds the specified <paramref name="policy" /> to the registry using the
+            <see cref="P:Polly.IsPolicy.PolicyKey" />.
             </summary>
             <param name="registry">The <see cref="T:Polly.Registry.IPolicyRegistry`1" /> to add policies to.</param>
-            <param name="policy">The <see cref="T:Polly.IsPolicy"/> to add.</param>
+            <param name="policy">The <see cref="T:Polly.IsPolicy" /> to add.</param>
         </member>
         <member name="T:Cadru.Polly.Resources.Strings">
             <summary>
@@ -1002,15 +1002,15 @@ Sample license text.
             <summary>
             Extension methods for setting up <see
             href="https://github.com/App-vNext/Polly">Polly</see> services in an
-            <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" />.
             </summary>
         </member>
         <member name="M:Cadru.Polly.ServiceCollectionExtensions.AddPollyRegistry(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
-            Adds a <see cref="T:Polly.Registry.PolicyRegistry"/> instance to the specified <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            Adds a <see cref="T:Polly.Registry.PolicyRegistry" /> instance to the specified <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" />.
             </summary>
             <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to add services to.</param>
-            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional calls can be chained.</returns>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> so that additional calls can be chained.</returns>
         </member>
         <member name="T:Cadru.Polly.Utilities.TimeoutHelper">
             <summary>
@@ -1024,7 +1024,7 @@ Sample license text.
             <param name="initialDelay">The initial delay added to the timeout.</param>
             <param name="factor">The linear factor to use for increasing the duration.</param>
             <param name="retryCount">The maximum number of retries to use, in addition to the original call.</param>
-            <returns>A <see cref="T:System.TimeSpan"/> representing the timeout.</returns>
+            <returns>A <see cref="T:System.TimeSpan" /> representing the timeout.</returns>
         </member>
     </members>
 </doc>

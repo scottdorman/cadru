@@ -43,13 +43,13 @@ namespace Cadru.Build.Tasks.Internal
             }
         }
 
-        internal static void VerifyThrowArgumentNull(object parameter, string parameterName)
+        internal static void VerifyThrowArgumentLength(string parameter, string parameterName)
         {
-            if (parameter == null)
+            VerifyThrowArgumentNull(parameter, parameterName);
+
+            if (parameter.Length == 0)
             {
-                // Most ArgumentNullException overloads append its own rather clunky multi-line message.
-                // So use the one overload that doesn't.
-                throw new ArgumentNullException(String.Format(Strings.Shared_ParameterCannotBeNull, parameterName), (Exception)null);
+                throw new ArgumentException(String.Format(Strings.Shared_ParameterCannotHaveZeroLength, parameterName));
             }
         }
 
@@ -61,13 +61,13 @@ namespace Cadru.Build.Tasks.Internal
             }
         }
 
-        internal static void VerifyThrowArgumentLength(string parameter, string parameterName)
+        internal static void VerifyThrowArgumentNull(object parameter, string parameterName)
         {
-            VerifyThrowArgumentNull(parameter, parameterName);
-
-            if (parameter.Length == 0)
+            if (parameter == null)
             {
-                throw new ArgumentException(String.Format(Strings.Shared_ParameterCannotHaveZeroLength, parameterName));
+                // Most ArgumentNullException overloads append its own rather clunky multi-line message.
+                // So use the one overload that doesn't.
+                throw new ArgumentNullException(String.Format(Strings.Shared_ParameterCannotBeNull, parameterName), (Exception)null);
             }
         }
     }

@@ -232,7 +232,7 @@ namespace Cadru.Polly.Data.SqlServer
         /// <summary>
         /// Determines the throttling conditions from the specified SQL error.
         /// </summary>
-        /// <param name="error">The <see cref="SqlError"/> object that contains information relevant to a warning or error returned by SQL Server.</param>
+        /// <param name="error">The <see cref="SqlError" /> object that contains information relevant to a warning or error returned by SQL Server.</param>
         /// <returns>An instance of the object that holds the decoded reason codes returned from SQL Database when throttling conditions were encountered.</returns>
         public static ThrottlingCondition FromError(SqlError error)
         {
@@ -252,7 +252,7 @@ namespace Cadru.Polly.Data.SqlServer
         /// <summary>
         /// Determines throttling conditions from the specified SQL exception.
         /// </summary>
-        /// <param name="ex">The <see cref="SqlException"/> object that contains information relevant to an error returned by SQL Server when throttling conditions were encountered.</param>
+        /// <param name="ex">The <see cref="SqlException" /> object that contains information relevant to an error returned by SQL Server when throttling conditions were encountered.</param>
         /// <returns>An instance of the object that holds the decoded reason codes returned from SQL Database when throttling conditions were encountered.</returns>
         public static ThrottlingCondition FromException(SqlException ex)
         {

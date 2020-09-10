@@ -12,69 +12,69 @@ Sample license text.
             Gets a value that indicates if the HTTP response was successful.
             </summary>
             <param name="responseMessage"></param>
-            <returns><see langword="true"/> if <see
-            cref="P:System.Net.Http.HttpResponseMessage.StatusCode"/> was in the range 200-299;
-            otherwise, <see langword="false"/>.</returns>
-            <remarks>As <see cref="T:Microsoft.AspNetCore.Http.HttpResponse"/> does not have a built-in way
+            <returns><see langword="true" /> if <see
+            cref="P:System.Net.Http.HttpResponseMessage.StatusCode" /> was in the range 200-299;
+            otherwise, <see langword="false" />.</returns>
+            <remarks>As <see cref="T:Microsoft.AspNetCore.Http.HttpResponse" /> does not have a built-in way
             to check for a successful response, this is a wrapper over <see
-            cref="P:System.Net.Http.HttpResponseMessage.IsSuccessStatusCode"/> to standardize
-            checking between <see cref="T:Microsoft.AspNetCore.Http.HttpResponse"/> and <see
-            cref="T:System.Net.Http.HttpResponseMessage"/>.</remarks>
+            cref="P:System.Net.Http.HttpResponseMessage.IsSuccessStatusCode" /> to standardize
+            checking between <see cref="T:Microsoft.AspNetCore.Http.HttpResponse" /> and <see
+            cref="T:System.Net.Http.HttpResponseMessage" />.</remarks>
         </member>
         <member name="M:Cadru.AspNetCore.Http.Internal.Extensions.IsSuccessStatusCode(Microsoft.AspNetCore.Http.HttpResponse)">
             <summary>
             Gets a value that indicates if the HTTP response was successful.
             </summary>
             <param name="response"></param>
-            <returns><see langword="true"/> if <see cref="P:Microsoft.AspNetCore.Http.HttpResponse.StatusCode"/>
-            was in the range 200-299; otherwise, <see langword="false"/>.</returns>
-            <remarks>As <see cref="T:Microsoft.AspNetCore.Http.HttpResponse"/> does not have a built-in way
+            <returns><see langword="true" /> if <see cref="P:Microsoft.AspNetCore.Http.HttpResponse.StatusCode" />
+            was in the range 200-299; otherwise, <see langword="false" />.</returns>
+            <remarks>As <see cref="T:Microsoft.AspNetCore.Http.HttpResponse" /> does not have a built-in way
             to check for a successful response, this is a wrapper over <see
-            cref="P:System.Net.Http.HttpResponseMessage.IsSuccessStatusCode"/> to standardize
-            checking between <see cref="T:Microsoft.AspNetCore.Http.HttpResponse"/> and <see
-            cref="T:System.Net.Http.HttpResponseMessage"/>.</remarks>
+            cref="P:System.Net.Http.HttpResponseMessage.IsSuccessStatusCode" /> to standardize
+            checking between <see cref="T:Microsoft.AspNetCore.Http.HttpResponse" /> and <see
+            cref="T:System.Net.Http.HttpResponseMessage" />.</remarks>
         </member>
         <member name="T:Cadru.AspNetCore.Http.IRequestResponseLoggingScopeFactory">
             <summary>
             Provides methods for creating a <see
-            cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> from an <see
-            cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>.
+            cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope" /> from an <see
+            cref="T:System.Net.Http.HttpRequestMessage" /> or <see cref="T:Microsoft.AspNetCore.Http.HttpRequest" />.
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Http.IRequestResponseLoggingScopeFactory.ToScopeObjectAsync(System.Net.Http.HttpRequestMessage)">
             <summary>
-            Creates a <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> instance from
-            the given <see cref="T:System.Net.Http.HttpRequestMessage"/>.
+            Creates a <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope" /> instance from
+            the given <see cref="T:System.Net.Http.HttpRequestMessage" />.
             </summary>
-            <param name="requestMessage">The <see cref="T:System.Net.Http.HttpRequestMessage"/>
+            <param name="requestMessage">The <see cref="T:System.Net.Http.HttpRequestMessage" />
             whose properties will be added to the logging scope.</param>
-            <returns>A <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> with properties
-            populated from the <paramref name="requestMessage"/>.</returns>
+            <returns>A <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope" /> with properties
+            populated from the <paramref name="requestMessage" />.</returns>
         </member>
         <member name="M:Cadru.AspNetCore.Http.IRequestResponseLoggingScopeFactory.ToScopeObjectAsync(Microsoft.AspNetCore.Http.HttpRequest)">
             <summary>
-            Creates a <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> instance from
-            the given <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>.
+            Creates a <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope" /> instance from
+            the given <see cref="T:Microsoft.AspNetCore.Http.HttpRequest" />.
             </summary>
-            <param name="request">The <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>
+            <param name="request">The <see cref="T:Microsoft.AspNetCore.Http.HttpRequest" />
             whose properties will be added to the logging scope.</param>
-            <returns>A <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> with properties
-            populated from the <paramref name="request"/>.</returns>
+            <returns>A <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope" /> with properties
+            populated from the <paramref name="request" />.</returns>
         </member>
         <member name="M:Cadru.AspNetCore.Http.IRequestResponseLoggingScopeFactory.ToScopeObjectAsync(Microsoft.AspNetCore.Http.HttpContext)">
             <summary>
-            Creates a <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> instance from
-            the given <see cref="T:Microsoft.AspNetCore.Http.HttpContext"/>.
+            Creates a <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope" /> instance from
+            the given <see cref="T:Microsoft.AspNetCore.Http.HttpContext" />.
             </summary>
-            <param name="httpContext">The <see cref="T:Microsoft.AspNetCore.Http.HttpContext"/>
+            <param name="httpContext">The <see cref="T:Microsoft.AspNetCore.Http.HttpContext" />
             whose properties will be added to the logging scope.</param>
-            <returns>A <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> with properties
-            populated from the <paramref name="httpContext"/>.</returns>
+            <returns>A <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope" /> with properties
+            populated from the <paramref name="httpContext" />.</returns>
         </member>
         <member name="T:Cadru.AspNetCore.Http.IRequestResponseLoggingSerializer">
             <summary>
             Provides methods for serializing an <see
-            cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>
+            cref="T:System.Net.Http.HttpRequestMessage" /> or <see cref="T:Microsoft.AspNetCore.Http.HttpRequest" />
             to a format suitable for logging.
             </summary>
         </member>
@@ -97,7 +97,7 @@ Sample license text.
             Serialize a response to a string suitable for logging.
             </summary>
             <param name="response">The response to be serialized.</param>
-            <param name="responseStream">A <see cref="T:System.IO.MemoryStream"/> used to serialize the response body.</param>
+            <param name="responseStream">A <see cref="T:System.IO.MemoryStream" /> used to serialize the response body.</param>
             <returns>A string representing the serialized response.</returns>
         </member>
         <member name="M:Cadru.AspNetCore.Http.IRequestResponseLoggingSerializer.SerializeResponseAsync(System.Net.Http.HttpResponseMessage)">
@@ -121,10 +121,10 @@ Sample license text.
             <param name="optionsAccessor">The logging configuration options.</param>
             <param name="requestResponseLoggingSerializer">The serializer used for creating the log message content.</param>
             <param name="loggingScopeFactory">A factory instance for creating the scope object.</param>
-            <param name="loggerFactory">An <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/> instance used to create a logger.</param>
+            <param name="loggerFactory">An <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory" /> instance used to create a logger.</param>
         </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingDelegatingHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware">
             <summary>
@@ -134,19 +134,19 @@ Sample license text.
         </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Options.IOptions{Cadru.AspNetCore.Http.RequestResponseLoggingOptions},Cadru.AspNetCore.Http.IRequestResponseLoggingSerializer,Cadru.AspNetCore.Http.IRequestResponseLoggingScopeFactory,Microsoft.Extensions.Logging.ILoggerFactory)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware" /> class.
             </summary>
             <param name="next"></param>
             <param name="optionsAccessor">The logging configuration options.</param>
             <param name="requestResponseLoggingSerializer">The serializer used for creating the log message content.</param>
             <param name="loggingScopeFactory">A factory instance for creating the scope object.</param>
-            <param name="loggerFactory">An <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/> instance used to create a logger.</param>
+            <param name="loggerFactory">An <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory" /> instance used to create a logger.</param>
         </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
             <summary>
             Optionally logs the request and response.
             </summary>
-            <param name="context">The <see cref="T:Microsoft.AspNetCore.Http.HttpContext"/> of the request.</param>
+            <param name="context">The <see cref="T:Microsoft.AspNetCore.Http.HttpContext" /> of the request.</param>
             <returns>The task object representing the asynchronous operation.</returns>
         </member>
         <member name="T:Cadru.AspNetCore.Http.RequestResponseLoggingMiddlewareExtensions">
@@ -156,23 +156,22 @@ Sample license text.
         </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingMiddlewareExtensions.AddRequestResponseLogging(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
              <summary>
-            
              </summary>
              <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to add services to.</param>
              <param name="configuration">A set of key/value configuration properties.</param>
-             <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional calls can be chained.</returns>
+             <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> so that additional calls can be chained.</returns>
         </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingMiddlewareExtensions.UseRequestResponseLogging(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
-            Adds the <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware"/> to the application's request pipeline.
+            Adds the <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware" /> to the application's request pipeline.
             </summary>
-            <param name="builder">The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> to add middleware to.</param>
-            <returns>The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> so that additional calls can be chained.</returns>
+            <param name="builder">The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder" /> to add middleware to.</param>
+            <returns>The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder" /> so that additional calls can be chained.</returns>
         </member>
         <member name="T:Cadru.AspNetCore.Http.RequestResponseLoggingOptions">
             <summary>
-            The options for <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingDelegatingHandler"/>
-            or <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware"/>.
+            The options for <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingDelegatingHandler" />
+            or <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware" />.
             </summary>
         </member>
         <member name="F:Cadru.AspNetCore.Http.RequestResponseLoggingOptions.SectionKey">
@@ -183,7 +182,7 @@ Sample license text.
         <member name="P:Cadru.AspNetCore.Http.RequestResponseLoggingOptions.CaptureScopes">
             <summary>
             Gets or sets a value indicating whether logging scopes are being captured.
-            Defaults to <see langword="true"/>.
+            Defaults to <see langword="true" />.
             </summary>
         </member>
         <member name="P:Cadru.AspNetCore.Http.RequestResponseLoggingOptions.LogLevel">
@@ -221,7 +220,7 @@ Sample license text.
         <member name="T:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer">
             <summary>
             Provides methods for serializing an <see
-            cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>
+            cref="T:System.Net.Http.HttpRequestMessage" /> or <see cref="T:Microsoft.AspNetCore.Http.HttpRequest" />
             to a format suitable for logging.
             </summary>
         </member>
@@ -231,16 +230,16 @@ Sample license text.
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.SerializeRequest(Microsoft.AspNetCore.Http.HttpRequest)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.SerializeRequest(System.Net.Http.HttpRequestMessage)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.SerializeResponseAsync(Microsoft.AspNetCore.Http.HttpResponse,System.IO.MemoryStream)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.SerializeResponseAsync(System.Net.Http.HttpResponseMessage)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.GetRawTarget(Microsoft.AspNetCore.Http.HttpRequest)">
             <summary>
@@ -262,12 +261,12 @@ Sample license text.
             <param name="stream"></param>
             <returns>A task that represents the asynchronous read operation. The value contains
             a string with the characters from the current position to the end of the stream.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">The number of characters is larger than <see cref="F:System.Int32.MaxValue"/>.</exception>
-            <exception cref="T:System.ObjectDisposedException">The <paramref name="stream"/> has been disposed.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">The number of characters is larger than <see cref="F:System.Int32.MaxValue" />.</exception>
+            <exception cref="T:System.ObjectDisposedException">The <paramref name="stream" /> has been disposed.</exception>
             <exception cref="T:System.InvalidOperationException">The reader is currently in use by a previous read operation..</exception>
         </member>
         <member name="T:Cadru.AspNetCore.IMimeMappingProvider">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.AspNetCore.IMimeMappingProvider.Mappings">
             <summary>
@@ -281,7 +280,7 @@ Sample license text.
             <param name="subpath">A file path</param>
             <returns>The resulting MIME type</returns>
             <remarks>If the MIME type can't be determined, <see
-            cref="F:Cadru.AspNetCore.MimeTypes.OctetStream"/> will be returned.</remarks>
+            cref="F:Cadru.AspNetCore.MimeTypes.OctetStream" /> will be returned.</remarks>
         </member>
         <member name="T:Cadru.AspNetCore.MimeMappingProvider">
             <summary>
@@ -300,9 +299,9 @@ Sample license text.
             <param name="mappings">The cross reference table of file extensions
             and content-types.</param>
             <remarks>
-            It is recommended that the <see cref="T:System.Collections.Generic.IDictionary`2"/> instance
-            use <see cref="P:System.StringComparer.OrdinalIgnoreCase"/>. This <see
-            cref="T:System.Collections.Generic.IDictionary`2"/> instance replaces the default mappings.
+            It is recommended that the <see cref="T:System.Collections.Generic.IDictionary`2" /> instance
+            use <see cref="P:System.StringComparer.OrdinalIgnoreCase" />. This <see
+            cref="T:System.Collections.Generic.IDictionary`2" /> instance replaces the default mappings.
             </remarks>
         </member>
         <member name="M:Cadru.AspNetCore.MimeMappingProvider.#ctor(System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
@@ -314,13 +313,13 @@ Sample license text.
             table.</param>
         </member>
         <member name="P:Cadru.AspNetCore.MimeMappingProvider.Mappings">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.AspNetCore.MimeMappingProvider.GetContentType(System.String)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.AspNetCore.MimeMappingProvider.TryGetContentType(System.String,System.String@)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.AspNetCore.MimeTypes">
             <summary>

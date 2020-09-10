@@ -33,16 +33,16 @@ namespace Cadru.Data.Excel
 
     public partial class ExcelDataReader
     {
-        private int currentIndex = 0;
-        private int? currentRowIndex = null;
-        private IEnumerable<Cell> currentRowData;
-        private Sheet currentSheet;
         private readonly SpreadsheetDocument document;
-        private IList<string> headers;
         private readonly IDictionary<int, string> sharedStrings;
         private readonly IList<Sheet> sheets;
-        private OpenXmlReader reader;
+        private int currentIndex = 0;
+        private IEnumerable<Cell> currentRowData;
+        private int? currentRowIndex = null;
+        private Sheet currentSheet;
         private bool firstRead = true;
+        private IList<string> headers;
+        private OpenXmlReader reader;
 
         public ExcelDataReader(string path)
         {
@@ -58,10 +58,10 @@ namespace Cadru.Data.Excel
             this.sharedStrings = GetSharedStrings(this.document);
         }
 
-        public object this[string name] => this[this.GetOrdinal(name)];
-
-        public object this[int i] => this.GetValue(i);
-
+        public int? CurrentRowIndex => this.currentRowIndex;
+        public string CurrentSheetId => this.currentSheet?.Id ?? String.Empty;
+        public int CurrentSheetIndex => this.currentIndex;
+        public string CurrentSheetName => this.currentSheet?.Name ?? String.Empty;
         public IEnumerable<string> FieldNames => this.headers;
 
         public bool FirstRowAsHeader
@@ -71,18 +71,11 @@ namespace Cadru.Data.Excel
         }
 
         public bool IsClosed => this.document == null;
-
         public int ResultsCount => this.sheets?.Count() ?? -1;
-
-        public int? CurrentRowIndex => this.currentRowIndex;
-
-        public string CurrentSheetName => this.currentSheet?.Name ?? String.Empty;
-
-        public string CurrentSheetId => this.currentSheet?.Id ?? String.Empty;
-
-        public int CurrentSheetIndex => this.currentIndex;
-
         public IEnumerable<string> SheetNames => this.sheets?.Select(s => s.Name.Value) ?? Enumerable.Empty<string>();
+        public object this[string name] => this[this.GetOrdinal(name)];
+
+        public object this[int i] => this.GetValue(i);
 
         public bool NextResult(string sheetName, bool firstRowAsHeader)
         {

@@ -9,7 +9,7 @@ WARNING: DO NOT MODIFY this file unless you are knowledgeable about MSBuild and 
     <VersionProps>$(BuildDir)\version.props</VersionProps>
   </PropertyGroup>
 
-  <Import Project="$(VersionProps)" Condition="Exists('$(VersionProps)')"/>
+  <Import Project="$(VersionProps)" Condition="Exists('$(VersionProps)')" />
 
   <PropertyGroup>
     <VersionUpdateTasksLib Condition="'$(OS)' == 'Windows_NT'">$([MSBUILD]::Unescape($(BuildDir)\Cadru.Build.Tasks.dll))</VersionUpdateTasksLib>

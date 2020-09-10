@@ -45,7 +45,7 @@ namespace Cadru.Collections
         }
 
         /// <summary>Gets the key in the key/value pair.</summary>
-        /// <value>A <see cref="System.String"/> that is the key of the <see cref="NameValuePair{TValue}" />. </value>
+        /// <value>A <see cref="System.String" /> that is the key of the <see cref="NameValuePair{TValue}" />. </value>
         public string Key => this.key;
 
         /// <summary>Gets the value in the key/value pair.</summary>
@@ -57,8 +57,8 @@ namespace Cadru.Collections
         /// </summary>
         /// <param name="left">An <see cref="NameValuePair{TValue}"/>.</param>
         /// <param name="right">An <see cref="NameValuePair{TValue}"/>.</param>
-        /// <returns><see langword="true"/> if left and right do note represent the same server;
-        /// otherwise <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if left and right do note represent the same server;
+        /// otherwise <see langword="false" />.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
         public static bool operator !=(NameValuePair<TValue> left, NameValuePair<TValue> right)
         {
@@ -70,7 +70,7 @@ namespace Cadru.Collections
         /// </summary>
         /// <param name="left">An <see cref="NameValuePair{TValue}"/>.</param>
         /// <param name="right">An <see cref="NameValuePair{TValue}"/>.</param>
-        /// <returns><see langword="true"/> if left and right represent the same server; otherwise <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if left and right represent the same server; otherwise <see langword="false" />.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
         public static bool operator ==(NameValuePair<TValue> left, NameValuePair<TValue> right)
         {
@@ -81,7 +81,7 @@ namespace Cadru.Collections
         /// Returns a value indicating whether this instance is equal to the specified <see cref="NameValuePair{TValue}"/> instance.
         /// </summary>
         /// <param name="other">An <see cref="NameValuePair{TValue}"/> instance to compare to this instance.</param>
-        /// <returns><see langword="true"/> if the other parameter equals the value of this instance; otherwise, <see langword="false"/>. </returns>
+        /// <returns><see langword="true" /> if the other parameter equals the value of this instance; otherwise, <see langword="false" />. </returns>
         /// <remarks>This method implements the <see cref="System.IEquatable{T}"/> interface and performs slightly
         /// better than the <see cref="NameValuePair{TValue}.Equals(object)"/> method because it does not have to convert
         /// the other parameter to an object.</remarks>
@@ -100,8 +100,8 @@ namespace Cadru.Collections
         /// Returns a value indicating whether this instance is equal to a specified object.
         /// </summary>
         /// <param name="obj">An object to compare to this instance.</param>
-        /// <returns><see langword="true"/> if value is an instance of <see cref="NameValuePair{TValue}"/>
-        /// equals the value of this instance; otherwise, <see langword="false"/>. </returns>
+        /// <returns><see langword="true" /> if value is an instance of <see cref="NameValuePair{TValue}"/>
+        /// equals the value of this instance; otherwise, <see langword="false" />. </returns>
         public override bool Equals(object obj)
         {
             if (obj.IsNull() || !(obj is NameValuePair<TValue> pair))

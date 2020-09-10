@@ -9,14 +9,14 @@ Sample license text.
     <members>
         <member name="T:Cadru.Data.Dapper.CombTypeHandler">
             <summary>
-            A type handler to convert between a <see cref="T:Cadru.Comb"/> and a <see cref="T:System.Guid"/>.
+            A type handler to convert between a <see cref="T:Cadru.Comb" /> and a <see cref="T:System.Guid" />.
             </summary>
         </member>
         <member name="M:Cadru.Data.Dapper.CombTypeHandler.Parse(System.Object)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.CombTypeHandler.SetValue(System.Data.IDbDataParameter,Cadru.Comb)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.Data.Dapper.CommandAdapter">
             <summary>
@@ -24,58 +24,58 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.CatalogSeparator">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.IdentifierPrefix">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.IdentifierSuffix">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.NameSeparator">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.ParameterNameMaxLength">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.ParameterNamePattern">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.ParameterPrefix">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.QuotePrefix">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.QuoteSuffix">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.SchemaSeparator">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.CommandAdapter.GetParameterName(System.String)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.CommandAdapter.IsValidIdentifier(System.String)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.CommandAdapter.QuoteIdentifier(System.String)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.CommandAdapter.QuoteStringLiteral(System.String)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.CommandAdapter.UnquoteIdentifier(System.String)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.Data.Dapper.Configuration.DapperContextBuilder">
             <summary>
-            Provides a simple API surface for configuring <see cref="T:Cadru.Data.Dapper.DapperContext"/>.
+            Provides a simple API surface for configuring <see cref="T:Cadru.Data.Dapper.DapperContext" />.
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.Configuration.DapperContextBuilder.CommandAdapter">
             <summary>
-            Gets a <see cref="P:Cadru.Data.Dapper.Configuration.DapperContextBuilder.CommandAdapter"/> that is used to create SQL statements.
+            Gets a <see cref="P:Cadru.Data.Dapper.Configuration.DapperContextBuilder.CommandAdapter" /> that is used to create SQL statements.
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.Configuration.DapperContextBuilder.ConnectionString">
@@ -85,7 +85,7 @@ Sample license text.
         </member>
         <member name="P:Cadru.Data.Dapper.Configuration.DapperContextBuilder.DbProviderFactory">
             <summary>
-            Gets the <see cref="P:Cadru.Data.Dapper.Configuration.DapperContextBuilder.DbProviderFactory"/> used to create data source classes.
+            Gets the <see cref="P:Cadru.Data.Dapper.Configuration.DapperContextBuilder.DbProviderFactory" /> used to create data source classes.
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.Configuration.DapperContextBuilder.ExceptionHandlingStrategies">
@@ -100,15 +100,15 @@ Sample license text.
         </member>
         <member name="P:Cadru.Data.Dapper.Configuration.DapperContextBuilder.SqlStrategyFactory">
             <summary>
-            Gets the <see cref="T:Cadru.Polly.Data.ISqlStrategyFactory"/> used for creating a retry on failure strategy.
+            Gets the <see cref="T:Cadru.Polly.Data.ISqlStrategyFactory" /> used for creating a retry on failure strategy.
             </summary>
-            <remarks><see cref="P:Cadru.Polly.Data.SqlStrategy.Default"/> is used if <see cref="P:Cadru.Data.Dapper.Configuration.DapperContextBuilder.RetryOnFailureEnabled"/> is <see langword="false"/> or
-            <see cref="P:Cadru.Data.Dapper.Configuration.DapperContextBuilder.SqlStrategyFactory"/> is <see langword="null"/>.
+            <remarks><see cref="P:Cadru.Polly.Data.SqlStrategy.Default" /> is used if <see cref="P:Cadru.Data.Dapper.Configuration.DapperContextBuilder.RetryOnFailureEnabled" /> is <see langword="false" /> or
+            <see cref="P:Cadru.Data.Dapper.Configuration.DapperContextBuilder.SqlStrategyFactory" /> is <see langword="null" />.
             </remarks>
         </member>
         <member name="T:Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions">
             <summary>
-            Provides a simple API surface for configuring <see cref="T:Cadru.Data.Dapper.DapperContext"/>.
+            Provides a simple API surface for configuring <see cref="T:Cadru.Data.Dapper.DapperContext" />.
             </summary>
         </member>
         <member name="M:Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.AddTypeHandler``1(Cadru.Data.Dapper.Configuration.DapperContextBuilder,Dapper.SqlMapper.TypeHandler{``0})">
@@ -118,7 +118,7 @@ Sample license text.
             </summary>
             <typeparam name="T">The type to handle.</typeparam>
             <param name="contextBuilder">The builder being used to configure the context.</param>
-            <param name="handler">The handler for the type <typeparamref name="T"/>.</param>
+            <param name="handler">The handler for the type <typeparamref name="T" />.</param>
             <returns>The context builder so that further configuration can be chained.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.AddTypeHandler(Cadru.Data.Dapper.Configuration.DapperContextBuilder,System.Type,Dapper.SqlMapper.ITypeHandler)">
@@ -128,7 +128,7 @@ Sample license text.
             </summary>
             <param name="contextBuilder">The builder being used to configure the context.</param>
             <param name="type">The type to handle.</param>
-            <param name="handler">The handler for the type <paramref name="type"/>.</param>
+            <param name="handler">The handler for the type <paramref name="type" />.</param>
             <returns>The context builder so that further configuration can be chained.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.AddTypeHandlerImpl(Cadru.Data.Dapper.Configuration.DapperContextBuilder,System.Type,Dapper.SqlMapper.ITypeHandler,System.Boolean)">
@@ -138,7 +138,7 @@ Sample license text.
             </summary>
             <param name="contextBuilder">The builder being used to configure the context.</param>
             <param name="type">The type to handle.</param>
-            <param name="handler">The handler for the type <paramref name="type"/>.</param>
+            <param name="handler">The handler for the type <paramref name="type" />.</param>
             <param name="clone">Whether to clone the current type handler map.</param>
             <returns>The context builder so that further configuration can be chained.</returns>
         </member>
@@ -169,7 +169,7 @@ Sample license text.
         </member>
         <member name="T:Cadru.Data.Dapper.Configuration.DapperContextOptions">
             <summary>
-            Configuration options for a <see cref="T:Cadru.Data.Dapper.DapperContext"/>
+            Configuration options for a <see cref="T:Cadru.Data.Dapper.DapperContext" />
             </summary>
         </member>
         <member name="F:Cadru.Data.Dapper.Configuration.DapperContextOptions.SectionKey">
@@ -179,17 +179,17 @@ Sample license text.
         </member>
         <member name="P:Cadru.Data.Dapper.Configuration.DapperContextOptions.Logging">
             <summary>
-            Command logging options for a <see cref="T:Cadru.Data.Dapper.DapperContext"/>
+            Command logging options for a <see cref="T:Cadru.Data.Dapper.DapperContext" />
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.Configuration.DapperContextOptions.Timeout">
             <summary>
-            Command timeout options for a <see cref="T:Cadru.Data.Dapper.DapperContext"/>
+            Command timeout options for a <see cref="T:Cadru.Data.Dapper.DapperContext" />
             </summary>
         </member>
         <member name="T:Cadru.Data.Dapper.Configuration.LoggingOptions">
             <summary>
-            Command logging options for a <see cref="T:Cadru.Data.Dapper.DapperContext"/>
+            Command logging options for a <see cref="T:Cadru.Data.Dapper.DapperContext" />
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.Configuration.LoggingOptions.CommandDefinitionLoggingEnabled">
@@ -199,7 +199,7 @@ Sample license text.
         </member>
         <member name="T:Cadru.Data.Dapper.Configuration.TimeoutOptions">
             <summary>
-            Command timeout options for a <see cref="T:Cadru.Data.Dapper.DapperContext"/>
+            Command timeout options for a <see cref="T:Cadru.Data.Dapper.DapperContext" />
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.Configuration.TimeoutOptions.DefaultCommandTimeout">
@@ -214,59 +214,59 @@ Sample license text.
         </member>
         <member name="T:Cadru.Data.Dapper.Configuration.DapperConfigurationExtensions">
             <summary>
-            Extension methods for setting up <see cref="T:Cadru.Data.Dapper.DapperContext"/> related services in an
-            <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            Extension methods for setting up <see cref="T:Cadru.Data.Dapper.DapperContext" /> related services in an
+            <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" />.
             </summary>
         </member>
         <member name="M:Cadru.Data.Dapper.Configuration.DapperConfigurationExtensions.AddDapperContext``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,System.Action{System.IServiceProvider,Cadru.Data.Dapper.Configuration.DapperContextBuilder})">
             <summary>
-            Registers the given <see cref="T:Cadru.Data.Dapper.DapperContext"/> as a service in the
-            <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            Registers the given <see cref="T:Cadru.Data.Dapper.DapperContext" /> as a service in the
+            <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" />.
             </summary>
             <typeparam name="TDatabaseContext">The type of context to be registered.</typeparam>
             <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to add services to.</param>
             <param name="configuration">A set of key/value configuration properties.</param>
             <param name="contextBuilderAction">An optional action to configure the
-            <see cref="T:Cadru.Data.Dapper.Configuration.DapperContextBuilder"/> for the context.</param>
-            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional calls can be chained.</returns>
+            <see cref="T:Cadru.Data.Dapper.Configuration.DapperContextBuilder" /> for the context.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> so that additional calls can be chained.</returns>
         </member>
         <member name="T:Cadru.Data.Dapper.DapperCommandBuilder">
             <summary>
-            Represents a way to create <see cref="T:Dapper.CommandDefinition"/> instances.
+            Represents a way to create <see cref="T:Dapper.CommandDefinition" /> instances.
             </summary>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperCommandBuilder.#ctor(Cadru.Data.Dapper.IDatabaseObject)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.DapperCommandBuilder"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.DapperCommandBuilder" /> class.
             </summary>
-            <param name="databaseObject">The <see cref="T:Cadru.Data.Dapper.IDatabaseObject"/> for which commands will be created.</param>
+            <param name="databaseObject">The <see cref="T:Cadru.Data.Dapper.IDatabaseObject" /> for which commands will be created.</param>
         </member>
         <member name="P:Cadru.Data.Dapper.DapperCommandBuilder.DatabaseObject">
             <summary>
-            The <see cref="T:Cadru.Data.Dapper.IDatabaseObject"/> for which commands will be created.
+            The <see cref="T:Cadru.Data.Dapper.IDatabaseObject" /> for which commands will be created.
             </summary>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperCommandBuilder.GetDeleteCommand(Cadru.Data.Dapper.Predicates.IPredicate,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType},Dapper.CommandFlags,System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.DapperCommandBuilder.GetInsertCommand(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType},Dapper.CommandFlags,System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.DapperCommandBuilder.GetSelectCommand(Cadru.Data.Dapper.Predicates.IPredicate,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType},Dapper.CommandFlags,System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.DapperCommandBuilder.GetSelectTopCommand(System.Int32,Cadru.Data.Dapper.Predicates.IPredicate,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType},Dapper.CommandFlags,System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.DapperCommandBuilder.GetUpdateCommand(System.Object,Cadru.Data.Dapper.Predicates.IPredicate,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType},Dapper.CommandFlags,System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.DapperCommandBuilder.AppendWhere(System.Text.StringBuilder,Cadru.Data.Dapper.Predicates.IPredicate,Dapper.DynamicParameters)">
             <summary>
-            Appends the SQL representation of the specified <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> to the WHERE clause.
+            Appends the SQL representation of the specified <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate" /> to the WHERE clause.
             </summary>
-            <param name="builder">The <see cref="T:System.Text.StringBuilder"/> for the SQL statement being created.</param>
-            <param name="predicate">An optional <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> to append.</param>
+            <param name="builder">The <see cref="T:System.Text.StringBuilder" /> for the SQL statement being created.</param>
+            <param name="predicate">An optional <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate" /> to append.</param>
             <param name="parameters">A bag of parameters.</param>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperCommandBuilder.DeriveParameters(System.Object)">
@@ -275,15 +275,15 @@ Sample license text.
             statements.
             </summary>
             <param name="template">The anonymous type of <see
-            cref="T:Dapper.DynamicParameters"/> bag representing the template which
+            cref="T:Dapper.DynamicParameters" /> bag representing the template which
             contains the parameter information.</param>
-            <returns>The <see cref="T:System.ValueTuple"/> which represents the parameter
+            <returns>The <see cref="T:System.ValueTuple" /> which represents the parameter
             names and parameter bag derived from <paramref
-            name="template"/>.</returns>
+            name="template" />.</returns>
         </member>
         <member name="T:Cadru.Data.Dapper.DapperContext">
             <summary>
-            A <see cref="T:Cadru.Data.Dapper.DapperContext"/> represents a session with the database and
+            A <see cref="T:Cadru.Data.Dapper.DapperContext" /> represents a session with the database and
             can be used to query and save instances of your entities.
             </summary>
             <remarks>
@@ -300,102 +300,102 @@ Sample license text.
         </member>
         <member name="M:Cadru.Data.Dapper.DapperContext.#ctor(Cadru.Data.Dapper.Configuration.DapperContextBuilder,Microsoft.Extensions.Options.IOptions{Cadru.Data.Dapper.Configuration.DapperContextOptions},Microsoft.Extensions.Logging.ILoggerFactory)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.DapperContext"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.DapperContext" /> class.
             </summary>
             <param name="contextBuilder">Additional information for creating the context.</param>
             <param name="optionsAccessor">The context configuration options.</param>
-            <param name="loggerFactory">An <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/> instance used to create a logger.</param>
+            <param name="loggerFactory">An <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory" /> instance used to create a logger.</param>
         </member>
         <member name="P:Cadru.Data.Dapper.DapperContext.CommandAdapter">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.DapperContext.Connection">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.DapperContext.HasActiveTransaction">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.DapperContext.Logger">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.DapperContext.Mappings">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.DapperContext.Options">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.DapperContext.Transaction">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.DapperContext.BeginTransaction(System.Boolean,System.Data.IsolationLevel)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.DapperContext.BeginTransaction(System.Data.IsolationLevel)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.DapperContext.CommitTransaction">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.DapperContext.RollbackTransaction">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.Data.Dapper.DapperContextFactory">
             <summary>
             Represents a set of methods for creating instances of an <see
-            cref="T:Cadru.Data.Dapper.IDapperContext"/>.
+            cref="T:Cadru.Data.Dapper.IDapperContext" />.
             </summary>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperContextFactory.Create``1(System.IServiceProvider)">
             <summary>
-            Create a new <typeparamref name="TDatabaseContext"/> instance.
+            Create a new <typeparamref name="TDatabaseContext" /> instance.
             </summary>
-            <returns>A new <typeparamref name="TDatabaseContext"/>.</returns>
+            <returns>A new <typeparamref name="TDatabaseContext" />.</returns>
             <typeparam name="TDatabaseContext"></typeparam>
         </member>
         <member name="T:Cadru.Data.Dapper.DapperPollyContextExtensions">
             <summary>
-            Helper methods for getting a <see cref="T:Cadru.Polly.PolicyExecutionEnvironment"/> from the <see cref="T:Cadru.Data.Dapper.IDapperContext"/>.
+            Helper methods for getting a <see cref="T:Cadru.Polly.PolicyExecutionEnvironment" /> from the <see cref="T:Cadru.Data.Dapper.IDapperContext" />.
             </summary>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperPollyContextExtensions.GetAsyncExecutionEnvironment(Cadru.Data.Dapper.IDapperContext)">
             <summary>
-            Gets an <see cref="T:Cadru.Polly.AsyncExecutionEnvironment"/> for performing
+            Gets an <see cref="T:Cadru.Polly.AsyncExecutionEnvironment" /> for performing
             asynchronous operations from the context.
             </summary>
             <param name="dapperContext">The context instance.</param>
-            <returns>An <see cref="T:Cadru.Polly.AsyncExecutionEnvironment"/> containing the
-            <see cref="T:Polly.IAsyncPolicy"/> and <see cref="T:Polly.Context"/>.</returns>
+            <returns>An <see cref="T:Cadru.Polly.AsyncExecutionEnvironment" /> containing the
+            <see cref="T:Polly.IAsyncPolicy" /> and <see cref="T:Polly.Context" />.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperPollyContextExtensions.GetAsyncExecutionEnvironment(Cadru.Data.Dapper.IDapperContext,Microsoft.Extensions.Logging.ILogger)">
             <summary>
-            Gets an <see cref="T:Cadru.Polly.AsyncExecutionEnvironment"/> for performing
+            Gets an <see cref="T:Cadru.Polly.AsyncExecutionEnvironment" /> for performing
             asynchronous operations from the context.
             </summary>
             <param name="dapperContext">The context instance.</param>
-            <param name="logger">The <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance to be added
-            to the <see cref="T:Polly.Context"/>.</param>
-            <returns>An <see cref="T:Cadru.Polly.AsyncExecutionEnvironment"/> containing the
-            <see cref="T:Polly.IAsyncPolicy"/> and <see cref="T:Polly.Context"/>.</returns>
+            <param name="logger">The <see cref="T:Microsoft.Extensions.Logging.ILogger" /> instance to be added
+            to the <see cref="T:Polly.Context" />.</param>
+            <returns>An <see cref="T:Cadru.Polly.AsyncExecutionEnvironment" /> containing the
+            <see cref="T:Polly.IAsyncPolicy" /> and <see cref="T:Polly.Context" />.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperPollyContextExtensions.GetSyncExecutionEnvironment(Cadru.Data.Dapper.IDapperContext)">
             <summary>
-            Gets an <see cref="T:Cadru.Polly.ExecutionEnvironment"/> for performing
+            Gets an <see cref="T:Cadru.Polly.ExecutionEnvironment" /> for performing
             asynchronous operations from the context.
             </summary>
             <param name="dapperContext">The context instance.</param>
-            <returns>An <see cref="T:Cadru.Polly.ExecutionEnvironment"/> containing the
-            <see cref="T:Polly.ISyncPolicy"/> and <see cref="T:Polly.Context"/>.</returns>
+            <returns>An <see cref="T:Cadru.Polly.ExecutionEnvironment" /> containing the
+            <see cref="T:Polly.ISyncPolicy" /> and <see cref="T:Polly.Context" />.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperPollyContextExtensions.GetSyncExecutionEnvironment(Cadru.Data.Dapper.IDapperContext,Microsoft.Extensions.Logging.ILogger)">
             <summary>
-            Gets an <see cref="T:Cadru.Polly.ExecutionEnvironment"/> for performing
+            Gets an <see cref="T:Cadru.Polly.ExecutionEnvironment" /> for performing
             asynchronous operations from the context.
             </summary>
             <param name="dapperContext">The context instance.</param>
-            <param name="logger">The <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance to be added
-            to the <see cref="T:Polly.Context"/>.</param>
-            <returns>An <see cref="T:Cadru.Polly.ExecutionEnvironment"/> containing the
-            <see cref="T:Polly.ISyncPolicy"/> and <see cref="T:Polly.Context"/>.</returns>
+            <param name="logger">The <see cref="T:Microsoft.Extensions.Logging.ILogger" /> instance to be added
+            to the <see cref="T:Polly.Context" />.</param>
+            <returns>An <see cref="T:Cadru.Polly.ExecutionEnvironment" /> containing the
+            <see cref="T:Polly.ISyncPolicy" /> and <see cref="T:Polly.Context" />.</returns>
         </member>
         <member name="T:Cadru.Data.Dapper.DatabaseObjectType">
             <summary>
@@ -420,7 +420,7 @@ Sample license text.
         </member>
         <member name="M:Cadru.Data.Dapper.DatabaseObject`1.#ctor(Cadru.Data.Dapper.IDapperContext,Cadru.Data.Dapper.DatabaseObjectType)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.DatabaseObject`1"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.DatabaseObject`1" /> class.
             </summary>
             <param name="context">The context which contains this entity.</param>
             <param name="databaseObjectType">The database object type.</param>
@@ -431,12 +431,12 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.DatabaseObject`1.ObjectMap">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.DatabaseObject`1.CommandBuilder">
             <summary>
-            The <see cref="T:Cadru.Data.Dapper.IDapperCommandBuilder"/> used by this object to
-            create <see cref="T:Dapper.CommandDefinition"/> instances.
+            The <see cref="T:Cadru.Data.Dapper.IDapperCommandBuilder" /> used by this object to
+            create <see cref="T:Dapper.CommandDefinition" /> instances.
             </summary>
         </member>
         <member name="M:Cadru.Data.Dapper.DatabaseObject`1.All(Cadru.Data.Dapper.Predicates.IPredicate,System.Nullable{System.Int32})">
@@ -445,7 +445,7 @@ Sample license text.
             </summary>
             <param name="predicate">The predicate to match.</param>
             <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
-            <returns>An instance of <typeparamref name="TEntity"/> representing the matched record.</returns>
+            <returns>An instance of <typeparamref name="TEntity" /> representing the matched record.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.DatabaseObject`1.AllAsync(Cadru.Data.Dapper.Predicates.IPredicate,System.Nullable{System.Int32},System.Threading.CancellationToken)">
             <summary>
@@ -453,8 +453,8 @@ Sample license text.
             </summary>
             <param name="predicate">The predicate to match.</param>
             <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
-            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken"/> for this command.</param>
-            <returns>An instance of <typeparamref name="TEntity"/> representing the matched record.</returns>
+            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken" /> for this command.</param>
+            <returns>An instance of <typeparamref name="TEntity" /> representing the matched record.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.DatabaseObject`1.First(Cadru.Data.Dapper.Predicates.IPredicate,System.Nullable{System.Int32})">
             <summary>
@@ -462,7 +462,7 @@ Sample license text.
             </summary>
             <param name="predicate">The predicate to match.</param>
             <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
-            <returns>An instance of <typeparamref name="TEntity"/> representing the matched record.</returns>
+            <returns>An instance of <typeparamref name="TEntity" /> representing the matched record.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.DatabaseObject`1.FirstAsync(Cadru.Data.Dapper.Predicates.IPredicate,System.Nullable{System.Int32},System.Threading.CancellationToken)">
             <summary>
@@ -470,8 +470,8 @@ Sample license text.
             </summary>
             <param name="predicate">The predicate to match.</param>
             <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
-            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken"/> for this command.</param>
-            <returns>An instance of <typeparamref name="TEntity"/> representing the matched record.</returns>
+            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken" /> for this command.</param>
+            <returns>An instance of <typeparamref name="TEntity" /> representing the matched record.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.DatabaseObject`1.Get(Cadru.Data.Dapper.Predicates.IPredicate,System.Nullable{System.Int32})">
             <summary>
@@ -479,7 +479,7 @@ Sample license text.
             </summary>
             <param name="predicate">The predicate to match.</param>
             <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
-            <returns>An instance of <typeparamref name="TEntity"/> representing the matched record.</returns>
+            <returns>An instance of <typeparamref name="TEntity" /> representing the matched record.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.DatabaseObject`1.GetAsync(Cadru.Data.Dapper.Predicates.IPredicate,System.Nullable{System.Int32},System.Threading.CancellationToken)">
             <summary>
@@ -487,14 +487,14 @@ Sample license text.
             </summary>
             <param name="predicate">The predicate to match.</param>
             <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
-            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken"/> for this command.</param>
-            <returns>An instance of <typeparamref name="TEntity"/> representing the matched record.</returns>
+            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken" /> for this command.</param>
+            <returns>An instance of <typeparamref name="TEntity" /> representing the matched record.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.DatabaseObject`1.LogCommandDefinition(Dapper.CommandDefinition)">
             <summary>
-            Logs the given <see cref="T:Dapper.CommandDefinition"/>
+            Logs the given <see cref="T:Dapper.CommandDefinition" />
             </summary>
-            <param name="commandDefinition">The <see cref="T:Dapper.CommandDefinition"/> instance to be logged.</param>
+            <param name="commandDefinition">The <see cref="T:Dapper.CommandDefinition" /> instance to be logged.</param>
         </member>
         <member name="T:Cadru.Data.Dapper.ICommandAdapter">
             <summary>
@@ -572,9 +572,9 @@ Sample license text.
             Checks whether the specified identifier is valid.
             </summary>
             <param name="identifier">The identifier to check.</param>
-            <returns><see langword="true"/> if <paramref name="identifier"/>
+            <returns><see langword="true" /> if <paramref name="identifier" />
             represents a valid SQL identifier; otherwise, <see
-            langword="false"/>.</returns>
+            langword="false" />.</returns>
             <remarks>
             <list type="number">
             <item>
@@ -651,8 +651,8 @@ Sample license text.
             <returns>The quoted version of the identifier. Embedded quotes
             within the identifier are properly escaped.</returns>
             <remarks>
-            This uses the <see cref="P:Cadru.Data.Dapper.ICommandAdapter.IdentifierPrefix"/> and <see
-            cref="P:Cadru.Data.Dapper.ICommandAdapter.IdentifierSuffix"/> values.
+            This uses the <see cref="P:Cadru.Data.Dapper.ICommandAdapter.IdentifierPrefix" /> and <see
+            cref="P:Cadru.Data.Dapper.ICommandAdapter.IdentifierSuffix" /> values.
             </remarks>
         </member>
         <member name="M:Cadru.Data.Dapper.ICommandAdapter.QuoteStringLiteral(System.String)">
@@ -661,8 +661,8 @@ Sample license text.
             </summary>
             <param name="value">The original value.</param>
             <remarks>
-            This uses the <see cref="P:Cadru.Data.Dapper.ICommandAdapter.QuotePrefix"/> and <see
-            cref="P:Cadru.Data.Dapper.ICommandAdapter.QuoteSuffix"/> values.
+            This uses the <see cref="P:Cadru.Data.Dapper.ICommandAdapter.QuotePrefix" /> and <see
+            cref="P:Cadru.Data.Dapper.ICommandAdapter.QuoteSuffix" /> values.
             </remarks>
             <returns>The quoted version of the value. Embedded quotes
             within the value are properly escaped.</returns>
@@ -678,76 +678,76 @@ Sample license text.
             <returns>The unquoted identifier, with embedded quotes properly
             un-escaped.</returns>
             <remarks>
-            This uses the <see cref="P:Cadru.Data.Dapper.ICommandAdapter.IdentifierPrefix"/> and <see
-            cref="P:Cadru.Data.Dapper.ICommandAdapter.IdentifierSuffix"/> values.
+            This uses the <see cref="P:Cadru.Data.Dapper.ICommandAdapter.IdentifierPrefix" /> and <see
+            cref="P:Cadru.Data.Dapper.ICommandAdapter.IdentifierSuffix" /> values.
             </remarks>
         </member>
         <member name="T:Cadru.Data.Dapper.IDapperCommandBuilder">
             <summary>
-            Represents a way to create <see cref="T:Dapper.CommandDefinition"/> instances.
+            Represents a way to create <see cref="T:Dapper.CommandDefinition" /> instances.
             </summary>
         </member>
         <member name="M:Cadru.Data.Dapper.IDapperCommandBuilder.GetDeleteCommand(Cadru.Data.Dapper.Predicates.IPredicate,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType},Dapper.CommandFlags,System.Threading.CancellationToken)">
             <summary>
-            Gets a <see cref="T:Dapper.CommandDefinition"/> representing a SQL DELETE statement.
+            Gets a <see cref="T:Dapper.CommandDefinition" /> representing a SQL DELETE statement.
             </summary>
-            <param name="predicate">An optional <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> used to create the WHERE clause for this command.</param>
+            <param name="predicate">An optional <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate" /> used to create the WHERE clause for this command.</param>
             <param name="transaction">An optional transaction for this command to participate in.</param>
             <param name="commandTimeout">An optional timeout (in seconds) for this command.</param>
-            <param name="commandType">An optional <see cref="T:System.Data.CommandType"/> for this command.</param>
-            <param name="flags">The <see cref="T:Dapper.CommandFlags"/> for this command.</param>
-            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken"/> for this command.</param>
-            <returns>A <see cref="T:Dapper.CommandDefinition"/> instance representing the SQL operation.</returns>
+            <param name="commandType">An optional <see cref="T:System.Data.CommandType" /> for this command.</param>
+            <param name="flags">The <see cref="T:Dapper.CommandFlags" /> for this command.</param>
+            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken" /> for this command.</param>
+            <returns>A <see cref="T:Dapper.CommandDefinition" /> instance representing the SQL operation.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.IDapperCommandBuilder.GetInsertCommand(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType},Dapper.CommandFlags,System.Threading.CancellationToken)">
             <summary>
-            Gets a <see cref="T:Dapper.CommandDefinition"/> representing a SQL INSERT statement.
+            Gets a <see cref="T:Dapper.CommandDefinition" /> representing a SQL INSERT statement.
             </summary>
             <param name="data">The object representing the data to be inserted.</param>
             <param name="transaction">An optional transaction for this command to participate in.</param>
             <param name="commandTimeout">An optional timeout (in seconds) for this command.</param>
-            <param name="commandType">An optional <see cref="T:System.Data.CommandType"/> for this command.</param>
-            <param name="flags">The <see cref="T:Dapper.CommandFlags"/> for this command.</param>
-            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken"/> for this command.</param>
-            <returns>A <see cref="T:Dapper.CommandDefinition"/> instance representing the SQL operation.</returns>
+            <param name="commandType">An optional <see cref="T:System.Data.CommandType" /> for this command.</param>
+            <param name="flags">The <see cref="T:Dapper.CommandFlags" /> for this command.</param>
+            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken" /> for this command.</param>
+            <returns>A <see cref="T:Dapper.CommandDefinition" /> instance representing the SQL operation.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.IDapperCommandBuilder.GetSelectCommand(Cadru.Data.Dapper.Predicates.IPredicate,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType},Dapper.CommandFlags,System.Threading.CancellationToken)">
             <summary>
-            Gets a <see cref="T:Dapper.CommandDefinition"/> representing a SQL SELECT statement.
+            Gets a <see cref="T:Dapper.CommandDefinition" /> representing a SQL SELECT statement.
             </summary>
-            <param name="predicate">An optional <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> used to create the WHERE clause for this command.</param>
+            <param name="predicate">An optional <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate" /> used to create the WHERE clause for this command.</param>
             <param name="transaction">An optional transaction for this command to participate in.</param>
             <param name="commandTimeout">An optional timeout (in seconds) for this command.</param>
-            <param name="commandType">An optional <see cref="T:System.Data.CommandType"/> for this command.</param>
-            <param name="flags">The <see cref="T:Dapper.CommandFlags"/> for this command.</param>
-            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken"/> for this command.</param>
-            <returns>A <see cref="T:Dapper.CommandDefinition"/> instance representing the SQL operation.</returns>
+            <param name="commandType">An optional <see cref="T:System.Data.CommandType" /> for this command.</param>
+            <param name="flags">The <see cref="T:Dapper.CommandFlags" /> for this command.</param>
+            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken" /> for this command.</param>
+            <returns>A <see cref="T:Dapper.CommandDefinition" /> instance representing the SQL operation.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.IDapperCommandBuilder.GetSelectTopCommand(System.Int32,Cadru.Data.Dapper.Predicates.IPredicate,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType},Dapper.CommandFlags,System.Threading.CancellationToken)">
             <summary>
-            Gets a <see cref="T:Dapper.CommandDefinition"/> representing a SQL TOP(n) statement.
+            Gets a <see cref="T:Dapper.CommandDefinition" /> representing a SQL TOP(n) statement.
             </summary>
             <param name="count">An optional integer value for the TOP(n) statement.</param>
-            <param name="predicate">An optional <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> used to create the WHERE clause for this command.</param>
+            <param name="predicate">An optional <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate" /> used to create the WHERE clause for this command.</param>
             <param name="transaction">An optional transaction for this command to participate in.</param>
             <param name="commandTimeout">An optional timeout (in seconds) for this command.</param>
-            <param name="commandType">An optional <see cref="T:System.Data.CommandType"/> for this command.</param>
-            <param name="flags">The <see cref="T:Dapper.CommandFlags"/> for this command.</param>
-            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken"/> for this command.</param>
-            <returns>A <see cref="T:Dapper.CommandDefinition"/> instance representing the SQL operation.</returns>
+            <param name="commandType">An optional <see cref="T:System.Data.CommandType" /> for this command.</param>
+            <param name="flags">The <see cref="T:Dapper.CommandFlags" /> for this command.</param>
+            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken" /> for this command.</param>
+            <returns>A <see cref="T:Dapper.CommandDefinition" /> instance representing the SQL operation.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.IDapperCommandBuilder.GetUpdateCommand(System.Object,Cadru.Data.Dapper.Predicates.IPredicate,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType},Dapper.CommandFlags,System.Threading.CancellationToken)">
             <summary>
-            Gets a <see cref="T:Dapper.CommandDefinition"/> representing a SQL UPDATE statement.
+            Gets a <see cref="T:Dapper.CommandDefinition" /> representing a SQL UPDATE statement.
             </summary>
             <param name="data">The object representing the data to be updated.</param>
-            <param name="predicate">An optional <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> used to create the WHERE clause for this command.</param>
+            <param name="predicate">An optional <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate" /> used to create the WHERE clause for this command.</param>
             <param name="transaction">An optional transaction for this command to participate in.</param>
             <param name="commandTimeout">An optional timeout (in seconds) for this command.</param>
-            <param name="commandType">An optional <see cref="T:System.Data.CommandType"/> for this command.</param>
-            <param name="flags">The <see cref="T:Dapper.CommandFlags"/> for this command.</param>
-            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken"/> for this command.</param>
-            <returns>A <see cref="T:Dapper.CommandDefinition"/> instance representing the SQL operation.</returns>
+            <param name="commandType">An optional <see cref="T:System.Data.CommandType" /> for this command.</param>
+            <param name="flags">The <see cref="T:Dapper.CommandFlags" /> for this command.</param>
+            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken" /> for this command.</param>
+            <returns>A <see cref="T:Dapper.CommandDefinition" /> instance representing the SQL operation.</returns>
         </member>
         <member name="T:Cadru.Data.Dapper.IDapperContext">
             <summary>
@@ -757,13 +757,13 @@ Sample license text.
         </member>
         <member name="P:Cadru.Data.Dapper.IDapperContext.CommandAdapter">
             <summary>
-            Gets the <see cref="T:Cadru.Data.Dapper.ICommandAdapter"/> used by the context to create
+            Gets the <see cref="T:Cadru.Data.Dapper.ICommandAdapter" /> used by the context to create
             SQL statements.
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.IDapperContext.Connection">
             <summary>
-            Gets the <see cref="T:System.Data.IDbConnection"/> for the context.
+            Gets the <see cref="T:System.Data.IDbConnection" /> for the context.
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.IDapperContext.HasActiveTransaction">
@@ -773,12 +773,12 @@ Sample license text.
         </member>
         <member name="P:Cadru.Data.Dapper.IDapperContext.Logger">
             <summary>
-            Gets the instance of the <see cref="T:Microsoft.Extensions.Logging.ILogger"/> used by the context.
+            Gets the instance of the <see cref="T:Microsoft.Extensions.Logging.ILogger" /> used by the context.
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.IDapperContext.Mappings">
             <summary>
-            Gets the <see cref="T:Cadru.Data.Dapper.ObjectMappingDictionary"/> for all database
+            Gets the <see cref="T:Cadru.Data.Dapper.ObjectMappingDictionary" /> for all database
             objects contained in the context.
             </summary>
         </member>
@@ -796,7 +796,7 @@ Sample license text.
             <param name="isolationLevel">An optional isolation level under which
             the transaction should run.</param>
             <remarks>If you do not specify an isolation level, the isolation
-            level for <see cref="F:System.Data.IsolationLevel.ReadCommitted"/> is
+            level for <see cref="F:System.Data.IsolationLevel.ReadCommitted" /> is
             used.</remarks>
         </member>
         <member name="M:Cadru.Data.Dapper.IDapperContext.BeginTransaction(System.Data.IsolationLevel)">
@@ -805,7 +805,7 @@ Sample license text.
             </summary>
             <param name="isolationLevel">An optional isolation level under which the transaction should run.</param>
             <remarks>If you do not specify an isolation level, the isolation
-            level for <see cref="F:System.Data.IsolationLevel.ReadCommitted"/> is
+            level for <see cref="F:System.Data.IsolationLevel.ReadCommitted" /> is
             used.</remarks>
         </member>
         <member name="M:Cadru.Data.Dapper.IDapperContext.CommitTransaction">
@@ -845,12 +845,12 @@ Sample license text.
         </member>
         <member name="P:Cadru.Data.Dapper.IObjectMap.CommandAdapter">
             <summary>
-            The <see cref="T:Cadru.Data.Dapper.ICommandAdapter"/> used by this object to create SQL statements.
+            The <see cref="T:Cadru.Data.Dapper.ICommandAdapter" /> used by this object to create SQL statements.
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.IObjectMap.EntityType">
             <summary>
-            Gets the <see cref="T:System.Reflection.TypeInfo"/> for entity model of the database object.
+            Gets the <see cref="T:System.Reflection.TypeInfo" /> for entity model of the database object.
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.IObjectMap.FullyQualifiedObjectName">
@@ -945,9 +945,9 @@ Sample license text.
             <summary>
             Gets a value indicating if the column is updatable.
             </summary>
-            <value><see langword="true"/> if <see cref="P:Cadru.Data.Dapper.IPropertyMap.Ignored"/> is <see langword="false"/>,
-            <see cref="P:Cadru.Data.Dapper.IPropertyMap.IsReadOnly"/> is <see langword="false"/>, or
-            <see cref="P:Cadru.Data.Dapper.IPropertyMap.DatabaseGeneratedOption"/> is <see cref="F:System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None"/>.</value>
+            <value><see langword="true" /> if <see cref="P:Cadru.Data.Dapper.IPropertyMap.Ignored" /> is <see langword="false" />,
+            <see cref="P:Cadru.Data.Dapper.IPropertyMap.IsReadOnly" /> is <see langword="false" />, or
+            <see cref="P:Cadru.Data.Dapper.IPropertyMap.DatabaseGeneratedOption" /> is <see cref="F:System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None" />.</value>
         </member>
         <member name="P:Cadru.Data.Dapper.IPropertyMap.Name">
             <summary>
@@ -966,12 +966,12 @@ Sample license text.
         </member>
         <member name="P:Cadru.Data.Dapper.IPropertyMap.PropertyInfo">
             <summary>
-            Gets the <see cref="P:Cadru.Data.Dapper.IPropertyMap.PropertyInfo"/> for the current property.
+            Gets the <see cref="P:Cadru.Data.Dapper.IPropertyMap.PropertyInfo" /> for the current property.
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.IPropertyMap.PropertyName">
             <summary>
-            Gets the name of the property by using the specified <see cref="P:Cadru.Data.Dapper.IPropertyMap.PropertyInfo"/>.
+            Gets the name of the property by using the specified <see cref="P:Cadru.Data.Dapper.IPropertyMap.PropertyInfo" />.
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.IPropertyMap.StringHandlingOption">
@@ -993,37 +993,37 @@ Sample license text.
         </member>
         <member name="M:Cadru.Data.Dapper.ObjectMap`1.#ctor(Cadru.Data.Dapper.ICommandAdapter,Cadru.Data.Dapper.DatabaseObjectType)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.ObjectMap`1"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.ObjectMap`1" /> class.
             </summary>
-            <param name="commandAdapter">The <see cref="T:Cadru.Data.Dapper.ICommandAdapter"/> used by this object to create SQL statements.</param>
+            <param name="commandAdapter">The <see cref="T:Cadru.Data.Dapper.ICommandAdapter" /> used by this object to create SQL statements.</param>
             <param name="databaseObjectType">A value indicating if the database object is a View or a Table.</param>
         </member>
         <member name="P:Cadru.Data.Dapper.ObjectMap`1.AdditionalValues">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.ObjectMap`1.CommandAdapter">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.ObjectMap`1.EntityType">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.ObjectMap`1.FullyQualifiedObjectName">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.ObjectMap`1.ObjectName">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.ObjectMap`1.ObjectType">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.ObjectMap`1.Properties">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.ObjectMap`1.Schema">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.ObjectMap`1.Map">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.Data.Dapper.Predicates.Internal.PredicateGroup">
             <summary>
@@ -1032,7 +1032,7 @@ Sample license text.
         </member>
         <member name="T:Cadru.Data.Dapper.Predicates.GroupOperator">
             <summary>
-            Operator to use when joining predicates in a <see cref="T:Cadru.Data.Dapper.Predicates.Internal.PredicateGroup"/>.
+            Operator to use when joining predicates in a <see cref="T:Cadru.Data.Dapper.Predicates.Internal.PredicateGroup" />.
             </summary>
         </member>
         <member name="F:Cadru.Data.Dapper.Predicates.GroupOperator.And">
@@ -1054,7 +1054,7 @@ Sample license text.
             <summary>
             Gets the SQL text representing the given predicate.
             </summary>
-            <param name="parameters">A <see cref="T:Dapper.DynamicParameters"/>
+            <param name="parameters">A <see cref="T:Dapper.DynamicParameters" />
             collection to which the parameters and values for the predicate
             will be added.</param>
             <param name="objectMap"></param>
@@ -1062,13 +1062,13 @@ Sample license text.
         </member>
         <member name="T:Cadru.Data.Dapper.Predicates.IPredicateGroup">
             <summary>
-            Represents a collection of <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instances to
+            Represents a collection of <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate" /> instances to
             be joined together.
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.Predicates.IPredicateGroup.Predicates">
             <summary>
-            Gets the collection containing the <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instances.
+            Gets the collection containing the <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate" /> instances.
             </summary>
         </member>
         <member name="T:Cadru.Data.Dapper.Predicates.Operator">
@@ -1118,35 +1118,35 @@ Sample license text.
         </member>
         <member name="T:Cadru.Data.Dapper.Predicates.Predicate">
             <summary>
-            Provides factory methods for creating <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instances.
+            Provides factory methods for creating <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate" /> instances.
             </summary>
         </member>
         <member name="M:Cadru.Data.Dapper.Predicates.Predicate.And">
             <summary>
             Creates a predicate group whose predicates are joined using an AND operator.
             </summary>
-            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicateGroup"/> instance representing the predicate.</returns>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicateGroup" /> instance representing the predicate.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Predicates.Predicate.And(System.Collections.Generic.IList{Cadru.Data.Dapper.Predicates.IPredicate})">
             <summary>
             Creates a predicate group whose predicates are joined using an AND operator.
             </summary>
             <param name="predicates">A collection of predicates to add the group.</param>
-            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicateGroup"/> instance representing the predicate.</returns>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicateGroup" /> instance representing the predicate.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Predicates.Predicate.Empty">
             <summary>
             Represents an empty predicate.
             </summary>
-            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instance representing the predicate.</returns>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate" /> instance representing the predicate.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Predicates.Predicate.Exists(Cadru.Data.Dapper.Predicates.IPredicate,System.Boolean)">
             <summary>
             Creates a predicate which represents an EXISTS clause.
             </summary>
             <param name="predicate"></param>
-            <param name="not"><see langword="true"/> to invert the comparison operator.</param>
-            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instance representing the predicate.</returns>
+            <param name="not"><see langword="true" /> to invert the comparison operator.</param>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate" /> instance representing the predicate.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Predicates.Predicate.FieldComparison``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},Cadru.Data.Dapper.Predicates.Operator,``1,System.Boolean)">
             <summary>
@@ -1156,10 +1156,10 @@ Sample license text.
             <typeparam name="TModel">The type of the entity.</typeparam>
             <typeparam name="TFieldType">The data type of the property.</typeparam>
             <param name="expression">An expression that returns the [FieldName] operand.</param>
-            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator"/> values.</param>
+            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator" /> values.</param>
             <param name="value">The value for the predicate.</param>
-            <param name="not"><see langword="true"/> to invert the comparison operator.</param>
-            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instance representing the predicate.</returns>
+            <param name="not"><see langword="true" /> to invert the comparison operator.</param>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate" /> instance representing the predicate.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Predicates.Predicate.FieldComparison``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},Cadru.Data.Dapper.Predicates.Operator,System.Collections.Generic.IEnumerable{``1},System.Boolean)">
             <summary>
@@ -1169,10 +1169,10 @@ Sample license text.
             <typeparam name="TModel">The type of the entity.</typeparam>
             <typeparam name="TFieldType">The data type of the property.</typeparam>
             <param name="expression">An expression that returns the [FieldName] operand.</param>
-            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator"/> values.</param>
+            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator" /> values.</param>
             <param name="value">The value for the predicate.</param>
-            <param name="not"><see langword="true"/> to invert the comparison operator.</param>
-            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instance representing the predicate.</returns>
+            <param name="not"><see langword="true" /> to invert the comparison operator.</param>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate" /> instance representing the predicate.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Predicates.Predicate.FieldComparison``2(System.String,Cadru.Data.Dapper.Predicates.Operator,``1,System.Boolean)">
             <summary>
@@ -1182,10 +1182,10 @@ Sample license text.
             <typeparam name="TModel">The type of the entity.</typeparam>
             <typeparam name="TFieldType">The data type of the property.</typeparam>
             <param name="fieldName">The [FieldName] operand.</param>
-            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator"/> values.</param>
+            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator" /> values.</param>
             <param name="value">The value for the predicate.</param>
-            <param name="not"><see langword="true"/> to invert the comparison operator.</param>
-            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instance representing the predicate.</returns>
+            <param name="not"><see langword="true" /> to invert the comparison operator.</param>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate" /> instance representing the predicate.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Predicates.Predicate.FieldComparison``2(System.String,Cadru.Data.Dapper.Predicates.Operator,System.Collections.Generic.IEnumerable{``1},System.Boolean)">
             <summary>
@@ -1195,23 +1195,23 @@ Sample license text.
             <typeparam name="TModel">The type of the entity.</typeparam>
             <typeparam name="TFieldType">The data type of the property.</typeparam>
             <param name="fieldName">The [FieldName] operand.</param>
-            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator"/> values.</param>
+            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator" /> values.</param>
             <param name="value">The value for the predicate.</param>
-            <param name="not"><see langword="true"/> to invert the comparison operator.</param>
-            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instance representing the predicate.</returns>
+            <param name="not"><see langword="true" /> to invert the comparison operator.</param>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate" /> instance representing the predicate.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Predicates.Predicate.Or">
             <summary>
             Creates a predicate group whose predicates are joined using an OR operator.
             </summary>
-            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicateGroup"/> instance representing the predicate.</returns>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicateGroup" /> instance representing the predicate.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Predicates.Predicate.Or(System.Collections.Generic.IList{Cadru.Data.Dapper.Predicates.IPredicate})">
             <summary>
             Creates a predicate group whose predicates are joined using an OR operator.
             </summary>
             <param name="predicates">A collection of predicates to add the group.</param>
-            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicateGroup"/> instance representing the predicate.</returns>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicateGroup" /> instance representing the predicate.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Predicates.Predicate.PropertyComparison``3(System.Linq.Expressions.Expression{System.Func{``0,``2}},Cadru.Data.Dapper.Predicates.Operator,System.Linq.Expressions.Expression{System.Func{``1,``2}},System.Boolean)">
             <summary>
@@ -1222,10 +1222,10 @@ Sample license text.
             <typeparam name="TModel2">The type of the entity for the right operand.</typeparam>
             <typeparam name="TFieldType">The data type of the property.</typeparam>
             <param name="left">An expression that returns the [FieldName1] operand.</param>
-            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator"/> values.</param>
+            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator" /> values.</param>
             <param name="right">An expression that returns the [FieldName2] operand.</param>
-            <param name="not"><see langword="true"/> to invert the comparison operator.</param>
-            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instance representing the predicate.</returns>
+            <param name="not"><see langword="true" /> to invert the comparison operator.</param>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate" /> instance representing the predicate.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Predicates.Predicate.PropertyComparison``2(System.String,Cadru.Data.Dapper.Predicates.Operator,System.String,System.Boolean)">
             <summary>
@@ -1235,10 +1235,10 @@ Sample license text.
             <typeparam name="TModel">The type of the entity for the left operand.</typeparam>
             <typeparam name="TModel2">The type of the entity for the right operand.</typeparam>
             <param name="left">The [FieldName1] operand.</param>
-            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator"/> values.</param>
+            <param name="op">One of the <see cref="T:Cadru.Data.Dapper.Predicates.Operator" /> values.</param>
             <param name="right">The [FieldName2] operand.</param>
-            <param name="not"><see langword="true"/> to invert the comparison operator.</param>
-            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate"/> instance representing the predicate.</returns>
+            <param name="not"><see langword="true" /> to invert the comparison operator.</param>
+            <returns>An <see cref="T:Cadru.Data.Dapper.Predicates.IPredicate" /> instance representing the predicate.</returns>
         </member>
         <member name="T:Cadru.Data.Dapper.PropertyMap">
             <summary>
@@ -1247,61 +1247,61 @@ Sample license text.
         </member>
         <member name="M:Cadru.Data.Dapper.PropertyMap.#ctor(System.Reflection.PropertyInfo)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.PropertyMap"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.PropertyMap" /> class.
             </summary>
-            <param name="propertyInfo">The <see cref="P:Cadru.Data.Dapper.PropertyMap.PropertyInfo"/> for the
+            <param name="propertyInfo">The <see cref="P:Cadru.Data.Dapper.PropertyMap.PropertyInfo" /> for the
             entity model property that maps to the database column.</param>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.AllowEmptyStrings">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.Caption">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.ColumnName">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.DatabaseGeneratedOption">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.Description">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.Ignored">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.IsExportable">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.IsKey">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.IsReadOnly">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.IsRequired">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.IsUpdatable">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.Name">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.Order">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.Prompt">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.PropertyInfo">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.PropertyName">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.StringHandlingOption">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.Data.Dapper.Resources.Strings">
             <summary>
@@ -1331,14 +1331,14 @@ Sample license text.
         </member>
         <member name="M:Cadru.Data.Dapper.SqlCommandAdapter.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.SqlCommandAdapter"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.SqlCommandAdapter" /> class.
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.SqlCommandAdapter.IdentifierPrefix">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.SqlCommandAdapter.IdentifierSuffix">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:Cadru.Data.Dapper.Table`1">
             <summary>
@@ -1348,7 +1348,7 @@ Sample license text.
         </member>
         <member name="M:Cadru.Data.Dapper.Table`1.#ctor(Cadru.Data.Dapper.IDapperContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.Table`1"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.Table`1" /> class.
             </summary>
             <param name="context">The context which contains this entity.</param>
         </member>
@@ -1366,14 +1366,14 @@ Sample license text.
             </summary>
             <param name="predicate">The predicate to match.</param>
             <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
-            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken"/> for this command.</param>
+            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken" /> for this command.</param>
             <returns>The number of records deleted.</returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Table`1.Insert(System.Object)">
             <summary>
             Inserts a row into the database.
             </summary>
-            <param name="data">A <see cref="T:Dapper.DynamicParameters"/> bag, an anonymous type, or a concrete type representing the data to be inserted.</param>
+            <param name="data">A <see cref="T:Dapper.DynamicParameters" /> bag, an anonymous type, or a concrete type representing the data to be inserted.</param>
             <returns></returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Table`1.Insert(`0)">
@@ -1387,8 +1387,8 @@ Sample license text.
             <summary>
             Inserts a row into the database.
             </summary>
-            <param name="data">A <see cref="T:Dapper.DynamicParameters"/> bag, an anonymous type, or a concrete type representing the data to be inserted.</param>
-            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken"/> for this command.</param>
+            <param name="data">A <see cref="T:Dapper.DynamicParameters" /> bag, an anonymous type, or a concrete type representing the data to be inserted.</param>
+            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken" /> for this command.</param>
             <returns></returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Table`1.InsertAsync(`0,System.Threading.CancellationToken)">
@@ -1396,7 +1396,7 @@ Sample license text.
             Inserts a row into the database.
             </summary>
             <param name="data">A concrete type representing the data to be inserted.</param>
-            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken"/> for this command.</param>
+            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken" /> for this command.</param>
             <returns></returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Table`1.Update(`0,Cadru.Data.Dapper.Predicates.IPredicate)">
@@ -1411,7 +1411,7 @@ Sample license text.
             <summary>
             Updates a row into the database.
             </summary>
-            <param name="data">A <see cref="T:Dapper.DynamicParameters"/> bag, an anonymous type, or a concrete type representing the data to be updated.</param>
+            <param name="data">A <see cref="T:Dapper.DynamicParameters" /> bag, an anonymous type, or a concrete type representing the data to be updated.</param>
             <param name="predicate">The predicate to match.</param>
             <returns></returns>
         </member>
@@ -1421,16 +1421,16 @@ Sample license text.
             </summary>
             <param name="data">A concrete type representing the data to be updated.</param>
             <param name="predicate">The predicate to match.</param>
-            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken"/> for this command.</param>
+            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken" /> for this command.</param>
             <returns></returns>
         </member>
         <member name="M:Cadru.Data.Dapper.Table`1.UpdateAsync(System.Object,Cadru.Data.Dapper.Predicates.IPredicate,System.Threading.CancellationToken)">
             <summary>
             Updates a row into the database.
             </summary>
-            <param name="data">A <see cref="T:Dapper.DynamicParameters"/> bag, an anonymous type, or a concrete type representing the data to be updated.</param>
+            <param name="data">A <see cref="T:Dapper.DynamicParameters" /> bag, an anonymous type, or a concrete type representing the data to be updated.</param>
             <param name="predicate">The predicate to match.</param>
-            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken"/> for this command.</param>
+            <param name="cancellationToken">An optional <see cref="T:System.Threading.CancellationToken" /> for this command.</param>
             <returns></returns>
         </member>
         <member name="T:Cadru.Data.Dapper.TrackedEntity">
@@ -1439,39 +1439,39 @@ Sample license text.
             </summary>
         </member>
         <member name="E:Cadru.Data.Dapper.TrackedEntity.PropertyChanged">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="E:Cadru.Data.Dapper.TrackedEntity.PropertyChanging">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:Cadru.Data.Dapper.TrackedEntity.IsChanged">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.TrackedEntity.AcceptChanges">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Cadru.Data.Dapper.TrackedEntity.OnPropertyChanged(System.String)">
             <summary>
-            Raises the <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/> event.
+            Raises the <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged" /> event.
             </summary>
             <param name="propertyName">The name of the property which changed.</param>
         </member>
         <member name="M:Cadru.Data.Dapper.TrackedEntity.OnPropertyChanging(System.String)">
             <summary>
-            Raises the <see cref="E:System.ComponentModel.INotifyPropertyChanging.PropertyChanging"/> event.
+            Raises the <see cref="E:System.ComponentModel.INotifyPropertyChanging.PropertyChanging" /> event.
             </summary>
             <param name="propertyName">The name of the property which changed.</param>
         </member>
         <member name="M:Cadru.Data.Dapper.TrackedEntity.SetProperty``1(``0@,``0,System.String)">
             <summary>
-            Sets the property value and raises the <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/> event
+            Sets the property value and raises the <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged" /> event
             if the value was changed.
             </summary>
             <typeparam name="T">The data type of the field.</typeparam>
             <param name="field">A reference to the field which will be changed.</param>
             <param name="value">The new value of the field.</param>
             <param name="propertyName">The name of the property being changed.</param>
-            <returns><see langword="true"/> if the property value was changed; otherwise, <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if the property value was changed; otherwise, <see langword="false" />.</returns>
         </member>
         <member name="T:Cadru.Data.Dapper.View`1">
             <summary>
@@ -1481,7 +1481,7 @@ Sample license text.
         </member>
         <member name="M:Cadru.Data.Dapper.View`1.#ctor(Cadru.Data.Dapper.IDapperContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.View`1"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.View`1" /> class.
             </summary>
             <param name="context">The context which contains this entity.</param>
         </member>

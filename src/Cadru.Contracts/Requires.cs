@@ -38,12 +38,12 @@ namespace Cadru.Contracts
     public static class Requires
     {
         /// <summary>
-        /// Checks that <paramref name="value"/> is an enumerated type.
+        /// Checks that <paramref name="value" /> is an enumerated type.
         /// </summary>
         /// <param name="value">The parameter to test.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="value"/>  is not an enumerated type.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value" />  is not an enumerated type.</exception>
         [DebuggerStepThrough]
         [ContractArgumentValidator]
         public static void IsEnum([ValidatedNotNull] Enum value, string parameterName)
@@ -54,12 +54,12 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value"/> is an enumerated type.
+        /// Checks that <paramref name="value" /> is an enumerated type.
         /// </summary>
         /// <param name="value">The parameter to test.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="value"/>  is not an enumerated type.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value" />  is not an enumerated type.</exception>
         [DebuggerStepThrough]
         [ContractArgumentValidator]
         public static void IsEnum([ValidatedNotNull] object value, string parameterName)
@@ -70,10 +70,10 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks for a condition and throws an exception if the condition is <see langword="true"/>.
+        /// Checks for a condition and throws an exception if the condition is <see langword="true" />.
         /// </summary>
-        /// <param name="condition"><see langword="false"/> to prevent a message being displayed; otherwise, <see langword="true"/>.</param>
-        /// <exception cref="InvalidOperationException">The condition is <see langword="true"/>.</exception>
+        /// <param name="condition"><see langword="false" /> to prevent a message being displayed; otherwise, <see langword="true" />.</param>
+        /// <exception cref="InvalidOperationException">The condition is <see langword="true" />.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
@@ -84,11 +84,11 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks for a condition and throws an exception if the condition is <see langword="true"/>.
+        /// Checks for a condition and throws an exception if the condition is <see langword="true" />.
         /// </summary>
-        /// <param name="condition"><see langword="false"/> to prevent a message being displayed; otherwise, <see langword="true"/>.</param>
+        /// <param name="condition"><see langword="false" /> to prevent a message being displayed; otherwise, <see langword="true" />.</param>
         /// <param name="message">A message to be used in the resulting exception.</param>
-        /// <exception cref="InvalidOperationException">The condition is <see langword="true"/>.</exception>
+        /// <exception cref="InvalidOperationException">The condition is <see langword="true" />.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
@@ -103,12 +103,12 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks for a condition and throws an exception if the condition is <see langword="true"/>.
+        /// Checks for a condition and throws an exception if the condition is <see langword="true" />.
         /// </summary>
-        /// <param name="condition"><see langword="false"/> to prevent a message being displayed; otherwise, <see langword="true"/>.</param>
+        /// <param name="condition"><see langword="false" /> to prevent a message being displayed; otherwise, <see langword="true" />.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
         /// <param name="message">A message to be used in the resulting exception.</param>
-        /// <exception cref="ArgumentException">The condition is <see langword="true"/>.</exception>
+        /// <exception cref="ArgumentException">The condition is <see langword="true" />.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
@@ -123,10 +123,10 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks for a condition and throws an exception if the condition is <see langword="false"/>.
+        /// Checks for a condition and throws an exception if the condition is <see langword="false" />.
         /// </summary>
-        /// <param name="condition"><see langword="true"/> to prevent a message being displayed; otherwise, <see langword="false"/>.</param>
-        /// <exception cref="InvalidOperationException">The condition is <see langword="false"/>.</exception>
+        /// <param name="condition"><see langword="true" /> to prevent a message being displayed; otherwise, <see langword="false" />.</param>
+        /// <exception cref="InvalidOperationException">The condition is <see langword="false" />.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
@@ -137,11 +137,11 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks for a condition and throws an exception if the condition is <see langword="false"/>.
+        /// Checks for a condition and throws an exception if the condition is <see langword="false" />.
         /// </summary>
-        /// <param name="condition"><see langword="true"/> to prevent a message being displayed; otherwise, <see langword="false"/>.</param>
+        /// <param name="condition"><see langword="true" /> to prevent a message being displayed; otherwise, <see langword="false" />.</param>
         /// <param name="message">A message to be used in the resulting exception.</param>
-        /// <exception cref="InvalidOperationException">The condition is <see langword="false"/>.</exception>
+        /// <exception cref="InvalidOperationException">The condition is <see langword="false" />.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
@@ -156,12 +156,12 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks for a condition and throws an exception if the condition is <see langword="false"/>.
+        /// Checks for a condition and throws an exception if the condition is <see langword="false" />.
         /// </summary>
-        /// <param name="condition"><see langword="true"/> to prevent a message being displayed; otherwise, <see langword="false"/>.</param>
+        /// <param name="condition"><see langword="true" /> to prevent a message being displayed; otherwise, <see langword="false" />.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
         /// <param name="message">A message to be used in the resulting exception.</param>
-        /// <exception cref="ArgumentException">The condition is <see langword="false"/>.</exception>
+        /// <exception cref="ArgumentException">The condition is <see langword="false" />.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
@@ -176,13 +176,13 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value"/> is an enumerated type.
+        /// Checks that <paramref name="value" /> is an enumerated type.
         /// </summary>
         /// <param name="value">The parameter to test.</param>
-        /// <param name="expectedType">The type <paramref name="value"/> is expected to be.</param>
+        /// <param name="expectedType">The type <paramref name="value" /> is expected to be.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="value"/>  is not an enumerated type.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value" />  is not an enumerated type.</exception>
         [DebuggerStepThrough]
         [ContractArgumentValidator]
         public static void IsType([ValidatedNotNull] object value, Type expectedType, string parameterName)
@@ -193,12 +193,12 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value"/> is an enumerated type.
+        /// Checks that <paramref name="value" /> is an enumerated type.
         /// </summary>
         /// <param name="value">The parameter to test.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="value"/>  is not an enumerated type.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value" />  is not an enumerated type.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidator]
@@ -209,12 +209,12 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value"/> is not <see langword="null"/>.
+        /// Checks that <paramref name="value" /> is not <see langword="null" />.
         /// </summary>
         /// <typeparam name="T">The type of the value to test.</typeparam>
         /// <param name="value">The parameter to test.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
         public static void NotNull<T>([ValidatedNotNull] T value, string parameterName) where T : class
@@ -224,13 +224,13 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value"/> is not <see langword="null"/>.
+        /// Checks that <paramref name="value" /> is not <see langword="null" />.
         /// </summary>
         /// <typeparam name="T">The type of the value to test.</typeparam>
         /// <param name="value">The parameter to test.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
         /// <param name="message">A message to be used in the resulting exception.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
         public static void NotNull<T>([ValidatedNotNull] T value, string parameterName, string message) where T : class
@@ -244,13 +244,13 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="values"/> is not <see langword="null"/>
-        /// and contains no <see langword="null"/> elements.
+        /// Checks that <paramref name="values" /> is not <see langword="null" />
+        /// and contains no <see langword="null" /> elements.
         /// </summary>
         /// <param name="values">The parameter to test.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="values"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="values"/> contains a <see langword="null"/> element.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="values" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="values" /> contains a <see langword="null" /> element.</exception>
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
         public static void NotNullElements([ValidatedNotNull] IEnumerable values, string parameterName)
@@ -268,12 +268,12 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value"/> is not <see langword="null"/> or a zero-length string.
+        /// Checks that <paramref name="value" /> is not <see langword="null" /> or a zero-length string.
         /// </summary>
         /// <param name="value">The parameter to test.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="value"/> is a zero-length string.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value" /> is a zero-length string.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
@@ -284,13 +284,13 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value"/> is not <see langword="null"/> or a zero-length string.
+        /// Checks that <paramref name="value" /> is not <see langword="null" /> or a zero-length string.
         /// </summary>
         /// <param name="value">The parameter to test.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
         /// <param name="message">A message to be used in the resulting exception.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="value"/> is a zero-length string.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value" /> is a zero-length string.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
@@ -306,12 +306,12 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="values"/> is not <see langword="null"/> or empty.
+        /// Checks that <paramref name="values" /> is not <see langword="null" /> or empty.
         /// </summary>
         /// <param name="values">The parameter to test.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="values"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="values"/> is empty.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="values" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="values" /> is empty.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
@@ -331,13 +331,13 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="values"/> is not <see langword="null"/> or empty.
+        /// Checks that <paramref name="values" /> is not <see langword="null" /> or empty.
         /// </summary>
         /// <param name="values">The parameter to test.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
         /// <param name="message">A message to be used in the resulting exception.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="values"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="values"/> is empty.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="values" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="values" /> is empty.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
@@ -357,12 +357,12 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value"/> is not <see langword="null"/> or a zero-length string.
+        /// Checks that <paramref name="value" /> is not <see langword="null" /> or a zero-length string.
         /// </summary>
         /// <param name="value">The parameter to test.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="value"/> is a zero-length string.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value" /> is a zero-length string.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
@@ -373,13 +373,13 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value"/> is not <see langword="null"/> or a zero-length string.
+        /// Checks that <paramref name="value" /> is not <see langword="null" /> or a zero-length string.
         /// </summary>
         /// <param name="value">The parameter to test.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
         /// <param name="message">A message to be used in the resulting exception.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="value"/> is a zero-length string.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value" /> is a zero-length string.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
@@ -395,16 +395,16 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="values"/> is not <see langword="null"/>
+        /// Checks that <paramref name="values" /> is not <see langword="null" />
         /// and contains valid elements based on the given predicate.
         /// </summary>
-        /// <typeparam name="T">The type of the members of <paramref name="values"/>.</typeparam>
+        /// <typeparam name="T">The type of the members of <paramref name="values" />.</typeparam>
         /// <param name="values">The parameter to test.</param>
         /// <param name="match">The predicate used to test the elements.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
         /// <param name="message">A message to be used in the resulting exception.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="values"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="values"/> contains an element which does not match the given predicate.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="values" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="values" /> contains an element which does not match the given predicate.</exception>
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
         public static void ValidElements<T>([ValidatedNotNull] IEnumerable<T> values, Predicate<T> match, string parameterName, string message)
@@ -419,11 +419,11 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks for a condition and throws an exception if the condition is <see langword="true"/>.
+        /// Checks for a condition and throws an exception if the condition is <see langword="true" />.
         /// </summary>
-        /// <param name="condition"><see langword="false"/> to prevent a message being displayed; otherwise, <see langword="true"/>.</param>
+        /// <param name="condition"><see langword="false" /> to prevent a message being displayed; otherwise, <see langword="true" />.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
-        /// <exception cref="ArgumentOutOfRangeException">The condition is <see langword="true"/>.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">The condition is <see langword="true" />.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
@@ -434,12 +434,12 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks for a condition and throws an exception if the condition is <see langword="true"/>.
+        /// Checks for a condition and throws an exception if the condition is <see langword="true" />.
         /// </summary>
-        /// <param name="condition"><see langword="false"/> to prevent a message being displayed; otherwise, <see langword="true"/>.</param>
+        /// <param name="condition"><see langword="false" /> to prevent a message being displayed; otherwise, <see langword="true" />.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
         /// <param name="message">A message to be used in the resulting exception.</param>
-        /// <exception cref="ArgumentOutOfRangeException">The condition is <see langword="true"/>.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">The condition is <see langword="true" />.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]

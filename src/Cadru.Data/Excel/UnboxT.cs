@@ -25,6 +25,7 @@ namespace Cadru.Data.Excel
     using System;
     using System.Linq;
     using System.Reflection;
+
     using Cadru.Extensions;
 
     internal static class UnboxT<T>
@@ -35,6 +36,22 @@ namespace Cadru.Data.Excel
         /// Defines the Unbox = Create(typeof (T))
         /// </summary>
         internal static readonly Func<object, T> Unbox = Create(typeof(T));
+
+        private static T BooleanField(object value)
+        {
+            if (DBNull.Value == value)
+            {
+                throw new InvalidCastException();
+            }
+
+            object result = false;
+            if ((value?.ToString()).TryParseAsBoolean(out var temp))
+            {
+                result = temp;
+            }
+
+            return (T)result;
+        }
 
         private static Func<object, T> Create(Type type)
         {
@@ -60,11 +77,6 @@ namespace Cadru.Data.Excel
             }
 
             return ReferenceField;
-        }
-
-        private static T ReferenceField(object value)
-        {
-            return ((DBNull.Value == value) ? default(T) : (T)Convert.ChangeType(value, typeof(T)));
         }
 
         private static T DateTimeField(object value)
@@ -97,32 +109,6 @@ namespace Cadru.Data.Excel
             return (T)result;
         }
 
-        private static T BooleanField(object value)
-        {
-            if (DBNull.Value == value)
-            {
-                throw new InvalidCastException();
-            }
-
-            object result = false;
-            if ((value?.ToString()).TryParseAsBoolean(out var temp))
-            {
-                result = temp;
-            }
-
-            return (T)result;
-        }
-
-        private static T ValueField(object value)
-        {
-            if (DBNull.Value == value)
-            {
-                throw new InvalidCastException();
-            }
-
-            return (T)Convert.ChangeType(value, typeof(T));
-        }
-
         private static Nullable<TElem> NullableField<TElem>(object value) where TElem : struct
         {
             if (DBNull.Value == value || value == null)
@@ -138,6 +124,21 @@ namespace Cadru.Data.Excel
             {
                 return default(TElem?);
             }
+        }
+
+        private static T ReferenceField(object value)
+        {
+            return ((DBNull.Value == value) ? default(T) : (T)Convert.ChangeType(value, typeof(T)));
+        }
+
+        private static T ValueField(object value)
+        {
+            if (DBNull.Value == value)
+            {
+                throw new InvalidCastException();
+            }
+
+            return (T)Convert.ChangeType(value, typeof(T));
         }
     }
 }

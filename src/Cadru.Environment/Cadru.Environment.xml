@@ -110,7 +110,7 @@
             <returns>A <see cref="T:System.Version">version</see> representing
             the exact version number for the specified .NET Framework version.
             If the specified .NET Framework version is not found, a
-            <see cref="T:System.Version"/> is returned that represents a 0.0.0.0 version
+            <see cref="T:System.Version" /> is returned that represents a 0.0.0.0 version
             number.
             </returns>
         </member>
@@ -124,7 +124,7 @@
             <returns>A <see cref="T:System.Version">version</see> representing
             the exact version number for the specified .NET Framework Foundation
             Library. If the specified .NET Framework Foundation Library is not
-            found, a <see cref="T:System.Version"/> is returned that represents a
+            found, a <see cref="T:System.Version" /> is returned that represents a
             0.0.0.0 version number.
             </returns>
         </member>
@@ -168,8 +168,8 @@
             </summary>
             <param name="frameworkVersion">The version of the .NET Framework to test.
             </param>
-            <returns><see langword="true"/> if the specified .NET Framework
-            version is installed; otherwise <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if the specified .NET Framework
+            version is installed; otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.FrameworkVersionDetection.IsInstalled(Cadru.Environment.WindowsFoundationLibrary)">
             <summary>
@@ -178,8 +178,8 @@
             </summary>
             <param name="foundationLibrary">The Foundation Library to test.
             </param>
-            <returns><see langword="true"/> if the specified .NET Framework
-            Foundation Library is installed; otherwise <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if the specified .NET Framework
+            Foundation Library is installed; otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.FrameworkVersionDetection.CheckFxVersion(Cadru.Environment.FrameworkVersion)">
             <summary>
@@ -187,8 +187,8 @@
             and validates that it is not a pre-release version number.
             </summary>
             <param name="frameworkVersion">The version of the .NET Framework to test.</param>
-            <returns><see langword="true"/> if the build number is greater than the
-            requested version; otherwise <see langword="false"/>.
+            <returns><see langword="true" /> if the build number is greater than the
+            requested version; otherwise <see langword="false" />.
             </returns>
         </member>
         <member name="M:Cadru.Environment.FrameworkVersionDetection.GetCoreFrameworkVersion(Cadru.Environment.FrameworkVersion,System.Version@)">
@@ -198,15 +198,8 @@
             </summary>
             <param name="frameworkVersion">The version of the .NET Framework to test.</param>
             <param name="version">The version number of the Framework.</param>
-            <returns><see langword="true"/> if the version could be determined; otherwise <see langword="false"/>.
+            <returns><see langword="true" /> if the version could be determined; otherwise <see langword="false" />.
             </returns>
-        </member>
-        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetInstallRoot">
-            <summary>
-            Gets the installation root path for the .NET Framework.
-            </summary>
-            <returns>A <see cref="T:System.String"/> representing the installation root
-            path for the .NET Framework.</returns>
         </member>
         <member name="M:Cadru.Environment.FrameworkVersionDetection.GetCorePath(Cadru.Environment.FrameworkVersion)">
             <summary>
@@ -217,26 +210,12 @@
             Framework.
             </returns>
         </member>
-        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx10SPLevel">
+        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetInstallRoot">
             <summary>
-            Detects the service pack level for the .NET Framework 1.0.
+            Gets the installation root path for the .NET Framework.
             </summary>
-            <returns>An <see cref="T:System.Int32"/> representing the service pack
-            level for the .NET Framework.</returns>
-            <devdoc>Uses the detection method recommended at
-            http://blogs.msdn.com/astebner/archive/2004/09/14/229802.aspx
-            to determine what service pack for the .NET Framework 1.0 is
-            installed on the machine.
-            </devdoc>
-        </member>
-        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfxSPLevel(System.String,System.String)">
-            <summary>
-            Detects the service pack level for a version of .NET Framework.
-            </summary>
-            <param name="key">The registry key name.</param>
-            <param name="value">The registry value name.</param>
-            <returns>An <see cref="T:System.Int32"/> representing the service pack
-            level for the .NET Framework.</returns>
+            <returns>A <see cref="T:System.String" /> representing the installation root
+            path for the .NET Framework.</returns>
         </member>
         <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx10ExactVersion">
             <summary>
@@ -244,9 +223,21 @@
             </summary>
             <returns>A <see cref="T:System.Version">version</see> representing
             the exact version number for the .NET Framework 1.0 or a
-            <see cref="T:System.Version"/> is returned that represents a 0.0.0.0 version
+            <see cref="T:System.Version" /> is returned that represents a 0.0.0.0 version
             number if the .NET Framework 1.0 is not found.
             </returns>
+        </member>
+        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx10SPLevel">
+            <summary>
+            Detects the service pack level for the .NET Framework 1.0.
+            </summary>
+            <returns>An <see cref="T:System.Int32" /> representing the service pack
+            level for the .NET Framework.</returns>
+            <devdoc>Uses the detection method recommended at
+            http://blogs.msdn.com/astebner/archive/2004/09/14/229802.aspx
+            to determine what service pack for the .NET Framework 1.0 is
+            installed on the machine.
+            </devdoc>
         </member>
         <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx11ExactVersion">
             <summary>
@@ -254,7 +245,7 @@
             </summary>
             <returns>A <see cref="T:System.Version">version</see> representing
             the exact version number for the .NET Framework 1.1 or a
-            <see cref="T:System.Version"/> is returned that represents a 0.0.0.0 version
+            <see cref="T:System.Version" /> is returned that represents a 0.0.0.0 version
             number if the .NET Framework 1.1 is not found.
             </returns>
         </member>
@@ -264,9 +255,89 @@
             </summary>
             <returns>A <see cref="T:System.Version">version</see> representing
             the exact version number for the .NET Framework 2.0 or a
-            <see cref="T:System.Version"/> is returned that represents a 0.0.0.0 version
+            <see cref="T:System.Version" /> is returned that represents a 0.0.0.0 version
             number if the .NET Framework 2.0 is not found.
             </returns>
+        </member>
+        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx30CardSpaceExactVersion">
+            <summary>
+            Retrieves the exact version number for the .NET Framework 3.0 CardSpace.
+            </summary>
+            <returns>A <see cref="T:System.Version">version</see> representing
+            the exact version number for the .NET Framework 3.0 CardSpace or a
+            <see cref="T:System.Version" /> is returned that represents a 0.0.0.0 version
+            number if the .NET Framework 3.0 CardSpace is not found.
+            </returns>
+        </member>
+        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx30CardSpaceSPLevel">
+            <summary>
+            Detects the service pack level for the .NET Framework 3.0 CardSpace.
+            </summary>
+            <returns>An <see cref="T:System.Int32" /> representing the service pack
+            level for the .NET Framework 3.0 CardSpace.</returns>
+            <remarks>It doesn't appear that the Windows Foundation Libraries are
+            serviced independently of the .NET Framework 3.0, so this returns
+            the .NET Framework 3.0 service pack level.</remarks>
+        </member>
+        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx30WCFExactVersion">
+            <summary>
+            Retrieves the exact version number for the .NET Framework 3.0 WCF.
+            </summary>
+            <returns>A <see cref="T:System.Version">version</see> representing
+            the exact version number for the .NET Framework 3.0 WCF or a
+            <see cref="T:System.Version" /> is returned that represents a 0.0.0.0 version
+            number if the .NET Framework 3.0 WCF is not found.
+            </returns>
+        </member>
+        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx30WCFSPLevel">
+            <summary>
+            Detects the service pack level for the .NET Framework 3.0 WCF.
+            </summary>
+            <returns>An <see cref="T:System.Int32" /> representing the service pack
+            level for the .NET Framework 3.0 WCF.</returns>
+            <remarks>It doesn't appear that the Windows Foundation Libraries are
+            serviced independently of the .NET Framework 3.0, so this returns
+            the .NET Framework 3.0 service pack level.</remarks>
+        </member>
+        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx30WFExactVersion">
+            <summary>
+            Retrieves the exact version number for the .NET Framework 3.0 WF.
+            </summary>
+            <returns>A <see cref="T:System.Version">version</see> representing
+            the exact version number for the .NET Framework 3.0 WF or a
+            <see cref="T:System.Version" /> is returned that represents a 0.0.0.0 version
+            number if the .NET Framework 3.0 WF is not found.
+            </returns>
+        </member>
+        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx30WFSPLevel">
+            <summary>
+            Detects the service pack level for the .NET Framework 3.0 WF.
+            </summary>
+            <returns>An <see cref="T:System.Int32" /> representing the service pack
+            level for the .NET Framework 3.0 WF.</returns>
+            <remarks>It doesn't appear that the Windows Foundation Libraries are
+            serviced independently of the .NET Framework 3.0, so this returns
+            the .NET Framework 3.0 service pack level.</remarks>
+        </member>
+        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx30WPFExactVersion">
+            <summary>
+            Retrieves the exact version number for the .NET Framework 3.0 WPF.
+            </summary>
+            <returns>A <see cref="T:System.Version">version</see> representing
+            the exact version number for the .NET Framework 3.0 WPF or a
+            <see cref="T:System.Version" /> is returned that represents a 0.0.0.0 version
+            number if the .NET Framework 3.0 WPF is not found.
+            </returns>
+        </member>
+        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx30WPFSPLevel">
+            <summary>
+            Detects the service pack level for the .NET Framework 3.0 WOF.
+            </summary>
+            <returns>An <see cref="T:System.Int32" /> representing the service pack
+            level for the .NET Framework 3.0 WPF.</returns>
+            <remarks>It doesn't appear that the Windows Foundation Libraries are
+            serviced independently of the .NET Framework 3.0, so this returns
+            the .NET Framework 3.0 service pack level.</remarks>
         </member>
         <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfxExactVersion(System.String,System.String)">
             <summary>
@@ -274,10 +345,26 @@
             </summary>
             <param name="key">The registry key name.</param>
             <param name="value">The registry value name.</param>
-            <returns>A <see cref="T:System.Version"/> that represents the .NET
-            Framework version or a <see cref="T:System.Version"/> is returned
+            <returns>A <see cref="T:System.Version" /> that represents the .NET
+            Framework version or a <see cref="T:System.Version" /> is returned
             that represents a 0.0.0.0 version number if the .NET Framework
             version is not found.</returns>
+        </member>
+        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfxSPLevel(System.String,System.String)">
+            <summary>
+            Detects the service pack level for a version of .NET Framework.
+            </summary>
+            <param name="key">The registry key name.</param>
+            <param name="value">The registry value name.</param>
+            <returns>An <see cref="T:System.Int32" /> representing the service pack
+            level for the .NET Framework.</returns>
+        </member>
+        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetRegistryKey(Cadru.Environment.FrameworkVersion)">
+            <summary>
+            Gets the registry key for the given .NET Framework version and (optionally) profile.
+            </summary>
+            <param name="frameworkVersion">The version of the .NET Framework.</param>
+            <returns>A string representing the registry key for the given .NET Framework version and profile.</returns>
         </member>
         <member name="M:Cadru.Environment.FrameworkVersionDetection.GetRegistryValue``1(Microsoft.Win32.RegistryHive,System.String,System.String,Microsoft.Win32.RegistryValueKind,``0@)">
             <summary>
@@ -290,181 +377,94 @@
             <param name="kind">The registry data type of the specified value.</param>
             <param name="data">The data associated with the registry hive,
             key, and value name.</param>
-            <returns><see langword="true"/> if the registry value was found;
-            otherwise, <see langword="false"/>.</returns>
-        </member>
-        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetRegistryKey(Cadru.Environment.FrameworkVersion)">
-            <summary>
-            Gets the registry key for the given .NET Framework version and (optionally) profile.
-            </summary>
-            <param name="frameworkVersion">The version of the .NET Framework.</param>
-            <returns>A string representing the registry key for the given .NET Framework version and profile.</returns>
+            <returns><see langword="true" /> if the registry value was found;
+            otherwise, <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.FrameworkVersionDetection.IsNetfx10Installed">
             <summary>
             Detects if the .NET Framework 1.0 is installed.
             </summary>
-            <returns><see langword="true"/> if the .NET Framework 1.0 is
-            installed; otherwise <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if the .NET Framework 1.0 is
+            installed; otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.FrameworkVersionDetection.IsNetfx11Installed">
             <summary>
             Detects if the .NET Framework 1.1 is installed.
             </summary>
-            <returns><see langword="true"/> if the .NET Framework 1.1 is
-            installed; otherwise <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if the .NET Framework 1.1 is
+            installed; otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.FrameworkVersionDetection.IsNetfx20Installed">
             <summary>
             Detects if the .NET Framework 2.0 is installed.
             </summary>
-            <returns><see langword="true"/> if the .NET Framework 2.0 is
-            installed; otherwise <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if the .NET Framework 2.0 is
+            installed; otherwise <see langword="false" />.</returns>
+        </member>
+        <member name="M:Cadru.Environment.FrameworkVersionDetection.IsNetfx30CardSpaceInstalled">
+            <summary>
+            Detects if the .NET Framework 3.0 CardSpace is installed.
+            </summary>
+            <returns><see langword="true" /> if the .NET Framework 3.0 CardSpace is
+            installed; otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.FrameworkVersionDetection.IsNetfx30Installed">
             <summary>
             Detects if the .NET Framework 3.0 is installed.
             </summary>
-            <returns><see langword="true"/> if the .NET Framework 3.0 is
-            installed; otherwise <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if the .NET Framework 3.0 is
+            installed; otherwise <see langword="false" />.</returns>
+        </member>
+        <member name="M:Cadru.Environment.FrameworkVersionDetection.IsNetfx30WCFInstalled">
+            <summary>
+            Detects if the .NET Framework 3.0 WCF is installed.
+            </summary>
+            <returns><see langword="true" /> if the .NET Framework 3.0 WCF is
+            installed; otherwise <see langword="false" />.</returns>
+        </member>
+        <member name="M:Cadru.Environment.FrameworkVersionDetection.IsNetfx30WFInstalled">
+            <summary>
+            Detects if the .NET Framework 3.0 WF is installed.
+            </summary>
+            <returns><see langword="true" /> if the .NET Framework 3.0 WF is
+            installed; otherwise <see langword="false" />.</returns>
+        </member>
+        <member name="M:Cadru.Environment.FrameworkVersionDetection.IsNetfx30WPFInstalled">
+            <summary>
+            Detects if the .NET Framework 3.0 WPF is installed.
+            </summary>
+            <returns><see langword="true" /> if the .NET Framework 3.0 WPF is
+            installed; otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.FrameworkVersionDetection.IsNetfx35Installed(Cadru.Environment.FrameworkVersion)">
             <summary>
             Detects if the .NET Framework 3.5 is installed.
             </summary>
             <param name="frameworkVersion">The version of the .NET Framework.</param>
-            <returns><see langword="true"/> if the .NET Framework 3.5 is
-            installed; otherwise <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if the .NET Framework 3.5 is
+            installed; otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.FrameworkVersionDetection.IsNetfx40Installed(Cadru.Environment.FrameworkVersion)">
             <summary>
             Detects if the specified .NET Framework 4.0 profile is installed.
             </summary>
             <param name="frameworkVersion">The version of the .NET Framework.</param>
-            <returns><see langword="true"/> if the specified .NET Framework
-            4.0 profile is installed; otherwise <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if the specified .NET Framework
+            4.0 profile is installed; otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.FrameworkVersionDetection.IsNetfx45OrLaterInstalled(Cadru.Environment.FrameworkVersion)">
             <summary>
             Detects if the .NET Framework 4.5 or later profile is installed.
             </summary>
-            <returns><see langword="true"/> if the specified .NET Framework
-            4.5 or later profile is installed; otherwise <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if the specified .NET Framework
+            4.5 or later profile is installed; otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.FrameworkVersionDetection.IsTabletOrMediaCenter">
             <summary>
             Determines if the operating system is Windows Media Center or Windows XP Tablet.
             </summary>
-            <returns><see langword="true"/> if the operating system is Windows Media Center or Windows XP Tablet;
-            otherwise, <see langword="false"/>.</returns>
-        </member>
-        <member name="M:Cadru.Environment.FrameworkVersionDetection.IsNetfx30CardSpaceInstalled">
-            <summary>
-            Detects if the .NET Framework 3.0 CardSpace is installed.
-            </summary>
-            <returns><see langword="true"/> if the .NET Framework 3.0 CardSpace is
-            installed; otherwise <see langword="false"/>.</returns>
-        </member>
-        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx30CardSpaceSPLevel">
-            <summary>
-            Detects the service pack level for the .NET Framework 3.0 CardSpace.
-            </summary>
-            <returns>An <see cref="T:System.Int32"/> representing the service pack
-            level for the .NET Framework 3.0 CardSpace.</returns>
-            <remarks>It doesn't appear that the Windows Foundation Libraries are
-            serviced independently of the .NET Framework 3.0, so this returns
-            the .NET Framework 3.0 service pack level.</remarks>
-        </member>
-        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx30CardSpaceExactVersion">
-            <summary>
-            Retrieves the exact version number for the .NET Framework 3.0 CardSpace.
-            </summary>
-            <returns>A <see cref="T:System.Version">version</see> representing
-            the exact version number for the .NET Framework 3.0 CardSpace or a
-            <see cref="T:System.Version"/> is returned that represents a 0.0.0.0 version
-            number if the .NET Framework 3.0 CardSpace is not found.
-            </returns>
-        </member>
-        <member name="M:Cadru.Environment.FrameworkVersionDetection.IsNetfx30WCFInstalled">
-            <summary>
-            Detects if the .NET Framework 3.0 WCF is installed.
-            </summary>
-            <returns><see langword="true"/> if the .NET Framework 3.0 WCF is
-            installed; otherwise <see langword="false"/>.</returns>
-        </member>
-        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx30WCFSPLevel">
-            <summary>
-            Detects the service pack level for the .NET Framework 3.0 WCF.
-            </summary>
-            <returns>An <see cref="T:System.Int32"/> representing the service pack
-            level for the .NET Framework 3.0 WCF.</returns>
-            <remarks>It doesn't appear that the Windows Foundation Libraries are
-            serviced independently of the .NET Framework 3.0, so this returns
-            the .NET Framework 3.0 service pack level.</remarks>
-        </member>
-        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx30WCFExactVersion">
-            <summary>
-            Retrieves the exact version number for the .NET Framework 3.0 WCF.
-            </summary>
-            <returns>A <see cref="T:System.Version">version</see> representing
-            the exact version number for the .NET Framework 3.0 WCF or a
-            <see cref="T:System.Version"/> is returned that represents a 0.0.0.0 version
-            number if the .NET Framework 3.0 WCF is not found.
-            </returns>
-        </member>
-        <member name="M:Cadru.Environment.FrameworkVersionDetection.IsNetfx30WPFInstalled">
-            <summary>
-            Detects if the .NET Framework 3.0 WPF is installed.
-            </summary>
-            <returns><see langword="true"/> if the .NET Framework 3.0 WPF is
-            installed; otherwise <see langword="false"/>.</returns>
-        </member>
-        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx30WPFSPLevel">
-            <summary>
-            Detects the service pack level for the .NET Framework 3.0 WOF.
-            </summary>
-            <returns>An <see cref="T:System.Int32"/> representing the service pack
-            level for the .NET Framework 3.0 WPF.</returns>
-            <remarks>It doesn't appear that the Windows Foundation Libraries are
-            serviced independently of the .NET Framework 3.0, so this returns
-            the .NET Framework 3.0 service pack level.</remarks>
-        </member>
-        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx30WPFExactVersion">
-            <summary>
-            Retrieves the exact version number for the .NET Framework 3.0 WPF.
-            </summary>
-            <returns>A <see cref="T:System.Version">version</see> representing
-            the exact version number for the .NET Framework 3.0 WPF or a
-            <see cref="T:System.Version"/> is returned that represents a 0.0.0.0 version
-            number if the .NET Framework 3.0 WPF is not found.
-            </returns>
-        </member>
-        <member name="M:Cadru.Environment.FrameworkVersionDetection.IsNetfx30WFInstalled">
-            <summary>
-            Detects if the .NET Framework 3.0 WF is installed.
-            </summary>
-            <returns><see langword="true"/> if the .NET Framework 3.0 WF is
-            installed; otherwise <see langword="false"/>.</returns>
-        </member>
-        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx30WFSPLevel">
-            <summary>
-            Detects the service pack level for the .NET Framework 3.0 WF.
-            </summary>
-            <returns>An <see cref="T:System.Int32"/> representing the service pack
-            level for the .NET Framework 3.0 WF.</returns>
-            <remarks>It doesn't appear that the Windows Foundation Libraries are
-            serviced independently of the .NET Framework 3.0, so this returns
-            the .NET Framework 3.0 service pack level.</remarks>
-        </member>
-        <member name="M:Cadru.Environment.FrameworkVersionDetection.GetNetfx30WFExactVersion">
-            <summary>
-            Retrieves the exact version number for the .NET Framework 3.0 WF.
-            </summary>
-            <returns>A <see cref="T:System.Version">version</see> representing
-            the exact version number for the .NET Framework 3.0 WF or a
-            <see cref="T:System.Version"/> is returned that represents a 0.0.0.0 version
-            number if the .NET Framework 3.0 WF is not found.
-            </returns>
+            <returns><see langword="true" /> if the operating system is Windows Media Center or Windows XP Tablet;
+            otherwise, <see langword="false" />.</returns>
         </member>
         <member name="T:Cadru.Environment.InternetInformationServicesDetection">
             <summary>
@@ -473,45 +473,45 @@
             runtime version.
             </summary>
         </member>
-        <member name="M:Cadru.Environment.InternetInformationServicesDetection.IsAspRegistered">
-            <summary>
-            Determines if ASP is registered with Internet Information
-            Services (IIS) on the local computer.
-            </summary>
-            <returns><see langword="true"/> if ASP is registered; otherwise
-            <see langword="false"/>.</returns>
-        </member>
         <member name="M:Cadru.Environment.InternetInformationServicesDetection.IsAspNetRegistered(Cadru.Environment.FrameworkVersion)">
             <summary>
             Determines if the version of ASP.NET is registered with Internet
             Information Services (IIS) on the local computer.
             </summary>
             <param name="frameworkVersion">One of the
-            <see cref="T:Cadru.Environment.FrameworkVersion"/> values.</param>
-            <returns><see langword="true"/> if the specified ASP.NET version
-            is registered; otherwise <see langword="false"/>.</returns>
+            <see cref="T:Cadru.Environment.FrameworkVersion" /> values.</param>
+            <returns><see langword="true" /> if the specified ASP.NET version
+            is registered; otherwise <see langword="false" />.</returns>
+        </member>
+        <member name="M:Cadru.Environment.InternetInformationServicesDetection.IsAspRegistered">
+            <summary>
+            Determines if ASP is registered with Internet Information
+            Services (IIS) on the local computer.
+            </summary>
+            <returns><see langword="true" /> if ASP is registered; otherwise
+            <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.InternetInformationServicesDetection.IsInstalled(Cadru.Environment.InternetInformationServicesVersion)">
             <summary>
-            Determines if the specified version of Internet Information 
+            Determines if the specified version of Internet Information
             Services (IIS) is installed on the local computer.
             </summary>
-            <param name="iisVersion">One of the 
-            <see cref="T:Cadru.Environment.InternetInformationServicesVersion"/> values.</param>
-            <returns><see langword="true"/> if the specified Internet
+            <param name="iisVersion">One of the
+            <see cref="T:Cadru.Environment.InternetInformationServicesVersion" /> values.</param>
+            <returns><see langword="true" /> if the specified Internet
             Information Services version is installed; otherwise
-            <see langword="false"/>.</returns>
+            <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.InternetInformationServicesDetection.IsInstalled(Cadru.Environment.InternetInformationServicesSubcomponent)">
             <summary>
             Determines if the specified Internet Information Services (IIS)
             subcomponent is installed on the local computer.
             </summary>
-            <param name="subcomponent">One of the 
-            <see cref="T:Cadru.Environment.InternetInformationServicesSubcomponent"/> values.</param>
-            <returns><see langword="true"/> if the specified Internet
+            <param name="subcomponent">One of the
+            <see cref="T:Cadru.Environment.InternetInformationServicesSubcomponent" /> values.</param>
+            <returns><see langword="true" /> if the specified Internet
             Information Services subcomponent is installed; otherwise
-            <see langword="false"/>.</returns>
+            <see langword="false" />.</returns>
             <remarks>Subcomponents only apply to IIS versions 6 and earlier.</remarks>
         </member>
         <member name="M:Cadru.Environment.InternetInformationServicesDetection.IsInstalled(Cadru.Environment.InternetInformationServicesFeature)">
@@ -519,19 +519,19 @@
             Determines if the specified Internet Information Services (IIS)
             feature is installed and enabled on the local computer.
             </summary>
-            <param name="feature">One of the 
-            <see cref="T:Cadru.Environment.InternetInformationServicesFeature"/> values.</param>
-            <returns><see langword="true"/> if the specified Internet
+            <param name="feature">One of the
+            <see cref="T:Cadru.Environment.InternetInformationServicesFeature" /> values.</param>
+            <returns><see langword="true" /> if the specified Internet
             Information Services feature is installed; otherwise
-            <see langword="false"/>.</returns>
+            <see langword="false" />.</returns>
             <remarks>Features only apply to IIS versions 7 and later.</remarks>
         </member>
         <member name="M:Cadru.Environment.InternetInformationServicesDetection.GetInstalledVersion">
             <summary>
             Gets the installed IIS version.
             </summary>
-            <returns>A <see cref="T:System.Version"/> representing the installed IIS
-            version or a <see cref="T:System.Version"/> representing 0.0.0.0 if
+            <returns>A <see cref="T:System.Version" /> representing the installed IIS
+            version or a <see cref="T:System.Version" /> representing 0.0.0.0 if
             IIS is not installed.</returns>
         </member>
         <member name="M:Cadru.Environment.InternetInformationServicesDetection.GetRegistryValue``1(Microsoft.Win32.RegistryHive,System.String,System.String,Microsoft.Win32.RegistryValueKind,``0@)">
@@ -543,46 +543,46 @@
             <param name="key">The specified sub key to open.</param>
             <param name="value">The name of the value to retrieve.</param>
             <param name="kind">The registry data type of the specified value.</param>
-            <param name="data">The data associated with the registry hive, 
+            <param name="data">The data associated with the registry hive,
             key, and value name.</param>
-            <returns><see langword="true"/> if the registry value was found; 
-            otherwise, <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if the registry value was found;
+            otherwise, <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.InternetInformationServicesDetection.IsAspNet10Registered">
             <summary>
             Detects if ASP.NET 1.0 is registered with IIS.
             </summary>
-            <returns><see langword="true"/> if ASP.NET 1.0 is 
-            registered; otherwise <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if ASP.NET 1.0 is
+            registered; otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.InternetInformationServicesDetection.IsAspNet11Registered">
             <summary>
             Detects if ASP.NET 1.1 is registered with IIS.
             </summary>
-            <returns><see langword="true"/> if ASP.NET 1.1 is 
-            registered; otherwise <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if ASP.NET 1.1 is
+            registered; otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.InternetInformationServicesDetection.IsAspNet20Registered">
             <summary>
             Detects if ASP.NET 2.0 is registered with IIS.
             </summary>
-            <returns><see langword="true"/> if ASP.NET 2.0 is 
-            registered; otherwise <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if ASP.NET 2.0 is
+            registered; otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.InternetInformationServicesDetection.IsAspNet40Registered">
             <summary>
             Detects if ASP.NET 4.0 is registered with IIS.
             </summary>
-            <returns><see langword="true"/> if ASP.NET 4.0 is 
-            registered; otherwise <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if ASP.NET 4.0 is
+            registered; otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.InternetInformationServicesDetection.IsFeatureInstalled(System.String)">
             <summary>
             Detects if the specified feature is installed.
             </summary>
             <param name="featureKey">The registry value representing the feature to test.</param>
-            <returns><see langword="true"/> if the feature is 
-            installed; otherwise <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if the feature is
+            installed; otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.InternetInformationServicesDetection.IsFeatureInstalled(System.String,System.String)">
             <summary>
@@ -590,24 +590,24 @@
             </summary>
             <param name="featureKey1">The registry value representing the first feature to test.</param>
             <param name="featureKey2">The registry value representing the second feature to test.</param>
-            <returns><see langword="true"/> if both of the features are 
-            installed; otherwise <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if both of the features are
+            installed; otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.InternetInformationServicesDetection.IsFeatureInstalled(System.String[])">
             <summary>
             Detects if the specified features are installed.
             </summary>
             <param name="featureKeys">An array of feature registry keys to test.</param>
-            <returns><see langword="true"/> if all of the features are 
-            installed; otherwise <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if all of the features are
+            installed; otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Environment.InternetInformationServicesDetection.IsSubcomponentInstalled(System.String)">
             <summary>
             Detects if the specified subcomponent is installed.
             </summary>
             <param name="subcomponent">The registry value representing the subcomponent to test.</param>
-            <returns><see langword="true"/> if the subcomponent is 
-            installed; otherwise <see langword="false"/>.</returns>
+            <returns><see langword="true" /> if the subcomponent is
+            installed; otherwise <see langword="false" />.</returns>
         </member>
         <member name="T:Cadru.Environment.InternetInformationServicesFeature">
             <summary>
@@ -1039,7 +1039,7 @@
         </member>
         <member name="T:Cadru.Environment.InteropServices.Constants">
             <summary>
-            An internal class that defines the p/invoke constants required by the 
+            An internal class that defines the p/invoke constants required by the
             Win32 API calls that are used inside the library.
             </summary>
         </member>
@@ -1050,15 +1050,15 @@
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CXSCREEN">
             <summary>
-             Width of the screen of the primary display monitor, in pixels. 
-            This is the same values obtained by calling GetDeviceCaps as 
+             Width of the screen of the primary display monitor, in pixels.
+            This is the same values obtained by calling GetDeviceCaps as
             follows: GetDeviceCaps( hdcPrimaryMonitor, HORZRES).
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CYSCREEN">
             <summary>
-            Height of the screen of the primary display monitor, in pixels. 
-            This is the same values obtained by calling GetDeviceCaps as 
+            Height of the screen of the primary display monitor, in pixels.
+            This is the same values obtained by calling GetDeviceCaps as
             follows: GetDeviceCaps( hdcPrimaryMonitor, VERTRES).
             </summary>
         </member>
@@ -1080,13 +1080,13 @@
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CXBORDER">
             <summary>
             Width of a window border, in pixels. This is equivalent to the
-            SM_CXEDGE value for windows with the 3-D look. 
+            SM_CXEDGE value for windows with the 3-D look.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CYBORDER">
             <summary>
-            Height of a window border, in pixels. This is equivalent to the 
-            SM_CYEDGE value for windows with the 3-D look. 
+            Height of a window border, in pixels. This is equivalent to the
+            SM_CYEDGE value for windows with the 3-D look.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CXDLGFRAME">
@@ -1094,7 +1094,7 @@
             Thickness of the frame around the perimeter of a window that has
             a caption but is not sizable, in pixels. SM_CXFIXEDFRAME is the
             height of the horizontal border and SM_CYFIXEDFRAME is the width
-            of the vertical border. 
+            of the vertical border.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CYDLGFRAME">
@@ -1102,7 +1102,7 @@
             Thickness of the frame around the perimeter of a window that has
             a caption but is not sizable, in pixels. SM_CXFIXEDFRAME is the
             height of the horizontal border and SM_CYFIXEDFRAME is the width
-            of the vertical border. 
+            of the vertical border.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CYVTHUMB">
@@ -1117,20 +1117,20 @@
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CXICON">
             <summary>
-            Default width of an icon, in pixels. The LoadIcon function can 
+            Default width of an icon, in pixels. The LoadIcon function can
             load only icons with the dimensions specified by SM_CXICON and
             SM_CYICON.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CYICON">
             <summary>
-            Default height of an icon, in pixels. The LoadIcon function can 
+            Default height of an icon, in pixels. The LoadIcon function can
             load only icons with the dimensions SM_CXICON and SM_CYICON.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CXCURSOR">
             <summary>
-            Width of a cursor, in pixels. The system cannot create 
+            Width of a cursor, in pixels. The system cannot create
             cursors of other sizes.
             </summary>
         </member>
@@ -1148,8 +1148,8 @@
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CXFULLSCREEN">
             <summary>
             Width of the client area for a full-screen window on the primary
-            display monitor, in pixels. To get the coordinates of the portion 
-            of the screen not obscured by the system taskbar or by application 
+            display monitor, in pixels. To get the coordinates of the portion
+            of the screen not obscured by the system taskbar or by application
             desktop toolbars, call the SystemParametersInfo function with the
             SPI_GETWORKAREA value.
             </summary>
@@ -1238,18 +1238,18 @@
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CXFRAME">
             <summary>
-            Thickness of the sizing border around the perimeter of a window 
+            Thickness of the sizing border around the perimeter of a window
             that can be resized, in pixels. SM_CXSIZEFRAME is the width of the
             horizontal border, and SM_CYSIZEFRAME is the height of the
-            vertical border. 
+            vertical border.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CYFRAME">
             <summary>
-            Thickness of the sizing border around the perimeter of a window 
+            Thickness of the sizing border around the perimeter of a window
             that can be resized, in pixels. SM_CXSIZEFRAME is the width of the
-            horizontal border, and SM_CYSIZEFRAME is the height of the 
-            vertical border. 
+            horizontal border, and SM_CYSIZEFRAME is the height of the
+            vertical border.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CXMINTRACK">
@@ -1261,24 +1261,24 @@
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CYMINTRACK">
             <summary>
-            Minimum tracking height of a window, in pixels. The user cannot 
-            drag the window frame to a size smaller than these dimensions. A 
+            Minimum tracking height of a window, in pixels. The user cannot
+            drag the window frame to a size smaller than these dimensions. A
             window can override this value by processing the WM_GETMINMAXINFO
             message.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CXDOUBLECLK">
             <summary>
-            Width of the rectangle around the location of a first click in a 
-            double-click sequence, in pixels. The second click must occur 
-            within the rectangle defined by SM_CXDOUBLECLK and SM_CYDOUBLECLK 
+            Width of the rectangle around the location of a first click in a
+            double-click sequence, in pixels. The second click must occur
+            within the rectangle defined by SM_CXDOUBLECLK and SM_CYDOUBLECLK
             for the system to consider the two clicks a double-click.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CYDOUBLECLK">
             <summary>
             Height of the rectangle around the location of a first click in a
-            double-click sequence, in pixels. The second click must occur 
+            double-click sequence, in pixels. The second click must occur
             within the rectangle defined by SM_CXDOUBLECLK and SM_CYDOUBLECLK
             for the system to consider the two clicks a double-click. The two
             clicks must also occur within a specified time.
@@ -1287,15 +1287,15 @@
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CXICONSPACING">
             <summary>
             Width of a grid cell for items in large icon view, in pixels. Each
-            item fits into a rectangle of size SM_CXICONSPACING by 
-            SM_CYICONSPACING when arranged. This value is always greater 
+            item fits into a rectangle of size SM_CXICONSPACING by
+            SM_CYICONSPACING when arranged. This value is always greater
             than or equal to SM_CXICON.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CYICONSPACING">
             <summary>
-            Height of a grid cell for items in large icon view, in pixels. 
-            Each item fits into a rectangle of size SM_CXICONSPACING by 
+            Height of a grid cell for items in large icon view, in pixels.
+            Each item fits into a rectangle of size SM_CXICONSPACING by
             SM_CYICONSPACING when arranged. This value is always greater than
             or equal to SM_CYICON.
             </summary>
@@ -1314,7 +1314,7 @@
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_DBCSENABLED">
             <summary>
-            Nonzero if User32.dll supports DBCS; zero otherwise. 
+            Nonzero if User32.dll supports DBCS; zero otherwise.
             (WinMe/95/98): Unicode.
             </summary>
         </member>
@@ -1350,27 +1350,27 @@
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CXEDGE">
             <summary>
-            Width of a 3-D border, in pixels. This is the 3-D counterpart 
+            Width of a 3-D border, in pixels. This is the 3-D counterpart
             of SM_CXBORDER.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CYEDGE">
             <summary>
-            Height of a 3-D border, in pixels. This is the 3-D counterpart 
+            Height of a 3-D border, in pixels. This is the 3-D counterpart
             of SM_CYBORDER.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CXMINSPACING">
             <summary>
-            Width of a grid cell for a minimized window, in pixels. Each 
-            minimized window fits into a rectangle this size when arranged. 
+            Width of a grid cell for a minimized window, in pixels. Each
+            minimized window fits into a rectangle this size when arranged.
             This value is always greater than or equal to SM_CXMINIMIZED.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CYMINSPACING">
             <summary>
-            Height of a grid cell for a minimized window, in pixels. Each 
-            minimized window fits into a rectangle this size when arranged. 
+            Height of a grid cell for a minimized window, in pixels. Each
+            minimized window fits into a rectangle this size when arranged.
             This value is always greater than or equal to SM_CYMINIMIZED.
             </summary>
         </member>
@@ -1382,7 +1382,7 @@
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CYSMICON">
             <summary>
-            Recommended height of a small icon, in pixels. Small icons 
+            Recommended height of a small icon, in pixels. Small icons
             typically appear in window captions and in small icon view.
             </summary>
         </member>
@@ -1430,19 +1430,19 @@
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CXMAXTRACK">
             <summary>
-            Default maximum width of a window that has a caption and sizing 
+            Default maximum width of a window that has a caption and sizing
             borders, in pixels. This metric refers to the entire desktop. The
-            user cannot drag the window frame to a size larger than these 
-            dimensions. A window can override this value by processing the 
+            user cannot drag the window frame to a size larger than these
+            dimensions. A window can override this value by processing the
             WM_GETMINMAXINFO message.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CYMAXTRACK">
             <summary>
-            Default maximum height of a window that has a caption and sizing 
+            Default maximum height of a window that has a caption and sizing
             borders, in pixels. This metric refers to the entire desktop. The
-            user cannot drag the window frame to a size larger than these 
-            dimensions. A window can override this value by processing the 
+            user cannot drag the window frame to a size larger than these
+            dimensions. A window can override this value by processing the
             WM_GETMINMAXINFO message.
             </summary>
         </member>
@@ -1454,43 +1454,43 @@
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CYMAXIMIZED">
             <summary>
-            Default height, in pixels, of a maximized top-level window on the 
+            Default height, in pixels, of a maximized top-level window on the
             primary display monitor.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_NETWORK">
             <summary>
-            Least significant bit is set if a network is present; otherwise, 
+            Least significant bit is set if a network is present; otherwise,
             it is cleared. The other bits are reserved for future use.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CLEANBOOT">
             <summary>
-            Value that specifies how the system was started: 0-normal, 
+            Value that specifies how the system was started: 0-normal,
             1-failsafe, 2-failsafe /w net.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CXDRAG">
             <summary>
             Width of a rectangle centered on a drag point to allow for limited
-            movement of the mouse pointer before a drag operation begins, 
-            in pixels. 
+            movement of the mouse pointer before a drag operation begins,
+            in pixels.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CYDRAG">
             <summary>
             Height of a rectangle centered on a drag point to allow for limited
-            movement of the mouse pointer before a drag operation begins. This 
-            value is in pixels. It allows the user to click and release the 
-            mouse button easily without unintentionally starting a drag 
+            movement of the mouse pointer before a drag operation begins. This
+            value is in pixels. It allows the user to click and release the
+            mouse button easily without unintentionally starting a drag
             operation.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_SHOWSOUNDS">
             <summary>
             Nonzero if the user requires an application to present information
-            visually in situations where it would otherwise present the 
-            information only in audible form; zero otherwise. 
+            visually in situations where it would otherwise present the
+            information only in audible form; zero otherwise.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CXMENUCHECK">
@@ -1505,7 +1505,7 @@
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_SLOWMACHINE">
             <summary>
-            Nonzero if the computer has a low-end (slow) processor; 
+            Nonzero if the computer has a low-end (slow) processor;
             zero otherwise.
             </summary>
         </member>
@@ -1517,8 +1517,8 @@
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_MOUSEPRESENT">
             <summary>
-            Nonzero if a mouse is installed; zero otherwise. This value is 
-            rarely zero, because of support for virtual mice and because some 
+            Nonzero if a mouse is installed; zero otherwise. This value is
+            rarely zero, because of support for virtual mice and because some
             systems detect the presence of the port instead of the presence of
             a mouse.
             </summary>
@@ -1550,41 +1550,41 @@
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_SAMEDISPLAYFORMAT">
             <summary>
-            Windows XP (v5.1+) Nonzero if all the display monitors have the 
+            Windows XP (v5.1+) Nonzero if all the display monitors have the
             same color format, zero otherwise. Note that two displays can have
-            the same bit depth, but different color formats. For example, the 
+            the same bit depth, but different color formats. For example, the
             red, green, and blue pixels can be encoded with different numbers
-            of bits, or those bits can be located in different places in a 
-            pixel's color value. 
+            of bits, or those bits can be located in different places in a
+            pixel's color value.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_IMMENABLED">
             <summary>
-            Windows XP (v5.1+) Nonzero if Input Method Manager/Input Method 
+            Windows XP (v5.1+) Nonzero if Input Method Manager/Input Method
             Editor features are enabled; zero otherwise.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CXFOCUSBORDER">
             <summary>
-            Windows XP (v5.1+) Width of the left and right edges of the focus 
-            rectangle drawn by DrawFocusRect. This value is in pixels. 
+            Windows XP (v5.1+) Width of the left and right edges of the focus
+            rectangle drawn by DrawFocusRect. This value is in pixels.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_CYFOCUSBORDER">
             <summary>
-            Windows XP (v5.1+) Height of the top and bottom edges of the focus 
-            rectangle drawn by DrawFocusRect. This value is in pixels. 
+            Windows XP (v5.1+) Height of the top and bottom edges of the focus
+            rectangle drawn by DrawFocusRect. This value is in pixels.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_TABLETPC">
             <summary>
-            Nonzero if the current operating system is the Windows XP Tablet PC 
+            Nonzero if the current operating system is the Windows XP Tablet PC
             edition, zero if not.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_MEDIACENTER">
             <summary>
-            Nonzero if the current operating system is the Windows XP, Media 
+            Nonzero if the current operating system is the Windows XP, Media
             Center Edition, zero if not.
             </summary>
         </member>
@@ -1605,25 +1605,25 @@
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_REMOTESESSION">
             <summary>
-            Windows XP (v5.1+) This system metric is used in a Terminal 
-            Services environment. If the calling process is associated with a 
-            Terminal Services client session, the return value is nonzero. If 
-            the calling process is associated with the Terminal Server console 
-            session, the return value is zero. The console session is not 
-            necessarily the physical console - see WTSGetActiveConsoleSessionId 
-            for more information. 
+            Windows XP (v5.1+) This system metric is used in a Terminal
+            Services environment. If the calling process is associated with a
+            Terminal Services client session, the return value is nonzero. If
+            the calling process is associated with the Terminal Server console
+            session, the return value is zero. The console session is not
+            necessarily the physical console - see WTSGetActiveConsoleSessionId
+            for more information.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_SHUTTINGDOWN">
             <summary>
-            Windows XP (v5.1+) Nonzero if the current session is shutting down; 
+            Windows XP (v5.1+) Nonzero if the current session is shutting down;
             zero otherwise.
             </summary>
         </member>
         <member name="F:Cadru.Environment.InteropServices.SystemMetric.SM_REMOTECONTROL">
             <summary>
-            Windows XP (v5.1+) This system metric is used in a Terminal 
-            Services environment. Its value is nonzero if the current session 
+            Windows XP (v5.1+) This system metric is used in a Terminal
+            Services environment. Its value is nonzero if the current session
             is remotely controlled; zero otherwise.
             </summary>
         </member>

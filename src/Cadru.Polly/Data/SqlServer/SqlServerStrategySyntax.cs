@@ -33,12 +33,12 @@ using Polly.Timeout;
 namespace Cadru.Polly.Data.SqlServer
 {
     /// <summary>
-    /// Fluent API for defining a <see cref="SqlStrategy"/>.
+    /// Fluent API for defining a <see cref="SqlStrategy" />.
     /// </summary>
     public static class SqlServerStrategySyntax
     {
         /// <summary>
-        /// Builds a <see cref="SqlStrategy"/> with a policy for retrying
+        /// Builds a <see cref="SqlStrategy" /> with a policy for retrying
         /// actions on transaction failures.
         /// </summary>
         /// <param name="sqlStrategy">The SQL strategy.</param>
@@ -46,7 +46,7 @@ namespace Cadru.Polly.Data.SqlServer
         /// strategy used to determine which exceptions should be
         /// retried.</param>
         /// <param name="sqlStrategyConfiguration">An <see
-        /// cref="SqlStrategyOptions"/> containing configuration
+        /// cref="SqlStrategyOptions" /> containing configuration
         /// parameters.</param>
         /// <returns>The strategy instance.</returns>
         public static SqlStrategyBuilder Retry(this SqlStrategyBuilder sqlStrategy, IExceptionHandlingStrategy exceptionHandlingStrategy, SqlStrategyOptions sqlStrategyConfiguration)
@@ -58,12 +58,12 @@ namespace Cadru.Polly.Data.SqlServer
         }
 
         /// <summary>
-        /// Builds a <see cref="SqlStrategy"/> with policies that will function
+        /// Builds a <see cref="SqlStrategy" /> with policies that will function
         /// like a Circuit Breaker.
         /// </summary>
         /// <param name="sqlStrategyBuilder">The SQL strategy.</param>
         /// <param name="sqlStrategyConfiguration">An <see
-        /// cref="SqlStrategyOptions"/> containing configuration
+        /// cref="SqlStrategyOptions" /> containing configuration
         /// parameters.</param>
         /// <returns>The strategy instance.</returns>
         public static SqlStrategyBuilder WithCircuitBreakers(this SqlStrategyBuilder sqlStrategyBuilder, SqlStrategyOptions sqlStrategyConfiguration)
@@ -99,7 +99,7 @@ namespace Cadru.Polly.Data.SqlServer
         }
 
         /// <summary>
-        /// Builds a <see cref="SqlStrategy"/> with a policy which provides a
+        /// Builds a <see cref="SqlStrategy" /> with a policy which provides a
         /// fallback action if the main execution fails.
         /// </summary>
         /// <param name="sqlStrategy">The SQL strategy.</param>
@@ -119,7 +119,7 @@ namespace Cadru.Polly.Data.SqlServer
         }
 
         /// <summary>
-        /// Builds a <see cref="SqlStrategy"/> with a policy which provides a
+        /// Builds a <see cref="SqlStrategy" /> with a policy which provides a
         /// fallback action if the main execution fails.
         /// </summary>
         /// <param name="sqlStrategy">The SQL strategy.</param>
@@ -139,12 +139,12 @@ namespace Cadru.Polly.Data.SqlServer
         }
 
         /// <summary>
-        /// Builds a <see cref="SqlStrategy"/> with policies for both an overall
+        /// Builds a <see cref="SqlStrategy" /> with policies for both an overall
         /// timeout and a per retry timeout.
         /// </summary>
         /// <param name="sqlStrategy">The SQL strategy.</param>
         /// <param name="sqlStrategyConfiguration">An <see
-        /// cref="SqlStrategyOptions"/> containing configuration
+        /// cref="SqlStrategyOptions" /> containing configuration
         /// parameters.</param>
         /// <returns>The strategy instance.</returns>
         /// <remarks>
@@ -161,12 +161,12 @@ namespace Cadru.Polly.Data.SqlServer
         }
 
         /// <summary>
-        /// Builds a <see cref="SqlStrategy"/> with a policy for an overall
+        /// Builds a <see cref="SqlStrategy" /> with a policy for an overall
         /// timeout.
         /// </summary>
         /// <param name="sqlStrategy">The SQL strategy.</param>
         /// <param name="sqlStrategyConfiguration">An <see
-        /// cref="SqlStrategyOptions"/> containing configuration
+        /// cref="SqlStrategyOptions" /> containing configuration
         /// parameters.</param>
         /// <returns>The strategy instance.</returns>
         /// <remarks>
@@ -184,12 +184,12 @@ namespace Cadru.Polly.Data.SqlServer
         }
 
         /// <summary>
-        /// Builds a <see cref="SqlStrategy"/> with a policy for a per retry
+        /// Builds a <see cref="SqlStrategy" /> with a policy for a per retry
         /// timeout.
         /// </summary>
         /// <param name="sqlStrategy">The SQL strategy.</param>
         /// <param name="sqlStrategyConfiguration">An <see
-        /// cref="SqlStrategyOptions"/> containing configuration
+        /// cref="SqlStrategyOptions" /> containing configuration
         /// parameters.</param>
         /// <returns>The strategy instance.</returns>
         /// <remarks>

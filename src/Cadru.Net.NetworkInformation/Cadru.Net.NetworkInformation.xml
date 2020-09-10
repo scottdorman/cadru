@@ -12,23 +12,23 @@
         </member>
         <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.NetworkInformation.Collections.IPAddressComparer"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Net.NetworkInformation.Collections.IPAddressComparer" /> class.
             </summary>
         </member>
         <member name="P:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.Default">
             <summary>
-            Represents an instance of <see cref="T:Cadru.Net.NetworkInformation.Collections.IPAddressComparer"/>.
+            Represents an instance of <see cref="T:Cadru.Net.NetworkInformation.Collections.IPAddressComparer" />.
             </summary>
-            <value>The default <see cref="T:Cadru.Net.NetworkInformation.Collections.IPAddressComparer"/></value>
+            <value>The default <see cref="T:Cadru.Net.NetworkInformation.Collections.IPAddressComparer" /></value>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.Compare(System.Net.IPAddress,System.Net.IPAddress)">
             <summary>
-            Performs a comparison of two <see cref="T:System.Net.IPAddress"/> objects and returns a value
+            Performs a comparison of two <see cref="T:System.Net.IPAddress" /> objects and returns a value
             indicating whether one is less than, equal to or greater than
             the other.
             </summary>
-            <param name="x">The first <see cref="T:System.Net.IPAddress"/> to compare.</param>
-            <param name="y">The second <see cref="T:System.Net.IPAddress"/> to compare.</param>
+            <param name="x">The first <see cref="T:System.Net.IPAddress" /> to compare.</param>
+            <param name="y">The second <see cref="T:System.Net.IPAddress" /> to compare.</param>
             <returns>
             <list type="table">
             <listheader>
@@ -38,19 +38,19 @@
             <item>
             <term>Less than zero</term>
             <description>
-            <paramref name="x"/> is less than <paramref name="y"/>.
+            <paramref name="x" /> is less than <paramref name="y" />.
             </description>
             </item>
             <item>
             <term>Zero</term>
             <description>
-            <paramref name="x"/> equals <paramref name="y"/>.
+            <paramref name="x" /> equals <paramref name="y" />.
             </description>
             </item>
             <item>
             <term>Greater than zero</term>
             <description>
-            <paramref name="x"/> is greater than <paramref name="y"/>.
+            <paramref name="x" /> is greater than <paramref name="y" />.
             </description>
             </item>
             </list></returns>
@@ -72,19 +72,19 @@
             <item>
             <term>Less than zero</term>
             <description>
-            <paramref name="x"/> is less than <paramref name="y"/>.
+            <paramref name="x" /> is less than <paramref name="y" />.
             </description>
             </item>
             <item>
             <term>Zero</term>
             <description>
-            <paramref name="x"/> equals <paramref name="y"/>.
+            <paramref name="x" /> equals <paramref name="y" />.
             </description>
             </item>
             <item>
             <term>Greater than zero</term>
             <description>
-            <paramref name="x"/> is greater than <paramref name="y"/>.
+            <paramref name="x" /> is greater than <paramref name="y" />.
             </description>
             </item>
             </list></returns>
@@ -106,19 +106,19 @@
             <item>
             <term>Less than zero</term>
             <description>
-            <paramref name="x"/> is less than <paramref name="y"/>.
+            <paramref name="x" /> is less than <paramref name="y" />.
             </description>
             </item>
             <item>
             <term>Zero</term>
             <description>
-            <paramref name="x"/> equals <paramref name="y"/>.
+            <paramref name="x" /> equals <paramref name="y" />.
             </description>
             </item>
             <item>
             <term>Greater than zero</term>
             <description>
-            <paramref name="x"/> is greater than <paramref name="y"/>.
+            <paramref name="x" /> is greater than <paramref name="y" />.
             </description>
             </item>
             </list></returns>
@@ -126,11 +126,11 @@
         </member>
         <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.Equals(System.Net.IPAddress,System.Net.IPAddress)">
             <summary>
-            Returns a value indicating whether two instances of <see cref="T:System.Net.IPAddress"/> are equal.
+            Returns a value indicating whether two instances of <see cref="T:System.Net.IPAddress" /> are equal.
             </summary>
-            <param name="x">The first <see cref="T:System.Net.IPAddress"/> to compare.</param>
-            <param name="y">The second <see cref="T:System.Net.IPAddress"/> to compare.</param>
-            <returns><see langword="true" /> if the two <see cref="T:System.Net.IPAddress"/> values are equal;
+            <param name="x">The first <see cref="T:System.Net.IPAddress" /> to compare.</param>
+            <param name="y">The second <see cref="T:System.Net.IPAddress" /> to compare.</param>
+            <returns><see langword="true" /> if the two <see cref="T:System.Net.IPAddress" /> values are equal;
             otherwise, <see langword="false" />. </returns>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.Equals(System.String,System.String)">
@@ -144,13 +144,13 @@
         </member>
         <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.GetHashCode(System.Net.IPAddress)">
             <summary>
-            Returns a hash code for the specified <see cref="T:System.Net.IPAddress"/>.
+            Returns a hash code for the specified <see cref="T:System.Net.IPAddress" />.
             </summary>
-            <param name="obj">The <see cref="T:System.Net.IPAddress"/> for which a hash code is to be
+            <param name="obj">The <see cref="T:System.Net.IPAddress" /> for which a hash code is to be
             returned.</param>
-            <returns>A hash code for the specified <see cref="T:System.Net.IPAddress"/>.</returns>
-            <exception cref="T:System.ArgumentNullException">The type of <paramref name="obj"/> is a
-            reference type and <paramref name="obj"/> is a <see langword="null"/>.
+            <returns>A hash code for the specified <see cref="T:System.Net.IPAddress" />.</returns>
+            <exception cref="T:System.ArgumentNullException">The type of <paramref name="obj" /> is a
+            reference type and <paramref name="obj" /> is a <see langword="null" />.
             </exception>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.GetHashCode(System.Object)">
@@ -160,8 +160,8 @@
             <param name="obj">The Object for which a hash code is to be
             returned.</param>
             <returns>A hash code for the specified object.</returns>
-            <exception cref="T:System.ArgumentNullException">The type of <paramref name="obj"/> is a
-            reference type and <paramref name="obj"/> is a <see langword="null"/>.
+            <exception cref="T:System.ArgumentNullException">The type of <paramref name="obj" /> is a
+            reference type and <paramref name="obj" /> is a <see langword="null" />.
             </exception>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.GetHashCode(System.String)">
@@ -171,8 +171,8 @@
             <param name="obj">The string for which a hash code is to be
             returned.</param>
             <returns>A hash code for the specified string.</returns>
-            <exception cref="T:System.ArgumentNullException">The type of <paramref name="obj"/> is a
-            reference type and <paramref name="obj"/> is a <see langword="null"/>.
+            <exception cref="T:System.ArgumentNullException">The type of <paramref name="obj" /> is a
+            reference type and <paramref name="obj" /> is a <see langword="null" />.
             </exception>
         </member>
         <member name="T:Cadru.Net.NetworkInformation.ConnectionStatus">
@@ -833,12 +833,12 @@
         </member>
         <member name="M:Cadru.Net.NetworkInformation.NetworkStatus.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.NetworkInformation.NetworkStatus"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Net.NetworkInformation.NetworkStatus" /> class.
             </summary>
         </member>
         <member name="E:Cadru.Net.NetworkInformation.NetworkStatus.NetworkStatusChanged">
             <summary>
-            Represents the method that will handle the <see cref="E:Cadru.Net.NetworkInformation.NetworkStatus.NetworkStatusChanged"/> event.
+            Represents the method that will handle the <see cref="E:Cadru.Net.NetworkInformation.NetworkStatus.NetworkStatusChanged" /> event.
             </summary>
         </member>
         <member name="P:Cadru.Net.NetworkInformation.NetworkStatus.ConnectionStatus">
@@ -849,17 +849,17 @@
         </member>
         <member name="M:Cadru.Net.NetworkInformation.NetworkStatus.Dispose">
             <summary>
-            Releases all resources used by the <see cref="T:Cadru.Net.NetworkInformation.NetworkStatus"/>.
+            Releases all resources used by the <see cref="T:Cadru.Net.NetworkInformation.NetworkStatus" />.
             </summary>
         </member>
         <member name="T:Cadru.Net.NetworkInformation.NetworkStatusChangedEventArgs">
             <summary>
-            Provides event data for the <see cref="E:Cadru.Net.NetworkInformation.NetworkStatus.NetworkStatusChanged"/> event.
+            Provides event data for the <see cref="E:Cadru.Net.NetworkInformation.NetworkStatus.NetworkStatusChanged" /> event.
             </summary>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.NetworkStatusChangedEventArgs.#ctor(Cadru.Net.NetworkInformation.ConnectionStatus)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Net.NetworkInformation.NetworkStatusChangedEventArgs"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Net.NetworkInformation.NetworkStatusChangedEventArgs" /> class.
             </summary>
             <param name="status">The event data representing the current connection status.</param>
         </member>
@@ -1195,20 +1195,20 @@
             <summary>
             Gets the information level used for platform-specific information.
             </summary>
-            <value>One of the <see cref="P:Cadru.Net.NetworkInformation.ServerInfo.PlatformId"/> values.</value>
+            <value>One of the <see cref="P:Cadru.Net.NetworkInformation.ServerInfo.PlatformId" /> values.</value>
         </member>
         <member name="P:Cadru.Net.NetworkInformation.ServerInfo.Name">
             <summary>
             Gets the name of the computer.
             </summary>
-            <value>A <see cref="T:System.String"/> that represents the name of the
+            <value>A <see cref="T:System.String" /> that represents the name of the
             computer.</value>
         </member>
         <member name="P:Cadru.Net.NetworkInformation.ServerInfo.Comment">
             <summary>
             Gets the Server comment.
             </summary>
-            <value>A <see cref="T:System.String"/> that represents the comment
+            <value>A <see cref="T:System.String" /> that represents the comment
             associated with the server or an empty string if there is no
             comment.</value>
         </member>
@@ -1230,56 +1230,56 @@
             <summary>
             Gets the operating system version number.
             </summary>
-            <value>A <see cref="P:Cadru.Net.NetworkInformation.ServerInfo.Version"/> representing the operating system
+            <value>A <see cref="P:Cadru.Net.NetworkInformation.ServerInfo.Version" /> representing the operating system
             version.</value>
         </member>
         <member name="P:Cadru.Net.NetworkInformation.ServerInfo.ServerType">
             <summary>
             Gets the type of software the computer is running.
             </summary>
-            <value>A <see cref="T:Cadru.Net.NetworkInformation.ServerTypes"/> value that represents the
+            <value>A <see cref="T:Cadru.Net.NetworkInformation.ServerTypes" /> value that represents the
             operating system running on the computer.</value>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.ServerInfo.op_Equality(Cadru.Net.NetworkInformation.ServerInfo,Cadru.Net.NetworkInformation.ServerInfo)">
             <summary>
-            Determines whether two specified instances of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> are equal.
+            Determines whether two specified instances of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" /> are equal.
             </summary>
-            <param name="left">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>.</param>
-            <param name="right">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>.</param>
-            <returns><see langword="true"/> if s1 and s2 represent the same server; otherwise <see langword="false"/>.</returns>
+            <param name="left">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" />.</param>
+            <param name="right">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" />.</param>
+            <returns><see langword="true" /> if s1 and s2 represent the same server; otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.ServerInfo.op_Inequality(Cadru.Net.NetworkInformation.ServerInfo,Cadru.Net.NetworkInformation.ServerInfo)">
             <summary>
-            Determines whether two specified instances of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> are not equal.
+            Determines whether two specified instances of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" /> are not equal.
             </summary>
-            <param name="left">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>.</param>
-            <param name="right">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>.</param>
-            <returns><see langword="true"/> if s1 and s2 do note represent the same server;
-            otherwise <see langword="false"/>.</returns>
+            <param name="left">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" />.</param>
+            <param name="right">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" />.</param>
+            <returns><see langword="true" /> if s1 and s2 do note represent the same server;
+            otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.ServerInfo.Equals(Cadru.Net.NetworkInformation.ServerInfo,Cadru.Net.NetworkInformation.ServerInfo)">
             <summary>
-            Returns a value indicating whether two instances of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> are equal.
+            Returns a value indicating whether two instances of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" /> are equal.
             </summary>
-            <param name="left">The first <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>. </param>
-            <param name="right">The second <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>.</param>
-            <returns><see langword="true"/> if the two <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> values are equal; otherwise, <see langword="false"/>. </returns>
+            <param name="left">The first <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" />. </param>
+            <param name="right">The second <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" />.</param>
+            <returns><see langword="true" /> if the two <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" /> values are equal; otherwise, <see langword="false" />. </returns>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.ServerInfo.Equals(System.Object)">
             <summary>
             Returns a value indicating whether this instance is equal to a specified object.
             </summary>
             <param name="obj">An object to compare to this instance.</param>
-            <returns><see langword="true"/> if value is an instance of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>
-            equals the value of this instance; otherwise, <see langword="false"/>. </returns>
+            <returns><see langword="true" /> if value is an instance of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" />
+            equals the value of this instance; otherwise, <see langword="false" />. </returns>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.ServerInfo.Equals(Cadru.Net.NetworkInformation.ServerInfo)">
             <summary>
-            Returns a value indicating whether this instance is equal to the specified <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instance.
+            Returns a value indicating whether this instance is equal to the specified <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" /> instance.
             </summary>
-            <param name="other">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instance to compare to this instance.</param>
-            <returns><see langword="true"/> if the other parameter equals the value of this instance; otherwise, <see langword="false"/>. </returns>
-            <remarks>This method implements the <see cref="T:System.IEquatable`1"/> interface and performs slightly
+            <param name="other">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" /> instance to compare to this instance.</param>
+            <returns><see langword="true" /> if the other parameter equals the value of this instance; otherwise, <see langword="false" />. </returns>
+            <remarks>This method implements the <see cref="T:System.IEquatable`1" /> interface and performs slightly
             better than the <see cref="M:Cadru.Net.NetworkInformation.ServerInfo.Equals(System.Object)"/> method because it does not have to convert
             the other parameter to an object.</remarks>
         </member>
@@ -1300,7 +1300,7 @@
             Converts the value of the current Server object to its equivalent string representation using the specified culture-specific format information.
             </summary>
             <param name="provider">An object that supplies culture-specific formatting information. </param>
-            <returns>The string representation of this instance as specified by <paramref name="provider"/>.</returns>
+            <returns>The string representation of this instance as specified by <paramref name="provider" />.</returns>
         </member>
         <member name="T:Cadru.Net.NetworkInformation.ServerTypes">
             <summary>
@@ -1485,48 +1485,48 @@
         </member>
         <member name="M:Cadru.Networking.ExtendedNetworkInformation.GetDomains">
             <summary>
-            Gets an array of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instances for all
+            Gets an array of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" /> instances for all
             available domains.
             </summary>
-            <returns>An array of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instances for all
+            <returns>An array of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" /> instances for all
             available domains.</returns>
         </member>
         <member name="M:Cadru.Networking.ExtendedNetworkInformation.GetHostNameAsync">
             <summary>
             Gets the fully qualified hostname of the local computer.
             </summary>
-            <returns>A <see cref="T:System.String"/> representing the fully qualified hostname of the local computer.</returns>
-        </member>
-        <member name="M:Cadru.Networking.ExtendedNetworkInformation.GetServerInfo">
-            <summary>
-            Gets a <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instance representing the local computer.
-            </summary>
-            <returns>A <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instance representing the local computer.</returns>
-        </member>
-        <member name="M:Cadru.Networking.ExtendedNetworkInformation.GetServerInfo(System.String)">
-            <summary>
-            Gets a <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instance representing the named computer.
-            </summary>
-            <param name="serverName">The name of the computer.</param>
-            <returns>A <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instance representing the named computer.</returns>
-        </member>
-        <member name="M:Cadru.Networking.ExtendedNetworkInformation.GetServerList(Cadru.Net.NetworkInformation.ServerTypes,System.String)">
-            <summary>
-            Gets an array of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instances of the
-            specified server type for the given domain.
-            </summary>
-            <param name="serverType">A bitwise combination of enumeration values
-            that defines what server types to search. </param>
-            <param name="domain">The name of the domain to search, or <see langword="null"/>
-            to search the primary domain.</param>
-            <returns>An array of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instances of the
-            specified server type for the given domain.</returns>
+            <returns>A <see cref="T:System.String" /> representing the fully qualified hostname of the local computer.</returns>
         </member>
         <member name="M:Cadru.Networking.ExtendedNetworkInformation.GetIPAddressesAsync">
             <summary>
             Gets the IP addresses of the local computer.
             </summary>
-            <returns>An <see cref="T:System.Net.IPAddress"/> array containing the IP addresses of the local computer.</returns>
+            <returns>An <see cref="T:System.Net.IPAddress" /> array containing the IP addresses of the local computer.</returns>
+        </member>
+        <member name="M:Cadru.Networking.ExtendedNetworkInformation.GetServerInfo">
+            <summary>
+            Gets a <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" /> instance representing the local computer.
+            </summary>
+            <returns>A <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" /> instance representing the local computer.</returns>
+        </member>
+        <member name="M:Cadru.Networking.ExtendedNetworkInformation.GetServerInfo(System.String)">
+            <summary>
+            Gets a <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" /> instance representing the named computer.
+            </summary>
+            <param name="serverName">The name of the computer.</param>
+            <returns>A <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" /> instance representing the named computer.</returns>
+        </member>
+        <member name="M:Cadru.Networking.ExtendedNetworkInformation.GetServerList(Cadru.Net.NetworkInformation.ServerTypes,System.String)">
+            <summary>
+            Gets an array of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" /> instances of the
+            specified server type for the given domain.
+            </summary>
+            <param name="serverType">A bitwise combination of enumeration values
+            that defines what server types to search. </param>
+            <param name="domain">The name of the domain to search, or <see langword="null" />
+            to search the primary domain.</param>
+            <returns>An array of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" /> instances of the
+            specified server type for the given domain.</returns>
         </member>
     </members>
 </doc>

@@ -28,6 +28,9 @@ namespace Cadru.IO.Interop
 
     internal static class SafeNativeMethods
     {
+        [DllImport("netapi32.dll", SetLastError = true)]
+        internal static extern int NetApiBufferFree(IntPtr buffer);
+
         [DllImport("netapi32.dll", SetLastError = false)]
         internal static extern int NetServerEnum(
             [MarshalAs(UnmanagedType.LPWStr)] string servername,
@@ -45,9 +48,6 @@ namespace Cadru.IO.Interop
             [MarshalAs(UnmanagedType.LPWStr)] string servername,
             int level,
             out IntPtr bufptr);
-
-        [DllImport("netapi32.dll", SetLastError = true)]
-        internal static extern int NetApiBufferFree(IntPtr buffer);
 
         // Retrieves information about an object in the file system,
         // such as a file, a folder, a directory, or a drive root.

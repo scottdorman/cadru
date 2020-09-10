@@ -27,17 +27,17 @@ namespace Cadru.Build.Tasks
 {
     public class GetAssemblyVersion : Task
     {
+        [Output]
+        public string AssemblyVersion { get; private set; }
+
+        [Required]
+        public string NuGetVersion { get; set; }
+
         public override bool Execute()
         {
             var args = this.NuGetVersion.Split('-');
             this.AssemblyVersion = args[0];
             return true;
         }
-
-        [Required]
-        public string NuGetVersion { get; set; }
-
-        [Output]
-        public string AssemblyVersion { get; private set; }
     }
 }

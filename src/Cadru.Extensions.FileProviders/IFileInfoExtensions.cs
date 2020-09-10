@@ -31,7 +31,7 @@ using Microsoft.Extensions.FileProviders;
 namespace Cadru.Extensions.FileProviders
 {
     /// <summary>
-    /// Extension methods for working with <see cref="IFileInfo"/> instances.
+    /// Extension methods for working with <see cref="IFileInfo" /> instances.
     /// </summary>
     public static class IFileInfoExtensions
     {
@@ -40,7 +40,7 @@ namespace Cadru.Extensions.FileProviders
         /// <summary>
         /// Opens the file, reads all the text in the file into a string, and then closes the file.
         /// </summary>
-        /// <param name="fileInfo">The <see cref="IFileInfo"/> representing the file.</param>
+        /// <param name="fileInfo">The <see cref="IFileInfo" /> representing the file.</param>
         /// <returns>A string containing all the text in the file.</returns>
         public static async Task<string> ReadAllText(this IFileInfo fileInfo)
         {
@@ -51,10 +51,10 @@ namespace Cadru.Extensions.FileProviders
         }
 
         /// <summary>
-        /// Creates an <see cref="ExtendedFileInfo"/> wrapper around the given <see cref="IFileInfo"/>.
+        /// Creates an <see cref="ExtendedFileInfo" /> wrapper around the given <see cref="IFileInfo" />.
         /// </summary>
-        /// <param name="fileInfo">The <see cref="IFileInfo"/> representing the file.</param>
-        /// <returns>An <see cref="ExtendedFileInfo"/> wrapper around the given <paramref name="fileInfo"/>.</returns>
+        /// <param name="fileInfo">The <see cref="IFileInfo" /> representing the file.</param>
+        /// <returns>An <see cref="ExtendedFileInfo" /> wrapper around the given <paramref name="fileInfo" />.</returns>
         public static ExtendedFileInfo ToExtendedFileInfo(this IFileInfo fileInfo)
         {
             return new ExtendedFileInfo(fileInfo);
@@ -63,8 +63,8 @@ namespace Cadru.Extensions.FileProviders
         /// <summary>
         /// Returns the path as a uniform resource identifier (URI).
         /// </summary>
-        /// <param name="fileInfo">The <see cref="IFileInfo"/> representing the file.</param>
-        /// <returns>A <see cref="Uri"/> representing the path.</returns>
+        /// <param name="fileInfo">The <see cref="IFileInfo" /> representing the file.</param>
+        /// <returns>A <see cref="Uri" /> representing the path.</returns>
         public static Uri ToUri(this IFileInfo fileInfo)
         {
             return new Uri(String.Concat(@"//", fqdn, @"/", fileInfo.PhysicalPath.Substring(Path.GetPathRoot(fileInfo.PhysicalPath).Length)));
@@ -81,6 +81,5 @@ namespace Cadru.Extensions.FileProviders
 
             return hostName;
         }
-
     }
 }

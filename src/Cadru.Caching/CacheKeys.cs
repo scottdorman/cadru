@@ -26,7 +26,7 @@ using System.Collections.Generic;
 namespace Cadru.Caching
 {
     /// <summary>
-    /// Represents a set of <see cref="CacheKey"/> instances.
+    /// Represents a set of <see cref="CacheKey" /> instances.
     /// </summary>
     public static partial class CacheKeys
     {
@@ -44,12 +44,12 @@ namespace Cadru.Caching
         public static IEnumerable<CacheKey> Keys => keys;
 
         /// <summary>
-        /// Adds a new <see cref="CacheKey"/> instance to the set.
+        /// Adds a new <see cref="CacheKey" /> instance to the set.
         /// </summary>
         /// <param name="prefix">The value used as the cache key prefix.</param>
         /// <param name="data">Additional values used to form the key.</param>
-        /// <returns>The <see cref="CacheKey"/> instance if it was added to the
-        /// set; otherwise <see langword="null"/>.</returns>
+        /// <returns>The <see cref="CacheKey" /> instance if it was added to the
+        /// set; otherwise <see langword="null" />.</returns>
         public static CacheKey? Add(string prefix, params object[] data)
         {
             return Add(new CacheKey(prefix, data));
@@ -59,8 +59,8 @@ namespace Cadru.Caching
         /// Adds the specified cache key to the set.
         /// </summary>
         /// <param name="prefix">The value used as the cache key prefix.</param>
-        /// <returns>The <see cref="CacheKey"/> instance if it was added to the
-        /// set; otherwise <see langword="null"/>.</returns>
+        /// <returns>The <see cref="CacheKey" /> instance if it was added to the
+        /// set; otherwise <see langword="null" />.</returns>
         public static CacheKey? Add(string prefix)
         {
             return Add(new CacheKey(prefix));
@@ -69,10 +69,10 @@ namespace Cadru.Caching
         /// <summary>
         /// Adds the specified cache key to the set.
         /// </summary>
-        /// <param name="item">The <see cref="CacheKey"/> to add to the
+        /// <param name="item">The <see cref="CacheKey" /> to add to the
         /// set.</param>
-        /// <returns>The <see cref="CacheKey"/> instance if it was added to the
-        /// set; otherwise <see langword="null"/>.</returns>
+        /// <returns>The <see cref="CacheKey" /> instance if it was added to the
+        /// set; otherwise <see langword="null" />.</returns>
         public static CacheKey? Add(CacheKey item)
         {
             return keys.Add(item) ? item : null;
@@ -89,9 +89,9 @@ namespace Cadru.Caching
         /// <summary>
         /// Determines whether the set contains the specified cache key.
         /// </summary>
-        /// <param name="item">The <see cref="CacheKey"/> to locate.</param>
-        /// <returns><see langword="true"/> if the set contains the specified
-        /// key; otherwise <see langword="false"/>.</returns>
+        /// <param name="item">The <see cref="CacheKey" /> to locate.</param>
+        /// <returns><see langword="true" /> if the set contains the specified
+        /// key; otherwise <see langword="false" />.</returns>
         public static bool Contains(CacheKey item)
         {
             return keys.Contains(item);
@@ -100,10 +100,10 @@ namespace Cadru.Caching
         /// <summary>
         /// Removes the specified cache key.
         /// </summary>
-        /// <param name="item">>The <see cref="CacheKey"/> to remove.</param>
-        /// <returns><see langword="true"/> if the cache key is successfully
-        /// found and removed; otherwise <see langword="false"/>. This method
-        /// returns <see langword="false"/> if <paramref name="item"/> is not
+        /// <param name="item">>The <see cref="CacheKey" /> to remove.</param>
+        /// <returns><see langword="true" /> if the cache key is successfully
+        /// found and removed; otherwise <see langword="false" />. This method
+        /// returns <see langword="false" /> if <paramref name="item" /> is not
         /// found.</returns>
         public static bool Remove(CacheKey item)
         {
@@ -117,8 +117,8 @@ namespace Cadru.Caching
         /// <param name="match">The <see cref="Predicate{T}"/> delegate that
         /// defines the conditions of the cache keys to remove.</param>
         /// <returns>The number of cache keys that were removed.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="match"/> is
-        /// <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="match" /> is
+        /// <see langword="null" />.</exception>
         public static int RemoveWhere(Predicate<CacheKey> match)
         {
             return keys.RemoveWhere(match);

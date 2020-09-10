@@ -28,6 +28,7 @@ using System.ComponentModel;
 namespace Cadru.Data.Csv
 {
 #if !NETSTANDARD1_3
+
     /// <summary>
     /// Represents a binding list wrapper for a CSV reader.
     /// </summary>
@@ -282,7 +283,7 @@ namespace Cadru.Data.Csv
 
             while (this._csv.ReadNextRecord())
             {
-                this._csv.CopyCurrentRecordTo((string[]) array.GetValue(index++));
+                this._csv.CopyCurrentRecordTo((string[])array.GetValue(index++));
             }
         }
 
@@ -295,5 +296,6 @@ namespace Cadru.Data.Csv
             return this.GetEnumerator();
         }
     }
+
 #endif
 }

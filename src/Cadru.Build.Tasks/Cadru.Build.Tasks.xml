@@ -9,16 +9,16 @@
             Utility methods for classifying and handling exceptions.
             </summary>
         </member>
-        <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.GetDebugDumpPath">
-            <summary>
-            Gets the location of the directory used for diagnostic log files.
-            </summary>
-            <returns></returns>
-        </member>
         <member name="P:Cadru.Build.Tasks.Internal.ExceptionHandling.DebugDumpPath">
             <summary>
             The directory used for diagnostic log files.
             </summary>
+        </member>
+        <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.GetXmlLineAndColumn(System.Exception)">
+            <summary> Extracts line and column numbers from the exception if it is XML-related one. </summary>
+            <param name="e"> XML-related exception. </param>
+            <returns> Line and column numbers if available, (0,0) if not. </returns>
+            <remarks> This function works around the fact that XmlException and XmlSchemaException are not directly related. </remarks>
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.IsCriticalException(System.Exception)">
             <summary>
@@ -28,14 +28,6 @@
             </summary>
             <param name="e"> The exception to check. </param>
             <returns> True if exception is critical. </returns>
-        </member>
-        <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.NotExpectedException(System.Exception)">
-            <summary>
-            If the given exception is file IO related or expected return false.
-            Otherwise, return true.
-            </summary>
-            <param name="e">The exception to check.</param>
-            <returns>True if exception is not IO related or expected otherwise false.</returns>
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.IsIoRelatedException(System.Exception)">
             <summary>
@@ -49,11 +41,18 @@
             <param name="e"> Exception to check. </param>
             <returns> True if exception is related to XML parsing. </returns>
         </member>
-        <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.GetXmlLineAndColumn(System.Exception)">
-            <summary> Extracts line and column numbers from the exception if it is XML-related one. </summary>
-            <param name="e"> XML-related exception. </param>
-            <returns> Line and column numbers if available, (0,0) if not. </returns>
-            <remarks> This function works around the fact that XmlException and XmlSchemaException are not directly related. </remarks>
+        <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.NotExpectedException(System.Exception)">
+            <summary>
+            If the given exception is file IO related or expected return false.
+            Otherwise, return true.
+            </summary>
+            <param name="e">The exception to check.</param>
+            <returns>True if exception is not IO related or expected otherwise false.</returns>
+        </member>
+        <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.NotExpectedFunctionException(System.Exception)">
+            <summary>
+            Returns false if this is a known exception thrown by function evaluation
+            </summary>
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.NotExpectedIoOrXmlException(System.Exception)">
             <summary>
@@ -69,6 +68,11 @@
             </summary>
             <param name="e">The exception to check.</param>
         </member>
+        <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.NotExpectedRegistryException(System.Exception)">
+            <summary>
+            Returns false if this is a known exception thrown by the registry API.
+            </summary>
+        </member>
         <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.NotExpectedSerializationException(System.Exception)">
             <summary>
             Serialization has been observed to throw TypeLoadException as
@@ -76,24 +80,20 @@
             it has to do reflection but it ought to be wrapping the exceptions.)
             </summary>
         </member>
-        <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.NotExpectedRegistryException(System.Exception)">
+        <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.GetDebugDumpPath">
             <summary>
-            Returns false if this is a known exception thrown by the registry API.
+            Gets the location of the directory used for diagnostic log files.
             </summary>
-        </member>
-        <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.NotExpectedFunctionException(System.Exception)">
-            <summary>
-            Returns false if this is a known exception thrown by function evaluation
-            </summary>
+            <returns></returns>
         </member>
         <member name="T:Cadru.Build.Tasks.Internal.ExceptionHandling.LineAndColumn">
             <summary> Line and column pair. </summary>
         </member>
-        <member name="P:Cadru.Build.Tasks.Internal.ExceptionHandling.LineAndColumn.Line">
-            <summary> Gets or sets line number. </summary>
-        </member>
         <member name="P:Cadru.Build.Tasks.Internal.ExceptionHandling.LineAndColumn.Column">
             <summary> Gets or sets column position. </summary>
+        </member>
+        <member name="P:Cadru.Build.Tasks.Internal.ExceptionHandling.LineAndColumn.Line">
+            <summary> Gets or sets line number. </summary>
         </member>
         <member name="T:Cadru.Build.Tasks.Internal.FileUtilities">
             <summary>
@@ -108,15 +108,6 @@
             Caller must delete when finished.
             </summary>
             <param name="createDirectory"></param>
-        </member>
-        <member name="M:Cadru.Build.Tasks.Internal.FileUtilities.GetTemporaryFileName(System.String)">
-            <summary>
-            Generates a unique temporary file name with a given extension in the temporary folder.
-            File is guaranteed to be unique.
-            Extension may have an initial period.
-            File will NOT be created.
-            May throw IOException.
-            </summary>
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.FileUtilities.GetTemporaryFile">
             <summary>
@@ -142,6 +133,15 @@
             Extension may have an initial period.
             If folder is null, the temporary folder will be used.
             Caller must delete it when finished.
+            May throw IOException.
+            </summary>
+        </member>
+        <member name="M:Cadru.Build.Tasks.Internal.FileUtilities.GetTemporaryFileName(System.String)">
+            <summary>
+            Generates a unique temporary file name with a given extension in the temporary folder.
+            File is guaranteed to be unique.
+            Extension may have an initial period.
+            File will NOT be created.
             May throw IOException.
             </summary>
         </member>
@@ -227,7 +227,7 @@
         </member>
         <member name="M:Cadru.Build.Tasks.WriteThisAssemblyCodeFile.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Build.Tasks.WriteThisAssemblyCodeFile"/> task.
+            Initializes a new instance of the <see cref="T:Cadru.Build.Tasks.WriteThisAssemblyCodeFile" /> task.
             </summary>
         </member>
         <member name="P:Cadru.Build.Tasks.WriteThisAssemblyCodeFile.Language">

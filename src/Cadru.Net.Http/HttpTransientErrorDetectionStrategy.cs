@@ -31,7 +31,7 @@ using Cadru.Polly;
 namespace Cadru.Net.Http
 {
     /// <summary>
-    /// Represents a strategy that determines whether or not a given <see cref="HttpRequestException"/> should
+    /// Represents a strategy that determines whether or not a given <see cref="HttpRequestException" /> should
     /// be considered as a transient error.
     /// </summary>
     public class HttpTransientErrorDetectionStrategy : IExceptionHandlingStrategy

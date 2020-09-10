@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<!--
-Sample license text.
--->
 <doc>
     <assembly>
         <name>Cadru.Extensions.FileProviders</name>
@@ -38,157 +35,157 @@ Sample license text.
             class cannot be inherited.
             </summary>
             <remarks>
-            This wraps an <see cref="T:System.IO.FileInfo"/> and <see cref="T:System.Diagnostics.FileVersionInfo"/>.
+            This wraps an <see cref="T:System.IO.FileInfo" /> and <see cref="T:System.Diagnostics.FileVersionInfo" />.
             </remarks>
         </member>
         <member name="M:Cadru.Extensions.FileProviders.ExtendedFileInfo.#ctor(Microsoft.Extensions.FileProviders.IFileInfo)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Extensions.FileProviders.ExtendedFileInfo"/> class
-            that wraps an instance of <see cref="T:Microsoft.Extensions.FileProviders.IFileInfo"/>.
+            Initializes a new instance of the <see cref="T:Cadru.Extensions.FileProviders.ExtendedFileInfo" /> class
+            that wraps an instance of <see cref="T:Microsoft.Extensions.FileProviders.IFileInfo" />.
             </summary>
-            <param name="fileInfo">The <see cref="T:Microsoft.Extensions.FileProviders.IFileInfo"/> representing the file.</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="fileInfo"/> is <see langword="null" />. </exception>
+            <param name="fileInfo">The <see cref="T:Microsoft.Extensions.FileProviders.IFileInfo" /> representing the file.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="fileInfo" /> is <see langword="null" />. </exception>
             <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
             <exception cref="T:System.ArgumentException">The file name is empty, contains only white spaces, or contains invalid characters. </exception>
-            <exception cref="T:System.UnauthorizedAccessException">Access to <paramref name="fileInfo"/> is denied.</exception>
+            <exception cref="T:System.UnauthorizedAccessException">Access to <paramref name="fileInfo" /> is denied.</exception>
             <exception cref="T:System.IO.PathTooLongException">The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters. </exception>
-            <exception cref="T:System.NotSupportedException"><paramref name="fileInfo"/> contains a colon (:) in the middle of the string.</exception>
+            <exception cref="T:System.NotSupportedException"><paramref name="fileInfo" /> contains a colon (:) in the middle of the string.</exception>
             <remarks>You can specify either the fully qualified or the relative file name, but the security check gets the fully qualified name.</remarks>
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.Attributes">
-            <inheritdoc cref="P:System.IO.FileSystemInfo.Attributes"/>
+            <inheritdoc cref="P:System.IO.FileSystemInfo.Attributes" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.Comments">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.Comments"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.Comments" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.CompanyName">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.CompanyName"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.CompanyName" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.CreateTimeUtc">
-            <inheritdoc cref="P:System.IO.FileSystemInfo.CreationTimeUtc"/>
+            <inheritdoc cref="P:System.IO.FileSystemInfo.CreationTimeUtc" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.CreationTime">
-            <inheritdoc cref="P:System.IO.FileSystemInfo.CreationTime"/>
+            <inheritdoc cref="P:System.IO.FileSystemInfo.CreationTime" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.Directory">
-            <inheritdoc cref="P:System.IO.FileInfo.Directory"/>
+            <inheritdoc cref="P:System.IO.FileInfo.Directory" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.DirectoryName">
-            <inheritdoc cref="P:System.IO.FileInfo.DirectoryName"/>
+            <inheritdoc cref="P:System.IO.FileInfo.DirectoryName" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.Exists">
-            <inheritdoc cref="P:System.IO.FileInfo.Exists"/>
+            <inheritdoc cref="P:System.IO.FileInfo.Exists" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.Extension">
-            <inheritdoc cref="P:System.IO.FileSystemInfo.Extension"/>
+            <inheritdoc cref="P:System.IO.FileSystemInfo.Extension" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.FileBuildPart">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.FileBuildPart"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.FileBuildPart" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.FileDescription">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.FileDescription"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.FileDescription" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.FileMajorPart">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.FileMajorPart"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.FileMajorPart" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.FileMinorPart">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.FileMinorPart"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.FileMinorPart" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.FileName">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.FileName"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.FileName" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.FileOwner">
             <summary>
             Gets the Windows owner associated with the file.
             </summary>
-            <value>A string representing the owner of the file or <see langword="null"/> if the owner cannot be determined.</value>
+            <value>A string representing the owner of the file or <see langword="null" /> if the owner cannot be determined.</value>
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.FilePrivatePart">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.FilePrivatePart"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.FilePrivatePart" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.FileVersion">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.FileVersion"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.FileVersion" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.FullName">
-            <inheritdoc cref="P:System.IO.FileSystemInfo.FullName"/>
+            <inheritdoc cref="P:System.IO.FileSystemInfo.FullName" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.InternalName">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.InternalName"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.InternalName" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.IsDebug">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.IsDebug"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.IsDebug" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.IsPatched">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.IsPatched"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.IsPatched" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.IsPreRelease">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.IsPreRelease"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.IsPreRelease" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.IsPrivateBuild">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.IsPrivateBuild"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.IsPrivateBuild" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.IsReadOnly">
-            <inheritdoc cref="P:System.IO.FileInfo.IsReadOnly"/>
+            <inheritdoc cref="P:System.IO.FileInfo.IsReadOnly" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.IsSpecialBuild">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.IsSpecialBuild"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.IsSpecialBuild" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.Language">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.Language"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.Language" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.LastAccessTime">
-            <inheritdoc cref="P:System.IO.FileSystemInfo.LastAccessTime"/>
+            <inheritdoc cref="P:System.IO.FileSystemInfo.LastAccessTime" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.LastAccessTimeUtc">
-            <inheritdoc cref="P:System.IO.FileSystemInfo.LastAccessTimeUtc"/>
+            <inheritdoc cref="P:System.IO.FileSystemInfo.LastAccessTimeUtc" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.LastWriteTime">
-            <inheritdoc cref="P:System.IO.FileSystemInfo.LastWriteTime"/>
+            <inheritdoc cref="P:System.IO.FileSystemInfo.LastWriteTime" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.LastWriteTimUtc">
-            <inheritdoc cref="P:System.IO.FileSystemInfo.LastWriteTimeUtc"/>
+            <inheritdoc cref="P:System.IO.FileSystemInfo.LastWriteTimeUtc" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.LegalCopyright">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.LegalCopyright"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.LegalCopyright" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.LegalTrademarks">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.LegalTrademarks"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.LegalTrademarks" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.Length">
-            <inheritdoc cref="P:System.IO.FileInfo.Length"/>
+            <inheritdoc cref="P:System.IO.FileInfo.Length" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.Name">
-            <inheritdoc cref="P:System.IO.FileInfo.Name"/>
+            <inheritdoc cref="P:System.IO.FileInfo.Name" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.OriginalFilename">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.OriginalFilename"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.OriginalFilename" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.PrivateBuild">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.PrivateBuild"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.PrivateBuild" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductBuildPart">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.ProductBuildPart"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.ProductBuildPart" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductMajorPart">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.ProductMajorPart"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.ProductMajorPart" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductMinorPart">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.ProductMinorPart"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.ProductMinorPart" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductName">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.PrivateBuild"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.PrivateBuild" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductPrivatePart">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.ProductPrivatePart"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.ProductPrivatePart" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductVersion">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.ProductVersion"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.ProductVersion" />
         </member>
         <member name="P:Cadru.Extensions.FileProviders.ExtendedFileInfo.SpecialBuild">
-            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.SpecialBuild"/>
+            <inheritdoc cref="P:System.Diagnostics.FileVersionInfo.SpecialBuild" />
         </member>
         <member name="M:Cadru.Extensions.FileProviders.ExtendedFileInfo.AppendText">
-            <inheritdoc cref="M:System.IO.FileInfo.AppendText"/>
+            <inheritdoc cref="M:System.IO.FileInfo.AppendText" />
         </member>
         <member name="M:Cadru.Extensions.FileProviders.ExtendedFileInfo.CopyTo(System.String)">
             <inheritdoc cref="M:System.IO.FileInfo.CopyTo(System.String)"/>
@@ -197,24 +194,24 @@ Sample license text.
             <inheritdoc cref="M:System.IO.FileInfo.CopyTo(System.String,System.Boolean)"/>
         </member>
         <member name="M:Cadru.Extensions.FileProviders.ExtendedFileInfo.Create">
-            <inheritdoc cref="M:System.IO.FileInfo.Create"/>
+            <inheritdoc cref="M:System.IO.FileInfo.Create" />
         </member>
         <member name="M:Cadru.Extensions.FileProviders.ExtendedFileInfo.Decrypt">
-            <inheritdoc cref="M:System.IO.FileInfo.Decrypt"/>
+            <inheritdoc cref="M:System.IO.FileInfo.Decrypt" />
         </member>
         <member name="M:Cadru.Extensions.FileProviders.ExtendedFileInfo.Delete">
-            <inheritdoc cref="M:System.IO.FileInfo.Delete"/>
+            <inheritdoc cref="M:System.IO.FileInfo.Delete" />
         </member>
         <member name="M:Cadru.Extensions.FileProviders.ExtendedFileInfo.Encrypt">
-            <inheritdoc cref="M:System.IO.FileInfo.Encrypt"/>
+            <inheritdoc cref="M:System.IO.FileInfo.Encrypt" />
         </member>
         <member name="M:Cadru.Extensions.FileProviders.ExtendedFileInfo.GetAccessControl">
             <summary>
-            Gets a <see cref="T:System.Security.AccessControl.FileSecurity"/> object that encapsulates the
+            Gets a <see cref="T:System.Security.AccessControl.FileSecurity" /> object that encapsulates the
             access control list (ACL) entries for the file described by the
-            current <see cref="T:Cadru.Extensions.FileProviders.ExtendedFileInfo"/> object.
+            current <see cref="T:Cadru.Extensions.FileProviders.ExtendedFileInfo" /> object.
             </summary>
-            <returns>A <see cref="T:System.Security.AccessControl.FileSecurity"/> object that encapsulates the
+            <returns>A <see cref="T:System.Security.AccessControl.FileSecurity" /> object that encapsulates the
             access control rules for the current file.</returns>
             <exception cref="T:System.IO.IOException">An I/O error occurred while opening
             the file.</exception>
@@ -230,7 +227,7 @@ Sample license text.
             <para>-or-</para>
             <para>The caller does not have the required permission.</para>
             </exception>
-            <remarks><para>Use the <see cref="M:Cadru.Extensions.FileProviders.ExtendedFileInfo.GetAccessControl"/> method to
+            <remarks><para>Use the <see cref="M:Cadru.Extensions.FileProviders.ExtendedFileInfo.GetAccessControl" /> method to
             retrieve the access control list (ACL) entries for the current
             file.</para>
             <para>An ACL describes individuals and/or groups who have, or do
@@ -239,14 +236,14 @@ Sample license text.
         </member>
         <member name="M:Cadru.Extensions.FileProviders.ExtendedFileInfo.GetAccessControl(System.Security.AccessControl.AccessControlSections)">
             <summary>
-            Gets a <see cref="T:System.Security.AccessControl.FileSecurity"/> object that encapsulates the
+            Gets a <see cref="T:System.Security.AccessControl.FileSecurity" /> object that encapsulates the
             access control list (ACL) entries for the file described by the
-            current <see cref="T:Cadru.Extensions.FileProviders.ExtendedFileInfo"/> object.
+            current <see cref="T:Cadru.Extensions.FileProviders.ExtendedFileInfo" /> object.
             </summary>
             <param name="includeSections">One of the
-            <see cref="T:System.Security.AccessControl.AccessControlSections"/> values that specifies which
+            <see cref="T:System.Security.AccessControl.AccessControlSections" /> values that specifies which
             group of access control entries to retrieve.</param>
-            <returns>A <see cref="T:System.Security.AccessControl.FileSecurity"/> object that encapsulates the
+            <returns>A <see cref="T:System.Security.AccessControl.FileSecurity" /> object that encapsulates the
             access control rules for the current file.</returns>
             <exception cref="T:System.IO.IOException">An I/O error occurred while opening
             the file.</exception>
@@ -283,16 +280,16 @@ Sample license text.
             <inheritdoc cref="M:System.IO.FileInfo.Open(System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)"/>
         </member>
         <member name="M:Cadru.Extensions.FileProviders.ExtendedFileInfo.OpenRead">
-            <inheritdoc cref="M:System.IO.FileInfo.OpenRead"/>
+            <inheritdoc cref="M:System.IO.FileInfo.OpenRead" />
         </member>
         <member name="M:Cadru.Extensions.FileProviders.ExtendedFileInfo.OpenText">
-            <inheritdoc cref="M:System.IO.FileInfo.OpenText"/>
+            <inheritdoc cref="M:System.IO.FileInfo.OpenText" />
         </member>
         <member name="M:Cadru.Extensions.FileProviders.ExtendedFileInfo.OpenWrite">
-            <inheritdoc cref="M:System.IO.FileInfo.OpenWrite"/>
+            <inheritdoc cref="M:System.IO.FileInfo.OpenWrite" />
         </member>
         <member name="M:Cadru.Extensions.FileProviders.ExtendedFileInfo.Refresh">
-            <inheritdoc cref="M:System.IO.FileSystemInfo.Refresh"/>
+            <inheritdoc cref="M:System.IO.FileSystemInfo.Refresh" />
         </member>
         <member name="M:Cadru.Extensions.FileProviders.ExtendedFileInfo.Replace(System.String,System.String)">
             <inheritdoc cref="M:System.IO.FileInfo.Replace(System.String,System.String)"/>
@@ -305,7 +302,7 @@ Sample license text.
             Applies access control list (ACL) entries described by a FileSecurity object to the file described by the current FileInfo object.
             </summary>
             <param name="fileSecurity">A FileSecurity object that describes an access control list (ACL) entry to apply to the current file.</param>
-            <exception cref="T:System.ArgumentNullException">The <paramref name="fileSecurity"/> parameter is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="fileSecurity" /> parameter is <see langword="null" />.</exception>
             <exception cref="T:System.SystemException">The file could not be found or modified.</exception>
             <exception cref="T:System.UnauthorizedAccessException">The current process does not have access to open the file.</exception>
             <exception cref="T:System.PlatformNotSupportedException">The current operating system is not Microsoft Windows 2000 or later.</exception>
@@ -326,7 +323,7 @@ Sample license text.
             </remarks>
         </member>
         <member name="M:Cadru.Extensions.FileProviders.ExtendedFileInfo.ToString">
-            <inheritdoc cref="M:System.IO.FileInfo.ToString"/>
+            <inheritdoc cref="M:System.IO.FileInfo.ToString" />
         </member>
         <member name="T:Cadru.Extensions.FileProviders.ExtendedPhysicalFileProvider">
             <summary>
@@ -334,8 +331,8 @@ Sample license text.
             </summary>
             <remarks>
             <para>
-            This extends  <see cref="T:Microsoft.Extensions.FileProviders.PhysicalFileProvider"/> and adds support for
-            working with files or folders returned as an <see cref="T:Microsoft.Extensions.FileProviders.IFileInfo"/>.
+            This extends  <see cref="T:Microsoft.Extensions.FileProviders.PhysicalFileProvider" /> and adds support for
+            working with files or folders returned as an <see cref="T:Microsoft.Extensions.FileProviders.IFileInfo" />.
             </para>
             <para>
             When the environment variable "DOTNET_USE_POLLING_FILE_WATCHER" is set to "1" or "true", calls to
@@ -361,21 +358,21 @@ Sample license text.
             Creates a directory at the given path.
             </summary>
             <param name="subpath">A path under the root directory</param>
-            <returns>The directory information. Caller must check <see cref="P:Microsoft.Extensions.FileProviders.IFileInfo.Exists"/> property. </returns>
+            <returns>The directory information. Caller must check <see cref="P:Microsoft.Extensions.FileProviders.IFileInfo.Exists" /> property. </returns>
         </member>
         <member name="M:Cadru.Extensions.FileProviders.ExtendedPhysicalFileProvider.CreateFile(System.String)">
             <summary>
             Creates a file at the given path.
             </summary>
             <param name="subpath">A path under the root directory</param>
-            <returns>The file information. Caller must check <see cref="P:Microsoft.Extensions.FileProviders.IFileInfo.Exists"/> property. </returns>
+            <returns>The file information. Caller must check <see cref="P:Microsoft.Extensions.FileProviders.IFileInfo.Exists" /> property. </returns>
         </member>
         <member name="M:Cadru.Extensions.FileProviders.ExtendedPhysicalFileProvider.GetDirectoryInfo(System.String)">
             <summary>
             Locate a directory at the given path by directly mapping path segments to physical directories.
             </summary>
             <param name="subpath">A path under the root directory</param>
-            <returns>The directory information. Caller must check <see cref="P:Microsoft.Extensions.FileProviders.IFileInfo.Exists"/> property.</returns>
+            <returns>The directory information. Caller must check <see cref="P:Microsoft.Extensions.FileProviders.IFileInfo.Exists" /> property.</returns>
         </member>
         <member name="T:Cadru.Extensions.FileProviders.FileName">
             <summary>
@@ -392,29 +389,29 @@ Sample license text.
         </member>
         <member name="T:Cadru.Extensions.FileProviders.IFileInfoExtensions">
             <summary>
-            Extension methods for working with <see cref="T:Microsoft.Extensions.FileProviders.IFileInfo"/> instances.
+            Extension methods for working with <see cref="T:Microsoft.Extensions.FileProviders.IFileInfo" /> instances.
             </summary>
         </member>
         <member name="M:Cadru.Extensions.FileProviders.IFileInfoExtensions.ReadAllText(Microsoft.Extensions.FileProviders.IFileInfo)">
             <summary>
             Opens the file, reads all the text in the file into a string, and then closes the file.
             </summary>
-            <param name="fileInfo">The <see cref="T:Microsoft.Extensions.FileProviders.IFileInfo"/> representing the file.</param>
+            <param name="fileInfo">The <see cref="T:Microsoft.Extensions.FileProviders.IFileInfo" /> representing the file.</param>
             <returns>A string containing all the text in the file.</returns>
         </member>
         <member name="M:Cadru.Extensions.FileProviders.IFileInfoExtensions.ToExtendedFileInfo(Microsoft.Extensions.FileProviders.IFileInfo)">
             <summary>
-            Creates an <see cref="T:Cadru.Extensions.FileProviders.ExtendedFileInfo"/> wrapper around the given <see cref="T:Microsoft.Extensions.FileProviders.IFileInfo"/>.
+            Creates an <see cref="T:Cadru.Extensions.FileProviders.ExtendedFileInfo" /> wrapper around the given <see cref="T:Microsoft.Extensions.FileProviders.IFileInfo" />.
             </summary>
-            <param name="fileInfo">The <see cref="T:Microsoft.Extensions.FileProviders.IFileInfo"/> representing the file.</param>
-            <returns>An <see cref="T:Cadru.Extensions.FileProviders.ExtendedFileInfo"/> wrapper around the given <paramref name="fileInfo"/>.</returns>
+            <param name="fileInfo">The <see cref="T:Microsoft.Extensions.FileProviders.IFileInfo" /> representing the file.</param>
+            <returns>An <see cref="T:Cadru.Extensions.FileProviders.ExtendedFileInfo" /> wrapper around the given <paramref name="fileInfo" />.</returns>
         </member>
         <member name="M:Cadru.Extensions.FileProviders.IFileInfoExtensions.ToUri(Microsoft.Extensions.FileProviders.IFileInfo)">
             <summary>
             Returns the path as a uniform resource identifier (URI).
             </summary>
-            <param name="fileInfo">The <see cref="T:Microsoft.Extensions.FileProviders.IFileInfo"/> representing the file.</param>
-            <returns>A <see cref="T:System.Uri"/> representing the path.</returns>
+            <param name="fileInfo">The <see cref="T:Microsoft.Extensions.FileProviders.IFileInfo" /> representing the file.</param>
+            <returns>A <see cref="T:System.Uri" /> representing the path.</returns>
         </member>
         <member name="T:Cadru.Extensions.FileProviders.Resources.Strings">
             <summary>

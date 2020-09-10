@@ -33,6 +33,21 @@ namespace Cadru.Data.Csv
     public class MalformedCsvException : Exception
     {
         /// <summary>
+        /// Contains the current field index.
+        /// </summary>
+        private readonly int _currentFieldIndex;
+
+        /// <summary>
+        /// Contains the current position in the raw data.
+        /// </summary>
+        private readonly int _currentPosition;
+
+        /// <summary>
+        /// Contains the current record index.
+        /// </summary>
+        private readonly long _currentRecordIndex;
+
+        /// <summary>
         /// Contains the message that describes the error.
         /// </summary>
         private readonly string _message;
@@ -41,21 +56,6 @@ namespace Cadru.Data.Csv
         /// Contains the raw data when the error occured.
         /// </summary>
         private readonly string _rawData;
-
-        /// <summary>
-        /// Contains the current field index.
-        /// </summary>
-        private readonly int _currentFieldIndex;
-
-        /// <summary>
-        /// Contains the current record index.
-        /// </summary>
-        private readonly long _currentRecordIndex;
-
-        /// <summary>
-        /// Contains the current position in the raw data.
-        /// </summary>
-        private readonly int _currentPosition;
 
         /// <summary>
         /// Initializes a new instance of the MalformedCsvException class.
@@ -118,10 +118,10 @@ namespace Cadru.Data.Csv
         }
 
         /// <summary>
-        /// Gets the raw data when the error occured.
+        /// Gets the current field index.
         /// </summary>
-        /// <value>The raw data when the error occured.</value>
-        public string RawData => this._rawData;
+        /// <value>The current record index.</value>
+        public int CurrentFieldIndex => this._currentFieldIndex;
 
         /// <summary>
         /// Gets the current position in the raw data.
@@ -136,15 +136,15 @@ namespace Cadru.Data.Csv
         public long CurrentRecordIndex => this._currentRecordIndex;
 
         /// <summary>
-        /// Gets the current field index.
-        /// </summary>
-        /// <value>The current record index.</value>
-        public int CurrentFieldIndex => this._currentFieldIndex;
-
-        /// <summary>
         /// Gets a message that describes the current exception.
         /// </summary>
         /// <value>A message that describes the current exception.</value>
         public override string Message => this._message;
+
+        /// <summary>
+        /// Gets the raw data when the error occured.
+        /// </summary>
+        /// <value>The raw data when the error occured.</value>
+        public string RawData => this._rawData;
     }
 }

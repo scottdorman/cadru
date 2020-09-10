@@ -35,7 +35,7 @@ namespace Cadru.AspNetCore.Http
 {
     /// <summary>
     /// Provides methods for serializing an <see
-    /// cref="HttpRequestMessage"/> or <see cref="HttpRequest"/>
+    /// cref="HttpRequestMessage" /> or <see cref="HttpRequest" />
     /// to a format suitable for logging.
     /// </summary>
     public class RequestResponseLoggingSerializer : IRequestResponseLoggingSerializer
@@ -183,8 +183,8 @@ namespace Cadru.AspNetCore.Http
         /// <param name="stream"></param>
         /// <returns>A task that represents the asynchronous read operation. The value contains
         /// a string with the characters from the current position to the end of the stream.</returns>
-        /// <exception cref="ArgumentOutOfRangeException">The number of characters is larger than <see cref="System.Int32.MaxValue"/>.</exception>
-        /// <exception cref="ObjectDisposedException">The <paramref name="stream"/> has been disposed.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">The number of characters is larger than <see cref="System.Int32.MaxValue" />.</exception>
+        /// <exception cref="ObjectDisposedException">The <paramref name="stream" /> has been disposed.</exception>
         /// <exception cref="InvalidOperationException">The reader is currently in use by a previous read operation..</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>")]
         protected async Task<string> ReadToEndAsync(MemoryStream stream)

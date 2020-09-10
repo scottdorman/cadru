@@ -28,7 +28,7 @@ namespace Cadru.Data.Csv
     /// Represents the exception that is thrown when a there is a missing field in a record of the CSV file.
     /// </summary>
     /// <remarks>
-    /// MissingFieldException would have been a better name, but there is already a <see cref="T:System.MissingFieldException"/>.
+    /// MissingFieldException would have been a better name, but there is already a <see cref="T:System.MissingFieldException" />.
     /// </remarks>
     public class MissingFieldCsvException : MalformedCsvException
     {

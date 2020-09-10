@@ -31,11 +31,11 @@ namespace Cadru.Polly
     public static class PolicyRegistryExtensions
     {
         /// <summary>
-        /// Adds the specified <paramref name="policy"/> to the registry using the
-        /// <see cref="IsPolicy.PolicyKey"/>.
+        /// Adds the specified <paramref name="policy" /> to the registry using the
+        /// <see cref="IsPolicy.PolicyKey" />.
         /// </summary>
         /// <param name="registry">The <see cref="IPolicyRegistry{String}" /> to add policies to.</param>
-        /// <param name="policy">The <see cref="IsPolicy"/> to add.</param>
+        /// <param name="policy">The <see cref="IsPolicy" /> to add.</param>
         public static void Add(this IPolicyRegistry<string> registry, IsPolicy? policy)
         {
             if (registry != null && policy != null)

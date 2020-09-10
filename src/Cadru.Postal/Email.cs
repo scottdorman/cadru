@@ -26,6 +26,7 @@ using System.Dynamic;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+
 using Cadru.Contracts;
 
 namespace Cadru.Postal
@@ -75,9 +76,15 @@ namespace Cadru.Postal
         public string AreaName { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the view containing the email template.
+        /// Gets the attachments to send with the email.
         /// </summary>
-        public string ViewName { get; set; }
+        public List<Attachment> Attachments { get; }
+
+        /// <summary>
+        /// Gets the <see cref="ImageEmbedder" /> instance used to the inline
+        /// images in the rendered view.
+        /// </summary>
+        public ImageEmbedder ImageEmbedder { get; }
 
         /// <summary>
         /// Gets or sets the view data to pass to the view.
@@ -85,15 +92,9 @@ namespace Cadru.Postal
         public ViewDataDictionary ViewData { get; set; }
 
         /// <summary>
-        /// Gets the attachments to send with the email.
+        /// Gets or sets the name of the view containing the email template.
         /// </summary>
-        public List<Attachment> Attachments { get; }
-
-        /// <summary>
-        /// Gets the <see cref="ImageEmbedder"/> instance used to the inline
-        /// images in the rendered view.
-        /// </summary>
-        public ImageEmbedder ImageEmbedder { get; }
+        public string ViewName { get; set; }
 
         /// <summary>
         /// Adds an attachment to the email.
@@ -105,14 +106,6 @@ namespace Cadru.Postal
         }
 
         /// <summary>
-        /// Convenience method that sends this email asynchronously via a default EmailService.
-        /// </summary>
-        public async Task SendAsync()
-        {
-            await EmailService.Create().SendAsync(this);
-        }
-
-        /// <summary>
         /// Convenience method that saves this email asynchronously via a default EmailService.
         /// </summary>
         public async Task SaveToFileAsync(string path)
@@ -121,7 +114,26 @@ namespace Cadru.Postal
         }
 
         /// <summary>
-        /// Stores the given value into the <see cref="ViewData"/>.
+        /// Convenience method that sends this email asynchronously via a default EmailService.
+        /// </summary>
+        public async Task SendAsync()
+        {
+            await EmailService.Create().SendAsync(this);
+        }
+
+        /// <summary>
+        /// Tries to get a stored value from <see cref="ViewData" />.
+        /// </summary>
+        /// <param name="binder">Provides the name of the view data property.</param>
+        /// <param name="result">If found, this is the view data property value.</param>
+        /// <returns>True if the property was found, otherwise false.</returns>
+        public override bool TryGetMember(GetMemberBinder binder, out object result)
+        {
+            return this.ViewData.TryGetValue(binder.Name, out result);
+        }
+
+        /// <summary>
+        /// Stores the given value into the <see cref="ViewData" />.
         /// </summary>
         /// <param name="binder">Provides the name of the view data property.</param>
         /// <param name="value">The value to store.</param>
@@ -130,17 +142,6 @@ namespace Cadru.Postal
         {
             this.ViewData[binder.Name] = value;
             return true;
-        }
-
-        /// <summary>
-        /// Tries to get a stored value from <see cref="ViewData"/>.
-        /// </summary>
-        /// <param name="binder">Provides the name of the view data property.</param>
-        /// <param name="result">If found, this is the view data property value.</param>
-        /// <returns>True if the property was found, otherwise false.</returns>
-        public override bool TryGetMember(GetMemberBinder binder, out object result)
-        {
-            return this.ViewData.TryGetValue(binder.Name, out result);
         }
 
         private static string DeriveViewNameFromClassName()

@@ -29,20 +29,20 @@ using Polly;
 namespace Cadru.Polly.Logging
 {
     /// <summary>
-    /// Fluent API for defining an <see cref="AsyncLoggingPolicy"/>.
+    /// Fluent API for defining an <see cref="AsyncLoggingPolicy" />.
     /// </summary>
     public static class LoggingPolicySyntax
     {
         /// <summary>
-        /// Constructs a new instance of <see cref="AsyncLoggingPolicy"/>,
+        /// Constructs a new instance of <see cref="AsyncLoggingPolicy" />,
         /// configured to handle the exceptions specified in the <paramref
-        /// name="policyBuilder"/>.
+        /// name="policyBuilder" />.
         /// </summary>
         /// <param name="policyBuilder">The policy builder.</param>
         /// <param name="loggerProvider">A func returning a logger to
         /// use.</param>
         /// <param name="logAction">A logging action.</param>
-        /// <returns><see cref="AsyncLoggingPolicy"/></returns>
+        /// <returns><see cref="AsyncLoggingPolicy" /></returns>
         public static AsyncLoggingPolicy AsyncLog(this PolicyBuilder policyBuilder, Func<Context, ILogger> loggerProvider, Action<ILogger, Context, Exception> logAction
         )
         {
@@ -53,7 +53,7 @@ namespace Cadru.Polly.Logging
         /// Constructs a new instance of <see
         /// cref="AsyncLoggingPolicy{TResult}"/>, configured to handle the
         /// exceptions and results specified in the <paramref
-        /// name="policyBuilder"/>.
+        /// name="policyBuilder" />.
         /// </summary>
         /// <typeparam name="TResult">The return type of delegates which may be
         /// executed through the policy.</typeparam>
@@ -68,15 +68,15 @@ namespace Cadru.Polly.Logging
         }
 
         /// <summary>
-        /// Constructs a new instance of <see cref="LoggingPolicy"/>, configured
+        /// Constructs a new instance of <see cref="LoggingPolicy" />, configured
         /// to handle the exceptions specified in the <paramref
-        /// name="policyBuilder"/>.
+        /// name="policyBuilder" />.
         /// </summary>
         /// <param name="policyBuilder">The policy builder.</param>
         /// <param name="loggerProvider">A func returning a logger to
         /// use.</param>
         /// <param name="logAction">A logging action.</param>
-        /// <returns><see cref="LoggingPolicy"/></returns>
+        /// <returns><see cref="LoggingPolicy" /></returns>
         public static LoggingPolicy Log(this PolicyBuilder policyBuilder, Func<Context, ILogger> loggerProvider, Action<ILogger, Context, Exception> logAction)
         {
             return new LoggingPolicy(policyBuilder, loggerProvider, logAction);
@@ -85,7 +85,7 @@ namespace Cadru.Polly.Logging
         /// <summary>
         /// Constructs a new instance of <see cref="LoggingPolicy{TResult}"/>,
         /// configured to handle the exceptions and results specified in the
-        /// <paramref name="policyBuilder"/>.
+        /// <paramref name="policyBuilder" />.
         /// </summary>
         /// <typeparam name="TResult">The return type of delegates which may be
         /// executed through the policy.</typeparam>

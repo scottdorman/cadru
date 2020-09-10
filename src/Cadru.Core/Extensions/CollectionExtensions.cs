@@ -38,8 +38,8 @@ namespace Cadru.Extensions
         /// <param name="instance">The collection to update.</param>
         /// <param name="collection">The collection whose elements should be
         /// added to the end of the <see cref="ICollection{T}"/>. The collection
-        /// itself cannot be <see langword="null"/>, but it can contain elements
-        /// that are <see langword="null"/>, if type <typeparamref name="T"/> is
+        /// itself cannot be <see langword="null" />, but it can contain elements
+        /// that are <see langword="null" />, if type <typeparamref name="T" /> is
         /// a reference type.</param>
         public static void AddRange<T>(this ICollection<T> instance, IEnumerable<T> collection)
         {

@@ -32,7 +32,7 @@ namespace Cadru.Data.Annotations
     {
         /// <summary>
         /// Initializes a new instance of the <see
-        /// cref="StringHandlingAttribute"/> class.
+        /// cref="StringHandlingAttribute" /> class.
         /// </summary>
         /// <param name="stringHandlingOption">The string handling option.</param>
         public StringHandlingAttribute(StringHandlingOption stringHandlingOption)

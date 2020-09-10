@@ -29,7 +29,7 @@ namespace Cadru.Polly.Data.SqlServer
 {
     /// <summary>
     /// Represents a set of methods for creating instances of an <see
-    /// cref="SqlServerStrategyBuilder"/>.
+    /// cref="SqlServerStrategyBuilder" />.
     /// </summary>
     public sealed class SqlServerStrategyFactory : SqlStrategyFactory
     {
@@ -38,7 +38,7 @@ namespace Cadru.Polly.Data.SqlServer
         }
 
         /// <summary>
-        /// Gets an instance of the <see cref="SqlServerStrategyFactory"/>.
+        /// Gets an instance of the <see cref="SqlServerStrategyFactory" />.
         /// </summary>
         public static SqlServerStrategyFactory Instance => new SqlServerStrategyFactory();
 

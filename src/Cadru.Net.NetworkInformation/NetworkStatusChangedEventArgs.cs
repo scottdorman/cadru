@@ -25,42 +25,25 @@ namespace Cadru.Net.NetworkInformation
     using System;
 
     /// <summary>
-    /// Provides event data for the <see cref="NetworkStatus.NetworkStatusChanged"/> event.
+    /// Provides event data for the <see cref="NetworkStatus.NetworkStatusChanged" /> event.
     /// </summary>
     public class NetworkStatusChangedEventArgs : EventArgs
     {
-        #region fields
         private readonly ConnectionStatus connectionStatus;
-        #endregion
 
-        #region constructor
         /// <summary>
-        /// Initializes a new instance of the <see cref="NetworkStatusChangedEventArgs"/> class.
+        /// Initializes a new instance of the <see cref="NetworkStatusChangedEventArgs" /> class.
         /// </summary>
         /// <param name="status">The event data representing the current connection status.</param>
         public NetworkStatusChangedEventArgs(ConnectionStatus status)
         {
             this.connectionStatus = status;
         }
-        #endregion
 
-        #region events
-        #endregion
-
-        #region properties
-
-        #region ConnectionStatus
         /// <summary>
         /// Gets the current network connection status.
         /// </summary>
         /// <value>The current network connection status.</value>
         public ConnectionStatus ConnectionStatus => this.connectionStatus;
-        #endregion
-
-        #endregion
-
-        #region methods
-
-        #endregion
     }
 }

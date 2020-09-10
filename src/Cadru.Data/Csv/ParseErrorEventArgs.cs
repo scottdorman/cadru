@@ -25,7 +25,7 @@ using System;
 namespace Cadru.Data.Csv
 {
     /// <summary>
-    /// Provides data for the <see cref="M:CsvReader.ParseError"/> event.
+    /// Provides data for the <see cref="M:CsvReader.ParseError" /> event.
     /// </summary>
     public class ParseErrorEventArgs : EventArgs
     {
@@ -51,12 +51,6 @@ namespace Cadru.Data.Csv
         }
 
         /// <summary>
-        /// Gets the error that occured.
-        /// </summary>
-        /// <value>The error that occured.</value>
-        public MalformedCsvException Error => this._error;
-
-        /// <summary>
         /// Gets or sets the action to take.
         /// </summary>
         /// <value>The action to take.</value>
@@ -65,5 +59,11 @@ namespace Cadru.Data.Csv
             get { return this._action; }
             set { this._action = value; }
         }
+
+        /// <summary>
+        /// Gets the error that occured.
+        /// </summary>
+        /// <value>The error that occured.</value>
+        public MalformedCsvException Error => this._error;
     }
 }

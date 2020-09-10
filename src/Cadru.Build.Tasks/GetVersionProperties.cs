@@ -42,27 +42,19 @@ namespace Cadru.Build.Tasks
         private const int VersionBaseShortDate = 19000;
         private readonly DateTime VisualStudioBaseDate = new DateTime(2000, 1, 1);
 
-        private void VisualStudioStrategy(DateTimeOffset now)
-        {
-            this.Build = (this.VisualStudioBaseDate - now).Days;
-            this.Revision = ((int)((now.Date - now).TotalSeconds / 2));
-        }
+        [Output]
+        public int Build { get; private set; }
 
-        private void DayOfYearStrategy(DateTimeOffset now)
-        {
-            this.Build = Int32.Parse(String.Format("{0}{1}", now.Year % 100, now.DayOfYear));
-            this.Revision = ((int)((now.Date - now).TotalSeconds / 2));
-        }
+        [Output]
+        public string BuildDate { get; private set; }
 
-        private void ShortDateStrategy(DateTimeOffset now)
-        {
-            var shortDate = ((now.Year % 100) * 1000 + 50 * now.Month + now.Day);
-            this.Build = (shortDate % 100) * 100 + now.Year % 100;
-            this.Revision = (shortDate - VersionBaseShortDate) * 100 + now.Millisecond;
+        [Required]
+        public ITaskItem PropertiesFile { get; set; }
 
-            this.Build = shortDate;
-            this.Revision = (((shortDate + VersionBaseShortDate) * 100) + (int)(now - now.Date).TotalSeconds / 2) % 50000;
-        }
+        [Output]
+        public int Revision { get; private set; }
+
+        public string Strategy { get; set; } = VersionStrategy.ShortDate.ToString();
 
         public override bool Execute()
         {
@@ -110,18 +102,26 @@ namespace Cadru.Build.Tasks
             return true;
         }
 
-        [Required]
-        public ITaskItem PropertiesFile { get; set; }
+        private void DayOfYearStrategy(DateTimeOffset now)
+        {
+            this.Build = Int32.Parse(String.Format("{0}{1}", now.Year % 100, now.DayOfYear));
+            this.Revision = ((int)((now.Date - now).TotalSeconds / 2));
+        }
 
-        public string Strategy { get; set; } = VersionStrategy.ShortDate.ToString();
+        private void ShortDateStrategy(DateTimeOffset now)
+        {
+            var shortDate = ((now.Year % 100) * 1000 + 50 * now.Month + now.Day);
+            this.Build = (shortDate % 100) * 100 + now.Year % 100;
+            this.Revision = (shortDate - VersionBaseShortDate) * 100 + now.Millisecond;
 
-        [Output]
-        public string BuildDate { get; private set; }
+            this.Build = shortDate;
+            this.Revision = (((shortDate + VersionBaseShortDate) * 100) + (int)(now - now.Date).TotalSeconds / 2) % 50000;
+        }
 
-        [Output]
-        public int Build { get; private set; }
-
-        [Output]
-        public int Revision { get; private set; }
+        private void VisualStudioStrategy(DateTimeOffset now)
+        {
+            this.Build = (this.VisualStudioBaseDate - now).Days;
+            this.Revision = ((int)((now.Date - now).TotalSeconds / 2));
+        }
     }
 }

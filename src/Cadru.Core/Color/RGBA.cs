@@ -32,17 +32,17 @@ namespace Cadru.Color
     public struct RGBA
     {
         /// <summary>
-        /// The color black as an <see cref="RGBA"/> value.
+        /// The color black as an <see cref="RGBA" /> value.
         /// </summary>
         public static readonly RGBA Black = new RGBA(1, 1, 1, 1);
 
         /// <summary>
-        /// The color white as an <see cref="RGBA"/> value.
+        /// The color white as an <see cref="RGBA" /> value.
         /// </summary>
         public static readonly RGBA White = new RGBA(255, 255, 255, 1);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RGBA"/> structure.
+        /// Initializes a new instance of the <see cref="RGBA" /> structure.
         /// </summary>
         /// <param name="red">The red color component.</param>
         /// <param name="green">The green color component.</param>
@@ -57,7 +57,7 @@ namespace Cadru.Color
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RGBA"/> structure.
+        /// Initializes a new instance of the <see cref="RGBA" /> structure.
         /// </summary>
         /// <param name="red">The red color component.</param>
         /// <param name="green">The green color component.</param>
@@ -67,24 +67,24 @@ namespace Cadru.Color
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RGBA"/> structure.
+        /// Initializes a new instance of the <see cref="RGBA" /> structure.
         /// </summary>
-        /// <param name="color">An <see cref="RGB"/> color.</param>
+        /// <param name="color">An <see cref="RGB" /> color.</param>
         public RGBA(RGB color) : this(color.Red, color.Green, color.Blue, 1)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RGBA"/> structure.
+        /// Initializes a new instance of the <see cref="RGBA" /> structure.
         /// </summary>
-        /// <param name="color">An <see cref="RGB"/> color.</param>
+        /// <param name="color">An <see cref="RGB" /> color.</param>
         /// <param name="alpha">The alpha channel component.</param>
         public RGBA(RGB color, double alpha) : this(color.Red, color.Green, color.Blue, alpha)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RGBA"/> structure.
+        /// Initializes a new instance of the <see cref="RGBA" /> structure.
         /// </summary>
         /// <param name="value">An integer value that represents the color.</param>
         public RGBA(int value)
@@ -96,7 +96,7 @@ namespace Cadru.Color
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RGBA"/> structure.
+        /// Initializes a new instance of the <see cref="RGBA" /> structure.
         /// </summary>
         /// <param name="hex">A string containing a hexadecimal color representation.</param>
         public RGBA(string hex)
@@ -199,9 +199,9 @@ namespace Cadru.Color
         /// Indicates whether this instance and a specified object are equal.
         /// </summary>
         /// <param name="other"></param>
-        /// <returns><see langword="true"/> if <paramref name="other"/> and this
+        /// <returns><see langword="true" /> if <paramref name="other" /> and this
         /// instance represent the same value; otherwise, <see
-        /// langword="false"/>.</returns>
+        /// langword="false" />.</returns>
         public bool Equals(RGBA other)
         {
             if (this.Red != other.Red)
@@ -221,7 +221,7 @@ namespace Cadru.Color
         /// <summary>
         /// Returns a string representing the color in hex format.
         /// </summary>
-        /// <returns>If the <see cref="Alpha"/> channel is less than one, a
+        /// <returns>If the <see cref="Alpha" /> channel is less than one, a
         /// string representing the color in #aarrggbb format; otherwise, a
         /// string representing the color in #rrggbb format.</returns>
         public string ToHexString()

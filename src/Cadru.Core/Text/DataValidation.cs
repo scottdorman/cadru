@@ -32,11 +32,11 @@ namespace Cadru.Text
     public static class DataValidation
     {
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
         /// contains alphabetic characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsAlpha(Char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains alphabetic
+        /// <returns><see cref="IsAlpha(Char)"/> returns <see langword="true" /> if <paramref name="expression" /> contains alphabetic
         /// characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Alphabetic characters are any letters A-Z or a-z, the
         /// punctuation characters and the space character.</remarks>
@@ -46,11 +46,11 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
         /// contains alphabetic characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsAlpha(String)"/> returns <see langword="true" /> if <paramref name="expression"/> contains alphabetic
+        /// <returns><see cref="IsAlpha(String)"/> returns <see langword="true" /> if <paramref name="expression" /> contains alphabetic
         /// characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Alphabetic characters are any letters A-Z or a-z, the
         /// punctuation characters and the space character.</remarks>
@@ -73,11 +73,11 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
         /// contains alphabetic and numeric characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsAlphanumeric(Char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains alphabetic
+        /// <returns><see cref="IsAlphanumeric(Char)"/> returns <see langword="true" /> if <paramref name="expression" /> contains alphabetic
         /// characters or numeric characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Alphabetic characters are any letters
         /// A-Z or a-z, the punctuation characters, and the space character.
@@ -88,11 +88,11 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
         /// contains alphabetic and numeric characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsAlphanumeric(String)"/> returns <see langword="true" /> if <paramref name="expression"/> contains alphabetic
+        /// <returns><see cref="IsAlphanumeric(String)"/> returns <see langword="true" /> if <paramref name="expression" /> contains alphabetic
         /// characters or numeric characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Alphabetic characters are any letters
         /// A-Z or a-z, the punctuation characters, and the space character.
@@ -116,11 +116,11 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
         /// contains a valid currency string.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsCurrency(String)"/> returns <see langword="true" /> if <paramref name="expression"/> contains a valid
+        /// <returns><see cref="IsCurrency(String)"/> returns <see langword="true" /> if <paramref name="expression" /> contains a valid
         /// currency string; otherwise it returns <see langword="false" />.</returns>
         public static bool IsCurrency(this string expression)
         {
@@ -128,13 +128,13 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
         /// contains a valid currency string.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <param name="provider">An <see cref="IFormatProvider"/> that
-        /// supplies culture-specific formatting information about <paramref name="expression"/>. </param>
-        /// <returns><see cref="IsCurrency(String, IFormatProvider)"/> returns <see langword="true" /> if <paramref name="expression"/> contains a valid
+        /// <param name="provider">An <see cref="IFormatProvider" /> that
+        /// supplies culture-specific formatting information about <paramref name="expression" />. </param>
+        /// <returns><see cref="IsCurrency(String, IFormatProvider)"/> returns <see langword="true" /> if <paramref name="expression" /> contains a valid
         /// currency string; otherwise it returns <see langword="false" />.</returns>
         public static bool IsCurrency(this string expression, IFormatProvider provider)
         {
@@ -142,15 +142,15 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/> can be
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" /> can be
         /// converted to a date.
         /// </summary>
         /// <param name="expression">Any string expression recognizable as a date or time.</param>
-        /// <returns><see cref="IsDate(String)"/> returns <see langword="true" /> if <paramref name="expression"/> is a string convertible
-        /// to type <see cref="DateTime"/>; otherwise, it returns <see langword="false" />.</returns>
+        /// <returns><see cref="IsDate(String)"/> returns <see langword="true" /> if <paramref name="expression" /> is a string convertible
+        /// to type <see cref="DateTime" />; otherwise, it returns <see langword="false" />.</returns>
         /// <remarks><para>In Microsoft Windows, the range of valid dates is January 1, 100 A.D. through
         /// December 31, 9999 A.D.; the ranges vary among operating systems.</para>
-        /// <para><see cref="IsDate(String)"/> uses the <see cref="DateTimeFormatInfo.InvariantInfo"/> object.</para>
+        /// <para><see cref="IsDate(String)"/> uses the <see cref="DateTimeFormatInfo.InvariantInfo" /> object.</para>
         /// </remarks>
         /// <example>The following example uses the <see cref="IsDate(String)"/> function to determine whether an expression
         /// can be converted to a date:
@@ -172,14 +172,14 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/> can be
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" /> can be
         /// converted to a date.
         /// </summary>
         /// <param name="expression">Any string expression recognizable as a date or time.</param>
-        /// <param name="provider">An <see cref="IFormatProvider"/> that
-        /// supplies culture-specific formatting information about <paramref name="expression"/>. </param>
-        /// <returns><see cref="IsDate(String, IFormatProvider)"/> returns <see langword="true" /> if <paramref name="expression"/> is a string convertible
-        /// to type <see cref="DateTime"/>; otherwise, it returns <see langword="false" />.</returns>
+        /// <param name="provider">An <see cref="IFormatProvider" /> that
+        /// supplies culture-specific formatting information about <paramref name="expression" />. </param>
+        /// <returns><see cref="IsDate(String, IFormatProvider)"/> returns <see langword="true" /> if <paramref name="expression" /> is a string convertible
+        /// to type <see cref="DateTime" />; otherwise, it returns <see langword="false" />.</returns>
         /// <remarks><para>In Microsoft Windows, the range of valid dates is January 1, 100 A.D. through
         /// December 31, 9999 A.D.; the ranges vary among operating systems.</para>
         /// </remarks>
@@ -203,18 +203,18 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/> can be
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" /> can be
         /// converted to a date.
         /// </summary>
         /// <param name="expression">Any string expression recognizable as a date or time.</param>
-        /// <param name="provider">An <see cref="IFormatProvider"/> that
-        /// supplies culture-specific formatting information about <paramref name="expression"/>. </param>
+        /// <param name="provider">An <see cref="IFormatProvider" /> that
+        /// supplies culture-specific formatting information about <paramref name="expression" />. </param>
         /// <param name="styles">A bitwise combination of enumeration values
         /// that defines how to interpret the parsed date in relation to the
         /// current time zone or the current date. A typical value to specify
         /// is <see cref="DateTimeStyles">None</see>.</param>
-        /// <returns><see cref="IsDate(String, IFormatProvider)"/> returns <see langword="true" /> if <paramref name="expression"/> is a string convertible
-        /// to type <see cref="DateTime"/>; otherwise, it returns <see langword="false" />.</returns>
+        /// <returns><see cref="IsDate(String, IFormatProvider)"/> returns <see langword="true" /> if <paramref name="expression" /> is a string convertible
+        /// to type <see cref="DateTime" />; otherwise, it returns <see langword="false" />.</returns>
         /// <remarks><para>In Microsoft Windows, the range of valid dates is January 1, 100 A.D. through
         /// December 31, 9999 A.D.; the ranges vary among operating systems.</para>
         /// </remarks>
@@ -238,11 +238,11 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
         /// contains hexadecimal characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsHexadecimal(Char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains hexadecimal
+        /// <returns><see cref="IsHexadecimal(Char)"/> returns <see langword="true" /> if <paramref name="expression" /> contains hexadecimal
         /// characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Hexadecimal characters are any letters
         /// A-F, a-f, or 0-9.</remarks>
@@ -253,11 +253,11 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
         /// contains hexadecimal characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsHexadecimal(String)"/> returns <see langword="true" /> if <paramref name="expression"/> contains hexadecimal
+        /// <returns><see cref="IsHexadecimal(String)"/> returns <see langword="true" /> if <paramref name="expression" /> contains hexadecimal
         /// characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Hexadecimal characters are any letters
         /// A-F, a-f, or 0-9.</remarks>
@@ -268,11 +268,11 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
         /// contains only numbers.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsNumeric(Char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains numeric
+        /// <returns><see cref="IsNumeric(Char)"/> returns <see langword="true" /> if <paramref name="expression" /> contains numeric
         /// characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Numeric characters are 0-9.</remarks>
         public static bool IsNumeric(this char expression)
@@ -281,11 +281,11 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
         /// contains only numbers.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsNumeric(String)"/> returns <see langword="true" /> if <paramref name="expression"/> contains numeric
+        /// <returns><see cref="IsNumeric(String)"/> returns <see langword="true" /> if <paramref name="expression" /> contains numeric
         /// characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Numeric characters are 0-9.</remarks>
         public static bool IsNumeric(this string expression)
@@ -294,13 +294,13 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
         /// contains only numbers.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <param name="provider">An <see cref="IFormatProvider"/> that
-        /// supplies culture-specific formatting information about <paramref name="expression"/>. </param>
-        /// <returns><see cref="IsNumeric(String, IFormatProvider)"/> returns <see langword="true" /> if <paramref name="expression"/> contains numeric
+        /// <param name="provider">An <see cref="IFormatProvider" /> that
+        /// supplies culture-specific formatting information about <paramref name="expression" />. </param>
+        /// <returns><see cref="IsNumeric(String, IFormatProvider)"/> returns <see langword="true" /> if <paramref name="expression" /> contains numeric
         /// characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Numeric characters are 0-9.</remarks>
         public static bool IsNumeric(this string expression, IFormatProvider provider)
@@ -309,11 +309,11 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
         /// contains only alphabetic characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsStrictlyAlpha(Char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains
+        /// <returns><see cref="IsStrictlyAlpha(Char)"/> returns <see langword="true" /> if <paramref name="expression" /> contains
         /// alphabetic characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Alphabetic characters are any letters A-Z or a-z.</remarks>
         public static bool IsStrictlyAlpha(this char expression)
@@ -322,11 +322,11 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
         /// contains only alphabetic characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsStrictlyAlpha(String)"/> returns <see langword="true" /> if <paramref name="expression"/> contains
+        /// <returns><see cref="IsStrictlyAlpha(String)"/> returns <see langword="true" /> if <paramref name="expression" /> contains
         /// alphabetic characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Alphabetic characters are any letters A-Z or a-z.</remarks>
         public static bool IsStrictlyAlpha(this string expression)
@@ -348,11 +348,11 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
         /// contains only alphabetic and numeric characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsStrictlyAlphanumeric(Char)"/> returns <see langword="true" /> if <paramref name="expression"/> contains
+        /// <returns><see cref="IsStrictlyAlphanumeric(Char)"/> returns <see langword="true" /> if <paramref name="expression" /> contains
         /// alphabetic characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Alphabetic characters are any letters A-Z or a-z.
         /// Numeric characters are 0-9.</remarks>
@@ -362,11 +362,11 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
         /// contains only alphabetic and numeric characters.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsStrictlyAlphanumeric(String)"/> returns <see langword="true" /> if <paramref name="expression"/> contains
+        /// <returns><see cref="IsStrictlyAlphanumeric(String)"/> returns <see langword="true" /> if <paramref name="expression" /> contains
         /// alphabetic characters; otherwise it returns <see langword="false" />.</returns>
         /// <remarks>Alphabetic characters are any letters A-Z or a-z.
         /// Numeric characters are 0-9.</remarks>
@@ -389,11 +389,11 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
         /// contains a valid file name.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <returns><see cref="IsValidFileName(String)"/> returns <see langword="true" /> if <paramref name="expression"/> contains a
+        /// <returns><see cref="IsValidFileName(String)"/> returns <see langword="true" /> if <paramref name="expression" /> contains a
         /// valid file name; otherwise it returns <see langword="false" />.</returns>
         public static bool IsValidFileName(this string expression)
         {
@@ -401,14 +401,14 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
         /// contains a valid file name.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
-        /// <param name="platformIndependent"><see langword="true"/> to test whether
+        /// <param name="platformIndependent"><see langword="true" /> to test whether
         /// the expression contains a valid platform independent file name;
-        /// otherwise, <see langword="false"/>.</param>
-        /// <returns><see cref="IsValidFileName(String, Boolean)"/> returns <see langword="true" /> if <paramref name="expression"/> contains a
+        /// otherwise, <see langword="false" />.</param>
+        /// <returns><see cref="IsValidFileName(String, Boolean)"/> returns <see langword="true" /> if <paramref name="expression" /> contains a
         /// valid file name; otherwise it returns <see langword="false" />.</returns>
         public static bool IsValidFileName(this string expression, bool platformIndependent)
         {
@@ -422,12 +422,12 @@ namespace Cadru.Text
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/> matches the
-        /// regular expression pattern <paramref name="pattern"/>.
+        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" /> matches the
+        /// regular expression pattern <paramref name="pattern" />.
         /// </summary>
         /// <param name="expression">Any string expression.</param>
         /// <param name="pattern">The regular expression pattern to match against.</param>
-        /// <returns><see cref="Validate"/> returns <see langword="true" /> if <paramref name="expression"/> matches the pattern;
+        /// <returns><see cref="Validate" /> returns <see langword="true" /> if <paramref name="expression" /> matches the pattern;
         /// otherwise it returns <see langword="false" />.</returns>
         public static bool Validate(this string expression, string pattern)
         {

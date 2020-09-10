@@ -36,10 +36,10 @@ namespace Cadru.Data.Annotations
         public const int DefaultOrder = 10000;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExportableAttribute"/> class.
+        /// Initializes a new instance of the <see cref="ExportableAttribute" /> class.
         /// </summary>
         /// <param name="allowExport">
-        /// <see langword="true"/> to specify that the field is exportable; otherwise, <see langword="false"/>.
+        /// <see langword="true" /> to specify that the field is exportable; otherwise, <see langword="false" />.
         /// </param>
         public ExportableAttribute(bool allowExport)
         {
@@ -50,7 +50,7 @@ namespace Cadru.Data.Annotations
         /// Gets a value that indicates whether a field is exportable.
         /// </summary>
         /// <value>
-        /// <see langword="true"/> if the field is exportable; otherwise, <see langword="false"/>.
+        /// <see langword="true" /> if the field is exportable; otherwise, <see langword="false" />.
         /// </value>
         public bool AllowExport { get; private set; }
 

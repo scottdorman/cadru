@@ -43,21 +43,39 @@ namespace Cadru.Build.Tasks.Internal
         }
 
         /// <summary>
-        /// Gets the location of the directory used for diagnostic log files.
-        /// </summary>
-        /// <returns></returns>
-        private static string GetDebugDumpPath()
-        {
-            var debugPath = Environment.GetEnvironmentVariable("MSBUILDDEBUGPATH");
-            return !String.IsNullOrEmpty(debugPath)
-                    ? debugPath
-                    : Path.GetTempPath();
-        }
-
-        /// <summary>
         /// The directory used for diagnostic log files.
         /// </summary>
         internal static string DebugDumpPath { get; private set; }
+
+        /// <summary> Extracts line and column numbers from the exception if it is XML-related one. </summary>
+        /// <param name="e"> XML-related exception. </param>
+        /// <returns> Line and column numbers if available, (0,0) if not. </returns>
+        /// <remarks> This function works around the fact that XmlException and XmlSchemaException are not directly related. </remarks>
+        internal static LineAndColumn GetXmlLineAndColumn(Exception e)
+        {
+            var line = 0;
+            var column = 0;
+
+            if (e is XmlException xmlException)
+            {
+                line = xmlException.LineNumber;
+                column = xmlException.LinePosition;
+            }
+            else
+            {
+                if (e is XmlSchemaException schemaException)
+                {
+                    line = schemaException.LineNumber;
+                    column = schemaException.LinePosition;
+                }
+            }
+
+            return new LineAndColumn
+            {
+                Line = line,
+                Column = column
+            };
+        }
 
         /// <summary>
         /// If the given exception is "ignorable under some circumstances" return false.
@@ -97,17 +115,6 @@ namespace Cadru.Build.Tasks.Internal
         }
 
         /// <summary>
-        /// If the given exception is file IO related or expected return false.
-        /// Otherwise, return true.
-        /// </summary>
-        /// <param name="e">The exception to check.</param>
-        /// <returns>True if exception is not IO related or expected otherwise false.</returns>
-        internal static bool NotExpectedException(Exception e)
-        {
-            return !IsIoRelatedException(e);
-        }
-
-        /// <summary>
         /// Determine whether the exception is file-IO related.
         /// </summary>
         /// <param name="e">The exception to check.</param>
@@ -139,34 +146,32 @@ namespace Cadru.Build.Tasks.Internal
                 || e is UriFormatException; // XmlTextReader for example uses this under the covers
         }
 
-        /// <summary> Extracts line and column numbers from the exception if it is XML-related one. </summary>
-        /// <param name="e"> XML-related exception. </param>
-        /// <returns> Line and column numbers if available, (0,0) if not. </returns>
-        /// <remarks> This function works around the fact that XmlException and XmlSchemaException are not directly related. </remarks>
-        internal static LineAndColumn GetXmlLineAndColumn(Exception e)
+        /// <summary>
+        /// If the given exception is file IO related or expected return false.
+        /// Otherwise, return true.
+        /// </summary>
+        /// <param name="e">The exception to check.</param>
+        /// <returns>True if exception is not IO related or expected otherwise false.</returns>
+        internal static bool NotExpectedException(Exception e)
         {
-            var line = 0;
-            var column = 0;
+            return !IsIoRelatedException(e);
+        }
 
-            if (e is XmlException xmlException)
+        /// <summary>
+        /// Returns false if this is a known exception thrown by function evaluation
+        /// </summary>
+        internal static bool NotExpectedFunctionException(Exception e)
+        {
+            if (e is InvalidCastException
+             || e is ArgumentNullException
+             || e is FormatException
+             || e is InvalidOperationException
+             || !NotExpectedReflectionException(e))
             {
-                line = xmlException.LineNumber;
-                column = xmlException.LinePosition;
-            }
-            else
-            {
-                if (e is XmlSchemaException schemaException)
-                {
-                    line = schemaException.LineNumber;
-                    column = schemaException.LinePosition;
-                }
+                return false;
             }
 
-            return new LineAndColumn
-            {
-                Line = line,
-                Column = column
-            };
+            return true;
         }
 
         /// <summary>
@@ -225,6 +230,23 @@ namespace Cadru.Build.Tasks.Internal
         }
 
         /// <summary>
+        /// Returns false if this is a known exception thrown by the registry API.
+        /// </summary>
+        internal static bool NotExpectedRegistryException(Exception e)
+        {
+            if (e is SecurityException
+             || e is UnauthorizedAccessException
+             || e is IOException
+             || e is ObjectDisposedException
+             || e is ArgumentException)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
         /// Serialization has been observed to throw TypeLoadException as
         /// well as SerializationException and IO exceptions. (Obviously
         /// it has to do reflection but it ought to be wrapping the exceptions.)
@@ -244,47 +266,25 @@ namespace Cadru.Build.Tasks.Internal
         }
 
         /// <summary>
-        /// Returns false if this is a known exception thrown by the registry API.
+        /// Gets the location of the directory used for diagnostic log files.
         /// </summary>
-        internal static bool NotExpectedRegistryException(Exception e)
+        /// <returns></returns>
+        private static string GetDebugDumpPath()
         {
-            if (e is SecurityException
-             || e is UnauthorizedAccessException
-             || e is IOException
-             || e is ObjectDisposedException
-             || e is ArgumentException)
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        /// <summary>
-        /// Returns false if this is a known exception thrown by function evaluation
-        /// </summary>
-        internal static bool NotExpectedFunctionException(Exception e)
-        {
-            if (e is InvalidCastException
-             || e is ArgumentNullException
-             || e is FormatException
-             || e is InvalidOperationException
-             || !NotExpectedReflectionException(e))
-            {
-                return false;
-            }
-
-            return true;
+            var debugPath = Environment.GetEnvironmentVariable("MSBUILDDEBUGPATH");
+            return !String.IsNullOrEmpty(debugPath)
+                    ? debugPath
+                    : Path.GetTempPath();
         }
 
         /// <summary> Line and column pair. </summary>
         internal struct LineAndColumn
         {
-            /// <summary> Gets or sets line number. </summary>
-            internal int Line { get; set; }
-
             /// <summary> Gets or sets column position. </summary>
             internal int Column { get; set; }
+
+            /// <summary> Gets or sets line number. </summary>
+            internal int Line { get; set; }
         }
     }
 }

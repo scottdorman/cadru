@@ -33,8 +33,8 @@ namespace Cadru.Contracts.Internal
         /// Determines if the collection contains values.
         /// </summary>
         /// <param name="source">The collection to test.</param>
-        /// <returns><see langword="true"/> if the collection does not contain values;
-        /// otherwise, <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if the collection does not contain values;
+        /// otherwise, <see langword="false" />.</returns>
         public static bool IsEmpty(this IEnumerable source)
         {
             Requires.NotNull(source, nameof(source));
@@ -58,22 +58,22 @@ namespace Cadru.Contracts.Internal
         }
 
         /// <summary>
-        /// Determines if the collection is <see langword="null"/>.
+        /// Determines if the collection is <see langword="null" />.
         /// </summary>
         /// <param name="source">The collection to test.</param>
-        /// <returns><see langword="true"/> if the collection is <see langword="null"/>;
-        /// otherwise, <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if the collection is <see langword="null" />;
+        /// otherwise, <see langword="false" />.</returns>
         public static bool IsNull([ValidatedNotNull] this IEnumerable source)
         {
             return source == null;
         }
 
         /// <summary>
-        /// Determines if the collection is <see langword="null"/> or contains values.
+        /// Determines if the collection is <see langword="null" /> or contains values.
         /// </summary>
         /// <param name="source">The collection to test.</param>
-        /// <returns><see langword="true"/> if the collection is <see langword="null"/>
-        /// or does not contain values; otherwise, <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if the collection is <see langword="null" />
+        /// or does not contain values; otherwise, <see langword="false" />.</returns>
         public static bool IsNullOrEmpty([ValidatedNotNull] this IEnumerable source)
         {
             return source == null || source.IsEmpty();

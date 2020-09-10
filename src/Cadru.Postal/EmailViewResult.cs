@@ -20,8 +20,6 @@
 // </license>
 //------------------------------------------------------------------------------
 
-using RazorEngine;
-using RazorEngine.Templating;
 using System;
 using System.IO;
 using System.Linq;
@@ -30,6 +28,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
+using RazorEngine.Templating;
+
 namespace Cadru.Postal
 {
     /// <summary>
@@ -37,17 +37,14 @@ namespace Cadru.Postal
     /// </summary>
     public class EmailViewResult : ViewResult
     {
-        const string TextContentType = "text/plain";
-        const string HtmlContentType = "text/html";
+        private const string HtmlContentType = "text/html";
+        private const string TextContentType = "text/plain";
 
         //IEmailViewRenderer Renderer { get; set; }
         private readonly IRazorEngineService razorEngineService;
 
-        IEmailParser Parser { get; set; }
-        Email Email { get; set; }
-
         /// <summary>
-        /// Creates a new <see cref="EmailViewResult"/>.
+        /// Creates a new <see cref="EmailViewResult" />.
         /// </summary>
         public EmailViewResult(Email email, IRazorEngineService razorEngineService, IEmailParser parser)
         {
@@ -57,12 +54,15 @@ namespace Cadru.Postal
         }
 
         /// <summary>
-        /// Creates a new <see cref="EmailViewResult"/>.
+        /// Creates a new <see cref="EmailViewResult" />.
         /// </summary>
         public EmailViewResult(Email email)
             : this(email, null, null)
         {
         }
+
+        private Email Email { get; set; }
+        private IEmailParser Parser { get; set; }
 
         /// <summary>
         /// When called by the action invoker, renders the view to the response.
@@ -127,7 +127,24 @@ namespace Cadru.Postal
             throw new NotSupportedException(String.Format("Unsupported format {0}", format));
         }
 
-        static string CheckAlternativeViews(TextWriter writer, MailMessage mailMessage, string format)
+        internal static string ReplaceLinkedImagesWithEmbeddedImages(AlternateView view, string content)
+        {
+            var resources = view.LinkedResources;
+
+            if (!resources.Any())
+                return content;
+
+            foreach (var resource in resources)
+            {
+                var find = "src=\"cid:" + resource.ContentId + "\"";
+                var imageData = ComposeImageData(resource);
+                content = content.Replace(find, "src=\"" + imageData + "\"");
+            }
+
+            return content;
+        }
+
+        private static string CheckAlternativeViews(TextWriter writer, MailMessage mailMessage, string format)
         {
             var contentType = format == "html"
                 ? HtmlContentType
@@ -149,27 +166,16 @@ namespace Cadru.Postal
             return contentType;
         }
 
-        class TemplateParts
+        private static string ComposeImageData(LinkedResource resource)
         {
-            readonly string header;
-            readonly string body;
-
-            public TemplateParts(string header, string body)
-            {
-                this.header = header;
-                this.body = body;
-            }
-
-            public void Write(TextWriter writer)
-            {
-                writer.WriteLine("<!--");
-                writer.WriteLine(this.header);
-                writer.WriteLine("-->");
-                writer.WriteLine(this.body);
-            }
+            var contentType = resource.ContentType.MediaType;
+            var bytes = ReadFully(resource.ContentStream);
+            return String.Format("data:{0};base64,{1}",
+                contentType,
+                Convert.ToBase64String(bytes));
         }
 
-        static TemplateParts Extract(string template)
+        private static TemplateParts Extract(string template)
         {
             var headerBuilder = new StringBuilder();
 
@@ -193,7 +199,7 @@ namespace Cadru.Postal
             return null;
         }
 
-        static TemplateParts Extract(string template, MailMessage mailMessage)
+        private static TemplateParts Extract(string template, MailMessage mailMessage)
         {
             var headerBuilder = new StringBuilder();
 
@@ -217,38 +223,32 @@ namespace Cadru.Postal
             return null;
         }
 
-        internal static string ReplaceLinkedImagesWithEmbeddedImages(AlternateView view, string content)
-        {
-            var resources = view.LinkedResources;
-
-            if (!resources.Any())
-                return content;
-
-            foreach (var resource in resources)
-            {
-                var find = "src=\"cid:" + resource.ContentId + "\"";
-                var imageData = ComposeImageData(resource);
-                content = content.Replace(find, "src=\"" + imageData + "\"");
-            }
-
-            return content;
-        }
-
-        static string ComposeImageData(LinkedResource resource)
-        {
-            var contentType = resource.ContentType.MediaType;
-            var bytes = ReadFully(resource.ContentStream);
-            return String.Format("data:{0};base64,{1}",
-                contentType,
-                Convert.ToBase64String(bytes));
-        }
-
-        static byte[] ReadFully(Stream input)
+        private static byte[] ReadFully(Stream input)
         {
             using (var ms = new MemoryStream())
             {
                 input.CopyTo(ms);
                 return ms.ToArray();
+            }
+        }
+
+        private class TemplateParts
+        {
+            private readonly string body;
+            private readonly string header;
+
+            public TemplateParts(string header, string body)
+            {
+                this.header = header;
+                this.body = body;
+            }
+
+            public void Write(TextWriter writer)
+            {
+                writer.WriteLine("<!--");
+                writer.WriteLine(this.header);
+                writer.WriteLine("-->");
+                writer.WriteLine(this.body);
             }
         }
     }

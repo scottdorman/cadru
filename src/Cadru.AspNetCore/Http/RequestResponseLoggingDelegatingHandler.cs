@@ -52,7 +52,7 @@ namespace Cadru.AspNetCore.Http
         /// <param name="optionsAccessor">The logging configuration options.</param>
         /// <param name="requestResponseLoggingSerializer">The serializer used for creating the log message content.</param>
         /// <param name="loggingScopeFactory">A factory instance for creating the scope object.</param>
-        /// <param name="loggerFactory">An <see cref="ILoggerFactory"/> instance used to create a logger.</param>
+        /// <param name="loggerFactory">An <see cref="ILoggerFactory" /> instance used to create a logger.</param>
         public RequestResponseLoggingDelegatingHandler(IOptions<RequestResponseLoggingOptions> optionsAccessor, IRequestResponseLoggingSerializer requestResponseLoggingSerializer, IRequestResponseLoggingScopeFactory loggingScopeFactory, ILoggerFactory loggerFactory)
         {
             this._options = optionsAccessor.Value;

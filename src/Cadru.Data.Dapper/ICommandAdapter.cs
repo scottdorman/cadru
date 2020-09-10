@@ -97,9 +97,9 @@ namespace Cadru.Data.Dapper
         /// Checks whether the specified identifier is valid.
         /// </summary>
         /// <param name="identifier">The identifier to check.</param>
-        /// <returns><see langword="true"/> if <paramref name="identifier"/>
+        /// <returns><see langword="true" /> if <paramref name="identifier" />
         /// represents a valid SQL identifier; otherwise, <see
-        /// langword="false"/>.</returns>
+        /// langword="false" />.</returns>
         /// <remarks>
         /// <list type="number">
         /// <item>
@@ -176,8 +176,8 @@ namespace Cadru.Data.Dapper
         /// <returns>The quoted version of the identifier. Embedded quotes
         /// within the identifier are properly escaped.</returns>
         /// <remarks>
-        /// This uses the <see cref="IdentifierPrefix"/> and <see
-        /// cref="IdentifierSuffix"/> values.
+        /// This uses the <see cref="IdentifierPrefix" /> and <see
+        /// cref="IdentifierSuffix" /> values.
         /// </remarks>
         string QuoteIdentifier(string identifier);
 
@@ -186,8 +186,8 @@ namespace Cadru.Data.Dapper
         /// </summary>
         /// <param name="value">The original value.</param>
         /// <remarks>
-        /// This uses the <see cref="QuotePrefix"/> and <see
-        /// cref="QuoteSuffix"/> values.
+        /// This uses the <see cref="QuotePrefix" /> and <see
+        /// cref="QuoteSuffix" /> values.
         /// </remarks>
         /// <returns>The quoted version of the value. Embedded quotes
         /// within the value are properly escaped.</returns>
@@ -203,8 +203,8 @@ namespace Cadru.Data.Dapper
         /// <returns>The unquoted identifier, with embedded quotes properly
         /// un-escaped.</returns>
         /// <remarks>
-        /// This uses the <see cref="IdentifierPrefix"/> and <see
-        /// cref="IdentifierSuffix"/> values.
+        /// This uses the <see cref="IdentifierPrefix" /> and <see
+        /// cref="IdentifierSuffix" /> values.
         /// </remarks>
         string UnquoteIdentifier(string identifier);
     }

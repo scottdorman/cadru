@@ -42,7 +42,7 @@ namespace Cadru.Data.Dapper
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectMap{T}"/> class.
         /// </summary>
-        /// <param name="commandAdapter">The <see cref="ICommandAdapter"/> used by this object to create SQL statements.</param>
+        /// <param name="commandAdapter">The <see cref="ICommandAdapter" /> used by this object to create SQL statements.</param>
         /// <param name="databaseObjectType">A value indicating if the database object is a View or a Table.</param>
         protected internal ObjectMap(ICommandAdapter commandAdapter, DatabaseObjectType databaseObjectType)
         {

@@ -35,6 +35,23 @@ namespace Cadru.Build.Tasks.Internal
     /// </summary>
     internal static partial class FileUtilities
     {
+        internal static void CopyDirectory(string source, string dest)
+        {
+            Directory.CreateDirectory(dest);
+
+            var sourceInfo = new DirectoryInfo(source);
+            foreach (var fileInfo in sourceInfo.GetFiles())
+            {
+                var destFile = Path.Combine(dest, fileInfo.Name);
+                fileInfo.CopyTo(destFile);
+            }
+            foreach (var subdirInfo in sourceInfo.GetDirectories())
+            {
+                var destDir = Path.Combine(dest, subdirInfo.Name);
+                CopyDirectory(subdirInfo.FullName, destDir);
+            }
+        }
+
         /// <summary>
         /// Generates a unique directory name in the temporary folder.
         /// Caller must delete when finished.
@@ -50,18 +67,6 @@ namespace Cadru.Build.Tasks.Internal
             }
 
             return temporaryDirectory;
-        }
-
-        /// <summary>
-        /// Generates a unique temporary file name with a given extension in the temporary folder.
-        /// File is guaranteed to be unique.
-        /// Extension may have an initial period.
-        /// File will NOT be created.
-        /// May throw IOException.
-        /// </summary>
-        internal static string GetTemporaryFileName(string extension)
-        {
-            return GetTemporaryFile(null, extension, false);
         }
 
         /// <summary>
@@ -128,27 +133,20 @@ namespace Cadru.Build.Tasks.Internal
             }
         }
 
-        internal static void CopyDirectory(string source, string dest)
+        /// <summary>
+        /// Generates a unique temporary file name with a given extension in the temporary folder.
+        /// File is guaranteed to be unique.
+        /// Extension may have an initial period.
+        /// File will NOT be created.
+        /// May throw IOException.
+        /// </summary>
+        internal static string GetTemporaryFileName(string extension)
         {
-            Directory.CreateDirectory(dest);
-
-            var sourceInfo = new DirectoryInfo(source);
-            foreach (var fileInfo in sourceInfo.GetFiles())
-            {
-                var destFile = Path.Combine(dest, fileInfo.Name);
-                fileInfo.CopyTo(destFile);
-            }
-            foreach (var subdirInfo in sourceInfo.GetDirectories())
-            {
-                var destDir = Path.Combine(dest, subdirInfo.Name);
-                CopyDirectory(subdirInfo.FullName, destDir);
-            }
+            return GetTemporaryFile(null, extension, false);
         }
 
         public class TempWorkingDirectory : IDisposable
         {
-            public string Path { get; }
-
             public TempWorkingDirectory(string sourcePath, [CallerMemberName] string name = null)
             {
                 this.Path = name == null
@@ -162,6 +160,8 @@ namespace Cadru.Build.Tasks.Internal
 
                 CopyDirectory(sourcePath, this.Path);
             }
+
+            public string Path { get; }
 
             public void Dispose()
             {

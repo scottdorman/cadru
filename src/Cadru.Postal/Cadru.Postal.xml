@@ -34,16 +34,6 @@
             Gets or sets the name of the area containing the email template.
             </summary>
         </member>
-        <member name="P:Cadru.Postal.Email.ViewName">
-            <summary>
-            Gets or sets the name of the view containing the email template.
-            </summary>
-        </member>
-        <member name="P:Cadru.Postal.Email.ViewData">
-            <summary>
-            Gets or sets the view data to pass to the view.
-            </summary>
-        </member>
         <member name="P:Cadru.Postal.Email.Attachments">
             <summary>
             Gets the attachments to send with the email.
@@ -51,8 +41,18 @@
         </member>
         <member name="P:Cadru.Postal.Email.ImageEmbedder">
             <summary>
-            Gets the <see cref="P:Cadru.Postal.Email.ImageEmbedder"/> instance used to the inline
+            Gets the <see cref="P:Cadru.Postal.Email.ImageEmbedder" /> instance used to the inline
             images in the rendered view.
+            </summary>
+        </member>
+        <member name="P:Cadru.Postal.Email.ViewData">
+            <summary>
+            Gets or sets the view data to pass to the view.
+            </summary>
+        </member>
+        <member name="P:Cadru.Postal.Email.ViewName">
+            <summary>
+            Gets or sets the name of the view containing the email template.
             </summary>
         </member>
         <member name="M:Cadru.Postal.Email.Attach(System.Net.Mail.Attachment)">
@@ -61,67 +61,91 @@
             </summary>
             <param name="attachment">The attachment to add.</param>
         </member>
-        <member name="M:Cadru.Postal.Email.SendAsync">
-            <summary>
-            Convenience method that sends this email asynchronously via a default EmailService.
-            </summary>
-        </member>
         <member name="M:Cadru.Postal.Email.SaveToFileAsync(System.String)">
             <summary>
             Convenience method that saves this email asynchronously via a default EmailService.
             </summary>
         </member>
-        <member name="M:Cadru.Postal.Email.TrySetMember(System.Dynamic.SetMemberBinder,System.Object)">
+        <member name="M:Cadru.Postal.Email.SendAsync">
             <summary>
-            Stores the given value into the <see cref="P:Cadru.Postal.Email.ViewData"/>.
+            Convenience method that sends this email asynchronously via a default EmailService.
             </summary>
-            <param name="binder">Provides the name of the view data property.</param>
-            <param name="value">The value to store.</param>
-            <returns>Always returns true.</returns>
         </member>
         <member name="M:Cadru.Postal.Email.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
             <summary>
-            Tries to get a stored value from <see cref="P:Cadru.Postal.Email.ViewData"/>.
+            Tries to get a stored value from <see cref="P:Cadru.Postal.Email.ViewData" />.
             </summary>
             <param name="binder">Provides the name of the view data property.</param>
             <param name="result">If found, this is the view data property value.</param>
             <returns>True if the property was found, otherwise false.</returns>
         </member>
+        <member name="M:Cadru.Postal.Email.TrySetMember(System.Dynamic.SetMemberBinder,System.Object)">
+            <summary>
+            Stores the given value into the <see cref="P:Cadru.Postal.Email.ViewData" />.
+            </summary>
+            <param name="binder">Provides the name of the view data property.</param>
+            <param name="value">The value to store.</param>
+            <returns>Always returns true.</returns>
+        </member>
         <member name="T:Cadru.Postal.EmailParser">
             <summary>
-            Converts the raw string output of a view into a <see cref="T:System.Net.Mail.MailMessage"/>.
+            Converts the raw string output of a view into a <see cref="T:System.Net.Mail.MailMessage" />.
             </summary>
         </member>
         <member name="M:Cadru.Postal.EmailParser.#ctor(RazorEngine.Templating.IRazorEngineService)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Postal.EmailParser"/> class
-            with the specified <see cref="T:RazorEngine.Templating.IRazorEngineService"/> instance.
+            Initializes a new instance of the <see cref="T:Cadru.Postal.EmailParser" /> class
+            with the specified <see cref="T:RazorEngine.Templating.IRazorEngineService" /> instance.
             </summary>
             <param name="razorEngineService"></param>
         </member>
         <member name="M:Cadru.Postal.EmailParser.ParseAsync(System.String,Cadru.Postal.IEmail)">
             <summary>
-            Parses the email view output into a <see cref="T:System.Net.Mail.MailMessage"/>.
+            Parses the email view output into a <see cref="T:System.Net.Mail.MailMessage" />.
             </summary>
             <param name="template">The email view template.</param>
-            <param name="email">The <see cref="T:Cadru.Postal.Email"/> used to generate the output.</param>
-            <returns>A <see cref="T:System.Net.Mail.MailMessage"/> containing the email headers and content.</returns>
+            <param name="email">The <see cref="T:Cadru.Postal.Email" /> used to generate the output.</param>
+            <returns>A <see cref="T:System.Net.Mail.MailMessage" /> containing the email headers and content.</returns>
         </member>
         <member name="T:Cadru.Postal.EmailService">
             <summary>
-            Sends email using the default <see cref="T:System.Net.Mail.SmtpClient"/>.
+            Sends email using the default <see cref="T:System.Net.Mail.SmtpClient" />.
             </summary>
         </member>
         <member name="M:Cadru.Postal.EmailService.Create(RazorEngine.Configuration.ITemplateServiceConfiguration,System.Boolean,System.Func{System.Net.Mail.SmtpClient})">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Postal.EmailService"/> class
+            Initializes a new instance of the <see cref="T:Cadru.Postal.EmailService" /> class
             with the specified Razor Engine configuration and, optionally, a
-            delegate to create an <see cref="T:System.Net.Mail.SmtpClient"/>.
+            delegate to create an <see cref="T:System.Net.Mail.SmtpClient" />.
             </summary>
-            <param name="configuration">An <see cref="T:RazorEngine.Configuration.ITemplateServiceConfiguration"/> instance.</param>
+            <param name="configuration">An <see cref="T:RazorEngine.Configuration.ITemplateServiceConfiguration" /> instance.</param>
             <param name="isolated"></param>
-            <param name="createSmtpClient">A delegate to create an <see cref="T:System.Net.Mail.SmtpClient"/> instance or <see langword="null"/>
+            <param name="createSmtpClient">A delegate to create an <see cref="T:System.Net.Mail.SmtpClient" /> instance or <see langword="null" />
             to use a default delegate.</param>
+        </member>
+        <member name="M:Cadru.Postal.EmailService.CreateMailMessageAsync(Cadru.Postal.IEmail)">
+            <summary>
+            Renders the email view and builds a <see cref="T:System.Net.Mail.MailMessage" />.
+            </summary>
+            <param name="email">The email to render.</param>
+            <returns>A <see cref="T:System.Net.Mail.MailMessage" /> containing the rendered email.</returns>
+        </member>
+        <member name="M:Cadru.Postal.EmailService.Render(Cadru.Postal.IEmail,System.String)">
+            <summary>
+            Renders the email view.
+            </summary>
+            <param name="email">The email to render.</param>
+            <param name="viewName">The email view name. If <see langword="null" /> then the
+            <see cref="P:Cadru.Postal.Email.ViewName" /> property is used.</param>
+            <returns>The rendered email view output.</returns>
+        </member>
+        <member name="M:Cadru.Postal.EmailService.Render(Cadru.Postal.IEmail,RazorEngine.Templating.ITemplateKey)">
+            <summary>
+            Renders the email view.
+            </summary>
+            <param name="email">The email to render.</param>
+            <param name="key">The <see cref="T:RazorEngine.Templating.ITemplateKey" /> used to resolve the template.</param>
+            <returns>The rendered email view output.</returns>
         </member>
         <member name="M:Cadru.Postal.EmailService.SaveToFileAsync(Cadru.Postal.IEmail,System.String)">
             <summary>
@@ -136,30 +160,6 @@
             </summary>
             <param name="email">The email to send.</param>
         </member>
-        <member name="M:Cadru.Postal.EmailService.CreateMailMessageAsync(Cadru.Postal.IEmail)">
-            <summary>
-            Renders the email view and builds a <see cref="T:System.Net.Mail.MailMessage"/>.
-            </summary>
-            <param name="email">The email to render.</param>
-            <returns>A <see cref="T:System.Net.Mail.MailMessage"/> containing the rendered email.</returns>
-        </member>
-        <member name="M:Cadru.Postal.EmailService.Render(Cadru.Postal.IEmail,System.String)">
-            <summary>
-            Renders the email view.
-            </summary>
-            <param name="email">The email to render.</param>
-            <param name="viewName">The email view name. If <see langword="null"/> then the
-            <see cref="P:Cadru.Postal.Email.ViewName"/> property is used.</param>
-            <returns>The rendered email view output.</returns>
-        </member>
-        <member name="M:Cadru.Postal.EmailService.Render(Cadru.Postal.IEmail,RazorEngine.Templating.ITemplateKey)">
-            <summary>
-            Renders the email view.
-            </summary>
-            <param name="email">The email to render.</param>
-            <param name="key">The <see cref="T:RazorEngine.Templating.ITemplateKey"/> used to resolve the template.</param>
-            <returns>The rendered email view output.</returns>
-        </member>
         <member name="T:Cadru.Postal.EmailViewResult">
             <summary>
             Renders a preview of an email to display in the browser.
@@ -167,12 +167,12 @@
         </member>
         <member name="M:Cadru.Postal.EmailViewResult.#ctor(Cadru.Postal.Email,RazorEngine.Templating.IRazorEngineService,Cadru.Postal.IEmailParser)">
             <summary>
-            Creates a new <see cref="T:Cadru.Postal.EmailViewResult"/>.
+            Creates a new <see cref="T:Cadru.Postal.EmailViewResult" />.
             </summary>
         </member>
         <member name="M:Cadru.Postal.EmailViewResult.#ctor(Cadru.Postal.Email)">
             <summary>
-            Creates a new <see cref="T:Cadru.Postal.EmailViewResult"/>.
+            Creates a new <see cref="T:Cadru.Postal.EmailViewResult" />.
             </summary>
         </member>
         <member name="M:Cadru.Postal.EmailViewResult.ExecuteResult(System.Web.Mvc.ControllerContext)">
@@ -188,35 +188,51 @@
         </member>
         <member name="T:Cadru.Postal.HtmlExtensions">
             <summary>
-            Helper methods that extend <see cref="T:System.Web.Mvc.HtmlHelper"/>.
+            Helper methods that extend <see cref="T:System.Web.Mvc.HtmlHelper" />.
             </summary>
         </member>
         <member name="M:Cadru.Postal.HtmlExtensions.EmbedImage(System.Web.Mvc.HtmlHelper,System.String,System.String)">
             <summary>
             Embeds the given image into the email and returns an HTML &lt;img&gt; tag referencing the image.
             </summary>
-            <param name="html">The <see cref="T:System.Web.Mvc.HtmlHelper"/>.</param>
+            <param name="html">The <see cref="T:System.Web.Mvc.HtmlHelper" />.</param>
             <param name="imagePathOrUrl">An image file path or URL. A file path can be relative to the web application root directory.</param>
             <param name="alt">The content for the &lt;img alt&gt; attribute.</param>
             <returns>An HTML &lt;img&gt; tag.</returns>
         </member>
         <member name="T:Cadru.Postal.IEmailParser">
             <summary>
-            Parses raw string output of email views into <see cref="T:System.Net.Mail.MailMessage"/>.
+            Parses raw string output of email views into <see cref="T:System.Net.Mail.MailMessage" />.
             </summary>
         </member>
         <member name="M:Cadru.Postal.IEmailParser.ParseAsync(System.String,Cadru.Postal.IEmail)">
             <summary>
-            Parses the email view output into a <see cref="T:System.Net.Mail.MailMessage"/>.
+            Parses the email view output into a <see cref="T:System.Net.Mail.MailMessage" />.
             </summary>
             <param name="template">The email view template.</param>
-            <param name="email">The <see cref="T:Cadru.Postal.Email"/> used to generate the output.</param>
-            <returns>A <see cref="T:System.Net.Mail.MailMessage"/> containing the email headers and content.</returns>
+            <param name="email">The <see cref="T:Cadru.Postal.Email" /> used to generate the output.</param>
+            <returns>A <see cref="T:System.Net.Mail.MailMessage" /> containing the email headers and content.</returns>
         </member>
         <member name="T:Cadru.Postal.IEmailService">
             <summary>
             Creates and send email.
             </summary>
+        </member>
+        <member name="M:Cadru.Postal.IEmailService.CreateMailMessageAsync(Cadru.Postal.IEmail)">
+            <summary>
+            Renders the email view and builds a <see cref="T:System.Net.Mail.MailMessage" />.
+            </summary>
+            <param name="email">The email to render.</param>
+            <returns>A <see cref="T:System.Net.Mail.MailMessage" /> containing the rendered email.</returns>
+        </member>
+        <member name="M:Cadru.Postal.IEmailService.Render(Cadru.Postal.IEmail,System.String)">
+            <summary>
+            Renders the email view.
+            </summary>
+            <param name="email">The email to render.</param>
+            <param name="viewName">The email view name. If <see langword="null" /> then the
+            <see cref="P:Cadru.Postal.Email.ViewName" /> property is used.</param>
+            <returns>The rendered email view output.</returns>
         </member>
         <member name="M:Cadru.Postal.IEmailService.SaveToFileAsync(Cadru.Postal.IEmail,System.String)">
             <summary>
@@ -231,38 +247,22 @@
             </summary>
             <param name="email">The email to send.</param>
         </member>
-        <member name="M:Cadru.Postal.IEmailService.CreateMailMessageAsync(Cadru.Postal.IEmail)">
-            <summary>
-            Renders the email view and builds a <see cref="T:System.Net.Mail.MailMessage"/>.
-            </summary>
-            <param name="email">The email to render.</param>
-            <returns>A <see cref="T:System.Net.Mail.MailMessage"/> containing the rendered email.</returns>
-        </member>
-        <member name="M:Cadru.Postal.IEmailService.Render(Cadru.Postal.IEmail,System.String)">
-            <summary>
-            Renders the email view.
-            </summary>
-            <param name="email">The email to render.</param>
-            <param name="viewName">The email view name. If <see langword="null"/> then the
-            <see cref="P:Cadru.Postal.Email.ViewName"/> property is used.</param>
-            <returns>The rendered email view output.</returns>
-        </member>
         <member name="T:Cadru.Postal.ImageEmbedder">
             <summary>
             Used by the <see cref="M:Cadru.Postal.HtmlExtensions.EmbedImage(System.Web.Mvc.HtmlHelper,System.String,System.String)"/> helper method.
-            It generates the <see cref="T:System.Net.Mail.LinkedResource"/> objects need to embed images into an email.
+            It generates the <see cref="T:System.Net.Mail.LinkedResource" /> objects need to embed images into an email.
             </summary>
         </member>
         <member name="M:Cadru.Postal.ImageEmbedder.#ctor">
             <summary>
-            Creates a new <see cref="T:Cadru.Postal.ImageEmbedder"/>.
+            Creates a new <see cref="T:Cadru.Postal.ImageEmbedder" />.
             </summary>
         </member>
         <member name="M:Cadru.Postal.ImageEmbedder.#ctor(System.Func{System.String,System.Net.Mail.LinkedResource})">
             <summary>
-            Creates a new <see cref="T:Cadru.Postal.ImageEmbedder"/>.
+            Creates a new <see cref="T:Cadru.Postal.ImageEmbedder" />.
             </summary>
-            <param name="createLinkedResource">A delegate that creates a <see cref="T:System.Net.Mail.LinkedResource"/> from an image path or URL.</param>
+            <param name="createLinkedResource">A delegate that creates a <see cref="T:System.Net.Mail.LinkedResource" /> from an image path or URL.</param>
         </member>
         <member name="P:Cadru.Postal.ImageEmbedder.HasImages">
             <summary>
@@ -271,10 +271,15 @@
         </member>
         <member name="M:Cadru.Postal.ImageEmbedder.CreateLinkedResource(System.String)">
             <summary>
-            Creates a <see cref="T:System.Net.Mail.LinkedResource"/> from an image path or URL.
+            Creates a <see cref="T:System.Net.Mail.LinkedResource" /> from an image path or URL.
             </summary>
             <param name="imagePathOrUrl">The image path or URL.</param>
-            <returns>A new <see cref="T:System.Net.Mail.LinkedResource"/></returns>
+            <returns>A new <see cref="T:System.Net.Mail.LinkedResource" /></returns>
+        </member>
+        <member name="M:Cadru.Postal.ImageEmbedder.AddImagesToView(System.Net.Mail.AlternateView)">
+            <summary>
+            Adds recorded <see cref="T:System.Net.Mail.LinkedResource" /> image references to the given <see cref="T:System.Net.Mail.AlternateView" />.
+            </summary>
         </member>
         <member name="M:Cadru.Postal.ImageEmbedder.ReferenceImage(System.String,System.String)">
             <summary>
@@ -282,12 +287,7 @@
             </summary>
             <param name="imagePathOrUrl">The image path or URL.</param>
             <param name="contentType">The content type of the image e.g. "image/png". If null, then content type is determined from the file name extension.</param>
-            <returns>A <see cref="T:System.Net.Mail.LinkedResource"/> representing the embedded image.</returns>
-        </member>
-        <member name="M:Cadru.Postal.ImageEmbedder.AddImagesToView(System.Net.Mail.AlternateView)">
-            <summary>
-            Adds recorded <see cref="T:System.Net.Mail.LinkedResource"/> image references to the given <see cref="T:System.Net.Mail.AlternateView"/>.
-            </summary>
+            <returns>A <see cref="T:System.Net.Mail.LinkedResource" /> representing the embedded image.</returns>
         </member>
         <member name="T:Cadru.Postal.ParserUtils">
             <summary>

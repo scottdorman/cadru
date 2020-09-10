@@ -28,19 +28,19 @@ using System.Text;
 namespace Cadru.Extensions
 {
     /// <summary>
-    /// Provides basic routines for common <see cref="StringBuilder"/> manipulation.
+    /// Provides basic routines for common <see cref="StringBuilder" /> manipulation.
     /// </summary>
     public static class StringBuilderExtensions
     {
         /// <summary>
         /// Appends the hexadecimal string representation of a specified
-        /// <see cref="Int32"/> value to this instance.
+        /// <see cref="Int32" /> value to this instance.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="value">The <see cref="Int32"/> value to append.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="value">The <see cref="Int32" /> value to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendAsHexadecimal(this StringBuilder source, int value)
         {
@@ -60,13 +60,13 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the hexadecimal string representation of a specified
-        /// <see cref="Int16"/> value to this instance.
+        /// <see cref="Int16" /> value to this instance.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="value">The <see cref="Int16"/> value to append.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="value">The <see cref="Int16" /> value to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendAsHexadecimal(this StringBuilder source, short value)
         {
@@ -82,13 +82,13 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the hexadecimal string representation of a specified
-        /// <see cref="Byte"/> value to this instance.
+        /// <see cref="Byte" /> value to this instance.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="value">The <see cref="Byte"/> value to append.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="value">The <see cref="Byte" /> value to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendAsHexadecimal(this StringBuilder source, byte value)
         {
@@ -102,13 +102,13 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the hexadecimal string representation of a specified
-        /// <see cref="Byte"/> array to this instance.
+        /// <see cref="Byte" /> array to this instance.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="values">The <see cref="Byte"/> array to append.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="values">The <see cref="Byte" /> array to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendAsHexadecimal(this StringBuilder source, params byte[] values)
         {
@@ -127,34 +127,34 @@ namespace Cadru.Extensions
         /// <summary>
         /// Appends the string returned by processing a composite format string, which
         /// contains zero or more format items, followed by the default line terminator to
-        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
+        /// the end of this instance if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
         /// </overloads>
         /// <summary>
         /// Appends the string returned by processing a composite format string, which
         /// contains zero or more format items, followed by the default line terminator to
-        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
+        /// the end of this instance if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="format"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="format" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="format">A composite format string.</param>
         /// <param name="args">An array of objects to format.</param>
-        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
-        /// appended. Each format item in <paramref name="format"/> is replaced by the
+        /// <returns>A reference to <paramref name="source" /> with <paramref name="format" />
+        /// appended. Each format item in <paramref name="format" /> is replaced by the
         /// string representation of the corresponding object argument.</returns>
         /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="format"/> or <paramref name="args"/> is <see langword="null"/>.
+        /// <paramref name="format" /> or <paramref name="args" /> is <see langword="null" />.
         /// </exception>
         /// <exception cref="System.FormatException">
-        /// <para><paramref name="format"/> is invalid.</para>
+        /// <para><paramref name="format" /> is invalid.</para>
         /// <para>-or-</para>
         /// <para>The index of a format item is less than 0 (zero), or greater than or
         /// equal to the length of the args array.</para>
         /// </exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// The length of the expanded string would exceed
-        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendFormatIf(this StringBuilder source, bool condition, string format, params object[] args)
         {
@@ -164,31 +164,31 @@ namespace Cadru.Extensions
         /// <summary>
         /// Appends the string returned by processing a composite format string, which
         /// contains zero or more format items, followed by the default line terminator to
-        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
+        /// the end of this instance if <paramref name="condition" /> is <see langword="true" />.
         /// Each format item is replaced by the string representation of a corresponding
         /// argument in a parameter array using a specified format provider.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="format"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="format" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="provider">An object that supplies culture-specific formatting information.</param>
         /// <param name="format">A composite format string.</param>
         /// <param name="args">An array of objects to format.</param>
-        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
-        /// appended, if <paramref name="condition"/> is <see langword="true"/>. Each format item in <paramref name="format"/> is replaced by the
+        /// <returns>A reference to <paramref name="source" /> with <paramref name="format" />
+        /// appended, if <paramref name="condition" /> is <see langword="true" />. Each format item in <paramref name="format" /> is replaced by the
         /// string representation of the corresponding object argument.</returns>
         /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="format"/> is <see langword="null"/>.
+        /// <paramref name="format" /> is <see langword="null" />.
         /// </exception>
         /// <exception cref="System.FormatException">
-        /// <para><paramref name="format"/> is invalid.</para>
+        /// <para><paramref name="format" /> is invalid.</para>
         /// <para>-or-</para>
         /// <para>The index of a format item is less than 0 (zero), or greater than or
         /// equal to the length of the args array.</para>
         /// </exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// The length of the expanded string would exceed
-        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendFormatIf(this StringBuilder source, bool condition, IFormatProvider provider, string format, params object[] args)
         {
@@ -214,24 +214,24 @@ namespace Cadru.Extensions
         /// contains zero or more format items, followed by the default line terminator to
         /// the end of this instance.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
         /// <param name="format">A composite format string.</param>
         /// <param name="args">An array of objects to format.</param>
-        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
-        /// appended. Each format item in <paramref name="format"/> is replaced by the
+        /// <returns>A reference to <paramref name="source" /> with <paramref name="format" />
+        /// appended. Each format item in <paramref name="format" /> is replaced by the
         /// string representation of the corresponding object argument.</returns>
         /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="format"/> or <paramref name="args"/> is <see langword="null"/>.
+        /// <paramref name="format" /> or <paramref name="args" /> is <see langword="null" />.
         /// </exception>
         /// <exception cref="System.FormatException">
-        /// <para><paramref name="format"/> is invalid.</para>
+        /// <para><paramref name="format" /> is invalid.</para>
         /// <para>-or-</para>
         /// <para>The index of a format item is less than 0 (zero), or greater than or
         /// equal to the length of the args array.</para>
         /// </exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// The length of the expanded string would exceed
-        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendFormatLine(this StringBuilder source, string format, params object[] args)
         {
@@ -245,25 +245,25 @@ namespace Cadru.Extensions
         /// replaced by the string representation of a corresponding argument in a parameter
         /// array using a specified format provider.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> object.</param>
         /// <param name="provider">An object that supplies culture-specific formatting information.</param>
         /// <param name="format">A composite format string.</param>
         /// <param name="args">An array of objects to format.</param>
-        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
-        /// appended. Each format item in <paramref name="format"/> is replaced by the
+        /// <returns>A reference to <paramref name="source" /> with <paramref name="format" />
+        /// appended. Each format item in <paramref name="format" /> is replaced by the
         /// string representation of the corresponding object argument.</returns>
         /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="format"/> or <paramref name="args"/> is <see langword="null"/>.
+        /// <paramref name="format" /> or <paramref name="args" /> is <see langword="null" />.
         /// </exception>
         /// <exception cref="System.FormatException">
-        /// <para><paramref name="format"/> is invalid.</para>
+        /// <para><paramref name="format" /> is invalid.</para>
         /// <para>-or-</para>
         /// <para>The index of a format item is less than 0 (zero), or greater than or
         /// equal to the length of the args array.</para>
         /// </exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// The length of the expanded string would exceed
-        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendFormatLine(this StringBuilder source, IFormatProvider provider, string format, params object[] args)
         {
@@ -276,34 +276,34 @@ namespace Cadru.Extensions
         /// <summary>
         /// Appends the string returned by processing a composite format string, which
         /// contains zero or more format items, followed by the default line terminator to
-        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
+        /// the end of this instance if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
         /// </overloads>
         /// <summary>
         /// Appends the string returned by processing a composite format string, which
         /// contains zero or more format items, followed by the default line terminator to
-        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
+        /// the end of this instance if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="format"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> object.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="format" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="format">A composite format string.</param>
         /// <param name="args">An array of objects to format.</param>
-        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
-        /// appended. Each format item in <paramref name="format"/> is replaced by the
+        /// <returns>A reference to <paramref name="source" /> with <paramref name="format" />
+        /// appended. Each format item in <paramref name="format" /> is replaced by the
         /// string representation of the corresponding object argument.</returns>
         /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="format"/> or <paramref name="args"/> is <see langword="null"/>.
+        /// <paramref name="format" /> or <paramref name="args" /> is <see langword="null" />.
         /// </exception>
         /// <exception cref="System.FormatException">
-        /// <para><paramref name="format"/> is invalid.</para>
+        /// <para><paramref name="format" /> is invalid.</para>
         /// <para>-or-</para>
         /// <para>The index of a format item is less than 0 (zero), or greater than or
         /// equal to the length of the args array.</para>
         /// </exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// The length of the expanded string would exceed
-        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendFormatLineIf(this StringBuilder source, bool condition, string format, params object[] args)
         {
@@ -320,31 +320,31 @@ namespace Cadru.Extensions
         /// <summary>
         /// Appends the string returned by processing a composite format string, which
         /// contains zero or more format items, followed by the default line terminator to
-        /// the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
+        /// the end of this instance if <paramref name="condition" /> is <see langword="true" />.
         /// Each format item is replaced by the string representation of a corresponding
         /// argument in a parameter array using a specified format provider.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="format"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> object.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="format" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="provider">An object that supplies culture-specific formatting information.</param>
         /// <param name="format">A composite format string.</param>
         /// <param name="args">An array of objects to format.</param>
-        /// <returns>A reference to <paramref name="source"/> with <paramref name="format"/>
-        /// appended. Each format item in <paramref name="format"/> is replaced by the
+        /// <returns>A reference to <paramref name="source" /> with <paramref name="format" />
+        /// appended. Each format item in <paramref name="format" /> is replaced by the
         /// string representation of the corresponding object argument.</returns>
         /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="format"/> or <paramref name="args"/> is <see langword="null"/>.
+        /// <paramref name="format" /> or <paramref name="args" /> is <see langword="null" />.
         /// </exception>
         /// <exception cref="System.FormatException">
-        /// <para><paramref name="format"/> is invalid.</para>
+        /// <para><paramref name="format" /> is invalid.</para>
         /// <para>-or-</para>
         /// <para>The index of a format item is less than 0 (zero), or greater than or
         /// equal to the length of the args array.</para>
         /// </exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// The length of the expanded string would exceed
-        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendFormatLineIf(this StringBuilder source, bool condition, IFormatProvider provider, string format, params object[] args)
         {
@@ -362,16 +362,16 @@ namespace Cadru.Extensions
         /// <summary>Appends the string representation of a specified object to this instance.</summary>
         /// </overloads>
         /// <summary>
-        /// Appends the string representation of a specified <see cref="Boolean"/> value to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// Appends the string representation of a specified <see cref="Boolean" /> value to this instance
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
-        /// <param name="value">The <see cref="Boolean"/> value to append.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
+        /// <param name="value">The <see cref="Boolean" /> value to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, bool value)
         {
@@ -387,15 +387,15 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the string representation of a specified 8-bit unsigned integer to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">The value to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, byte value)
         {
@@ -411,15 +411,15 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the string representation of a specified Unicode character to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">The Unicode character to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, char value)
         {
@@ -435,15 +435,15 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the string representation of Unicode characters in a specified array to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">The array of characters to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, char[] value)
         {
@@ -459,15 +459,15 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the string representation of a specified double-precision floating-point number to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">The value to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, double value)
         {
@@ -483,15 +483,15 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the string representation of a specified single-precision floating-point number to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">The value to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, float value)
         {
@@ -507,15 +507,15 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the string representation of a specified 32-bit signed integer to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">The value to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, int value)
         {
@@ -531,15 +531,15 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the string representation of a specified 64-bit signed integer to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">The value to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, long value)
         {
@@ -555,15 +555,15 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the string representation of a specified object to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">The value to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, object value)
         {
@@ -579,15 +579,15 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the string representation of a specified 8-bit signed integer to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">The value to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, sbyte value)
         {
@@ -603,15 +603,15 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the string representation of a specified 16-bit signed integer to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">The value to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, short value)
         {
@@ -627,15 +627,15 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the string representation of the specified 8-bit unsigned integer to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">The string to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, string value)
         {
@@ -651,15 +651,15 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the string representation of a specified 32-bit unsigned integer to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">The value to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, uint value)
         {
@@ -675,15 +675,15 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the string representation of a specified 64-bit unsigned integer to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">The value to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, ulong value)
         {
@@ -699,15 +699,15 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the string representation of a specified 16-bit unsigned integer to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">The value to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, ushort value)
         {
@@ -724,18 +724,18 @@ namespace Cadru.Extensions
         /// <summary>
         /// Appends a specified number of copies of the string representation of a
         /// Unicode character to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">The character to append.</param>
-        /// <param name="repeatCount">The number of times to append <paramref name="value"/>.</param>
+        /// <param name="repeatCount">The number of times to append <paramref name="value" />.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// <para><paramref name="repeatCount"/> is less than zero.</para>
+        /// <para><paramref name="repeatCount" /> is less than zero.</para>
         /// <para>-or-</para>
-        /// <para>Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.</para>
+        /// <para>Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.</para>
         /// </exception>
         /// <exception cref="System.OutOfMemoryException">Out of memory.</exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, char value, int repeatCount)
@@ -752,26 +752,26 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends the string representation of a specified subarray of Unicode characters to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">A character array.</param>
-        /// <param name="startIndex">The starting position in <paramref name="value"/>.</param>
+        /// <param name="startIndex">The starting position in <paramref name="value" />.</param>
         /// <param name="charCount">The number of characters to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="value"/> is <see langword="null"/>, and <paramref name="startIndex"/>
-        /// and <paramref name="charCount"/> are not zero.</exception>
+        /// <paramref name="value" /> is <see langword="null" />, and <paramref name="startIndex" />
+        /// and <paramref name="charCount" /> are not zero.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// <para><paramref name="charCount"/> is less than zero.</para>
+        /// <para><paramref name="charCount" /> is less than zero.</para>
         /// <para>-or-</para>
-        /// <para><paramref name="startIndex"/> is less than zero.</para>
+        /// <para><paramref name="startIndex" /> is less than zero.</para>
         /// <para>-or-</para>
-        /// <para><paramref name="startIndex"/> + <paramref name="charCount"/> is greater than the length of <paramref name="value"/>.</para>
+        /// <para><paramref name="startIndex" /> + <paramref name="charCount" /> is greater than the length of <paramref name="value" />.</para>
         /// <para>-or-</para>
-        /// <para>Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.</para>
+        /// <para>Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.</para>
         /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, char[] value, int startIndex, int charCount)
@@ -788,26 +788,26 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends a copy of a specified substring to this instance
-        /// if <paramref name="condition"/> is <see langword="true"/>.
+        /// if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> instance.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> instance.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">The string that contains the substring to append.</param>
-        /// <param name="startIndex">The starting position of the substring within <paramref name="value"/>.</param>
-        /// <param name="count">The number of characters in <paramref name="value"/> to append.</param>
+        /// <param name="startIndex">The starting position of the substring within <paramref name="value" />.</param>
+        /// <param name="count">The number of characters in <paramref name="value" /> to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="value"/> is <see langword="null"/>, and <paramref name="startIndex"/>
-        /// and <paramref name="count"/> are not zero.</exception>
+        /// <paramref name="value" /> is <see langword="null" />, and <paramref name="startIndex" />
+        /// and <paramref name="count" /> are not zero.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// <para><paramref name="count"/> is less than zero.</para>
+        /// <para><paramref name="count" /> is less than zero.</para>
         /// <para>-or-</para>
-        /// <para><paramref name="startIndex"/> is less than zero.</para>
+        /// <para><paramref name="startIndex" /> is less than zero.</para>
         /// <para>-or-</para>
-        /// <para><paramref name="startIndex"/> + <paramref name="count"/> is greater than the length of <paramref name="value"/>.</para>
+        /// <para><paramref name="startIndex" /> + <paramref name="count" /> is greater than the length of <paramref name="value" />.</para>
         /// <para>-or-</para>
-        /// <para>Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity"/>.</para>
+        /// <para>Enlarging the value of this instance would exceed <see cref="p:StringBuilder.MaxCapacity" />.</para>
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, string value, int startIndex, int count)
         {
@@ -824,20 +824,20 @@ namespace Cadru.Extensions
         /// <overloads>
         /// <summary>
         /// Appends the default line terminator to the end of this instance if
-        /// <paramref name="condition"/> is <see langword="true"/>.
+        /// <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
         /// </overloads>
         /// <summary>
         /// Appends the default line terminator to the end of this instance if
-        /// <paramref name="condition"/> is <see langword="true"/>.
+        /// <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
-        /// <param name="condition"><see langword="true"/> to append the default line terminator;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> object.</param>
+        /// <param name="condition"><see langword="true" /> to append the default line terminator;
+        /// otherwise, <see langword="false" />.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// The length of the expanded string would exceed
-        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendLineIf(this StringBuilder source, bool condition)
         {
@@ -853,16 +853,16 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends a copy of the specified string followed by the default line terminator
-        /// to the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
+        /// to the end of this instance if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> object.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="value" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="value">The string to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// The length of the expanded string would exceed
-        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendLineIf(this StringBuilder source, bool condition, string value)
         {
@@ -880,12 +880,12 @@ namespace Cadru.Extensions
         /// Appends a copy of each of the specified strings followed by the default line terminator
         /// to the end of this instance.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> object.</param>
         /// <param name="values">The strings to append.</param>
         /// <returns>A reference to this instance after the append operation has completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// The length of the expanded string would exceed
-        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendLines(this StringBuilder source, IEnumerable<string> values)
         {
@@ -900,16 +900,16 @@ namespace Cadru.Extensions
 
         /// <summary>
         /// Appends a copy of each of the specified strings followed by the default line terminator
-        /// to the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
+        /// to the end of this instance if <paramref name="condition" /> is <see langword="true" />.
         /// </summary>
-        /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="values"/>;
-        /// otherwise, <see langword="false"/>.</param>
+        /// <param name="source">The source <see cref="StringBuilder" /> object.</param>
+        /// <param name="condition"><see langword="true" /> to append <paramref name="values" />;
+        /// otherwise, <see langword="false" />.</param>
         /// <param name="values">The strings to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// The length of the expanded string would exceed
-        /// <see cref="p:StringBuilder.MaxCapacity"/>.
+        /// <see cref="p:StringBuilder.MaxCapacity" />.
         /// </exception>
         public static StringBuilder AppendLinesIf(this StringBuilder source, bool condition, IEnumerable<string> values)
         {

@@ -36,23 +36,23 @@ using Dapper;
 namespace Cadru.Data.Dapper
 {
     /// <summary>
-    /// Represents a way to create <see cref="CommandDefinition"/> instances.
+    /// Represents a way to create <see cref="CommandDefinition" /> instances.
     /// </summary>
     public class DapperCommandBuilder : IDapperCommandBuilder
     {
         private static readonly ConcurrentDictionary<Type, List<string>> paramNameCache = new ConcurrentDictionary<Type, List<string>>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DapperCommandBuilder"/> class.
+        /// Initializes a new instance of the <see cref="DapperCommandBuilder" /> class.
         /// </summary>
-        /// <param name="databaseObject">The <see cref="IDatabaseObject"/> for which commands will be created.</param>
+        /// <param name="databaseObject">The <see cref="IDatabaseObject" /> for which commands will be created.</param>
         public DapperCommandBuilder(IDatabaseObject databaseObject)
         {
             this.DatabaseObject = databaseObject;
         }
 
         /// <summary>
-        /// The <see cref="IDatabaseObject"/> for which commands will be created.
+        /// The <see cref="IDatabaseObject" /> for which commands will be created.
         /// </summary>
         protected IDatabaseObject DatabaseObject { get; }
 
@@ -157,10 +157,10 @@ namespace Cadru.Data.Dapper
         }
 
         /// <summary>
-        /// Appends the SQL representation of the specified <see cref="IPredicate"/> to the WHERE clause.
+        /// Appends the SQL representation of the specified <see cref="IPredicate" /> to the WHERE clause.
         /// </summary>
-        /// <param name="builder">The <see cref="StringBuilder"/> for the SQL statement being created.</param>
-        /// <param name="predicate">An optional <see cref="IPredicate"/> to append.</param>
+        /// <param name="builder">The <see cref="StringBuilder" /> for the SQL statement being created.</param>
+        /// <param name="predicate">An optional <see cref="IPredicate" /> to append.</param>
         /// <param name="parameters">A bag of parameters.</param>
         protected void AppendWhere(StringBuilder builder, IPredicate? predicate, DynamicParameters parameters)
         {
@@ -176,11 +176,11 @@ namespace Cadru.Data.Dapper
         /// statements.
         /// </summary>
         /// <param name="template">The anonymous type of <see
-        /// cref="DynamicParameters"/> bag representing the template which
+        /// cref="DynamicParameters" /> bag representing the template which
         /// contains the parameter information.</param>
-        /// <returns>The <see cref="ValueTuple"/> which represents the parameter
+        /// <returns>The <see cref="ValueTuple" /> which represents the parameter
         /// names and parameter bag derived from <paramref
-        /// name="template"/>.</returns>
+        /// name="template" />.</returns>
         protected virtual (IList<string> ParameterNames, DynamicParameters Parameters) DeriveParameters(object template)
         {
             var templateType = template.GetType();

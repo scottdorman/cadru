@@ -33,7 +33,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace Cadru.AspNetCore.Mvc.Rendering
 {
     /// <summary>
-    /// Extensions for working with <see cref="IHtmlHelper"/> in Razor files.
+    /// Extensions for working with <see cref="IHtmlHelper" /> in Razor files.
     /// </summary>
     public static class HtmlHelperExtensions
     {

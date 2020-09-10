@@ -27,6 +27,7 @@ namespace Cadru.Environment
     using System.IO;
     using System.Linq;
     using System.Security.AccessControl;
+
     using Microsoft.Win32;
 
     /// <summary>
@@ -36,13 +37,11 @@ namespace Cadru.Environment
     /// </summary>
     public static class InternetInformationServicesDetection
     {
-        #region fields
-
-        private const string IISRegKeyName = "Software\\Microsoft\\InetStp";
-        private const string IISRegKeyValue = "MajorVersion";
-        private const string IISRegKeyMinorVersionValue = "MinorVersion";
         private const string IISComponentRegKeyName = IISRegKeyName + "\\Components";
         private const string IISLegacyComponentRegKeyName = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\Oc Manager\\Subcomponents";
+        private const string IISRegKeyMinorVersionValue = "MinorVersion";
+        private const string IISRegKeyName = "Software\\Microsoft\\InetStp";
+        private const string IISRegKeyValue = "MajorVersion";
         private const string Netfx11RegKeyName = "Software\\Microsoft\\ASP.NET\\1.1.4322.0";
         private const string Netfx20RegKeyName = "Software\\Microsoft\\ASP.NET\\2.0.50727.0";
         private const string Netfx40RegKeyName = "Software\\Microsoft\\ASP.NET\\4.0.30319.0";
@@ -50,42 +49,14 @@ namespace Cadru.Environment
 
         private static readonly Version EmptyVersion = new Version(0, 0, 0, 0);
 
-        #endregion
-
-        #region constructors
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-
-        #endregion
-
-        #region methods
-
-        #region IsAspRegistered
-        /// <summary>
-        /// Determines if ASP is registered with Internet Information
-        /// Services (IIS) on the local computer.
-        /// </summary>
-        /// <returns><see langword="true"/> if ASP is registered; otherwise
-        /// <see langword="false"/>.</returns>
-        public static bool IsAspRegistered()
-        {
-            return IsInstalled(InternetInformationServicesSubcomponent.ASP);
-        }
-        #endregion
-
-        #region IsAspNetRegistered
         /// <summary>
         /// Determines if the version of ASP.NET is registered with Internet
         /// Information Services (IIS) on the local computer.
         /// </summary>
         /// <param name="frameworkVersion">One of the
-        /// <see cref="FrameworkVersion"/> values.</param>
-        /// <returns><see langword="true"/> if the specified ASP.NET version
-        /// is registered; otherwise <see langword="false"/>.</returns>
+        /// <see cref="FrameworkVersion" /> values.</param>
+        /// <returns><see langword="true" /> if the specified ASP.NET version
+        /// is registered; otherwise <see langword="false" />.</returns>
         public static bool IsAspNetRegistered(FrameworkVersion frameworkVersion)
         {
             var ret = false;
@@ -129,20 +100,27 @@ namespace Cadru.Environment
 
             return ret;
         }
-        #endregion
 
-        #region IsInstalled
-
-        #region IsInstalled(InternetInformationServicesVersion iisVersion)
         /// <summary>
-        /// Determines if the specified version of Internet Information 
+        /// Determines if ASP is registered with Internet Information
+        /// Services (IIS) on the local computer.
+        /// </summary>
+        /// <returns><see langword="true" /> if ASP is registered; otherwise
+        /// <see langword="false" />.</returns>
+        public static bool IsAspRegistered()
+        {
+            return IsInstalled(InternetInformationServicesSubcomponent.ASP);
+        }
+
+        /// <summary>
+        /// Determines if the specified version of Internet Information
         /// Services (IIS) is installed on the local computer.
         /// </summary>
-        /// <param name="iisVersion">One of the 
-        /// <see cref="InternetInformationServicesVersion"/> values.</param>
-        /// <returns><see langword="true"/> if the specified Internet
+        /// <param name="iisVersion">One of the
+        /// <see cref="InternetInformationServicesVersion" /> values.</param>
+        /// <returns><see langword="true" /> if the specified Internet
         /// Information Services version is installed; otherwise
-        /// <see langword="false"/>.</returns>
+        /// <see langword="false" />.</returns>
         public static bool IsInstalled(InternetInformationServicesVersion iisVersion)
         {
             var ret = false;
@@ -177,18 +155,16 @@ namespace Cadru.Environment
 
             return ret;
         }
-        #endregion
 
-        #region IsInstalled(InternetInformationServicesComponent subcomponent)
         /// <summary>
         /// Determines if the specified Internet Information Services (IIS)
         /// subcomponent is installed on the local computer.
         /// </summary>
-        /// <param name="subcomponent">One of the 
-        /// <see cref="InternetInformationServicesSubcomponent"/> values.</param>
-        /// <returns><see langword="true"/> if the specified Internet
+        /// <param name="subcomponent">One of the
+        /// <see cref="InternetInformationServicesSubcomponent" /> values.</param>
+        /// <returns><see langword="true" /> if the specified Internet
         /// Information Services subcomponent is installed; otherwise
-        /// <see langword="false"/>.</returns>
+        /// <see langword="false" />.</returns>
         /// <remarks>Subcomponents only apply to IIS versions 6 and earlier.</remarks>
         public static bool IsInstalled(InternetInformationServicesSubcomponent subcomponent)
         {
@@ -267,20 +243,18 @@ namespace Cadru.Environment
 
             return ret;
         }
-        #endregion
 
-        #region IsInstalled(InternetInformationServicesFeature feature)
         /// <summary>
         /// Determines if the specified Internet Information Services (IIS)
         /// feature is installed and enabled on the local computer.
         /// </summary>
-        /// <param name="feature">One of the 
-        /// <see cref="InternetInformationServicesFeature"/> values.</param>
-        /// <returns><see langword="true"/> if the specified Internet
+        /// <param name="feature">One of the
+        /// <see cref="InternetInformationServicesFeature" /> values.</param>
+        /// <returns><see langword="true" /> if the specified Internet
         /// Information Services feature is installed; otherwise
-        /// <see langword="false"/>.</returns>
+        /// <see langword="false" />.</returns>
         /// <remarks>Features only apply to IIS versions 7 and later.</remarks>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity",
             Justification = "This method appears to be complex because of it's length, but it's almost all just a switch statement which then calls out to other methods to do the work.")]
         public static bool IsInstalled(InternetInformationServicesFeature feature)
         {
@@ -361,7 +335,7 @@ namespace Cadru.Environment
 
                     case InternetInformationServicesFeature.Webserver:
                         ret = IsFeatureInstalled(new string[] { "W3SVC", "CachingBase", "CachingBaseBinaries", "Caching", "HttpCache", "HttpCacheBinaries" });
-                        break; 
+                        break;
 
                     case InternetInformationServicesFeature.CustomLogging:
                         ret = IsFeatureInstalled("CustomLogging", "CustomLoggingBinaries");
@@ -395,7 +369,7 @@ namespace Cadru.Environment
                         ret = IsFeatureInstalled("HttpCompressionStatic", "HttpCompressionStaticBinaries");
                         break;
 
-                     case InternetInformationServicesFeature.Authorization:
+                    case InternetInformationServicesFeature.Authorization:
                         ret = IsFeatureInstalled("Authorization", "AuthorizationBinaries");
                         break;
 
@@ -429,9 +403,9 @@ namespace Cadru.Environment
 
                     case InternetInformationServicesFeature.WindowsAuthentication:
                         ret = IsFeatureInstalled("WindowsAuthentication", "WindowsAuthenticationBinaries");
-                        break; 
+                        break;
 
-                   case InternetInformationServicesFeature.ManagementConsole:
+                    case InternetInformationServicesFeature.ManagementConsole:
                         ret = IsFeatureInstalled("ManagementConsole", "WASConfigurationAPI");
                         break;
 
@@ -471,16 +445,12 @@ namespace Cadru.Environment
 
             return ret;
         }
-        #endregion
 
-        #endregion
-
-        #region GetInstalledVersion
         /// <summary>
         /// Gets the installed IIS version.
         /// </summary>
-        /// <returns>A <see cref="Version"/> representing the installed IIS
-        /// version or a <see cref="Version"/> representing 0.0.0.0 if
+        /// <returns>A <see cref="Version" /> representing the installed IIS
+        /// version or a <see cref="Version" /> representing 0.0.0.0 if
         /// IIS is not installed.</returns>
         private static Version GetInstalledVersion()
         {
@@ -496,9 +466,7 @@ namespace Cadru.Environment
 
             return version;
         }
-        #endregion
 
-        #region GetRegistryValue
         /// <summary>
         /// Gets a value which indicates if the specified registry value was found.
         /// </summary>
@@ -507,10 +475,10 @@ namespace Cadru.Environment
         /// <param name="key">The specified sub key to open.</param>
         /// <param name="value">The name of the value to retrieve.</param>
         /// <param name="kind">The registry data type of the specified value.</param>
-        /// <param name="data">The data associated with the registry hive, 
+        /// <param name="data">The data associated with the registry hive,
         /// key, and value name.</param>
-        /// <returns><see langword="true"/> if the registry value was found; 
-        /// otherwise, <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if the registry value was found;
+        /// otherwise, <see langword="false" />.</returns>
         private static bool GetRegistryValue<T>(RegistryHive hive, string key, string value, RegistryValueKind kind, out T data)
         {
             var success = false;
@@ -553,71 +521,57 @@ namespace Cadru.Environment
 
             return success;
         }
-        #endregion
 
-        #region IsAspNetRegistered functions
-
-        #region IsAspNet10Registered
         /// <summary>
         /// Detects if ASP.NET 1.0 is registered with IIS.
         /// </summary>
-        /// <returns><see langword="true"/> if ASP.NET 1.0 is 
-        /// registered; otherwise <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if ASP.NET 1.0 is
+        /// registered; otherwise <see langword="false" />.</returns>
         private static bool IsAspNet10Registered()
         {
             // TODO: Determine how to detect ASP.NET 1.0
             return false;
         }
-        #endregion
 
-        #region IsAspNet11Registered
         /// <summary>
         /// Detects if ASP.NET 1.1 is registered with IIS.
         /// </summary>
-        /// <returns><see langword="true"/> if ASP.NET 1.1 is 
-        /// registered; otherwise <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if ASP.NET 1.1 is
+        /// registered; otherwise <see langword="false" />.</returns>
         private static bool IsAspNet11Registered()
         {
             string regValue;
             return GetRegistryValue(RegistryHive.LocalMachine, Netfx11RegKeyName, NetRegKeyValue, RegistryValueKind.String, out regValue);
         }
-        #endregion
 
-        #region IsAspNet20Registered
         /// <summary>
         /// Detects if ASP.NET 2.0 is registered with IIS.
         /// </summary>
-        /// <returns><see langword="true"/> if ASP.NET 2.0 is 
-        /// registered; otherwise <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if ASP.NET 2.0 is
+        /// registered; otherwise <see langword="false" />.</returns>
         private static bool IsAspNet20Registered()
         {
             string regValue;
             return GetRegistryValue(RegistryHive.LocalMachine, Netfx20RegKeyName, NetRegKeyValue, RegistryValueKind.String, out regValue);
         }
-        #endregion
 
-        #region IsAspNet40Registered
         /// <summary>
         /// Detects if ASP.NET 4.0 is registered with IIS.
         /// </summary>
-        /// <returns><see langword="true"/> if ASP.NET 4.0 is 
-        /// registered; otherwise <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if ASP.NET 4.0 is
+        /// registered; otherwise <see langword="false" />.</returns>
         private static bool IsAspNet40Registered()
         {
             string regValue;
             return GetRegistryValue(RegistryHive.LocalMachine, Netfx40RegKeyName, NetRegKeyValue, RegistryValueKind.String, out regValue);
         }
-        #endregion
 
-        #endregion
-
-        #region IsFeatureInstalled
         /// <summary>
         /// Detects if the specified feature is installed.
         /// </summary>
         /// <param name="featureKey">The registry value representing the feature to test.</param>
-        /// <returns><see langword="true"/> if the feature is 
-        /// installed; otherwise <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if the feature is
+        /// installed; otherwise <see langword="false" />.</returns>
         private static bool IsFeatureInstalled(string featureKey)
         {
             var found = false;
@@ -635,8 +589,8 @@ namespace Cadru.Environment
         /// </summary>
         /// <param name="featureKey1">The registry value representing the first feature to test.</param>
         /// <param name="featureKey2">The registry value representing the second feature to test.</param>
-        /// <returns><see langword="true"/> if both of the features are 
-        /// installed; otherwise <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if both of the features are
+        /// installed; otherwise <see langword="false" />.</returns>
         private static bool IsFeatureInstalled(string featureKey1, string featureKey2)
         {
             var regValue = -1;
@@ -659,8 +613,8 @@ namespace Cadru.Environment
         /// Detects if the specified features are installed.
         /// </summary>
         /// <param name="featureKeys">An array of feature registry keys to test.</param>
-        /// <returns><see langword="true"/> if all of the features are 
-        /// installed; otherwise <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if all of the features are
+        /// installed; otherwise <see langword="false" />.</returns>
         private static bool IsFeatureInstalled(string[] featureKeys)
         {
             var regValue = -1;
@@ -675,15 +629,13 @@ namespace Cadru.Environment
 
             return found.All(v => v == true);
         }
-        #endregion
 
-        #region IsSubcomponentInstalled
         /// <summary>
         /// Detects if the specified subcomponent is installed.
         /// </summary>
         /// <param name="subcomponent">The registry value representing the subcomponent to test.</param>
-        /// <returns><see langword="true"/> if the subcomponent is 
-        /// installed; otherwise <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if the subcomponent is
+        /// installed; otherwise <see langword="false" />.</returns>
         private static bool IsSubcomponentInstalled(string subcomponent)
         {
             var found = false;
@@ -698,8 +650,5 @@ namespace Cadru.Environment
 
             return found;
         }
-        #endregion
-
-       #endregion
     }
 }

@@ -61,7 +61,7 @@ namespace Cadru.Polly.Logging
     }
 
     /// <summary>
-    /// A Logging policy that can be applied to asynchronous delegates returning a value of type <typeparamref name="TResult"/>.
+    /// A Logging policy that can be applied to asynchronous delegates returning a value of type <typeparamref name="TResult" />.
     /// </summary>
     /// <typeparam name="TResult">The type of return values this policy will handle.</typeparam>
     public class AsyncLoggingPolicy<TResult> : AsyncPolicy<TResult>, ILoggingPolicy<TResult>

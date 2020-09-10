@@ -25,20 +25,16 @@ namespace Cadru.Net.NetworkInformation
     using System;
     using System.Net.NetworkInformation;
 
-
     /// <summary>
     /// Allows applications to receive notification when the network availability changes.
     /// </summary>
     public sealed class NetworkStatus : IDisposable
     {
-        #region fields
         private static readonly object syncRoot = new object();
         private ConnectionStatus connectionStatus;
-        #endregion
 
-        #region constructors
         /// <summary>
-        /// Initializes a new instance of the <see cref="NetworkStatus"/> class.
+        /// Initializes a new instance of the <see cref="NetworkStatus" /> class.
         /// </summary>
         public NetworkStatus()
         {
@@ -60,36 +56,19 @@ namespace Cadru.Net.NetworkInformation
 #endif
         }
 
-        #endregion
-
-        #region events
-        #endregion
-
-        #region events
         /// <summary>
-        /// Represents the method that will handle the <see cref="NetworkStatus.NetworkStatusChanged"/> event.
+        /// Represents the method that will handle the <see cref="NetworkStatus.NetworkStatusChanged" /> event.
         /// </summary>
         public event EventHandler<NetworkStatusChangedEventArgs> NetworkStatusChanged;
 
-        #endregion
-
-        #region properties
-
-        #region ConnectivityStatus
         /// <summary>
         /// Gets the current network connection status.
         /// </summary>
         /// <value>The current network connection status.</value>
         public ConnectionStatus ConnectionStatus => this.connectionStatus;
-        #endregion
 
-        #endregion
-
-        #region methods
-
-        #region Dispose
         /// <summary>
-        /// Releases all resources used by the <see cref="NetworkStatus"/>.
+        /// Releases all resources used by the <see cref="NetworkStatus" />.
         /// </summary>
         public void Dispose()
         {
@@ -100,22 +79,23 @@ namespace Cadru.Net.NetworkInformation
 #endif
             GC.SuppressFinalize(this);
         }
-        #endregion
 
 #if NET40 || NET45
-        #region NetworkAvailabilityChanged
+
         private void NetworkAvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
         {
             ConnectionStatus current = e.IsAvailable ? ConnectionStatus.Connected : ConnectionStatus.Disconnected;
             ChangeNetworkStatus(current);
         }
-        #endregion
+
 #else
+
         private void NetworkAddressChanged(object sender, EventArgs e)
         {
             var current = NetworkInterface.GetIsNetworkAvailable() ? ConnectionStatus.Connected : ConnectionStatus.Disconnected;
             this.ChangeNetworkStatus(current);
         }
+
 #endif
 
         private void ChangeNetworkStatus(ConnectionStatus current)
@@ -140,7 +120,5 @@ namespace Cadru.Net.NetworkInformation
                 }
             }
         }
-
-        #endregion
     }
 }

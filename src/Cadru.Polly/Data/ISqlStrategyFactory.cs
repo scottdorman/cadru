@@ -27,14 +27,14 @@ namespace Cadru.Polly.Data
 {
     /// <summary>
     /// Represents a set of methods for creating instances of an <see
-    /// cref="ISqlStrategy"/>.
+    /// cref="ISqlStrategy" />.
     /// </summary>
     public interface ISqlStrategyFactory
     {
         /// <summary>
-        /// Create a new <see cref="ISqlStrategy"/> instance.
+        /// Create a new <see cref="ISqlStrategy" /> instance.
         /// </summary>
-        /// <returns>A new <see cref="ISqlStrategy"/>.</returns>
+        /// <returns>A new <see cref="ISqlStrategy" />.</returns>
         ISqlStrategy Create(IServiceProvider serviceProvider, IEnumerable<IExceptionHandlingStrategy> exceptionHandlingStrategies);
     }
 }

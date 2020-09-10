@@ -23,6 +23,7 @@
 namespace Cadru.IO.Interop
 {
 #if !(WP80 || WP81)
+
     using System;
 
     /// <summary>
@@ -66,5 +67,6 @@ namespace Cadru.IO.Interop
         STREAM = 0x400000,
         VALIDATE = 0x1000000
     }
+
 #endif
 }

@@ -31,15 +31,15 @@ namespace Cadru.Polly
     /// <summary>
     /// Extension methods for setting up <see
     /// href="https://github.com/App-vNext/Polly">Polly</see> services in an
-    /// <see cref="IServiceCollection"/>.
+    /// <see cref="IServiceCollection" />.
     /// </summary>
     public static class ServiceCollectionExtensions
     {
         /// <summary>
-        /// Adds a <see cref="PolicyRegistry"/> instance to the specified <see cref="IServiceCollection"/>.
+        /// Adds a <see cref="PolicyRegistry" /> instance to the specified <see cref="IServiceCollection" />.
         /// </summary>
         /// <param name="services">The <see cref="IServiceCollection" /> to add services to.</param>
-        /// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chained.</returns>
+        /// <returns>The <see cref="IServiceCollection" /> so that additional calls can be chained.</returns>
         public static IPolicyRegistry<string> AddPollyRegistry(this IServiceCollection services)
         {
             Requires.NotNull(services, nameof(services));

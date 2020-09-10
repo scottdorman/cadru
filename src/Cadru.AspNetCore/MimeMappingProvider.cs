@@ -49,7 +49,7 @@ namespace Cadru.AspNetCore
         /// and content-types.</param>
         /// <remarks>
         /// It is recommended that the <see cref="IDictionary{T,K}"/> instance
-        /// use <see cref="StringComparer.OrdinalIgnoreCase"/>. This <see
+        /// use <see cref="StringComparer.OrdinalIgnoreCase" />. This <see
         /// cref="IDictionary{T,K}"/> instance replaces the default mappings.
         /// </remarks>
         public MimeMappingProvider(IDictionary<string, string> mappings)

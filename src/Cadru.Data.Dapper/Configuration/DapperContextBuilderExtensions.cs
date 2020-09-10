@@ -35,7 +35,7 @@ using Microsoft.Data.SqlClient;
 namespace Cadru.Data.Dapper.Configuration
 {
     /// <summary>
-    /// Provides a simple API surface for configuring <see cref="DapperContext"/>.
+    /// Provides a simple API surface for configuring <see cref="DapperContext" />.
     /// </summary>
     public static class DapperContextBuilderExtensions
     {
@@ -45,7 +45,7 @@ namespace Cadru.Data.Dapper.Configuration
         /// </summary>
         /// <typeparam name="T">The type to handle.</typeparam>
         /// <param name="contextBuilder">The builder being used to configure the context.</param>
-        /// <param name="handler">The handler for the type <typeparamref name="T"/>.</param>
+        /// <param name="handler">The handler for the type <typeparamref name="T" />.</param>
         /// <returns>The context builder so that further configuration can be chained.</returns>
         public static DapperContextBuilder AddTypeHandler<T>(this DapperContextBuilder contextBuilder, SqlMapper.TypeHandler<T> handler)
         {
@@ -59,7 +59,7 @@ namespace Cadru.Data.Dapper.Configuration
         /// </summary>
         /// <param name="contextBuilder">The builder being used to configure the context.</param>
         /// <param name="type">The type to handle.</param>
-        /// <param name="handler">The handler for the type <paramref name="type"/>.</param>
+        /// <param name="handler">The handler for the type <paramref name="type" />.</param>
         /// <returns>The context builder so that further configuration can be chained.</returns>
         public static DapperContextBuilder AddTypeHandler(this DapperContextBuilder contextBuilder, Type type, SqlMapper.ITypeHandler handler)
         {
@@ -73,7 +73,7 @@ namespace Cadru.Data.Dapper.Configuration
         /// </summary>
         /// <param name="contextBuilder">The builder being used to configure the context.</param>
         /// <param name="type">The type to handle.</param>
-        /// <param name="handler">The handler for the type <paramref name="type"/>.</param>
+        /// <param name="handler">The handler for the type <paramref name="type" />.</param>
         /// <param name="clone">Whether to clone the current type handler map.</param>
         /// <returns>The context builder so that further configuration can be chained.</returns>
         public static DapperContextBuilder AddTypeHandlerImpl(this DapperContextBuilder contextBuilder, Type type, SqlMapper.ITypeHandler handler, bool clone)

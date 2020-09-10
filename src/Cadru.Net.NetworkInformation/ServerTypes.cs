@@ -23,6 +23,7 @@
 namespace Cadru.Net.NetworkInformation
 {
 #if !(WP80 || WPA81)
+
     using System;
 
     /// <summary>
@@ -212,5 +213,6 @@ namespace Cadru.Net.NetworkInformation
         /// </summary>
         All = 0xFFFFFFFF
     }
+
 #endif
 }

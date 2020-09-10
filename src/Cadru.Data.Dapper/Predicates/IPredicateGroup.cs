@@ -25,13 +25,13 @@ using System.Collections.Generic;
 namespace Cadru.Data.Dapper.Predicates
 {
     /// <summary>
-    /// Represents a collection of <see cref="IPredicate"/> instances to
+    /// Represents a collection of <see cref="IPredicate" /> instances to
     /// be joined together.
     /// </summary>
     public interface IPredicateGroup : IPredicate
     {
         /// <summary>
-        /// Gets the collection containing the <see cref="IPredicate"/> instances.
+        /// Gets the collection containing the <see cref="IPredicate" /> instances.
         /// </summary>
         IList<IPredicate> Predicates { get; }
     }

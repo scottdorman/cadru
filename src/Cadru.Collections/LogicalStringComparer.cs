@@ -55,16 +55,16 @@ namespace Cadru.Collections
         private readonly CultureInfo cultureInfo;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LogicalStringComparer"/> class using the
-        /// <see cref="CultureInfo.CurrentCulture"/> of the current thread.
+        /// Initializes a new instance of the <see cref="LogicalStringComparer" /> class using the
+        /// <see cref="CultureInfo.CurrentCulture" /> of the current thread.
         /// </summary>
-        /// <remarks>When the <see cref="LogicalStringComparer"/> instance is created using
-        /// this constructor, the <see cref="CultureInfo.CurrentCulture"/> of the
+        /// <remarks>When the <see cref="LogicalStringComparer" /> instance is created using
+        /// this constructor, the <see cref="CultureInfo.CurrentCulture" /> of the
         /// current thread is saved. Comparison procedures use the saved
         /// culture to determine the sort order and casing rules; therefore,
         /// string comparisons might have different results depending on the
         /// culture. For more information on culture-specific comparisons, see
-        /// the <see cref="System.Globalization"/> namespace and
+        /// the <see cref="System.Globalization" /> namespace and
         /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </remarks>
         public LogicalStringComparer()
@@ -73,16 +73,16 @@ namespace Cadru.Collections
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LogicalStringComparer"/> class using
-        /// the specified <see cref="System.Globalization.CultureInfo"/>.
+        /// Initializes a new instance of the <see cref="LogicalStringComparer" /> class using
+        /// the specified <see cref="System.Globalization.CultureInfo" />.
         /// </summary>
-        /// <param name="culture">The <see cref="CultureInfo"/>
-        /// to use for the new <see cref="LogicalStringComparer"/>.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="culture"/> is a <see langword="null" />.</exception>
-        /// <rermarks>Comparison procedures use the specified <see cref="CultureInfo"/> to determine
+        /// <param name="culture">The <see cref="CultureInfo" />
+        /// to use for the new <see cref="LogicalStringComparer" />.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="culture" /> is a <see langword="null" />.</exception>
+        /// <rermarks>Comparison procedures use the specified <see cref="CultureInfo" /> to determine
         /// the sort order and casing rules. String comparisons might have different results
         /// depending on the culture. For more information on culture-specific comparisons, see
-        /// the <see cref="System.Globalization"/> namespace and
+        /// the <see cref="System.Globalization" /> namespace and
         /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </rermarks>
         public LogicalStringComparer(CultureInfo culture)
@@ -93,16 +93,16 @@ namespace Cadru.Collections
         }
 
         /// <summary>
-        /// Represents an instance of <see cref="LogicalStringComparer"/> that is
-        /// associated with the <see cref="CultureInfo.CurrentCulture"/>.
+        /// Represents an instance of <see cref="LogicalStringComparer" /> that is
+        /// associated with the <see cref="CultureInfo.CurrentCulture" />.
         /// </summary>
-        /// <value>The default <see cref="LogicalStringComparer"/></value>
+        /// <value>The default <see cref="LogicalStringComparer" /></value>
         /// <remarks>Comparison procedures use the
-        /// <see cref="CultureInfo.CurrentCulture"/> of the current thread to
+        /// <see cref="CultureInfo.CurrentCulture" /> of the current thread to
         /// determine the sort order and casing rules. String comparisons
         /// might have different results depending on the culture. For more
         /// information on culture-specific comparisons, see the
-        /// <see cref="System.Globalization"/> namespace and
+        /// <see cref="System.Globalization" /> namespace and
         /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1304:SpecifyCultureInfo", MessageId = "Cadru.Collections.LogicalStringComparer.#ctor", Justification = "This constructor call implicitly passes a culture.")]
@@ -110,20 +110,20 @@ namespace Cadru.Collections
         public static IComparer Default => new LogicalStringComparer();
 
         /// <summary>
-        /// Represents an instance of <see cref="LogicalStringComparer"/> that is
+        /// Represents an instance of <see cref="LogicalStringComparer" /> that is
         /// associated with the
-        /// <see cref="CultureInfo.InvariantCulture"/> and that is always
+        /// <see cref="CultureInfo.InvariantCulture" /> and that is always
         /// available.
         /// </summary>
-        /// <value>An instance of <see cref="LogicalStringComparer"/> that is
-        /// associated with <see cref="CultureInfo.InvariantCulture"/>.
+        /// <value>An instance of <see cref="LogicalStringComparer" /> that is
+        /// associated with <see cref="CultureInfo.InvariantCulture" />.
         /// </value>
         /// <remarks>Comparison procedures use the
-        /// <see cref="CultureInfo.InvariantCulture"/> to determine the sort
+        /// <see cref="CultureInfo.InvariantCulture" /> to determine the sort
         /// order and casing rules. String comparisons might have different
         /// results depending on the culture. For more information on
         /// culture-specific comparisons, see the
-        /// <see cref="System.Globalization"/> namespace and
+        /// <see cref="System.Globalization" /> namespace and
         /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
         /// </remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
@@ -154,15 +154,15 @@ namespace Cadru.Collections
         /// </listheader>
         /// <item>
         /// <term>Less than zero</term>
-        /// <description><paramref name="x"/> is less than <paramref name="y"/>, with casing ignored.</description>
+        /// <description><paramref name="x" /> is less than <paramref name="y" />, with casing ignored.</description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
-        /// <description><paramref name="x"/> equals <paramref name="y"/>, with casing ignored.</description>
+        /// <description><paramref name="x" /> equals <paramref name="y" />, with casing ignored.</description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
-        /// <description><paramref name="x"/> is greater than <paramref name="y"/>, with casing ignored.</description>
+        /// <description><paramref name="x" /> is greater than <paramref name="y" />, with casing ignored.</description>
         /// </item>
         /// </list></returns>
         public int Compare(object x, object y)
@@ -205,15 +205,15 @@ namespace Cadru.Collections
         /// </listheader>
         /// <item>
         /// <term>Less than zero</term>
-        /// <description><paramref name="x"/> is less than <paramref name="y"/>, with casing ignored.</description>
+        /// <description><paramref name="x" /> is less than <paramref name="y" />, with casing ignored.</description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
-        /// <description><paramref name="x"/> equals <paramref name="y"/>, with casing ignored.</description>
+        /// <description><paramref name="x" /> equals <paramref name="y" />, with casing ignored.</description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
-        /// <description><paramref name="x"/> is greater than <paramref name="y"/>, with casing ignored.</description>
+        /// <description><paramref name="x" /> is greater than <paramref name="y" />, with casing ignored.</description>
         /// </item>
         /// </list></returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Reviewed.")]
@@ -339,8 +339,8 @@ namespace Cadru.Collections
         /// </summary>
         /// <param name="x">The first string to compare.</param>
         /// <param name="y">The second string to compare.</param>
-        /// <returns><see langword="true"/> if the two string values are equal;
-        /// otherwise, <see langword="false"/>. </returns>
+        /// <returns><see langword="true" /> if the two string values are equal;
+        /// otherwise, <see langword="false" />. </returns>
         bool IEqualityComparer.Equals(object x, object y)
         {
             return Equals(x, y);
@@ -351,8 +351,8 @@ namespace Cadru.Collections
         /// </summary>
         /// <param name="x">The first string to compare.</param>
         /// <param name="y">The second string to compare.</param>
-        /// <returns><see langword="true"/> if the two string values are equal;
-        /// otherwise, <see langword="false"/>. </returns>
+        /// <returns><see langword="true" /> if the two string values are equal;
+        /// otherwise, <see langword="false" />. </returns>
         public bool Equals(string x, string y)
         {
             return String.Equals(x, y);
@@ -364,8 +364,8 @@ namespace Cadru.Collections
         /// <param name="obj">The Object for which a hash code is to be
         /// returned.</param>
         /// <returns>A hash code for the specified object.</returns>
-        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a
-        /// reference type and <paramref name="obj"/> is a <see langword="null"/>.
+        /// <exception cref="ArgumentNullException">The type of <paramref name="obj" /> is a
+        /// reference type and <paramref name="obj" /> is a <see langword="null" />.
         /// </exception>
         public int GetHashCode(object obj)
         {
@@ -392,8 +392,8 @@ namespace Cadru.Collections
         /// <param name="obj">The string for which a hash code is to be
         /// returned.</param>
         /// <returns>A hash code for the specified string.</returns>
-        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a
-        /// reference type and <paramref name="obj"/> is a <see langword="null"/>.
+        /// <exception cref="ArgumentNullException">The type of <paramref name="obj" /> is a
+        /// reference type and <paramref name="obj" /> is a <see langword="null" />.
         /// </exception>
         public int GetHashCode(string obj)
         {

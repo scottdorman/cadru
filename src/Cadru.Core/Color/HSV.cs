@@ -28,17 +28,17 @@ namespace Cadru.Color
     public struct HSV
     {
         /// <summary>
-        /// The color black as an <see cref="HSV"/> value.
+        /// The color black as an <see cref="HSV" /> value.
         /// </summary>
         public static readonly HSV Black = new HSV(1, 1, 0);
 
         /// <summary>
-        /// The color white as an <see cref="HSV"/> value.
+        /// The color white as an <see cref="HSV" /> value.
         /// </summary>
         public static readonly HSV White = new HSV(0, 0, 1);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HSV"/> structure.
+        /// Initializes a new instance of the <see cref="HSV" /> structure.
         /// </summary>
         /// <param name="hue">The hue component.</param>
         /// <param name="saturation">The saturation component.</param>
@@ -101,9 +101,9 @@ namespace Cadru.Color
         /// Indicates whether this instance and a specified object are equal.
         /// </summary>
         /// <param name="other"></param>
-        /// <returns><see langword="true"/> if <paramref name="other"/> and this
+        /// <returns><see langword="true" /> if <paramref name="other" /> and this
         /// instance represent the same value; otherwise, <see
-        /// langword="false"/>.</returns>
+        /// langword="false" />.</returns>
         public bool Equals(HSV other)
         {
             if (this.Hue != other.Hue)

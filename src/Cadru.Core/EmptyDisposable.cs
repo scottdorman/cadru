@@ -25,7 +25,7 @@ using System;
 namespace Cadru
 {
     /// <summary>
-    /// Represents an empty <see cref="IDisposable"/> instance.
+    /// Represents an empty <see cref="IDisposable" /> instance.
     /// </summary>
     public sealed class EmptyDisposable : IDisposable
     {

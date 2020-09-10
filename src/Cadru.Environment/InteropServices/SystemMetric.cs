@@ -29,15 +29,15 @@ namespace Cadru.Environment.InteropServices
     internal enum SystemMetric : int
     {
         /// <summary>
-        ///  Width of the screen of the primary display monitor, in pixels. 
-        /// This is the same values obtained by calling GetDeviceCaps as 
+        ///  Width of the screen of the primary display monitor, in pixels.
+        /// This is the same values obtained by calling GetDeviceCaps as
         /// follows: GetDeviceCaps( hdcPrimaryMonitor, HORZRES).
         /// </summary>
         SM_CXSCREEN = 0,
 
         /// <summary>
-        /// Height of the screen of the primary display monitor, in pixels. 
-        /// This is the same values obtained by calling GetDeviceCaps as 
+        /// Height of the screen of the primary display monitor, in pixels.
+        /// This is the same values obtained by calling GetDeviceCaps as
         /// follows: GetDeviceCaps( hdcPrimaryMonitor, VERTRES).
         /// </summary>
         SM_CYSCREEN = 1,
@@ -59,13 +59,13 @@ namespace Cadru.Environment.InteropServices
 
         /// <summary>
         /// Width of a window border, in pixels. This is equivalent to the
-        /// SM_CXEDGE value for windows with the 3-D look. 
+        /// SM_CXEDGE value for windows with the 3-D look.
         /// </summary>
         SM_CXBORDER = 5,
 
         /// <summary>
-        /// Height of a window border, in pixels. This is equivalent to the 
-        /// SM_CYEDGE value for windows with the 3-D look. 
+        /// Height of a window border, in pixels. This is equivalent to the
+        /// SM_CYEDGE value for windows with the 3-D look.
         /// </summary>
         SM_CYBORDER = 6,
 
@@ -73,7 +73,7 @@ namespace Cadru.Environment.InteropServices
         /// Thickness of the frame around the perimeter of a window that has
         /// a caption but is not sizable, in pixels. SM_CXFIXEDFRAME is the
         /// height of the horizontal border and SM_CYFIXEDFRAME is the width
-        /// of the vertical border. 
+        /// of the vertical border.
         /// </summary>
         SM_CXDLGFRAME = 7,
 
@@ -81,7 +81,7 @@ namespace Cadru.Environment.InteropServices
         /// Thickness of the frame around the perimeter of a window that has
         /// a caption but is not sizable, in pixels. SM_CXFIXEDFRAME is the
         /// height of the horizontal border and SM_CYFIXEDFRAME is the width
-        /// of the vertical border. 
+        /// of the vertical border.
         /// </summary>
         SM_CYDLGFRAME = 8,
 
@@ -96,20 +96,20 @@ namespace Cadru.Environment.InteropServices
         SM_CXHTHUMB = 10,
 
         /// <summary>
-        /// Default width of an icon, in pixels. The LoadIcon function can 
+        /// Default width of an icon, in pixels. The LoadIcon function can
         /// load only icons with the dimensions specified by SM_CXICON and
         /// SM_CYICON.
         /// </summary>
         SM_CXICON = 11,
 
         /// <summary>
-        /// Default height of an icon, in pixels. The LoadIcon function can 
+        /// Default height of an icon, in pixels. The LoadIcon function can
         /// load only icons with the dimensions SM_CXICON and SM_CYICON.
         /// </summary>
         SM_CYICON = 12,
 
         /// <summary>
-        /// Width of a cursor, in pixels. The system cannot create 
+        /// Width of a cursor, in pixels. The system cannot create
         /// cursors of other sizes.
         /// </summary>
         SM_CXCURSOR = 13,
@@ -127,8 +127,8 @@ namespace Cadru.Environment.InteropServices
 
         /// <summary>
         /// Width of the client area for a full-screen window on the primary
-        /// display monitor, in pixels. To get the coordinates of the portion 
-        /// of the screen not obscured by the system taskbar or by application 
+        /// display monitor, in pixels. To get the coordinates of the portion
+        /// of the screen not obscured by the system taskbar or by application
         /// desktop toolbars, call the SystemParametersInfo function with the
         /// SPI_GETWORKAREA value.
         /// </summary>
@@ -217,18 +217,18 @@ namespace Cadru.Environment.InteropServices
         SM_CYSIZE = 31,
 
         /// <summary>
-        /// Thickness of the sizing border around the perimeter of a window 
+        /// Thickness of the sizing border around the perimeter of a window
         /// that can be resized, in pixels. SM_CXSIZEFRAME is the width of the
         /// horizontal border, and SM_CYSIZEFRAME is the height of the
-        /// vertical border. 
+        /// vertical border.
         /// </summary>
         SM_CXFRAME = 32,
 
         /// <summary>
-        /// Thickness of the sizing border around the perimeter of a window 
+        /// Thickness of the sizing border around the perimeter of a window
         /// that can be resized, in pixels. SM_CXSIZEFRAME is the width of the
-        /// horizontal border, and SM_CYSIZEFRAME is the height of the 
-        /// vertical border. 
+        /// horizontal border, and SM_CYSIZEFRAME is the height of the
+        /// vertical border.
         /// </summary>
         SM_CYFRAME = 33,
 
@@ -240,24 +240,24 @@ namespace Cadru.Environment.InteropServices
         SM_CXMINTRACK = 34,
 
         /// <summary>
-        /// Minimum tracking height of a window, in pixels. The user cannot 
-        /// drag the window frame to a size smaller than these dimensions. A 
+        /// Minimum tracking height of a window, in pixels. The user cannot
+        /// drag the window frame to a size smaller than these dimensions. A
         /// window can override this value by processing the WM_GETMINMAXINFO
         /// message.
         /// </summary>
         SM_CYMINTRACK = 35,
 
         /// <summary>
-        /// Width of the rectangle around the location of a first click in a 
-        /// double-click sequence, in pixels. The second click must occur 
-        /// within the rectangle defined by SM_CXDOUBLECLK and SM_CYDOUBLECLK 
+        /// Width of the rectangle around the location of a first click in a
+        /// double-click sequence, in pixels. The second click must occur
+        /// within the rectangle defined by SM_CXDOUBLECLK and SM_CYDOUBLECLK
         /// for the system to consider the two clicks a double-click.
         /// </summary>
         SM_CXDOUBLECLK = 36,
 
         /// <summary>
         /// Height of the rectangle around the location of a first click in a
-        /// double-click sequence, in pixels. The second click must occur 
+        /// double-click sequence, in pixels. The second click must occur
         /// within the rectangle defined by SM_CXDOUBLECLK and SM_CYDOUBLECLK
         /// for the system to consider the two clicks a double-click. The two
         /// clicks must also occur within a specified time.
@@ -266,15 +266,15 @@ namespace Cadru.Environment.InteropServices
 
         /// <summary>
         /// Width of a grid cell for items in large icon view, in pixels. Each
-        /// item fits into a rectangle of size SM_CXICONSPACING by 
-        /// SM_CYICONSPACING when arranged. This value is always greater 
+        /// item fits into a rectangle of size SM_CXICONSPACING by
+        /// SM_CYICONSPACING when arranged. This value is always greater
         /// than or equal to SM_CXICON.
         /// </summary>
         SM_CXICONSPACING = 38,
 
         /// <summary>
-        /// Height of a grid cell for items in large icon view, in pixels. 
-        /// Each item fits into a rectangle of size SM_CXICONSPACING by 
+        /// Height of a grid cell for items in large icon view, in pixels.
+        /// Each item fits into a rectangle of size SM_CXICONSPACING by
         /// SM_CYICONSPACING when arranged. This value is always greater than
         /// or equal to SM_CYICON.
         /// </summary>
@@ -293,7 +293,7 @@ namespace Cadru.Environment.InteropServices
         SM_PENWINDOWS = 41,
 
         /// <summary>
-        /// Nonzero if User32.dll supports DBCS; zero otherwise. 
+        /// Nonzero if User32.dll supports DBCS; zero otherwise.
         /// (WinMe/95/98): Unicode.
         /// </summary>
         SM_DBCSENABLED = 42,
@@ -329,27 +329,27 @@ namespace Cadru.Environment.InteropServices
         SM_SECURE = 44,
 
         /// <summary>
-        /// Width of a 3-D border, in pixels. This is the 3-D counterpart 
+        /// Width of a 3-D border, in pixels. This is the 3-D counterpart
         /// of SM_CXBORDER.
         /// </summary>
         SM_CXEDGE = 45,
 
         /// <summary>
-        /// Height of a 3-D border, in pixels. This is the 3-D counterpart 
+        /// Height of a 3-D border, in pixels. This is the 3-D counterpart
         /// of SM_CYBORDER.
         /// </summary>
         SM_CYEDGE = 46,
 
         /// <summary>
-        /// Width of a grid cell for a minimized window, in pixels. Each 
-        /// minimized window fits into a rectangle this size when arranged. 
+        /// Width of a grid cell for a minimized window, in pixels. Each
+        /// minimized window fits into a rectangle this size when arranged.
         /// This value is always greater than or equal to SM_CXMINIMIZED.
         /// </summary>
         SM_CXMINSPACING = 47,
 
         /// <summary>
-        /// Height of a grid cell for a minimized window, in pixels. Each 
-        /// minimized window fits into a rectangle this size when arranged. 
+        /// Height of a grid cell for a minimized window, in pixels. Each
+        /// minimized window fits into a rectangle this size when arranged.
         /// This value is always greater than or equal to SM_CYMINIMIZED.
         /// </summary>
         SM_CYMINSPACING = 48,
@@ -361,7 +361,7 @@ namespace Cadru.Environment.InteropServices
         SM_CXSMICON = 49,
 
         /// <summary>
-        /// Recommended height of a small icon, in pixels. Small icons 
+        /// Recommended height of a small icon, in pixels. Small icons
         /// typically appear in window captions and in small icon view.
         /// </summary>
         SM_CYSMICON = 50,
@@ -409,19 +409,19 @@ namespace Cadru.Environment.InteropServices
         SM_CYMINIMIZED = 58,
 
         /// <summary>
-        /// Default maximum width of a window that has a caption and sizing 
+        /// Default maximum width of a window that has a caption and sizing
         /// borders, in pixels. This metric refers to the entire desktop. The
-        /// user cannot drag the window frame to a size larger than these 
-        /// dimensions. A window can override this value by processing the 
+        /// user cannot drag the window frame to a size larger than these
+        /// dimensions. A window can override this value by processing the
         /// WM_GETMINMAXINFO message.
         /// </summary>
         SM_CXMAXTRACK = 59,
 
         /// <summary>
-        /// Default maximum height of a window that has a caption and sizing 
+        /// Default maximum height of a window that has a caption and sizing
         /// borders, in pixels. This metric refers to the entire desktop. The
-        /// user cannot drag the window frame to a size larger than these 
-        /// dimensions. A window can override this value by processing the 
+        /// user cannot drag the window frame to a size larger than these
+        /// dimensions. A window can override this value by processing the
         /// WM_GETMINMAXINFO message.
         /// </summary>
         SM_CYMAXTRACK = 60,
@@ -433,43 +433,43 @@ namespace Cadru.Environment.InteropServices
         SM_CXMAXIMIZED = 61,
 
         /// <summary>
-        /// Default height, in pixels, of a maximized top-level window on the 
+        /// Default height, in pixels, of a maximized top-level window on the
         /// primary display monitor.
         /// </summary>
         SM_CYMAXIMIZED = 62,
 
         /// <summary>
-        /// Least significant bit is set if a network is present; otherwise, 
+        /// Least significant bit is set if a network is present; otherwise,
         /// it is cleared. The other bits are reserved for future use.
         /// </summary>
         SM_NETWORK = 63,
 
         /// <summary>
-        /// Value that specifies how the system was started: 0-normal, 
+        /// Value that specifies how the system was started: 0-normal,
         /// 1-failsafe, 2-failsafe /w net.
         /// </summary>
         SM_CLEANBOOT = 67,
 
         /// <summary>
         /// Width of a rectangle centered on a drag point to allow for limited
-        /// movement of the mouse pointer before a drag operation begins, 
-        /// in pixels. 
+        /// movement of the mouse pointer before a drag operation begins,
+        /// in pixels.
         /// </summary>
         SM_CXDRAG = 68,
 
         /// <summary>
         /// Height of a rectangle centered on a drag point to allow for limited
-        /// movement of the mouse pointer before a drag operation begins. This 
-        /// value is in pixels. It allows the user to click and release the 
-        /// mouse button easily without unintentionally starting a drag 
+        /// movement of the mouse pointer before a drag operation begins. This
+        /// value is in pixels. It allows the user to click and release the
+        /// mouse button easily without unintentionally starting a drag
         /// operation.
         /// </summary>
         SM_CYDRAG = 69,
 
         /// <summary>
         /// Nonzero if the user requires an application to present information
-        /// visually in situations where it would otherwise present the 
-        /// information only in audible form; zero otherwise. 
+        /// visually in situations where it would otherwise present the
+        /// information only in audible form; zero otherwise.
         /// </summary>
         SM_SHOWSOUNDS = 70,
 
@@ -484,7 +484,7 @@ namespace Cadru.Environment.InteropServices
         SM_CYMENUCHECK = 72,
 
         /// <summary>
-        /// Nonzero if the computer has a low-end (slow) processor; 
+        /// Nonzero if the computer has a low-end (slow) processor;
         /// zero otherwise.
         /// </summary>
         SM_SLOWMACHINE = 73,
@@ -496,8 +496,8 @@ namespace Cadru.Environment.InteropServices
         SM_MIDEASTENABLED = 74,
 
         /// <summary>
-        /// Nonzero if a mouse is installed; zero otherwise. This value is 
-        /// rarely zero, because of support for virtual mice and because some 
+        /// Nonzero if a mouse is installed; zero otherwise. This value is
+        /// rarely zero, because of support for virtual mice and because some
         /// systems detect the presence of the port instead of the presence of
         /// a mouse.
         /// </summary>
@@ -529,41 +529,41 @@ namespace Cadru.Environment.InteropServices
         SM_CMONITORS = 80,
 
         /// <summary>
-        /// Windows XP (v5.1+) Nonzero if all the display monitors have the 
+        /// Windows XP (v5.1+) Nonzero if all the display monitors have the
         /// same color format, zero otherwise. Note that two displays can have
-        /// the same bit depth, but different color formats. For example, the 
+        /// the same bit depth, but different color formats. For example, the
         /// red, green, and blue pixels can be encoded with different numbers
-        /// of bits, or those bits can be located in different places in a 
-        /// pixel's color value. 
+        /// of bits, or those bits can be located in different places in a
+        /// pixel's color value.
         /// </summary>
         SM_SAMEDISPLAYFORMAT = 81,
 
         /// <summary>
-        /// Windows XP (v5.1+) Nonzero if Input Method Manager/Input Method 
+        /// Windows XP (v5.1+) Nonzero if Input Method Manager/Input Method
         /// Editor features are enabled; zero otherwise.
         /// </summary>
         SM_IMMENABLED = 82,
 
         /// <summary>
-        /// Windows XP (v5.1+) Width of the left and right edges of the focus 
-        /// rectangle drawn by DrawFocusRect. This value is in pixels. 
+        /// Windows XP (v5.1+) Width of the left and right edges of the focus
+        /// rectangle drawn by DrawFocusRect. This value is in pixels.
         /// </summary>
         SM_CXFOCUSBORDER = 83,
 
         /// <summary>
-        /// Windows XP (v5.1+) Height of the top and bottom edges of the focus 
-        /// rectangle drawn by DrawFocusRect. This value is in pixels. 
+        /// Windows XP (v5.1+) Height of the top and bottom edges of the focus
+        /// rectangle drawn by DrawFocusRect. This value is in pixels.
         /// </summary>
         SM_CYFOCUSBORDER = 84,
 
         /// <summary>
-        /// Nonzero if the current operating system is the Windows XP Tablet PC 
+        /// Nonzero if the current operating system is the Windows XP Tablet PC
         /// edition, zero if not.
         /// </summary>
         SM_TABLETPC = 86,
 
         /// <summary>
-        /// Nonzero if the current operating system is the Windows XP, Media 
+        /// Nonzero if the current operating system is the Windows XP, Media
         /// Center Edition, zero if not.
         /// </summary>
         SM_MEDIACENTER = 87,
@@ -584,25 +584,25 @@ namespace Cadru.Environment.InteropServices
         SM_CMETRICS_NT = 88,
 
         /// <summary>
-        /// Windows XP (v5.1+) This system metric is used in a Terminal 
-        /// Services environment. If the calling process is associated with a 
-        /// Terminal Services client session, the return value is nonzero. If 
-        /// the calling process is associated with the Terminal Server console 
-        /// session, the return value is zero. The console session is not 
-        /// necessarily the physical console - see WTSGetActiveConsoleSessionId 
-        /// for more information. 
+        /// Windows XP (v5.1+) This system metric is used in a Terminal
+        /// Services environment. If the calling process is associated with a
+        /// Terminal Services client session, the return value is nonzero. If
+        /// the calling process is associated with the Terminal Server console
+        /// session, the return value is zero. The console session is not
+        /// necessarily the physical console - see WTSGetActiveConsoleSessionId
+        /// for more information.
         /// </summary>
         SM_REMOTESESSION = 0x1000,
 
         /// <summary>
-        /// Windows XP (v5.1+) Nonzero if the current session is shutting down; 
+        /// Windows XP (v5.1+) Nonzero if the current session is shutting down;
         /// zero otherwise.
         /// </summary>
         SM_SHUTTINGDOWN = 0x2000,
 
         /// <summary>
-        /// Windows XP (v5.1+) This system metric is used in a Terminal 
-        /// Services environment. Its value is nonzero if the current session 
+        /// Windows XP (v5.1+) This system metric is used in a Terminal
+        /// Services environment. Its value is nonzero if the current session
         /// is remotely controlled; zero otherwise.
         /// </summary>
         SM_REMOTECONTROL = 0x2001,

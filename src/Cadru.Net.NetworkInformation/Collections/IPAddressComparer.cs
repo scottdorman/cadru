@@ -23,6 +23,7 @@
 namespace Cadru.Net.NetworkInformation.Collections
 {
 #if !DOTNET5_1
+
     using System;
     using System.Collections;
     using System.Collections.Generic;
@@ -34,50 +35,27 @@ namespace Cadru.Net.NetworkInformation.Collections
     /// </summary>
     public sealed class IPAddressComparer : IComparer, IEqualityComparer, IComparer<IPAddress>, IEqualityComparer<IPAddress>, IComparer<string>, IEqualityComparer<string>
     {
-        #region fields
-        #endregion
-
-        #region constructors
-
-        #region IPAddressComparer()
         /// <summary>
-        /// Initializes a new instance of the <see cref="IPAddressComparer"/> class.
+        /// Initializes a new instance of the <see cref="IPAddressComparer" /> class.
         /// </summary>
         public IPAddressComparer()
         {
         }
-        #endregion
 
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-
-        #region Default
         /// <summary>
-        /// Represents an instance of <see cref="IPAddressComparer"/>.
+        /// Represents an instance of <see cref="IPAddressComparer" />.
         /// </summary>
-        /// <value>The default <see cref="IPAddressComparer"/></value>
+        /// <value>The default <see cref="IPAddressComparer" /></value>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer Default => new IPAddressComparer();
-        #endregion
 
-        #endregion
-
-        #region methods
-
-        #region Compare
-
-        #region Compare(IPAddress x, IPAddress y)
         /// <summary>
-        /// Performs a comparison of two <see cref="IPAddress"/> objects and returns a value
+        /// Performs a comparison of two <see cref="IPAddress" /> objects and returns a value
         /// indicating whether one is less than, equal to or greater than
         /// the other.
         /// </summary>
-        /// <param name="x">The first <see cref="IPAddress"/> to compare.</param>
-        /// <param name="y">The second <see cref="IPAddress"/> to compare.</param>
+        /// <param name="x">The first <see cref="IPAddress" /> to compare.</param>
+        /// <param name="y">The second <see cref="IPAddress" /> to compare.</param>
         /// <returns>
         /// <list type="table">
         /// <listheader>
@@ -87,19 +65,19 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// <item>
         /// <term>Less than zero</term>
         /// <description>
-        /// <paramref name="x"/> is less than <paramref name="y"/>.
+        /// <paramref name="x" /> is less than <paramref name="y" />.
         /// </description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
         /// <description>
-        /// <paramref name="x"/> equals <paramref name="y"/>.
+        /// <paramref name="x" /> equals <paramref name="y" />.
         /// </description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
         /// <description>
-        /// <paramref name="x"/> is greater than <paramref name="y"/>.
+        /// <paramref name="x" /> is greater than <paramref name="y" />.
         /// </description>
         /// </item>
         /// </list></returns>
@@ -128,9 +106,7 @@ namespace Cadru.Net.NetworkInformation.Collections
 
             return result;
         }
-        #endregion
 
-        #region Compare(object x, object y)
         /// <summary>
         /// Performs a comparison of two objects and returns a value
         /// indicating whether one is less than, equal to or greater than
@@ -147,19 +123,19 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// <item>
         /// <term>Less than zero</term>
         /// <description>
-        /// <paramref name="x"/> is less than <paramref name="y"/>.
+        /// <paramref name="x" /> is less than <paramref name="y" />.
         /// </description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
         /// <description>
-        /// <paramref name="x"/> equals <paramref name="y"/>.
+        /// <paramref name="x" /> equals <paramref name="y" />.
         /// </description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
         /// <description>
-        /// <paramref name="x"/> is greater than <paramref name="y"/>.
+        /// <paramref name="x" /> is greater than <paramref name="y" />.
         /// </description>
         /// </item>
         /// </list></returns>
@@ -188,9 +164,7 @@ namespace Cadru.Net.NetworkInformation.Collections
 
             return result;
         }
-        #endregion
 
-        #region Compare(string x, string y)
         /// <summary>
         /// Performs a comparison of two string objects and returns a value
         /// indicating whether one is less than, equal to or greater than
@@ -207,19 +181,19 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// <item>
         /// <term>Less than zero</term>
         /// <description>
-        /// <paramref name="x"/> is less than <paramref name="y"/>.
+        /// <paramref name="x" /> is less than <paramref name="y" />.
         /// </description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
         /// <description>
-        /// <paramref name="x"/> equals <paramref name="y"/>.
+        /// <paramref name="x" /> equals <paramref name="y" />.
         /// </description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
         /// <description>
-        /// <paramref name="x"/> is greater than <paramref name="y"/>.
+        /// <paramref name="x" /> is greater than <paramref name="y" />.
         /// </description>
         /// </item>
         /// </list></returns>
@@ -244,19 +218,13 @@ namespace Cadru.Net.NetworkInformation.Collections
 
             return this.Compare(t1, t2);
         }
-        #endregion
 
-        #endregion
-
-        #region Equals
-
-        #region Equals(IPAddress x, IPAddress y)
         /// <summary>
-        /// Returns a value indicating whether two instances of <see cref="IPAddress"/> are equal.
+        /// Returns a value indicating whether two instances of <see cref="IPAddress" /> are equal.
         /// </summary>
-        /// <param name="x">The first <see cref="IPAddress"/> to compare.</param>
-        /// <param name="y">The second <see cref="IPAddress"/> to compare.</param>
-        /// <returns><see langword="true" /> if the two <see cref="IPAddress"/> values are equal;
+        /// <param name="x">The first <see cref="IPAddress" /> to compare.</param>
+        /// <param name="y">The second <see cref="IPAddress" /> to compare.</param>
+        /// <returns><see langword="true" /> if the two <see cref="IPAddress" /> values are equal;
         /// otherwise, <see langword="false" />. </returns>
         public bool Equals(IPAddress x, IPAddress y)
         {
@@ -267,9 +235,7 @@ namespace Cadru.Net.NetworkInformation.Collections
 
             return x.Equals(y);
         }
-        #endregion
 
-        #region Equals(string x, string y)
         /// <summary>
         /// Returns a value indicating whether two instances of string are equal.
         /// </summary>
@@ -319,21 +285,15 @@ namespace Cadru.Net.NetworkInformation.Collections
                 }
             }
         }
-        #endregion
 
-        #endregion
-
-        #region GetHashCode
-
-        #region GetHashCode(IPAddress obj)
         /// <summary>
-        /// Returns a hash code for the specified <see cref="IPAddress"/>.
+        /// Returns a hash code for the specified <see cref="IPAddress" />.
         /// </summary>
-        /// <param name="obj">The <see cref="IPAddress"/> for which a hash code is to be
+        /// <param name="obj">The <see cref="IPAddress" /> for which a hash code is to be
         /// returned.</param>
-        /// <returns>A hash code for the specified <see cref="IPAddress"/>.</returns>
-        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a
-        /// reference type and <paramref name="obj"/> is a <see langword="null"/>.
+        /// <returns>A hash code for the specified <see cref="IPAddress" />.</returns>
+        /// <exception cref="ArgumentNullException">The type of <paramref name="obj" /> is a
+        /// reference type and <paramref name="obj" /> is a <see langword="null" />.
         /// </exception>
         public int GetHashCode(IPAddress obj)
         {
@@ -341,17 +301,15 @@ namespace Cadru.Net.NetworkInformation.Collections
 
             return obj.GetHashCode();
         }
-        #endregion
 
-        #region GetHashCode(object obj)
         /// <summary>
         /// Returns a hash code for the specified object.
         /// </summary>
         /// <param name="obj">The Object for which a hash code is to be
         /// returned.</param>
         /// <returns>A hash code for the specified object.</returns>
-        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a
-        /// reference type and <paramref name="obj"/> is a <see langword="null"/>.
+        /// <exception cref="ArgumentNullException">The type of <paramref name="obj" /> is a
+        /// reference type and <paramref name="obj" /> is a <see langword="null" />.
         /// </exception>
         public int GetHashCode(object obj)
         {
@@ -390,17 +348,15 @@ namespace Cadru.Net.NetworkInformation.Collections
 
             return hashCode;
         }
-        #endregion
 
-        #region GetHashCode(string obj)
         /// <summary>
         /// Returns a hash code for the specified string.
         /// </summary>
         /// <param name="obj">The string for which a hash code is to be
         /// returned.</param>
         /// <returns>A hash code for the specified string.</returns>
-        /// <exception cref="ArgumentNullException">The type of <paramref name="obj"/> is a
-        /// reference type and <paramref name="obj"/> is a <see langword="null"/>.
+        /// <exception cref="ArgumentNullException">The type of <paramref name="obj" /> is a
+        /// reference type and <paramref name="obj" /> is a <see langword="null" />.
         /// </exception>
         public int GetHashCode(string obj)
         {
@@ -428,18 +384,12 @@ namespace Cadru.Net.NetworkInformation.Collections
 
             return hashCode;
         }
-        #endregion
 
-        #endregion
-
-        #region IEqualityComparer.Equals(object x, object y)
         bool IEqualityComparer.Equals(object x, object y)
         {
             return Equals(x, y);
         }
-        #endregion
 
-        #region Convert
         private static uint Convert(byte[] bytes)
         {
             var ip = (uint)bytes[0] << 24;
@@ -449,9 +399,7 @@ namespace Cadru.Net.NetworkInformation.Collections
 
             return ip;
         }
-        #endregion
-
-        #endregion
     }
+
 #endif
 }

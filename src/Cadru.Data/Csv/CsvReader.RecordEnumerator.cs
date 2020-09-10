@@ -31,15 +31,10 @@ namespace Cadru.Data.Csv
     public partial class CsvReader
     {
         /// <summary>
-        /// Supports a simple iteration over the records of a <see cref="T:CsvReader"/>.
+        /// Supports a simple iteration over the records of a <see cref="T:CsvReader" />.
         /// </summary>
         public struct RecordEnumerator : IEnumerator<string[]>
         {
-            /// <summary>
-            /// Contains the enumerated <see cref="T:CsvReader"/>.
-            /// </summary>
-            private CsvReader _reader;
-
             /// <summary>
             /// Contains the current record.
             /// </summary>
@@ -51,11 +46,16 @@ namespace Cadru.Data.Csv
             private long _currentRecordIndex;
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="T:RecordEnumerator"/> class.
+            /// Contains the enumerated <see cref="T:CsvReader" />.
             /// </summary>
-            /// <param name="reader">The <see cref="T:CsvReader"/> to iterate over.</param>
+            private CsvReader _reader;
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="T:RecordEnumerator" /> class.
+            /// </summary>
+            /// <param name="reader">The <see cref="T:CsvReader" /> to iterate over.</param>
             /// <exception cref="T:ArgumentNullException">
-            ///        <paramref name="reader"/> is a <see langword="null"/>.
+            ///        <paramref name="reader" /> is a <see langword="null" />.
             /// </exception>
             public RecordEnumerator(CsvReader reader)
             {
@@ -76,9 +76,34 @@ namespace Cadru.Data.Csv
             public string[] Current => this._current;
 
             /// <summary>
+            /// Gets the current record.
+            /// </summary>
+            object IEnumerator.Current
+            {
+                get
+                {
+                    if (this._reader.CurrentRecordIndex != this._currentRecordIndex)
+                    {
+                        throw new InvalidOperationException(Strings.EnumerationVersionCheckFailed);
+                    }
+
+                    return this.Current;
+                }
+            }
+
+            /// <summary>
+            /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            /// </summary>
+            public void Dispose()
+            {
+                this._reader = null;
+                this._current = null;
+            }
+
+            /// <summary>
             /// Advances the enumerator to the next record of the CSV.
             /// </summary>
-            /// <returns><see langword="true"/> if the enumerator was successfully advanced to the next record, <see langword="false"/> if the enumerator has passed the end of the CSV.</returns>
+            /// <returns><see langword="true" /> if the enumerator was successfully advanced to the next record, <see langword="false" /> if the enumerator has passed the end of the CSV.</returns>
             public bool MoveNext()
             {
                 if (this._reader.CurrentRecordIndex != this._currentRecordIndex)
@@ -118,31 +143,6 @@ namespace Cadru.Data.Csv
 
                 this._current = null;
                 this._currentRecordIndex = this._reader.CurrentRecordIndex;
-            }
-
-            /// <summary>
-            /// Gets the current record.
-            /// </summary>
-            object IEnumerator.Current
-            {
-                get
-                {
-                    if (this._reader.CurrentRecordIndex != this._currentRecordIndex)
-                    {
-                        throw new InvalidOperationException(Strings.EnumerationVersionCheckFailed);
-                    }
-
-                    return this.Current;
-                }
-            }
-
-            /// <summary>
-            /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-            /// </summary>
-            public void Dispose()
-            {
-                this._reader = null;
-                this._current = null;
             }
         }
     }

@@ -53,7 +53,7 @@ namespace Cadru.Collections
         /// <param name="getKeyFunc">The function used to extract a key from the item.</param>
         /// <param name="comparer">The implementation of the
         /// <see cref="IEqualityComparer{T}"/> generic interface to use when
-        /// comparing keys, or <see langword="null"/> to use the default
+        /// comparing keys, or <see langword="null" /> to use the default
         /// equality comparer for the type of the key, obtained from
         /// <see cref="EqualityComparer{T}.Default">Default</see>.</param>
         public GenericKeyedCollection(Func<TItem, TKey> getKeyFunc, IEqualityComparer<TKey> comparer) : base(comparer)
@@ -69,7 +69,7 @@ namespace Cadru.Collections
         /// <param name="getKeyFunc">The function used to extract a key from the item.</param>
         /// <param name="comparer">The implementation of the
         /// <see cref="IEqualityComparer{T}"/> generic interface to use when
-        /// comparing keys, or <see langword="null"/> to use the default
+        /// comparing keys, or <see langword="null" /> to use the default
         /// equality comparer for the type of the key, obtained from
         /// <see cref="EqualityComparer{T}.Default">Default</see>.</param>
         /// <param name="dictionaryCreationThreshold">The number of elements

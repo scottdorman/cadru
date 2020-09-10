@@ -51,7 +51,7 @@ namespace Cadru.Collections
         /// </summary>
         /// <param name="comparison">The comparison to use.</param>
         /// <returns>The new comparer.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="comparison"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="comparison" /> is <see langword="null" />.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "The type must be generic but the Create method shouldn't be.")]
         public new static Comparer<T> Create(Comparison<T> comparison)
         {
@@ -78,19 +78,19 @@ namespace Cadru.Collections
         /// <item>
         /// <term>Less than zero</term>
         /// <description>
-        /// <paramref name="x"/> is less than <paramref name="y"/>.
+        /// <paramref name="x" /> is less than <paramref name="y" />.
         /// </description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
         /// <description>
-        /// <paramref name="x"/> equals <paramref name="y"/>.
+        /// <paramref name="x" /> equals <paramref name="y" />.
         /// </description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
         /// <description>
-        /// <paramref name="x"/> is greater than <paramref name="y"/>.
+        /// <paramref name="x" /> is greater than <paramref name="y" />.
         /// </description>
         /// </item>
         /// </list>

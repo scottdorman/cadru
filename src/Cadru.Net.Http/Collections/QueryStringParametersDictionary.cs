@@ -38,7 +38,7 @@ namespace Cadru.Net.Http.Collections
     public sealed class QueryStringParametersDictionary : Dictionary<string, string>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="QueryStringParametersDictionary"/>
+        /// Initializes a new instance of the <see cref="QueryStringParametersDictionary" />
         /// class that is empty and has the default initial capacity.
         /// </summary>
         public QueryStringParametersDictionary()
@@ -47,33 +47,33 @@ namespace Cadru.Net.Http.Collections
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="QueryStringParametersDictionary"/>
+        /// Initializes a new instance of the <see cref="QueryStringParametersDictionary" />
         /// class that is empty and has the specified initial capacity.
         /// </summary>
         /// <param name="capacity">The initial number of elements that the
-        /// <see cref="QueryStringParametersDictionary"/> can contain.</param>
+        /// <see cref="QueryStringParametersDictionary" /> can contain.</param>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// <paramref name="capacity"/> is less than 0.</exception>
+        /// <paramref name="capacity" /> is less than 0.</exception>
         public QueryStringParametersDictionary(int capacity)
             : base(capacity)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="QueryStringParametersDictionary"/>
+        /// Initializes a new instance of the <see cref="QueryStringParametersDictionary" />
         /// class that contains elements copied from the specified
         /// <see cref="System.Collections.Generic.IDictionary{TKey,TValue}"/>.
         /// </summary>
         /// <param name="dictionary">
         /// The <see cref="System.Collections.Generic.IDictionary{TKey,TValue}"/>
         /// whose elements are copied to the new
-        /// <see cref="QueryStringParametersDictionary"/>.
+        /// <see cref="QueryStringParametersDictionary" />.
         /// </param>
         /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="dictionary"/> is <see langword="null"/>.
+        /// <paramref name="dictionary" /> is <see langword="null" />.
         /// </exception>
         /// <exception cref="System.ArgumentException">
-        /// <paramref name="dictionary"/> contains one or more duplicate keys.
+        /// <paramref name="dictionary" /> contains one or more duplicate keys.
         /// </exception>
         public QueryStringParametersDictionary(IDictionary<string, string> dictionary)
             : base(dictionary)
@@ -81,20 +81,20 @@ namespace Cadru.Net.Http.Collections
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="QueryStringParametersDictionary"/>
+        /// Initializes a new instance of the <see cref="QueryStringParametersDictionary" />
         /// class that contains elements parsed from the given query.
         /// </summary>
         /// <remarks>Multiple occurrences of the same query string variable are not supported.</remarks>
         /// <param name="query">The string to be parsed.</param>
         /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="query"/> contains one or more keys whose value
-        /// is <see langword="null"/>.
+        /// <paramref name="query" /> contains one or more keys whose value
+        /// is <see langword="null" />.
         /// </exception>
         /// <exception cref="System.ArgumentException">
-        /// <paramref name="query"/> contains one or more duplicate keys.
+        /// <paramref name="query" /> contains one or more duplicate keys.
         /// </exception>
         /// <exception cref="System.InvalidOperationException">
-        /// <paramref name="query"/> is not properly formed.
+        /// <paramref name="query" /> is not properly formed.
         /// </exception>
         public QueryStringParametersDictionary(string query)
             : base()

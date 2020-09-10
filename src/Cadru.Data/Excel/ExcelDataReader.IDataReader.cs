@@ -26,6 +26,7 @@ namespace Cadru.Data.Excel
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
+
     using DocumentFormat.OpenXml;
     using DocumentFormat.OpenXml.Packaging;
     using DocumentFormat.OpenXml.Spreadsheet;
@@ -35,6 +36,19 @@ namespace Cadru.Data.Excel
         public int Depth => 0;
 
         public int RecordsAffected => -1;
+
+        public static int GetColumnIndexByName(string colName)
+        {
+            var name = GetStartingLettersOnly(colName);
+            int number = 0, pow = 1;
+            for (var i = name.Length - 1; i >= 0; i--)
+            {
+                number += (name[i] - 'A' + 1) * pow;
+                pow *= 26;
+            }
+
+            return number - 1;
+        }
 
         public void Close() => this.Dispose();
 
@@ -53,6 +67,11 @@ namespace Cadru.Data.Excel
 
         public DataTable GetSchemaTable() => throw new NotSupportedException();
 
+        public bool IsCurrentRowEmpty()
+        {
+            return this.currentRowData == null || !this.currentRowData.Any();
+        }
+
         public bool NextResult()
         {
             if (this.currentIndex >= this.ResultsCount - 1)
@@ -63,19 +82,6 @@ namespace Cadru.Data.Excel
             this.Reset();
             this.currentIndex++;
             return true;
-        }
-
-        private void FirstRead()
-        {
-            if (this.firstRead)
-            {
-                this.currentSheet = this.GetSheetByIndex(this.currentIndex);
-                var currentWorksheetPart = this.document.WorkbookPart.GetPartById(this.CurrentSheetId);
-                this.reader = OpenXmlReader.Create(currentWorksheetPart);
-                this.SkipRows(this.GetEmptyRowsCount(currentWorksheetPart));
-                this.headers = this.FirstRowAsHeader ? this.GetFirstRowAsHeaders(currentWorksheetPart) : GetRangeHeaders(currentWorksheetPart);
-                this.firstRead = false;
-            }
         }
 
         public bool Read()
@@ -107,16 +113,6 @@ namespace Cadru.Data.Excel
             return currentRow != null && !this.reader.EOF;
         }
 
-        public bool IsCurrentRowEmpty()
-        {
-            return this.currentRowData == null || !this.currentRowData.Any();
-        }
-
-        private bool IsRowEmpty(OpenXmlElement row)
-        {
-            return String.IsNullOrEmpty(row.InnerText);
-        }
-
         private static IEnumerable<Cell> AdjustRow(OpenXmlElement row, int capacity)
         {
             var currentCount = 0;
@@ -136,6 +132,55 @@ namespace Cadru.Data.Excel
             for (; currentCount < capacity; currentCount++)
             {
                 yield return new Cell();
+            }
+        }
+
+        private static IList<string> GetRangeHeaders(OpenXmlPart worksheetPart)
+        {
+            var count = 0;
+            using (var reader = OpenXmlReader.Create(worksheetPart))
+            {
+                while (reader.Read())
+                {
+                    if (reader.ElementType == typeof(Row))
+                    {
+                        count = reader.LoadCurrentElement().Elements<Cell>().Count();
+                        break;
+                    }
+                }
+            }
+
+            return Enumerable.Range(0, count).Select(x => "col" + x).ToList();
+        }
+
+        private static string GetStartingLettersOnly(string colName)
+        {
+            var result = String.Empty;
+            foreach (var ch in colName)
+            {
+                if (Char.IsLetter(ch))
+                {
+                    result += ch;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            return result;
+        }
+
+        private void FirstRead()
+        {
+            if (this.firstRead)
+            {
+                this.currentSheet = this.GetSheetByIndex(this.currentIndex);
+                var currentWorksheetPart = this.document.WorkbookPart.GetPartById(this.CurrentSheetId);
+                this.reader = OpenXmlReader.Create(currentWorksheetPart);
+                this.SkipRows(this.GetEmptyRowsCount(currentWorksheetPart));
+                this.headers = this.FirstRowAsHeader ? this.GetFirstRowAsHeaders(currentWorksheetPart) : GetRangeHeaders(currentWorksheetPart);
+                this.firstRead = false;
             }
         }
 
@@ -202,24 +247,6 @@ namespace Cadru.Data.Excel
             return result;
         }
 
-        private static IList<string> GetRangeHeaders(OpenXmlPart worksheetPart)
-        {
-            var count = 0;
-            using (var reader = OpenXmlReader.Create(worksheetPart))
-            {
-                while (reader.Read())
-                {
-                    if (reader.ElementType == typeof(Row))
-                    {
-                        count = reader.LoadCurrentElement().Elements<Cell>().Count();
-                        break;
-                    }
-                }
-            }
-
-            return Enumerable.Range(0, count).Select(x => "col" + x).ToList();
-        }
-
         private Sheet GetSheetByIndex(int sheetIndex)
         {
             return this.sheets.ElementAtOrDefault(sheetIndex);
@@ -235,35 +262,9 @@ namespace Cadru.Data.Excel
             return document.WorkbookPart.Workbook.GetFirstChild<Sheets>().Elements<Sheet>().ToList();
         }
 
-        public static int GetColumnIndexByName(string colName)
+        private bool IsRowEmpty(OpenXmlElement row)
         {
-            var name = GetStartingLettersOnly(colName);
-            int number = 0, pow = 1;
-            for (var i = name.Length - 1; i >= 0; i--)
-            {
-                number += (name[i] - 'A' + 1) * pow;
-                pow *= 26;
-            }
-
-            return number - 1;
-        }
-
-        private static string GetStartingLettersOnly(string colName)
-        {
-            var result = String.Empty;
-            foreach (var ch in colName)
-            {
-                if (Char.IsLetter(ch))
-                {
-                    result += ch;
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            return result;
+            return String.IsNullOrEmpty(row.InnerText);
         }
 
         private void Reset(bool resetCurrentIndex = false)

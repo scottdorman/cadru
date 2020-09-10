@@ -48,13 +48,13 @@ namespace Cadru.AspNetCore.Http
         private readonly IRequestResponseLoggingSerializer _requestResponseLoggingSerializer;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RequestResponseLoggingMiddleware"/> class.
+        /// Initializes a new instance of the <see cref="RequestResponseLoggingMiddleware" /> class.
         /// </summary>
         /// <param name="next"></param>
         /// <param name="optionsAccessor">The logging configuration options.</param>
         /// <param name="requestResponseLoggingSerializer">The serializer used for creating the log message content.</param>
         /// <param name="loggingScopeFactory">A factory instance for creating the scope object.</param>
-        /// <param name="loggerFactory">An <see cref="ILoggerFactory"/> instance used to create a logger.</param>
+        /// <param name="loggerFactory">An <see cref="ILoggerFactory" /> instance used to create a logger.</param>
         public RequestResponseLoggingMiddleware(RequestDelegate next, IOptions<RequestResponseLoggingOptions> optionsAccessor, IRequestResponseLoggingSerializer requestResponseLoggingSerializer, IRequestResponseLoggingScopeFactory loggingScopeFactory, ILoggerFactory loggerFactory)
         {
             this._next = next;
@@ -68,7 +68,7 @@ namespace Cadru.AspNetCore.Http
         /// <summary>
         /// Optionally logs the request and response.
         /// </summary>
-        /// <param name="context">The <see cref="HttpContext"/> of the request.</param>
+        /// <param name="context">The <see cref="HttpContext" /> of the request.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         public async Task InvokeAsync(HttpContext context)
         {

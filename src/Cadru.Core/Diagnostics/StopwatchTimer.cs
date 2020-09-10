@@ -34,10 +34,10 @@ namespace Cadru.Diagnostics
         private readonly Action<Stopwatch>? stopAction;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StopwatchTimer"/> class.
+        /// Initializes a new instance of the <see cref="StopwatchTimer" /> class.
         /// </summary>
-        /// <param name="startAction">An optional action to run when the <see cref="Stopwatch"/> is started.</param>
-        /// <param name="stopAction">An optional action to run when the <see cref="Stopwatch"/> is stopped.</param>
+        /// <param name="startAction">An optional action to run when the <see cref="Stopwatch" /> is started.</param>
+        /// <param name="stopAction">An optional action to run when the <see cref="Stopwatch" /> is stopped.</param>
         public StopwatchTimer(Action<Stopwatch>? startAction = null, Action<Stopwatch>? stopAction = null)
         {
             this.stopAction = stopAction;
@@ -46,12 +46,12 @@ namespace Cadru.Diagnostics
         }
 
         /// <summary>
-        /// Gets the <see cref="Stopwatch"/> instance.
+        /// Gets the <see cref="Stopwatch" /> instance.
         /// </summary>
         public Stopwatch Stopwatch { get; }
 
         /// <summary>
-        /// Stops the internal <see cref="Stopwatch"/> and performs
+        /// Stops the internal <see cref="Stopwatch" /> and performs
         /// the stop action, if it was provided.
         /// </summary>
         public void Dispose()

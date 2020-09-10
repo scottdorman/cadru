@@ -88,9 +88,9 @@ namespace Cadru.Data.Dapper
         /// <summary>
         /// Gets a value indicating if the column is updatable.
         /// </summary>
-        /// <value><see langword="true"/> if <see cref="Ignored"/> is <see langword="false"/>,
-        /// <see cref="IsReadOnly"/> is <see langword="false"/>, or
-        /// <see cref="DatabaseGeneratedOption"/> is <see cref="DatabaseGeneratedOption.None"/>.</value>
+        /// <value><see langword="true" /> if <see cref="Ignored" /> is <see langword="false" />,
+        /// <see cref="IsReadOnly" /> is <see langword="false" />, or
+        /// <see cref="DatabaseGeneratedOption" /> is <see cref="DatabaseGeneratedOption.None" />.</value>
         bool IsUpdatable { get; }
 
         /// <summary>
@@ -109,12 +109,12 @@ namespace Cadru.Data.Dapper
         string? Prompt { get; }
 
         /// <summary>
-        /// Gets the <see cref="PropertyInfo"/> for the current property.
+        /// Gets the <see cref="PropertyInfo" /> for the current property.
         /// </summary>
         PropertyInfo PropertyInfo { get; }
 
         /// <summary>
-        /// Gets the name of the property by using the specified <see cref="PropertyInfo"/>.
+        /// Gets the name of the property by using the specified <see cref="PropertyInfo" />.
         /// </summary>
         string PropertyName { get; }
 

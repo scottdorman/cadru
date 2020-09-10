@@ -31,7 +31,7 @@ using Cadru.Polly.Data;
 namespace Cadru.Data.Dapper.Configuration
 {
     /// <summary>
-    /// Provides a simple API surface for configuring <see cref="DapperContext"/>.
+    /// Provides a simple API surface for configuring <see cref="DapperContext" />.
     /// </summary>
     public partial class DapperContextBuilder
     {
@@ -40,7 +40,7 @@ namespace Cadru.Data.Dapper.Configuration
         }
 
         /// <summary>
-        /// Gets a <see cref="CommandAdapter"/> that is used to create SQL statements.
+        /// Gets a <see cref="CommandAdapter" /> that is used to create SQL statements.
         /// </summary>
         public ICommandAdapter CommandAdapter { get; internal set; } = new CommandAdapter();
 
@@ -50,7 +50,7 @@ namespace Cadru.Data.Dapper.Configuration
         public string? ConnectionString { get; set; }
 
         /// <summary>
-        /// Gets the <see cref="DbProviderFactory"/> used to create data source classes.
+        /// Gets the <see cref="DbProviderFactory" /> used to create data source classes.
         /// </summary>
         public DbProviderFactory? DbProviderFactory { get; internal set; }
 
@@ -65,10 +65,10 @@ namespace Cadru.Data.Dapper.Configuration
         public bool RetryOnFailureEnabled { get; internal set; }
 
         /// <summary>
-        /// Gets the <see cref="ISqlStrategyFactory"/> used for creating a retry on failure strategy.
+        /// Gets the <see cref="ISqlStrategyFactory" /> used for creating a retry on failure strategy.
         /// </summary>
-        /// <remarks><see cref="SqlStrategy.Default"/> is used if <see cref="RetryOnFailureEnabled"/> is <see langword="false"/> or
-        /// <see cref="SqlStrategyFactory"/> is <see langword="null"/>.
+        /// <remarks><see cref="SqlStrategy.Default" /> is used if <see cref="RetryOnFailureEnabled" /> is <see langword="false" /> or
+        /// <see cref="SqlStrategyFactory" /> is <see langword="null" />.
         /// </remarks>
         public ISqlStrategyFactory? SqlStrategyFactory { get; internal set; }
 

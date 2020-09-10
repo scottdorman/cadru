@@ -23,9 +23,11 @@
 namespace Cadru.Net.NetworkInformation
 {
 #if !(WP80 || WPA81)
+
     using System;
     using System.Globalization;
     using System.Runtime.InteropServices;
+
     using Cadru.Net.NetworkInformation.Interop;
 
     /// <summary>
@@ -35,22 +37,13 @@ namespace Cadru.Net.NetworkInformation
     [StructLayout(LayoutKind.Sequential)]
     public partial struct ServerInfo : IEquatable<ServerInfo>
     {
-    #region events
-
-    #endregion
-
-    #region fields
         private readonly PlatformId platformId;
         private readonly string name;
         private readonly int majorVersion;
         private readonly int minorVersion;
         private readonly ServerTypes serverType;
         private readonly string comment;
-    #endregion
 
-    #region constructors
-
-    #region Server(SERVER_INFO_101 info)
         internal ServerInfo(SERVER_INFO_101 info)
         {
             this.platformId = (PlatformId)info.sv101_platform_id;
@@ -60,29 +53,24 @@ namespace Cadru.Net.NetworkInformation
             this.serverType = (ServerTypes)info.sv101_type;
             this.comment = info.sv101_comment;
         }
-        #endregion
-
-        #endregion
-
-        #region properties
 
         /// <summary>
         /// Gets the information level used for platform-specific information.
         /// </summary>
-        /// <value>One of the <see cref="PlatformId"/> values.</value>
+        /// <value>One of the <see cref="PlatformId" /> values.</value>
         public PlatformId PlatformId => this.platformId;
 
         /// <summary>
         /// Gets the name of the computer.
         /// </summary>
-        /// <value>A <see cref="String"/> that represents the name of the
+        /// <value>A <see cref="String" /> that represents the name of the
         /// computer.</value>
         public string Name => this.name;
 
         /// <summary>
         /// Gets the Server comment.
         /// </summary>
-        /// <value>A <see cref="String"/> that represents the comment
+        /// <value>A <see cref="String" /> that represents the comment
         /// associated with the server or an empty string if there is no
         /// comment.</value>
         public string Comment => this.comment;
@@ -104,76 +92,59 @@ namespace Cadru.Net.NetworkInformation
         /// <summary>
         /// Gets the operating system version number.
         /// </summary>
-        /// <value>A <see cref="Version"/> representing the operating system
+        /// <value>A <see cref="Version" /> representing the operating system
         /// version.</value>
         public Version Version => new Version(this.majorVersion, this.minorVersion);
 
         /// <summary>
         /// Gets the type of software the computer is running.
         /// </summary>
-        /// <value>A <see cref="ServerTypes"/> value that represents the
+        /// <value>A <see cref="ServerTypes" /> value that represents the
         /// operating system running on the computer.</value>
         public ServerTypes ServerType => this.serverType;
 
-        #endregion
-
-        #region operators
-
-        #region op_Equality
         /// <summary>
-        /// Determines whether two specified instances of <see cref="ServerInfo"/> are equal.
+        /// Determines whether two specified instances of <see cref="ServerInfo" /> are equal.
         /// </summary>
-        /// <param name="left">An <see cref="ServerInfo"/>.</param>
-        /// <param name="right">An <see cref="ServerInfo"/>.</param>
-        /// <returns><see langword="true"/> if s1 and s2 represent the same server; otherwise <see langword="false"/>.</returns>
+        /// <param name="left">An <see cref="ServerInfo" />.</param>
+        /// <param name="right">An <see cref="ServerInfo" />.</param>
+        /// <returns><see langword="true" /> if s1 and s2 represent the same server; otherwise <see langword="false" />.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
         public static bool operator ==(ServerInfo left, ServerInfo right)
         {
             return left.Equals(right);
         }
-    #endregion
 
-    #region op_Inequality
         /// <summary>
-        /// Determines whether two specified instances of <see cref="ServerInfo"/> are not equal.
+        /// Determines whether two specified instances of <see cref="ServerInfo" /> are not equal.
         /// </summary>
-        /// <param name="left">An <see cref="ServerInfo"/>.</param>
-        /// <param name="right">An <see cref="ServerInfo"/>.</param>
-        /// <returns><see langword="true"/> if s1 and s2 do note represent the same server;
-        /// otherwise <see langword="false"/>.</returns>
+        /// <param name="left">An <see cref="ServerInfo" />.</param>
+        /// <param name="right">An <see cref="ServerInfo" />.</param>
+        /// <returns><see langword="true" /> if s1 and s2 do note represent the same server;
+        /// otherwise <see langword="false" />.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
         public static bool operator !=(ServerInfo left, ServerInfo right)
         {
             return !left.Equals(right);
         }
-    #endregion
 
-    #endregion
-
-    #region methods
-
-    #region Equals(Server left, Server right)
         /// <summary>
-        /// Returns a value indicating whether two instances of <see cref="ServerInfo"/> are equal.
+        /// Returns a value indicating whether two instances of <see cref="ServerInfo" /> are equal.
         /// </summary>
-        /// <param name="left">The first <see cref="ServerInfo"/>. </param>
-        /// <param name="right">The second <see cref="ServerInfo"/>.</param>
-        /// <returns><see langword="true"/> if the two <see cref="ServerInfo"/> values are equal; otherwise, <see langword="false"/>. </returns>
+        /// <param name="left">The first <see cref="ServerInfo" />. </param>
+        /// <param name="right">The second <see cref="ServerInfo" />.</param>
+        /// <returns><see langword="true" /> if the two <see cref="ServerInfo" /> values are equal; otherwise, <see langword="false" />. </returns>
         public static bool Equals(ServerInfo left, ServerInfo right)
         {
             return left == right;
         }
-    #endregion
 
-    #region Equals
-
-    #region Equals(Object obj)
         /// <summary>
         /// Returns a value indicating whether this instance is equal to a specified object.
         /// </summary>
         /// <param name="obj">An object to compare to this instance.</param>
-        /// <returns><see langword="true"/> if value is an instance of <see cref="ServerInfo"/>
-        /// equals the value of this instance; otherwise, <see langword="false"/>. </returns>
+        /// <returns><see langword="true" /> if value is an instance of <see cref="ServerInfo" />
+        /// equals the value of this instance; otherwise, <see langword="false" />. </returns>
         public override bool Equals(object obj)
         {
             ServerInfo s;
@@ -221,14 +192,12 @@ namespace Cadru.Net.NetworkInformation
 
             return true;
         }
-    #endregion
 
-    #region Equals(Server other)
         /// <summary>
-        /// Returns a value indicating whether this instance is equal to the specified <see cref="ServerInfo"/> instance.
+        /// Returns a value indicating whether this instance is equal to the specified <see cref="ServerInfo" /> instance.
         /// </summary>
-        /// <param name="other">An <see cref="ServerInfo"/> instance to compare to this instance.</param>
-        /// <returns><see langword="true"/> if the other parameter equals the value of this instance; otherwise, <see langword="false"/>. </returns>
+        /// <param name="other">An <see cref="ServerInfo" /> instance to compare to this instance.</param>
+        /// <returns><see langword="true" /> if the other parameter equals the value of this instance; otherwise, <see langword="false" />. </returns>
         /// <remarks>This method implements the <see cref="System.IEquatable{T}"/> interface and performs slightly
         /// better than the <see cref="ServerInfo.Equals(Object)"/> method because it does not have to convert
         /// the other parameter to an object.</remarks>
@@ -267,11 +236,7 @@ namespace Cadru.Net.NetworkInformation
 
             return true;
         }
-    #endregion
 
-    #endregion
-
-    #region GetHashCode
         /// <summary>
         /// Returns the hash code for this instance.
         /// </summary>
@@ -285,11 +250,7 @@ namespace Cadru.Net.NetworkInformation
                     this.minorVersion.GetHashCode() ^
                     this.comment.GetHashCode();
         }
-    #endregion
 
-    #region ToString
-
-    #region ToString()
         /// <summary>
         /// Converts the value of this instance to its equivalent string representation.
         /// </summary>
@@ -298,23 +259,17 @@ namespace Cadru.Net.NetworkInformation
         {
             return this.ToString(CultureInfo.CurrentCulture);
         }
-    #endregion
 
-    #region ToString(IFormatProvider provider)
         /// <summary>
         /// Converts the value of the current Server object to its equivalent string representation using the specified culture-specific format information.
         /// </summary>
         /// <param name="provider">An object that supplies culture-specific formatting information. </param>
-        /// <returns>The string representation of this instance as specified by <paramref name="provider"/>.</returns>
+        /// <returns>The string representation of this instance as specified by <paramref name="provider" />.</returns>
         public string ToString(IFormatProvider provider)
         {
             return String.Format(provider, "{0}, {1}", this.name, this.serverType.ToString());
         }
-    #endregion
-
-    #endregion
-
-    #endregion
     }
+
 #endif
 }

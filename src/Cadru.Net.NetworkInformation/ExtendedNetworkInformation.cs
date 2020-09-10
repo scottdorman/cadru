@@ -30,6 +30,7 @@ namespace Cadru.Networking
     using System.Runtime.InteropServices;
     using System.Security;
     using System.Threading.Tasks;
+
     using Cadru.Net.NetworkInformation;
     using Cadru.Net.NetworkInformation.Interop;
 
@@ -38,41 +39,22 @@ namespace Cadru.Networking
     /// </summary>
     public static class ExtendedNetworkInformation
     {
-        #region fields
-
-        #endregion
-
-        #region constructors
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-
-        #endregion
-
-        #region methods
-
-        #region GetDomains
         /// <summary>
-        /// Gets an array of <see cref="ServerInfo"/> instances for all
+        /// Gets an array of <see cref="ServerInfo" /> instances for all
         /// available domains.
         /// </summary>
-        /// <returns>An array of <see cref="ServerInfo"/> instances for all
+        /// <returns>An array of <see cref="ServerInfo" /> instances for all
         /// available domains.</returns>
         [SecurityCritical]
         public static ServerInfo[] GetDomains()
         {
             return GetServerList(ServerTypes.AllDomains, null);
         }
-        #endregion
 
-        #region HostName
         /// <summary>
         /// Gets the fully qualified hostname of the local computer.
         /// </summary>
-        /// <returns>A <see cref="String"/> representing the fully qualified hostname of the local computer.</returns>
+        /// <returns>A <see cref="String" /> representing the fully qualified hostname of the local computer.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
         public async static Task<string> GetHostNameAsync()
         {
@@ -107,27 +89,61 @@ namespace Cadru.Networking
 
             return hostName;
         }
-        #endregion
 
-        #region GetServerInfo
-
-        #region GetServerInfo()
         /// <summary>
-        /// Gets a <see cref="ServerInfo"/> instance representing the local computer.
+        /// Gets the IP addresses of the local computer.
         /// </summary>
-        /// <returns>A <see cref="ServerInfo"/> instance representing the local computer.</returns>
+        /// <returns>An <see cref="IPAddress" /> array containing the IP addresses of the local computer.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
+        public async static Task<IPAddress[]> GetIPAddressesAsync()
+        {
+            IPAddress[] ipAddress = null;
+
+            try
+            {
+                var nics = NetworkInterface.GetAllNetworkInterfaces();
+                if (nics != null || nics.Length >= 1)
+                {
+                    var adapter = nics[0];
+                    var adapterProperties = adapter.GetIPProperties();
+                    var uniCast = adapterProperties.UnicastAddresses;
+
+                    if (uniCast != null && uniCast.Count > 0)
+                    {
+                        ipAddress = new IPAddress[uniCast.Count];
+                        for (var i = 0; i < uniCast.Count; i++)
+                        {
+                            ipAddress[i] = uniCast[0].Address;
+                        }
+                    }
+                    else
+                    {
+                        ipAddress = await GetIPAddressesFromDnsAsync();
+                    }
+                }
+            }
+            catch (NetworkInformationException)
+            {
+                ipAddress = await GetIPAddressesFromDnsAsync();
+            }
+
+            return ipAddress;
+        }
+
+        /// <summary>
+        /// Gets a <see cref="ServerInfo" /> instance representing the local computer.
+        /// </summary>
+        /// <returns>A <see cref="ServerInfo" /> instance representing the local computer.</returns>
         public static ServerInfo GetServerInfo()
         {
             return GetServerInfoInternal(null);
         }
-        #endregion
 
-        #region GetServerInfo(string serverName)
         /// <summary>
-        /// Gets a <see cref="ServerInfo"/> instance representing the named computer.
+        /// Gets a <see cref="ServerInfo" /> instance representing the named computer.
         /// </summary>
         /// <param name="serverName">The name of the computer.</param>
-        /// <returns>A <see cref="ServerInfo"/> instance representing the named computer.</returns>
+        /// <returns>A <see cref="ServerInfo" /> instance representing the named computer.</returns>
         public static ServerInfo GetServerInfo(string serverName)
         {
             Contracts.Requires.NotNull(serverName, "serverName");
@@ -139,20 +155,16 @@ namespace Cadru.Networking
 
             return GetServerInfoInternal(serverName);
         }
-        #endregion
 
-        #endregion
-
-        #region GetServerList
         /// <summary>
-        /// Gets an array of <see cref="ServerInfo"/> instances of the
+        /// Gets an array of <see cref="ServerInfo" /> instances of the
         /// specified server type for the given domain.
         /// </summary>
         /// <param name="serverType">A bitwise combination of enumeration values
         /// that defines what server types to search. </param>
-        /// <param name="domain">The name of the domain to search, or <see langword="null"/>
+        /// <param name="domain">The name of the domain to search, or <see langword="null" />
         /// to search the primary domain.</param>
-        /// <returns>An array of <see cref="ServerInfo"/> instances of the
+        /// <returns>An array of <see cref="ServerInfo" /> instances of the
         /// specified server type for the given domain.</returns>
         [SecurityCritical]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
@@ -190,51 +202,40 @@ namespace Cadru.Networking
 
             return serverList;
         }
-        #endregion
 
-        #region IPAddress
-        /// <summary>
-        /// Gets the IP addresses of the local computer.
-        /// </summary>
-        /// <returns>An <see cref="IPAddress"/> array containing the IP addresses of the local computer.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
-        public async static Task<IPAddress[]> GetIPAddressesAsync()
+        private static void FreeBuffer(ref IntPtr buffer)
         {
-            IPAddress[] ipAddress = null;
-
             try
             {
-                var nics = NetworkInterface.GetAllNetworkInterfaces();
-                if (nics != null || nics.Length >= 1)
+                var result = SafeNativeMethods.NetApiBufferFree(buffer);
+                if (result != Constants.ERROR_SUCCESS)
                 {
-                    var adapter = nics[0];
-                    var adapterProperties = adapter.GetIPProperties();
-                    var uniCast = adapterProperties.UnicastAddresses;
-
-                    if (uniCast != null && uniCast.Count > 0)
-                    {
-                        ipAddress = new IPAddress[uniCast.Count];
-                        for (var i = 0; i < uniCast.Count; i++)
-                        {
-                            ipAddress[i] = uniCast[0].Address;
-                        }
-                    }
-                    else
-                    {
-                        ipAddress = await GetIPAddressesFromDnsAsync();
-                    }
+                    throw new Win32Exception(result);
                 }
             }
-            catch (NetworkInformationException)
+            finally
             {
-                ipAddress = await GetIPAddressesFromDnsAsync();
+                buffer = IntPtr.Zero;
+            }
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
+        private async static Task<IPAddress[]> GetIPAddressesFromDnsAsync()
+        {
+            IPAddress[] ipAddress;
+            try
+            {
+                var hostInfo = await Dns.GetHostEntryAsync(await GetHostNameAsync());
+                ipAddress = hostInfo.AddressList;
+            }
+            catch (System.Net.Sockets.SocketException)
+            {
+                ipAddress = new IPAddress[] { IPAddress.None };
             }
 
             return ipAddress;
         }
-        #endregion
 
-        #region GetServerInfoInternal
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
         private static ServerInfo GetServerInfoInternal(string serverName)
         {
@@ -261,45 +262,5 @@ namespace Cadru.Networking
 
             return server;
         }
-        #endregion
-
-        #region GetIPAddressesFromDns
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
-        private async static Task<IPAddress[]> GetIPAddressesFromDnsAsync()
-        {
-            IPAddress[] ipAddress;
-            try
-            {
-                var hostInfo = await Dns.GetHostEntryAsync(await GetHostNameAsync());
-                ipAddress = hostInfo.AddressList;
-            }
-            catch (System.Net.Sockets.SocketException)
-            {
-                ipAddress = new IPAddress[] { IPAddress.None };
-            }
-
-            return ipAddress;
-        }
-        #endregion
-
-        #region FreeBuffer
-        private static void FreeBuffer(ref IntPtr buffer)
-        {
-            try
-            {
-                var result = SafeNativeMethods.NetApiBufferFree(buffer);
-                if (result != Constants.ERROR_SUCCESS)
-                {
-                    throw new Win32Exception(result);
-                }
-            }
-            finally
-            {
-                buffer = IntPtr.Zero;
-            }
-        }
-        #endregion
-
-        #endregion
     }
 }

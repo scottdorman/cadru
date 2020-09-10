@@ -34,7 +34,7 @@ namespace Cadru.Data.Csv
         /// Don't do any trimming
         /// </summary>
         None = 0,
-        
+
         /// <summary>
         /// Only trim unquoted values
         /// </summary>

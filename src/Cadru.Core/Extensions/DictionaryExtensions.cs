@@ -33,7 +33,7 @@ namespace Cadru.Extensions
     {
         /// <summary>
         /// Gets or sets the value associated with the specified key if the
-        /// condition is <see langword="true"/>.
+        /// condition is <see langword="true" />.
         /// </summary>
         /// <typeparam name="TKey">The type of the keys in the dictionary.</typeparam>
         /// <typeparam name="TValue">The type of the values in the
@@ -42,8 +42,8 @@ namespace Cadru.Extensions
         /// <param name="key">The key of the value to get or set.</param>
         /// <param name="value">The value associated with the specified
         /// key.</param>
-        /// <param name="condition"><see langword="true"/> to add or update the
-        /// value; otherwise, <see langword="false"/>.</param>
+        /// <param name="condition"><see langword="true" /> to add or update the
+        /// value; otherwise, <see langword="false" />.</param>
         /// <returns>The updated <see cref="IDictionary{TKey, TValue}"/>
         /// instance.</returns>
         public static IDictionary<TKey, TValue> Add<TKey, TValue>(this IDictionary<TKey, TValue> source, TKey key, TValue value, Func<bool> condition)
@@ -64,9 +64,9 @@ namespace Cadru.Extensions
         /// <param name="source">The source dictionary.</param>
         /// <param name="key">The key of the value to get.</param>
         /// <param name="defaultValue">The default value to be returned if key is not found.</param>
-        /// <returns>If <paramref name="key"/> is found, the value associated with the
-        /// specified key; otherwise, <paramref name="defaultValue"/>.</returns>
-        /// <exception cref="System.ArgumentNullException"><paramref name="key"/> is <see langword="null"/>.</exception>
+        /// <returns>If <paramref name="key" /> is found, the value associated with the
+        /// specified key; otherwise, <paramref name="defaultValue" />.</returns>
+        /// <exception cref="System.ArgumentNullException"><paramref name="key" /> is <see langword="null" />.</exception>
         public static TValue GetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> source, TKey key, TValue defaultValue)
         {
             Contracts.Requires.NotNull(source, nameof(source));
@@ -82,9 +82,9 @@ namespace Cadru.Extensions
         /// <param name="source">The source dictionary.</param>
         /// <param name="key">The key of the value to get.</param>
         /// <param name="defaultValue">The default value to be returned if key is not found.</param>
-        /// <returns>If <paramref name="key"/> is found, the value associated with the
-        /// specified key; otherwise, <paramref name="defaultValue"/>.</returns>
-        /// <exception cref="System.ArgumentNullException"><paramref name="key"/> is <see langword="null"/>.</exception>
+        /// <returns>If <paramref name="key" /> is found, the value associated with the
+        /// specified key; otherwise, <paramref name="defaultValue" />.</returns>
+        /// <exception cref="System.ArgumentNullException"><paramref name="key" /> is <see langword="null" />.</exception>
         public static TValue GetValueOrDefault<TValue>(this IDictionary source, object key, TValue defaultValue)
         {
             Contracts.Requires.NotNull(source, nameof(source));
@@ -110,8 +110,8 @@ namespace Cadru.Extensions
         /// dictionary.</typeparam>
         /// <param name="source">The source <see cref="IDictionary{TKey, TValue}"/>.</param>
         /// <param name="key">The key of the element to add.</param>
-        /// <param name="value">The value of the element to add. It can be <see langword="null"/>.</param>
-        /// <param name="replaceExisting"><see langword="true"/> to replace the existing value, if found; otherwise, <see langword="false"/>.</param>
+        /// <param name="value">The value of the element to add. It can be <see langword="null" />.</param>
+        /// <param name="replaceExisting"><see langword="true" /> to replace the existing value, if found; otherwise, <see langword="false" />.</param>
         public static void Merge<TKey, TValue>(this IDictionary<TKey, TValue> source, TKey key, TValue value, bool replaceExisting)
         {
             if (replaceExisting || !source.ContainsKey(key))
@@ -129,7 +129,7 @@ namespace Cadru.Extensions
         /// <param name="first">The source <see cref="IDictionary{TKey, TValue}"/>.</param>
         /// <param name="second">An <see cref="IDictionary{TKey, TValue}"/>
         /// whose elements will be merged.</param>
-        /// <param name="replaceExisting"><see langword="true"/> to replace the existing value, if found; otherwise, <see langword="false"/>.</param>
+        /// <param name="replaceExisting"><see langword="true" /> to replace the existing value, if found; otherwise, <see langword="false" />.</param>
         public static void Merge<TKey, TValue>(this IDictionary<TKey, TValue> first, IDictionary<TKey, TValue> second, bool replaceExisting)
         {
             foreach (var pair in second)
@@ -164,8 +164,8 @@ namespace Cadru.Extensions
         /// <typeparam name="TValue">The type of the values in the dictionary.</typeparam>
         /// <param name="dictionary"></param>
         /// <param name="key">The key of the element to add.</param>
-        /// <param name="value">The value of the element to add. It can be <see langword="null"/>.</param>
-        /// <returns><see langword="true"/> if the key/value pair was added to the dictionary successfully; otherwise, <see langword="false"/>.</returns>
+        /// <param name="value">The value of the element to add. It can be <see langword="null" />.</param>
+        /// <returns><see langword="true" /> if the key/value pair was added to the dictionary successfully; otherwise, <see langword="false" />.</returns>
         public static bool TryAdd<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
             if (!dictionary.ContainsKey(key))
@@ -184,7 +184,7 @@ namespace Cadru.Extensions
         /// <typeparam name="TValue">The type of the values in the dictionary.</typeparam>
         /// <param name="dictionary"></param>
         /// <param name="item">The <see cref="KeyValuePair{TKey, TValue}"/> to add.</param>
-        /// <returns><see langword="true"/> if the key/value pair was added to the dictionary successfully; otherwise, <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if the key/value pair was added to the dictionary successfully; otherwise, <see langword="false" />.</returns>
         public static bool TryAdd<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, KeyValuePair<TKey, TValue> item)
         {
             if (!dictionary.ContainsKey(item.Key))
@@ -206,10 +206,10 @@ namespace Cadru.Extensions
         /// <param name="key">The key of the value to get.</param>
         /// <param name="defaultValue">The default value to be returned if key is not found.</param>
         /// <param name="value">When this method returns, contains the value associated with the specified
-        ///  key, if the <paramref name="key"/> is found; otherwise, <paramref name="defaultValue"/>. This parameter is passed uninitialized.</param>
-        /// <returns><see langword="true"/> if the <see cref="System.Collections.Generic.Dictionary{TKey,TValue}"/> contains an
+        ///  key, if the <paramref name="key" /> is found; otherwise, <paramref name="defaultValue" />. This parameter is passed uninitialized.</param>
+        /// <returns><see langword="true" /> if the <see cref="System.Collections.Generic.Dictionary{TKey,TValue}"/> contains an
         ///  element with the specified key; otherwise, false.</returns>
-        /// <exception cref="System.ArgumentNullException"><paramref name="key"/> is <see langword="null"/>.</exception>
+        /// <exception cref="System.ArgumentNullException"><paramref name="key" /> is <see langword="null" />.</exception>
         public static bool TryGetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue, out TValue value)
         {
             Contracts.Requires.NotNull(dictionary, nameof(dictionary));
@@ -233,10 +233,10 @@ namespace Cadru.Extensions
         /// <param name="key">The key of the value to get.</param>
         /// <param name="defaultValue">The default value to be returned if key is not found.</param>
         /// <param name="value">When this method returns, contains the value associated with the specified
-        ///  key, if the <paramref name="key"/> is found; otherwise, <paramref name="defaultValue"/>. This parameter is passed uninitialized.</param>
-        /// <returns><see langword="true"/> if the <see cref="System.Collections.Generic.Dictionary{TKey,TValue}"/> contains an
+        ///  key, if the <paramref name="key" /> is found; otherwise, <paramref name="defaultValue" />. This parameter is passed uninitialized.</param>
+        /// <returns><see langword="true" /> if the <see cref="System.Collections.Generic.Dictionary{TKey,TValue}"/> contains an
         ///  element with the specified key; otherwise, false.</returns>
-        /// <exception cref="System.ArgumentNullException"><paramref name="key"/> is <see langword="null"/>.</exception>
+        /// <exception cref="System.ArgumentNullException"><paramref name="key" /> is <see langword="null" />.</exception>
         public static bool TryGetValueOrDefault<TValue>(this IDictionary dictionary, object key, TValue defaultValue, out TValue value)
         {
             Contracts.Requires.NotNull(dictionary, nameof(dictionary));

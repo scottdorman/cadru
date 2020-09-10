@@ -36,19 +36,19 @@ namespace Cadru
     /// Thursday, 1 January 1970, not counting leap seconds.
     /// </summary>
     /// <remarks>The date and time range that can be represented by a
-    /// <see cref="UnixTimestamp"/> is constrained to the same date and
-    /// time range as <see cref="DateTime"/>.</remarks>
+    /// <see cref="UnixTimestamp" /> is constrained to the same date and
+    /// time range as <see cref="DateTime" />.</remarks>
     [StructLayout(LayoutKind.Auto)]
     public partial struct UnixTimestamp : IFormattable, IComparable, IComparable<UnixTimestamp>, IEquatable<UnixTimestamp>
     {
         /// <summary>
-        /// Represents the largest possible value of <see cref="UnixTimestamp"/>. This field is read-only.
+        /// Represents the largest possible value of <see cref="UnixTimestamp" />. This field is read-only.
         /// </summary>
         /// <remarks>The value of this constant is equivalent to 23:59:59, December 31, 9999.</remarks>
         public static readonly UnixTimestamp MaxValue = new UnixTimestamp(UnixTimestamp.MaxSeconds);
 
         /// <summary>
-        /// Represents the smallest possible value of <see cref="UnixTimestamp"/>. This field is read-only.
+        /// Represents the smallest possible value of <see cref="UnixTimestamp" />. This field is read-only.
         /// </summary>
         /// <remarks>The value of this constant is equivalent to 00:00:00, January 01, 0001.</remarks>
         public static readonly UnixTimestamp MinValue = new UnixTimestamp(UnixTimestamp.MinSeconds);
@@ -59,16 +59,16 @@ namespace Cadru
         private readonly long seconds;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnixTimestamp"/>
+        /// Initializes a new instance of the <see cref="UnixTimestamp" />
         /// structure to the specified number of seconds.
         /// </summary>
         /// <param name="seconds">A date and time expressed in the number of
         /// seconds that have elapsed since January 1, 1970 at 00:00:00.000
         /// in the Gregorian calendar.</param>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// <paramref name="seconds"/> is less than
-        /// <see cref="UnixTimestamp.MinValue"/> or greater than
-        /// <see cref="UnixTimestamp.MaxValue"/>.
+        /// <paramref name="seconds" /> is less than
+        /// <see cref="UnixTimestamp.MinValue" /> or greater than
+        /// <see cref="UnixTimestamp.MaxValue" />.
         /// </exception>
         public UnixTimestamp(long seconds)
         {
@@ -83,14 +83,14 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnixTimestamp"/>
-        /// structure to the specified <see cref="DateTime"/> value.
+        /// Initializes a new instance of the <see cref="UnixTimestamp" />
+        /// structure to the specified <see cref="DateTime" /> value.
         /// </summary>
         /// <param name="date">A date and time.</param>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// <paramref name="date"/> is less than
-        /// <see cref="UnixTimestamp.MinValue"/> or greater than
-        /// <see cref="UnixTimestamp.MaxValue"/>.
+        /// <paramref name="date" /> is less than
+        /// <see cref="UnixTimestamp.MinValue" /> or greater than
+        /// <see cref="UnixTimestamp.MaxValue" />.
         /// </exception>
         public UnixTimestamp(DateTime date)
             : this(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second)
@@ -98,32 +98,32 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnixTimestamp"/>
+        /// Initializes a new instance of the <see cref="UnixTimestamp" />
         /// structure to the specified year, month and day.
         /// </summary>
         /// <param name="year">The year (0 through 9999).</param>
         /// <param name="month">The month (0 through 12).</param>
-        /// <param name="day">The day (1 through the number of days in <paramref name="month"/>).</param>
+        /// <param name="day">The day (1 through the number of days in <paramref name="month" />).</param>
         public UnixTimestamp(int year, int month, int day)
             : this(year, month, day, 0, 0, 0)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnixTimestamp"/>
+        /// Initializes a new instance of the <see cref="UnixTimestamp" />
         /// structure to the specified year, month, day, hour, minute,
         /// and second.
         /// </summary>
         /// <param name="year">The year (0 through 9999).</param>
         /// <param name="month">The month (0 through 12).</param>
-        /// <param name="day">The day (1 through the number of days in <paramref name="month"/>).</param>
+        /// <param name="day">The day (1 through the number of days in <paramref name="month" />).</param>
         /// <param name="hour">The hours (0 through 23).</param>
         /// <param name="minute">The minutes (0 through 59).</param>
         /// <param name="second">The seconds (0 through 59).</param>
         /// <exception cref="ArgumentException">
-        /// <paramref name="second"/> is less than
-        /// <see cref="UnixTimestamp.MinValue"/> or greater than
-        /// <see cref="UnixTimestamp.MaxValue"/>.
+        /// <paramref name="second" /> is less than
+        /// <see cref="UnixTimestamp.MinValue" /> or greater than
+        /// <see cref="UnixTimestamp.MaxValue" />.
         /// </exception>
         public UnixTimestamp(int year, int month, int day, int hour, int minute, int second)
         {
@@ -137,7 +137,7 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Gets a <see cref="UnixTimestamp"/> object that is set to the current date and time on this computer.
+        /// Gets a <see cref="UnixTimestamp" /> object that is set to the current date and time on this computer.
         /// </summary>
         /// <value>
         /// An object whose value is the current local date and time.
@@ -145,26 +145,26 @@ namespace Cadru
         public static UnixTimestamp Now => new UnixTimestamp(DateTime.Now);
 
         /// <summary>
-        /// Gets a <see cref="DateTime"/> value that represents the date and
-        /// time of the current <see cref="UnixTimestamp"/> object.
+        /// Gets a <see cref="DateTime" /> value that represents the date and
+        /// time of the current <see cref="UnixTimestamp" /> object.
         /// </summary>
         /// <value>
-        /// The date and time of the current <see cref="UnixTimestamp"/> object.
+        /// The date and time of the current <see cref="UnixTimestamp" /> object.
         /// </value>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// The resulting <see cref="DateTime"/> is less than <see cref="P:DateTime.MinValue"/>
-        /// or greater than <see cref="P:DateTime.MaxValue"/>.</exception>
+        /// The resulting <see cref="DateTime" /> is less than <see cref="P:DateTime.MinValue" />
+        /// or greater than <see cref="P:DateTime.MaxValue" />.</exception>
         public DateTime DateTime => UnixTimestamp.Epoch.AddSeconds(this.seconds);
 
         /// <summary>
         /// Gets the number of days since 00:00:00 Coordinated Universal Time (UTC),
         /// Thursday, 1 January 1970 represented by current
-        /// <see cref="UnixTimestamp"/>.
+        /// <see cref="UnixTimestamp" />.
         /// </summary>
         /// <value>
         /// The number of days since 00:00:00 Coordinated Universal Time (UTC),
         /// Thursday, 1 January 1970 represented by current
-        /// <see cref="UnixTimestamp"/>.
+        /// <see cref="UnixTimestamp" />.
         /// </value>
         public long Days => this.seconds / Constants.SecondsPerDay;
 
@@ -174,12 +174,12 @@ namespace Cadru
         /// </summary>
         /// <value>The number of seconds that represent the date and time of
         /// this instance. The value is between
-        /// <see cref="P:UnixTimestamp.MinValue.Seconds"/> and
-        /// <see cref="P:UnixTimestamp.MaxValue.Seconds"/>.</value>
+        /// <see cref="P:UnixTimestamp.MinValue.Seconds" /> and
+        /// <see cref="P:UnixTimestamp.MaxValue.Seconds" />.</value>
         public long Seconds => this.seconds;
 
         /// <summary>
-        /// Defines an implicit conversion from <see cref="UnixTimestamp"/> to <see cref="System.Int64"/>.
+        /// Defines an implicit conversion from <see cref="UnixTimestamp" /> to <see cref="System.Int64" />.
         /// </summary>
         /// <param name="value">The object to convert.</param>
         /// <returns>
@@ -191,7 +191,7 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Defines an implicit conversion from <see cref="System.Int64"/> to <see cref="UnixTimestamp"/>.
+        /// Defines an implicit conversion from <see cref="System.Int64" /> to <see cref="UnixTimestamp" />.
         /// </summary>
         /// <param name="value">The object to convert.</param>
         /// <returns>
@@ -203,14 +203,14 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Determines whether two specified <see cref="UnixTimestamp"/>
+        /// Determines whether two specified <see cref="UnixTimestamp" />
         /// objects represent the same point in time.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true"/> if both objects represent the same point
-        /// in time; otherwise, <see langword="false"/>.
+        /// <see langword="true" /> if both objects represent the same point
+        /// in time; otherwise, <see langword="false" />.
         /// </returns>
         public static bool operator ==(UnixTimestamp left, UnixTimestamp right)
         {
@@ -218,15 +218,15 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Determines whether two specified <see cref="UnixTimestamp"/>
+        /// Determines whether two specified <see cref="UnixTimestamp" />
         /// objects represent different points in time.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true"/> if <paramref name="left"/> and
-        /// <paramref name="right"/> do not represent the same point
-        /// in time; otherwise, <see langword="false"/>.
+        /// <see langword="true" /> if <paramref name="left" /> and
+        /// <paramref name="right" /> do not represent the same point
+        /// in time; otherwise, <see langword="false" />.
         /// </returns>
         public static bool operator !=(UnixTimestamp left, UnixTimestamp right)
         {
@@ -234,14 +234,14 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Determines whether one specified <see cref="UnixTimestamp"/> object
-        /// is earlier than another specified <see cref="UnixTimestamp"/> object.
+        /// Determines whether one specified <see cref="UnixTimestamp" /> object
+        /// is earlier than another specified <see cref="UnixTimestamp" /> object.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true"/> if <paramref name="left"/> is earlier than
-        /// <paramref name="right"/>; otherwise, <see langword="false"/>.
+        /// <see langword="true" /> if <paramref name="left" /> is earlier than
+        /// <paramref name="right" />; otherwise, <see langword="false" />.
         /// </returns>
         public static bool operator <(UnixTimestamp left, UnixTimestamp right)
         {
@@ -249,16 +249,16 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Determines whether one specified <see cref="UnixTimestamp"/> object
+        /// Determines whether one specified <see cref="UnixTimestamp" /> object
         /// is the same as or earlier than another specified
-        /// <see cref="UnixTimestamp"/> object.
+        /// <see cref="UnixTimestamp" /> object.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true"/> if <paramref name="left"/> is the same as or
-        /// earlier than <paramref name="right"/>; otherwise,
-        /// <see langword="false"/>.
+        /// <see langword="true" /> if <paramref name="left" /> is the same as or
+        /// earlier than <paramref name="right" />; otherwise,
+        /// <see langword="false" />.
         /// </returns>
         public static bool operator <=(UnixTimestamp left, UnixTimestamp right)
         {
@@ -266,14 +266,14 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Determines whether one specified <see cref="UnixTimestamp"/> object
-        /// is later than another specified <see cref="UnixTimestamp"/> object.
+        /// Determines whether one specified <see cref="UnixTimestamp" /> object
+        /// is later than another specified <see cref="UnixTimestamp" /> object.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true"/> if <paramref name="left"/> is later than
-        /// <paramref name="right"/>; otherwise, <see langword="false"/>.
+        /// <see langword="true" /> if <paramref name="left" /> is later than
+        /// <paramref name="right" />; otherwise, <see langword="false" />.
         /// </returns>
         public static bool operator >(UnixTimestamp left, UnixTimestamp right)
         {
@@ -281,16 +281,16 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Determines whether one specified <see cref="UnixTimestamp"/> object
+        /// Determines whether one specified <see cref="UnixTimestamp" /> object
         /// is the same as or later than another specified
-        /// <see cref="UnixTimestamp"/> object.
+        /// <see cref="UnixTimestamp" /> object.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true"/> if <paramref name="left"/> is the same as or
-        /// later than <paramref name="right"/>; otherwise,
-        /// <see langword="false"/>.
+        /// <see langword="true" /> if <paramref name="left" /> is the same as or
+        /// later than <paramref name="right" />; otherwise,
+        /// <see langword="false" />.
         /// </returns>
         public static bool operator >=(UnixTimestamp left, UnixTimestamp right)
         {
@@ -298,13 +298,13 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Returns a value indicating whether two <see cref="UnixTimestamp"/>
+        /// Returns a value indicating whether two <see cref="UnixTimestamp" />
         /// instances represent the same point in time.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
-        /// <returns><see langword="true"/> if the two
-        /// values are equal; otherwise, <see langword="false"/>.
+        /// <returns><see langword="true" /> if the two
+        /// values are equal; otherwise, <see langword="false" />.
         /// </returns>
         public static bool Equals(UnixTimestamp left, UnixTimestamp right)
         {
@@ -312,17 +312,17 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Returns a new <see cref="UnixTimestamp"/> that adds the value of
-        /// the specified <see cref="TimeSpan"/> to the value of this instance.
+        /// Returns a new <see cref="UnixTimestamp" /> that adds the value of
+        /// the specified <see cref="TimeSpan" /> to the value of this instance.
         /// </summary>
         /// <param name="value">The valueA positive or negative time interval.</param>
         /// <returns>An object whose value is the sum of the date and time
         /// represented by this instance and the time interval represented by
-        /// <paramref name="value"/>.</returns>
+        /// <paramref name="value" />.</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// The resulting <see cref="UnixTimestamp"/> is less than
-        /// <see cref="UnixTimestamp.MinValue"/> or greater than
-        /// <see cref="UnixTimestamp.MaxValue"/>.
+        /// The resulting <see cref="UnixTimestamp" /> is less than
+        /// <see cref="UnixTimestamp.MinValue" /> or greater than
+        /// <see cref="UnixTimestamp.MaxValue" />.
         /// </exception>
         public UnixTimestamp Add(TimeSpan value)
         {
@@ -330,18 +330,18 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
+        /// Returns a new <see cref="UnixTimestamp" /> that adds the specified
         /// number of days to the value of this instance.
         /// </summary>
         /// <param name="value">A number of whole and fractional days.
-        /// The <paramref name="value"/> parameter can be negative or positive.</param>
+        /// The <paramref name="value" /> parameter can be negative or positive.</param>
         /// <returns>An object whose value is the sum of the date and time
         /// represented by this instance and the number of days represented by
-        /// <paramref name="value"/>.</returns>
+        /// <paramref name="value" />.</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// The resulting <see cref="UnixTimestamp"/> is less than
-        /// <see cref="UnixTimestamp.MinValue"/> or greater than
-        /// <see cref="UnixTimestamp.MaxValue"/>.
+        /// The resulting <see cref="UnixTimestamp" /> is less than
+        /// <see cref="UnixTimestamp.MinValue" /> or greater than
+        /// <see cref="UnixTimestamp.MaxValue" />.
         /// </exception>
         public UnixTimestamp AddDays(double value)
         {
@@ -349,18 +349,18 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
+        /// Returns a new <see cref="UnixTimestamp" /> that adds the specified
         /// number of hours to the value of this instance.
         /// </summary>
         /// <param name="value">A number of whole and fractional hours.
-        /// The <paramref name="value"/> parameter can be negative or positive.</param>
+        /// The <paramref name="value" /> parameter can be negative or positive.</param>
         /// <returns>An object whose value is the sum of the date and time
         /// represented by this instance and the number of hours represented by
-        /// <paramref name="value"/>.</returns>
+        /// <paramref name="value" />.</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// The resulting <see cref="UnixTimestamp"/> is less than
-        /// <see cref="UnixTimestamp.MinValue"/> or greater than
-        /// <see cref="UnixTimestamp.MaxValue"/>.
+        /// The resulting <see cref="UnixTimestamp" /> is less than
+        /// <see cref="UnixTimestamp.MinValue" /> or greater than
+        /// <see cref="UnixTimestamp.MaxValue" />.
         /// </exception>
         public UnixTimestamp AddHours(double value)
         {
@@ -368,18 +368,18 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
+        /// Returns a new <see cref="UnixTimestamp" /> that adds the specified
         /// number of minutes to the value of this instance.
         /// </summary>
         /// <param name="value">A number of whole and fractional minutes.
-        /// The <paramref name="value"/> parameter can be negative or positive.</param>
+        /// The <paramref name="value" /> parameter can be negative or positive.</param>
         /// <returns>An object whose value is the sum of the date and time
         /// represented by this instance and the number of minutes represented by
-        /// <paramref name="value"/>.</returns>
+        /// <paramref name="value" />.</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// The resulting <see cref="UnixTimestamp"/> is less than
-        /// <see cref="UnixTimestamp.MinValue"/> or greater than
-        /// <see cref="UnixTimestamp.MaxValue"/>.
+        /// The resulting <see cref="UnixTimestamp" /> is less than
+        /// <see cref="UnixTimestamp.MinValue" /> or greater than
+        /// <see cref="UnixTimestamp.MaxValue" />.
         /// </exception>
         public UnixTimestamp AddMinutes(double value)
         {
@@ -387,18 +387,18 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
+        /// Returns a new <see cref="UnixTimestamp" /> that adds the specified
         /// number of months to the value of this instance.
         /// </summary>
         /// <param name="months">A number of months.
-        /// The <paramref name="months"/> parameter can be negative or positive.</param>
+        /// The <paramref name="months" /> parameter can be negative or positive.</param>
         /// <returns>An object whose value is the sum of the date and time
         /// represented by this instance and the number of months represented by
-        /// <paramref name="months"/>.</returns>
+        /// <paramref name="months" />.</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// The resulting <see cref="UnixTimestamp"/> is less than
-        /// <see cref="UnixTimestamp.MinValue"/> or greater than
-        /// <see cref="UnixTimestamp.MaxValue"/>.
+        /// The resulting <see cref="UnixTimestamp" /> is less than
+        /// <see cref="UnixTimestamp.MinValue" /> or greater than
+        /// <see cref="UnixTimestamp.MaxValue" />.
         /// </exception>
         public UnixTimestamp AddMonths(int months)
         {
@@ -441,18 +441,18 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
+        /// Returns a new <see cref="UnixTimestamp" /> that adds the specified
         /// number of seconds to the value of this instance.
         /// </summary>
         /// <param name="value">A number of whole and fractional seconds.
-        /// The <paramref name="value"/> parameter can be negative or positive.</param>
+        /// The <paramref name="value" /> parameter can be negative or positive.</param>
         /// <returns>An object whose value is the sum of the date and time
         /// represented by this instance and the number of seconds represented by
-        /// <paramref name="value"/>.</returns>
+        /// <paramref name="value" />.</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// The resulting <see cref="UnixTimestamp"/> is less than
-        /// <see cref="UnixTimestamp.MinValue"/> or greater than
-        /// <see cref="UnixTimestamp.MaxValue"/>.
+        /// The resulting <see cref="UnixTimestamp" /> is less than
+        /// <see cref="UnixTimestamp.MinValue" /> or greater than
+        /// <see cref="UnixTimestamp.MaxValue" />.
         /// </exception>
         public UnixTimestamp AddSeconds(double value)
         {
@@ -460,20 +460,20 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
+        /// Returns a new <see cref="UnixTimestamp" /> that adds the specified
         /// number of years to the value of this instance.
         /// </summary>
         /// <param name="years">A number of years.
-        /// The <paramref name="years"/> parameter can be negative or positive.</param>
+        /// The <paramref name="years" /> parameter can be negative or positive.</param>
         /// <returns>An object whose value is the sum of the date and time
         /// represented by this instance and the number of years represented by
-        /// <paramref name="years"/>.</returns>
+        /// <paramref name="years" />.</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// <para>The resulting <see cref="UnixTimestamp"/> is less than
-        /// <see cref="UnixTimestamp.MinValue"/> or greater than
-        /// <see cref="UnixTimestamp.MaxValue"/>.</para>
+        /// <para>The resulting <see cref="UnixTimestamp" /> is less than
+        /// <see cref="UnixTimestamp.MinValue" /> or greater than
+        /// <see cref="UnixTimestamp.MaxValue" />.</para>
         /// <para>-or-</para>
-        /// <para><paramref name="years"/> is not in the valid range.</para>
+        /// <para><paramref name="years" /> is not in the valid range.</para>
         /// </exception>
         public UnixTimestamp AddYears(int years)
         {
@@ -489,14 +489,14 @@ namespace Cadru
 
         /// <summary>
         /// Compares the value of this instance to a specified object that
-        /// contains a specified <see cref="UnixTimestamp"/> value, and returns
+        /// contains a specified <see cref="UnixTimestamp" /> value, and returns
         /// an integer that indicates whether this instance is earlier than,
-        /// the same as, or later than the specified <see cref="UnixTimestamp"/> value.
+        /// the same as, or later than the specified <see cref="UnixTimestamp" /> value.
         /// </summary>
-        /// <param name="obj">A boxed object to compare, or <see langword="null"/>.</param>
+        /// <param name="obj">A boxed object to compare, or <see langword="null" />.</param>
         /// <returns>
         /// A signed number indicating the relative values of this instance and the
-        /// <paramref name="obj"/> parameter.
+        /// <paramref name="obj" /> parameter.
         /// <list type="table">
         /// <listheader>
         /// <term>Value</term>
@@ -505,26 +505,26 @@ namespace Cadru
         /// <item>
         /// <term>Less than zero</term>
         /// <description>
-        /// This instance is earlier than <paramref name="obj"/>.
+        /// This instance is earlier than <paramref name="obj" />.
         /// </description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
         /// <description>
-        /// This instance is the same as <paramref name="obj"/>.
+        /// This instance is the same as <paramref name="obj" />.
         /// </description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
         /// <description>
-        /// This instance is later than <paramref name="obj"/>,
-        /// or <paramref name="obj"/> is <see langword="null"/>.
+        /// This instance is later than <paramref name="obj" />,
+        /// or <paramref name="obj" /> is <see langword="null" />.
         /// </description>
         /// </item>
         /// </list>
         /// </returns>
         /// <exception cref="System.ArgumentException">
-        /// <paramref name="obj"/> is not a <see cref="UnixTimestamp"/>.
+        /// <paramref name="obj" /> is not a <see cref="UnixTimestamp" />.
         /// </exception>
         public int CompareTo(object obj)
         {
@@ -543,14 +543,14 @@ namespace Cadru
 
         /// <summary>
         /// Compares the value of this instance to a specified
-        /// <see cref="UnixTimestamp"/> value and returns an integer that
+        /// <see cref="UnixTimestamp" /> value and returns an integer that
         /// indicates whether this instance is earlier than, the same as, or
-        /// later than the specified <see cref="UnixTimestamp"/> value.
+        /// later than the specified <see cref="UnixTimestamp" /> value.
         /// </summary>
         /// <param name="other">The object to compare to the current instance.</param>
         /// <returns>
         /// A signed number indicating the relative values of this instance and the
-        /// <paramref name="other"/> parameter.
+        /// <paramref name="other" /> parameter.
         /// <list type="table">
         /// <listheader>
         /// <term>Value</term>
@@ -559,19 +559,19 @@ namespace Cadru
         /// <item>
         /// <term>Less than zero</term>
         /// <description>
-        /// This instance is earlier than <paramref name="other"/>.
+        /// This instance is earlier than <paramref name="other" />.
         /// </description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
         /// <description>
-        /// This instance is the same as <paramref name="other"/>.
+        /// This instance is the same as <paramref name="other" />.
         /// </description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
         /// <description>
-        /// This instance is later than <paramref name="other"/>.
+        /// This instance is later than <paramref name="other" />.
         /// </description>
         /// </item>
         /// </list>
@@ -583,16 +583,16 @@ namespace Cadru
 
         /// <summary>
         /// Returns a value indicating whether the value of this instance is
-        /// equal to the value of the specified <see cref="UnixTimestamp"/>
+        /// equal to the value of the specified <see cref="UnixTimestamp" />
         /// instance.
         /// </summary>
         /// <param name="obj">The object to compare to this instance.</param>
         /// <returns>
-        /// <see langword="true"/> if the <paramref name="obj"/> parameter
-        /// equals the value of this instance; otherwise, <see langword="false"/>.
+        /// <see langword="true" /> if the <paramref name="obj" /> parameter
+        /// equals the value of this instance; otherwise, <see langword="false" />.
         /// </returns>
-        /// <remarks>The current instance and <paramref name="obj"/> are equal
-        /// if their <see cref="Seconds"/> property values are equal.</remarks>
+        /// <remarks>The current instance and <paramref name="obj" /> are equal
+        /// if their <see cref="Seconds" /> property values are equal.</remarks>
         public override bool Equals(object obj)
         {
             if (obj is UnixTimestamp timestamp)
@@ -605,16 +605,16 @@ namespace Cadru
 
         /// <summary>
         /// Returns a value indicating whether the value of this instance is
-        /// equal to the value of the specified <see cref="UnixTimestamp"/>
+        /// equal to the value of the specified <see cref="UnixTimestamp" />
         /// instance.
         /// </summary>
         /// <param name="other">The object to compare to this instance.</param>
         /// <returns>
-        /// <see langword="true"/> if the <paramref name="other"/> parameter
-        /// equals the value of this instance; otherwise, <see langword="false"/>.
+        /// <see langword="true" /> if the <paramref name="other" /> parameter
+        /// equals the value of this instance; otherwise, <see langword="false" />.
         /// </returns>
-        /// <remarks>The current instance and <paramref name="other"/> are equal
-        /// if their <see cref="Seconds"/> property values are equal.</remarks>
+        /// <remarks>The current instance and <paramref name="other" /> are equal
+        /// if their <see cref="Seconds" /> property values are equal.</remarks>
         public bool Equals(UnixTimestamp other)
         {
             return this.seconds == other.seconds;
@@ -637,16 +637,16 @@ namespace Cadru
         /// <param name="value">The date and time value to subtract.</param>
         /// <returns>A time interval that is equal to the date and time
         /// represented by this instance minus the date and time represented
-        /// by <paramref name="value"/>.</returns>
+        /// by <paramref name="value" />.</returns>
         /// <remarks>
         /// If the date and time of the current instance is earlier than value,
-        /// the method returns a <see cref="TimeSpan"/> object that represents a
+        /// the method returns a <see cref="TimeSpan" /> object that represents a
         /// negative time span. That is, the value of all of its non-zero properties
         /// (such as Days or Ticks) is negative.
         /// </remarks>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The result is less than <see cref="MinValue"/> or greater than
-        /// <see cref="MaxValue"/>.</exception>
+        /// The result is less than <see cref="MinValue" /> or greater than
+        /// <see cref="MaxValue" />.</exception>
         public TimeSpan Subtract(UnixTimestamp value)
         {
             return TimeSpan.FromSeconds(this.Seconds - value.Seconds);
@@ -658,32 +658,32 @@ namespace Cadru
         /// <param name="value">The time interval to subtract.</param>
         /// <returns>An object that is equal to the date and time represented
         /// by this instance minus the time interval represented by
-        /// <paramref name="value"/>.</returns>
+        /// <paramref name="value" />.</returns>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The result is less than <see cref="MinValue"/> or greater than
-        /// <see cref="MaxValue"/>.</exception>
+        /// The result is less than <see cref="MinValue" /> or greater than
+        /// <see cref="MaxValue" />.</exception>
         public UnixTimestamp Subtract(TimeSpan value)
         {
             return new UnixTimestamp(this.DateTime - value);
         }
 
         /// <summary>
-        /// Converts the value of the current <see cref="UnixTimestamp"/> object
-        /// to its equivalent <see cref="DateTime"/>.
+        /// Converts the value of the current <see cref="UnixTimestamp" /> object
+        /// to its equivalent <see cref="DateTime" />.
         /// </summary>
-        /// <returns>A <see cref="DateTime"/> representing the current <see
-        /// cref="UnixTimestamp"/> object.</returns>
+        /// <returns>A <see cref="DateTime" /> representing the current <see
+        /// cref="UnixTimestamp" /> object.</returns>
         public DateTime ToDateTime()
         {
             return UnixTimestamp.Epoch.AddSeconds(this.seconds);
         }
 
         /// <summary>
-        /// Converts the value of the current <see cref="UnixTimestamp"/>
+        /// Converts the value of the current <see cref="UnixTimestamp" />
         /// object to its equivalent string representation.
         /// </summary>
         /// <returns>
-        /// A string representation of the value of the current <see cref="UnixTimestamp"/> object.
+        /// A string representation of the value of the current <see cref="UnixTimestamp" /> object.
         /// </returns>
         public override string ToString()
         {
@@ -691,18 +691,18 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Converts the value of the current <see cref="UnixTimestamp"/>
+        /// Converts the value of the current <see cref="UnixTimestamp" />
         /// object to its equivalent string representation using the specified
         /// format and culture-specific format information.
         /// </summary>
         /// <param name="format">A numeric format string.</param>
         /// <param name="formatProvider">An object that supplies culture-specific formatting information.</param>
         /// <returns>
-        /// A string representation of value of the current <see cref="UnixTimestamp"/> object as specified by
-        /// <paramref name="format"/> and <paramref name="formatProvider"/>.
+        /// A string representation of value of the current <see cref="UnixTimestamp" /> object as specified by
+        /// <paramref name="format" /> and <paramref name="formatProvider" />.
         /// </returns>
         /// <exception cref="FormatException">
-        /// <paramref name="format"/> is invalid or not supported.
+        /// <paramref name="format" /> is invalid or not supported.
         /// </exception>
         public string ToString(string format, IFormatProvider formatProvider)
         {

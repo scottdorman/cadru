@@ -172,7 +172,7 @@ namespace Cadru.Core.Tests
             ExceptionAssert.Throws<ArgumentNullException>(() => Comb.Parse(null));
             ExceptionAssert.Throws<FormatException>(() => Comb.Parse("(00000000000000000000000000000000)"));
             ExceptionAssert.Throws<FormatException>(() => Comb.ParseExact("3e3a6e75-0100-0f45-ae41a3e3d2536a57", "x"));
-        } 
+        }
 
         [TestMethod]
         public void ToByteArray()

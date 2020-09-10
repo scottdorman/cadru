@@ -82,7 +82,9 @@ namespace Cadru.Data.IO
         }
 
 #if !NETSTANDARD1_3
+
         public override void Close() => this._source.Close();
+
 #endif
 
         public override void Flush() => this._source.Flush();

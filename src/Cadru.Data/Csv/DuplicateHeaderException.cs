@@ -30,14 +30,14 @@ namespace Cadru.Data.Csv
     public class DuplicateHeaderException : Exception
     {
         /// <summary>
-        /// Contains the message that describes the error.
-        /// </summary>
-        private readonly string _headerName;
-
-        /// <summary>
         /// Contains the column index where the duplicate was found.
         /// </summary>
         private readonly int _columnIndex;
+
+        /// <summary>
+        /// Contains the message that describes the error.
+        /// </summary>
+        private readonly string _headerName;
 
         /// <summary>
         /// Initializes a new instance of the DuplicateHeaderException class.
@@ -49,15 +49,15 @@ namespace Cadru.Data.Csv
         }
 
         /// <summary>
-        /// Gets the HeaderName of the column with the duplicate.
-        /// </summary>
-        /// <value>The name of the column header.</value>
-        public string HeaderName => this._headerName;
-
-        /// <summary>
         /// Gets the column index where the duplicate was found.
         /// </summary>
         /// <value>The index of the column.</value>
         public int ColumnIndex => this._columnIndex;
+
+        /// <summary>
+        /// Gets the HeaderName of the column with the duplicate.
+        /// </summary>
+        /// <value>The name of the column header.</value>
+        public string HeaderName => this._headerName;
     }
 }

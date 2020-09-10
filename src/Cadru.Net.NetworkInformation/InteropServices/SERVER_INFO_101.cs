@@ -23,9 +23,8 @@
 namespace Cadru.Net.NetworkInformation.Interop
 {
 #if !(WP80 || WPA81)
-    using System;
+
     using System.Runtime.InteropServices;
-    using Cadru.Net.NetworkInformation;
 
     /// <summary>
     /// The SERVER_INFO_101 structure contains information about the
@@ -77,5 +76,6 @@ namespace Cadru.Net.NetworkInformation.Interop
         [MarshalAs(UnmanagedType.LPWStr)]
         internal string sv101_comment;
     }
+
 #endif
 }

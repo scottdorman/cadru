@@ -32,8 +32,8 @@ namespace Cadru.Core.Tests
     [TestClass, ExcludeFromCodeCoverage]
     public class UnixTimestampTests
     {
-        private static readonly DateTime date = new DateTime(2014, 03, 18, 21, 0, 0, 0);
         private const long rawTimestamp = 1395176400L;
+        private static readonly DateTime date = new DateTime(2014, 03, 18, 21, 0, 0, 0);
 
         [TestMethod]
         public void Add()

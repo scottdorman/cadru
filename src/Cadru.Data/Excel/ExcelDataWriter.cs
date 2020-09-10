@@ -20,12 +20,12 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.Collections.Generic;
+using System.Linq;
+
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 
 namespace Cadru.Data.Excel
 {
@@ -40,15 +40,9 @@ namespace Cadru.Data.Excel
             this.document.WorkbookPart.Workbook = new Workbook();
         }
 
-        private uint GetUniqueSheetId(Sheets sheets)
+        public void AddWorksheet<T>(string name, IEnumerable<string> headers, IEnumerable<T> data)
         {
-            uint sheetId = 1;
-            if (sheets.Elements<Sheet>().Count() > 0)
-            {
-                sheetId = sheets.Elements<Sheet>().Select(s => s.SheetId.Value).Max() + 1;
-            }
-
-            return sheetId;
+            var sheet = this.AddWorksheet(name);
         }
 
         private Sheet AddWorksheet(string sheetName)
@@ -64,10 +58,15 @@ namespace Cadru.Data.Excel
             return sheet;
         }
 
-        public void AddWorksheet<T>(string name, IEnumerable<string> headers, IEnumerable<T> data)
+        private uint GetUniqueSheetId(Sheets sheets)
         {
-            var sheet = this.AddWorksheet(name);
+            uint sheetId = 1;
+            if (sheets.Elements<Sheet>().Count() > 0)
+            {
+                sheetId = sheets.Elements<Sheet>().Select(s => s.SheetId.Value).Max() + 1;
+            }
 
+            return sheetId;
         }
     }
 }

@@ -80,7 +80,7 @@ namespace Cadru.Collections
         /// <summary>
         /// Returns an enumerator that iterates through the <see cref="Range{T}"/>.
         /// </summary>
-        /// <returns>An <see cref="IEnumerator"/> object that can be used
+        /// <returns>An <see cref="IEnumerator" /> object that can be used
         ///  to iterate through the <see cref="Range{T}"/>.</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {

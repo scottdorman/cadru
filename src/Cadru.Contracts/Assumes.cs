@@ -37,7 +37,7 @@ namespace Cadru.Contracts
         /// <summary>
         /// Fails with the provided message as the reason.
         /// </summary>
-        /// <param name="message">The message of the resulting <see cref="AssumptionException"/>.</param>
+        /// <param name="message">The message of the resulting <see cref="AssumptionException" />.</param>
         /// <exception cref="AssumptionException">An assumption failed.</exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
@@ -47,12 +47,12 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value"/> is an enumerated type.
+        /// Checks that <paramref name="value" /> is an enumerated type.
         /// </summary>
         /// <param name="value">The parameter to test.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="value"/>  is not an enumerated type.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value" />  is not an enumerated type.</exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
         public static void IsEnum([ValidatedNotNull] Enum value, string parameterName)
@@ -62,12 +62,12 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value"/> is an enumerated type.
+        /// Checks that <paramref name="value" /> is an enumerated type.
         /// </summary>
         /// <param name="value">The parameter to test.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="value"/>  is not an enumerated type.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value" />  is not an enumerated type.</exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
         public static void IsEnum([ValidatedNotNull] object value, string parameterName)
@@ -77,10 +77,10 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks for a condition and displays a message and throws an exception if the condition is <see langword="true"/>.
+        /// Checks for a condition and displays a message and throws an exception if the condition is <see langword="true" />.
         /// </summary>
-        /// <param name="condition"><see langword="false"/> to prevent a message being displayed; otherwise, <see langword="true"/>.</param>
-        /// <exception cref="AssumptionException">The condition is <see langword="false"/>.</exception>
+        /// <param name="condition"><see langword="false" /> to prevent a message being displayed; otherwise, <see langword="true" />.</param>
+        /// <exception cref="AssumptionException">The condition is <see langword="false" />.</exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
         public static void IsFalse(bool condition)
@@ -89,11 +89,11 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks for a condition and displays a message and throws an exception if the condition is <see langword="true"/>.
+        /// Checks for a condition and displays a message and throws an exception if the condition is <see langword="true" />.
         /// </summary>
-        /// <param name="condition"><see langword="false"/> to prevent a message being displayed; otherwise, <see langword="true"/>.</param>
+        /// <param name="condition"><see langword="false" /> to prevent a message being displayed; otherwise, <see langword="true" />.</param>
         /// <param name="message">A message to display and to be used in the resulting exception.</param>
-        /// <exception cref="AssumptionException">The condition is <see langword="false"/>.</exception>
+        /// <exception cref="AssumptionException">The condition is <see langword="false" />.</exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
         public static void IsFalse(bool condition, string message)
@@ -105,10 +105,10 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks for a condition and displays a message and throws an exception if the condition is <see langword="false"/>.
+        /// Checks for a condition and displays a message and throws an exception if the condition is <see langword="false" />.
         /// </summary>
-        /// <param name="condition"><see langword="true"/> to prevent a message being displayed; otherwise, <see langword="false"/>.</param>
-        /// <exception cref="AssumptionException">The condition is <see langword="false"/>.</exception>
+        /// <param name="condition"><see langword="true" /> to prevent a message being displayed; otherwise, <see langword="false" />.</param>
+        /// <exception cref="AssumptionException">The condition is <see langword="false" />.</exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
         public static void IsTrue(bool condition)
@@ -117,11 +117,11 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks for a condition and displays a message and throws an exception if the condition is <see langword="false"/>.
+        /// Checks for a condition and displays a message and throws an exception if the condition is <see langword="false" />.
         /// </summary>
-        /// <param name="condition"><see langword="true"/> to prevent a message being displayed; otherwise, <see langword="false"/>.</param>
+        /// <param name="condition"><see langword="true" /> to prevent a message being displayed; otherwise, <see langword="false" />.</param>
         /// <param name="message">A message to display and to be used in the resulting exception.</param>
-        /// <exception cref="AssumptionException">The condition is <see langword="false"/>.</exception>
+        /// <exception cref="AssumptionException">The condition is <see langword="false" />.</exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
         public static void IsTrue(bool condition, string message)
@@ -133,13 +133,13 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value"/> is an enumerated type.
+        /// Checks that <paramref name="value" /> is an enumerated type.
         /// </summary>
         /// <param name="value">The parameter to test.</param>
-        /// <param name="expectedType">The type <paramref name="value"/> is expected to be.</param>
+        /// <param name="expectedType">The type <paramref name="value" /> is expected to be.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="value"/>  is not an enumerated type.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value" />  is not an enumerated type.</exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
         public static void IsType([ValidatedNotNull] object value, Type expectedType, string parameterName)
@@ -149,12 +149,12 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value"/> is an enumerated type.
+        /// Checks that <paramref name="value" /> is an enumerated type.
         /// </summary>
         /// <param name="value">The parameter to test.</param>
         /// <param name="parameterName">The name of the parameter being tested.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="value"/>  is not an enumerated type.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException"><paramref name="value" />  is not an enumerated type.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
@@ -164,11 +164,11 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value"/> is not <see langword="null"/>.
+        /// Checks that <paramref name="value" /> is not <see langword="null" />.
         /// </summary>
         /// <typeparam name="T">The type of the value to test.</typeparam>
         /// <param name="value">The value to test.</param>
-        /// <exception cref="AssumptionException"><paramref name="value"/> is <see langword="null"/>.</exception>
+        /// <exception cref="AssumptionException"><paramref name="value" /> is <see langword="null" />.</exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
         public static void NotNull<T>(T value)
@@ -177,16 +177,16 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value1"/> and <paramref name="value2"/> are not <see langword="null"/>.
+        /// Checks that <paramref name="value1" /> and <paramref name="value2" /> are not <see langword="null" />.
         /// </summary>
         /// <typeparam name="T1">The type of the first value to test.</typeparam>
         /// <typeparam name="T2">The type of the second value to test.</typeparam>
         /// <param name="value1">The first value to test.</param>
         /// <param name="value2">The second value to test.</param>
         /// <exception cref="AssumptionException">
-        /// <para><paramref name="value1"/> is <see langword="null"/>.</para>
+        /// <para><paramref name="value1" /> is <see langword="null" />.</para>
         /// <para>-or-</para>
-        /// <para><paramref name="value2"/> is <see langword="null"/>.</para>
+        /// <para><paramref name="value2" /> is <see langword="null" />.</para>
         /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "1", Justification = "This is the clearest name.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "2", Justification = "This is the clearest name.")]
@@ -199,7 +199,7 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value1"/>, <paramref name="value2"/>, and <paramref name="value3"/> are not <see langword="null"/>.
+        /// Checks that <paramref name="value1" />, <paramref name="value2" />, and <paramref name="value3" /> are not <see langword="null" />.
         /// </summary>
         /// <typeparam name="T1">The type of the first value to test.</typeparam>
         /// <typeparam name="T2">The type of the second value to test.</typeparam>
@@ -208,11 +208,11 @@ namespace Cadru.Contracts
         /// <param name="value2">The second value to test.</param>
         /// <param name="value3">The third value to test.</param>
         /// <exception cref="AssumptionException">
-        /// <para><paramref name="value1"/> is <see langword="null"/>.</para>
+        /// <para><paramref name="value1" /> is <see langword="null" />.</para>
         /// <para>-or-</para>
-        /// <para><paramref name="value2"/> is <see langword="null"/>.</para>
+        /// <para><paramref name="value2" /> is <see langword="null" />.</para>
         /// <para>-or-</para>
-        /// <para><paramref name="value3"/> is <see langword="null"/>.</para>
+        /// <para><paramref name="value3" /> is <see langword="null" />.</para>
         /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "1", Justification = "This is the clearest name.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "2", Justification = "This is the clearest name.")]
@@ -227,8 +227,8 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value1"/>, <paramref name="value2"/>,
-        /// <paramref name="value3"/>, and <paramref name="value4"/> are not <see langword="null"/>.
+        /// Checks that <paramref name="value1" />, <paramref name="value2" />,
+        /// <paramref name="value3" />, and <paramref name="value4" /> are not <see langword="null" />.
         /// </summary>
         /// <typeparam name="T1">The type of the first value to test.</typeparam>
         /// <typeparam name="T2">The type of the second value to test.</typeparam>
@@ -239,13 +239,13 @@ namespace Cadru.Contracts
         /// <param name="value3">The third value to test.</param>
         /// <param name="value4">The fourth value to test.</param>
         /// <exception cref="AssumptionException">
-        /// <para><paramref name="value1"/> is <see langword="null"/>.</para>
+        /// <para><paramref name="value1" /> is <see langword="null" />.</para>
         /// <para>-or-</para>
-        /// <para><paramref name="value2"/> is <see langword="null"/>.</para>
+        /// <para><paramref name="value2" /> is <see langword="null" />.</para>
         /// <para>-or-</para>
-        /// <para><paramref name="value3"/> is <see langword="null"/>.</para>
+        /// <para><paramref name="value3" /> is <see langword="null" />.</para>
         /// <para>-or-</para>
-        /// <para><paramref name="value4"/> is <see langword="null"/>.</para>
+        /// <para><paramref name="value4" /> is <see langword="null" />.</para>
         /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "1", Justification = "This is the clearest name.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "2", Justification = "This is the clearest name.")]
@@ -262,10 +262,10 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value"/> is not <see langword="null"/> or a zero-length string.
+        /// Checks that <paramref name="value" /> is not <see langword="null" /> or a zero-length string.
         /// </summary>
         /// <param name="value">The value to test.</param>
-        /// <exception cref="AssumptionException"><paramref name="value"/> is <see langword="null"/> or zero-length.</exception>
+        /// <exception cref="AssumptionException"><paramref name="value" /> is <see langword="null" /> or zero-length.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
@@ -276,10 +276,10 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Checks that <paramref name="value"/> is <see langword="null"/>.
+        /// Checks that <paramref name="value" /> is <see langword="null" />.
         /// </summary>
         /// <param name="value">The object to test.</param>
-        /// <exception cref="AssumptionException"><paramref name="value"/> is not <see langword="null"/>.</exception>
+        /// <exception cref="AssumptionException"><paramref name="value" /> is not <see langword="null" />.</exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
         public static void Null(object value)
@@ -288,7 +288,7 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Throws a new <see cref="AssumptionException"/> and a <see cref="Debug.Assert(Boolean, String)"/> assertion failure.
+        /// Throws a new <see cref="AssumptionException" /> and a <see cref="Debug.Assert(Boolean, String)"/> assertion failure.
         /// </summary>
         /// <param name="message">The message of the resulting AssumptionException.</param>
         /// <exception cref="AssumptionException">An assumption failed.</exception>

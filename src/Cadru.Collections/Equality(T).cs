@@ -38,9 +38,9 @@ namespace Cadru.Collections
         /// <summary>
         /// Creates an instance of an <see cref="IEqualityComparer{T}"/> using
         /// the provided function to extract a key from an element and the
-        /// default <see cref="EqualityComparer{T}"/> for <typeparamref name="TKey"/>.
+        /// default <see cref="EqualityComparer{T}"/> for <typeparamref name="TKey" />.
         /// </summary>
-        /// <typeparam name="TKey">The type of the key returned by <paramref name="keySelector"/>.</typeparam>
+        /// <typeparam name="TKey">The type of the key returned by <paramref name="keySelector" />.</typeparam>
         /// <param name="keySelector">A function to extract a key from an element.</param>
         /// <returns>An instance of an <see cref="EqualityComparer{T}"/>.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
@@ -54,7 +54,7 @@ namespace Cadru.Collections
         /// the provided function to extract a key from an element and the
         /// specified <see cref="EqualityComparer{T}"/>.
         /// </summary>
-        /// <typeparam name="TKey">The type of the key returned by <paramref name="keySelector"/>.</typeparam>
+        /// <typeparam name="TKey">The type of the key returned by <paramref name="keySelector" />.</typeparam>
         /// <param name="keySelector">A function to extract a key from an element.</param>
         /// <param name="comparer">An <see cref="IComparer{T}"/> to compare keys.</param>
         /// <returns>An instance of an <see cref="EqualityComparer{T}"/>.</returns>

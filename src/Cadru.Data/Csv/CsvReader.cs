@@ -23,10 +23,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+
 #if !NETSTANDARD1_3
+
 using System.Data;
 using System.Data.Common;
+
 #endif
+
 using System.Globalization;
 using System.IO;
 
@@ -37,6 +41,7 @@ using Debug = System.Diagnostics.Debug;
 namespace Cadru.Data.Csv
 {
     using System.Text;
+
     using Cadru.Data.IO;
 
     /// <summary>
@@ -45,6 +50,7 @@ namespace Cadru.Data.Csv
 #if NETSTANDARD1_3
     public partial class CsvReader : IEnumerable<string[]>, IDisposable
 #else
+
     public partial class CsvReader : IDataReader, IEnumerable<string[]>
 #endif
     {
@@ -84,7 +90,7 @@ namespace Cadru.Data.Csv
         private const int DefaultThreshold = 60;
 
         /// <summary>
-        /// Contains the <see cref="T:TextReader"/> pointing to the CSV file.
+        /// Contains the <see cref="T:TextReader" /> pointing to the CSV file.
         /// </summary>
         private TextReader _reader;
 
@@ -149,13 +155,13 @@ namespace Cadru.Data.Csv
         /// <summary>
         /// Like CsvReader(TextReader reader, bool hasHeaders) but removes consecutive null bytes above a threshold from source stream.
         /// </summary>
-        /// <param name="stream">A <see cref="T:Stream"/> pointing to the CSV file.</param>
-        /// <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+        /// <param name="stream">A <see cref="T:Stream" /> pointing to the CSV file.</param>
+        /// <param name="hasHeaders"><see langword="true" /> if field names are located on the first non commented line, otherwise, <see langword="false" />.</param>
         /// <param name="encoding"> specifies the encoding of the underlying stream.</param>
-        /// <param name="addMark"><see langword="true"/> if want to add a mark ([removed x null bytes]) to indicate removal, remove silently if <see langword="false"/>.</param>
+        /// <param name="addMark"><see langword="true" /> if want to add a mark ([removed x null bytes]) to indicate removal, remove silently if <see langword="false" />.</param>
         /// <param name="threshold">only consecutive null bytes above this threshold will be removed or replaced by a mark.</param>
-        /// <exception cref="T:ArgumentNullException"><paramref name="stream"/> is a <see langword="null"/>.</exception>
-        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="stream"/>.</exception>
+        /// <exception cref="T:ArgumentNullException"><paramref name="stream" /> is a <see langword="null" />.</exception>
+        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="stream" />.</exception>
         public CsvReader(Stream stream, bool hasHeaders, Encoding encoding, bool addMark = DefaultAddMark, int threshold = DefaultThreshold)
             : this(new NullRemovalStreamReader(stream, addMark, threshold, encoding), hasHeaders)
         {
@@ -164,14 +170,14 @@ namespace Cadru.Data.Csv
         /// <summary>
         /// Like CsvReader(TextReader reader, bool hasHeaders, int bufferSize) but removes consecutive null bytes above a threshold from source stream.
         /// </summary>
-        /// <param name="stream">A <see cref="T:Stream"/> pointing to the CSV file.</param>
-        /// <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+        /// <param name="stream">A <see cref="T:Stream" /> pointing to the CSV file.</param>
+        /// <param name="hasHeaders"><see langword="true" /> if field names are located on the first non commented line, otherwise, <see langword="false" />.</param>
         /// <param name="encoding"> specifies the encoding of the underlying stream.</param>
         /// <param name="bufferSize">The buffer size in bytes.</param>
-        /// <param name="addMark"><see langword="true"/> if want to add a mark ([removed x null bytes]) to indicate removal, remove silently if <see langword="false"/>.</param>
+        /// <param name="addMark"><see langword="true" /> if want to add a mark ([removed x null bytes]) to indicate removal, remove silently if <see langword="false" />.</param>
         /// <param name="threshold"> only consecutive null bytes above this threshold will be removed or replaced by a mark.</param>
-        /// <exception cref="T:ArgumentNullException"><paramref name="stream"/> is a <see langword="null"/>.</exception>
-        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="stream"/>.</exception>
+        /// <exception cref="T:ArgumentNullException"><paramref name="stream" /> is a <see langword="null" />.</exception>
+        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="stream" />.</exception>
         public CsvReader(Stream stream, bool hasHeaders, Encoding encoding, int bufferSize, bool addMark = DefaultAddMark, int threshold = DefaultThreshold)
             : this(new NullRemovalStreamReader(stream, addMark, threshold, encoding, bufferSize), hasHeaders, bufferSize)
         {
@@ -180,14 +186,14 @@ namespace Cadru.Data.Csv
         /// <summary>
         /// Like CsvReader(TextReader reader, bool hasHeaders, char delimiter) but removes consecutive null bytes above a threshold from source stream.
         /// </summary>
-        /// <param name="stream">A <see cref="T:Stream"/> pointing to the CSV file.</param>
-        /// <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+        /// <param name="stream">A <see cref="T:Stream" /> pointing to the CSV file.</param>
+        /// <param name="hasHeaders"><see langword="true" /> if field names are located on the first non commented line, otherwise, <see langword="false" />.</param>
         /// <param name="encoding"> specifies the encoding of the underlying stream.</param>
         /// <param name="delimiter">The delimiter character separating each field (default is ',').</param>
-        /// <param name="addMark"><see langword="true"/> if want to add a mark ([removed x null bytes]) to indicate removal, remove silently if <see langword="false"/>.</param>
+        /// <param name="addMark"><see langword="true" /> if want to add a mark ([removed x null bytes]) to indicate removal, remove silently if <see langword="false" />.</param>
         /// <param name="threshold"> only consecutive null bytes above this threshold will be removed or replaced by a mark.</param>
-        /// <exception cref="T:ArgumentNullException"><paramref name="stream"/> is a <see langword="null"/>.</exception>
-        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="stream"/>.</exception>
+        /// <exception cref="T:ArgumentNullException"><paramref name="stream" /> is a <see langword="null" />.</exception>
+        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="stream" />.</exception>
         public CsvReader(Stream stream, bool hasHeaders, Encoding encoding, char delimiter, bool addMark = DefaultAddMark, int threshold = DefaultThreshold)
             : this(new NullRemovalStreamReader(stream, addMark, threshold, encoding), hasHeaders, delimiter)
         {
@@ -196,15 +202,15 @@ namespace Cadru.Data.Csv
         /// <summary>
         /// Like CsvReader(TextReader reader, bool hasHeaders, char delimiter, int bufferSize) but removes consecutive null bytes above a threshold from source stream.
         /// </summary>
-        /// <param name="stream">A <see cref="T:Stream"/> pointing to the CSV file.</param>
-        /// <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+        /// <param name="stream">A <see cref="T:Stream" /> pointing to the CSV file.</param>
+        /// <param name="hasHeaders"><see langword="true" /> if field names are located on the first non commented line, otherwise, <see langword="false" />.</param>
         /// <param name="encoding"> specifies the encoding of the underlying stream.</param>
         /// <param name="delimiter">The delimiter character separating each field (default is ',').</param>
         /// <param name="bufferSize">The buffer size in bytes.</param>
-        /// <param name="addMark"><see langword="true"/> if want to add a mark ([removed x null bytes]) to indicate removal, remove silently if <see langword="false"/>.</param>
+        /// <param name="addMark"><see langword="true" /> if want to add a mark ([removed x null bytes]) to indicate removal, remove silently if <see langword="false" />.</param>
         /// <param name="threshold"> only consecutive null bytes above this threshold will be removed or replaced by a mark.</param>
-        /// <exception cref="T:ArgumentNullException"><paramref name="stream"/> is a <see langword="null"/>.</exception>
-        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="stream"/>.</exception>
+        /// <exception cref="T:ArgumentNullException"><paramref name="stream" /> is a <see langword="null" />.</exception>
+        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="stream" />.</exception>
         public CsvReader(Stream stream, bool hasHeaders, Encoding encoding, char delimiter, int bufferSize, bool addMark = DefaultAddMark, int threshold = DefaultThreshold)
             : this(new NullRemovalStreamReader(stream, addMark, threshold, encoding, bufferSize), hasHeaders, delimiter, bufferSize)
         {
@@ -214,8 +220,8 @@ namespace Cadru.Data.Csv
         /// Like CsvReader(TextReader reader, bool hasHeaders, char delimiter, char quote, char escape, char comment, ValueTrimmingOptions trimmingOptions, string nullValue)
         /// but removes consecutive null bytes above a threshold from source stream.
         /// </summary>
-        /// <param name="stream">A <see cref="T:Stream"/> pointing to the CSV file.</param>
-        /// <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+        /// <param name="stream">A <see cref="T:Stream" /> pointing to the CSV file.</param>
+        /// <param name="hasHeaders"><see langword="true" /> if field names are located on the first non commented line, otherwise, <see langword="false" />.</param>
         /// <param name="encoding"> specifies the encoding of the underlying stream.</param>
         /// <param name="delimiter">The delimiter character separating each field (default is ',').</param>
         /// <param name="quote">The quotation character wrapping every field (default is ''').</param>
@@ -226,10 +232,10 @@ namespace Cadru.Data.Csv
         /// <param name="comment">The comment character indicating that a line is commented out (default is '#').</param>
         /// <param name="trimmingOptions">Determines which values should be trimmed.</param>
         /// <param name="nullValue">The value which denotes a DbNull-value.</param>
-        /// <param name="addMark"><see langword="true"/> if want to add a mark ([removed x null bytes]) to indicate removal, remove silently if <see langword="false"/>.</param>
+        /// <param name="addMark"><see langword="true" /> if want to add a mark ([removed x null bytes]) to indicate removal, remove silently if <see langword="false" />.</param>
         /// <param name="threshold"> only consecutive null bytes above this threshold will be removed or replaced by a mark.</param>
-        /// <exception cref="T:ArgumentNullException"><paramref name="stream"/> is a <see langword="null"/>.</exception>
-        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="stream"/>.</exception>
+        /// <exception cref="T:ArgumentNullException"><paramref name="stream" /> is a <see langword="null" />.</exception>
+        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="stream" />.</exception>
         public CsvReader(Stream stream, bool hasHeaders, Encoding encoding, char delimiter, char quote, char escape, char comment, ValueTrimmingOptions trimmingOptions, string nullValue = null, bool addMark = DefaultAddMark, int threshold = DefaultThreshold)
             : this(new NullRemovalStreamReader(stream, addMark, threshold, encoding), hasHeaders, delimiter, quote, escape, comment, trimmingOptions, DefaultBufferSize, nullValue)
         {
@@ -239,8 +245,8 @@ namespace Cadru.Data.Csv
         ///     Like CsvReader(TextReader reader, bool hasHeaders, char delimiter, char quote, char escape, char comment, ValueTrimmingOptions trimmingOptions, int bufferSize, string nullValue)
         ///     but removes consecutive null bytes above a threshold from source stream.
         /// </summary>
-        /// <param name="stream">A <see cref="T:Stream"/> pointing to the CSV file.</param>
-        /// <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+        /// <param name="stream">A <see cref="T:Stream" /> pointing to the CSV file.</param>
+        /// <param name="hasHeaders"><see langword="true" /> if field names are located on the first non commented line, otherwise, <see langword="false" />.</param>
         /// <param name="encoding"> specifies the encoding of the underlying stream.</param>
         /// <param name="delimiter">The delimiter character separating each field (default is ',').</param>
         /// <param name="quote">The quotation character wrapping every field (default is ''').</param>
@@ -252,10 +258,10 @@ namespace Cadru.Data.Csv
         /// <param name="trimmingOptions">Determines which values should be trimmed.</param>
         /// <param name="bufferSize">The buffer size in bytes.</param>
         /// <param name="nullValue">The value which denotes a DbNull-value.</param>
-        /// <param name="addMark"><see langword="true"/> if want to add a mark ([removed x null bytes]) to indicate removal, remove silently if <see langword="false"/>.</param>
+        /// <param name="addMark"><see langword="true" /> if want to add a mark ([removed x null bytes]) to indicate removal, remove silently if <see langword="false" />.</param>
         /// <param name="threshold"> only consecutive null bytes above this threshold will be removed or replace by a mark.</param>
-        /// <exception cref="T:ArgumentNullException"><paramref name="stream"/> is a <see langword="null"/>.</exception>
-        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="stream"/>.</exception>
+        /// <exception cref="T:ArgumentNullException"><paramref name="stream" /> is a <see langword="null" />.</exception>
+        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="stream" />.</exception>
         public CsvReader(Stream stream, bool hasHeaders, Encoding encoding, char delimiter, char quote, char escape, char comment, ValueTrimmingOptions trimmingOptions, int bufferSize, string nullValue = null, bool addMark = DefaultAddMark, int threshold = DefaultThreshold)
             : this(new NullRemovalStreamReader(stream, addMark, threshold, encoding, bufferSize), hasHeaders, delimiter, quote, escape, comment, trimmingOptions, bufferSize, nullValue)
         {
@@ -264,10 +270,10 @@ namespace Cadru.Data.Csv
         /// <summary>
         /// Initializes a new instance of the CsvReader class.
         /// </summary>
-        /// <param name="reader">A <see cref="T:TextReader"/> pointing to the CSV file.</param>
-        /// <param name="hasHeaders"><see langword="true"/>If field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
-        /// <exception cref="T:ArgumentNullException"><paramref name="reader"/> is a <see langword="null"/>.</exception>
-        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="reader"/>.</exception>
+        /// <param name="reader">A <see cref="T:TextReader" /> pointing to the CSV file.</param>
+        /// <param name="hasHeaders"><see langword="true" />If field names are located on the first non commented line, otherwise, <see langword="false" />.</param>
+        /// <exception cref="T:ArgumentNullException"><paramref name="reader" /> is a <see langword="null" />.</exception>
+        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="reader" />.</exception>
         public CsvReader(TextReader reader, bool hasHeaders) : this(reader, hasHeaders, DefaultDelimiter, DefaultQuote)
         {
         }
@@ -275,11 +281,11 @@ namespace Cadru.Data.Csv
         /// <summary>
         /// Initializes a new instance of the CsvReader class.
         /// </summary>
-        /// <param name="reader">A <see cref="T:TextReader"/> pointing to the CSV file.</param>
-        /// <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+        /// <param name="reader">A <see cref="T:TextReader" /> pointing to the CSV file.</param>
+        /// <param name="hasHeaders"><see langword="true" /> if field names are located on the first non commented line, otherwise, <see langword="false" />.</param>
         /// <param name="bufferSize">The buffer size in bytes.</param>
-        /// <exception cref="T:ArgumentNullException"><paramref name="reader"/> is a <see langword="null"/>.</exception>
-        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="reader"/>.</exception>
+        /// <exception cref="T:ArgumentNullException"><paramref name="reader" /> is a <see langword="null" />.</exception>
+        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="reader" />.</exception>
         public CsvReader(TextReader reader, bool hasHeaders, int bufferSize) : this(reader, hasHeaders, DefaultDelimiter, DefaultQuote, bufferSize: bufferSize)
         {
         }
@@ -287,11 +293,11 @@ namespace Cadru.Data.Csv
         /// <summary>
         /// Initializes a new instance of the CsvReader class.
         /// </summary>
-        /// <param name="reader">A <see cref="T:TextReader"/> pointing to the CSV file.</param>
-        /// <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+        /// <param name="reader">A <see cref="T:TextReader" /> pointing to the CSV file.</param>
+        /// <param name="hasHeaders"><see langword="true" /> if field names are located on the first non commented line, otherwise, <see langword="false" />.</param>
         /// <param name="delimiter">The delimiter character separating each field (default is ',').</param>
-        /// <exception cref="T:ArgumentNullException"><paramref name="reader"/> is a <see langword="null"/>.</exception>
-        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="reader"/>.</exception>
+        /// <exception cref="T:ArgumentNullException"><paramref name="reader" /> is a <see langword="null" />.</exception>
+        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="reader" />.</exception>
         public CsvReader(TextReader reader, bool hasHeaders, char delimiter) : this(reader, hasHeaders, delimiter, DefaultQuote)
         {
         }
@@ -299,12 +305,12 @@ namespace Cadru.Data.Csv
         /// <summary>
         /// Initializes a new instance of the CsvReader class.
         /// </summary>
-        /// <param name="reader">A <see cref="T:TextReader"/> pointing to the CSV file.</param>
-        /// <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+        /// <param name="reader">A <see cref="T:TextReader" /> pointing to the CSV file.</param>
+        /// <param name="hasHeaders"><see langword="true" /> if field names are located on the first non commented line, otherwise, <see langword="false" />.</param>
         /// <param name="delimiter">The delimiter character separating each field (default is ',').</param>
         /// <param name="bufferSize">The buffer size in bytes.</param>
-        /// <exception cref="T:ArgumentNullException"><paramref name="reader"/> is a <see langword="null"/>.</exception>
-        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="reader"/>.</exception>
+        /// <exception cref="T:ArgumentNullException"><paramref name="reader" /> is a <see langword="null" />.</exception>
+        /// <exception cref="T:ArgumentException">Cannot read from <paramref name="reader" />.</exception>
         public CsvReader(TextReader reader, bool hasHeaders, char delimiter, int bufferSize) : this(reader, hasHeaders, delimiter, DefaultQuote, bufferSize: bufferSize)
         {
         }
@@ -312,8 +318,8 @@ namespace Cadru.Data.Csv
         /// <summary>
         /// Initializes a new instance of the CsvReader class.
         /// </summary>
-        /// <param name="reader">A <see cref="T:TextReader"/> pointing to the CSV file.</param>
-        /// <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+        /// <param name="reader">A <see cref="T:TextReader" /> pointing to the CSV file.</param>
+        /// <param name="hasHeaders"><see langword="true" /> if field names are located on the first non commented line, otherwise, <see langword="false" />.</param>
         /// <param name="delimiter">The delimiter character separating each field (default is ',').</param>
         /// <param name="quote">The quotation character wrapping every field (default is ''').</param>
         /// <param name="escape">
@@ -324,8 +330,8 @@ namespace Cadru.Data.Csv
         /// <param name="trimmingOptions">Determines which values should be trimmed.</param>
         /// <param name="bufferSize">The buffer size in bytes.</param>
         /// <param name="nullValue">The value which denotes a DbNull-value.</param>
-        /// <exception cref="T:ArgumentNullException"><paramref name="reader"/> is a <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentOutOfRangeException"><paramref name="bufferSize"/> must be 1 or more.</exception>
+        /// <exception cref="T:ArgumentNullException"><paramref name="reader" /> is a <see langword="null" />.</exception>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="bufferSize" /> must be 1 or more.</exception>
         public CsvReader(TextReader reader, bool hasHeaders = true, char delimiter = DefaultDelimiter, char quote = DefaultQuote, char escape = DefaultEscape, char comment = DefaultComment, ValueTrimmingOptions trimmingOptions = ValueTrimmingOptions.UnquotedOnly, int bufferSize = DefaultBufferSize, string nullValue = null)
         {
 #if DEBUG
@@ -386,9 +392,9 @@ namespace Cadru.Data.Csv
         public event EventHandler<ParseErrorEventArgs> ParseError;
 
         /// <summary>
-        /// Raises the <see cref="M:ParseError"/> event.
+        /// Raises the <see cref="M:ParseError" /> event.
         /// </summary>
-        /// <param name="e">The <see cref="ParseErrorEventArgs"/> that contains the event data.</param>
+        /// <param name="e">The <see cref="ParseErrorEventArgs" /> that contains the event data.</param>
         protected virtual void OnParseError(ParseErrorEventArgs e)
         {
             var handler = ParseError;
@@ -429,13 +435,13 @@ namespace Cadru.Data.Csv
         /// <summary>
         /// Indicates if field names are located on the first non commented line.
         /// </summary>
-        /// <value><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</value>
+        /// <value><see langword="true" /> if field names are located on the first non commented line, otherwise, <see langword="false" />.</value>
         public bool HasHeaders { get; }
 
         /// <summary>
         /// Indicates if spaces at the start and end of a field are trimmed.
         /// </summary>
-        /// <value><see langword="true"/> if spaces at the start and end of a field are trimmed, otherwise, <see langword="false"/>.</value>
+        /// <value><see langword="true" /> if spaces at the start and end of a field are trimmed, otherwise, <see langword="false" />.</value>
         public ValueTrimmingOptions TrimmingOption { get; }
 
         /// <summary>
@@ -512,7 +518,7 @@ namespace Cadru.Data.Csv
         /// <summary>
         /// Gets a value that indicates whether the current stream position is at the end of the stream.
         /// </summary>
-        /// <value><see langword="true"/> if the current stream position is at the end of the stream; otherwise <see langword="false"/>.</value>
+        /// <value><see langword="true" /> if the current stream position is at the end of the stream; otherwise <see langword="false" />.</value>
         public virtual bool EndOfStream { get; private set; }
 
         /// <summary>
@@ -538,7 +544,7 @@ namespace Cadru.Data.Csv
         /// <summary>
         /// Gets the current record index in the CSV file.
         /// <para>
-        /// A value of <see cref="M:Int32.MinValue"/> means that the reader has not been initialized yet.
+        /// A value of <see cref="M:Int32.MinValue" /> means that the reader has not been initialized yet.
         /// Otherwise, a negative value means that no record has been read yet.
         /// </para>
         /// </summary>
@@ -548,7 +554,7 @@ namespace Cadru.Data.Csv
         /// <summary>
         /// Gets the current record index in the CSV file.
         /// <para>
-        /// A value of <see cref="M:Int32.MinValue"/> means that the reader has not been initialized yet.
+        /// A value of <see cref="M:Int32.MinValue" /> means that the reader has not been initialized yet.
         /// Otherwise, a negative value means that no record has been read yet.
         /// </para>
         /// </summary>
@@ -568,17 +574,17 @@ namespace Cadru.Data.Csv
         public bool ParseErrorFlag { get; private set; }
 
         /// <summary>
-        /// Gets the field with the specified name and record position. <see cref="M:hasHeaders"/> must be <see langword="true"/>.
+        /// Gets the field with the specified name and record position. <see cref="M:hasHeaders" /> must be <see langword="true" />.
         /// </summary>
         /// <value>
         /// The field with the specified name and record position.
         /// </value>
-        /// <exception cref="T:ArgumentNullException"><paramref name="field"/> is <see langword="null"/> or an empty string.</exception>
-        /// <exception cref="T:InvalidOperationException">The CSV does not have headers (<see cref="M:HasHeaders"/> property is <see langword="false"/>).</exception>
-        /// <exception cref="T:ArgumentException"><paramref name="field"/> not found.</exception>
+        /// <exception cref="T:ArgumentNullException"><paramref name="field" /> is <see langword="null" /> or an empty string.</exception>
+        /// <exception cref="T:InvalidOperationException">The CSV does not have headers (<see cref="M:HasHeaders" /> property is <see langword="false" />).</exception>
+        /// <exception cref="T:ArgumentException"><paramref name="field" /> not found.</exception>
         /// <exception cref="T:ArgumentOutOfRangeException">Record index must be > 0.</exception>
         /// <exception cref="T:InvalidOperationException">Cannot move to a previous record in forward-only mode.</exception>
-        /// <exception cref="T:EndOfStreamException">Cannot read record at <paramref name="record"/>.</exception>
+        /// <exception cref="T:EndOfStreamException">Cannot read record at <paramref name="record" />.</exception>
         /// <exception cref="T:MalformedCsvException">The CSV appears to be corrupt at the current position.</exception>
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
         public string this[int record, string field]
@@ -599,12 +605,12 @@ namespace Cadru.Data.Csv
         /// </summary>
         /// <value>
         /// The field at the specified index and record position.
-        /// A <see langword="null"/> is returned if the field cannot be found for the record.
+        /// A <see langword="null" /> is returned if the field cannot be found for the record.
         /// </value>
-        /// <exception cref="T:ArgumentOutOfRangeException"><paramref name="field"/> must be included in [0, <see cref="M:FieldCount"/>[.</exception>
+        /// <exception cref="T:ArgumentOutOfRangeException"><paramref name="field" /> must be included in [0, <see cref="M:FieldCount" />[.</exception>
         /// <exception cref="T:ArgumentOutOfRangeException">Record index must be > 0.</exception>
         /// <exception cref="T:InvalidOperationException">Cannot move to a previous record in forward-only mode.</exception>
-        /// <exception cref="T:EndOfStreamException">Cannot read record at <paramref name="record"/>.</exception>
+        /// <exception cref="T:EndOfStreamException">Cannot read record at <paramref name="record" />.</exception>
         /// <exception cref="T:MalformedCsvException">The CSV appears to be corrupt at the current position.</exception>
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
         public string this[int record, int field]
@@ -621,14 +627,14 @@ namespace Cadru.Data.Csv
         }
 
         /// <summary>
-        /// Gets the field with the specified name. <see cref="M:hasHeaders"/> must be <see langword="true"/>.
+        /// Gets the field with the specified name. <see cref="M:hasHeaders" /> must be <see langword="true" />.
         /// </summary>
         /// <value>
         /// The field with the specified name.
         /// </value>
-        /// <exception cref="T:ArgumentNullException"><paramref name="field"/> is <see langword="null"/> or an empty string.</exception>
-        /// <exception cref="T:InvalidOperationException">The CSV does not have headers (<see cref="M:HasHeaders"/> property is <see langword="false"/>).</exception>
-        /// <exception cref="T:ArgumentException"><paramref name="field"/> not found.</exception>
+        /// <exception cref="T:ArgumentNullException"><paramref name="field" /> is <see langword="null" /> or an empty string.</exception>
+        /// <exception cref="T:InvalidOperationException">The CSV does not have headers (<see cref="M:HasHeaders" /> property is <see langword="false" />).</exception>
+        /// <exception cref="T:ArgumentException"><paramref name="field" /> not found.</exception>
         /// <exception cref="T:MalformedCsvException">The CSV appears to be corrupt at the current position.</exception>
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
         public string this[string field]
@@ -649,13 +655,12 @@ namespace Cadru.Data.Csv
 
                 if (index < 0)
                 {
-
-/* Unmerged change from project 'Cadru.Data (netstandard1.3)'
-Before:
-                    throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, Strings.FieldHeaderNotFound, field), "field");
-After:
-                    throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, Strings.FieldHeaderNotFound, field), "field));
-*/
+                    /* Unmerged change from project 'Cadru.Data (netstandard1.3)'
+                    Before:
+                                        throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, Strings.FieldHeaderNotFound, field), "field");
+                    After:
+                                        throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, Strings.FieldHeaderNotFound, field), "field));
+                    */
                     throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, Strings.FieldHeaderNotFound, field), nameof(field));
                 }
 
@@ -667,7 +672,7 @@ After:
         /// Gets the field at the specified index.
         /// </summary>
         /// <value>The field at the specified index.</value>
-        /// <exception cref="T:ArgumentOutOfRangeException"><paramref name="field"/> must be included in [0, <see cref="M:FieldCount"/>[.</exception>
+        /// <exception cref="T:ArgumentOutOfRangeException"><paramref name="field" /> must be included in [0, <see cref="M:FieldCount" />[.</exception>
         /// <exception cref="T:InvalidOperationException">No record read yet. Call ReadLine() first.</exception>
         /// <exception cref="T:MalformedCsvException">The CSV appears to be corrupt at the current position.</exception>
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
@@ -734,12 +739,12 @@ After:
         /// <summary>
         /// Copies the field array of the current record to a one-dimensional array, starting at the beginning of the target array.
         /// </summary>
-        /// <param name="array"> The one-dimensional <see cref="T:Array"/> that is the destination of the fields of the current record.</param>
-        /// <param name="index">The zero-based index in <paramref name="array"/> at which copying begins.</param>
-        /// <exception cref="T:ArgumentNullException"><paramref name="array"/> is <see langword="null"/>.</exception>
-        /// <exception cref="T:ArgumentOutOfRangeException"><paramref name="index"/> is les than zero or is equal to or greater than the length <paramref name="array"/>.</exception>
+        /// <param name="array"> The one-dimensional <see cref="T:Array" /> that is the destination of the fields of the current record.</param>
+        /// <param name="index">The zero-based index in <paramref name="array" /> at which copying begins.</param>
+        /// <exception cref="T:ArgumentNullException"><paramref name="array" /> is <see langword="null" />.</exception>
+        /// <exception cref="T:ArgumentOutOfRangeException"><paramref name="index" /> is les than zero or is equal to or greater than the length <paramref name="array" />.</exception>
         /// <exception cref="InvalidOperationException">No current record.</exception>
-        /// <exception cref="ArgumentException">The number of fields in the record is greater than the available space from <paramref name="index"/> to the end of <paramref name="array"/>.</exception>
+        /// <exception cref="ArgumentException">The number of fields in the record is greater than the available space from <paramref name="index" /> to the end of <paramref name="array" />.</exception>
         public void CopyCurrentRecordTo(string[] array, int index = 0)
         {
             if (array == null)
@@ -789,7 +794,7 @@ After:
         /// Indicates whether the specified Unicode character is categorized as white space.
         /// </summary>
         /// <param name="c">A Unicode character.</param>
-        /// <returns><see langword="true"/> if <paramref name="c"/> is white space; otherwise, <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if <paramref name="c" /> is white space; otherwise, <see langword="false" />.</returns>
         private bool IsWhiteSpace(char c)
         {
             // Handle cases where the delimiter is a whitespace (e.g. tab)
@@ -844,7 +849,7 @@ After:
         /// Parses a new line delimiter.
         /// </summary>
         /// <param name="pos">The starting position of the parsing. Will contain the resulting end position.</param>
-        /// <returns><see langword="true"/> if a new line delimiter was found; otherwise, <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if a new line delimiter was found; otherwise, <see langword="false" />.</returns>
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
         private bool ParseNewLine(ref int pos)
         {
@@ -920,7 +925,7 @@ After:
         /// Determines whether the character at the specified position is a new line delimiter.
         /// </summary>
         /// <param name="pos">The position of the character to verify.</param>
-        /// <returns><see langword="true"/> if the character at the specified position is a new line delimiter; otherwise, <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if the character at the specified position is a new line delimiter; otherwise, <see langword="false" />.</returns>
         private bool IsNewLine(int pos)
         {
             Debug.Assert(pos < this._bufferLength);
@@ -944,7 +949,7 @@ After:
         /// <summary>
         /// Fills the buffer with data from the reader.
         /// </summary>
-        /// <returns><see langword="true"/> if data was successfully read; otherwise, <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if data was successfully read; otherwise, <see langword="false" />.</returns>
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
         private bool ReadBuffer()
         {
@@ -979,9 +984,9 @@ After:
         /// <param name="discardValue">Indicates if the value(s) are discarded.</param>
         /// <returns>
         /// The field at the specified index.
-        /// A <see langword="null"/> indicates that an error occured or that the last field has been reached during initialization.
+        /// A <see langword="null" /> indicates that an error occured or that the last field has been reached during initialization.
         /// </returns>
-        /// <exception cref="ArgumentOutOfRangeException"><paramref name="field"/> is out of range.</exception>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="field" /> is out of range.</exception>
         /// <exception cref="InvalidOperationException">There is no current record.</exception>
         /// <exception cref="MissingFieldCsvException">The CSV data appears to be missing a field.</exception>
         /// <exception cref="MalformedCsvException">The CSV data appears to be malformed.</exception>
@@ -1430,7 +1435,7 @@ After:
         /// <summary>
         /// Reads the next record.
         /// </summary>
-        /// <returns><see langword="true"/> if a record has been successfully reads; otherwise, <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if a record has been successfully reads; otherwise, <see langword="false" />.</returns>
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
         public bool ReadNextRecord()
         {
@@ -1442,13 +1447,13 @@ After:
         /// </summary>
         /// <param name="onlyReadHeaders">
         /// Indicates if the reader will proceed to the next record after having read headers.
-        /// <see langword="true"/> if it stops after having read headers; otherwise, <see langword="false"/>.
+        /// <see langword="true" /> if it stops after having read headers; otherwise, <see langword="false" />.
         /// </param>
         /// <param name="skipToNextLine">
         /// Indicates if the reader will skip directly to the next line without parsing the current one.
         /// To be used when an error occurs.
         /// </param>
-        /// <returns><see langword="true"/> if a record has been successfully reads; otherwise, <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if a record has been successfully reads; otherwise, <see langword="false" />.</returns>
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
         protected virtual bool ReadNextRecord(bool onlyReadHeaders, bool skipToNextLine)
         {
@@ -1699,7 +1704,7 @@ After:
         /// The position in the buffer where to start parsing.
         /// Will contains the resulting position after the operation.
         /// </param>
-        /// <returns><see langword="true"/> if the end of the reader has not been reached; otherwise, <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if the end of the reader has not been reached; otherwise, <see langword="false" />.</returns>
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">
         ///    The instance has been disposed of.
         /// </exception>
@@ -1759,7 +1764,7 @@ After:
         /// Skips whitespace characters.
         /// </summary>
         /// <param name="pos">The starting position of the parsing. Will contain the resulting end position.</param>
-        /// <returns><see langword="true"/> if the end of the reader has not been reached; otherwise, <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if the end of the reader has not been reached; otherwise, <see langword="false" />.</returns>
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
         private bool SkipWhiteSpaces(ref int pos)
         {
@@ -1796,7 +1801,7 @@ After:
         /// The position in the buffer where to start parsing.
         /// Will contains the resulting position after the operation.
         /// </param>
-        /// <returns><see langword="true"/> if the end of the reader has not been reached; otherwise, <see langword="false"/>.</returns>
+        /// <returns><see langword="true" /> if the end of the reader has not been reached; otherwise, <see langword="false" />.</returns>
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
         private bool SkipToNewLine(ref int pos)
         {
@@ -1814,7 +1819,7 @@ After:
         /// </summary>
         /// <param name="error">The parsing error that occured.</param>
         /// <param name="pos">The current position in the buffer.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="error"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="error" /> is <see langword="null" />.</exception>
         private void HandleParseError(MalformedCsvException error, ref int pos)
         {
             if (error == null)
@@ -1875,9 +1880,9 @@ After:
         /// <param name="fieldIndex">The missing field index.</param>
         /// <param name="currentPosition">The current position in the raw data.</param>
         /// <returns>
-        /// The resulting value according to <see cref="M:MissingFieldAction"/>.
-        /// If the action is set to <see cref="T:MissingFieldAction.TreatAsParseError"/>,
-        /// then the parse error will be handled according to <see cref="DefaultParseErrorAction"/>.
+        /// The resulting value according to <see cref="M:MissingFieldAction" />.
+        /// If the action is set to <see cref="T:MissingFieldAction.TreatAsParseError" />,
+        /// then the parse error will be handled according to <see cref="DefaultParseErrorAction" />.
         /// </returns>
         private string HandleMissingField(string value, int fieldIndex, ref int currentPosition)
         {
@@ -1998,6 +2003,7 @@ After:
         }
 
 #if !NETSTANDARD1_3
+
         int System.Data.IDataReader.RecordsAffected =>
                 // For SELECT statements, -1 must be returned.
                 -1;
@@ -2330,8 +2336,10 @@ After:
             this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
             return Int16.Parse(this[i], CultureInfo.CurrentCulture);
         }
+
 #endif
-        object FieldValue(int i)
+
+        private object FieldValue(int i)
         {
             var value = this[i];
             if (this.Columns == null || i < 0 || i >= this.Columns.Count)
@@ -2343,9 +2351,9 @@ After:
         }
 
         /// <summary>
-        /// Returns an <see cref="T:RecordEnumerator"/>  that can iterate through CSV records.
+        /// Returns an <see cref="T:RecordEnumerator" />  that can iterate through CSV records.
         /// </summary>
-        /// <returns>An <see cref="T:RecordEnumerator"/>  that can iterate through CSV records.</returns>
+        /// <returns>An <see cref="T:RecordEnumerator" />  that can iterate through CSV records.</returns>
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">
         ///    The instance has been disposed of.
         /// </exception>
@@ -2355,9 +2363,9 @@ After:
         }
 
         /// <summary>
-        /// Returns an <see cref="T:System.Collections.Generics.IEnumerator"/>  that can iterate through CSV records.
+        /// Returns an <see cref="T:System.Collections.Generics.IEnumerator" />  that can iterate through CSV records.
         /// </summary>
-        /// <returns>An <see cref="T:System.Collections.Generics.IEnumerator"/>  that can iterate through CSV records.</returns>
+        /// <returns>An <see cref="T:System.Collections.Generics.IEnumerator" />  that can iterate through CSV records.</returns>
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">
         ///    The instance has been disposed of.
         /// </exception>
@@ -2367,9 +2375,9 @@ After:
         }
 
         /// <summary>
-        /// Returns an <see cref="T:System.Collections.IEnumerator"/>  that can iterate through CSV records.
+        /// Returns an <see cref="T:System.Collections.IEnumerator" />  that can iterate through CSV records.
         /// </summary>
-        /// <returns>An <see cref="T:System.Collections.IEnumerator"/>  that can iterate through CSV records.</returns>
+        /// <returns>An <see cref="T:System.Collections.IEnumerator" />  that can iterate through CSV records.</returns>
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">
         ///    The instance has been disposed of.
         /// </exception>
@@ -2380,10 +2388,12 @@ After:
 
 #if DEBUG
 #if !NETSTANDARD1_3
+
         /// <summary>
         /// Contains the stack when the object was allocated.
         /// </summary>
         private readonly System.Diagnostics.StackTrace _allocStack;
+
 #endif
 #endif
 
@@ -2406,21 +2416,21 @@ After:
         /// Gets a value indicating whether the instance has been disposed of.
         /// </summary>
         /// <value>
-        ///     <see langword="true"/> if the instance has been disposed of; otherwise, <see langword="false"/>.
+        ///     <see langword="true" /> if the instance has been disposed of; otherwise, <see langword="false" />.
         /// </value>
         public bool IsDisposed => this._isDisposed;
 
         /// <summary>
-        /// Raises the <see cref="M:Disposed"/> event.
+        /// Raises the <see cref="M:Disposed" /> event.
         /// </summary>
-        /// <param name="e">A <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        /// <param name="e">A <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnDisposed(EventArgs e)
         {
             Disposed?.Invoke(this, e);
         }
 
         /// <summary>
-        /// Checks if the instance has been disposed of, and if it has, throws an <see cref="T:System.ComponentModel.ObjectDisposedException"/>; otherwise, does nothing.
+        /// Checks if the instance has been disposed of, and if it has, throws an <see cref="T:System.ComponentModel.ObjectDisposedException" />; otherwise, does nothing.
         /// </summary>
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">
         ///     The instance has been disposed of.
@@ -2440,7 +2450,7 @@ After:
         /// Releases all resources used by the instance.
         /// </summary>
         /// <remarks>
-        /// Calls <see cref="M:Dispose(Boolean)"/> with the disposing parameter set to <see langword="true"/> to free unmanaged and managed resources.
+        /// Calls <see cref="M:Dispose(Boolean)"/> with the disposing parameter set to <see langword="true" /> to free unmanaged and managed resources.
         /// </remarks>
         public void Dispose()
         {
@@ -2454,7 +2464,7 @@ After:
         /// <summary>
         /// Releases the unmanaged resources used by this instance and optionally releases the managed resources.
         /// </summary>
-        /// <param name="disposing"><see langword="true"/> to release both managed and unmanaged resources; <see langword="false"/> to release only unmanaged resources.</param>
+        /// <param name="disposing"><see langword="true" /> to release both managed and unmanaged resources; <see langword="false" /> to release only unmanaged resources.</param>
         protected virtual void Dispose(bool disposing)
         {
             // Refer to http://www.bluebytesoftware.com/blog/PermaLink,guid,88e62cdf-5919-4ac7-bc33-20c06ae539ae.aspx

@@ -19,10 +19,10 @@ Sample license text.
         </member>
         <member name="M:Cadru.Data.Annotations.ExportableAttribute.#ctor(System.Boolean)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Data.Annotations.ExportableAttribute"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Data.Annotations.ExportableAttribute" /> class.
             </summary>
             <param name="allowExport">
-            <see langword="true"/> to specify that the field is exportable; otherwise, <see langword="false"/>.
+            <see langword="true" /> to specify that the field is exportable; otherwise, <see langword="false" />.
             </param>
         </member>
         <member name="P:Cadru.Data.Annotations.ExportableAttribute.AllowExport">
@@ -30,7 +30,7 @@ Sample license text.
             Gets a value that indicates whether a field is exportable.
             </summary>
             <value>
-            <see langword="true"/> if the field is exportable; otherwise, <see langword="false"/>.
+            <see langword="true" /> if the field is exportable; otherwise, <see langword="false" />.
             </value>
         </member>
         <member name="P:Cadru.Data.Annotations.ExportableAttribute.Order">
@@ -52,7 +52,7 @@ Sample license text.
         </member>
         <member name="M:Cadru.Data.Annotations.ExtendedPropertyAttribute.#ctor(System.String,System.Object)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Data.Annotations.ExtendedPropertyAttribute"/> class.
+            Initializes a new instance of the <see cref="T:Cadru.Data.Annotations.ExtendedPropertyAttribute" /> class.
             </summary>
             <param name="name">The name of the extended property.</param>
             <param name="value">The value of the extended property.</param>
@@ -75,7 +75,7 @@ Sample license text.
         <member name="M:Cadru.Data.Annotations.StringHandlingAttribute.#ctor(Cadru.Data.Annotations.StringHandlingOption)">
             <summary>
             Initializes a new instance of the <see
-            cref="T:Cadru.Data.Annotations.StringHandlingAttribute"/> class.
+            cref="T:Cadru.Data.Annotations.StringHandlingAttribute" /> class.
             </summary>
             <param name="stringHandlingOption">The string handling option.</param>
         </member>

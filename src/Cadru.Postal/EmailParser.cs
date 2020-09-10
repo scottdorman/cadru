@@ -26,20 +26,21 @@ using System.Net.Mail;
 using System.Net.Mime;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+
 using RazorEngine.Templating;
 
 namespace Cadru.Postal
 {
     /// <summary>
-    /// Converts the raw string output of a view into a <see cref="MailMessage"/>.
+    /// Converts the raw string output of a view into a <see cref="MailMessage" />.
     /// </summary>
     public class EmailParser : IEmailParser
     {
         private readonly IRazorEngineService razorEngineService;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EmailParser"/> class
-        /// with the specified <see cref="IRazorEngineService"/> instance.
+        /// Initializes a new instance of the <see cref="EmailParser" /> class
+        /// with the specified <see cref="IRazorEngineService" /> instance.
         /// </summary>
         /// <param name="razorEngineService"></param>
         public EmailParser(IRazorEngineService razorEngineService)
@@ -47,19 +48,168 @@ namespace Cadru.Postal
             this.razorEngineService = razorEngineService;
         }
 
-        private MailAddress GetValidEmailAddressOrDefault(string value)
+        /// <summary>
+        /// Parses the email view output into a <see cref="MailMessage" />.
+        /// </summary>
+        /// <param name="template">The email view template.</param>
+        /// <param name="email">The <see cref="Email" /> used to generate the output.</param>
+        /// <returns>A <see cref="MailMessage" /> containing the email headers and content.</returns>
+        public async Task<MailMessage> ParseAsync(string template, IEmail email)
         {
-            MailAddress mailAddress;
-            try
+            var message = new MailMessage();
+            using (var reader = new StringReader(template))
             {
-                mailAddress = new MailAddress(value);
-            }
-            catch (Exception e)
-            {
-                mailAddress = new MailAddress("");
+                await ParserUtils.ParseHeadersAsync(reader, async (key, value) => await this.ProcessHeaderAsync(key, value, message, email));
+                this.AssignCommonHeaders(message, email);
+                if (message.AlternateViews.Count == 0)
+                {
+                    var messageBody = (await reader.ReadToEndAsync()).Trim();
+                    if (email.ImageEmbedder.HasImages)
+                    {
+                        var view = AlternateView.CreateAlternateViewFromString(messageBody, new ContentType("text/html"));
+                        email.ImageEmbedder.AddImagesToView(view);
+                        message.AlternateViews.Add(view);
+                        message.Body = "Plain text not available.";
+                        message.IsBodyHtml = false;
+                    }
+                    else
+                    {
+                        message.Body = messageBody;
+                        if (message.Body.StartsWith("<")) message.IsBodyHtml = true;
+                    }
+                }
+
+                this.AddAttachments(message, email);
             }
 
-            return mailAddress;
+            return message;
+        }
+
+        private static string GetAlternativeViewName(IEmail email, string alternativeViewName)
+        {
+            if (email.ViewName.StartsWith("~"))
+            {
+                var index = email.ViewName.LastIndexOf('.');
+                return email.ViewName.Insert(index + 1, alternativeViewName + ".");
+            }
+            else
+            {
+                return email.ViewName + "." + alternativeViewName;
+            }
+        }
+
+        private void AddAttachments(MailMessage message, IEmail email)
+        {
+            foreach (var attachment in email.Attachments)
+            {
+                message.Attachments.Add(attachment);
+            }
+        }
+
+        private void AssignCommonHeader<T>(IEmail email, string header, Action<T> assign)
+            where T : class
+        {
+            if (email.ViewData.TryGetValue(header, out var value))
+            {
+                if (value is T typedValue) assign(typedValue);
+            }
+        }
+
+        private void AssignCommonHeaders(MailMessage message, IEmail email)
+        {
+            if (message.To.Count == 0)
+            {
+                this.AssignCommonHeader<string>(email, "to", to => message.To.Add(to));
+                this.AssignCommonHeader<MailAddress>(email, "to", to => message.To.Add(to));
+            }
+
+            if (message.From == null)
+            {
+                this.AssignCommonHeader<string>(email, "from", from => message.From = this.GetValidEmailAddressOrDefault(from));
+                this.AssignCommonHeader<MailAddress>(email, "from", from => message.From = from);
+            }
+            if (message.CC.Count == 0)
+            {
+                this.AssignCommonHeader<string>(email, "cc", cc => message.CC.Add(cc));
+                this.AssignCommonHeader<MailAddress>(email, "cc", cc => message.CC.Add(cc));
+            }
+            if (message.Bcc.Count == 0)
+            {
+                this.AssignCommonHeader<string>(email, "bcc", bcc => message.Bcc.Add(bcc));
+                this.AssignCommonHeader<MailAddress>(email, "bcc", bcc => message.Bcc.Add(bcc));
+            }
+            if (message.ReplyToList.Count == 0)
+            {
+                this.AssignCommonHeader<string>(email, "replyto", replyTo => message.ReplyToList.Add(replyTo));
+                this.AssignCommonHeader<MailAddress>(email, "replyto", replyTo => message.ReplyToList.Add(replyTo));
+            }
+            if (message.Sender == null)
+            {
+                this.AssignCommonHeader<string>(email, "sender", sender => message.Sender = this.GetValidEmailAddressOrDefault(sender));
+                this.AssignCommonHeader<MailAddress>(email, "sender", sender => message.Sender = sender);
+            }
+            if (String.IsNullOrEmpty(message.Subject))
+            {
+                this.AssignCommonHeader<string>(email, "subject", subject => message.Subject = subject);
+            }
+        }
+
+        private void AssignEmailHeaderToMailMessage(string key, string value, MailMessage message)
+        {
+            switch (key)
+            {
+                case "to":
+                    message.To.Add(value);
+                    break;
+
+                case "from":
+                    message.From = this.GetValidEmailAddressOrDefault(value);
+                    break;
+
+                case "subject":
+                    message.Subject = value;
+                    break;
+
+                case "cc":
+                    message.CC.Add(value);
+                    break;
+
+                case "bcc":
+                    message.Bcc.Add(value);
+                    break;
+
+                case "reply-to":
+                    message.ReplyToList.Add(value);
+                    break;
+
+                case "sender":
+                    message.Sender = this.GetValidEmailAddressOrDefault(value);
+                    break;
+
+                case "priority":
+                    MailPriority priority;
+                    if (Enum.TryParse(value, true, out priority))
+                    {
+                        message.Priority = priority;
+                    }
+                    else
+                    {
+                        throw new ArgumentException(String.Format("Invalid email priority: {0}. It must be High, Medium or Low.", value));
+                    }
+                    break;
+
+                case "content-type":
+                    var charsetMatch = Regex.Match(value, @"\bcharset\s*=\s*(.*)$");
+                    if (charsetMatch.Success)
+                    {
+                        message.BodyEncoding = System.Text.Encoding.GetEncoding(charsetMatch.Groups[1].Value);
+                    }
+                    break;
+
+                default:
+                    message.Headers[key] = value;
+                    break;
+            }
         }
 
         private async Task<AlternateView> CreateAlternativeViewAsync(IEmail email, string alternativeViewName)
@@ -105,20 +255,7 @@ namespace Cadru.Postal
             return alternativeView;
         }
 
-        private static string GetAlternativeViewName(IEmail email, string alternativeViewName)
-        {
-            if (email.ViewName.StartsWith("~"))
-            {
-                var index = email.ViewName.LastIndexOf('.');
-                return email.ViewName.Insert(index + 1, alternativeViewName + ".");
-            }
-            else
-            {
-                return email.ViewName + "." + alternativeViewName;
-            }
-        }
-
-        MemoryStream CreateStreamOfBody(string body)
+        private MemoryStream CreateStreamOfBody(string body)
         {
             var stream = new MemoryStream();
             var writer = new StreamWriter(stream);
@@ -126,6 +263,26 @@ namespace Cadru.Postal
             writer.Flush();
             stream.Position = 0;
             return stream;
+        }
+
+        private MailAddress GetValidEmailAddressOrDefault(string value)
+        {
+            MailAddress mailAddress;
+            try
+            {
+                mailAddress = new MailAddress(value);
+            }
+            catch (Exception e)
+            {
+                mailAddress = new MailAddress("");
+            }
+
+            return mailAddress;
+        }
+
+        private bool IsAlternativeViewsHeader(string headerName)
+        {
+            return headerName.Equals("views", StringComparison.OrdinalIgnoreCase);
         }
 
         private async Task<string> ParseHeadersForContentType(StringReader reader)
@@ -140,116 +297,6 @@ namespace Cadru.Postal
             });
 
             return contentType;
-        }
-
-        private bool IsAlternativeViewsHeader(string headerName)
-        {
-            return headerName.Equals("views", StringComparison.OrdinalIgnoreCase);
-        }
-
-        private void AssignEmailHeaderToMailMessage(string key, string value, MailMessage message)
-        {
-            switch (key)
-            {
-                case "to":
-                    message.To.Add(value);
-                    break;
-                case "from":
-                    message.From = this.GetValidEmailAddressOrDefault(value);
-                    break;
-                case "subject":
-                    message.Subject = value;
-                    break;
-                case "cc":
-                    message.CC.Add(value);
-                    break;
-                case "bcc":
-                    message.Bcc.Add(value);
-                    break;
-                case "reply-to":
-                    message.ReplyToList.Add(value);
-                    break;
-                case "sender":
-                    message.Sender = this.GetValidEmailAddressOrDefault(value);
-                    break;
-                case "priority":
-                    MailPriority priority;
-                    if (Enum.TryParse(value, true, out priority))
-                    {
-                        message.Priority = priority;
-                    }
-                    else
-                    {
-                        throw new ArgumentException(String.Format("Invalid email priority: {0}. It must be High, Medium or Low.", value));
-                    }
-                    break;
-                case "content-type":
-                    var charsetMatch = Regex.Match(value, @"\bcharset\s*=\s*(.*)$");
-                    if (charsetMatch.Success)
-                    {
-                        message.BodyEncoding = System.Text.Encoding.GetEncoding(charsetMatch.Groups[1].Value);
-                    }
-                    break;
-                default:
-                    message.Headers[key] = value;
-                    break;
-            }
-        }
-
-        private void AddAttachments(MailMessage message, IEmail email)
-        {
-            foreach (var attachment in email.Attachments)
-            {
-                message.Attachments.Add(attachment);
-            }
-        }
-
-        private void AssignCommonHeaders(MailMessage message, IEmail email)
-        {
-            if (message.To.Count == 0)
-            {
-                this.AssignCommonHeader<string>(email, "to", to => message.To.Add(to));
-                this.AssignCommonHeader<MailAddress>(email, "to", to => message.To.Add(to));
-            }
-
-            if (message.From == null)
-            {
-                this.AssignCommonHeader<string>(email, "from", from => message.From = this.GetValidEmailAddressOrDefault(from));
-                this.AssignCommonHeader<MailAddress>(email, "from", from => message.From = from);
-            }
-            if (message.CC.Count == 0)
-            {
-                this.AssignCommonHeader<string>(email, "cc", cc => message.CC.Add(cc));
-                this.AssignCommonHeader<MailAddress>(email, "cc", cc => message.CC.Add(cc));
-            }
-            if (message.Bcc.Count == 0)
-            {
-                this.AssignCommonHeader<string>(email, "bcc", bcc => message.Bcc.Add(bcc));
-                this.AssignCommonHeader<MailAddress>(email, "bcc", bcc => message.Bcc.Add(bcc));
-            }
-            if (message.ReplyToList.Count == 0)
-            {
-                this.AssignCommonHeader<string>(email, "replyto", replyTo => message.ReplyToList.Add(replyTo));
-                this.AssignCommonHeader<MailAddress>(email, "replyto", replyTo => message.ReplyToList.Add(replyTo));
-            }
-            if (message.Sender == null)
-            {
-                this.AssignCommonHeader<string>(email, "sender", sender => message.Sender = this.GetValidEmailAddressOrDefault(sender));
-                this.AssignCommonHeader<MailAddress>(email, "sender", sender => message.Sender = sender);
-            }
-            if (String.IsNullOrEmpty(message.Subject))
-            {
-                this.AssignCommonHeader<string>(email, "subject", subject => message.Subject = subject);
-            }
-        }
-
-        private void AssignCommonHeader<T>(IEmail email, string header, Action<T> assign)
-            where T : class
-        {
-            if (email.ViewData.TryGetValue(header, out var value))
-            {
-                if (value is T typedValue) assign(typedValue);
-            }
         }
 
         private async Task ProcessHeaderAsync(string key, string value, MailMessage message, IEmail email)
@@ -267,43 +314,6 @@ namespace Cadru.Postal
             {
                 this.AssignEmailHeaderToMailMessage(key, value, message);
             }
-        }
-
-        /// <summary>
-        /// Parses the email view output into a <see cref="MailMessage"/>.
-        /// </summary>
-        /// <param name="template">The email view template.</param>
-        /// <param name="email">The <see cref="Email"/> used to generate the output.</param>
-        /// <returns>A <see cref="MailMessage"/> containing the email headers and content.</returns>
-        public async Task<MailMessage> ParseAsync(string template, IEmail email)
-        {
-            var message = new MailMessage();
-            using (var reader = new StringReader(template))
-            {
-                await ParserUtils.ParseHeadersAsync(reader, async (key, value) => await this.ProcessHeaderAsync(key, value, message, email));
-                this.AssignCommonHeaders(message, email);
-                if (message.AlternateViews.Count == 0)
-                {
-                    var messageBody = (await reader.ReadToEndAsync()).Trim();
-                    if (email.ImageEmbedder.HasImages)
-                    {
-                        var view = AlternateView.CreateAlternateViewFromString(messageBody, new ContentType("text/html"));
-                        email.ImageEmbedder.AddImagesToView(view);
-                        message.AlternateViews.Add(view);
-                        message.Body = "Plain text not available.";
-                        message.IsBodyHtml = false;
-                    }
-                    else
-                    {
-                        message.Body = messageBody;
-                        if (message.Body.StartsWith("<")) message.IsBodyHtml = true;
-                    }
-                }
-
-                this.AddAttachments(message, email);
-            }
-
-            return message;
         }
     }
 }

@@ -38,7 +38,7 @@ namespace Cadru.Data.Csv
         ReplaceByEmpty = 1,
 
         /// <summary>
-        /// Replaces by a null value (<see langword="null"/>).
+        /// Replaces by a null value (<see langword="null" />).
         /// </summary>
         ReplaceByNull = 2,
     }

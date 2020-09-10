@@ -52,7 +52,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <para>
         /// This is equivalent to calling <see cref="Get{T}(ITempDataDictionary,
         /// String)"></see> where the key is the full name of <typeparamref
-        /// name="T"/>.
+        /// name="T" />.
         /// </para>
         /// </remarks>
         public static T Get<T>(this ITempDataDictionary storageProvider)
@@ -94,7 +94,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <para>
         /// This is equivalent to calling <see cref="Get{T}(ISession,
         /// String)"></see> where the key is the full name of <typeparamref
-        /// name="T"/>.
+        /// name="T" />.
         /// </para>
         /// </remarks>
         public static T Get<T>(this ISession storageProvider)
@@ -136,7 +136,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <para>
         /// This is equivalent to calling <see cref="Get{T}(ViewDataDictionary,
         /// String)"></see> where the key is the full name of <typeparamref
-        /// name="T"/>.
+        /// name="T" />.
         /// </para>
         /// </remarks>
         public static T Get<T>(this ViewDataDictionary storageProvider)
@@ -179,7 +179,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <para>
         /// This is equivalent to calling <see
         /// cref="Peek{T}(ITempDataDictionary, String)"></see> where the key is
-        /// the full name of <typeparamref name="T"/>.
+        /// the full name of <typeparamref name="T" />.
         /// </para>
         /// </remarks>
         public static T Peek<T>(this ITempDataDictionary storageProvider)
@@ -209,7 +209,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
 
         /// <summary>
         /// Gets the value associated with the key derived from the full name of
-        /// <typeparamref name="T"/>.
+        /// <typeparamref name="T" />.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="storageProvider">The underlying storage
@@ -223,7 +223,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <para>
         /// This is equivalent to calling <see cref="Get{T}(ISession,
         /// String)"></see> where the key is the full name of <typeparamref
-        /// name="T"/> and is provided for ease of use when switching between
+        /// name="T" /> and is provided for ease of use when switching between
         /// different storage providers.
         /// </para>
         /// </remarks>
@@ -248,7 +248,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <para>
         /// This is equivalent to calling <see cref="Get{T}(ISession,
         /// String)"></see> where the key is the full name of <typeparamref
-        /// name="T"/> and is provided for ease of use when switching between
+        /// name="T" /> and is provided for ease of use when switching between
         /// different storage providers.
         /// </para>
         /// </remarks>
@@ -259,7 +259,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
 
         /// <summary>
         /// Gets the value associated with the key derived from the full name of
-        /// <typeparamref name="T"/>.
+        /// <typeparamref name="T" />.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="storageProvider">The underlying storage
@@ -273,7 +273,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <para>
         /// This is equivalent to calling <see cref="Get{T}(ViewDataDictionary,
         /// String)"></see> where the key is the full name of <typeparamref
-        /// name="T"/> and is provided for ease of use when switching between
+        /// name="T" /> and is provided for ease of use when switching between
         /// different storage providers.
         /// </para>
         /// </remarks>
@@ -321,7 +321,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <para>
         /// This is equivalent to calling <see cref="Put{T}(ITempDataDictionary,
         /// String, T)"></see> where the key is the full name of <typeparamref
-        /// name="T"/>.
+        /// name="T" />.
         /// </para>
         /// </remarks>
         public static void Put<T>(this ITempDataDictionary storageProvider, T value)
@@ -361,7 +361,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <para>
         /// This is equivalent to calling <see cref="Put{T}(ISession,
         /// String, T)"></see> where the key is the full name of <typeparamref
-        /// name="T"/>.
+        /// name="T" />.
         /// </para>
         /// </remarks>
         public static void Put<T>(this ISession storageProvider, T value)
@@ -401,7 +401,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <para>
         /// This is equivalent to calling <see cref="Put{T}(ViewDataDictionary,
         /// String, T)"></see> where the key is the full name of <typeparamref
-        /// name="T"/>.
+        /// name="T" />.
         /// </para>
         /// </remarks>
         public static void Put<T>(this ViewDataDictionary storageProvider, T value)
@@ -439,7 +439,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// value for the type of the value parameter. This parameter is passed
         /// uninitialized.</param>
         /// <returns><see langword="true"></see> if the <paramref
-        /// name="storageProvider"/> contains an element with the specified key;
+        /// name="storageProvider" /> contains an element with the specified key;
         /// otherwise, <see langword="false"></see>.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static bool TryGetValue<T>(this ITempDataDictionary storageProvider, string key, out T value)
@@ -475,7 +475,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// value for the type of the value parameter. This parameter is passed
         /// uninitialized.</param>
         /// <returns><see langword="true"></see> if the <paramref
-        /// name="storageProvider"/> contains an element with the specified key;
+        /// name="storageProvider" /> contains an element with the specified key;
         /// otherwise, <see langword="false"></see>.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static bool TryGetValue<T>(this ISession storageProvider, string key, out T value)
@@ -512,7 +512,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// value for the type of the value parameter. This parameter is passed
         /// uninitialized.</param>
         /// <returns><see langword="true"></see> if the <paramref
-        /// name="storageProvider"/> contains an element with the specified key;
+        /// name="storageProvider" /> contains an element with the specified key;
         /// otherwise, <see langword="false"></see>.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static bool TryGetValue<T>(this ViewDataDictionary storageProvider, string key, out T value)
@@ -549,7 +549,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// value for the type of the value parameter. This parameter is passed
         /// uninitialized.</param>
         /// <returns><see langword="true"></see> if the <paramref
-        /// name="storageProvider"/> contains an element with the specified key;
+        /// name="storageProvider" /> contains an element with the specified key;
         /// otherwise, <see langword="false"></see>.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static bool TryPeekValue<T>(this ITempDataDictionary storageProvider, string key, out T value)
@@ -587,7 +587,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// value for the type of the value parameter. This parameter is passed
         /// uninitialized.</param>
         /// <returns><see langword="true"></see> if the <paramref
-        /// name="storageProvider"/> contains an element with the specified key;
+        /// name="storageProvider" /> contains an element with the specified key;
         /// otherwise, <see langword="false"></see>.</returns>
         /// <remarks>
         /// This method is equivalent to calling <see
@@ -612,7 +612,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// value for the type of the value parameter. This parameter is passed
         /// uninitialized.</param>
         /// <returns><see langword="true"></see> if the <paramref
-        /// name="storageProvider"/> contains an element with the specified key;
+        /// name="storageProvider" /> contains an element with the specified key;
         /// otherwise, <see langword="false"></see>.</returns>
         /// <remarks>
         /// This method is equivalent to calling <see

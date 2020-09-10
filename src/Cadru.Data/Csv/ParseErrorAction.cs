@@ -28,7 +28,7 @@ namespace Cadru.Data.Csv
     public enum ParseErrorAction
     {
         /// <summary>
-        /// Raises the <see cref="M:CsvReader.ParseError"/> event.
+        /// Raises the <see cref="M:CsvReader.ParseError" /> event.
         /// </summary>
         RaiseEvent = 0,
 

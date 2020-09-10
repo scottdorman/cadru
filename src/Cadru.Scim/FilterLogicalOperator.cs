@@ -34,7 +34,7 @@ namespace Cadru.Scim.Filters
         private readonly string _value;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FilterLogicalOperator"/> structure.
+        /// Initializes a new instance of the <see cref="FilterLogicalOperator" /> structure.
         /// </summary>
         /// <param name="value">The string value of the instance.</param>
         public FilterLogicalOperator(string value)
@@ -55,25 +55,25 @@ namespace Cadru.Scim.Filters
         public static FilterLogicalOperator Or => new FilterLogicalOperator("or");
 
         /// <summary>
-        /// Converts a string to a <see cref="FilterLogicalOperator"/>.
+        /// Converts a string to a <see cref="FilterLogicalOperator" />.
         /// </summary>
         /// <param name="value">The string value to convert.</param>
         public static implicit operator FilterLogicalOperator(string value) => new FilterLogicalOperator(value);
 
         /// <summary>
-        /// Determines if two <see cref="FilterLogicalOperator"/> values are different.
+        /// Determines if two <see cref="FilterLogicalOperator" /> values are different.
         /// </summary>
-        /// <param name="left">The first <see cref="FilterLogicalOperator"/> to compare.</param>
-        /// <param name="right">The second <see cref="FilterLogicalOperator"/> to compare.</param>
-        /// <returns>True if <paramref name="left"/> and <paramref name="right"/> are different; otherwise, false.</returns>
+        /// <param name="left">The first <see cref="FilterLogicalOperator" /> to compare.</param>
+        /// <param name="right">The second <see cref="FilterLogicalOperator" /> to compare.</param>
+        /// <returns>True if <paramref name="left" /> and <paramref name="right" /> are different; otherwise, false.</returns>
         public static bool operator !=(FilterLogicalOperator left, FilterLogicalOperator right) => !left.Equals(right);
 
         /// <summary>
-        /// Determines if two <see cref="FilterLogicalOperator"/> values are the same.
+        /// Determines if two <see cref="FilterLogicalOperator" /> values are the same.
         /// </summary>
-        /// <param name="left">The first <see cref="FilterLogicalOperator"/> to compare.</param>
-        /// <param name="right">The second <see cref="FilterLogicalOperator"/> to compare.</param>
-        /// <returns>True if <paramref name="left"/> and <paramref name="right"/> are the same; otherwise, false.</returns>
+        /// <param name="left">The first <see cref="FilterLogicalOperator" /> to compare.</param>
+        /// <param name="right">The second <see cref="FilterLogicalOperator" /> to compare.</param>
+        /// <returns>True if <paramref name="left" /> and <paramref name="right" /> are the same; otherwise, false.</returns>
         public static bool operator ==(FilterLogicalOperator left, FilterLogicalOperator right) => left.Equals(right);
 
         /// <inheritdoc/>

@@ -36,7 +36,7 @@ namespace Cadru
         /// Initializes a new instance of the <see cref="WeakReference{T}"/> class, referencing
         /// the specified object.
         /// </summary>
-        /// <param name="target">An object to track or <see langword="null"/>.</param>
+        /// <param name="target">An object to track or <see langword="null" />.</param>
         public WeakReference(T target)
             : base(target)
         {
@@ -48,8 +48,8 @@ namespace Cadru
         /// </summary>
         /// <param name="target">An object to track.</param>
         /// <param name="trackResurrection">Indicates when to stop tracking the object.
-        /// If <see langword="true"/>, the object is tracked after finalization; if
-        /// <see langword="false"/>, the object is only tracked until finalization.
+        /// If <see langword="true" />, the object is tracked after finalization; if
+        /// <see langword="false" />, the object is only tracked until finalization.
         /// </param>
         public WeakReference(T target, bool trackResurrection)
             : base(target, trackResurrection)
@@ -60,7 +60,7 @@ namespace Cadru
         /// Gets or sets the object (the target) referenced by the current
         /// <see cref="WeakReference{T}"/> object.
         /// </summary>
-        /// <value><see langword="null"/> if the object referenced by the current
+        /// <value><see langword="null" /> if the object referenced by the current
         /// <see cref="WeakReference{T}"/> object has been garbage collected;
         /// otherwise, a reference to the object referenced by the current
         /// <see cref="WeakReference{T}"/> object.</value>
