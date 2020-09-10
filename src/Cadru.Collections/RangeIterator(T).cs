@@ -2,7 +2,7 @@
 // <copyright file="RangeIterator(T).cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -25,6 +25,7 @@ namespace Cadru.Collections
     using System;
     using System.Collections;
     using System.Collections.Generic;
+
     using Contracts;
 
     /// <summary>
@@ -34,7 +35,7 @@ namespace Cadru.Collections
     public class RangeIterator<T> : IEnumerable<T>
     {
         private readonly Range<T> range;
-        private Func<T, T> step;
+        private readonly Func<T, T> step;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RangeIterator{T}"/>

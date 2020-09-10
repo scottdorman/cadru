@@ -2,7 +2,7 @@
 // <copyright file="Equality(T).cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,12 +20,13 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+
+using Cadru.Contracts;
+
 namespace Cadru.Collections
 {
-    using Cadru.Contracts;
-    using System;
-    using System.Collections.Generic;
-
     /// <summary>
     /// Represents an <see cref="IEqualityComparer{T}"/> which uses a
     /// function to extract a key from an element and, optionally, using
@@ -63,17 +64,17 @@ namespace Cadru.Collections
             return new KeyEqualityComparer<TKey>(keySelector, comparer);
         }
 
-        class KeyEqualityComparer<V> : IEqualityComparer<TSource>
+        private class KeyEqualityComparer<V> : IEqualityComparer<TSource>
         {
-            readonly Func<TSource, V> keySelector;
-            readonly IEqualityComparer<V> comparer;
+            private readonly IEqualityComparer<V> comparer;
+            private readonly Func<TSource, V> keySelector;
 
             public KeyEqualityComparer(Func<TSource, V> keySelector, IEqualityComparer<V> comparer)
             {
                 Requires.NotNull(keySelector, nameof(keySelector));
 
                 this.keySelector = keySelector;
-                this.comparer = this.comparer ?? EqualityComparer<V>.Default;
+                this.comparer = comparer ?? EqualityComparer<V>.Default;
             }
 
             public bool Equals(TSource x, TSource y)

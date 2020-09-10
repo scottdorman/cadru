@@ -2,7 +2,7 @@
 // <copyright file="DateComparer.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,31 +20,26 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+
+using Cadru.Collections.Resources;
+using Cadru.Extensions;
+using Cadru.Internal;
+
 namespace Cadru.Collections
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using Cadru.Collections.Resources;
-    using Cadru.Extensions;
-    using Cadru.Internal;
-
-
     /// <summary>
     /// Compares two dates or string date representations for equivalence,
     /// ignoring case, in date order.
     /// </summary>
     public sealed class DateComparer : IComparer, IEqualityComparer, IComparer<DateTime>, IEqualityComparer<DateTime>, IComparer<string>, IEqualityComparer<string>
     {
-        #region fields
         private static DateComparer defaultInvariant;
-        private CultureInfo cultureInfo;
-        #endregion
+        private readonly CultureInfo cultureInfo;
 
-        #region constructors
-
-        #region DateComparer()
         /// <summary>
         /// Initializes a new instance of the <see cref="DateComparer"/> class using the
         /// <see cref="CultureInfo.CurrentCulture"/> of the current thread.
@@ -62,9 +57,7 @@ namespace Cadru.Collections
             : this(CultureInfo.CurrentCulture)
         {
         }
-        #endregion
 
-        #region DateComparer(CultureInfo culture)
         /// <summary>
         /// Initializes a new instance of the <see cref="DateComparer"/> class using
         /// the specified <see cref="System.Globalization.CultureInfo"/>.
@@ -84,23 +77,14 @@ namespace Cadru.Collections
 
             this.cultureInfo = culture;
         }
-        #endregion
 
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-
-        #region Default
         /// <summary>
         /// Represents an instance of <see cref="DateComparer"/> that is
         /// associated with the <see cref="CultureInfo.CurrentCulture"/>.
         /// </summary>
         /// <value>The default <see cref="DateComparer"/></value>
         /// <remarks>Comparison procedures use the
-        /// <see cref="Thread.CurrentCulture"/> of the current thread to
+        /// <see cref="CultureInfo.CurrentCulture"/> of the current thread to
         /// determine the sort order and casing rules. String comparisons
         /// might have different results depending on the culture. For more
         /// information on culture-specific comparisons, see the
@@ -109,16 +93,8 @@ namespace Cadru.Collections
         /// </remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1304:SpecifyCultureInfo", MessageId = "Cadru.Collections.DateComparer.#ctor", Justification = "This constructor call implicitly passes a culture.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
-        public static IComparer Default
-        {
-            get
-            {
-                return new DateComparer();
-            }
-        }
-        #endregion
+        public static IComparer Default => new DateComparer();
 
-        #region DefaultInvariant
         /// <summary>
         /// Represents an instance of <see cref="DateComparer"/> that is
         /// associated with the
@@ -149,15 +125,7 @@ namespace Cadru.Collections
                 return defaultInvariant;
             }
         }
-        #endregion
 
-        #endregion
-
-        #region methods
-
-        #region Compare
-
-        #region Compare(DateTime x, DateTime y)
         /// <summary>
         /// Performs a comparison of two <see cref="DateTime"/> objects and returns a value
         /// indicating whether one is less than, equal to or greater than
@@ -194,9 +162,7 @@ namespace Cadru.Collections
         {
             return DateTime.Compare(x, y);
         }
-        #endregion
 
-        #region Compare(object x, object y)
         /// <summary>
         /// Performs a comparison of two objects and returns a value
         /// indicating whether one is less than, equal to or greater than
@@ -231,11 +197,10 @@ namespace Cadru.Collections
         /// </list></returns>
         public int Compare(object x, object y)
         {
-            var result = 0;
-
             var left = x as string;
             var right = y as string;
 
+            int result;
             if (String.IsNullOrEmpty(left) && String.IsNullOrEmpty(right))
             {
                 result = 0;
@@ -255,9 +220,7 @@ namespace Cadru.Collections
 
             return result;
         }
-        #endregion
 
-        #region Compare(string x, string y)
         /// <summary>
         /// Performs a comparison of two <see cref="String"/> objects and returns a value
         /// indicating whether one is less than, equal to or greater than
@@ -308,13 +271,7 @@ namespace Cadru.Collections
 
             return this.Compare(t1, t2);
         }
-        #endregion
 
-        #endregion
-
-        #region Equals
-
-        #region Equals(DateTime x, DateTime y)
         /// <summary>
         /// Returns a value indicating whether two instances of <see cref="DateTime"/> are equal.
         /// </summary>
@@ -326,9 +283,7 @@ namespace Cadru.Collections
         {
             return x.Equals(y);
         }
-        #endregion
 
-        #region Equals(string x, string y)
         /// <summary>
         /// Returns a value indicating whether two instances of <see cref="DateTime"/> are equal.
         /// </summary>
@@ -351,7 +306,7 @@ namespace Cadru.Collections
                 var stringComparison = String.Equals(x, y, StringComparison.OrdinalIgnoreCase);
 
                 // First, test to see if the strings are equal.
-                if (stringComparison == true)
+                if (stringComparison)
                 {
                     // The strings are equal, so now we need to test to see if
                     // they are valid DateTime objects and if they are equal.
@@ -375,13 +330,19 @@ namespace Cadru.Collections
                 }
             }
         }
-        #endregion
 
-        #endregion
+        /// <summary>
+        /// Returns a value indicating whether two instances of objects are equal.
+        /// </summary>
+        /// <param name="x">The first <see cref="Object"/> to compare.</param>
+        /// <param name="y">The second <see cref="Object"/> to compare.</param>
+        /// <returns><see langword="true"/> if the two <see cref="Object"/> values are equal;
+        /// otherwise, <see langword="false"/>. </returns>
+        bool IEqualityComparer.Equals(object x, object y)
+        {
+            return Equals(x, y);
+        }
 
-        #region GetHashCode
-
-        #region GetHashCode(DateTime obj)
         /// <summary>
         /// Returns a hash code for the specified <see cref="DateTime"/>.
         /// </summary>
@@ -395,9 +356,7 @@ namespace Cadru.Collections
         {
             return obj.GetHashCode();
         }
-        #endregion
 
-        #region GetHashCode(object obj)
         /// <summary>
         /// Returns a hash code for the specified object.
         /// </summary>
@@ -413,9 +372,9 @@ namespace Cadru.Collections
 
             int hashCode;
 
-            if (obj is DateTime)
+            if (obj is DateTime time)
             {
-                return ((DateTime)obj).GetHashCode();
+                return time.GetHashCode();
             }
             else
             {
@@ -440,9 +399,7 @@ namespace Cadru.Collections
 
             return hashCode;
         }
-        #endregion
 
-        #region GetHashCode(string obj)
         /// <summary>
         /// Returns a hash code for the specified string.
         /// </summary>
@@ -476,24 +433,5 @@ namespace Cadru.Collections
 
             return hashCode;
         }
-        #endregion
-
-        #endregion
-
-        #region IEqualityComparer.Equals(object x, object y)
-        /// <summary>
-        /// Returns a value indicating whether two instances of objects are equal.
-        /// </summary>
-        /// <param name="x">The first <see cref="Object"/> to compare.</param>
-        /// <param name="y">The second <see cref="Object"/> to compare.</param>
-        /// <returns><see langword="true"/> if the two <see cref="Object"/> values are equal;
-        /// otherwise, <see langword="false"/>. </returns>
-        bool IEqualityComparer.Equals(object x, object y)
-        {
-            return DateTime.Equals(x, y);
-        }
-        #endregion
-
-        #endregion
     }
 }

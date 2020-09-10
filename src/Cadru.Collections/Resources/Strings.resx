@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -395,5 +395,62 @@
   </data>
   <data name="Arg_AmbiguousMatchException" xml:space="preserve">
     <value>Ambiguous match found.</value>
+  </data>
+<data name="Argument_InvalidOffLen" xml:space="preserve">
+     <value>Offset and length were out of bounds for the array or count is greater than the number of elements from index to the end of the source collection.</value>
+   </data>
+  <data name="Argument_AddingDuplicateWithKey" xml:space="preserve">
+    <value>An item with the same key has already been added. Key: {0}</value>
+  </data>
+  <data name="ArgumentOutOfRange_Count" xml:space="preserve">
+    <value>Count must be positive and count must refer to a location within the string/array/collection.</value>
+  </data>
+  <data name="ArgumentOutOfRange_Index" xml:space="preserve">
+    <value>Index was out of range. Must be non-negative and less than the size of the collection.</value>
+  </data>
+  <data name="ArgumentOutOfRange_ListInsert" xml:space="preserve">
+    <value>Index must be within the bounds of the List.</value>
+  </data>
+  <data name="ArgumentOutOfRange_NeedNonNegNum" xml:space="preserve">
+    <value>Non-negative number required.</value>
+  </data>
+  <data name="Arg_ArrayPlusOffTooSmall" xml:space="preserve">
+     <value>Destination array is not long enough to copy all the items in the collection. Check array index and length.</value>
+   </data>
+  <data name="Arg_HTCapacityOverflow" xml:space="preserve">
+    <value>Capacity has overflowed.</value>
+  </data>
+  <data name="Arg_KeyNotFoundWithKey" xml:space="preserve">
+    <value>The given key '{0}' was not present in the dictionary.</value>
+  </data>
+  <data name="CopyTo_ArgumentsTooSmall" xml:space="preserve">
+    <value>Destination array is not long enough to copy all the items in the collection. Check array index and length.</value>
+  </data>
+  <data name="Create_TValueCollectionReadOnly" xml:space="preserve">
+    <value>The specified TValueCollection creates collections that have IsReadOnly set to true by default. TValueCollection must be a mutable ICollection.</value>
+  </data>
+  <data name="InvalidOperation_ConcurrentOperationsNotSupported" xml:space="preserve">
+    <value>Operations that change non-concurrent collections must have exclusive access. A concurrent update was performed on this collection and corrupted its state. The collection's state is no longer correct.</value>
+  </data>
+  <data name="InvalidOperation_EnumEnded" xml:space="preserve">
+    <value>Enumeration already finished.</value>
+  </data>
+  <data name="InvalidOperation_EnumFailedVersion" xml:space="preserve">
+    <value>Collection was modified; enumeration operation may not execute.</value>
+  </data>
+  <data name="InvalidOperation_EnumNotStarted" xml:space="preserve">
+    <value>Enumeration has not started. Call MoveNext.</value>
+  </data>
+  <data name="InvalidOperation_EnumOpCantHappen" xml:space="preserve">
+    <value>Enumeration has either not started or has already finished.</value>
+  </data>
+  <data name="NotSupported_KeyCollectionSet" xml:space="preserve">
+    <value>Mutating a key collection derived from a dictionary is not allowed.</value>
+  </data>
+  <data name="NotSupported_ValueCollectionSet" xml:space="preserve">
+    <value>Mutating a value collection derived from a dictionary is not allowed.</value>
+  </data>
+  <data name="ReadOnly_Modification" xml:space="preserve">
+    <value>The collection is read-only</value>
   </data>
 </root>

@@ -2,7 +2,7 @@
 // <copyright file="LogicalStringComparer.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,17 +20,17 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+
+using Cadru.Collections.Resources;
+using Cadru.Extensions;
+using Cadru.Internal;
+
 namespace Cadru.Collections
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using Cadru.Collections.Resources;
-    using Cadru.Extensions;
-    using Cadru.Internal;
-
-
     /// <summary>
     /// Compares two strings for equivalence, ignoring case, in natural numeric order.
     /// </summary>
@@ -51,14 +51,9 @@ namespace Cadru.Collections
     [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
     public sealed class LogicalStringComparer : IComparer, IEqualityComparer, IComparer<string>, IEqualityComparer<string>
     {
-        #region fields
         private static LogicalStringComparer defaultInvariant;
         private readonly CultureInfo cultureInfo;
-        #endregion
 
-        #region constructors
-
-        #region LogicalStringComparer()
         /// <summary>
         /// Initializes a new instance of the <see cref="LogicalStringComparer"/> class using the
         /// <see cref="CultureInfo.CurrentCulture"/> of the current thread.
@@ -76,9 +71,7 @@ namespace Cadru.Collections
             : this(CultureInfo.CurrentCulture)
         {
         }
-        #endregion
 
-        #region LogicalStringComparer(CultureInfo culture)
         /// <summary>
         /// Initializes a new instance of the <see cref="LogicalStringComparer"/> class using
         /// the specified <see cref="System.Globalization.CultureInfo"/>.
@@ -98,23 +91,14 @@ namespace Cadru.Collections
 
             this.cultureInfo = culture;
         }
-        #endregion
 
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-
-        #region Default
         /// <summary>
         /// Represents an instance of <see cref="LogicalStringComparer"/> that is
         /// associated with the <see cref="CultureInfo.CurrentCulture"/>.
         /// </summary>
         /// <value>The default <see cref="LogicalStringComparer"/></value>
         /// <remarks>Comparison procedures use the
-        /// <see cref="Thread.CurrentCulture"/> of the current thread to
+        /// <see cref="CultureInfo.CurrentCulture"/> of the current thread to
         /// determine the sort order and casing rules. String comparisons
         /// might have different results depending on the culture. For more
         /// information on culture-specific comparisons, see the
@@ -124,9 +108,7 @@ namespace Cadru.Collections
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1304:SpecifyCultureInfo", MessageId = "Cadru.Collections.LogicalStringComparer.#ctor", Justification = "This constructor call implicitly passes a culture.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer Default => new LogicalStringComparer();
-        #endregion
 
-        #region DefaultInvariant
         /// <summary>
         /// Represents an instance of <see cref="LogicalStringComparer"/> that is
         /// associated with the
@@ -157,29 +139,7 @@ namespace Cadru.Collections
                 return defaultInvariant;
             }
         }
-        #endregion
 
-        #endregion
-
-        #region methods
-
-        #region IEqualityComparer.Equals(object x, object y)
-        /// <summary>
-        /// Returns a value indicating whether two string instances are equal.
-        /// </summary>
-        /// <param name="x">The first string to compare.</param>
-        /// <param name="y">The second string to compare.</param>
-        /// <returns><see langword="true"/> if the two string values are equal;
-        /// otherwise, <see langword="false"/>. </returns>
-        bool IEqualityComparer.Equals(object x, object y)
-        {
-            return String.Equals(x, y);
-        }
-        #endregion
-
-        #region Compare
-
-        #region Compare(object x, object y)
         /// <summary>
         /// Performs a case-insensitive comparison of two string objects and returns a value
         /// indicating whether one is less than, equal to or greater than the other.
@@ -230,9 +190,7 @@ namespace Cadru.Collections
 
             return result;
         }
-        #endregion
 
-        #region Compare(string x, string y)
         /// <summary>
         /// Performs a case-insensitive comparison of two strings and returns a value
         /// indicating whether one is less than, equal to or greater than the other.
@@ -313,10 +271,8 @@ namespace Cadru.Collections
 
                             if (letter1 && letter2)
                             {
-                                //c1 = Char.ToUpper(c1, this.cultureInfo);
-                                //c2 = Char.ToUpper(c2, this.cultureInfo);
-                                c1 = Char.ToUpper(c1);
-                                c2 = Char.ToUpper(c2);
+                                c1 = this.cultureInfo.TextInfo.ToUpper(c1);
+                                c2 = this.cultureInfo.TextInfo.ToUpper(c2);
                                 r = c1 - c2;
                                 if (0 != r)
                                 {
@@ -377,11 +333,19 @@ namespace Cadru.Collections
                 }
             }
         }
-        #endregion
 
-        #endregion
+        /// <summary>
+        /// Returns a value indicating whether two string instances are equal.
+        /// </summary>
+        /// <param name="x">The first string to compare.</param>
+        /// <param name="y">The second string to compare.</param>
+        /// <returns><see langword="true"/> if the two string values are equal;
+        /// otherwise, <see langword="false"/>. </returns>
+        bool IEqualityComparer.Equals(object x, object y)
+        {
+            return Equals(x, y);
+        }
 
-        #region Equals
         /// <summary>
         /// Returns a value indicating whether two instances of string are equal.
         /// </summary>
@@ -393,11 +357,7 @@ namespace Cadru.Collections
         {
             return String.Equals(x, y);
         }
-        #endregion
 
-        #region GetHashCode
-
-        #region GetHashCode(object obj)
         /// <summary>
         /// Returns a hash code for the specified object.
         /// </summary>
@@ -425,9 +385,7 @@ namespace Cadru.Collections
 
             return hashCode;
         }
-        #endregion
 
-        #region GetHashCode(string obj)
         /// <summary>
         /// Returns a hash code for the specified string.
         /// </summary>
@@ -443,11 +401,7 @@ namespace Cadru.Collections
 
             return obj.GetHashCode();
         }
-        #endregion
 
-        #endregion GetHashCode
-
-        #region CompareNumbers
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
         private static int CompareNumbers(string s1, int s1Length, ref int i1, string s2, int s2Length, ref int i2)
         {
@@ -493,9 +447,7 @@ namespace Cadru.Collections
 
             return 1;
         }
-        #endregion
 
-        #region ScanNumber
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
         private static void ScanNumber(string s, int length, int start, ref int nzStart, ref int end)
         {
@@ -534,8 +486,5 @@ namespace Cadru.Collections
                 }
             }
         }
-        #endregion
-
-        #endregion
     }
 }

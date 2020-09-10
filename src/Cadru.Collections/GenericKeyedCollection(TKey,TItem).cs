@@ -2,7 +2,7 @@
 // <copyright file="GenericKeyedCollection(TKey,TItem).cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,12 +20,12 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+
 namespace Cadru.Collections
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-
     /// <summary>
     /// Provides a collection whose keys are embedded in the values and can use
     /// a function for extracting the key.
@@ -36,16 +36,11 @@ namespace Cadru.Collections
     {
         private readonly Func<TItem, TKey> getKeyFunc;
 
-        protected override TKey GetKeyForItem(TItem item)
-        {
-            return this.getKeyFunc(item);
-        }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="KeyedCollection{TKey,TItem}"/>
         /// class that uses the default equality comparer.
         /// </summary>
-        /// <param name="getKeyFunc"></param>
+        /// <param name="getKeyFunc">The function used to extract a key from the item.</param>
         public GenericKeyedCollection(Func<TItem, TKey> getKeyFunc) : base()
         {
             this.getKeyFunc = getKeyFunc;
@@ -55,7 +50,7 @@ namespace Cadru.Collections
         /// Initializes a new instance of the <see cref="KeyedCollection{TKey,TItem}"/>
         /// class that uses the that uses the specified equality comparer.
         /// </summary>
-        /// <param name="getKeyFunc"></param>
+        /// <param name="getKeyFunc">The function used to extract a key from the item.</param>
         /// <param name="comparer">The implementation of the
         /// <see cref="IEqualityComparer{T}"/> generic interface to use when
         /// comparing keys, or <see langword="null"/> to use the default
@@ -71,7 +66,7 @@ namespace Cadru.Collections
         /// class that uses the that uses the specified equality comparer
         /// and creates a lookup dictionary when the specified threshold is exceeded..
         /// </summary>
-        /// <param name="getKeyFunc"></param>
+        /// <param name="getKeyFunc">The function used to extract a key from the item.</param>
         /// <param name="comparer">The implementation of the
         /// <see cref="IEqualityComparer{T}"/> generic interface to use when
         /// comparing keys, or <see langword="null"/> to use the default
@@ -84,6 +79,16 @@ namespace Cadru.Collections
         public GenericKeyedCollection(Func<TItem, TKey> getKeyFunc, IEqualityComparer<TKey> comparer, int dictionaryCreationThreshold) : base(comparer, dictionaryCreationThreshold)
         {
             this.getKeyFunc = getKeyFunc;
+        }
+
+        /// <summary>
+        /// Extracts the key for the given item.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        protected override TKey GetKeyForItem(TItem item)
+        {
+            return this.getKeyFunc(item);
         }
     }
 }

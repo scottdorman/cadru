@@ -2,7 +2,7 @@
 // <copyright file="NameValuePair.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -24,6 +24,7 @@ namespace Cadru.Collections
 {
     using System.Collections.Generic;
     using System.Text;
+
     using Cadru.Extensions;
 
     /// <summary>Defines a key/value pair that can be set or retrieved.</summary>
@@ -31,12 +32,9 @@ namespace Cadru.Collections
     /// <filterpriority>1</filterpriority>
     public struct NameValuePair<TValue>
     {
-        #region fields
-        private string key;
-        private IList<TValue> value;
-        #endregion
+        private readonly string key;
+        private readonly IList<TValue> value;
 
-        #region constructors
         /// <summary>Initializes a new instance of the <see cref="NameValuePair{TValue}" />
         /// structure with the specified key.</summary>
         /// <param name="key">The object defined in each key/value pair.</param>
@@ -45,56 +43,15 @@ namespace Cadru.Collections
             this.key = key;
             this.value = new List<TValue>();
         }
-        #endregion
 
-        #region events
-        #endregion
-
-        #region properties
-
-        #region Key
         /// <summary>Gets the key in the key/value pair.</summary>
         /// <value>A <see cref="System.String"/> that is the key of the <see cref="NameValuePair{TValue}" />. </value>
-        public string Key
-        {
-            get
-            {
-                return this.key;
-            }
-        }
-        #endregion
+        public string Key => this.key;
 
-        #region Value
         /// <summary>Gets the value in the key/value pair.</summary>
         /// <value>A <see cref="IList{TValue}"/> that is the value of the <see cref="NameValuePair{TValue}" />. </value>
-        public IList<TValue> Value
-        {
-            get
-            {
-                return this.value;
-            }
-        }
-        #endregion
+        public IList<TValue> Value => this.value;
 
-        #endregion
-
-        #region operators
-
-        #region op_Equality
-        /// <summary>
-        /// Determines whether two specified instances of <see cref="NameValuePair{TValue}"/> are equal.
-        /// </summary>
-        /// <param name="left">An <see cref="NameValuePair{TValue}"/>.</param>
-        /// <param name="right">An <see cref="NameValuePair{TValue}"/>.</param>
-        /// <returns><see langword="true"/> if left and right represent the same server; otherwise <see langword="false"/>.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
-        public static bool operator ==(NameValuePair<TValue> left, NameValuePair<TValue> right)
-        {
-            return left.Equals(right);
-        }
-        #endregion
-
-        #region op_Inequality
         /// <summary>
         /// Determines whether two specified instances of <see cref="NameValuePair{TValue}"/> are not equal.
         /// </summary>
@@ -107,23 +64,28 @@ namespace Cadru.Collections
         {
             return !left.Equals(right);
         }
-        #endregion
 
-        #endregion
+        /// <summary>
+        /// Determines whether two specified instances of <see cref="NameValuePair{TValue}"/> are equal.
+        /// </summary>
+        /// <param name="left">An <see cref="NameValuePair{TValue}"/>.</param>
+        /// <param name="right">An <see cref="NameValuePair{TValue}"/>.</param>
+        /// <returns><see langword="true"/> if left and right represent the same server; otherwise <see langword="false"/>.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
+        public static bool operator ==(NameValuePair<TValue> left, NameValuePair<TValue> right)
+        {
+            return left.Equals(right);
+        }
 
-        #region methods
-
-        #region Equals
-
-        #region Equals(NameValuePair<TValue> other)
         /// <summary>
         /// Returns a value indicating whether this instance is equal to the specified <see cref="NameValuePair{TValue}"/> instance.
         /// </summary>
         /// <param name="other">An <see cref="NameValuePair{TValue}"/> instance to compare to this instance.</param>
         /// <returns><see langword="true"/> if the other parameter equals the value of this instance; otherwise, <see langword="false"/>. </returns>
         /// <remarks>This method implements the <see cref="System.IEquatable{T}"/> interface and performs slightly
-        /// better than the <see cref="NameValuePair{TValue}.Equals(Object)"/> method because it does not have to convert
+        /// better than the <see cref="NameValuePair{TValue}.Equals(object)"/> method because it does not have to convert
         /// the other parameter to an object.</remarks>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0049:Use framework type", Justification = "<Pending>")]
         public bool Equals(NameValuePair<TValue> other)
         {
             if (other.key != this.key)
@@ -133,9 +95,7 @@ namespace Cadru.Collections
 
             return true;
         }
-        #endregion
 
-        #region Equals(object obj)
         /// <summary>
         /// Returns a value indicating whether this instance is equal to a specified object.
         /// </summary>
@@ -144,20 +104,16 @@ namespace Cadru.Collections
         /// equals the value of this instance; otherwise, <see langword="false"/>. </returns>
         public override bool Equals(object obj)
         {
-            if (obj.IsNull() || !(obj is NameValuePair<TValue>))
+            if (obj.IsNull() || !(obj is NameValuePair<TValue> pair))
             {
                 return false;
             }
             else
             {
-                return ((NameValuePair<TValue>)obj).Equals(this);
+                return pair.Equals(this);
             }
         }
-        #endregion
 
-        #endregion
-
-        #region GetHashCode
         /// <summary>
         /// Returns the hash code for this instance.
         /// </summary>
@@ -166,9 +122,7 @@ namespace Cadru.Collections
         {
             return this.key.GetHashCode();
         }
-        #endregion
 
-        #region ToString
         /// <summary>Returns a string representation of the <see cref="T:System.Collections.Generic.KeyValuePair`2" />, using the string representations of the key and value.</summary>
         /// <returns>A string representation of the <see cref="T:System.Collections.Generic.KeyValuePair`2" />, which includes the string representations of the key and value.</returns>
         public override string ToString()
@@ -199,9 +153,5 @@ namespace Cadru.Collections
             stringBuilder.Append("]");
             return stringBuilder.ToString();
         }
-
-        #endregion
-
-        #endregion
     }
 }

@@ -2,7 +2,7 @@
 // <copyright file="Range(T).cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,16 +20,18 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
+
+using Cadru.Collections.Resources;
+using Cadru.Contracts;
+using Cadru.Extensions;
+
 namespace Cadru.Collections
 {
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Text;
-    using Cadru.Collections.Resources;
-    using Contracts;
-    using Extensions;
-
     /// <summary>
     /// Represents a range, or interval, of values.
     /// </summary>
@@ -37,12 +39,9 @@ namespace Cadru.Collections
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix", Justification = "Reviewed. Ending in Collection does not make semantic sense in this case.")]
     public sealed class Range<T> : IEnumerable<T>
     {
-        #region fields
-        private RangeEndpointOption option;
+        private readonly RangeEndpointOption option;
         private RangeIterator<T> enumerator;
-        #endregion
 
-        #region constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="Range{T}"/> class.
         /// </summary>
@@ -92,38 +91,13 @@ namespace Cadru.Collections
             : this(lowerBound, upperBound, Comparer<T>.Default, option)
         {
         }
-        #endregion
 
-        #region events
-        #endregion
-
-        #region properties
-
-        #region Comparer
         /// <summary>
         /// Gets the <see cref="IComparer{T}"/> used to compare the values in the range.
         /// </summary>
         /// <value>An <see cref="IComparer{T}"/> instance.</value>
         public IComparer<T> Comparer { get; private set; }
-        #endregion
 
-        internal bool IncludesLowerBound
-        {
-            get
-            {
-                return this.option == RangeEndpointOption.Open || this.option == RangeEndpointOption.LeftHalfOpen;
-            }
-        }
-
-        internal bool IncludesUpperBound
-        {
-            get
-            {
-                return this.option == RangeEndpointOption.Open || this.option == RangeEndpointOption.RightHalfOpen;
-            }
-        }
-
-        #region LowerBound
         /// <summary>
         /// Gets the start of the range.
         /// </summary>
@@ -133,9 +107,7 @@ namespace Cadru.Collections
             get;
             private set;
         }
-        #endregion
 
-        #region UpperBound
         /// <summary>
         /// Gets the end of the range.
         /// </summary>
@@ -145,97 +117,11 @@ namespace Cadru.Collections
             get;
             private set;
         }
-        #endregion
 
-        #endregion
+        internal bool IncludesLowerBound => this.option == RangeEndpointOption.Open || this.option == RangeEndpointOption.LeftHalfOpen;
 
-        #region methods
+        internal bool IncludesUpperBound => this.option == RangeEndpointOption.Open || this.option == RangeEndpointOption.RightHalfOpen;
 
-        #region ComputeRangeOption
-        private static RangeEndpointOption ComputeRangeOption(Range<T> left, Range<T> right)
-        {
-            var computed = RangeEndpointOption.Open;
-
-            // Computed options follow these rules:
-            //
-            // (a,b) (c,d) => (e,f)
-            // (a,b] (c,d) => (e,f)
-            // [a,b) (c,d) => [e,f)
-            // [a,b] (c,d) => [e,f)
-            //
-            // (a,b) (c,d) => (e,f)
-            // (a,b) (c,d] => (e,f]
-            // (a,b) [c,d) => (e,f)
-            // (a,b) [c,d] => (e,f]
-
-            switch (left.option)
-            {
-                default:
-                case RangeEndpointOption.Open:
-                    switch (right.option)
-                    {
-                        default:
-                        case RangeEndpointOption.Open:
-                        case RangeEndpointOption.RightHalfOpen:
-                            computed = RangeEndpointOption.Open;
-                            break;
-                        case RangeEndpointOption.LeftHalfOpen:
-                        case RangeEndpointOption.Closed:
-                            computed = RangeEndpointOption.LeftHalfOpen;
-                            break;
-                    }
-                    break;
-                case RangeEndpointOption.LeftHalfOpen:
-                    switch (right.option)
-                    {
-                        case RangeEndpointOption.Closed:
-                        case RangeEndpointOption.LeftHalfOpen:
-                            computed = RangeEndpointOption.LeftHalfOpen;
-                            break;
-                        default:
-                        case RangeEndpointOption.Open:
-                        case RangeEndpointOption.RightHalfOpen:
-                            computed = RangeEndpointOption.Open;
-                            break;
-                    }
-                    break;
-                case RangeEndpointOption.RightHalfOpen:
-                    switch (right.option)
-                    {
-                        case RangeEndpointOption.Closed:
-                        case RangeEndpointOption.LeftHalfOpen:
-                            computed = RangeEndpointOption.Closed;
-                            break;
-                        default:
-                        case RangeEndpointOption.Open:
-                        case RangeEndpointOption.RightHalfOpen:
-                            computed = RangeEndpointOption.RightHalfOpen;
-                            break;
-                    }
-                    break;
-                case RangeEndpointOption.Closed:
-                    switch (right.option)
-                    {
-                        case RangeEndpointOption.Closed:
-                        case RangeEndpointOption.LeftHalfOpen:
-                            computed = RangeEndpointOption.Closed;
-                            break;
-                        default:
-                        case RangeEndpointOption.Open:
-                        case RangeEndpointOption.RightHalfOpen:
-                            computed = RangeEndpointOption.RightHalfOpen;
-                            break;
-                    }
-                    break;
-            }
-
-            return computed;
-        }
-        #endregion
-
-        #region Contains
-
-        #region Contains(T value)
         /// <summary>
         /// Determines whether the <see cref="Range{T}"/> contains the specified value.
         /// </summary>
@@ -244,30 +130,30 @@ namespace Cadru.Collections
         /// contains the specified value; otherwise, <see langword="false"/>.</returns>
         public bool Contains(T value)
         {
-            var result = true;
-
+            bool result;
             switch (this.option)
             {
                 default:
                 case RangeEndpointOption.Open:
-                    result = (Comparer.Compare(this.LowerBound, value) <= 0) && (Comparer.Compare(this.UpperBound, value) >= 0);
+                    result = (this.Comparer.Compare(this.LowerBound, value) <= 0) && (this.Comparer.Compare(this.UpperBound, value) >= 0);
                     break;
+
                 case RangeEndpointOption.LeftHalfOpen:
-                    result = (Comparer.Compare(this.LowerBound, value) <= 0) && (Comparer.Compare(this.UpperBound, value) > 0);
+                    result = (this.Comparer.Compare(this.LowerBound, value) <= 0) && (this.Comparer.Compare(this.UpperBound, value) > 0);
                     break;
+
                 case RangeEndpointOption.RightHalfOpen:
-                    result = (Comparer.Compare(this.LowerBound, value) < 0) && (Comparer.Compare(this.UpperBound, value) >= 0);
+                    result = (this.Comparer.Compare(this.LowerBound, value) < 0) && (this.Comparer.Compare(this.UpperBound, value) >= 0);
                     break;
+
                 case RangeEndpointOption.Closed:
-                    result = (Comparer.Compare(this.LowerBound, value) < 0) && (Comparer.Compare(this.UpperBound, value) > 0);
+                    result = (this.Comparer.Compare(this.LowerBound, value) < 0) && (this.Comparer.Compare(this.UpperBound, value) > 0);
                     break;
             }
 
             return result;
         }
-        #endregion
 
-        #region Contains(Range<T> range)
         /// <summary>
         /// Determines whether the <see cref="Range{T}"/> contains the specified value.
         /// </summary>
@@ -281,13 +167,7 @@ namespace Cadru.Collections
 
             return this.Contains(range.LowerBound) && this.Contains(range.UpperBound);
         }
-        #endregion
 
-        #endregion
-
-        #region GetEnumerator
-
-        #region GetEnumerator()
         /// <summary>
         /// Returns an enumerator that iterates through the <see cref="Range{T}"/>.
         /// </summary>
@@ -298,9 +178,7 @@ namespace Cadru.Collections
             Requires.IsTrue(this.enumerator.IsNotNull());
             return this.enumerator.GetEnumerator();
         }
-        #endregion
 
-        #region IEnumerable.GetEnumerator()
         /// <summary>
         /// Returns an enumerator that iterates through the <see cref="Range{T}"/>.
         /// </summary>
@@ -310,11 +188,7 @@ namespace Cadru.Collections
         {
             return this.GetEnumerator();
         }
-        #endregion
 
-        #endregion
-
-        #region Intersect
         /// <summary>
         /// Produces the intersection of two ranges.
         /// </summary>
@@ -330,16 +204,14 @@ namespace Cadru.Collections
 
             if (this.Overlaps(other))
             {
-                var start = Comparer.Compare(this.LowerBound, other.LowerBound) > 0 ? this.LowerBound : other.LowerBound;
-                var end = Comparer.Compare(other.UpperBound, this.UpperBound) < 0 ? other.UpperBound : this.UpperBound;
+                var start = this.Comparer.Compare(this.LowerBound, other.LowerBound) > 0 ? this.LowerBound : other.LowerBound;
+                var end = this.Comparer.Compare(other.UpperBound, this.UpperBound) < 0 ? other.UpperBound : this.UpperBound;
                 result = new Range<T>(start, end, ComputeRangeOption(this, other));
             }
 
             return result;
         }
-        #endregion
 
-        #region IsContainedBy
         /// <summary>
         /// Determines whether the <see cref="Range{T}"/> is contained within the
         /// specified range.
@@ -353,9 +225,7 @@ namespace Cadru.Collections
             Requires.NotNull(range, nameof(range));
             return range.Contains(this);
         }
-        #endregion
 
-        #region IsContiguousWith
         /// <summary>
         /// Determines whether the <see cref="Range{T}"/> is contiguous with the
         /// specified range.
@@ -367,17 +237,15 @@ namespace Cadru.Collections
         /// <exception cref="ArgumentNullException"><paramref name="range"/> is <see langword="null"/>.</exception>
         public bool IsContiguousWith(Range<T> range)
         {
-            if (Overlaps(range) || range.Overlaps(this) || range.Contains(this) || Contains(range))
+            if (this.Overlaps(range) || range.Overlaps(this) || range.Contains(this) || this.Contains(range))
             {
                 return true;
             }
 
             // Once we remove overlapping and containing, only touching if available
-            return UpperBound.Equals(range.LowerBound) || LowerBound.Equals(range.UpperBound);
+            return this.UpperBound.Equals(range.LowerBound) || this.LowerBound.Equals(range.UpperBound);
         }
-        #endregion
 
-        #region Overlaps
         /// <summary>
         /// Determines whether the <see cref="Range{T}"/> overlaps the
         /// specified range.
@@ -390,11 +258,9 @@ namespace Cadru.Collections
         {
             Requires.NotNull(range, nameof(range));
 
-            return (Contains(range.LowerBound) || Contains(range.UpperBound) || range.Contains(LowerBound) || range.Contains(UpperBound));
+            return (this.Contains(range.LowerBound) || this.Contains(range.UpperBound) || range.Contains(this.LowerBound) || range.Contains(this.UpperBound));
         }
-        #endregion
 
-        #region SetEnumerator
         /// <summary>
         /// Sets an enumerator that iterates through the <see cref="Range{T}"/>.
         /// </summary>
@@ -404,9 +270,7 @@ namespace Cadru.Collections
         {
             this.enumerator = iterator;
         }
-        #endregion
 
-        #region ToString
         /// <summary>
         /// Returns a string representation of the <see cref="Range{T}"/>.
         /// </summary>
@@ -421,9 +285,7 @@ namespace Cadru.Collections
             builder.Append(this.IncludesUpperBound ? "]" : ")");
             return builder.ToString();
         }
-        #endregion
 
-        #region Union
         /// <summary>
         /// Produces the union of two ranges.
         /// </summary>
@@ -449,17 +311,100 @@ namespace Cadru.Collections
                 }
                 else
                 {
-                    var start = Comparer.Compare(this.LowerBound, other.LowerBound) < 0 ? this.LowerBound : other.LowerBound;
-                    var end = Comparer.Compare(other.UpperBound, this.UpperBound) > 0 ? other.UpperBound : this.UpperBound;
+                    var start = this.Comparer.Compare(this.LowerBound, other.LowerBound) < 0 ? this.LowerBound : other.LowerBound;
+                    var end = this.Comparer.Compare(other.UpperBound, this.UpperBound) > 0 ? other.UpperBound : this.UpperBound;
                     result = new Range<T>(start, end, ComputeRangeOption(this, other));
                 }
             }
 
             return result;
         }
-        #endregion
 
-        #endregion
+        private static RangeEndpointOption ComputeRangeOption(Range<T> left, Range<T> right)
+        {
+            RangeEndpointOption computed;
+
+            // Computed options follow these rules:
+            //
+            // (a,b) (c,d) => (e,f)
+            // (a,b] (c,d) => (e,f)
+            // [a,b) (c,d) => [e,f)
+            // [a,b] (c,d) => [e,f)
+            //
+            // (a,b) (c,d) => (e,f)
+            // (a,b) (c,d] => (e,f]
+            // (a,b) [c,d) => (e,f)
+            // (a,b) [c,d] => (e,f]
+
+            switch (left.option)
+            {
+                default:
+                case RangeEndpointOption.Open:
+                    switch (right.option)
+                    {
+                        default:
+                        case RangeEndpointOption.Open:
+                        case RangeEndpointOption.RightHalfOpen:
+                            computed = RangeEndpointOption.Open;
+                            break;
+
+                        case RangeEndpointOption.LeftHalfOpen:
+                        case RangeEndpointOption.Closed:
+                            computed = RangeEndpointOption.LeftHalfOpen;
+                            break;
+                    }
+                    break;
+
+                case RangeEndpointOption.LeftHalfOpen:
+                    switch (right.option)
+                    {
+                        case RangeEndpointOption.Closed:
+                        case RangeEndpointOption.LeftHalfOpen:
+                            computed = RangeEndpointOption.LeftHalfOpen;
+                            break;
+
+                        default:
+                        case RangeEndpointOption.Open:
+                        case RangeEndpointOption.RightHalfOpen:
+                            computed = RangeEndpointOption.Open;
+                            break;
+                    }
+                    break;
+
+                case RangeEndpointOption.RightHalfOpen:
+                    switch (right.option)
+                    {
+                        case RangeEndpointOption.Closed:
+                        case RangeEndpointOption.LeftHalfOpen:
+                            computed = RangeEndpointOption.Closed;
+                            break;
+
+                        default:
+                        case RangeEndpointOption.Open:
+                        case RangeEndpointOption.RightHalfOpen:
+                            computed = RangeEndpointOption.RightHalfOpen;
+                            break;
+                    }
+                    break;
+
+                case RangeEndpointOption.Closed:
+                    switch (right.option)
+                    {
+                        case RangeEndpointOption.Closed:
+                        case RangeEndpointOption.LeftHalfOpen:
+                            computed = RangeEndpointOption.Closed;
+                            break;
+
+                        default:
+                        case RangeEndpointOption.Open:
+                        case RangeEndpointOption.RightHalfOpen:
+                            computed = RangeEndpointOption.RightHalfOpen;
+                            break;
+                    }
+                    break;
+            }
+
+            return computed;
+        }
     }
 }
-
