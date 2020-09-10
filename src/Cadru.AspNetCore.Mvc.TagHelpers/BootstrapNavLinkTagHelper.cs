@@ -45,42 +45,6 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
         [HtmlAttributeName(IconAttributeName)]
         public string IconCss { get; set; }
 
-        private bool ShouldBeActive()
-        {
-            var routeData = this.ViewContext.RouteData.Values;
-            var currentController = routeData["controller"] as string;
-            var currentAction = routeData["action"] as string;
-            var result = false;
-
-            if (!String.IsNullOrWhiteSpace(this.Controller) && !String.IsNullOrWhiteSpace(this.Action))
-            {
-                result = String.Equals(this.Action, currentAction, StringComparison.OrdinalIgnoreCase) &&
-                    String.Equals(this.Controller, currentController, StringComparison.OrdinalIgnoreCase);
-            }
-            else if (!String.IsNullOrWhiteSpace(this.Action))
-            {
-                result = String.Equals(this.Action, currentAction, StringComparison.OrdinalIgnoreCase);
-            }
-            else if (!String.IsNullOrWhiteSpace(this.Controller))
-            {
-                result = String.Equals(this.Controller, currentController, StringComparison.OrdinalIgnoreCase);
-            }
-
-            return result;
-        }
-
-        private void MakeActive(TagHelperOutput output)
-        {
-            if (output.Attributes.TryGetAttribute("class", out var classAttribute))
-            {
-                output.Attributes.SetAttribute("class", classAttribute.Value + " active");
-            }
-            else
-            {
-                output.Attributes.Add(new TagHelperAttribute("class", "active"));
-            }
-        }
-
         public async override void Process(TagHelperContext context, TagHelperOutput output)
         {
             base.Process(context, output);
@@ -114,6 +78,42 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
             {
                 this.MakeActive(output);
             }
+        }
+
+        private void MakeActive(TagHelperOutput output)
+        {
+            if (output.Attributes.TryGetAttribute("class", out var classAttribute))
+            {
+                output.Attributes.SetAttribute("class", classAttribute.Value + " active");
+            }
+            else
+            {
+                output.Attributes.Add(new TagHelperAttribute("class", "active"));
+            }
+        }
+
+        private bool ShouldBeActive()
+        {
+            var routeData = this.ViewContext.RouteData.Values;
+            var currentController = routeData["controller"] as string;
+            var currentAction = routeData["action"] as string;
+            var result = false;
+
+            if (!String.IsNullOrWhiteSpace(this.Controller) && !String.IsNullOrWhiteSpace(this.Action))
+            {
+                result = String.Equals(this.Action, currentAction, StringComparison.OrdinalIgnoreCase) &&
+                    String.Equals(this.Controller, currentController, StringComparison.OrdinalIgnoreCase);
+            }
+            else if (!String.IsNullOrWhiteSpace(this.Action))
+            {
+                result = String.Equals(this.Action, currentAction, StringComparison.OrdinalIgnoreCase);
+            }
+            else if (!String.IsNullOrWhiteSpace(this.Controller))
+            {
+                result = String.Equals(this.Controller, currentController, StringComparison.OrdinalIgnoreCase);
+            }
+
+            return result;
         }
     }
 }

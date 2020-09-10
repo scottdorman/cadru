@@ -50,7 +50,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Postal", "src\Cadru.P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Data", "src\Cadru.Data\Cadru.Data.csproj", "{D38702BC-7A8F-41F8-BF3E-9DD7E9A73C5E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Data.Annotations", "src\Cadru.Data.Abstractions\Cadru.Data.Annotations.csproj", "{6A9BDE49-DC9D-4740-AAE1-98BAAC712490}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Data.Annotations", "src\Cadru.Data.Annotations\Cadru.Data.Annotations.csproj", "{6A9BDE49-DC9D-4740-AAE1-98BAAC712490}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Environment", "src\Cadru.Environment\Cadru.Environment.csproj", "{BC877570-9B31-41CB-9822-7B0C3BF77596}"
 EndProject
@@ -73,6 +73,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Extensions.FileProviders", "src\Cadru.Extensions.FileProviders\Cadru.Extensions.FileProviders.csproj", "{DCB670D0-C10F-4F2A-A6D3-1DD9024F0218}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Polly", "src\Cadru.Polly\Cadru.Polly.csproj", "{8674F19C-F45E-46F9-98BB-6EF256A7C2C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.AspNetCore.Mvc.TagHelpers", "src\Cadru.AspNetCore.Mvc.TagHelpers\Cadru.AspNetCore.Mvc.TagHelpers.csproj", "{FD88B091-9CC4-4B63-A04A-4E47ECEB6B31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -200,6 +202,10 @@ Global
 		{8674F19C-F45E-46F9-98BB-6EF256A7C2C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8674F19C-F45E-46F9-98BB-6EF256A7C2C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8674F19C-F45E-46F9-98BB-6EF256A7C2C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD88B091-9CC4-4B63-A04A-4E47ECEB6B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD88B091-9CC4-4B63-A04A-4E47ECEB6B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD88B091-9CC4-4B63-A04A-4E47ECEB6B31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD88B091-9CC4-4B63-A04A-4E47ECEB6B31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

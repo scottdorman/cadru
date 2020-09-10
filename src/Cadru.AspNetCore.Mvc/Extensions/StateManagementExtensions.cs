@@ -1,4 +1,28 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿//------------------------------------------------------------------------------
+// <copyright file="StateManagementExtensions.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
+using System;
+
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 using Newtonsoft.Json;
@@ -27,7 +51,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <remarks>
         /// <para>
         /// This is equivalent to calling <see cref="Get{T}(ITempDataDictionary,
-        /// string)"></see> where the key is the full name of <typeparamref
+        /// String)"></see> where the key is the full name of <typeparamref
         /// name="T"/>.
         /// </para>
         /// </remarks>
@@ -69,7 +93,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <remarks>
         /// <para>
         /// This is equivalent to calling <see cref="Get{T}(ISession,
-        /// string)"></see> where the key is the full name of <typeparamref
+        /// String)"></see> where the key is the full name of <typeparamref
         /// name="T"/>.
         /// </para>
         /// </remarks>
@@ -111,7 +135,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <remarks>
         /// <para>
         /// This is equivalent to calling <see cref="Get{T}(ViewDataDictionary,
-        /// string)"></see> where the key is the full name of <typeparamref
+        /// String)"></see> where the key is the full name of <typeparamref
         /// name="T"/>.
         /// </para>
         /// </remarks>
@@ -154,7 +178,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <remarks>
         /// <para>
         /// This is equivalent to calling <see
-        /// cref="Peek{T}(ITempDataDictionary, string)"></see> where the key is
+        /// cref="Peek{T}(ITempDataDictionary, String)"></see> where the key is
         /// the full name of <typeparamref name="T"/>.
         /// </para>
         /// </remarks>
@@ -184,12 +208,12 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         }
 
         /// <summary>
-        /// Gets the value associated with the specified key.
+        /// Gets the value associated with the key derived from the full name of
+        /// <typeparamref name="T"/>.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="storageProvider">The underlying storage
         /// provider.</param>
-        /// <param name="key">The key whose value to get.</param>
         /// <returns>
         /// When this method returns, the value associated with the specified
         /// key, if the key is found; otherwise, the default value for the type
@@ -198,8 +222,8 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <remarks>
         /// <para>
         /// This is equivalent to calling <see cref="Get{T}(ISession,
-        /// string)"></see> where the key is the full name of <typeparamref
-        /// name="T"/> and is provided for easy of use when switching between
+        /// String)"></see> where the key is the full name of <typeparamref
+        /// name="T"/> and is provided for ease of use when switching between
         /// different storage providers.
         /// </para>
         /// </remarks>
@@ -223,8 +247,8 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <remarks>
         /// <para>
         /// This is equivalent to calling <see cref="Get{T}(ISession,
-        /// string)"></see> where the key is the full name of <typeparamref
-        /// name="T"/> and is provided for easy of use when switching between
+        /// String)"></see> where the key is the full name of <typeparamref
+        /// name="T"/> and is provided for ease of use when switching between
         /// different storage providers.
         /// </para>
         /// </remarks>
@@ -234,12 +258,12 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         }
 
         /// <summary>
-        /// Gets the value associated with the specified key.
+        /// Gets the value associated with the key derived from the full name of
+        /// <typeparamref name="T"/>.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="storageProvider">The underlying storage
         /// provider.</param>
-        /// <param name="key">The key whose value to get.</param>
         /// <returns>
         /// When this method returns, the value associated with the specified
         /// key, if the key is found; otherwise, the default value for the type
@@ -248,8 +272,8 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <remarks>
         /// <para>
         /// This is equivalent to calling <see cref="Get{T}(ViewDataDictionary,
-        /// string)"></see> where the key is the full name of <typeparamref
-        /// name="T"/> and is provided for easy of use when switching between
+        /// String)"></see> where the key is the full name of <typeparamref
+        /// name="T"/> and is provided for ease of use when switching between
         /// different storage providers.
         /// </para>
         /// </remarks>
@@ -273,7 +297,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <remarks>
         /// <para>
         /// This is equivalent to calling <see cref="Get{T}(ViewDataDictionary,
-        /// string)"></see> and is provided for easy of use when switching
+        /// String)"></see> and is provided for ease of use when switching
         /// between different storage providers.
         /// </para>
         /// </remarks>
@@ -296,7 +320,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// </para>
         /// <para>
         /// This is equivalent to calling <see cref="Put{T}(ITempDataDictionary,
-        /// string, T)"></see> where the key is the full name of <typeparamref
+        /// String, T)"></see> where the key is the full name of <typeparamref
         /// name="T"/>.
         /// </para>
         /// </remarks>
@@ -336,7 +360,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// </para>
         /// <para>
         /// This is equivalent to calling <see cref="Put{T}(ISession,
-        /// string, T)"></see> where the key is the full name of <typeparamref
+        /// String, T)"></see> where the key is the full name of <typeparamref
         /// name="T"/>.
         /// </para>
         /// </remarks>
@@ -376,7 +400,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// </para>
         /// <para>
         /// This is equivalent to calling <see cref="Put{T}(ViewDataDictionary,
-        /// string, T)"></see> where the key is the full name of <typeparamref
+        /// String, T)"></see> where the key is the full name of <typeparamref
         /// name="T"/>.
         /// </para>
         /// </remarks>
@@ -420,7 +444,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static bool TryGetValue<T>(this ITempDataDictionary storageProvider, string key, out T value)
         {
-            bool valid = false;
+            var valid = false;
             value = default;
 
             if (storageProvider.TryGetValue(key, out var objValue))
@@ -456,7 +480,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static bool TryGetValue<T>(this ISession storageProvider, string key, out T value)
         {
-            bool valid = false;
+            var valid = false;
             value = default;
 
             var objValue = storageProvider.GetString(key);
@@ -493,7 +517,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static bool TryGetValue<T>(this ViewDataDictionary storageProvider, string key, out T value)
         {
-            bool valid = false;
+            var valid = false;
             value = default;
 
             if (storageProvider.TryGetValue(key, out var objValue))
@@ -530,7 +554,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static bool TryPeekValue<T>(this ITempDataDictionary storageProvider, string key, out T value)
         {
-            bool valid = false;
+            var valid = false;
             value = default;
 
             if (storageProvider.ContainsKey(key))
@@ -567,8 +591,8 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// otherwise, <see langword="false"></see>.</returns>
         /// <remarks>
         /// This method is equivalent to calling <see
-        /// cref="TryGetValue{T}(ISession, string, out T)"></see> and is
-        /// provided for easy of use when switching between different storage
+        /// cref="TryGetValue{T}(ISession, String, out T)"></see> and is
+        /// provided for ease of use when switching between different storage
         /// providers.
         /// </remarks>
         public static bool TryPeekValue<T>(this ISession storageProvider, string key, out T value)
@@ -592,8 +616,8 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// otherwise, <see langword="false"></see>.</returns>
         /// <remarks>
         /// This method is equivalent to calling <see
-        /// cref="TryGetValue{T}(ViewDataDictionary, string, out T)"></see> and
-        /// is provided for easy of use when switching between different storage
+        /// cref="TryGetValue{T}(ViewDataDictionary, String, out T)"></see> and
+        /// is provided for ease of use when switching between different storage
         /// providers.
         /// </remarks>
         public static bool TryPeekValue<T>(this ViewDataDictionary storageProvider, string key, out T value)

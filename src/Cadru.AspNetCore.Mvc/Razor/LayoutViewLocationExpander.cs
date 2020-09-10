@@ -20,25 +20,61 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+
+using Microsoft.AspNetCore.Mvc.Razor;
+
 namespace Cadru.AspNetCore.Mvc.Razor
 {
-    using System.Collections.Generic;
-    using System.Linq;
-
-    using Microsoft.AspNetCore.Mvc.Razor;
-
+    /// <summary>
+    /// An <see cref="IViewLocationExpander"/> that adds a Layout folder as a prefix to view names.
+    /// </summary>
     public class LayoutViewLocationExpander : IViewLocationExpander
     {
-        public void PopulateValues(ViewLocationExpanderContext context)
-        {
-        }
+        private const string ValueKey = "Layout";
 
+        /// <inheritdoc/>
         public IEnumerable<string> ExpandViewLocations(ViewLocationExpanderContext context, IEnumerable<string> viewLocations)
         {
-            return new[]
+            if (context == null)
             {
-                "/Views/Shared/Layout/{0}.cshtml"
-            }.Union(viewLocations);
+                throw new ArgumentNullException(nameof(context));
+            }
+
+            if (viewLocations == null)
+            {
+                throw new ArgumentNullException(nameof(viewLocations));
+            }
+
+            context.Values.TryGetValue(ValueKey, out var value);
+
+            if (!String.IsNullOrEmpty(value))
+            {
+                return viewLocations;
+            }
+
+            return this.ExpandViewLocationsCore(viewLocations, value);
+        }
+
+        /// <inheritdoc/>
+        public void PopulateValues(ViewLocationExpanderContext context)
+        {
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+
+            context.Values[ValueKey] = context.ActionContext.RouteData.Values[ValueKey]?.ToString();
+        }
+
+        private IEnumerable<string> ExpandViewLocationsCore(IEnumerable<string> viewLocations, string value)
+        {
+            foreach (var location in viewLocations)
+            {
+                yield return location.Replace("{0}", value + "/{0}");
+                yield return location;
+            }
         }
     }
 }

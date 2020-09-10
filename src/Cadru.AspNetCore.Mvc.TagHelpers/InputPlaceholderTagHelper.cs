@@ -43,7 +43,6 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
         [HtmlAttributeName(PlaceholderAttributeName)]
         public ModelExpression Placeholder { get; set; }
 
-
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             base.Process(context, output);

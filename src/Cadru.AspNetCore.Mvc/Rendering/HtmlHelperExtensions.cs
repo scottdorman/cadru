@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Cadru.AspNetCore.Mvc.Rendering
 {
+    /// <summary>
+    /// Extensions for working with <see cref="IHtmlHelper"/> in Razor files.
+    /// </summary>
     public static class HtmlHelperExtensions
     {
         /// <inheritdoc />
@@ -20,6 +23,7 @@ namespace Cadru.AspNetCore.Mvc.Rendering
 
         /// <inheritdoc />
 #pragma warning disable IDE0060 // Remove unused parameter
+
         public static IEnumerable<SelectListItem> GetEnumSelectList(this IHtmlHelper htmlHelper, Type enumType, string uiHint)
 #pragma warning restore IDE0060 // Remove unused parameter
         {
@@ -40,7 +44,6 @@ namespace Cadru.AspNetCore.Mvc.Rendering
 
             return selectList;
         }
-
 
         private static List<KeyValuePair<string, string>> GetEnumDisplayNamesAndValues(Type underlyingType, string uiHint)
         {
