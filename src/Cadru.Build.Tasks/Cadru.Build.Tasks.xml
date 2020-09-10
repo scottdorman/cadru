@@ -183,6 +183,26 @@
             Main entry point.
             </summary>
         </member>
+        <member name="T:Cadru.Build.Tasks.Internal.WarningPragmaMode">
+            <summary>
+            Specifies the start or end of a warning pragma.
+            </summary>
+        </member>
+        <member name="F:Cadru.Build.Tasks.Internal.WarningPragmaMode.None">
+            <summary>
+            Not used.
+            </summary>
+        </member>
+        <member name="F:Cadru.Build.Tasks.Internal.WarningPragmaMode.Disable">
+            <summary>
+            The start of a warning pragma.
+            </summary>
+        </member>
+        <member name="F:Cadru.Build.Tasks.Internal.WarningPragmaMode.Restore">
+            <summary>
+            The end of a warning pragma.
+            </summary>
+        </member>
         <member name="T:Cadru.Build.Tasks.Internal.CodeWarningPragmaDirective">
             <summary>
             Represents a code warning pragma code entity

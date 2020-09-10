@@ -26,10 +26,24 @@ using System.Collections.Generic;
 
 namespace Cadru.Build.Tasks.Internal
 {
+    /// <summary>
+    /// Specifies the start or end of a warning pragma.
+    /// </summary>
     public enum WarningPragmaMode
     {
+        /// <summary>
+        /// Not used.
+        /// </summary>
         None = 0,
+
+        /// <summary>
+        /// The start of a warning pragma.
+        /// </summary>
         Disable = 1,
+
+        /// <summary>
+        /// The end of a warning pragma.
+        /// </summary>
         Restore = 2,
     }
 
