@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Cadru.Data.Abstractions\Cadru.Data.Annotations.csproj" />
+    <ProjectReference Include="..\..\src\Cadru.Data.Annotations\Cadru.Data.Annotations.csproj" />
     <ProjectReference Include="..\..\src\Cadru.UnitTest.Framework\Cadru.UnitTest.Framework.csproj" />
   </ItemGroup>
 
