@@ -30,32 +30,126 @@ using Microsoft.Build.Utilities;
 
 namespace Cadru.Build.Tasks
 {
+    /// <summary>
+    /// The build version strategy.
+    /// </summary>
     public enum VersionStrategy
     {
+        /// <summary>
+        /// The build version properties will be based on the result of
+        /// computations involving the year, month, and day of the current date..
+        /// </summary>
+        /// <remarks>
+        /// This strategy follows these rules:
+        /// <list type="table">
+        /// <item>
+        /// <term>Build</term>
+        /// <description>
+        /// The result of ((now.Year % 100) * 1000 + 50 * now.Month + now.Day),
+        /// where <c>now</c> is the <see cref="DateTimeOffset.UtcNow"/>.
+        /// </description>
+        /// </item>
+        /// <item>
+        /// <term>Revision</term>
+        /// <description>
+        /// The result of (((<c>build</c> + <c>new DateTime(2000, 1, 1)</c>) * 100)
+        /// + (int)(now - now.Date).TotalSeconds / 2) % 50000, where
+        /// <c>now</c> is the <see cref="DateTimeOffset.UtcNow"/>
+        /// </description>
+        /// </item>
+        /// </list>
+        /// Both formulas use the same value of <c>now</c>.
+        /// </remarks>
         ShortDate = 0,
+
+        /// <summary>
+        /// The build version properties will be based on the year and day of year.
+        /// </summary>
+        /// <remarks>
+        /// This strategy follows these rules:
+        /// <list type="table">
+        /// <item>
+        /// <term>Build</term>
+        /// <description>
+        /// The last two digits of the year followed by the day of the year,
+        /// expressed as a value between 1 and 366
+        /// </description>
+        /// </item>
+        /// <item>
+        /// <term>Revision</term>
+        /// <description>
+        /// The total number of seconds between the start of the current day and
+        /// the current time, divided in half.
+        /// </description>
+        /// </item>
+        /// </list>
+        /// </remarks>
         DayOfYear,
+
+        /// <summary>
+        /// The build version properties will be based on the same rules used by Visual Studio.
+        /// </summary>
+        /// <remarks>
+        /// This strategy follows these rules:
+        /// <list type="table">
+        /// <item>
+        /// <term>Build</term>
+        /// <description>
+        /// The number of days between 1/1/2000 and the current date
+        /// </description>
+        /// </item>
+        /// <item>
+        /// <term>Revision</term>
+        /// <description>
+        /// The total number of seconds between the start of the current day and
+        /// the current time, divided in half.
+        /// </description>
+        /// </item>
+        /// </list>
+        /// </remarks>
         VisualStudio
     }
 
+    /// <summary>
+    /// Generates version properties and updates the specified properties file.
+    /// </summary>
     public class GetVersionProperties : Task
     {
         private const int VersionBaseShortDate = 19000;
         private readonly DateTime VisualStudioBaseDate = new DateTime(2000, 1, 1);
 
+        /// <summary>
+        /// Gets the value of the build component of the version number.
+        /// </summary>
         [Output]
         public int Build { get; private set; }
 
+        /// <summary>
+        /// Gets the value of the build date.
+        /// </summary>
         [Output]
         public string BuildDate { get; private set; }
 
+        /// <summary>
+        /// Gets or sets the path to the properties file to be updated.
+        /// </summary>
         [Required]
         public ITaskItem PropertiesFile { get; set; }
 
+        /// <summary>
+        /// Gets the value of the revision component of the version number.
+        /// </summary>
         [Output]
         public int Revision { get; private set; }
 
+        /// <summary>
+        /// Gets or sets the value of the build version strategy to be used.
+        /// </summary>
         public string Strategy { get; set; } = VersionStrategy.ShortDate.ToString();
 
+        /// <summary>
+        /// Main entry point.
+        /// </summary>
         public override bool Execute()
         {
             var now = DateTimeOffset.UtcNow;
@@ -73,7 +167,6 @@ namespace Cadru.Build.Tasks
                     this.VisualStudioStrategy(now);
                     break;
 
-                default:
                 case VersionStrategy.DayOfYear:
                     this.DayOfYearStrategy(now);
                     break;

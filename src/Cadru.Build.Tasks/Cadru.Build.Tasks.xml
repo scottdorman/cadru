@@ -4,6 +4,229 @@
         <name>Cadru.Build.Tasks</name>
     </assembly>
     <members>
+        <member name="T:Cadru.Build.Tasks.AddReleaseNotesRootEntry">
+            <summary>
+            Adds a release notes root entry to the specified XML file.
+            </summary>
+            <remarks>
+            This takes a fairly opinionated view of what a release notes file should
+            look like and may not be suitable for everyone.
+            </remarks>
+        </member>
+        <member name="P:Cadru.Build.Tasks.AddReleaseNotesRootEntry.AddIfNotFound">
+            <summary>
+            Gets or sets a value indicating whether or not the root node should
+            be added if it isn't found.
+            </summary>
+        </member>
+        <member name="P:Cadru.Build.Tasks.AddReleaseNotesRootEntry.BuildDate">
+            <summary>
+            The build date.
+            </summary>
+            <remarks>
+            This can be the <see cref="P:Cadru.Build.Tasks.GetVersionProperties.BuildDate"/> property value.
+            </remarks>
+        </member>
+        <member name="P:Cadru.Build.Tasks.AddReleaseNotesRootEntry.File">
+            <summary>
+            The release notes XML file to be updated.
+            </summary>
+        </member>
+        <member name="P:Cadru.Build.Tasks.AddReleaseNotesRootEntry.Milestone">
+            <summary>
+            An optional milestone value to include in the release notes entry.
+            </summary>
+        </member>
+        <member name="P:Cadru.Build.Tasks.AddReleaseNotesRootEntry.Version">
+            <summary>
+            The build version.
+            </summary>
+        </member>
+        <member name="M:Cadru.Build.Tasks.AddReleaseNotesRootEntry.Execute">
+            <summary>
+            Main entry point.
+            </summary>
+        </member>
+        <member name="T:Cadru.Build.Tasks.GetAssemblyVersion">
+            <summary>
+            Generates the value for the
+            <see cref="P:System.Reflection.AssemblyVersionAttribute.Version"/> property from the
+            specified NuGet version.
+            </summary>
+        </member>
+        <member name="P:Cadru.Build.Tasks.GetAssemblyVersion.AssemblyVersion">
+            <summary>
+            Gets the <see cref="P:System.Reflection.AssemblyVersionAttribute.Version"/> value.
+            </summary>
+        </member>
+        <member name="P:Cadru.Build.Tasks.GetAssemblyVersion.NuGetVersion">
+            <summary>
+            The NuGet version used to derive the assembly version from.
+            </summary>
+        </member>
+        <member name="M:Cadru.Build.Tasks.GetAssemblyVersion.Execute">
+            <summary>
+            Main entry point.
+            </summary>
+        </member>
+        <member name="T:Cadru.Build.Tasks.VersionStrategy">
+            <summary>
+            The build version strategy.
+            </summary>
+        </member>
+        <member name="F:Cadru.Build.Tasks.VersionStrategy.ShortDate">
+            <summary>
+            The build version properties will be based on the result of
+            computations involving the year, month, and day of the current date..
+            </summary>
+            <remarks>
+            This strategy follows these rules:
+            <list type="table">
+            <item>
+            <term>Build</term>
+            <description>
+            The result of ((now.Year % 100) * 1000 + 50 * now.Month + now.Day),
+            where <c>now</c> is the <see cref="P:System.DateTimeOffset.UtcNow"/>.
+            </description>
+            </item>
+            <item>
+            <term>Revision</term>
+            <description>
+            The result of (((<c>build</c> + <c>new DateTime(2000, 1, 1)</c>) * 100)
+            + (int)(now - now.Date).TotalSeconds / 2) % 50000, where
+            <c>now</c> is the <see cref="P:System.DateTimeOffset.UtcNow"/>
+            </description>
+            </item>
+            </list>
+            Both formulas use the same value of <c>now</c>.
+            </remarks>
+        </member>
+        <member name="F:Cadru.Build.Tasks.VersionStrategy.DayOfYear">
+            <summary>
+            The build version properties will be based on the year and day of year.
+            </summary>
+            <remarks>
+            This strategy follows these rules:
+            <list type="table">
+            <item>
+            <term>Build</term>
+            <description>
+            The last two digits of the year followed by the day of the year,
+            expressed as a value between 1 and 366
+            </description>
+            </item>
+            <item>
+            <term>Revision</term>
+            <description>
+            The total number of seconds between the start of the current day and
+            the current time, divided in half.
+            </description>
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:Cadru.Build.Tasks.VersionStrategy.VisualStudio">
+            <summary>
+            The build version properties will be based on the same rules used by Visual Studio.
+            </summary>
+            <remarks>
+            This strategy follows these rules:
+            <list type="table">
+            <item>
+            <term>Build</term>
+            <description>
+            The number of days between 1/1/2000 and the current date
+            </description>
+            </item>
+            <item>
+            <term>Revision</term>
+            <description>
+            The total number of seconds between the start of the current day and
+            the current time, divided in half.
+            </description>
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="T:Cadru.Build.Tasks.GetVersionProperties">
+            <summary>
+            Generates version properties and updates the specified properties file.
+            </summary>
+        </member>
+        <member name="P:Cadru.Build.Tasks.GetVersionProperties.Build">
+            <summary>
+            Gets the value of the build component of the version number.
+            </summary>
+        </member>
+        <member name="P:Cadru.Build.Tasks.GetVersionProperties.BuildDate">
+            <summary>
+            Gets the value of the build date.
+            </summary>
+        </member>
+        <member name="P:Cadru.Build.Tasks.GetVersionProperties.PropertiesFile">
+            <summary>
+            Gets or sets the path to the properties file to be updated.
+            </summary>
+        </member>
+        <member name="P:Cadru.Build.Tasks.GetVersionProperties.Revision">
+            <summary>
+            Gets the value of the revision component of the version number.
+            </summary>
+        </member>
+        <member name="P:Cadru.Build.Tasks.GetVersionProperties.Strategy">
+            <summary>
+            Gets or sets the value of the build version strategy to be used.
+            </summary>
+        </member>
+        <member name="M:Cadru.Build.Tasks.GetVersionProperties.Execute">
+            <summary>
+            Main entry point.
+            </summary>
+        </member>
+        <member name="T:Cadru.Build.Tasks.Internal.CodeWarningPragmaDirective">
+            <summary>
+            Represents a code warning pragma code entity
+            </summary>
+        </member>
+        <member name="M:Cadru.Build.Tasks.Internal.CodeWarningPragmaDirective.#ctor">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Cadru.Build.Tasks.Internal.CodeWarningPragmaDirective"/> class.
+            </summary>
+        </member>
+        <member name="M:Cadru.Build.Tasks.Internal.CodeWarningPragmaDirective.#ctor(Cadru.Build.Tasks.Internal.WarningPragmaMode,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Cadru.Build.Tasks.Internal.CodeWarningPragmaDirective"/> class, specifying its mode
+            and warning list.
+            </summary>
+            <param name="mode">One of the <see cref="P:Cadru.Build.Tasks.Internal.CodeWarningPragmaDirective.WarningPragmaMode"/> values.</param>
+            <param name="warningList">The list of warnings.</param>
+        </member>
+        <member name="P:Cadru.Build.Tasks.Internal.CodeWarningPragmaDirective.WarningList">
+            <summary>
+            Gets the list of warnings for the pragma directive.
+            </summary>
+        </member>
+        <member name="P:Cadru.Build.Tasks.Internal.CodeWarningPragmaDirective.WarningPragmaMode">
+            <summary>
+            Gets the mode for the pragma directive.
+            </summary>
+        </member>
+        <member name="M:Cadru.Build.Tasks.Internal.CodeWarningPragmaDirective.ToPragmaString(System.String)">
+            <summary>
+            Generates the pragma directive as a line of code for the specified language.
+            </summary>
+            <param name="language">The code language</param>
+            <returns>A string representing the pragma directive.</returns>
+            <remarks>
+            <para>
+            The <see href="https://docs.microsoft.com/en-us/dotnet/framework/reflection-and-codedom/using-the-codedom">CodeDOM</see>
+            compilers do not work with third-party <see cref="T:System.CodeDom.CodeDirective"/> derived classes.
+            As a result, it is necessary to create the warning pragma as a raw line of code.
+            </para>
+            </remarks>
+        </member>
         <member name="T:Cadru.Build.Tasks.Internal.ExceptionHandling">
             <summary>
             Utility methods for classifying and handling exceptions.
@@ -113,9 +336,7 @@
         </member>
         <member name="T:Cadru.Build.Tasks.Internal.FileUtilities">
             <summary>
-            This class contains utility methods for file IO. PERF\COVERAGE NOTE: Try
-            to keep classes in 'shared' as granular as possible. All the methods in
-            each class get pulled into the resulting assembly.
+            This class contains utility methods for file IO.
             </summary>
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.FileUtilities.GetTemporaryDirectory(System.Boolean)">

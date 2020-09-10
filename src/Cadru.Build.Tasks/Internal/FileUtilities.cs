@@ -22,16 +22,13 @@
 
 using System;
 using System.IO;
-using System.Runtime.CompilerServices;
 
 using Cadru.Build.Tasks.Resources;
 
 namespace Cadru.Build.Tasks.Internal
 {
     /// <summary>
-    /// This class contains utility methods for file IO. PERF\COVERAGE NOTE: Try
-    /// to keep classes in 'shared' as granular as possible. All the methods in
-    /// each class get pulled into the resulting assembly.
+    /// This class contains utility methods for file IO.
     /// </summary>
     internal static partial class FileUtilities
     {
@@ -138,30 +135,6 @@ namespace Cadru.Build.Tasks.Internal
         internal static string GetTemporaryFileName(string extension)
         {
             return GetTemporaryFile(null, extension, false);
-        }
-
-        public class TempWorkingDirectory : IDisposable
-        {
-            public TempWorkingDirectory(string sourcePath, [CallerMemberName] string name = null)
-            {
-                this.Path = name == null
-                    ? GetTemporaryDirectory()
-                    : System.IO.Path.Combine(System.IO.Path.GetTempPath(), name);
-
-                if (Directory.Exists(this.Path))
-                {
-                    Directory.Delete(this.Path, true);
-                }
-
-                CopyDirectory(sourcePath, this.Path);
-            }
-
-            public string Path { get; }
-
-            public void Dispose()
-            {
-                Directory.Delete(this.Path, true);
-            }
         }
     }
 }

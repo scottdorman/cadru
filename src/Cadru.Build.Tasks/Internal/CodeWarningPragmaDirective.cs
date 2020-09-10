@@ -33,22 +33,54 @@ namespace Cadru.Build.Tasks.Internal
         Restore = 2,
     }
 
+    /// <summary>
+    /// Represents a code warning pragma code entity
+    /// </summary>
     public class CodeWarningPragmaDirective : CodeDirective
     {
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CodeWarningPragmaDirective"/> class.
+        /// </summary>
         public CodeWarningPragmaDirective()
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CodeWarningPragmaDirective"/> class, specifying its mode
+        /// and warning list.
+        /// </summary>
+        /// <param name="mode">One of the <see cref="WarningPragmaMode"/> values.</param>
+        /// <param name="warningList">The list of warnings.</param>
         public CodeWarningPragmaDirective(WarningPragmaMode mode, IList<string> warningList)
         {
-            this.WarningList = warningList;
+            this.WarningList = (IReadOnlyList<string>)warningList;
             this.WarningPragmaMode = mode;
         }
 
-        public IList<string> WarningList { get; } = new List<string>();
+        /// <summary>
+        /// Gets the list of warnings for the pragma directive.
+        /// </summary>
+        public IReadOnlyList<string> WarningList { get; } = new List<string>();
 
+        /// <summary>
+        /// Gets the mode for the pragma directive.
+        /// </summary>
         public WarningPragmaMode WarningPragmaMode { get; set; }
 
+        /// <summary>
+        /// Generates the pragma directive as a line of code for the specified language.
+        /// </summary>
+        /// <param name="language">The code language</param>
+        /// <returns>A string representing the pragma directive.</returns>
+        /// <remarks>
+        /// <para>
+        /// The <see href="https://docs.microsoft.com/en-us/dotnet/framework/reflection-and-codedom/using-the-codedom">CodeDOM</see>
+        /// compilers do not work with third-party <see cref="CodeDirective"/> derived classes.
+        /// As a result, it is necessary to create the warning pragma as a raw line of code.
+        /// </para>
+        /// </remarks>
         public string ToPragmaString(string language)
         {
             var text = String.Empty;

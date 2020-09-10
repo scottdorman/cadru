@@ -29,22 +29,51 @@ using Microsoft.Build.Utilities;
 
 namespace Cadru.Build.Tasks
 {
+    /// <summary>
+    /// Adds a release notes root entry to the specified XML file.
+    /// </summary>
+    /// <remarks>
+    /// This takes a fairly opinionated view of what a release notes file should
+    /// look like and may not be suitable for everyone.
+    /// </remarks>
     public class AddReleaseNotesRootEntry : Task
     {
+        /// <summary>
+        /// Gets or sets a value indicating whether or not the root node should
+        /// be added if it isn't found.
+        /// </summary>
         [Required]
         public bool AddIfNotFound { get; set; }
 
+        /// <summary>
+        /// The build date.
+        /// </summary>
+        /// <remarks>
+        /// This can be the <see cref="GetVersionProperties.BuildDate"/> property value.
+        /// </remarks>
         [Required]
         public string BuildDate { get; set; }
 
+        /// <summary>
+        /// The release notes XML file to be updated.
+        /// </summary>
         [Required]
         public ITaskItem File { get; set; }
 
+        /// <summary>
+        /// An optional milestone value to include in the release notes entry.
+        /// </summary>
         public string Milestone { get; set; }
 
+        /// <summary>
+        /// The build version.
+        /// </summary>
         [Required]
         public string Version { get; set; }
 
+        /// <summary>
+        /// Main entry point.
+        /// </summary>
         public override bool Execute()
         {
             var document = XDocument.Load(this.File.ItemSpec);
@@ -63,6 +92,7 @@ namespace Cadru.Build.Tasks
                         milestoneAttribute.Value = this.Milestone;
                     }
                 }
+
                 document.Save(this.File.ItemSpec);
             }
             else

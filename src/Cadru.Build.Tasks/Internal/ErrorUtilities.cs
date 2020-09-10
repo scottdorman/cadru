@@ -26,7 +26,7 @@ using Cadru.Build.Tasks.Resources;
 
 namespace Cadru.Build.Tasks.Internal
 {
-    public class ErrorUtilities
+    internal static class ErrorUtilities
     {
         internal static void ThrowInternalError(string message, Exception innerException, params object[] args)
         {

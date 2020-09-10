@@ -144,7 +144,7 @@ namespace Cadru.Build.Tasks
             return !this.Log.HasLoggedErrors;
         }
 
-        private CodeMemberField CreateConstant(string name, object value, CodeTypeReference codeTypeReference)
+        private static CodeMemberField CreateConstant(string name, object value, CodeTypeReference codeTypeReference)
         {
             var member = new CodeMemberField(codeTypeReference, name);
             member.Attributes = (member.Attributes & ~MemberAttributes.AccessMask & ~MemberAttributes.ScopeMask) | MemberAttributes.Public | MemberAttributes.Const;
@@ -247,7 +247,7 @@ namespace Cadru.Build.Tasks
                 if (entry.Value.Count == 1)
                 {
                     var expressionValue = entry.Value.First().Value;
-                    codeTypeMembers.Add(this.CreateConstant(name, expressionValue, new CodeTypeReference(typeof(string))));
+                    codeTypeMembers.Add(CreateConstant(name, expressionValue, new CodeTypeReference(typeof(string))));
                 }
                 else
                 {
@@ -255,7 +255,7 @@ namespace Cadru.Build.Tasks
                     {
                         name = (string)entry.Value.ElementAt(i).Value;
                         var expressionValue = entry.Value.ElementAt(i + 1).Value;
-                        codeTypeMembers.Add(this.CreateConstant(name, expressionValue, new CodeTypeReference(typeof(string))));
+                        codeTypeMembers.Add(CreateConstant(name, expressionValue, new CodeTypeReference(typeof(string))));
                     }
                 }
 

@@ -20,19 +20,35 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.Reflection;
+
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
 
 namespace Cadru.Build.Tasks
 {
+    /// <summary>
+    /// Generates the value for the
+    /// <see cref="AssemblyVersionAttribute.Version"/> property from the
+    /// specified NuGet version.
+    /// </summary>
     public class GetAssemblyVersion : Task
     {
+        /// <summary>
+        /// Gets the <see cref="AssemblyVersionAttribute.Version"/> value.
+        /// </summary>
         [Output]
         public string AssemblyVersion { get; private set; }
 
+        /// <summary>
+        /// The NuGet version used to derive the assembly version from.
+        /// </summary>
         [Required]
         public string NuGetVersion { get; set; }
 
+        /// <summary>
+        /// Main entry point.
+        /// </summary>
         public override bool Execute()
         {
             var args = this.NuGetVersion.Split('-');

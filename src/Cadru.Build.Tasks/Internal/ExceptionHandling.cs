@@ -109,15 +109,11 @@ namespace Cadru.Build.Tasks.Internal
             }
 
             // Check if any critical exceptions
-
-            if (e is AggregateException aggregateException)
+            // If the aggregate exception contains a critical exception it
+            // is considered a critical exceptional exception
+            if (e is AggregateException aggregateException && aggregateException.InnerExceptions.Any(innerException => IsCriticalException(innerException)))
             {
-                // If the aggregate exception contains a critical exception it
-                // is considered a critical exception
-                if (aggregateException.InnerExceptions.Any(innerException => IsCriticalException(innerException)))
-                {
-                    return true;
-                }
+                return true;
             }
 
             return false;
