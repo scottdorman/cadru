@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<!--
-Sample license text.
--->
 <doc>
     <assembly>
         <name>Cadru.Scim</name>
@@ -18,16 +15,16 @@ Sample license text.
             </remarks>
         </member>
         <member name="P:Cadru.Scim.Filters.FilterExpression.Attribute">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Scim.Filters.FilterExpression.Operator">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Scim.Filters.FilterExpression.Value">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterExpression.ToFilterExpression(System.Boolean)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterExpression.ToString">
             <summary>
@@ -44,7 +41,7 @@ Sample license text.
         </member>
         <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator" /> structure.
+            Initializes a new instance of the <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator"/> structure.
             </summary>
             <param name="value">The string value of the instance.</param>
         </member>
@@ -154,37 +151,37 @@ Sample license text.
         </member>
         <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.op_Implicit(System.String)~Cadru.Scim.Filters.FilterExpressionOperator">
             <summary>
-            Converts a string to a <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator" />.
+            Converts a string to a <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator"/>.
             </summary>
             <param name="value">The string value to convert.</param>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.op_Inequality(Cadru.Scim.Filters.FilterExpressionOperator,Cadru.Scim.Filters.FilterExpressionOperator)">
             <summary>
-            Determines if two <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator" /> values are different.
+            Determines if two <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator"/> values are different.
             </summary>
-            <param name="left">The first <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator" /> to compare.</param>
-            <param name="right">The second <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator" /> to compare.</param>
-            <returns>True if <paramref name="left" /> and <paramref name="right" /> are different; otherwise, false.</returns>
+            <param name="left">The first <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator"/> to compare.</param>
+            <param name="right">The second <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator"/> to compare.</param>
+            <returns>True if <paramref name="left"/> and <paramref name="right"/> are different; otherwise, false.</returns>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.op_Equality(Cadru.Scim.Filters.FilterExpressionOperator,Cadru.Scim.Filters.FilterExpressionOperator)">
             <summary>
-            Determines if two <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator" /> values are the same.
+            Determines if two <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator"/> values are the same.
             </summary>
-            <param name="left">The first <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator" /> to compare.</param>
-            <param name="right">The second <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator" /> to compare.</param>
-            <returns>True if <paramref name="left" /> and <paramref name="right" /> are the same; otherwise, false.</returns>
+            <param name="left">The first <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator"/> to compare.</param>
+            <param name="right">The second <see cref="T:Cadru.Scim.Filters.FilterExpressionOperator"/> to compare.</param>
+            <returns>True if <paramref name="left"/> and <paramref name="right"/> are the same; otherwise, false.</returns>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.Equals(System.Object)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.Equals(Cadru.Scim.Filters.FilterExpressionOperator)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.GetHashCode">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.ToString">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Scim.Filters.FilterGroup">
             <summary>
@@ -192,16 +189,16 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Scim.Filters.FilterGroup.Filters">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Scim.Filters.FilterGroup.GroupingCharacter">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Scim.Filters.FilterGroup.LogicalOperator">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterGroup.ToFilterExpression(System.Boolean)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterGroup.ToString">
             <summary>
@@ -225,7 +222,7 @@ Sample license text.
             modify.</param>
             <param name="filter">An <see cref="T:Cadru.Scim.Filters.IFilterExpression"></see> to
             add.</param>
-            <returns>A reference to the <paramref name="filterGroup" /> after the
+            <returns>A reference to the <paramref name="filterGroup"/> after the
             operation has completed. </returns>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterGroupExtensions.AddGroup(Cadru.Scim.Filters.IFilterGroup,Cadru.Scim.Filters.IFilterGroup)">
@@ -235,7 +232,7 @@ Sample license text.
             <param name="filterGroup">A <see cref="T:Cadru.Scim.Filters.IFilterGroup"></see> to modify.</param>
             <param name="group">An <see cref="T:Cadru.Scim.Filters.IFilterGroup"></see> to
             add.</param>
-            <returns>A reference to the <paramref name="filterGroup" /> after the
+            <returns>A reference to the <paramref name="filterGroup"/> after the
             operation has completed. </returns>
         </member>
         <member name="T:Cadru.Scim.Filters.FilterLogicalOperator">
@@ -246,7 +243,7 @@ Sample license text.
         </member>
         <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator" /> structure.
+            Initializes a new instance of the <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator"/> structure.
             </summary>
             <param name="value">The string value of the instance.</param>
         </member>
@@ -264,37 +261,37 @@ Sample license text.
         </member>
         <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.op_Implicit(System.String)~Cadru.Scim.Filters.FilterLogicalOperator">
             <summary>
-            Converts a string to a <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator" />.
+            Converts a string to a <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator"/>.
             </summary>
             <param name="value">The string value to convert.</param>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.op_Inequality(Cadru.Scim.Filters.FilterLogicalOperator,Cadru.Scim.Filters.FilterLogicalOperator)">
             <summary>
-            Determines if two <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator" /> values are different.
+            Determines if two <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator"/> values are different.
             </summary>
-            <param name="left">The first <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator" /> to compare.</param>
-            <param name="right">The second <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator" /> to compare.</param>
-            <returns>True if <paramref name="left" /> and <paramref name="right" /> are different; otherwise, false.</returns>
+            <param name="left">The first <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator"/> to compare.</param>
+            <param name="right">The second <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator"/> to compare.</param>
+            <returns>True if <paramref name="left"/> and <paramref name="right"/> are different; otherwise, false.</returns>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.op_Equality(Cadru.Scim.Filters.FilterLogicalOperator,Cadru.Scim.Filters.FilterLogicalOperator)">
             <summary>
-            Determines if two <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator" /> values are the same.
+            Determines if two <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator"/> values are the same.
             </summary>
-            <param name="left">The first <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator" /> to compare.</param>
-            <param name="right">The second <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator" /> to compare.</param>
-            <returns>True if <paramref name="left" /> and <paramref name="right" /> are the same; otherwise, false.</returns>
+            <param name="left">The first <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator"/> to compare.</param>
+            <param name="right">The second <see cref="T:Cadru.Scim.Filters.FilterLogicalOperator"/> to compare.</param>
+            <returns>True if <paramref name="left"/> and <paramref name="right"/> are the same; otherwise, false.</returns>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.Equals(System.Object)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.Equals(Cadru.Scim.Filters.FilterLogicalOperator)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.GetHashCode">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.ToString">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Scim.Filters.GroupingCharacter">
             <summary>
@@ -397,16 +394,16 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Scim.Filters.NotFilterGroup.Filters">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Scim.Filters.NotFilterGroup.GroupingCharacter">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Scim.Filters.NotFilterGroup.LogicalOperator">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.NotFilterGroup.ToFilterExpression(System.Boolean)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.NotFilterGroup.ToString">
             <summary>
