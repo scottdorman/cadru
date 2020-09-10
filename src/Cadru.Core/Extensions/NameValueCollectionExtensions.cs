@@ -25,8 +25,15 @@ using System.Collections.Specialized;
 
 namespace Cadru.Extensions
 {
+    /// <summary>
+    /// Provides extensions for working with <see cref="NameValueCollection"/>.
+    /// </summary>
     public static class NameValueCollectionExtensions
     {
+        ///<summary>Finds the index of the first matching string in a collection.</summary>
+        ///<param name="nameValueCollection">The collection to search.</param>
+        ///<param name="key">The key to search for.</param>
+        ///<returns>The index of the first matching item, or -1 if no items match.</returns>
         public static int GetKeyIndex(this NameValueCollection nameValueCollection, string key)
         {
             return nameValueCollection.AllKeys.FindIndex(e => e.Equals(key, StringComparison.OrdinalIgnoreCase));

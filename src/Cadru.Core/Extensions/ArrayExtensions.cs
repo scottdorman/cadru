@@ -2,7 +2,7 @@
 // <copyright file="ArrayExtensions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,32 +20,17 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Globalization;
+using System.Text;
+
 namespace Cadru.Extensions
 {
-    using System;
-    using System.Globalization;
-    using System.Text;
-
     /// <summary>
     /// Provides basic routines for common array manipulation.
     /// </summary>
     public static class ArrayExtensions
     {
-        #region fields
-        #endregion
-
-        #region events
-        #endregion
-
-        #region constructors
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methods
-
-        #region BytesToBinaryString
         /// <summary>
         /// Converts the byte array to a string representation in binary.
         /// </summary>
@@ -63,9 +48,7 @@ namespace Cadru.Extensions
 
             return buffer.ToString();
         }
-        #endregion
 
-        #region BytesToString
         /// <summary>
         /// Converts the byte array to a string representation in hexadecimal.
         /// </summary>
@@ -78,46 +61,23 @@ namespace Cadru.Extensions
             var buffer = new StringBuilder(source.Length * 8);
             buffer.AppendAsHexadecimal(source);
             return buffer.ToString();
-            //string results = "";
-            //for (int index = 0; index < source.Length; index++)
-            //{
-            //    //buffer.AppendAsHexadecimal(source[
-            //    results += HexChar[(source[index] >> 4) & 0xf];
-            //    results += HexChar[(source[index] & 0xf)];
-            //}
-            //return results;
         }
-        #endregion
 
-        public static string GetStringOrNull(this string[] record, int index)
+        /// <summary>
+        /// Gets the string value contained at the index or <see
+        /// langword="null"/> if that value is not found, is <see
+        /// langword="null"/>, empty, or consists of all white-space characters.
+        /// </summary>
+        /// <param name="record">The string array to search.</param>
+        /// <param name="index">An integer that represents the position of
+        /// the array element to get.</param>
+        /// <returns>The string value or <see langword="null"/>.</returns>
+        public static string? GetStringOrNull(this string[] record, int index)
         {
             var val = record.GetValue(index)?.ToString();
             return String.IsNullOrWhiteSpace(val) ? null : val;
         }
 
-        #region ReverseInPlace
-        /// <summary>
-        /// Reverses an array.
-        /// </summary>
-        /// <param name="source">The source array.</param>
-        /// <remarks>This is a destructive operation and will mutate the
-        /// original array.</remarks>
-        public static void ReverseArrayInPlace(this byte[] source)
-        {
-            Contracts.Requires.NotNull(source, nameof(source));
-
-            var length = source.Length;
-            for (var i = 0; i < (length >> 1); i++)
-            {
-                var j = length - i - 1;
-                var temp = source[i];
-                source[i] = source[j];
-                source[j] = temp;
-            }
-        }
-        #endregion
-
-        #region ReverseArray
         /// <summary>
         /// Reverses an array
         /// </summary>
@@ -137,8 +97,25 @@ namespace Cadru.Extensions
 
             return result;
         }
-        #endregion
 
-        #endregion
+        /// <summary>
+        /// Reverses an array.
+        /// </summary>
+        /// <param name="source">The source array.</param>
+        /// <remarks>This is a destructive operation and will mutate the
+        /// original array.</remarks>
+        public static void ReverseArrayInPlace(this byte[] source)
+        {
+            Contracts.Requires.NotNull(source, nameof(source));
+
+            var length = source.Length;
+            for (var i = 0; i < (length >> 1); i++)
+            {
+                var j = length - i - 1;
+                var temp = source[i];
+                source[i] = source[j];
+                source[j] = temp;
+            }
+        }
     }
 }

@@ -2,7 +2,7 @@
 // <copyright file="StopwatchTimer.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2019 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -25,23 +25,39 @@ using System.Diagnostics;
 
 namespace Cadru.Diagnostics
 {
+    /// <summary>
+    /// Provides a set of methods and properties that you can use to accurate measure
+    /// elapsed time using the scope syntax provided by the <c>using</c> statement.
+    /// </summary>
     public sealed class StopwatchTimer : IDisposable
     {
-        private readonly Action<Stopwatch> stopAction;
+        private readonly Action<Stopwatch>? stopAction;
 
-        public StopwatchTimer(Action<Stopwatch> startAction = null, Action<Stopwatch> stopAction = null)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StopwatchTimer"/> class.
+        /// </summary>
+        /// <param name="startAction">An optional action to run when the <see cref="Stopwatch"/> is started.</param>
+        /// <param name="stopAction">An optional action to run when the <see cref="Stopwatch"/> is stopped.</param>
+        public StopwatchTimer(Action<Stopwatch>? startAction = null, Action<Stopwatch>? stopAction = null)
         {
             this.stopAction = stopAction;
             this.Stopwatch = Stopwatch.StartNew();
             startAction?.Invoke(this.Stopwatch);
         }
 
+        /// <summary>
+        /// Gets the <see cref="Stopwatch"/> instance.
+        /// </summary>
+        public Stopwatch Stopwatch { get; }
+
+        /// <summary>
+        /// Stops the internal <see cref="Stopwatch"/> and performs
+        /// the stop action, if it was provided.
+        /// </summary>
         public void Dispose()
         {
             this.Stopwatch.Stop();
             this.stopAction?.Invoke(this.Stopwatch);
         }
-
-        public Stopwatch Stopwatch { get; }
     }
 }

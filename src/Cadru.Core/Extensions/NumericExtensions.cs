@@ -2,7 +2,7 @@
 // <copyright file="NumericExtensions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,36 +20,18 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+
+using Cadru.Text;
+
 namespace Cadru.Extensions
 {
-    using System;
-    using System.Collections.Generic;
-    using Cadru.Text;
-
     /// <summary>
     /// Provides basic routines for common numeric manipulation.
     /// </summary>
     public static class NumericExtensions
     {
-        #region fields
-        #endregion
-
-        #region constructors
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methods
-
-        #region Between
-
-        #region Between(byte expression, byte min, byte max)
-
-        #region Between(byte expression, byte min, byte max)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -64,9 +46,7 @@ namespace Cadru.Extensions
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
-        #endregion
 
-        #region Between(byte expression, byte min, byte max, MinMaxCompareOptions options)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -83,13 +63,7 @@ namespace Cadru.Extensions
         {
             return Between(expression, min, max, options, Comparer<byte>.Default);
         }
-        #endregion
 
-        #endregion
-
-        #region Between(decimal expression, decimal min, decimal max)
-
-        #region Between(decimal expression, decimal min, decimal max)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -104,9 +78,7 @@ namespace Cadru.Extensions
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
-        #endregion
 
-        #region Between(decimal expression, decimal min, decimal max, MinMaxCompareOptions options)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -123,13 +95,7 @@ namespace Cadru.Extensions
         {
             return Between(expression, min, max, options, Comparer<decimal>.Default);
         }
-        #endregion
 
-        #endregion
-
-        #region Between(double expression, double min, double max)
-
-        #region Between(double expression, double min, double max)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -144,9 +110,7 @@ namespace Cadru.Extensions
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
-        #endregion
 
-        #region Between(double expression, double min, double max, MinMaxCompareOptions options)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -163,13 +127,7 @@ namespace Cadru.Extensions
         {
             return Between(expression, min, max, options, Comparer<double>.Default);
         }
-        #endregion
 
-        #endregion
-
-        #region Between(short expression, short min, short max)
-
-        #region Between(short expression, short min, short max)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -184,9 +142,7 @@ namespace Cadru.Extensions
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
-        #endregion
 
-        #region Between(short expression, short min, short max, MinMaxCompareOptions options)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -203,13 +159,7 @@ namespace Cadru.Extensions
         {
             return Between(expression, min, max, options, Comparer<short>.Default);
         }
-        #endregion
 
-        #endregion
-
-        #region Between(int expression, int min, int max)
-
-        #region Between(int expression, int min, int max)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -224,9 +174,7 @@ namespace Cadru.Extensions
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
-        #endregion
 
-        #region Between(int expression, int min, int max, MinMaxCompareOptions options)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -243,13 +191,7 @@ namespace Cadru.Extensions
         {
             return Between(expression, min, max, options, Comparer<int>.Default);
         }
-        #endregion
 
-        #endregion
-
-        #region Between(long expression, long min, long max)
-
-        #region Between(long expression, long min, long max)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -264,9 +206,7 @@ namespace Cadru.Extensions
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
-        #endregion
 
-        #region Between(long expression, long min, long max, MinMaxCompareOptions options)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -283,13 +223,7 @@ namespace Cadru.Extensions
         {
             return Between(expression, min, max, options, Comparer<long>.Default);
         }
-        #endregion
 
-        #endregion
-
-        #region Between(float expression, float min, float max)
-
-        #region Between(float expression, float min, float max)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -304,9 +238,7 @@ namespace Cadru.Extensions
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
-        #endregion
 
-        #region Between(float expression, float min, float max, MinMaxCompareOptions options)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// is between the minimum and maximum indicated.
@@ -323,15 +255,7 @@ namespace Cadru.Extensions
         {
             return Between(expression, min, max, options, Comparer<float>.Default);
         }
-        #endregion
 
-        #endregion
-
-        #endregion
-
-        #region GreaterThan
-
-        #region GreaterThan(byte expression, byte min)
         /// <overloads>
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
@@ -352,9 +276,7 @@ namespace Cadru.Extensions
         {
             return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<byte>.Default);
         }
-        #endregion
 
-        #region GreaterThan(decimal expression, decimal min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than the minimum indicated.
@@ -369,9 +291,7 @@ namespace Cadru.Extensions
         {
             return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<decimal>.Default);
         }
-        #endregion
 
-        #region GreaterThan(double expression, double min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than the minimum indicated.
@@ -386,9 +306,7 @@ namespace Cadru.Extensions
         {
             return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<double>.Default);
         }
-        #endregion
 
-        #region GreaterThan(short expression, short min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than the minimum indicated.
@@ -403,9 +321,7 @@ namespace Cadru.Extensions
         {
             return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<short>.Default);
         }
-        #endregion
 
-        #region GreaterThan(int expression, int min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than the minimum indicated.
@@ -420,9 +336,7 @@ namespace Cadru.Extensions
         {
             return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<int>.Default);
         }
-        #endregion
 
-        #region GreaterThan(this long expression, long min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than the minimum indicated.
@@ -437,9 +351,7 @@ namespace Cadru.Extensions
         {
             return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<long>.Default);
         }
-        #endregion
 
-        #region GreaterThan(float expression, float min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than the minimum indicated.
@@ -454,13 +366,7 @@ namespace Cadru.Extensions
         {
             return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<float>.Default);
         }
-        #endregion
 
-        #endregion
-
-        #region GreaterThanOrEqualTo
-
-        #region GreaterThanOrEqualTo(byte expression, byte min)
         /// <overloads>
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
@@ -484,9 +390,7 @@ namespace Cadru.Extensions
         {
             return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<byte>.Default);
         }
-        #endregion
 
-        #region GreaterThanOrEqualTo(decimal expression, decimal min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than or equal to the
@@ -503,9 +407,7 @@ namespace Cadru.Extensions
         {
             return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<decimal>.Default);
         }
-        #endregion
 
-        #region GreaterThanOrEqualTo(double expression, double min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than or equal to the
@@ -522,9 +424,7 @@ namespace Cadru.Extensions
         {
             return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<double>.Default);
         }
-        #endregion
 
-        #region GreaterThanOrEqualTo(short expression, short min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than or equal to the
@@ -541,9 +441,7 @@ namespace Cadru.Extensions
         {
             return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<short>.Default);
         }
-        #endregion
 
-        #region GreaterThanOrEqualTo(int expression, int min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than or equal to the
@@ -560,9 +458,7 @@ namespace Cadru.Extensions
         {
             return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<int>.Default);
         }
-        #endregion
 
-        #region GreaterThanOrEqualTo(long expression, long min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than or equal to the
@@ -579,9 +475,7 @@ namespace Cadru.Extensions
         {
             return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<long>.Default);
         }
-        #endregion
 
-        #region GreaterThanOrEqualTo(float expression, float min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is greater than or equal to the
@@ -598,13 +492,7 @@ namespace Cadru.Extensions
         {
             return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<float>.Default);
         }
-        #endregion
 
-        #endregion
-
-        #region IsEven
-
-        #region IsEven(this int expression)
         /// <overloads>
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
@@ -624,9 +512,7 @@ namespace Cadru.Extensions
         {
             return (expression % 2) == 0;
         }
-        #endregion
 
-        #region IsEven(this short expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an even number.
@@ -640,9 +526,7 @@ namespace Cadru.Extensions
         {
             return (expression % 2) == 0;
         }
-        #endregion
 
-        #region IsEven(this long expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an even number.
@@ -656,9 +540,7 @@ namespace Cadru.Extensions
         {
             return (expression % 2) == 0;
         }
-        #endregion
 
-        #region IsEven(this decimal expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an even number.
@@ -672,9 +554,7 @@ namespace Cadru.Extensions
         {
             return (expression % 2) == 0;
         }
-        #endregion
 
-        #region IsEven(this double expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an even number.
@@ -688,9 +568,7 @@ namespace Cadru.Extensions
         {
             return (expression % 2) == 0;
         }
-        #endregion
 
-        #region IsEven(this float expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an even number.
@@ -704,13 +582,7 @@ namespace Cadru.Extensions
         {
             return (expression % 2) == 0;
         }
-        #endregion
 
-        #endregion
-
-        #region IsOdd
-
-        #region IsOdd(this int expression)
         /// <overloads>
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
@@ -730,9 +602,7 @@ namespace Cadru.Extensions
         {
             return (expression % 2) != 0;
         }
-        #endregion
 
-        #region IsOdd(this short expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an odd number.
@@ -746,9 +616,7 @@ namespace Cadru.Extensions
         {
             return (expression % 2) != 0;
         }
-        #endregion
 
-        #region IsOdd(this long expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an odd number.
@@ -762,9 +630,7 @@ namespace Cadru.Extensions
         {
             return (expression % 2) != 0;
         }
-        #endregion
 
-        #region IsOdd(this decimal expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an odd number.
@@ -778,9 +644,7 @@ namespace Cadru.Extensions
         {
             return (expression % 2) != 0;
         }
-        #endregion
 
-        #region IsOdd(this double expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an odd number.
@@ -794,9 +658,7 @@ namespace Cadru.Extensions
         {
             return (expression % 2) != 0;
         }
-        #endregion
 
-        #region IsOdd(this float expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is an odd number.
@@ -810,13 +672,7 @@ namespace Cadru.Extensions
         {
             return (expression % 2) != 0;
         }
-        #endregion
 
-        #endregion
-
-        #region LessThan
-
-        #region LessThan(byte expression, byte min)
         /// <overloads>
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
@@ -837,9 +693,7 @@ namespace Cadru.Extensions
         {
             return LessThan(expression, min, NumericComparisonOptions.None, Comparer<byte>.Default);
         }
-        #endregion
 
-        #region LessThan(decimal expression, decimal min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than the minimum indicated.
@@ -854,9 +708,7 @@ namespace Cadru.Extensions
         {
             return LessThan(expression, min, NumericComparisonOptions.None, Comparer<decimal>.Default);
         }
-        #endregion
 
-        #region LessThan(double expression, double min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than the minimum indicated.
@@ -871,9 +723,7 @@ namespace Cadru.Extensions
         {
             return LessThan(expression, min, NumericComparisonOptions.None, Comparer<double>.Default);
         }
-        #endregion
 
-        #region LessThan(short expression, short min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than the minimum indicated.
@@ -888,9 +738,7 @@ namespace Cadru.Extensions
         {
             return LessThan(expression, min, NumericComparisonOptions.None, Comparer<short>.Default);
         }
-        #endregion
 
-        #region LessThan(int expression, int min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than the minimum indicated.
@@ -905,9 +753,7 @@ namespace Cadru.Extensions
         {
             return LessThan(expression, min, NumericComparisonOptions.None, Comparer<int>.Default);
         }
-        #endregion
 
-        #region LessThan(this long expression, long min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than the minimum indicated.
@@ -922,9 +768,7 @@ namespace Cadru.Extensions
         {
             return LessThan(expression, min, NumericComparisonOptions.None, Comparer<long>.Default);
         }
-        #endregion
 
-        #region LessThan(float expression, float min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than the minimum indicated.
@@ -939,13 +783,7 @@ namespace Cadru.Extensions
         {
             return LessThan(expression, min, NumericComparisonOptions.None, Comparer<float>.Default);
         }
-        #endregion
 
-        #endregion
-
-        #region LessThanOrEqualTo
-
-        #region LessThanOrEqualTo(byte expression, byte min)
         /// <overloads>
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
@@ -969,9 +807,7 @@ namespace Cadru.Extensions
         {
             return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<byte>.Default);
         }
-        #endregion
 
-        #region LessThanOrEqualTo(decimal expression, decimal min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than or equal to the
@@ -988,9 +824,7 @@ namespace Cadru.Extensions
         {
             return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<decimal>.Default);
         }
-        #endregion
 
-        #region LessThanOrEqualTo(double expression, double min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than or equal to the
@@ -1007,9 +841,7 @@ namespace Cadru.Extensions
         {
             return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<double>.Default);
         }
-        #endregion
 
-        #region LessThanOrEqualTo(short expression, short min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than or equal to the
@@ -1026,9 +858,7 @@ namespace Cadru.Extensions
         {
             return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<short>.Default);
         }
-        #endregion
 
-        #region LessThanOrEqualTo(int expression, int min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than or equal to the
@@ -1045,9 +875,7 @@ namespace Cadru.Extensions
         {
             return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<int>.Default);
         }
-        #endregion
 
-        #region LessThanOrEqualTo(long expression, long min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than or equal to the
@@ -1064,9 +892,7 @@ namespace Cadru.Extensions
         {
             return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<long>.Default);
         }
-        #endregion
 
-        #region LessThanOrEqualTo(float expression, float min)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// <paramref name="expression"/> is less than or equal to the
@@ -1083,43 +909,22 @@ namespace Cadru.Extensions
         {
             return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<float>.Default);
         }
-        #endregion
 
-        #endregion
-
-        #region Between<T>(T expression, T minimum, T maximum, MinMaxCompareOptions options, IComparer<T> comparer)
         private static bool Between<T>(T expression, T minimum, T maximum, NumericComparisonOptions options, IComparer<T> comparer) where T : IComparable
         {
-            var success = false;
-
-            switch (options)
+            var success = options switch
             {
-                case NumericComparisonOptions.IncludeBoth:
-                    success = (comparer.Compare(expression, minimum) >= 0) && (comparer.Compare(expression, maximum) <= 0);
-                    break;
-
-                case NumericComparisonOptions.IncludeMinimum:
-                    success = (comparer.Compare(expression, minimum) >= 0) && (comparer.Compare(expression, maximum) < 0);
-                    break;
-
-                case NumericComparisonOptions.IncludeMaximum:
-                    success = (comparer.Compare(expression, minimum) > 0) && (comparer.Compare(expression, maximum) <= 0);
-                    break;
-
-                default:
-                    success = (comparer.Compare(expression, minimum) > 0) && (comparer.Compare(expression, maximum) < 0);
-                    break;
-            }
-
+                NumericComparisonOptions.IncludeBoth => (comparer.Compare(expression, minimum) >= 0) && (comparer.Compare(expression, maximum) <= 0),
+                NumericComparisonOptions.IncludeMinimum => (comparer.Compare(expression, minimum) >= 0) && (comparer.Compare(expression, maximum) < 0),
+                NumericComparisonOptions.IncludeMaximum => (comparer.Compare(expression, minimum) > 0) && (comparer.Compare(expression, maximum) <= 0),
+                _ => (comparer.Compare(expression, minimum) > 0) && (comparer.Compare(expression, maximum) < 0),
+            };
             return success;
         }
-        #endregion
 
-        #region GreaterThan<T>(T expression, T minimum, MinMaxCompareOptions options, IComparer<T> comparer)
         private static bool GreaterThan<T>(T expression, T minimum, NumericComparisonOptions options, IComparer<T> comparer) where T : IComparable
         {
-            var success = false;
-
+            bool success;
             switch (options)
             {
                 case NumericComparisonOptions.IncludeBoth:
@@ -1134,13 +939,10 @@ namespace Cadru.Extensions
 
             return success;
         }
-        #endregion
 
-        #region LessThan<T>(T expression, T maximum, MinMaxCompareOptions options, IComparer<T> comparer)
         private static bool LessThan<T>(T expression, T maximum, NumericComparisonOptions options, IComparer<T> comparer) where T : IComparable
         {
-            var success = false;
-
+            bool success;
             switch (options)
             {
                 case NumericComparisonOptions.IncludeBoth:
@@ -1155,8 +957,5 @@ namespace Cadru.Extensions
 
             return success;
         }
-        #endregion
-
-        #endregion
     }
 }

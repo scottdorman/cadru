@@ -2,7 +2,7 @@
 // <copyright file="Comb+CombParser.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,18 +20,17 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace Cadru
 {
-    using System;
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1601:PartialElementsMustBeDocumented", Justification = "Reviewed.")]
     public partial struct Comb
     {
         internal struct CombParser
         {
             private readonly string source;
-            private int sourceLength;
             private int current;
+            private int sourceLength;
 
             public CombParser(string input)
             {
@@ -40,13 +39,7 @@ namespace Cadru
                 this.sourceLength = this.source.Length;
             }
 
-            private bool EOF
-            {
-                get
-                {
-                    return this.current >= this.sourceLength;
-                }
-            }
+            private bool EOF => this.current >= this.sourceLength;
 
             public static bool FormatHasHyphen(string format)
             {
@@ -109,6 +102,93 @@ namespace Cadru
 
                 this.Reset();
                 return this.TryParseHex(out result);
+            }
+
+            private bool ParseChar(char c)
+            {
+                if (!this.EOF && this.source[this.current] == c)
+                {
+                    this.current++;
+                    return true;
+                }
+
+                return false;
+            }
+
+            private bool ParseCharWithWhiteSpaces(char c)
+            {
+                while (!this.EOF)
+                {
+                    var ch = this.source[this.current++];
+                    if (ch == c)
+                    {
+                        return true;
+                    }
+
+                    if (!Char.IsWhiteSpace(ch))
+                    {
+                        break;
+                    }
+                }
+
+                return false;
+            }
+
+            private bool ParseHex(int length, bool strict, out ulong result)
+            {
+                result = 0;
+
+                for (var i = 0; i < length; i++)
+                {
+                    if (this.EOF)
+                    {
+                        return !(strict && (i + 1 != length));
+                    }
+
+                    var c = this.source[this.current];
+                    if (Char.IsDigit(c))
+                    {
+                        result = ((result * 16) + c) - '0';
+                        this.current++;
+                        continue;
+                    }
+
+                    if ((c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F'))
+                    {
+                        result = (((result * 16) + c) - (c >= 'a' ? 'a' : 'A')) + 10;
+                        this.current++;
+                        continue;
+                    }
+
+                    if (!strict)
+                    {
+                        return true;
+                    }
+
+                    return false;
+                }
+
+                return true;
+            }
+
+            private bool ParseHexPrefix()
+            {
+                for (; this.current < this.sourceLength - 1; ++this.current)
+                {
+                    var ch = this.source[this.current];
+                    if (ch == '0')
+                    {
+                        ++this.current;
+                        return this.source[this.current++] == 'x';
+                    }
+
+                    if (!Char.IsWhiteSpace(ch))
+                    {
+                        break;
+                    }
+                }
+
+                return false;
             }
 
             private void Reset()
@@ -234,93 +314,6 @@ namespace Cadru
                 }
 
                 result = new Comb((int)a, (short)b, (short)c, d);
-                return true;
-            }
-
-            private bool ParseHexPrefix()
-            {
-                for (; this.current < this.sourceLength - 1; ++this.current)
-                {
-                    var ch = this.source[this.current];
-                    if (ch == '0')
-                    {
-                        ++this.current;
-                        return this.source[this.current++] == 'x';
-                    }
-
-                    if (!Char.IsWhiteSpace(ch))
-                    {
-                        break;
-                    }
-                }
-
-                return false;
-            }
-
-            private bool ParseCharWithWhiteSpaces(char c)
-            {
-                while (!this.EOF)
-                {
-                    var ch = this.source[this.current++];
-                    if (ch == c)
-                    {
-                        return true;
-                    }
-
-                    if (!Char.IsWhiteSpace(ch))
-                    {
-                        break;
-                    }
-                }
-
-                return false;
-            }
-
-            private bool ParseChar(char c)
-            {
-                if (!this.EOF && this.source[this.current] == c)
-                {
-                    this.current++;
-                    return true;
-                }
-
-                return false;
-            }
-
-            private bool ParseHex(int length, bool strict, out ulong result)
-            {
-                result = 0;
-
-                for (var i = 0; i < length; i++)
-                {
-                    if (this.EOF)
-                    {
-                        return !(strict && (i + 1 != length));
-                    }
-
-                    var c = this.source[this.current];
-                    if (Char.IsDigit(c))
-                    {
-                        result = ((result * 16) + c) - '0';
-                        this.current++;
-                        continue;
-                    }
-
-                    if ((c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F'))
-                    {
-                        result = (((result * 16) + c) - (c >= 'a' ? 'a' : 'A')) + 10;
-                        this.current++;
-                        continue;
-                    }
-
-                    if (!strict)
-                    {
-                        return true;
-                    }
-
-                    return false;
-                }
-
                 return true;
             }
         }

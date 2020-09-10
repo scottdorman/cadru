@@ -2,7 +2,7 @@
 // <copyright file="NullExtensions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,17 +20,30 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
+using Cadru.Internal;
+
 namespace Cadru.Extensions
 {
-    using System;
-
-    using Cadru.Internal;
-
     /// <summary>
     /// Provides basic routines for determining if an instance is <see langword="null"/>.
     /// </summary>
     public static class NullExtensions
     {
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="source"/>
+        /// is not <see langword="null"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of the instance to test.</typeparam>
+        /// <param name="source">The source instance.</param>
+        /// <returns><see langword="true"/> if <paramref name="source"/> is not <see langword="null"/>;
+        /// otherwise, <see langword="false"/>.</returns>
+        public static bool IsNotNull<T>([ValidatedNotNull] this T source)
+        {
+            return source != null;
+        }
+
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="source"/>
         /// is <see langword="null"/>.
@@ -45,27 +58,17 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="source"/>
-        /// is not <see langword="null"/>.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="source"/> is not <see langword="null"/> or <see
+        /// cref="Guid.Empty"/>.
         /// </summary>
-        /// <typeparam name="T">The type of the instance to test.</typeparam>
         /// <param name="source">The source instance.</param>
-        /// <returns><see langword="true"/> if <paramref name="source"/> is not <see langword="null"/>;
-        /// otherwise, <see langword="false"/>.</returns>
-        public static bool IsNotNull<T>([ValidatedNotNull] this T source)
-        {
-            return source != null;
-        }
-
+        /// <returns><see langword="true"/> if <paramref name="source"/> is not
+        /// <see langword="null"/> or <see cref="Guid.Empty"/>; otherwise, <see
+        /// langword="false"/>.</returns>
         public static bool IsNullOrEmpty([ValidatedNotNull] this Guid? source)
         {
-            var empty = !source.HasValue;
-            if (!empty)
-            {
-                empty = source.Value == Guid.Empty;
-            }
-
-            return empty;
+            return source == null || source.Value == Guid.Empty;
         }
     }
 }

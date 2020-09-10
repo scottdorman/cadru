@@ -2,7 +2,7 @@
 // <copyright file="Enum{T}.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,13 +20,17 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Reflection;
+
+using Cadru.Extensions;
+
 namespace Cadru
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Reflection;
-
     /// <summary>
     /// Provides a class for working with enumerations.
     /// </summary>
@@ -35,9 +39,6 @@ namespace Cadru
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", Justification = "Reviewed.")]
     public static class Enum<TEnum> where TEnum : struct
     {
-        #region GetDescription
-
-        #region GetDescription(TEnum value)
         /// <summary>
         /// Retrieves the description of the constant in the enumeration
         /// that has the specified value.
@@ -58,13 +59,11 @@ namespace Cadru
         /// type as <typeparamref name="TEnum"/>.</p>
         /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
-        public static string GetDescription(TEnum value)
+        public static string? GetDescription(TEnum value)
         {
             return GetDescription(value, useNameAsFallback: true);
         }
-        #endregion
 
-        #region GetDescription(TEnum value, bool useNameAsFallback)
         /// <summary>
         /// Retrieves the description of the constant in the enumeration
         /// that has the specified value.
@@ -80,6 +79,15 @@ namespace Cadru
         /// constant is found and <paramref name="useNameAsFallback"/> is
         /// <see langword="false"/>; otherwise, the name of the enumerated constant.
         /// </returns>
+        /// <remarks>
+        /// This method will use the value from an <see
+        /// cref="EnumDescriptionAttribute"/>, <see cref="DisplayAttribute"/>,
+        /// or <see cref="DescriptionAttribute"/> if found, in that respective
+        /// order. If none of those attributes are found, or the value is <see
+        /// langword="null"/>, and <paramref name="useNameAsFallback"/> is <see
+        /// langword="true"/>, then the name of the enumerated constant is used;
+        /// otherwise, a <see langword="null"/> is used.
+        /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="value"/> is <see langword="null"/></exception>
         /// <exception cref="ArgumentException">
@@ -90,20 +98,12 @@ namespace Cadru
         /// type as <typeparamref name="TEnum"/>.</p>
         /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
-        public static string GetDescription(TEnum value, bool useNameAsFallback)
+        public static string? GetDescription(TEnum value, bool useNameAsFallback)
         {
-            Contracts.Requires.IsEnum(value, "value");
-            var type = value.GetType();
-
-            var fieldValue = value.ToString();
-            var attribute = ((EnumDescriptionAttribute[])type.GetTypeInfo().GetDeclaredField(fieldValue)?.GetCustomAttributes(typeof(EnumDescriptionAttribute), false)).FirstOrDefault();
-            return attribute?.Description ?? (useNameAsFallback ? fieldValue : null);
+            var fieldInfo = value.GetType().GetTypeInfo().GetDeclaredField(value.ToString());
+            return fieldInfo.GetDescription(useNameAsFallback);
         }
-        #endregion
 
-        #endregion
-
-        #region GetDescriptions()
         /// <summary>
         /// Retrieves an array of the descriptions of the constants in the enumeration.
         /// </summary>
@@ -112,13 +112,11 @@ namespace Cadru
         /// <exception cref="ArgumentException">
         /// <typeparamref name="TEnum"/> is not an <see cref="Enum"/>.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
-        public static IEnumerable<string> GetDescriptions()
+        public static IEnumerable<string?> GetDescriptions()
         {
             return GetDescriptions(useNameAsFallback: true);
         }
-        #endregion
 
-        #region GetDescriptions(bool useNameAsFallback)
         /// <summary>
         /// Retrieves an array of the descriptions of the constants in the enumeration.
         /// </summary>
@@ -126,25 +124,32 @@ namespace Cadru
         /// <typeparamref name="TEnum"/>.</returns>
         /// <exception cref="ArgumentException">
         /// <typeparamref name="TEnum"/> is not an <see cref="Enum"/>.</exception>
+        /// <remarks>
+        /// This method will use the value from an <see
+        /// cref="EnumDescriptionAttribute"/>, <see cref="DisplayAttribute"/>,
+        /// or <see cref="DescriptionAttribute"/> if found, in that respective
+        /// order. If none of those attributes are found, or the value is <see
+        /// langword="null"/>, and <paramref name="useNameAsFallback"/> is <see
+        /// langword="true"/>, then the name of the enumerated constant is used;
+        /// otherwise, a <see langword="null"/> is used.
+        /// </remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
-        public static IEnumerable<string> GetDescriptions(bool useNameAsFallback)
+        public static IEnumerable<string?> GetDescriptions(bool useNameAsFallback)
         {
             var type = typeof(TEnum).GetTypeInfo();
 
             Contracts.Requires.IsTrue(type.IsEnum);
             var fields = type.DeclaredFields.Where(f => !f.IsSpecialName);
-            var descriptions = new List<string>();
+            var descriptions = new List<string?>();
+
             foreach (var field in fields)
             {
-                var attribute = field.GetCustomAttribute<EnumDescriptionAttribute>(false);
-                descriptions.Add(attribute?.Description ?? (useNameAsFallback ? field.Name : null));
+                descriptions.Add(field.GetDescription(useNameAsFallback));
             }
 
             return descriptions;
         }
-        #endregion
 
-        #region GetName
         /// <summary>
         /// Retrieves the name of the constant in the enumeration
         /// that has the specified value.
@@ -169,9 +174,7 @@ namespace Cadru
         {
             return Enum.GetName(typeof(TEnum), value);
         }
-        #endregion
 
-        #region GetNames
         /// <summary>
         /// Retrieves an array of the names of the constants in the enumeration.
         /// </summary>
@@ -185,9 +188,7 @@ namespace Cadru
         {
             return Enum.GetNames(typeof(TEnum));
         }
-        #endregion
 
-        #region GetUnderlyingType
         /// <summary>
         /// Returns the underlying type of the enumeration.
         /// </summary>
@@ -200,9 +201,7 @@ namespace Cadru
         {
             return Enum.GetUnderlyingType(typeof(TEnum));
         }
-        #endregion
 
-        #region GetValues
         /// <summary>
         /// Retrieves collection of the values of the constants in the
         /// enumeration.
@@ -223,9 +222,7 @@ namespace Cadru
         {
             return Enum.GetValues(typeof(TEnum)).OfType<TEnum>();
         }
-        #endregion
 
-        #region IsDefined
         /// <summary>
         /// Returns an indication whether a constant with a specified value
         /// exists in the enumeration.
@@ -258,11 +255,7 @@ namespace Cadru
         {
             return Enum.IsDefined(typeof(TEnum), value);
         }
-        #endregion
 
-        #region Parse
-
-        #region Parse(string value)
         /// <summary>
         /// Converts the string representation of the name or numeric value of
         /// one or more enumerated constants to an equivalent enumerated object.
@@ -290,9 +283,7 @@ namespace Cadru
         {
             return Parse(value, true);
         }
-        #endregion
 
-        #region Parse(string value, bool ignoreCase)
         /// <summary>
         /// Converts the string representation of the name or numeric value of
         /// one or more enumerated constants to an equivalent enumerated object.
@@ -323,11 +314,7 @@ namespace Cadru
         {
             return (TEnum)Enum.Parse(typeof(TEnum), value, ignoreCase);
         }
-        #endregion
 
-        #endregion
-
-        #region ToEnum
         /// <summary>
         /// Converts the specified object with an integer value to an enumeration member.
         /// </summary>
@@ -349,11 +336,7 @@ namespace Cadru
         {
             return (TEnum)Enum.ToObject(typeof(TEnum), value);
         }
-        #endregion
 
-        #region TryParse
-
-        #region TryParse(string value, out TEnum result)
         /// <summary>
         /// Converts the string representation of the name or numeric value of
         /// one or more enumerated constants to an equivalent enumerated object.
@@ -373,9 +356,7 @@ namespace Cadru
         {
             return TryParse(value, true, out result);
         }
-        #endregion
 
-        #region TryParse(string value, bool ignoreCase, out TEnum result)
         /// <summary>
         /// Converts the string representation of the name or numeric value of
         /// one or more enumerated constants to an equivalent enumerated object.
@@ -398,8 +379,5 @@ namespace Cadru
         {
             return Enum.TryParse<TEnum>(value, ignoreCase, out result);
         }
-        #endregion
-
-        #endregion
     }
 }

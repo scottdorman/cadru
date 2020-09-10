@@ -2,7 +2,7 @@
 // <copyright file="IDisposablePattern.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,28 +20,20 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace Cadru
 {
-    using System;
-
     /// <summary>
     /// Defines an extended method to release allocated Strings.
     /// </summary>
     public interface IDisposablePattern : IDisposable
     {
-        #region events
-        #endregion
-
-        #region properties
         /// <summary>
         /// Gets a value indicating whether the object has been disposed.
         /// </summary>
         /// <value><see langword="true"/> if the object has been disposed;
         /// otherwise, <see langword="false"/>.</value>
         bool Disposed { get; }
-        #endregion
-
-        #region methods
-        #endregion
     }
 }

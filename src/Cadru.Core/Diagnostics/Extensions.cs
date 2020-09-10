@@ -2,7 +2,7 @@
 // <copyright file="Extensions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2019 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -24,33 +24,49 @@ using System;
 using System.Diagnostics;
 using System.Text;
 
+using Cadru.Contracts;
+
 namespace Cadru.Diagnostics
 {
+    /// <summary>
+    /// Provides extension methods to simplify diagnostics.
+    /// </summary>
     public static class Extensions
     {
-        public static string Flatten(this Exception e, StringBuilder messages = null)
+        /// <summary>
+        /// Flattens all exception messages into a single string.
+        /// </summary>
+        /// <param name="e">The exception to flatten.</param>
+        /// <returns>A string containing all of the exception
+        /// messages.</returns>
+        /// <remarks>This method recursively follows all nested <see
+        /// cref="Exception.InnerException"/> properties.</remarks>
+        public static string Flatten(this Exception e)
         {
-            if (messages == null)
-            {
-                messages = new StringBuilder();
-            }
-            if (e != null)
-            {
-                messages.AppendLine(e.Message);
+            Requires.NotNull(e, nameof(e));
+            return e.Flatten(new StringBuilder());
+        }
 
-                if (e.InnerException != null)
-                {
-                    messages.AppendLine(Flatten(e.InnerException, messages));
-                }
+        /// <summary>
+        /// Formats the elapsed time of a <see cref="Stopwatch"/>
+        /// as hh':'mm':'ss'.'ff.
+        /// </summary>
+        /// <param name="stopwatch"></param>
+        /// <returns>The formatted elapsed time as a string.</returns>
+        public static string ToElapsedTime(this Stopwatch stopwatch)
+        {
+            return stopwatch.Elapsed.ToString("hh':'mm':'ss'.'ff");
+        }
+
+        private static string Flatten(this Exception e, StringBuilder messages)
+        {
+            messages.AppendLine(e.Message);
+            if (e.InnerException != null)
+            {
+                messages.AppendLine(Flatten(e.InnerException, messages));
             }
 
             return messages.ToString();
-        }
-
-        public static string ToElapsedTime(this Stopwatch stopwatch)
-        {
-            var elapsed = stopwatch.Elapsed;
-            return String.Format("{0:00}:{1:00}:{2:00}.{3:00}", elapsed.Hours, elapsed.Minutes, elapsed.Seconds, elapsed.Milliseconds / 10);
         }
     }
 }

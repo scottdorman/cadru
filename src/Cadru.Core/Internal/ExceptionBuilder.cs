@@ -2,7 +2,7 @@
 // <copyright file="ExceptionBuilder.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,36 +20,20 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Globalization;
+
+using Cadru.Contracts;
+using Cadru.Extensions;
+using Cadru.Resources;
+
 namespace Cadru.Internal
 {
-    using System;
-    using System.Globalization;
-
-    using Cadru.Contracts;
-    using Cadru.Extensions;
-    using Cadru.Resources;
-
-
     /// <summary>
     /// Provides methods to create specific exceptions.
     /// </summary>
     public static class ExceptionBuilder
     {
-        #region fields
-        #endregion
-
-        #region constructors
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methods
-
-        #region CreateArgumentException
         /// <summary>
         /// Create a new <see cref="ArgumentException"/>.
         /// </summary>
@@ -64,9 +48,7 @@ namespace Cadru.Internal
 
             return new ArgumentException(message, parameterName);
         }
-        #endregion
 
-        #region CreateArgumentNullException
         /// <summary>
         /// Create a new <see cref="ArgumentNullException"/>.
         /// </summary>
@@ -74,7 +56,7 @@ namespace Cadru.Internal
         /// <param name="message">The error message that explains the reason for the exception.</param>
         /// <returns>A new <see cref="ArgumentNullException"/>.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
-        public static ArgumentNullException CreateArgumentNullException(string parameterName, string message = null)
+        public static ArgumentNullException CreateArgumentNullException(string parameterName, string? message = null)
         {
             Assumes.NotNull(parameterName);
 
@@ -85,9 +67,7 @@ namespace Cadru.Internal
 
             return new ArgumentNullException(parameterName, message);
         }
-        #endregion
 
-        #region CreateArgumentOutOfRangeException
         /// <summary>
         /// Create a new <see cref="ArgumentOutOfRangeException"/>.
         /// </summary>
@@ -106,9 +86,22 @@ namespace Cadru.Internal
 
             return new ArgumentOutOfRangeException(parameterName, message);
         }
-        #endregion
 
-        #region CreateFormatException
+        /// <summary>
+        /// Create an exception indicating that an array or collection element was <see langword="null"/>.
+        /// </summary>
+        /// <param name="parameterName">The name of the parameter that caused the exception.</param>
+        /// <returns>A new <see cref="ArgumentException"/>.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        public static ArgumentException CreateContainsNullElement(string parameterName)
+        {
+            Assumes.NotNull(parameterName);
+
+            var message = Format(Strings.Argument_NullElement, parameterName);
+
+            return new ArgumentException(message, parameterName);
+        }
+
         /// <summary>
         /// Create a new <see cref="FormatException"/>.
         /// </summary>
@@ -126,26 +119,7 @@ namespace Cadru.Internal
 
             return new FormatException(message);
         }
-        #endregion
 
-        #region CreateContainsNullElement
-        /// <summary>
-        /// Create an exception indicating that an array or collection element was <see langword="null"/>.
-        /// </summary>
-        /// <param name="parameterName">The name of the parameter that caused the exception.</param>
-        /// <returns>A new <see cref="ArgumentException"/>.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
-        public static ArgumentException CreateContainsNullElement(string parameterName)
-        {
-            Assumes.NotNull(parameterName);
-
-            var message = Format(Strings.Argument_NullElement, parameterName);
-
-            return new ArgumentException(message, parameterName);
-        }
-        #endregion
-
-        #region CreateInvalidOperation
         /// <summary>
         /// Create a new <see cref="ArgumentException"/>.
         /// </summary>
@@ -156,9 +130,7 @@ namespace Cadru.Internal
         {
             return new InvalidOperationException(message);
         }
-        #endregion
 
-        #region CreateObjectDisposed
         /// <summary>
         /// Create a new <see cref="ObjectDisposedException"/>.
         /// </summary>
@@ -171,9 +143,7 @@ namespace Cadru.Internal
 
             return new ObjectDisposedException(objectName);
         }
-        #endregion
 
-        #region Format
         /// <summary>
         /// Replaces the format item in a specified <see cref="String"/> with the text equivalent
         /// of the value of a corresponding <see cref="String"/> instance in a specified array.
@@ -187,8 +157,5 @@ namespace Cadru.Internal
         {
             return String.Format(CultureInfo.CurrentCulture, format, arguments);
         }
-        #endregion
-
-        #endregion
     }
 }

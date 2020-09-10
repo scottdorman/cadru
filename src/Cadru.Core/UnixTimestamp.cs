@@ -2,7 +2,7 @@
 // <copyright file="UnixTimestamp.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,17 +20,16 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Diagnostics.Contracts;
+using System.Globalization;
+using System.Runtime.InteropServices;
+
+using Cadru.Internal;
+using Cadru.Resources;
+
 namespace Cadru
 {
-    using System;
-    using System.Diagnostics.Contracts;
-    using System.Globalization;
-    using System.Runtime.InteropServices;
-
-    using Cadru.Internal;
-    using Cadru.Resources;
-
-
     /// <summary>
     /// Represents an instant in time, defined as the number of seconds that
     /// have elapsed since 00:00:00 Coordinated Universal Time (UTC),
@@ -42,7 +41,6 @@ namespace Cadru
     [StructLayout(LayoutKind.Auto)]
     public partial struct UnixTimestamp : IFormattable, IComparable, IComparable<UnixTimestamp>, IEquatable<UnixTimestamp>
     {
-        #region fields
         /// <summary>
         /// Represents the largest possible value of <see cref="UnixTimestamp"/>. This field is read-only.
         /// </summary>
@@ -59,11 +57,7 @@ namespace Cadru
         private const long MinSeconds = -62135596800L;
         private static readonly DateTime Epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
         private readonly long seconds;
-        #endregion
 
-        #region constructors
-
-        #region UnixTimestamp(long seconds)
         /// <summary>
         /// Initializes a new instance of the <see cref="UnixTimestamp"/>
         /// structure to the specified number of seconds.
@@ -87,9 +81,7 @@ namespace Cadru
 
             this.seconds = seconds;
         }
-        #endregion
 
-        #region UnixTimestamp(DateTime date)
         /// <summary>
         /// Initializes a new instance of the <see cref="UnixTimestamp"/>
         /// structure to the specified <see cref="DateTime"/> value.
@@ -104,9 +96,7 @@ namespace Cadru
             : this(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second)
         {
         }
-        #endregion
 
-        #region UnixTimestamp(int year, int month, int day)
         /// <summary>
         /// Initializes a new instance of the <see cref="UnixTimestamp"/>
         /// structure to the specified year, month and day.
@@ -118,9 +108,7 @@ namespace Cadru
             : this(year, month, day, 0, 0, 0)
         {
         }
-        #endregion
 
-        #region UnixTimestamp(int year, int month, int day, int hour, int minute, int second)
         /// <summary>
         /// Initializes a new instance of the <see cref="UnixTimestamp"/>
         /// structure to the specified year, month, day, hour, minute,
@@ -139,40 +127,23 @@ namespace Cadru
         /// </exception>
         public UnixTimestamp(int year, int month, int day, int hour, int minute, int second)
         {
-            var seconds = DateToSeconds(year, month, day, hour, minute, second);
-            if (seconds < UnixTimestamp.MinSeconds || seconds > UnixTimestamp.MaxSeconds)
+            var sec = DateToSeconds(year, month, day, hour, minute, second);
+            if (sec < UnixTimestamp.MinSeconds || sec > UnixTimestamp.MaxSeconds)
             {
                 throw new ArgumentException(Strings.Arg_UnixTimestampRange);
             }
 
-            this.seconds = DateToSeconds(year, month, day, hour, minute, second);
+            this.seconds = sec;
         }
-        #endregion
 
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-
-        #region Now
         /// <summary>
         /// Gets a <see cref="UnixTimestamp"/> object that is set to the current date and time on this computer.
         /// </summary>
         /// <value>
         /// An object whose value is the current local date and time.
         /// </value>
-        public static UnixTimestamp Now
-        {
-            get
-            {
-                return new UnixTimestamp(DateTime.Now);
-            }
-        }
-        #endregion
+        public static UnixTimestamp Now => new UnixTimestamp(DateTime.Now);
 
-        #region DateTime
         /// <summary>
         /// Gets a <see cref="DateTime"/> value that represents the date and
         /// time of the current <see cref="UnixTimestamp"/> object.
@@ -183,16 +154,8 @@ namespace Cadru
         /// <exception cref="ArgumentOutOfRangeException">
         /// The resulting <see cref="DateTime"/> is less than <see cref="P:DateTime.MinValue"/>
         /// or greater than <see cref="P:DateTime.MaxValue"/>.</exception>
-        public DateTime DateTime
-        {
-            get
-            {
-                return UnixTimestamp.Epoch.AddSeconds(this.seconds);
-            }
-        }
-        #endregion
+        public DateTime DateTime => UnixTimestamp.Epoch.AddSeconds(this.seconds);
 
-        #region Days
         /// <summary>
         /// Gets the number of days since 00:00:00 Coordinated Universal Time (UTC),
         /// Thursday, 1 January 1970 represented by current
@@ -203,16 +166,8 @@ namespace Cadru
         /// Thursday, 1 January 1970 represented by current
         /// <see cref="UnixTimestamp"/>.
         /// </value>
-        public long Days
-        {
-            get
-            {
-                return this.seconds / Constants.SecondsPerDay;
-            }
-        }
-        #endregion
+        public long Days => this.seconds / Constants.SecondsPerDay;
 
-        #region Seconds
         /// <summary>
         /// Gets the number of seconds that represent the date and time of
         /// this instance.
@@ -221,20 +176,8 @@ namespace Cadru
         /// this instance. The value is between
         /// <see cref="P:UnixTimestamp.MinValue.Seconds"/> and
         /// <see cref="P:UnixTimestamp.MaxValue.Seconds"/>.</value>
-        public long Seconds
-        {
-            get
-            {
-                return this.seconds;
-            }
-        }
-        #endregion
+        public long Seconds => this.seconds;
 
-        #endregion
-
-        #region operators
-
-        #region Implicit(UnixTimetamp to long)
         /// <summary>
         /// Defines an implicit conversion from <see cref="UnixTimestamp"/> to <see cref="System.Int64"/>.
         /// </summary>
@@ -246,9 +189,7 @@ namespace Cadru
         {
             return value.seconds;
         }
-        #endregion
 
-        #region Implicit(long to UnixTimestamp)
         /// <summary>
         /// Defines an implicit conversion from <see cref="System.Int64"/> to <see cref="UnixTimestamp"/>.
         /// </summary>
@@ -260,9 +201,7 @@ namespace Cadru
         {
             return new UnixTimestamp(value);
         }
-        #endregion
 
-        #region Equality
         /// <summary>
         /// Determines whether two specified <see cref="UnixTimestamp"/>
         /// objects represent the same point in time.
@@ -277,9 +216,7 @@ namespace Cadru
         {
             return left.seconds == right.seconds;
         }
-        #endregion
 
-        #region Inequality
         /// <summary>
         /// Determines whether two specified <see cref="UnixTimestamp"/>
         /// objects represent different points in time.
@@ -295,9 +232,7 @@ namespace Cadru
         {
             return left.seconds != right.seconds;
         }
-        #endregion
 
-        #region GreaterThan
         /// <summary>
         /// Determines whether one specified <see cref="UnixTimestamp"/> object
         /// is earlier than another specified <see cref="UnixTimestamp"/> object.
@@ -312,9 +247,7 @@ namespace Cadru
         {
             return left.seconds < right.seconds;
         }
-        #endregion
 
-        #region GreaterThanOrEqual
         /// <summary>
         /// Determines whether one specified <see cref="UnixTimestamp"/> object
         /// is the same as or earlier than another specified
@@ -331,9 +264,7 @@ namespace Cadru
         {
             return left.seconds <= right.seconds;
         }
-        #endregion
 
-        #region LessThan
         /// <summary>
         /// Determines whether one specified <see cref="UnixTimestamp"/> object
         /// is later than another specified <see cref="UnixTimestamp"/> object.
@@ -348,9 +279,7 @@ namespace Cadru
         {
             return left.seconds > right.seconds;
         }
-        #endregion
 
-        #region LessThanOrEqual
         /// <summary>
         /// Determines whether one specified <see cref="UnixTimestamp"/> object
         /// is the same as or later than another specified
@@ -367,13 +296,7 @@ namespace Cadru
         {
             return left.seconds >= right.seconds;
         }
-        #endregion
 
-        #endregion
-
-        #region methods
-
-        #region Equals (static)
         /// <summary>
         /// Returns a value indicating whether two <see cref="UnixTimestamp"/>
         /// instances represent the same point in time.
@@ -387,9 +310,7 @@ namespace Cadru
         {
             return left.seconds == right.seconds;
         }
-        #endregion
 
-        #region Add
         /// <summary>
         /// Returns a new <see cref="UnixTimestamp"/> that adds the value of
         /// the specified <see cref="TimeSpan"/> to the value of this instance.
@@ -407,9 +328,7 @@ namespace Cadru
         {
             return new UnixTimestamp(this.DateTime + value);
         }
-        #endregion
 
-        #region AddDays
         /// <summary>
         /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
         /// number of days to the value of this instance.
@@ -428,9 +347,7 @@ namespace Cadru
         {
             return this.AddSeconds(value * Constants.SecondsPerDay);
         }
-        #endregion
 
-        #region AddHours
         /// <summary>
         /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
         /// number of hours to the value of this instance.
@@ -449,9 +366,7 @@ namespace Cadru
         {
             return this.AddSeconds(value * Constants.SecondsPerHour);
         }
-        #endregion
 
-        #region AddMinutes
         /// <summary>
         /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
         /// number of minutes to the value of this instance.
@@ -470,9 +385,7 @@ namespace Cadru
         {
             return this.AddSeconds(value * Constants.SecondsPerMinute);
         }
-        #endregion
 
-        #region AddMonths
         /// <summary>
         /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
         /// number of months to the value of this instance.
@@ -491,7 +404,7 @@ namespace Cadru
         {
             if (months < -120000 || months > 120000)
             {
-                throw new ArgumentOutOfRangeException("months", Strings.ArgumentOutOfRange_UnixTimestampBadMonths);
+                throw new ArgumentOutOfRangeException(nameof(months), Strings.ArgumentOutOfRange_UnixTimestampBadMonths);
             }
 
             Contract.EndContractBlock();
@@ -505,12 +418,12 @@ namespace Cadru
             if (i >= 0)
             {
                 m = (i % 12) + 1;
-                y = y + (i / 12);
+                y += (i / 12);
             }
             else
             {
                 m = 12 + ((i + 1) % 12);
-                y = y + ((i - 11) / 12);
+                y += ((i - 11) / 12);
             }
 
             if (y < 1 || y > 9999)
@@ -526,9 +439,7 @@ namespace Cadru
 
             return new UnixTimestamp(y, m, d, datePart.Hour, datePart.Minute, datePart.Second);
         }
-        #endregion
 
-        #region AddSeconds
         /// <summary>
         /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
         /// number of seconds to the value of this instance.
@@ -547,9 +458,7 @@ namespace Cadru
         {
             return new UnixTimestamp((long)(this.seconds + value));
         }
-        #endregion
 
-        #region AddYears
         /// <summary>
         /// Returns a new <see cref="UnixTimestamp"/> that adds the specified
         /// number of years to the value of this instance.
@@ -577,11 +486,7 @@ namespace Cadru
 
             return this.AddMonths(years * 12);
         }
-        #endregion
 
-        #region CompareTo
-
-        #region CompareTo(object obj)
         /// <summary>
         /// Compares the value of this instance to a specified object that
         /// contains a specified <see cref="UnixTimestamp"/> value, and returns
@@ -628,16 +533,14 @@ namespace Cadru
                 return 1;
             }
 
-            if (obj is UnixTimestamp)
+            if (obj is UnixTimestamp timestamp)
             {
-                return this.CompareTo((UnixTimestamp)obj);
+                return this.CompareTo(timestamp);
             }
 
             throw new ArgumentException(Strings.Arg_MustBeUnixTimestamp);
         }
-        #endregion
 
-        #region CompareTo(UnixTimestamp value)
         /// <summary>
         /// Compares the value of this instance to a specified
         /// <see cref="UnixTimestamp"/> value and returns an integer that
@@ -677,13 +580,7 @@ namespace Cadru
         {
             return this.seconds.CompareTo(other.seconds);
         }
-        #endregion
 
-        #endregion
-
-        #region Equals
-
-        #region Equals(Object obj)
         /// <summary>
         /// Returns a value indicating whether the value of this instance is
         /// equal to the value of the specified <see cref="UnixTimestamp"/>
@@ -696,18 +593,16 @@ namespace Cadru
         /// </returns>
         /// <remarks>The current instance and <paramref name="obj"/> are equal
         /// if their <see cref="Seconds"/> property values are equal.</remarks>
-        public override bool Equals(Object obj)
+        public override bool Equals(object obj)
         {
-            if (obj is UnixTimestamp)
+            if (obj is UnixTimestamp timestamp)
             {
-                return this.seconds == ((UnixTimestamp)obj).seconds;
+                return this.seconds == timestamp.seconds;
             }
 
             return false;
         }
-        #endregion
 
-        #region Equals(UnixTimestamp other)
         /// <summary>
         /// Returns a value indicating whether the value of this instance is
         /// equal to the value of the specified <see cref="UnixTimestamp"/>
@@ -724,11 +619,7 @@ namespace Cadru
         {
             return this.seconds == other.seconds;
         }
-        #endregion
 
-        #endregion
-
-        #region GetHashCode
         /// <summary>
         /// Returns the hash code for this instance.
         /// </summary>
@@ -739,11 +630,7 @@ namespace Cadru
         {
             return this.seconds.GetHashCode();
         }
-        #endregion
 
-        #region Subtract
-
-        #region Subtract(UnixTimestamp value)
         /// <summary>
         /// Subtracts the specified date and time from this instance.
         /// </summary>
@@ -764,9 +651,7 @@ namespace Cadru
         {
             return TimeSpan.FromSeconds(this.Seconds - value.Seconds);
         }
-        #endregion
 
-        #region Subtract(TimeSpan value)
         /// <summary>
         /// Subtracts the specified duration from this instance.
         /// </summary>
@@ -781,18 +666,18 @@ namespace Cadru
         {
             return new UnixTimestamp(this.DateTime - value);
         }
-        #endregion
 
-        #endregion
-
+        /// <summary>
+        /// Converts the value of the current <see cref="UnixTimestamp"/> object
+        /// to its equivalent <see cref="DateTime"/>.
+        /// </summary>
+        /// <returns>A <see cref="DateTime"/> representing the current <see
+        /// cref="UnixTimestamp"/> object.</returns>
         public DateTime ToDateTime()
         {
             return UnixTimestamp.Epoch.AddSeconds(this.seconds);
         }
 
-        #region ToString
-
-        #region ToString()
         /// <summary>
         /// Converts the value of the current <see cref="UnixTimestamp"/>
         /// object to its equivalent string representation.
@@ -804,9 +689,7 @@ namespace Cadru
         {
             return this.seconds.ToString(NumberFormatInfo.CurrentInfo);
         }
-        #endregion
 
-        #region ToString(string format, IFormatProvider formatProvider)
         /// <summary>
         /// Converts the value of the current <see cref="UnixTimestamp"/>
         /// object to its equivalent string representation using the specified
@@ -825,35 +708,22 @@ namespace Cadru
         {
             return this.seconds.ToString(format, formatProvider);
         }
-        #endregion
 
-        #endregion
-
-        #region DateToSeconds
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         private static long DateToSeconds(int year, int month, int day, int hour, int minute, int second)
         {
-            long seconds;
-            long ticks = DateTime.MaxValue.Ticks;
+            long sec;
             try
             {
-                ticks = new DateTime(year, month, day, hour, minute, second).Ticks;
+                var dateTime = new DateTime(year, month, day, hour, minute, second);
+                sec = (dateTime.Ticks - Epoch.Ticks) / TimeSpan.TicksPerSecond;
             }
-            finally
+            catch
             {
-                seconds = TicksToSeconds(ticks - UnixTimestamp.Epoch.Ticks);
+                sec = (DateTime.MaxValue.Ticks - Epoch.Ticks) / TimeSpan.TicksPerSecond;
             }
 
-            return seconds;
+            return sec;
         }
-        #endregion
-
-        #region TicksToSeconds
-        private static long TicksToSeconds(long ticks)
-        {
-            return ticks / TimeSpan.TicksPerSecond;
-        }
-        #endregion
-
-        #endregion
     }
 }

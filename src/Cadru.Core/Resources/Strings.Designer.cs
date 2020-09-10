@@ -278,6 +278,15 @@ namespace Cadru.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ticks must be between DateTime.MinValue.Ticks and DateTime.MaxValue.Ticks..
+        /// </summary>
+        internal static string ArgumentOutOfRange_DateTimeBadTicks {
+            get {
+                return ResourceManager.GetString("ArgumentOutOfRange_DateTimeBadTicks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Day must be between 1 and {0} for month {1}..
         /// </summary>
         internal static string ArgumentOutOfRange_Day {
@@ -679,6 +688,15 @@ namespace Cadru.Resources {
         internal static string Format_UnknowDateTimeWord {
             get {
                 return ResourceManager.GetString("Format_UnknowDateTimeWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to convert the given value to a color..
+        /// </summary>
+        internal static string InvalidCast_Color {
+            get {
+                return ResourceManager.GetString("InvalidCast.Color", resourceCulture);
             }
         }
         

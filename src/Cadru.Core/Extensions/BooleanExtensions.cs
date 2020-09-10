@@ -2,7 +2,7 @@
 // <copyright file="BooleanExtensions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,34 +20,19 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Linq;
+
 namespace Cadru.Extensions
 {
-    using System;
-    using System.Linq;
-
     /// <summary>
     /// Provides basic routines for common Boolean manipulation.
     /// </summary>
     public static class BooleanExtensions
     {
-        #region fields
         private static readonly string[] FalseLiterals = { "false", "f", "no", "n", "0", "na", "n/a" };
         private static readonly string[] TrueLiterals = { "true", "t", "yes", "y", "1", };
 
-        #endregion
-
-        #region constructors
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methods
-
-        #region ToBit
         /// <summary>
         /// Returns the binary representation of the boolean value.
         /// </summary>
@@ -57,9 +42,7 @@ namespace Cadru.Extensions
         {
             return value ? 1 : 0;
         }
-        #endregion
 
-        #region ToChar
         /// <summary>
         /// Returns the character representation of the boolean value.
         /// </summary>
@@ -69,9 +52,7 @@ namespace Cadru.Extensions
         {
             return value ? 'T' : 'F';
         }
-        #endregion
 
-        #region ToLower
         /// <summary>
         /// Converts the value of this instance to its equivalent lowercase string representation
         /// (either "true" or "false").
@@ -84,9 +65,7 @@ namespace Cadru.Extensions
         {
             return value.ToString().ToLower();
         }
-        #endregion
 
-        #region ToUpper
         /// <summary>
         /// Converts the value of this instance to its equivalent uppercase string representation
         /// (either "true" or "false").
@@ -99,11 +78,7 @@ namespace Cadru.Extensions
         {
             return value.ToString().ToUpper();
         }
-        #endregion
 
-        #region TryParseAsBoolean
-
-        #region TryParseAsBoolean(int value, out bool result)
         /// <overloads>
         /// <summary>
         /// Tries to convert the specified representation of a logical value to its
@@ -126,15 +101,13 @@ namespace Cadru.Extensions
             result = false;
             if (value == 1 || value == 0)
             {
-                result = value == 1 ? true : false;
+                result = value == 1;
                 return true;
             }
 
             return false;
         }
-        #endregion
 
-        #region TryParseAsBoolean(string value, out bool result)
         /// <summary>
         /// Tries to convert the specified string representation of a logical value to its
         /// Boolean equivalent. A return value indicates whether the conversion succeeded or failed.
@@ -142,13 +115,13 @@ namespace Cadru.Extensions
         /// <param name="value">A string containing the value to convert. </param>
         /// <param name="result">When this method returns, if the conversion succeeded, contains
         /// <see langword="true"/>true if <paramref name="value"/> is equal to
-        /// <see cref="BooleanTrueString"/>, the character 'T', the word "Yes", or the character 'Y'
+        /// <see cref="Boolean.TrueString"/>, the character 'T', the word "Yes", or the character 'Y'
         /// or <see langword="false"/> if <paramref name="value"/> is equal to
-        /// <see cref="BooleanFalseString"/>, the character 'F', the word "No", or the character 'N'.
+        /// <see cref="Boolean.FalseString"/>, the character 'F', the word "No", or the character 'N'.
         /// If the conversion failed, contains <see langword="false"/>. The conversion fails if
         /// <paramref name="value"/> is <see langword="null"/> or is not equal to the value of
-        /// either <see cref="BooleanTrueString"/>, the character 'T', the word "Yes", or the character 'Y',
-        /// <see cref="BooleanFalseString"/>, the character 'F', the word "No", or the character 'N'.</param>
+        /// either <see cref="Boolean.TrueString"/>, the character 'T', the word "Yes", or the character 'Y',
+        /// <see cref="Boolean.FalseString"/>, the character 'F', the word "No", or the character 'N'.</param>
         /// <returns><see langword="true"/> if value was converted successfully; otherwise, <see langword="false"/>.</returns>
         public static bool TryParseAsBoolean(this string value, out bool result)
         {
@@ -184,10 +157,5 @@ namespace Cadru.Extensions
 
             return false;
         }
-        #endregion
-
-        #endregion
-
-        #endregion
     }
 }

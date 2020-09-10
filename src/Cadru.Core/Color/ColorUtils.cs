@@ -2,7 +2,7 @@
 // <copyright file="ColorUtils.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,19 +20,23 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace Cadru.Color
 {
-    using System;
-
+    /// <summary>
+    /// Methods for working with color values.
+    /// </summary>
     public static class ColorUtils
     {
         private const double rgbThreshold = 0.179;
 
-        public static double Clamp(this double value, double max = 1.0, double min = 0.0)
-        {
-            return (value < min) ? min : (value > max) ? max : (Double.IsNaN(value)) ? min : value;
-        }
-
+        /// <summary>
+        /// Generate a color derived from a string value.
+        /// </summary>
+        /// <param name="value">The value to generate a color for.</param>
+        /// <param name="defaultColor">The default color.</param>
+        /// <returns>An <see cref="RGB"/> color representing <paramref name="value"/>.</returns>
         public static RGB GenerateColor(string value, string defaultColor = "#142583")
         {
             var color = new RGB(defaultColor);
@@ -50,36 +54,80 @@ namespace Cadru.Color
             return color;
         }
 
+        /// <summary>
+        /// Gets the best foreground color given the specified background color.
+        /// </summary>
+        /// <param name="color">The background color.</param>
+        /// <returns>The best <see cref="RGB"/> foreground color.</returns>
         public static RGB GetBestForegroundColor(this RGB color)
         {
             return color.Luminance() > rgbThreshold ? RGB.Black : RGB.White;
-            //return (color.Red * 0.299 + color.Green * 0.587 + color.Blue * 0.114 > 160) ? RGB.White : RGB.Black;
         }
 
+        /// <summary>
+        /// Gets the best foreground color given the specified background color.
+        /// </summary>
+        /// <param name="color">The background color.</param>
+        /// <returns>The best <see cref="RGBA"/> foreground color.</returns>
         public static RGBA GetBestForegroundColor(this RGBA color)
         {
             return color.Luminance() > rgbThreshold ? RGBA.Black : RGBA.White;
-            //return (color.Red * 0.299 + color.Green * 0.587 + color.Blue * 0.114 > 160) ? RGBA.White : RGBA.Black;
         }
 
+        /// <summary>
+        /// Gets the best foreground color given the specified background color.
+        /// </summary>
+        /// <param name="color">The background color.</param>
+        /// <returns>The best <see cref="HSV"/> foreground color.</returns>
         public static HSV GetBestForegroundColor(this HSV color)
         {
             return (color.Value < .5) ? HSV.White : HSV.Black;
         }
 
+        /// <summary>
+        /// Gets the luminance of the specified color.
+        /// </summary>
+        /// <param name="color">The color.</param>
+        /// <returns>The luminance value of the color.</returns>
         public static double Luminance(this RGB color)
         {
             return Luminance(color.Red, color.Green, color.Blue);
         }
 
+        /// <summary>
+        /// Gets the luminance of the specified color.
+        /// </summary>
+        /// <param name="color">The color.</param>
+        /// <returns>The luminance value of the color.</returns>
         public static double Luminance(this RGBA color)
         {
             return Luminance(color.Red, color.Green, color.Blue);
         }
 
+        internal static double Clamp(this double value, double max = 1.0, double min = 0.0)
+        {
+            if (value < min)
+            {
+                return min;
+            }
+
+            if (value > max)
+            {
+                return max;
+            }
+
+            return Double.IsNaN(value) ? min : value;
+        }
+
+        /// <summary>
+        /// Gets the luminance of the specified color.
+        /// </summary>
+        /// <param name="red">The red color components</param>
+        /// <param name="green">The green color component</param>
+        /// <param name="blue">The blue color component</param>
+        /// <returns>The luminance value of the color.</returns>
         private static double Luminance(byte red, byte green, byte blue)
         {
-            //return 0.2126 * red + 0.7152 * green + 0.0722 * blue;
             return 0.299 * red + 0.587 * green + 0.114 * blue;
         }
     }

@@ -2,7 +2,7 @@
 // <copyright file="StringBuilderExtensions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,35 +20,18 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
+
 namespace Cadru.Extensions
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Text;
-
     /// <summary>
     /// Provides basic routines for common <see cref="StringBuilder"/> manipulation.
     /// </summary>
     public static class StringBuilderExtensions
     {
-        #region fields
-        #endregion
-
-        #region constructors
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methods
-
-        #region AppendAsHexadecimal
-
-        #region AppendAsHexadecimal(this StringBuilder source, int value)
         /// <summary>
         /// Appends the hexadecimal string representation of a specified
         /// <see cref="Int32"/> value to this instance.
@@ -74,9 +57,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendAsHexadecimal(this StringBuilder source, short value)
         /// <summary>
         /// Appends the hexadecimal string representation of a specified
         /// <see cref="Int16"/> value to this instance.
@@ -98,9 +79,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendAsHexadecimal(this StringBuilder source, byte value)
         /// <summary>
         /// Appends the hexadecimal string representation of a specified
         /// <see cref="Byte"/> value to this instance.
@@ -120,9 +99,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendAsHexadecimal(this StringBuilder source, params byte[] values)
         /// <summary>
         /// Appends the hexadecimal string representation of a specified
         /// <see cref="Byte"/> array to this instance.
@@ -145,13 +122,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #endregion
-
-        #region AppendFormatIf
-
-        #region AppendFormatIf(this StringBuilder source, bool condition, string format, params object[] args)
         /// <overloads>
         /// <summary>
         /// Appends the string returned by processing a composite format string, which
@@ -189,9 +160,7 @@ namespace Cadru.Extensions
         {
             return source.AppendFormatIf(condition, CultureInfo.CurrentCulture, format, args);
         }
-        #endregion
 
-        #region AppendFormatIf(this StringBuilder source, bool condition, IFormatProvider provider, string format, params object[] args)
         /// <summary>
         /// Appends the string returned by processing a composite format string, which
         /// contains zero or more format items, followed by the default line terminator to
@@ -232,13 +201,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #endregion
-
-        #region AppendFormatLine
-
-        #region AppendFormatLine(this StringBuilder source, string format, params object[] args)
         /// <overoads>
         /// <summary>
         /// Appends the string returned by processing a composite format string, which
@@ -274,9 +237,7 @@ namespace Cadru.Extensions
         {
             return source.AppendFormatLine(CultureInfo.CurrentCulture, format, args);
         }
-        #endregion
 
-        #region AppendFormatLine(this StringBuilder source, IFormatProvider provider, string format, params object[] args)
         /// <summary>
         /// Appends the string returned by processing a composite format string, which
         /// contains zero or more format items, followed by the default line terminator to
@@ -310,13 +271,7 @@ namespace Cadru.Extensions
 
             return source.AppendLine(String.Format(provider, format, args));
         }
-        #endregion
 
-        #endregion
-
-        #region AppendFormatLineIf
-
-        #region AppendFormatLineIf(this StringBuilder source, bool condition, string format, params object[] args)
         /// <overloads>
         /// <summary>
         /// Appends the string returned by processing a composite format string, which
@@ -361,9 +316,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendFormatLineIf(this StringBuilder source, IFormatProvider provider, bool condition, string format, params object[] args)
         /// <summary>
         /// Appends the string returned by processing a composite format string, which
         /// contains zero or more format items, followed by the default line terminator to
@@ -404,13 +357,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #endregion
-
-        #region AppendIf
-
-        #region AppendIf(this StringBuilder source, bool condition, bool value)
         /// <overloads>
         /// <summary>Appends the string representation of a specified object to this instance.</summary>
         /// </overloads>
@@ -437,9 +384,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendIf(this StringBuilder source, bool condition, byte value)
         /// <summary>
         /// Appends the string representation of a specified 8-bit unsigned integer to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
@@ -463,9 +408,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendIf(this StringBuilder source, bool condition, char value)
         /// <summary>
         /// Appends the string representation of a specified Unicode character to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
@@ -489,9 +432,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendIf(this StringBuilder source, bool condition, char[] value)
         /// <summary>
         /// Appends the string representation of Unicode characters in a specified array to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
@@ -515,9 +456,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendIf(this StringBuilder source, bool condition, double value)
         /// <summary>
         /// Appends the string representation of a specified double-precision floating-point number to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
@@ -541,9 +480,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendIf(this StringBuilder source, bool condition, float value)
         /// <summary>
         /// Appends the string representation of a specified single-precision floating-point number to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
@@ -567,9 +504,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendIf(this StringBuilder source, bool condition, int value)
         /// <summary>
         /// Appends the string representation of a specified 32-bit signed integer to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
@@ -593,9 +528,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendIf(this StringBuilder source, bool condition, long value)
         /// <summary>
         /// Appends the string representation of a specified 64-bit signed integer to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
@@ -619,9 +552,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendIf(this StringBuilder source, bool condition, object value)
         /// <summary>
         /// Appends the string representation of a specified object to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
@@ -645,9 +576,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendIf(this StringBuilder source, bool condition, sbyte value)
         /// <summary>
         /// Appends the string representation of a specified 8-bit signed integer to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
@@ -671,9 +600,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendIf(this StringBuilder source, bool condition, short value)
         /// <summary>
         /// Appends the string representation of a specified 16-bit signed integer to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
@@ -697,9 +624,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendIf(this StringBuilder source, bool condition, string value)
         /// <summary>
         /// Appends the string representation of the specified 8-bit unsigned integer to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
@@ -723,9 +648,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendIf(this StringBuilder source, bool condition, uint value)
         /// <summary>
         /// Appends the string representation of a specified 32-bit unsigned integer to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
@@ -749,9 +672,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendIf(this StringBuilder source, bool condition, ulong value)
         /// <summary>
         /// Appends the string representation of a specified 64-bit unsigned integer to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
@@ -775,9 +696,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendIf(this StringBuilder source, bool condition, ushort value)
         /// <summary>
         /// Appends the string representation of a specified 16-bit unsigned integer to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
@@ -801,9 +720,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendIf(this StringBuilder source, bool condition, char value, int repeatCount)
         /// <summary>
         /// Appends a specified number of copies of the string representation of a
         /// Unicode character to this instance
@@ -832,9 +749,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendIf(this StringBuilder source, bool condition, char[] value, int startIndex, int charCount)
         /// <summary>
         /// Appends the string representation of a specified subarray of Unicode characters to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
@@ -870,9 +785,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendIf(this StringBuilder source, bool condition, string value, int startIndex, int count)
         /// <summary>
         /// Appends a copy of a specified substring to this instance
         /// if <paramref name="condition"/> is <see langword="true"/>.
@@ -907,13 +820,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #endregion
-
-        #region AppendLineIf
-
-        #region AppendLineIf(this StringBuilder source, bool condition)
         /// <overloads>
         /// <summary>
         /// Appends the default line terminator to the end of this instance if
@@ -943,9 +850,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendLineIf(this StringBuilder source, bool condition, string value)
         /// <summary>
         /// Appends a copy of the specified string followed by the default line terminator
         /// to the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
@@ -970,11 +875,7 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #endregion
-
-        #region AppendLines
         /// <summary>
         /// Appends a copy of each of the specified strings followed by the default line terminator
         /// to the end of this instance.
@@ -996,15 +897,13 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region AppendLinesIf
         /// <summary>
         /// Appends a copy of each of the specified strings followed by the default line terminator
         /// to the end of this instance if <paramref name="condition"/> is <see langword="true"/>.
         /// </summary>
         /// <param name="source">The source <see cref="StringBuilder"/> object.</param>
-        /// <param name="condition"><see langword="true"/> to append <paramref name="value"/>;
+        /// <param name="condition"><see langword="true"/> to append <paramref name="values"/>;
         /// otherwise, <see langword="false"/>.</param>
         /// <param name="values">The strings to append.</param>
         /// <returns>A reference to this instance after the append operation has, optionally, completed.</returns>
@@ -1026,15 +925,10 @@ namespace Cadru.Extensions
 
             return source;
         }
-        #endregion
 
-        #region ToHex
         internal static char ToHex(int b)
         {
             return (char)((b < 0xA) ? ('0' + b) : ('a' + b - 0xA));
         }
-        #endregion
-
-        #endregion
     }
 }

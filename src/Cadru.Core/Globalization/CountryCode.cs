@@ -2,7 +2,7 @@
 // <copyright file="CountryCode.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -33,7 +33,7 @@ namespace Cadru.Globalization
     [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
     [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1632:DocumentationTextMustMeetMinimumCharacterLength", Justification = "Reviewed.")]
     [type: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase", MessageId = "Member", Justification = "Reviewed.")]
-    public enum CountryCode : int
+    public enum CountryCode
     {
         /// <summary>No country specified</summary>
         None = 0,
@@ -1398,13 +1398,11 @@ namespace Cadru.Globalization
         [UIHint("UI")]
         GB = 826,
 
-
         /// <summary>United States</summary>
         [EnumDescription("United States")]
         [Display(Name = "United States")]
         [UIHint("UI")]
         US = 840,
-
 
         /// <summary>United States Minor Outlying Islands</summary>
         [EnumDescription("United States Minor Outlying Islands")]

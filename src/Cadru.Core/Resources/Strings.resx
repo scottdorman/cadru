@@ -396,4 +396,10 @@
   <data name="Arg_AmbiguousMatchException" xml:space="preserve">
     <value>Ambiguous match found.</value>
   </data>
+  <data name="ArgumentOutOfRange_DateTimeBadTicks" xml:space="preserve">
+    <value>Ticks must be between DateTime.MinValue.Ticks and DateTime.MaxValue.Ticks.</value>
+  </data>
+  <data name="InvalidCast.Color" xml:space="preserve">
+    <value>Unable to convert the given value to a color.</value>
+  </data>
 </root>

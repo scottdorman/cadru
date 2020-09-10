@@ -2,7 +2,7 @@
 // <copyright file="EnumerableExtensions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,38 +20,41 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+
+using Cadru.Internal;
+using Cadru.Resources;
+
 namespace Cadru.Extensions
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Linq;
-
-    using Cadru.Internal;
-    using Cadru.Resources;
-
-
     /// <summary>
     /// Provides basic routines for common sequence and collection manipulation.
     /// </summary>
     public static class EnumerableExtensions
     {
-        #region fields
-        #endregion
+        ///<summary>Finds the index of the first item matching an expression in an enumerable.</summary>
+        ///<param name="items">The enumerable to search.</param>
+        ///<param name="predicate">The expression to test the items against.</param>
+        ///<returns>The index of the first matching item, or -1 if no items match.</returns>
+        public static int FindIndex(this IEnumerable items, Func<object, bool> predicate)
+        {
+            if (items == null) throw new ArgumentNullException(nameof(items));
+            if (predicate == null) throw new ArgumentNullException(nameof(predicate));
 
-        #region constructors
-        #endregion
+            var retVal = 0;
+            foreach (var item in items)
+            {
+                if (predicate(item)) return retVal;
+                retVal++;
+            }
 
-        #region events
-        #endregion
+            return -1;
+        }
 
-        #region properties
-        #endregion
-
-        #region methods
-
-        #region FindIndex
         ///<summary>Finds the index of the first item matching an expression in an enumerable.</summary>
         ///<param name="items">The enumerable to search.</param>
         ///<param name="predicate">The expression to test the items against.</param>
@@ -71,13 +74,95 @@ namespace Cadru.Extensions
             return -1;
         }
 
-        public static int FindIndex(this IEnumerable<string> items, string header)
-        {
-            return FindIndex(items, h => String.CompareOrdinal(h, header) == 0);
-        }
-        #endregion
+        ///<summary>Finds the index of the first matching string in an enumerable.</summary>
+        ///<param name="items">The enumerable to search.</param>
+        ///<param name="value">The string to search for.</param>
+        ///<returns>The index of the first matching item, or -1 if no items match.</returns>
+        public static int FindIndex(this IEnumerable<string> items, string value) => FindIndex(items, h => String.CompareOrdinal(h, value) == 0);
 
-        #region IsEmpty
+        /// <summary>
+        /// Performs the specified action on each element of the <see
+        /// cref="IEnumerable{T}"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of the values in the
+        /// collection.</typeparam>
+        /// <param name="source">The source <see
+        /// cref="IEnumerable{T}"/>.</param>
+        /// <param name="action">The <see cref="Action{T1, T2}"/> delegate to
+        /// perform on each element of the <see cref="IEnumerable{T}"/>.</param>
+        /// <remarks>The <see cref="Action{T1, T2}"/> delegate receives the item
+        /// and the index of the item.</remarks>
+        public static void ForEach<T>(this IEnumerable<T> source, Action<T, int> action)
+        {
+            var index = 0;
+            foreach (var item in source)
+            {
+                action(item, index++);
+            }
+        }
+
+        /// <summary>
+        /// Performs the specified action on each element of the <see
+        /// cref="IEnumerable{T}"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of the values in the
+        /// collection.</typeparam>
+        /// <param name="source">The source <see cref="IEnumerable{T}"/>.</param>
+        /// <param name="action">The <see cref="Action{T}"/> delegate to perform
+        /// on each element of the <see cref="IEnumerable{T}"/>.</param>
+        public static void ForEach<T>(this IEnumerable<T> source, Action<T> action)
+        {
+            foreach (var item in source)
+            {
+                action(item);
+            }
+        }
+
+        /// <summary>
+        /// Searches for the specified object and returns the zero-based index
+        /// of the first occurrence within the range of elements in the <see cref="IEnumerable{T}"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="IEnumerable{T}"/>.</param>
+        /// <param name="item">The object to locate. The value can be <see langword="null"/> for reference types.</param>
+        /// <returns>The zero-based index of the first occurrence of item within the range of elements in the <see cref="IEnumerable{T}"/>, if found; otherwise, -1.</returns>
+        public static int IndexOf(this IEnumerable source, object item) => FindIndex(source, i => Equals(i, item));
+
+        /// <summary>
+        /// Searches for the specified object and returns the zero-based index
+        /// of the first occurrence within the range of elements in the <see cref="IEnumerable{T}"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="IEnumerable{T}"/>.</param>
+        ///<param name="predicate">The expression to test the items against.</param>
+        /// <returns>The zero-based index of the first occurrence of item within the range of elements in the <see cref="IEnumerable{T}"/>, if found; otherwise, -1.</returns>
+        public static int IndexOf(this IEnumerable source, Func<object, bool> predicate) => FindIndex(source, predicate);
+
+        /// <summary>
+        /// Searches for the specified object and returns the zero-based index
+        /// of the first occurrence within the range of elements in the <see cref="IEnumerable{T}"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="IEnumerable{T}"/>.</param>
+        /// <param name="item">The object to locate. The value can be <see langword="null"/> for reference types.</param>
+        /// <returns>The zero-based index of the first occurrence of item within the range of elements in the <see cref="IEnumerable{T}"/>, if found; otherwise, -1.</returns>
+        public static int IndexOf<T>(this IEnumerable<T> source, T item) => FindIndex(source, i => Equals(i, item));
+
+        /// <summary>
+        /// Searches for the specified object and returns the zero-based index
+        /// of the first occurrence within the range of elements in the <see cref="IEnumerable{T}"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="IEnumerable{T}"/>.</param>
+        ///<param name="predicate">The expression to test the items against.</param>
+        /// <returns>The zero-based index of the first occurrence of item within the range of elements in the <see cref="IEnumerable{T}"/>, if found; otherwise, -1.</returns>
+        public static int IndexOf<T>(this IEnumerable<T> source, Func<T, bool> predicate) => FindIndex(source, predicate);
+
+        /// <summary>
+        /// Searches for the specified string and returns the zero-based index
+        /// of the first occurrence within the range of elements in the <see cref="IEnumerable{T}"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="IEnumerable{T}"/>.</param>
+        /// <param name="item">The object to locate. The value can be <see langword="null"/>.</param>
+        /// <returns>The zero-based index of the first occurrence of item within the range of elements in the <see cref="IEnumerable{T}"/>, if found; otherwise, -1.</returns>
+        public static int IndexOf(this IEnumerable<string> source, string item) => source.FindIndex(item);
+
         /// <summary>
         /// Determines if the collection contains values.
         /// </summary>
@@ -90,8 +175,7 @@ namespace Cadru.Extensions
 
             var empty = false;
 
-            var collection = source as ICollection;
-            if (collection.IsNotNull())
+            if (source is ICollection collection)
             {
                 empty = collection.Count == 0;
             }
@@ -106,9 +190,7 @@ namespace Cadru.Extensions
 
             return empty;
         }
-        #endregion
 
-        #region IsNull
         /// <summary>
         /// Determines if the collection is <see langword="null"/>.
         /// </summary>
@@ -119,9 +201,7 @@ namespace Cadru.Extensions
         {
             return source == null;
         }
-        #endregion
 
-        #region IsNullOrEmpty
         /// <summary>
         /// Determines if the collection is <see langword="null"/> or contains values.
         /// </summary>
@@ -132,11 +212,7 @@ namespace Cadru.Extensions
         {
             return source == null || source.IsEmpty();
         }
-        #endregion
 
-        #region Join
-
-        #region Join(this IList<string> values, string separator, int startIndex, int count)
         /// <summary>
         /// Concatenates the members of a collection, using the specified separator between each member.
         /// </summary>
@@ -163,9 +239,7 @@ namespace Cadru.Extensions
         {
             return String.Join(separator, values.ToArray(), startIndex, count);
         }
-        #endregion
 
-        #region Join(this IList<string> values, int startIndex, int count)
         /// <summary>
         /// Concatenates the members of a collection, using a comma (,) between each member.
         /// </summary>
@@ -190,9 +264,7 @@ namespace Cadru.Extensions
         {
             return String.Join(",", values.ToArray(), startIndex, count);
         }
-        #endregion
 
-        #region Join(this IEnumerable<string> values)
         /// <summary>
         /// Concatenates the members of a collection, using a comma (,) separator between each member.
         /// </summary>
@@ -205,9 +277,7 @@ namespace Cadru.Extensions
         {
             return String.Join(",", values);
         }
-        #endregion
 
-        #region Join(this IEnumerable<string> values, string separator)
         /// <summary>
         /// Concatenates the members of a collection, using the specified separator between each member.
         /// </summary>
@@ -222,9 +292,7 @@ namespace Cadru.Extensions
         {
             return String.Join(separator, values);
         }
-        #endregion
 
-        #region Join<T>(this IEnumerable<T> values)
         /// <summary>
         /// Concatenates the members of a collection, using a comma (,) separator between each member.
         /// </summary>
@@ -238,9 +306,7 @@ namespace Cadru.Extensions
         {
             return String.Join(",", values);
         }
-        #endregion
 
-        #region Join<T>(this IEnumerable<T> values, string separator)
         /// <summary>
         /// Concatenates the members of a collection, using the specified separator between each member.
         /// </summary>
@@ -256,11 +322,7 @@ namespace Cadru.Extensions
         {
             return String.Join(separator, values);
         }
-        #endregion
 
-        #endregion
-
-        #region Partition
         /// <summary>
         /// Partitions the specified collection into a collection of smaller collections.
         /// </summary>
@@ -275,7 +337,7 @@ namespace Cadru.Extensions
             Contracts.Requires.NotNull(source, nameof(source));
             Contracts.Requires.ValidRange(size < 0, nameof(size), Strings.ArgumentOutOfRange_IndexLessThanZero);
 
-            T[] array = null;
+            T[]? array = null;
             var count = 0;
             foreach (var item in source)
             {
@@ -299,11 +361,7 @@ namespace Cadru.Extensions
                 yield return new ReadOnlyCollection<T>(array);
             }
         }
-        #endregion
 
-        #region RandomElement
-
-        #region RandomElement<T>(this IEnumerable<T> source)
         /// <summary>
         /// Returns a pseudo-random element from the specified collection.
         /// </summary>
@@ -314,9 +372,7 @@ namespace Cadru.Extensions
         {
             return source.RandomElement<T>(new Random());
         }
-        #endregion
 
-        #region RandomElement<T>(this IEnumerable<T> source, Random random)
         /// <summary>
         /// Returns a pseudo-random element from the specified collection.
         /// </summary>
@@ -337,13 +393,9 @@ namespace Cadru.Extensions
                 }
             }
 
-            return current;
+            return current!;
         }
-        #endregion
 
-        #endregion
-
-        #region Slice
         /// <summary>Returns a segment of the specified collection.</summary>
         /// <typeparam name="T">The type of the members of <paramref name="source"/>.</typeparam>
         /// <param name="source">A collection that contains the objects to segment.</param>
@@ -372,11 +424,7 @@ namespace Cadru.Extensions
                 ++index;
             }
         }
-        #endregion
 
-        #region WhereIf
-
-        #region WhereIf<T>(this IEnumerable<TSource> source, bool condition, Func<T, bool> predicate)
         /// <summary>
         /// Filters a sequence of values based on a predicate. Each element's
         /// index is used in the logic of the predicate function.
@@ -399,9 +447,7 @@ namespace Cadru.Extensions
         {
             return condition ? source.Where(predicate) : source;
         }
-        #endregion
 
-        #region WhereIf<T>(this IEnumerable<TSource> source, bool condition, Func<T, int, bool> predicate)
         /// <summary>
         /// Filters a sequence of values based on a predicate.
         /// </summary>
@@ -422,10 +468,76 @@ namespace Cadru.Extensions
         {
             return condition ? source.Where(predicate) : source;
         }
-        #endregion
 
-        #endregion
+        /// <summary>
+        /// Returns the element at a specified index in a sequence.
+        /// </summary>
+        /// <param name="source">An <see cref="IEnumerable"/> to return an element from.</param>
+        /// <param name="index">The zero-based index of the element to retrieve.</param>
+        /// <returns>The element at the specified position in the source sequence.</returns>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="index"/> is less than 0 or greater than or equal to the number of elements in <paramref name="source"/>.</exception>
+        internal static object ElementAt(this IEnumerable source, int index)
+        {
+            if (index < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(index));
+            }
 
-        #endregion
+            if (source is IList list && list.Count > 0)
+            {
+                return list[index];
+            }
+
+            foreach (var item in source)
+            {
+                if (index == 0)
+                {
+                    return item;
+                }
+
+                index--;
+            }
+
+            throw new ArgumentOutOfRangeException(nameof(index));
+        }
+
+        /// <summary>
+        /// Returns the element at a specified index in a sequence or <see
+        /// langword="null"/> if the index is out of range.
+        /// </summary>
+        /// <param name="source">An <see cref="IEnumerable"/> to return an
+        /// element from.</param>
+        /// <param name="index">The zero-based index of the element to
+        /// retrieve.</param>
+        /// <returns><see langword="null"/> if the index is outside the bounds
+        /// of the source sequence; otherwise, the element at the specified
+        /// position in the source sequence.</returns>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref
+        /// name="index"/> is less than 0 or greater than or equal to the number
+        /// of elements in <paramref name="source"/>.</exception>
+        internal static object? ElementAtOrDefault(this IEnumerable source, int index)
+        {
+            if (index < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(index));
+            }
+
+            if (source is IList list && list.Count > 0)
+            {
+                return list[index];
+            }
+
+            foreach (var item in source)
+            {
+                if (index == 0)
+                {
+                    return item;
+                }
+
+                index--;
+            }
+
+            return null;
+        }
     }
 }

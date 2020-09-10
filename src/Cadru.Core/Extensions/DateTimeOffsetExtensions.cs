@@ -2,7 +2,7 @@
 // <copyright file="DateTimeOffsetExtensions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,38 +20,44 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+
+using Cadru.Internal;
+using Cadru.Resources;
+using Cadru.Text;
+
 namespace Cadru.Extensions
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Linq;
-
-    using Cadru.Internal;
-    using Cadru.Resources;
-    using Cadru.Text;
-
     /// <summary>
     /// Provides basic routines for common DateTimeOffset manipulation.
     /// </summary>
     public static class DateTimeOffsetExtensions
     {
-        #region fields
         private static readonly TimeSpan UtcOffset = new TimeSpan(0, 0, 0);
-        #endregion
 
-        #region constructors
-        #endregion
+        /// <summary>
+        /// Returns a new <see cref="DateTimeOffset"/> that adds the specified number of
+        /// quarters to the value of this instance.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
+        /// <param name="value">A number of whole and fractional quarters.
+        /// The <paramref name="value"/> parameter can be negative or positive.</param>
+        /// <returns>A <see cref="DateTimeOffset"/> whose value is the sum of the
+        /// date and time represented by this instance and the number of quarters
+        /// represented by <paramref name="value"/>.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// The resulting <see cref="DateTimeOffset"/> is less than
+        /// <see cref="DateTimeOffset.MinValue"/> or greater than
+        /// <see cref="DateTimeOffset.MaxValue"/>.
+        /// </exception>
+        public static DateTimeOffset AddQuarters(this DateTimeOffset date, double value)
+        {
+            return date.AddMonths(checked((int)value * 3));
+        }
 
-        #region events
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methods
-
-        #region AddWeekdays
         /// <summary>
         /// Returns a new <see cref="DateTimeOffset"/> that adds the specified number of
         /// weekdays to the value of this instance.
@@ -82,31 +88,7 @@ namespace Cadru.Extensions
 
             return date;
         }
-        #endregion
 
-        #region AddQuarters
-        /// <summary>
-        /// Returns a new <see cref="DateTimeOffset"/> that adds the specified number of
-        /// quarters to the value of this instance.
-        /// </summary>
-        /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
-        /// <param name="value">A number of whole and fractional quarters.
-        /// The <paramref name="value"/> parameter can be negative or positive.</param>
-        /// <returns>A <see cref="DateTimeOffset"/> whose value is the sum of the
-        /// date and time represented by this instance and the number of quarters
-        /// represented by <paramref name="value"/>.</returns>
-        /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The resulting <see cref="DateTimeOffset"/> is less than
-        /// <see cref="DateTimeOffset.MinValue"/> or greater than
-        /// <see cref="DateTimeOffset.MaxValue"/>.
-        /// </exception>
-        public static DateTimeOffset AddQuarters(this DateTimeOffset date, double value)
-        {
-            return date.AddMonths(checked((int)value * 3));
-        }
-        #endregion
-
-        #region AddWeeks
         /// <summary>
         /// Returns a new <see cref="DateTimeOffset"/> that adds the specified number of
         /// weeks to the value of this instance.
@@ -126,11 +108,7 @@ namespace Cadru.Extensions
         {
             return date.AddDays(value * 7);
         }
-        #endregion
 
-        #region Between
-
-        #region Between(this DateTimeOffset date, DateTimeOffset start, DateTimeOffset end)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// the current <see cref="DateTimeOffset"/> instance is between the
@@ -146,9 +124,7 @@ namespace Cadru.Extensions
         {
             return Between(date, start, end, true);
         }
-        #endregion
 
-        #region Between(this DateTimeOffset date, DateTimeOffset start, DateTimeOffset end, bool includeTime)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// the current <see cref="DateTimeOffset"/> instance is between the
@@ -168,11 +144,7 @@ namespace Cadru.Extensions
                date >= start && date <= end :
                date.Date >= start.Date && date.Date <= end.Date;
         }
-        #endregion
 
-        #endregion
-
-        #region DaysInMonth
         /// <summary>
         /// Returns the number of days in the month for the date represented by this instance.
         /// </summary>
@@ -182,9 +154,7 @@ namespace Cadru.Extensions
         {
             return DateTime.DaysInMonth(date.Year, date.Month);
         }
-        #endregion
 
-        #region Elapsed
         /// <summary>
         /// Returns the elapsed time between the date represented by this instance
         /// and the current date and time.
@@ -195,11 +165,23 @@ namespace Cadru.Extensions
         /// current date and time.</returns>
         public static TimeSpan Elapsed(this DateTimeOffset date)
         {
-            return DateTimeOffset.Now - date;
+            return date.Elapsed(DateTimeOffset.Now);
         }
-        #endregion
 
-        #region FirstDayOfMonth
+        /// <summary>
+        /// Returns the elapsed time between the date represented by this instance
+        /// and the given date and time.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
+        /// <param name="startDate">A valid <see cref="DateTimeOffset"/> instance.</param>
+        /// <returns>A <see cref="TimeSpan"/> representing the elapsed
+        /// time between the date represented by this instance and the
+        /// current date and time.</returns>
+        public static TimeSpan Elapsed(this DateTimeOffset date, DateTimeOffset startDate)
+        {
+            return startDate - date;
+        }
+
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> representing the
         /// first day of the month for the date represented by this instance.
@@ -212,9 +194,7 @@ namespace Cadru.Extensions
             var firstDate = new DateTimeOffset(date.Year, date.Month, 1, date.Hour, date.Minute, date.Second, date.Offset);
             return firstDate;
         }
-        #endregion
 
-        #region FirstDayOfNextQuarter
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> which represents the
         /// first day of the next quarter of the date represented by this instance.
@@ -226,9 +206,7 @@ namespace Cadru.Extensions
         {
             return date.FirstDayOfQuarter().AddMonths(3);
         }
-        #endregion
 
-        #region FirstDayOfQuarter
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> which represents the
         /// first day of the quarter of the date represented by this instance.
@@ -240,9 +218,7 @@ namespace Cadru.Extensions
         {
             return new DateTimeOffset(date.Year, ((date.Quarter() - 1) * 3) + 1, 1, date.Hour, date.Minute, date.Second, date.Offset);
         }
-        #endregion
 
-        #region FirstDayOfWeek
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> which represents the
         /// first day of the week of the date represented by this instance.
@@ -273,9 +249,7 @@ namespace Cadru.Extensions
 
             return date.AddDays(-1 * diff);
         }
-        #endregion
 
-        #region FirstDayOfYear
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> representing the
         /// first day of the year for the date represented by this instance.
@@ -287,9 +261,7 @@ namespace Cadru.Extensions
         {
             return new DateTimeOffset(date.Year, 1, 1, date.Hour, date.Minute, date.Second, date.Offset);
         }
-        #endregion
 
-        #region GetAbbreviatedMonthName
         /// <summary>
         /// Returns the culture-specific abbreviated name of the month represented by this instance.
         /// </summary>
@@ -299,9 +271,7 @@ namespace Cadru.Extensions
         {
             return DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month);
         }
-        #endregion
 
-        #region GetAbbreviatedMonthNames
         /// <summary>
         /// Returns the culture-specific abbreviated names of the months.
         /// </summary>
@@ -311,9 +281,7 @@ namespace Cadru.Extensions
         {
             return CultureInfo.CurrentCulture.DateTimeFormat.AbbreviatedMonthNames.Where(m => !String.IsNullOrEmpty(m)).ToList();
         }
-        #endregion
 
-        #region GetDayOfWeek
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> representing the
         /// day of the week from the date represented by this instance.
@@ -344,9 +312,7 @@ namespace Cadru.Extensions
             var resultday = DaysBetween(day, startOfWeek);
             return date.AddDays(resultday - current);
         }
-        #endregion
 
-        #region GetMonthName
         /// <summary>
         /// Returns the culture-specific name of the month represented by this instance.
         /// </summary>
@@ -356,9 +322,7 @@ namespace Cadru.Extensions
         {
             return DateTimeFormatInfo.CurrentInfo.GetMonthName(date.Month);
         }
-        #endregion
 
-        #region GetMonthNames
         /// <summary>
         /// Returns the culture-specific names of the months.
         /// </summary>
@@ -368,9 +332,7 @@ namespace Cadru.Extensions
         {
             return CultureInfo.CurrentCulture.DateTimeFormat.MonthNames.Where(m => !String.IsNullOrEmpty(m)).ToList();
         }
-        #endregion
 
-        #region GetMonthNumber
         /// <summary>
         /// Returns the month number for the given month name.
         /// </summary>
@@ -383,11 +345,7 @@ namespace Cadru.Extensions
             var months = abbreviated ? GetAbbreviatedMonthNames() : GetMonthNames();
             return months.IndexOf(name) + 1;
         }
-        #endregion
 
-        #region GetWeekOfYear
-
-        #region GetWeekOfYear(this DateTimeOffset time)
         /// <summary>
         /// Returns the week of the year that includes the date in the specified DateTimeOffset value.
         /// </summary>
@@ -398,9 +356,7 @@ namespace Cadru.Extensions
         {
             return GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek);
         }
-        #endregion
 
-        #region GetWeekOfYear(this DateTimeOffset time, CalendarWeekRule rule)
         /// <summary>
         /// Returns the week of the year that includes the date in the specified DateTimeOffset value.
         /// </summary>
@@ -412,9 +368,7 @@ namespace Cadru.Extensions
         {
             return GetWeekOfYear(time, rule, CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek);
         }
-        #endregion
 
-        #region GetWeekOfYear(this DateTimeOffset time, CalendarWeekRule rule, DayOfWeek firstDayOfWeek)
         /// <summary>
         /// Returns the week of the year that includes the date in the specified DateTimeOffset value.
         /// </summary>
@@ -427,37 +381,7 @@ namespace Cadru.Extensions
         {
             return CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(time.DateTime, rule, firstDayOfWeek);
         }
-        #endregion
 
-        #endregion
-
-        #region IsLeapYear
-        /// <summary>
-        /// Determines whether the specified date is a leap year.
-        /// </summary>
-        /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
-        /// <returns><see langword="true"/> if the specified date is a leap year;
-        /// otherwise, <see langword="false"/>.</returns>
-        public static bool IsLeapYear(this DateTimeOffset date)
-        {
-            return DateTime.IsLeapYear(date.Year);
-        }
-        #endregion
-
-        #region IsLeapMonth
-        /// <summary>
-        /// Determines whether the specified date is a leap month.
-        /// </summary>
-        /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
-        /// <returns><see langword="true"/> if the specified date is a leap month;
-        /// otherwise, <see langword="false"/>.</returns>
-        public static bool IsLeapMonth(this DateTimeOffset date)
-        {
-            return CultureInfo.CurrentCulture.Calendar.IsLeapMonth(date.Year, date.Month);
-        }
-        #endregion
-
-        #region IsLeapDay
         /// <summary>
         /// Determines whether the specified date is a leap day.
         /// </summary>
@@ -468,35 +392,29 @@ namespace Cadru.Extensions
         {
             return CultureInfo.CurrentCulture.Calendar.IsLeapDay(date.Year, date.Month, date.Day);
         }
-        #endregion
 
-        #region IsWeekday
         /// <summary>
-        /// Determines whether the specified date is a week day.
+        /// Determines whether the specified date is a leap month.
         /// </summary>
         /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
-        /// <returns><see langword="true"/> if the specified date is a week day;
+        /// <returns><see langword="true"/> if the specified date is a leap month;
         /// otherwise, <see langword="false"/>.</returns>
-        public static bool IsWeekday(this DateTimeOffset date)
+        public static bool IsLeapMonth(this DateTimeOffset date)
         {
-            return !date.IsWeekend();
+            return CultureInfo.CurrentCulture.Calendar.IsLeapMonth(date.Year, date.Month);
         }
-        #endregion
 
-        #region IsWeekend
         /// <summary>
-        /// Determines whether the specified date is a weekend.
+        /// Determines whether the specified date is a leap year.
         /// </summary>
         /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
-        /// <returns><see langword="true"/> if the specified date is a weekend;
+        /// <returns><see langword="true"/> if the specified date is a leap year;
         /// otherwise, <see langword="false"/>.</returns>
-        public static bool IsWeekend(this DateTimeOffset date)
+        public static bool IsLeapYear(this DateTimeOffset date)
         {
-            return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
+            return DateTime.IsLeapYear(date.Year);
         }
-        #endregion
 
-        #region IsUtcDateTime
         /// <summary>
         /// Determines whether he specified date is a UTC date.
         /// </summary>
@@ -507,9 +425,29 @@ namespace Cadru.Extensions
         {
             return date.UtcDateTime == date.DateTime && date.Offset == UtcOffset && date.Offset == TimeZoneInfo.Utc.GetUtcOffset(date);
         }
-        #endregion
 
-        #region Last
+        /// <summary>
+        /// Determines whether the specified date is a week day.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
+        /// <returns><see langword="true"/> if the specified date is a week day;
+        /// otherwise, <see langword="false"/>.</returns>
+        public static bool IsWeekday(this DateTimeOffset date)
+        {
+            return !date.IsWeekend();
+        }
+
+        /// <summary>
+        /// Determines whether the specified date is a weekend.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTimeOffset"/> instance.</param>
+        /// <returns><see langword="true"/> if the specified date is a weekend;
+        /// otherwise, <see langword="false"/>.</returns>
+        public static bool IsWeekend(this DateTimeOffset date)
+        {
+            return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
+        }
+
         /// <summary>
         /// Return a <see cref="DateTimeOffset"/> representing the previous day of
         /// the week.
@@ -525,9 +463,7 @@ namespace Cadru.Extensions
             var diff = (day - yesterday.DayOfWeek - 7) % 7;
             return yesterday.AddDays(diff);
         }
-        #endregion
 
-        #region LastDayOfMonth
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> representing the
         /// last day of the month for the date represented by this instance.
@@ -539,9 +475,7 @@ namespace Cadru.Extensions
         {
             return new DateTimeOffset(date.Year, date.Month, date.DaysInMonth(), date.Hour, date.Minute, date.Second, date.Offset);
         }
-        #endregion
 
-        #region LastDayOfQuarter
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> which represents the
         /// last day of the quarter of the date represented by this instance.
@@ -553,9 +487,7 @@ namespace Cadru.Extensions
         {
             return date.FirstDayOfNextQuarter().AddDays(-1);
         }
-        #endregion
 
-        #region LastDayOfWeek
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> which represents the
         /// last day of the week of the date represented by this instance.
@@ -580,9 +512,7 @@ namespace Cadru.Extensions
         {
             return date.FirstDayOfWeek(firstDayOfWeek).AddDays(6);
         }
-        #endregion
 
-        #region LastDayOfYear
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> representing the
         /// last day of the year for the date represented by this instance.
@@ -594,9 +524,7 @@ namespace Cadru.Extensions
         {
             return new DateTimeOffset(date.Year, 12, 31, date.Hour, date.Minute, date.Second, date.Offset);
         }
-        #endregion
 
-        #region Next
         /// <summary>
         /// Return a <see cref="DateTimeOffset"/> representing the next day of
         /// the week.
@@ -612,9 +540,7 @@ namespace Cadru.Extensions
             var diff = (day - tomorrow.DayOfWeek + 7) % 7;
             return tomorrow.AddDays(diff <= 0 ? diff + 7 : diff);
         }
-        #endregion
 
-        #region Quarter
         /// <summary>
         /// Returns the quarter component of the date represented by this instance.
         /// </summary>
@@ -624,9 +550,7 @@ namespace Cadru.Extensions
         {
             return ((date.Month - 1) / 3) + 1;
         }
-        #endregion
 
-        #region Tomorrow
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> representing the day after
         /// the date represented by this instance.
@@ -638,11 +562,7 @@ namespace Cadru.Extensions
         {
             return value.AddDays(1);
         }
-        #endregion
 
-        #region ToRelativeDateString
-
-        #region ToRelativeDateString(this DateTimeOffset value)
         /// <summary>
         /// Convert a <see cref="DateTimeOffset"/> object to a relative date
         /// (e.g., Today, tomorrow, yesterday) string format.
@@ -653,9 +573,7 @@ namespace Cadru.Extensions
         {
             return ToRelativeDateString(value, RelativeDateFormatting.DayNames);
         }
-        #endregion
 
-        #region ToRelativeDateString(this DateTimeOffset value, RelativeDateFormattingOptions options)
         /// <summary>
         /// Convert a <see cref="DateTimeOffset"/> object to a relative date
         /// (e.g., Today, tomorrow, yesterday) string format.
@@ -704,13 +622,7 @@ namespace Cadru.Extensions
 
             return format;
         }
-        #endregion
 
-        #endregion
-
-        #region ToRelativeTimeString
-
-        #region ToRelativeTimeString(this DateTimeOffset value)
         /// <summary>
         /// Convert a <see cref="DateTimeOffset"/> object to a relative time
         /// (e.g., now, 2 days ago, 3 days from now) string format.
@@ -721,9 +633,7 @@ namespace Cadru.Extensions
         {
             return ToRelativeTimeString(value, DateTimeOffset.Now);
         }
-        #endregion
 
-        #region ToRelativeTimeString(this DateTimeOffset value, DateTimeOffset baseDate)
         /// <summary>
         /// Convert a <see cref="DateTimeOffset"/> object to a relative time
         /// (e.g., now, 2 days ago, 3 days from now) string format.
@@ -789,11 +699,7 @@ namespace Cadru.Extensions
 
             return format;
         }
-        #endregion
 
-        #endregion
-
-        #region Yesterday
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> representing the day before
         /// the date represented by this instance.
@@ -805,16 +711,11 @@ namespace Cadru.Extensions
         {
             return value.AddDays(-1);
         }
-        #endregion
 
-        #region DaysBetween
         private static int DaysBetween(DayOfWeek current, DayOfWeek firstDayOfWeek)
         {
             var days = current - firstDayOfWeek;
             return days < 0 ? days + 7 : days;
         }
-        #endregion
-
-        #endregion
     }
 }

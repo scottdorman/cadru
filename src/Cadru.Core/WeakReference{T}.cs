@@ -2,7 +2,7 @@
 // <copyright file="WeakReference{T}.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,10 +20,10 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace Cadru
 {
-    using System;
-
     /// <summary>
     /// Represents a weak reference, which references an object while still allowing
     /// that object to be reclaimed by garbage collection.
@@ -32,15 +32,6 @@ namespace Cadru
     public class WeakReference<T> : WeakReference
         where T : class
     {
-        #region fields
-        #endregion
-
-        #region events
-        #endregion
-
-        #region constructors
-
-        #region WeakReference(T target)
         /// <summary>
         /// Initializes a new instance of the <see cref="WeakReference{T}"/> class, referencing
         /// the specified object.
@@ -50,9 +41,7 @@ namespace Cadru
             : base(target)
         {
         }
-        #endregion
 
-        #region WeakReference(T target, bool trackResurrection)
         /// <summary>
         /// Initializes a new instance of the <see cref="WeakReference{T}"/> class, referencing
         /// the specified object and using the specified resurrection tracking.
@@ -66,13 +55,7 @@ namespace Cadru
             : base(target, trackResurrection)
         {
         }
-        #endregion
 
-        #endregion
-
-        #region properties
-
-        #region Target
         /// <summary>
         /// Gets or sets the object (the target) referenced by the current
         /// <see cref="WeakReference{T}"/> object.
@@ -88,21 +71,8 @@ namespace Cadru
         /// </exception>
         public new T Target
         {
-            get
-            {
-                return (T)base.Target;
-            }
-
-            set
-            {
-                base.Target = value;
-            }
+            get => (T)base.Target;
+            set => base.Target = value;
         }
-        #endregion
-
-        #endregion
-
-        #region methods
-        #endregion
     }
 }

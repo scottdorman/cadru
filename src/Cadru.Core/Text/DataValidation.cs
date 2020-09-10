@@ -2,7 +2,7 @@
 // <copyright file="DataValidation.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,50 +20,17 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Globalization;
+using System.Text.RegularExpressions;
+
 namespace Cadru.Text
 {
-    using System;
-    using System.Globalization;
-    using System.Text.RegularExpressions;
-
     /// <summary>
     /// Provides basic routines for common data validation.
     /// </summary>
     public static class DataValidation
     {
-        #region fields
-        #endregion
-
-        #region constructors
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methods
-
-        #region Validate
-        /// <summary>
-        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/> matches the
-        /// regular expression pattern <paramref name="pattern"/>.
-        /// </summary>
-        /// <param name="expression">Any string expression.</param>
-        /// <param name="pattern">The regular expression pattern to match against.</param>
-        /// <returns><see cref="Validate"/> returns <see langword="true" /> if <paramref name="expression"/> matches the pattern;
-        /// otherwise it returns <see langword="false" />.</returns>
-        public static bool Validate(this string expression, string pattern)
-        {
-            return Regex.IsMatch(expression, pattern, RegexOptions.CultureInvariant);
-        }
-
-        #endregion
-
-        #region IsAlpha
-
-        #region IsAlpha(char expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// contains alphabetic characters.
@@ -77,9 +44,7 @@ namespace Cadru.Text
         {
             return Char.IsLetter(expression) || Char.IsPunctuation(expression) || CharUnicodeInfo.GetUnicodeCategory(expression) == UnicodeCategory.SpaceSeparator;
         }
-        #endregion
 
-        #region IsAlpha(string expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// contains alphabetic characters.
@@ -106,13 +71,7 @@ namespace Cadru.Text
 
             return success;
         }
-        #endregion
 
-        #endregion
-
-        #region IsAlphanumeric
-
-        #region IsAlphanumeric(char expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// contains alphabetic and numeric characters.
@@ -127,9 +86,7 @@ namespace Cadru.Text
         {
             return Char.IsLetter(expression) || Char.IsNumber(expression) || Char.IsPunctuation(expression) || CharUnicodeInfo.GetUnicodeCategory(expression) == UnicodeCategory.SpaceSeparator;
         }
-        #endregion
 
-        #region IsAlphanumeric(string expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// contains alphabetic and numeric characters.
@@ -157,13 +114,7 @@ namespace Cadru.Text
 
             return success;
         }
-        #endregion
 
-        #endregion
-
-        #region IsCurrency
-
-        #region IsCurrency(string expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// contains a valid currency string.
@@ -175,9 +126,7 @@ namespace Cadru.Text
         {
             return IsCurrency(expression, NumberFormatInfo.CurrentInfo);
         }
-        #endregion
 
-        #region IsCurrency(string expression, IFormatProvider provider)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// contains a valid currency string.
@@ -189,15 +138,9 @@ namespace Cadru.Text
         /// currency string; otherwise it returns <see langword="false" />.</returns>
         public static bool IsCurrency(this string expression, IFormatProvider provider)
         {
-            return Double.TryParse(expression, NumberStyles.Currency, provider, out var tmp);
+            return Double.TryParse(expression, NumberStyles.Currency, provider, out _);
         }
-        #endregion
 
-        #endregion
-
-        #region IsDate
-
-        #region IsDate(string expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/> can be
         /// converted to a date.
@@ -227,9 +170,7 @@ namespace Cadru.Text
         {
             return IsDate(expression, DateTimeFormatInfo.InvariantInfo, DateTimeStyles.None);
         }
-        #endregion
 
-        #region IsDate(string expression, IFormatProvider provider)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/> can be
         /// converted to a date.
@@ -260,9 +201,7 @@ namespace Cadru.Text
         {
             return IsDate(expression, provider, DateTimeStyles.None);
         }
-        #endregion
 
-        #region IsDate(string expression, IFormatProvider provider, DateTimeStyles styles)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/> can be
         /// converted to a date.
@@ -295,15 +234,9 @@ namespace Cadru.Text
         /// </code></example>
         public static bool IsDate(this string expression, IFormatProvider provider, DateTimeStyles styles)
         {
-            return DateTime.TryParse(expression, provider, styles, out var tmp);
+            return DateTime.TryParse(expression, provider, styles, out _);
         }
-        #endregion
 
-        #endregion
-
-        #region IsHexadecimal
-
-        #region IsHexadecimal(char expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// contains hexadecimal characters.
@@ -318,9 +251,7 @@ namespace Cadru.Text
             var pattern = @"^[0-9A-Fa-f]+$";
             return Validate(Convert.ToString(expression, CultureInfo.InvariantCulture), pattern);
         }
-        #endregion
 
-        #region IsHexadecimal(string expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// contains hexadecimal characters.
@@ -335,13 +266,7 @@ namespace Cadru.Text
             var pattern = @"^[0-9A-Fa-f]+$";
             return Validate(expression, pattern);
         }
-        #endregion
 
-        #endregion
-
-        #region IsNumeric
-
-        #region IsNumeric(char expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// contains only numbers.
@@ -354,9 +279,7 @@ namespace Cadru.Text
         {
             return Char.IsNumber(expression);
         }
-        #endregion
 
-        #region IsNumeric(string expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// contains only numbers.
@@ -369,9 +292,7 @@ namespace Cadru.Text
         {
             return IsNumeric(expression, NumberFormatInfo.CurrentInfo);
         }
-        #endregion
 
-        #region IsNumeric(string expression, IFormatProvider provider)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// contains only numbers.
@@ -384,15 +305,9 @@ namespace Cadru.Text
         /// <remarks>Numeric characters are 0-9.</remarks>
         public static bool IsNumeric(this string expression, IFormatProvider provider)
         {
-            return Int64.TryParse(expression, NumberStyles.Number, provider, out var tmp);
+            return Int64.TryParse(expression, NumberStyles.Number, provider, out _);
         }
-        #endregion
 
-        #endregion
-
-        #region IsStrictlyAlpha
-
-        #region IsStrictlyAlpha(char expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// contains only alphabetic characters.
@@ -405,9 +320,7 @@ namespace Cadru.Text
         {
             return Char.IsLetter(expression);
         }
-        #endregion
 
-        #region IsStrictlyAlpha(string expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// contains only alphabetic characters.
@@ -433,13 +346,7 @@ namespace Cadru.Text
 
             return success;
         }
-        #endregion
 
-        #endregion
-
-        #region IsStrictlyAlphanumeric
-
-        #region IsStrictlyAlphanumeric(char expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// contains only alphabetic and numeric characters.
@@ -453,9 +360,7 @@ namespace Cadru.Text
         {
             return Char.IsLetter(expression) || Char.IsNumber(expression);
         }
-        #endregion
 
-        #region IsStrictlyAlphanumeric(string expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// contains only alphabetic and numeric characters.
@@ -482,13 +387,7 @@ namespace Cadru.Text
 
             return success;
         }
-        #endregion
 
-        #endregion
-
-        #region IsValidFileName
-
-        #region IsValidFileName(string expression)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// contains a valid file name.
@@ -500,9 +399,7 @@ namespace Cadru.Text
         {
             return IsValidFileName(expression, false);
         }
-        #endregion
 
-        #region IsValidFileName(string expression, bool platformIndependant)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/>
         /// contains a valid file name.
@@ -523,10 +420,18 @@ namespace Cadru.Text
 
             return Validate(Convert.ToString(expression, CultureInfo.InvariantCulture), pattern);
         }
-        #endregion
 
-        #endregion
-
-        #endregion
+        /// <summary>
+        /// Returns a <see cref="Boolean"/> expression indicating whether <paramref name="expression"/> matches the
+        /// regular expression pattern <paramref name="pattern"/>.
+        /// </summary>
+        /// <param name="expression">Any string expression.</param>
+        /// <param name="pattern">The regular expression pattern to match against.</param>
+        /// <returns><see cref="Validate"/> returns <see langword="true" /> if <paramref name="expression"/> matches the pattern;
+        /// otherwise it returns <see langword="false" />.</returns>
+        public static bool Validate(this string expression, string pattern)
+        {
+            return Regex.IsMatch(expression, pattern, RegexOptions.CultureInvariant);
+        }
     }
 }

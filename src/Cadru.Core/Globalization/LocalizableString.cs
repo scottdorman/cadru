@@ -2,7 +2,7 @@
 // <copyright file="LocalizableString.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,50 +20,45 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Globalization;
+using System.Reflection;
+
+using Cadru.Contracts;
+using Cadru.Resources;
+
 namespace Cadru.Globalization
 {
-    using System;
-    using System.Globalization;
-    using System.Reflection;
-
-    using Cadru.Resources;
-
-    using Contracts;
-
     /// <summary>
     /// A helper class for providing a localizable string property.
     /// </summary>
     public class LocalizableString
     {
-        #region fields
         private readonly string propertyName;
-        private string propertyValue;
-        private Type resourceType;
-        private Func<string> cachedResult;
-        #endregion
+        private Func<string?>? cachedResult;
+        private string? propertyValue;
+        private Type? resourceType;
 
-        #region constructors
         /// <summary>
-        /// Initializes a new instance of the <see cref="LocalizableString"/> class.
+        ///     Constructs a localizable string, specifying the property name associated
+        ///     with this item.  The <paramref name="propertyName" /> value will be used
+        ///     within any exceptions thrown as a result of localization failures.
         /// </summary>
-        /// <param name="propertyName">The name of the property being localized.
-        /// This name will be used within exceptions thrown as a result of
-        /// localization failures.</param>
+        /// <param name="propertyName">
+        ///     The name of the property being localized.  This name
+        ///     will be used within exceptions thrown as a result of localization failures.
+        /// </param>
         public LocalizableString(string propertyName)
         {
             Requires.NotNullOrWhiteSpace(propertyName, nameof(propertyName));
 
             this.propertyName = propertyName;
         }
-        #endregion
 
-        #region properties
-
-        #region ResourceType
         /// <summary>
-        /// Gets or sets the resource type to be used for localization.
+        ///     Gets or sets the resource type to be used for localization.
         /// </summary>
-        public Type ResourceType
+        public Type? ResourceType
         {
             get => this.resourceType;
             set
@@ -75,17 +70,13 @@ namespace Cadru.Globalization
                 }
             }
         }
-        #endregion
 
-        #region Value
         /// <summary>
-        /// Gets or sets the value of this localizable string.
+        ///     Gets or sets the value of this localizable string.  This value can be
+        ///     either the literal, non-localized value, or it can be a resource name
+        ///     found on the resource type supplied to <see cref="GetLocalizableValue" />.
         /// </summary>
-        /// <remarks>This value can be either the literal,
-        /// non-localized value, or it can be a resource name
-        /// found on the resource type supplied to
-        /// <see cref="GetLocalizableValue"/>.</remarks>
-        public string Value
+        public string? Value
         {
             get => this.propertyValue;
             set
@@ -97,69 +88,28 @@ namespace Cadru.Globalization
                 }
             }
         }
-        #endregion
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
-        ///     Clears any cached values, forcing <see cref="GetLocalizableValue" /> to
-        ///     perform evaluation.
-        /// </summary>
-        private void ClearCache()
-        {
-            this.cachedResult = null;
-        }
-
-        #region IsBadlyConfigured
-        private static bool IsBadlyConfigured(Type resourceType, PropertyInfo property)
-        {
-            // We need to detect bad configurations so that we can throw exceptions accordingly
-            var badlyConfigured = false;
-
-            // Make sure we found the property and it's the correct type, and that the type itself is public
-            if (!resourceType.GetTypeInfo().IsVisible || property == null || property.PropertyType != typeof(string))
-            {
-                badlyConfigured = true;
-            }
-            else
-            {
-                // Ensure the getter for the property is available as public static
-                var getter = property.GetMethod;
-                if (getter == null || !(getter.IsPublic && getter.IsStatic))
-                {
-                    badlyConfigured = true;
-                }
-            }
-
-            return badlyConfigured;
-        }
-        #endregion
-
-        #region GetLocalizableValue
-        /// <summary>
-        /// Gets the potentially localized value.
+        ///     Gets the potentially localized value.
         /// </summary>
         /// <remarks>
-        /// If <see cref="ResourceType"/> has been specified and <see cref="Value"/> is not
-        /// null, then localization will occur and the localized value will be returned.
-        /// <para>
-        /// If <see cref="ResourceType"/> is null then <see cref="Value"/> will be returned
-        /// as a literal, non-localized string.
-        /// </para>
+        ///     If <see cref="ResourceType" /> has been specified and <see cref="Value" /> is not
+        ///     null, then localization will occur and the localized value will be returned.
+        ///     <para>
+        ///         If <see cref="ResourceType" /> is null then <see cref="Value" /> will be returned
+        ///         as a literal, non-localized string.
+        ///     </para>
         /// </remarks>
-        /// <exception cref="InvalidOperationException">
-        /// Thrown if localization fails. This can occur if <see cref="ResourceType"/> has been
-        /// specified, <see cref="Value"/> is not null, but the resource could not be
-        /// accessed.  <see cref="ResourceType"/> must be a public class, and <see cref="Value"/>
-        /// must be the name of a public static string property that contains a getter.
+        /// <exception cref="System.InvalidOperationException">
+        ///     Thrown if localization fails.  This can occur if <see cref="ResourceType" /> has been
+        ///     specified, <see cref="Value" /> is not null, but the resource could not be
+        ///     accessed.  <see cref="ResourceType" /> must be a public class, and <see cref="Value" />
+        ///     must be the name of a public static string property that contains a getter.
         /// </exception>
         /// <returns>
-        /// Returns the potentially localized value.
+        ///     Returns the potentially localized value.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
-        public string GetLocalizableValue()
+        public string? GetLocalizableValue()
         {
             if (this.cachedResult == null)
             {
@@ -174,24 +124,51 @@ namespace Cadru.Globalization
                     // Get the property from the resource type for this resource key
                     var property = this.resourceType.GetRuntimeProperty(this.propertyValue);
 
-                    if (IsBadlyConfigured(this.resourceType, property))
+                    // We need to detect bad configurations so that we can throw exceptions accordingly
+                    var badlyConfigured = false;
+
+                    // Make sure we found the property and it's the correct type, and that the type itself is public
+                    if (!this.resourceType.GetTypeInfo().IsVisible || property == null ||
+                        property.PropertyType != typeof(string))
+                    {
+                        badlyConfigured = true;
+                    }
+                    else
+                    {
+                        // Ensure the getter for the property is available as public static
+                        var getter = property.GetMethod;
+                        if (getter == null || !(getter.IsPublic && getter.IsStatic))
+                        {
+                            badlyConfigured = true;
+                        }
+                    }
+
+                    // If the property is not configured properly, then throw a missing member exception
+                    if (badlyConfigured)
                     {
                         var exceptionMessage = String.Format(CultureInfo.CurrentCulture, Strings.InvalidOperation_LocalizationFailed,
-                            this.propertyName, this.resourceType.FullName, this.propertyValue);
+                             this.propertyName, this.resourceType.FullName, this.propertyValue);
                         this.cachedResult = () => { throw new InvalidOperationException(exceptionMessage); };
                     }
                     else
                     {
                         // We have a valid property, so cache the resource
-                        this.cachedResult = () => (string)property.GetValue(null, null);
+                        this.cachedResult = () => (string?)property!.GetValue(null, null);
                     }
                 }
             }
 
+            // Return the cached result
             return this.cachedResult();
         }
-        #endregion
 
-        #endregion
+        /// <summary>
+        ///     Clears any cached values, forcing <see cref="GetLocalizableValue" /> to
+        ///     perform evaluation.
+        /// </summary>
+        private void ClearCache()
+        {
+            this.cachedResult = null;
+        }
     }
 }

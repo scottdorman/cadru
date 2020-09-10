@@ -2,7 +2,7 @@
 // <copyright file="DateTimeExtensions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,38 +20,44 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+
+using Cadru.Internal;
+using Cadru.Resources;
+using Cadru.Text;
+
 namespace Cadru.Extensions
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Linq;
-
-    using Cadru.Internal;
-    using Cadru.Resources;
-    using Cadru.Text;
-
     /// <summary>
     /// Provides basic routines for common DateTime manipulation.
     /// </summary>
     public static class DateTimeExtensions
     {
-        #region fields
         private static readonly TimeSpan UtcOffset = new TimeSpan(0, 0, 0);
-        #endregion
 
-        #region constructors
-        #endregion
+        /// <summary>
+        /// Returns a new <see cref="DateTime"/> that adds the specified number of
+        /// quarters to the value of this instance.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <param name="value">A number of whole and fractional quarters.
+        /// The <paramref name="value"/> parameter can be negative or positive.</param>
+        /// <returns>A <see cref="DateTime"/> whose value is the sum of the
+        /// date and time represented by this instance and the number of quarters
+        /// represented by <paramref name="value"/>.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// The resulting <see cref="DateTime"/> is less than
+        /// <see cref="DateTime.MinValue"/> or greater than
+        /// <see cref="DateTime.MaxValue"/>.
+        /// </exception>
+        public static DateTime AddQuarters(this DateTime date, double value)
+        {
+            return date.AddMonths(checked((int)value * 3));
+        }
 
-        #region events
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methods
-
-        #region AddWeekdays
         /// <summary>
         /// Returns a new <see cref="DateTime"/> that adds the specified number of
         /// weekdays to the value of this instance.
@@ -82,31 +88,7 @@ namespace Cadru.Extensions
 
             return date;
         }
-        #endregion
 
-        #region AddQuarters
-        /// <summary>
-        /// Returns a new <see cref="DateTime"/> that adds the specified number of
-        /// quarters to the value of this instance.
-        /// </summary>
-        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
-        /// <param name="value">A number of whole and fractional quarters.
-        /// The <paramref name="value"/> parameter can be negative or positive.</param>
-        /// <returns>A <see cref="DateTime"/> whose value is the sum of the
-        /// date and time represented by this instance and the number of quarters
-        /// represented by <paramref name="value"/>.</returns>
-        /// <exception cref="System.ArgumentOutOfRangeException">
-        /// The resulting <see cref="DateTime"/> is less than
-        /// <see cref="DateTime.MinValue"/> or greater than
-        /// <see cref="DateTime.MaxValue"/>.
-        /// </exception>
-        public static DateTime AddQuarters(this DateTime date, double value)
-        {
-            return date.AddMonths(checked((int)value * 3));
-        }
-        #endregion
-
-        #region AddWeeks
         /// <summary>
         /// Returns a new <see cref="DateTime"/> that adds the specified number of
         /// weeks to the value of this instance.
@@ -126,11 +108,7 @@ namespace Cadru.Extensions
         {
             return date.AddDays(value * 7);
         }
-        #endregion
 
-        #region Between
-
-        #region Between(this DateTime date, DateTime start, DateTime end)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// the current <see cref="DateTime"/> instance is between the
@@ -146,9 +124,7 @@ namespace Cadru.Extensions
         {
             return Between(date, start, end, true);
         }
-        #endregion
 
-        #region Between(this DateTime date, DateTime start, DateTime end, bool includeTime)
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether
         /// the current <see cref="DateTime"/> instance is between the
@@ -168,11 +144,7 @@ namespace Cadru.Extensions
                date >= start && date <= end :
                date.Date >= start.Date && date.Date <= end.Date;
         }
-        #endregion
 
-        #endregion
-
-        #region DaysInMonth
         /// <summary>
         /// Returns the number of days in the month for the date represented by this instance.
         /// </summary>
@@ -182,9 +154,7 @@ namespace Cadru.Extensions
         {
             return DateTime.DaysInMonth(date.Year, date.Month);
         }
-        #endregion
 
-        #region Elapsed
         /// <summary>
         /// Returns the elapsed time between the date represented by this instance
         /// and the current date and time.
@@ -195,11 +165,23 @@ namespace Cadru.Extensions
         /// current date and time.</returns>
         public static TimeSpan Elapsed(this DateTime date)
         {
-            return DateTime.Now - date;
+            return date.Elapsed(DateTime.Now);
         }
-        #endregion
 
-        #region FirstDayOfMonth
+        /// <summary>
+        /// Returns the elapsed time between the date represented by this instance
+        /// and the given date and time.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <param name="startDate">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns>A <see cref="TimeSpan"/> representing the elapsed
+        /// time between the date represented by this instance and the
+        /// current date and time.</returns>
+        public static TimeSpan Elapsed(this DateTime date, DateTime startDate)
+        {
+            return startDate - date;
+        }
+
         /// <summary>
         /// Returns a <see cref="DateTime"/> representing the
         /// first day of the month for the date represented by this instance.
@@ -212,9 +194,7 @@ namespace Cadru.Extensions
             var firstDate = new DateTime(date.Year, date.Month, 1);
             return firstDate;
         }
-        #endregion
 
-        #region FirstDayOfNextQuarter
         /// <summary>
         /// Returns a <see cref="DateTime"/> which represents the
         /// first day of the next quarter of the date represented by this instance.
@@ -226,9 +206,7 @@ namespace Cadru.Extensions
         {
             return date.FirstDayOfQuarter().AddMonths(3);
         }
-        #endregion
 
-        #region FirstDayOfQuarter
         /// <summary>
         /// Returns a <see cref="DateTime"/> which represents the
         /// first day of the quarter of the date represented by this instance.
@@ -240,9 +218,7 @@ namespace Cadru.Extensions
         {
             return new DateTime(date.Year, ((date.Quarter() - 1) * 3) + 1, 1);
         }
-        #endregion
 
-        #region FirstDayOfWeek
         /// <summary>
         /// Returns a <see cref="DateTime"/> which represents the
         /// first day of the week of the date represented by this instance.
@@ -273,9 +249,7 @@ namespace Cadru.Extensions
 
             return date.AddDays(-1 * diff).Date;
         }
-        #endregion
 
-        #region FirstDayOfYear
         /// <summary>
         /// Returns a <see cref="DateTime"/> representing the
         /// first day of the year for the date represented by this instance.
@@ -287,9 +261,7 @@ namespace Cadru.Extensions
         {
             return new DateTime(date.Year, 1, 1);
         }
-        #endregion
 
-        #region GetAbbreviatedMonthName
         /// <summary>
         /// Returns the culture-specific abbreviated name of the month represented by this instance.
         /// </summary>
@@ -299,9 +271,7 @@ namespace Cadru.Extensions
         {
             return DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month);
         }
-        #endregion
 
-        #region GetAbbreviatedMonthNames
         /// <summary>
         /// Returns the culture-specific abbreviated names of the months.
         /// </summary>
@@ -311,9 +281,7 @@ namespace Cadru.Extensions
         {
             return CultureInfo.CurrentCulture.DateTimeFormat.AbbreviatedMonthNames.Where(m => !String.IsNullOrEmpty(m)).ToList();
         }
-        #endregion
 
-        #region GetDayOfWeek
         /// <summary>
         /// Returns a <see cref="DateTime"/> representing the
         /// day of the week from the date represented by this instance.
@@ -344,9 +312,7 @@ namespace Cadru.Extensions
             var resultday = DaysBetween(day, startOfWeek);
             return date.AddDays(resultday - current);
         }
-        #endregion
 
-        #region GetMonthName
         /// <summary>
         /// Returns the culture-specific name of the month represented by this instance.
         /// </summary>
@@ -356,9 +322,7 @@ namespace Cadru.Extensions
         {
             return DateTimeFormatInfo.CurrentInfo.GetMonthName(date.Month);
         }
-        #endregion
 
-        #region GetMonthNames
         /// <summary>
         /// Returns the culture-specific names of the months.
         /// </summary>
@@ -368,9 +332,7 @@ namespace Cadru.Extensions
         {
             return CultureInfo.CurrentCulture.DateTimeFormat.MonthNames.Where(m => !String.IsNullOrEmpty(m)).ToList();
         }
-        #endregion
 
-        #region GetMonthNumber
         /// <summary>
         /// Returns the month number for the given month name.
         /// </summary>
@@ -383,11 +345,7 @@ namespace Cadru.Extensions
             var months = abbreviated ? GetAbbreviatedMonthNames() : GetMonthNames();
             return months.IndexOf(name) + 1;
         }
-        #endregion
 
-        #region GetWeekOfYear
-
-        #region GetWeekOfYear(this DateTime time)
         /// <summary>
         /// Returns the week of the year that includes the date in the specified DateTime value.
         /// </summary>
@@ -398,9 +356,7 @@ namespace Cadru.Extensions
         {
             return GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek);
         }
-        #endregion
 
-        #region GetWeekOfYear(this DateTime time, CalendarWeekRule rule)
         /// <summary>
         /// Returns the week of the year that includes the date in the specified DateTime value.
         /// </summary>
@@ -412,9 +368,7 @@ namespace Cadru.Extensions
         {
             return GetWeekOfYear(time, rule, CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek);
         }
-        #endregion
 
-        #region GetWeekOfYear(this DateTime time, CalendarWeekRule rule, DayOfWeek firstDayOfWeek)
         /// <summary>
         /// Returns the week of the year that includes the date in the specified DateTime value.
         /// </summary>
@@ -427,37 +381,7 @@ namespace Cadru.Extensions
         {
             return CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(time, rule, firstDayOfWeek);
         }
-        #endregion
 
-        #endregion
-
-        #region IsLeapYear
-        /// <summary>
-        /// Determines whether the specified date is a leap year.
-        /// </summary>
-        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
-        /// <returns><see langword="true"/> if the specified date is a leap year;
-        /// otherwise, <see langword="false"/>.</returns>
-        public static bool IsLeapYear(this DateTime date)
-        {
-            return DateTime.IsLeapYear(date.Year);
-        }
-        #endregion
-
-        #region IsLeapMonth
-        /// <summary>
-        /// Determines whether the specified date is a leap month.
-        /// </summary>
-        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
-        /// <returns><see langword="true"/> if the specified date is a leap month;
-        /// otherwise, <see langword="false"/>.</returns>
-        public static bool IsLeapMonth(this DateTime date)
-        {
-            return CultureInfo.CurrentCulture.Calendar.IsLeapMonth(date.Year, date.Month);
-        }
-        #endregion
-
-        #region IsLeapDay
         /// <summary>
         /// Determines whether the specified date is a leap day.
         /// </summary>
@@ -468,35 +392,29 @@ namespace Cadru.Extensions
         {
             return CultureInfo.CurrentCulture.Calendar.IsLeapDay(date.Year, date.Month, date.Day);
         }
-        #endregion
 
-        #region IsWeekday
         /// <summary>
-        /// Determines whether the specified date is a week day.
+        /// Determines whether the specified date is a leap month.
         /// </summary>
         /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
-        /// <returns><see langword="true"/> if the specified date is a week day;
+        /// <returns><see langword="true"/> if the specified date is a leap month;
         /// otherwise, <see langword="false"/>.</returns>
-        public static bool IsWeekday(this DateTime date)
+        public static bool IsLeapMonth(this DateTime date)
         {
-            return !date.IsWeekend();
+            return CultureInfo.CurrentCulture.Calendar.IsLeapMonth(date.Year, date.Month);
         }
-        #endregion
 
-        #region IsWeekend
         /// <summary>
-        /// Determines whether the specified date is a weekend.
+        /// Determines whether the specified date is a leap year.
         /// </summary>
         /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
-        /// <returns><see langword="true"/> if the specified date is a weekend;
+        /// <returns><see langword="true"/> if the specified date is a leap year;
         /// otherwise, <see langword="false"/>.</returns>
-        public static bool IsWeekend(this DateTime date)
+        public static bool IsLeapYear(this DateTime date)
         {
-            return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
+            return DateTime.IsLeapYear(date.Year);
         }
-        #endregion
 
-        #region IsUtcDateTime
         /// <summary>
         /// Determines whether he specified date is a UTC date.
         /// </summary>
@@ -507,9 +425,29 @@ namespace Cadru.Extensions
         {
             return date.Kind == DateTimeKind.Utc && TimeZoneInfo.Utc.GetUtcOffset(date) == UtcOffset;
         }
-        #endregion
 
-        #region Last
+        /// <summary>
+        /// Determines whether the specified date is a week day.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns><see langword="true"/> if the specified date is a week day;
+        /// otherwise, <see langword="false"/>.</returns>
+        public static bool IsWeekday(this DateTime date)
+        {
+            return !date.IsWeekend();
+        }
+
+        /// <summary>
+        /// Determines whether the specified date is a weekend.
+        /// </summary>
+        /// <param name="date">A valid <see cref="DateTime"/> instance.</param>
+        /// <returns><see langword="true"/> if the specified date is a weekend;
+        /// otherwise, <see langword="false"/>.</returns>
+        public static bool IsWeekend(this DateTime date)
+        {
+            return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
+        }
+
         /// <summary>
         /// Return a <see cref="DateTime"/> representing the previous day of
         /// the week.
@@ -525,9 +463,7 @@ namespace Cadru.Extensions
             var diff = (day - yesterday.DayOfWeek - 7) % 7;
             return yesterday.AddDays(diff);
         }
-        #endregion
 
-        #region LastDayOfMonth
         /// <summary>
         /// Returns a <see cref="DateTime"/> representing the
         /// last day of the month for the date represented by this instance.
@@ -539,9 +475,7 @@ namespace Cadru.Extensions
         {
             return new DateTime(date.Year, date.Month, date.DaysInMonth());
         }
-        #endregion
 
-        #region LastDayOfQuarter
         /// <summary>
         /// Returns a <see cref="DateTime"/> which represents the
         /// last day of the quarter of the date represented by this instance.
@@ -553,9 +487,7 @@ namespace Cadru.Extensions
         {
             return date.FirstDayOfNextQuarter().AddDays(-1);
         }
-        #endregion
 
-        #region LastDayOfWeek
         /// <summary>
         /// Returns a <see cref="DateTime"/> which represents the
         /// last day of the week of the date represented by this instance.
@@ -580,9 +512,7 @@ namespace Cadru.Extensions
         {
             return date.FirstDayOfWeek(firstDayOfWeek).AddDays(6);
         }
-        #endregion
 
-        #region LastDayOfYear
         /// <summary>
         /// Returns a <see cref="DateTime"/> representing the
         /// last day of the year for the date represented by this instance.
@@ -594,9 +524,7 @@ namespace Cadru.Extensions
         {
             return new DateTime(date.Year, 12, 31);
         }
-        #endregion
 
-        #region Next
         /// <summary>
         /// Return a <see cref="DateTime"/> representing the next day of
         /// the week.
@@ -612,9 +540,7 @@ namespace Cadru.Extensions
             var diff = (day - tomorrow.DayOfWeek + 7) % 7;
             return tomorrow.AddDays(diff <= 0 ? diff + 7 : diff);
         }
-        #endregion
 
-        #region Quarter
         /// <summary>
         /// Returns the quarter component of the date represented by this instance.
         /// </summary>
@@ -624,9 +550,24 @@ namespace Cadru.Extensions
         {
             return ((date.Month - 1) / 3) + 1;
         }
-        #endregion
 
-        #region Tomorrow
+        /// <summary>
+        /// Returns a <see cref="DateTime"/> equivalent to the specified
+        /// serial date.
+        /// </summary>
+        /// <param name="serialDateValue">A serial date value.</param>
+        /// <returns>A <see cref="DateTime"/> representing the same date
+        /// and time as <paramref name="serialDateValue"/>.</returns>
+        public static DateTime ToDateTime(this double serialDateValue)
+        {
+            if (serialDateValue.TryParseFromSerialDate(out var result))
+            {
+                return result;
+            }
+
+            throw new ArgumentOutOfRangeException(nameof(serialDateValue), Strings.ArgumentOutOfRange_DateTimeBadTicks);
+        }
+
         /// <summary>
         /// Returns a <see cref="DateTime"/> representing the day after
         /// the date represented by this instance.
@@ -638,11 +579,7 @@ namespace Cadru.Extensions
         {
             return value.AddDays(1);
         }
-        #endregion
 
-        #region ToRelativeDateString
-
-        #region ToRelativeDateString(this DateTime value)
         /// <summary>
         /// Convert a <see cref="DateTime"/> object to a relative date
         /// (e.g., Today, tomorrow, yesterday) string format.
@@ -653,9 +590,7 @@ namespace Cadru.Extensions
         {
             return ToRelativeDateString(value, RelativeDateFormatting.DayNames);
         }
-        #endregion
 
-        #region ToRelativeDateString(this DateTime value, RelativeDateFormattingOptions options)
         /// <summary>
         /// Convert a <see cref="DateTime"/> object to a relative date
         /// (e.g., Today, tomorrow, yesterday) string format.
@@ -704,13 +639,7 @@ namespace Cadru.Extensions
 
             return format;
         }
-        #endregion
 
-        #endregion
-
-        #region ToRelativeTimeString
-
-        #region ToRelativeTimeString(this DateTime value)
         /// <summary>
         /// Convert a <see cref="DateTime"/> object to a relative time
         /// (e.g., now, 2 days ago, 3 days from now) string format.
@@ -721,9 +650,7 @@ namespace Cadru.Extensions
         {
             return ToRelativeTimeString(value, DateTime.Now);
         }
-        #endregion
 
-        #region ToRelativeTimeString(this DateTime value, DateTime baseDate)
         /// <summary>
         /// Convert a <see cref="DateTime"/> object to a relative time
         /// (e.g., now, 2 days ago, 3 days from now) string format.
@@ -789,11 +716,63 @@ namespace Cadru.Extensions
 
             return format;
         }
-        #endregion
 
-        #endregion
+        /// <summary>
+        /// Converts the specified floating-point number into its <see
+        /// cref="DateTime"/> equivalent and returns a value that indicates
+        /// whether the conversion succeeded.
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="result">When this method returns, contains the <see
+        /// cref="DateTime"/> value equivalent to the date and time contained in
+        /// <paramref name="d"/>, if the conversion succeeded, or <see
+        /// cref="DateTime.MinValue"/> if the conversion failed. The conversion
+        /// fails if does not contain a valid floating-point representation of a
+        /// date and time. This parameter is passed uninitialized.</param>
+        /// <returns><see langword="true"/> if the s parameter was converted
+        /// successfully; otherwise, <see langword="false"/>.</returns>
+        /// <remarks>
+        /// <para>
+        /// The d parameter is a double-precision floating-point number that
+        /// represents a date as the number of days before or after the base
+        /// date, midnight, 30 December 1899. The sign and integral part of d
+        /// encode the date as a positive or negative day displacement from 30
+        /// December 1899, and the absolute value of the fractional part of d
+        /// encodes the time of day as a fraction of a day displacement from
+        /// midnight. d must be a value between negative 657435.0 through
+        /// positive 2958465.99999999.
+        /// </para>
+        /// <para>
+        /// Note that because of the way dates are encoded, there are two ways
+        /// of representing any time of day on 30 December 1899. For example,
+        /// -0.5 and 0.5 both mean noon on 30 December 1899 because a day
+        /// displacement of plus or minus zero days from the base date is still
+        /// the base date, and a half day displacement from midnight is noon.
+        /// </para>
+        /// </remarks>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
+        public static bool TryParseFromSerialDate(this double d, out DateTime result)
+        {
+            var num = (long)((d * 86400000.0) + ((d >= 0.0) ? 0.5 : -0.5));
+            if (num < 0L)
+            {
+                num -= (num % 0x5265c00L) * 2L;
+            }
 
-        #region Yesterday
+            num += 0x3680b5e1fc00L;
+            num -= 62135596800000L;
+            try
+            {
+                result = new DateTime(num);
+                return true;
+            }
+            catch
+            {
+                result = DateTime.MinValue;
+                return false;
+            }
+        }
+
         /// <summary>
         /// Returns a <see cref="DateTime"/> representing the day before
         /// the date represented by this instance.
@@ -805,75 +784,11 @@ namespace Cadru.Extensions
         {
             return value.AddDays(-1);
         }
-        #endregion
 
-        public static bool TryParseFromSerialDate(this double serialDateValue, out DateTime date)
-        {
-#if NET45
-            try
-            {
-                date = new DateTime.FromOADate(serialDateValue);
-                return true;
-            }
-            catch
-            {
-                date = DateTime.MinValue;
-                return false;
-            }
-#else
-            var num = (long)((serialDateValue * 86400000.0) + ((serialDateValue >= 0.0) ? 0.5 : -0.5));
-            if (num < 0L)
-            {
-                num -= (num % 0x5265c00L) * 2L;
-            }
-            num += 0x3680b5e1fc00L;
-            num -= 62135596800000L;
-            try
-            {
-                date = new DateTime(num);
-                return true;
-            }
-            catch
-            {
-                date = DateTime.MinValue;
-                return false;
-            }
-#endif
-        }
-
-        #region ToDateTime
-        /// <summary>
-        /// Returns a <see cref="DateTime"/> equivalent to the specified
-        /// serial date.
-        /// </summary>
-        /// <param name="serialDateValue">A serial date value.</param>
-        /// <returns>A <see cref="DateTime"/> representing the same date
-        /// and time as <paramref name="serialDateValue"/>.</returns>
-        public static DateTime ToDateTime(this double serialDateValue)
-        {
-#if NET45
-            return DateTime.FromOADate(serialDateValue);
-#else
-            var num = (long)((serialDateValue * 86400000.0) + ((serialDateValue >= 0.0) ? 0.5 : -0.5));
-            if (num < 0L)
-            {
-                num -= (num % 0x5265c00L) * 2L;
-            }
-            num += 0x3680b5e1fc00L;
-            num -= 62135596800000L;
-            return new DateTime(num);
-#endif
-        }
-        #endregion
-
-        #region DaysBetween
         private static int DaysBetween(DayOfWeek current, DayOfWeek firstDayOfWeek)
         {
             var days = current - firstDayOfWeek;
             return days < 0 ? days + 7 : days;
         }
-        #endregion
-
-        #endregion
     }
 }

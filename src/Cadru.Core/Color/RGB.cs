@@ -2,7 +2,7 @@
 // <copyright file="RGB.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,16 +20,34 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
+using Cadru.Resources;
+
 namespace Cadru.Color
 {
-    using System;
-
+    /// <summary>
+    /// The RGB color model.
+    /// </summary>
     public struct RGB
     {
+        /// <summary>
+        /// The color black as an <see cref="RGB"/> value.
+        /// </summary>
         public static readonly RGB Black = new RGB(1, 1, 1);
+
+        /// <summary>
+        /// The color white as an <see cref="RGB"/> value.
+        /// </summary>
 
         public static readonly RGB White = new RGB(255, 255, 255);
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RGB"/> structure.
+        /// </summary>
+        /// <param name="red">The red color component.</param>
+        /// <param name="green">The green color component.</param>
+        /// <param name="blue">The blue color component.</param>
         public RGB(byte red, byte green, byte blue)
         {
             this.Red = red;
@@ -37,6 +55,10 @@ namespace Cadru.Color
             this.Blue = blue;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RGB"/> structure.
+        /// </summary>
+        /// <param name="value">An integer value that represents the color.</param>
         public RGB(int value)
         {
             this.Red = (byte)((value & 0x00ff0000) >> 16);
@@ -44,6 +66,10 @@ namespace Cadru.Color
             this.Blue = (byte)((value & 0x000000ff) >> 0);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RGB"/> structure.
+        /// </summary>
+        /// <param name="hex">A string containing a hexadecimal color representation.</param>
         public RGB(string hex)
         {
             // Hex color values must start with a # and be followed
@@ -51,7 +77,7 @@ namespace Cadru.Color
             // 8 digits, then the color includes an alpha channel.
             if (!hex.StartsWith("#"))
             {
-                throw new InvalidCastException("Unable to convert the given value in to a color.");
+                throw new InvalidCastException(Strings.InvalidCast_Color);
             }
 
             try
@@ -72,33 +98,96 @@ namespace Cadru.Color
             }
             catch (Exception e)
             {
-                throw new InvalidCastException("Unable to convert the given value in to a color.", e);
+                throw new InvalidCastException(Strings.InvalidCast_Color, e);
             }
         }
 
-        public byte Red
-        {
-            get;
-        }
-
-        public byte Green
-        {
-            get;
-        }
-
+        /// <summary>
+        /// The blue color component.
+        /// </summary>
         public byte Blue
         {
             get;
         }
 
-        public override string ToString()
+        /// <summary>
+        /// The green color component.
+        /// </summary>
+        public byte Green
         {
-            return $"rgb({Red},{Green},{Blue})";
+            get;
         }
 
+        /// <summary>
+        /// The red color component.
+        /// </summary>
+        public byte Red
+        {
+            get;
+        }
+
+        /// <inheritdoc/>
+        public static bool operator !=(RGB left, RGB right)
+        {
+            return !left.Equals(right);
+        }
+
+        /// <inheritdoc/>
+        public static bool operator ==(RGB left, RGB right)
+        {
+            return left.Equals(right);
+        }
+
+        /// <inheritdoc/>
+        public override bool Equals(object obj)
+        {
+            if (obj is RGB rgb)
+            {
+                return this.Equals(rgb);
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Indicates whether this instance and a specified object are equal.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns><see langword="true"/> if <paramref name="other"/> and this
+        /// instance represent the same value; otherwise, <see
+        /// langword="false"/>.</returns>
+        public bool Equals(RGB other)
+        {
+            if (this.Red != other.Red)
+            {
+                return false;
+            }
+
+            return this.Green == other.Green && this.Blue == other.Blue;
+        }
+
+        /// <inheritdoc/>
+        public override int GetHashCode()
+        {
+            return this.Red ^ this.Blue ^ this.Green;
+        }
+
+        /// <summary>
+        /// Returns a string representing the color in hex format.
+        /// </summary>
+        /// <returns>A string representing the color in #rrggbb format.</returns>
         public string ToHexString()
         {
             return $"#{this.Red: X2}{this.Green: X2}{this.Blue: X2}";
+        }
+
+        /// <summary>
+        /// Returns a string representing the color in rgb(r,g,b) format.
+        /// </summary>
+        /// <returns>A string representing the color in rgb(r,g,b) format.</returns>
+        public override string ToString()
+        {
+            return $"rgb({this.Red},{this.Green},{this.Blue})";
         }
     }
 }

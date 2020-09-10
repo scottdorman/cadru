@@ -2,7 +2,7 @@
 // <copyright file="CancelEventArgs{T}.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,11 +20,11 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel;
+using System.Runtime.Serialization;
+
 namespace Cadru
 {
-    using System.ComponentModel;
-    using System.Runtime.Serialization;
-
     /// <summary>
     /// <see cref="CancelEventArgs{T}"/> is the base class for classes containing event data
     /// for a cancelable event.
@@ -33,11 +33,8 @@ namespace Cadru
     [DataContract]
     public class CancelEventArgs<T> : CancelEventArgs
     {
-        #region fields
         private readonly T data;
-        #endregion
 
-        #region constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="CancelEventArgs{T}"/> class.
         /// </summary>
@@ -46,24 +43,12 @@ namespace Cadru
         {
             this.data = data;
         }
-        #endregion
 
-        #region events
-        #endregion
-
-        #region properties
         /// <summary>
         /// Gets the event data.
         /// </summary>
         /// <value>The event data.</value>
         [DataMember]
-        public T Data
-        {
-            get { return this.data; }
-        }
-        #endregion
-
-        #region methods
-        #endregion
+        public T Data => this.data;
     }
 }

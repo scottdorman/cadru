@@ -2,7 +2,7 @@
 // <copyright file="NormalizationOptions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,12 +20,14 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
+using Cadru.Extensions;
+
 namespace Cadru.Text
 {
-    using System;
-
     /// <summary>
-    /// Options used by the <see cref="Cadru.Extensions.StringExtensions.Clean(String)"/> methods to
+    /// Options used by the <see cref="StringExtensions.Clean(String)"/> methods to
     /// determine how to normalize a string.
     /// </summary>
     [Flags]

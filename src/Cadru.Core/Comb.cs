@@ -2,7 +2,7 @@
 // <copyright file="Comb.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,16 +20,16 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Runtime.InteropServices;
+using System.Text;
+
+using Cadru.Extensions;
+using Cadru.Internal;
+using Cadru.Resources;
+
 namespace Cadru
 {
-    using System;
-    using System.Runtime.InteropServices;
-    using System.Text;
-
-    using Cadru.Extensions;
-    using Cadru.Internal;
-    using Cadru.Resources;
-
     /// <summary>
     /// Represents a combined globally unique identifier (GUID) and time stamp.
     /// </summary>
@@ -40,9 +40,6 @@ namespace Cadru
     [StructLayout(LayoutKind.Sequential)]
     public partial struct Comb : IFormattable, IComparable, IComparable<Comb>, IEquatable<Comb>
     {
-        #region fields
-
-        #region Empty
         /// <summary>
         /// A read-only instance of <see cref="Comb"/> structure whose value
         /// is all zeros.
@@ -51,23 +48,18 @@ namespace Cadru
         /// <see cref="Comb.Empty"/> field to determine whether a
         /// <see cref="Comb"/> is non-zero.</remarks>
         public static readonly Comb Empty = new Comb(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-        #endregion
 
-        #region MaxDate
         /// <summary>
         /// Represents the greatest possible date and time value which can be
         /// held by a <see cref="Comb"/>.
         /// </summary>
         public static readonly DateTimeOffset MaxDate = new DateTimeOffset(9999, 12, 31, 23, 59, 5, 999, TimeSpan.Zero);
-        #endregion
 
-        #region MinDate
         /// <summary>
         /// Represents the earliest possible date and time value which can be
         /// held by a <see cref="Comb"/>.
         /// </summary>
         public static readonly DateTimeOffset MinDate = new DateTimeOffset(1, 1, 1, 0, 0, 0, TimeSpan.Zero);
-        #endregion
 
         // SQL Server is only accurate to 1/300th of a millisecond, so we need
         // to account for that accuracy limitation in our calculations.
@@ -91,14 +83,7 @@ namespace Cadru
         private readonly byte j;
         private readonly byte k;
         private DateTimeOffset dateTime;
-        #endregion
 
-        #region events
-        #endregion
-
-        #region constructors
-
-        #region Comb(byte[] array)
         /// <summary>
         /// Initializes a new instance of the <see cref="Comb"/> structure
         /// using the specified array of bytes.
@@ -124,9 +109,7 @@ namespace Cadru
             this.k = array[15];
             this.dateTime = this.GetDateTimeOffset();
         }
-        #endregion
 
-        #region Comb(int a, short b, short c, byte[] d)
         /// <summary>
         /// Initializes a new instance of the <see cref="Comb"/> structure using the specified integers and bytes.
         /// </summary>
@@ -158,9 +141,7 @@ namespace Cadru
             this.k = d[7];
             this.dateTime = this.GetDateTimeOffset();
         }
-        #endregion
 
-        #region Comb(int a, short b, short c, byte d, byte e, byte f, byte g, byte h, byte i, byte j, byte k)
         /// <summary>
         /// Initializes a new instance of the <see cref="Comb"/> structure using the specified integers and bytes.
         /// </summary>
@@ -203,9 +184,7 @@ namespace Cadru
             this.k = k;
             this.dateTime = this.GetDateTimeOffset();
         }
-        #endregion
 
-        #region Comb(string value)
         /// <summary>
         /// Initializes a new instance of the <see cref="Comb"/> structure using
         /// the specified integers and byte array.
@@ -237,26 +216,14 @@ namespace Cadru
 
             this = guid;
         }
-        #endregion
 
-        #endregion
-
-        #region properties
-
-        #region DateTime
         /// <summary>
         /// Gets the date and time represented by the current instance.
         /// </summary>
         /// <value>A <see cref="DateTimeOffset"/> containing the data and time
         /// represented by the current instance.</value>
         public DateTimeOffset DateTime => this.dateTime;
-        #endregion
 
-        #endregion
-
-        #region operators
-
-        #region Equality
         /// <summary>
         /// Determines whether two specified <see cref="Comb"/>
         /// objects are equal.
@@ -271,9 +238,7 @@ namespace Cadru
         {
             return left.Equals(right);
         }
-        #endregion
 
-        #region GreaterThan
         /// <summary>
         /// Determines whether one <see cref="Comb"/> instance is greater than
         /// the other.
@@ -288,9 +253,37 @@ namespace Cadru
         {
             return Compare(left, right) == 1;
         }
-        #endregion
 
-        #region Inequality
+        /// <summary>
+        /// Determines whether one <see cref="Comb"/> instance is greater than
+        /// or equal to the other.
+        /// </summary>
+        /// <param name="left">The first object to compare.</param>
+        /// <param name="right">The second object to compare.</param>
+        /// <returns>
+        /// <see langword="true"/> if the first instance is greater than or
+        /// equal to the second; otherwise, <see langword="false"/>.
+        /// </returns>
+        public static bool operator >=(Comb left, Comb right)
+        {
+            return Compare(left, right) == 1 || left == right;
+        }
+
+        /// <summary>
+        /// Determines whether one <see cref="Comb"/> instance is less than
+        /// or equal to the other.
+        /// </summary>
+        /// <param name="left">The first object to compare.</param>
+        /// <param name="right">The second object to compare.</param>
+        /// <returns>
+        /// <see langword="true"/> if the first instance is less than or
+        /// equal to the second; otherwise, <see langword="false"/>.
+        /// </returns>
+        public static bool operator <=(Comb left, Comb right)
+        {
+            return Compare(left, right) == -1 || left == right;
+        }
+
         /// <summary>
         /// Determines whether two specified <see cref="Comb"/>
         /// objects are not equal.
@@ -305,9 +298,7 @@ namespace Cadru
         {
             return !left.Equals(right);
         }
-        #endregion
 
-        #region LessThan
         /// <summary>
         /// Determines whether one <see cref="Comb"/> instance is less than
         /// the other.
@@ -322,15 +313,7 @@ namespace Cadru
         {
             return Compare(left, right) == -1;
         }
-        #endregion
 
-        #endregion
-
-        #region methods
-
-        #region NewComb
-
-        #region NewComb()
         /// <summary>
         /// Initializes a new instance of the <see cref="Comb"/> structure.
         /// </summary>
@@ -342,9 +325,7 @@ namespace Cadru
         {
             return NewComb(DateTimeOffset.UtcNow);
         }
-        #endregion
 
-        #region NewComb(DateTime date)
         /// <summary>
         /// Initializes a new instance of the <see cref="Comb"/> structure.
         /// </summary>
@@ -355,9 +336,7 @@ namespace Cadru
         {
             return NewComb(new DateTimeOffset(date));
         }
-        #endregion
 
-        #region NewComb(DateTimeOffset date)
         /// <summary>
         /// Initializes a new instance of the <see cref="Comb"/> structure.
         /// </summary>
@@ -366,8 +345,7 @@ namespace Cadru
         /// <returns>A new <see cref="Comb"/> object.</returns>
         public static Comb NewComb(DateTimeOffset date)
         {
-            var buffer = new byte[16];
-            buffer = Guid.NewGuid().ToByteArray();
+            var buffer = Guid.NewGuid().ToByteArray();
 
             var utc = date;
             if (!date.IsUtcDateTime())
@@ -376,7 +354,7 @@ namespace Cadru
             }
 
             var days = TimeSpan.FromTicks(utc.UtcTicks - MinDate.UtcTicks).Days;
-            var milliseconds = utc.TimeOfDay.TotalMilliseconds / Comb.Accuracy;
+            var milliseconds = utc.TimeOfDay.TotalMilliseconds / Accuracy;
             var msecsArray = BitConverter.GetBytes(milliseconds);
 
             buffer[0] = (byte)(days >> 8);
@@ -397,11 +375,7 @@ namespace Cadru
             var comb = new Comb(buffer);
             return comb;
         }
-        #endregion
 
-        #endregion NewComb
-
-        #region Parse
         /// <summary>
         /// Converts the string representation of a COMB to the equivalent
         /// <see cref="Comb"/> structure.
@@ -493,9 +467,7 @@ namespace Cadru
 
             return guid;
         }
-        #endregion
 
-        #region ParseExact
         /// <summary>
         /// Converts the string representation of a COMB to the equivalent
         /// <see cref="Comb"/> structure, provided that the string is in the
@@ -563,9 +535,7 @@ namespace Cadru
 
             return guid;
         }
-        #endregion
 
-        #region TryParse
         /// <summary>
         /// Converts the string representation of a COMB to the equivalent
         /// <see cref="Comb"/> structure.
@@ -635,9 +605,7 @@ namespace Cadru
             var parser = new CombParser(input);
             return parser.Parse(out result);
         }
-        #endregion
 
-        #region TryParseExact
         /// <summary>
         /// Converts the string representation of a COMB to the equivalent
         /// <see cref="Comb"/> structure provided that the string is in the
@@ -709,11 +677,7 @@ namespace Cadru
             var parser = new CombParser(input);
             return parser.Parse(ParseFormat(format), out result);
         }
-        #endregion
 
-        #region CompareTo
-
-        #region CompareTo(object obj)
         /// <summary>
         /// Compares this instance to a specified object and returns an
         /// indication of their relative values.
@@ -758,16 +722,14 @@ namespace Cadru
                 return 1;
             }
 
-            if (obj is Comb)
+            if (obj is Comb comb)
             {
-                return this.CompareTo((Comb)obj);
+                return this.CompareTo(comb);
             }
 
             throw new ArgumentException(Strings.Arg_MustBeSequentialGuid);
         }
-        #endregion
 
-        #region CompareTo(Comb other)
         /// <summary>
         /// Compares the value of this instance to a specified
         /// <see cref="UnixTimestamp"/> value and returns an integer that
@@ -807,13 +769,7 @@ namespace Cadru
         {
             return Compare(this, other);
         }
-        #endregion
 
-        #endregion CompareTo
-
-        #region Equals
-
-        #region Equals(object obj)
         /// <summary>
         /// Returns a value indicating whether this instance is equal to a specified object.
         /// </summary>
@@ -823,19 +779,16 @@ namespace Cadru
         /// otherwise, <see langword="false"/>.</returns>
         public override bool Equals(object obj)
         {
-            if (obj == null || !(obj is Comb))
+            if (!(obj is Comb comb))
             {
                 return false;
             }
             else
             {
-                var comb = (Comb)obj;
                 return this.Equals(comb);
             }
         }
-        #endregion
 
-        #region Equals(Comb other)
         /// <summary>
         /// Returns a value indicating whether this instance and a specified
         /// <see cref="Comb"/> object represent the same value.
@@ -847,11 +800,7 @@ namespace Cadru
         {
             return Compare(this, other) == 0;
         }
-        #endregion
 
-        #endregion Equals
-
-        #region GetHashCode
         /// <summary>
         /// Returns the hash code for this instance.
         /// </summary>
@@ -860,11 +809,7 @@ namespace Cadru
         {
             return this.a ^ ((this.b << 16) | (ushort)this.c) ^ ((this.f << 24) | this.k);
         }
-        #endregion
 
-        #region ToString
-
-        #region ToString()
         /// <summary>
         /// Returns a string representation of the value of this instance in
         /// registry format.
@@ -884,9 +829,7 @@ namespace Cadru
         {
             return this.ToString("D", null);
         }
-        #endregion
 
-        #region ToString(string format)
         /// <summary>
         /// Returns a string representation of the value of this
         /// <see cref="Comb"/> instance, according to the provided
@@ -949,16 +892,14 @@ namespace Cadru
         /// </remarks>
         public string ToString(string format)
         {
-            StringBuilder res = null;
             if (format.IsNullOrEmpty())
             {
                 format = "D";
             }
 
-            switch (format)
+            var res = format switch
             {
-                case "B":
-                    res = new StringBuilder(38)
+                "B" => new StringBuilder(38)
                         .Append('{')
                         .AppendAsHexadecimal(this.a)
                         .Append('-')
@@ -975,12 +916,26 @@ namespace Cadru
                         .AppendAsHexadecimal(this.i)
                         .AppendAsHexadecimal(this.j)
                         .AppendAsHexadecimal(this.k)
-                        .Append('}');
-                    break;
-
-                case "P":
-                    res = new StringBuilder(38)
-                        .Append('(')
+                        .Append('}'),
+                "P" => new StringBuilder(38)
+                       .Append('(')
+                       .AppendAsHexadecimal(this.a)
+                       .Append('-')
+                       .AppendAsHexadecimal(this.b)
+                       .Append('-')
+                       .AppendAsHexadecimal(this.c)
+                       .Append('-')
+                       .AppendAsHexadecimal(this.d)
+                       .AppendAsHexadecimal(this.e)
+                       .Append('-')
+                       .AppendAsHexadecimal(this.f)
+                       .AppendAsHexadecimal(this.g)
+                       .AppendAsHexadecimal(this.h)
+                       .AppendAsHexadecimal(this.i)
+                       .AppendAsHexadecimal(this.j)
+                       .AppendAsHexadecimal(this.k)
+                       .Append(')'),
+                "D" => new StringBuilder(36)
                         .AppendAsHexadecimal(this.a)
                         .Append('-')
                         .AppendAsHexadecimal(this.b)
@@ -995,31 +950,8 @@ namespace Cadru
                         .AppendAsHexadecimal(this.h)
                         .AppendAsHexadecimal(this.i)
                         .AppendAsHexadecimal(this.j)
-                        .AppendAsHexadecimal(this.k)
-                        .Append(')');
-                    break;
-
-                case "D":
-                    res = new StringBuilder(36)
-                        .AppendAsHexadecimal(this.a)
-                        .Append('-')
-                        .AppendAsHexadecimal(this.b)
-                        .Append('-')
-                        .AppendAsHexadecimal(this.c)
-                        .Append('-')
-                        .AppendAsHexadecimal(this.d)
-                        .AppendAsHexadecimal(this.e)
-                        .Append('-')
-                        .AppendAsHexadecimal(this.f)
-                        .AppendAsHexadecimal(this.g)
-                        .AppendAsHexadecimal(this.h)
-                        .AppendAsHexadecimal(this.i)
-                        .AppendAsHexadecimal(this.j)
-                        .AppendAsHexadecimal(this.k);
-                    break;
-
-                case "N":
-                    res = new StringBuilder(32)
+                        .AppendAsHexadecimal(this.k),
+                "N" => new StringBuilder(32)
                         .AppendAsHexadecimal(this.a)
                         .AppendAsHexadecimal(this.b)
                         .AppendAsHexadecimal(this.c)
@@ -1030,11 +962,8 @@ namespace Cadru
                         .AppendAsHexadecimal(this.h)
                         .AppendAsHexadecimal(this.i)
                         .AppendAsHexadecimal(this.j)
-                        .AppendAsHexadecimal(this.k);
-                    break;
-
-                case "X":
-                    res = new StringBuilder(68)
+                        .AppendAsHexadecimal(this.k),
+                "X" => new StringBuilder(68)
                         .Append(new[] { '{', '0', 'x' })
                         .AppendAsHexadecimal(this.a)
                         .Append(new[] { ',', '0', 'x' })
@@ -1057,18 +986,13 @@ namespace Cadru
                         .AppendAsHexadecimal(this.j)
                         .Append(new[] { ',', '0', 'x' })
                         .AppendAsHexadecimal(this.k)
-                        .Append(new[] { '}', '}' });
-                    break;
-
-                default:
-                    throw new NotImplementedException(Strings.Format_InvalidGuidFormatSpecification);
-            }
+                        .Append(new[] { '}', '}' }),
+                _ => throw new NotImplementedException(Strings.Format_InvalidGuidFormatSpecification),
+            };
 
             return res.ToString();
         }
-        #endregion
 
-        #region ToString(string format, IFormatProvider formatProvider)
         /// <summary>
         /// Returns a string representation of the value of this
         /// <see cref="Comb"/> instance, according to the provided
@@ -1148,15 +1072,11 @@ namespace Cadru
         /// </remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1305:SpecifyIFormatProvider", MessageId = "Cadru.Comb.ToString(System.String)", Justification = "Reviewed.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1628:DocumentationTextMustBeginWithACapitalLetter", Justification = "Reviewed.")]
-        public string ToString(string format, IFormatProvider formatProvider)
+        public string ToString(string format, IFormatProvider? formatProvider)
         {
             return this.ToString(format);
         }
-        #endregion
 
-        #endregion ToString
-
-        #region ToByteArray
         /// <summary>
         /// Returns a 16-element byte array that contains the value of the <see cref="Comb"/>.
         /// </summary>
@@ -1183,9 +1103,7 @@ namespace Cadru
 
             return buffer;
         }
-        #endregion ToByteArray
 
-        #region Compare
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
         private static int Compare(Comb x, Comb y)
         {
@@ -1193,12 +1111,12 @@ namespace Cadru
             var yBuffer = y.ToByteArray();
 
             // Swap to the correct order to be compared
-            for (var i = 0; i < 16; i++)
+            for (var index = 0; index < 16; index++)
             {
                 byte b1, b2;
 
-                b1 = xBuffer[CompareOrder[i]];
-                b2 = yBuffer[CompareOrder[i]];
+                b1 = xBuffer[CompareOrder[index]];
+                b2 = yBuffer[CompareOrder[index]];
                 if (b1 != b2)
                 {
                     return (b1 < b2) ? -1 : 1;
@@ -1207,9 +1125,7 @@ namespace Cadru
 
             return 0;
         }
-        #endregion
 
-        #region ParseFormat
         private static string ParseFormat(string format)
         {
             if (String.IsNullOrEmpty(format))
@@ -1242,9 +1158,7 @@ namespace Cadru
 
             throw new FormatException(Strings.Format_InvalidGuidFormatSpecification);
         }
-        #endregion
 
-        #region GetDateTimeOffset()
         private DateTimeOffset GetDateTimeOffset()
         {
             var buffer = this.ToByteArray();
@@ -1262,11 +1176,8 @@ namespace Cadru
 
             var days = buffer[6] + (buffer[0] << 8) + (buffer[4] << 16) + (buffer[5] << 24);
             var msecs = BitConverter.ToDouble(msecsArray, 0);
-            var date = Comb.MinDate.AddDays(days).AddMilliseconds(msecs * Comb.Accuracy);
+            var date = MinDate.AddDays(days).AddMilliseconds(msecs * Accuracy);
             return date;
         }
-        #endregion
-
-        #endregion methods
     }
 }

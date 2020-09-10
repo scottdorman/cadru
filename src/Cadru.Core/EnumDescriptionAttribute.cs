@@ -2,7 +2,7 @@
 // <copyright file="EnumDescriptionAttribute.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,21 +20,18 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace Cadru
 {
-    using System;
-
     /// <summary>
     /// Provides a description for an enumerated type.
     /// </summary>
     [AttributeUsage(AttributeTargets.Enum | AttributeTargets.Field, AllowMultiple = false)]
     public sealed class EnumDescriptionAttribute : Attribute
     {
-        #region fields
         private readonly string description;
-        #endregion
 
-        #region constructors
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="EnumDescriptionAttribute"/> class.
@@ -45,24 +42,11 @@ namespace Cadru
         {
             this.description = description;
         }
-        #endregion
 
-        #region events
-        #endregion
-
-        #region properties
-
-        #region Description
         /// <summary>
         /// Gets the description stored in this attribute.
         /// </summary>
         /// <value>The description stored in the attribute.</value>
         public string Description => this.description;
-        #endregion
-
-        #endregion
-
-        #region methods
-        #endregion
     }
 }

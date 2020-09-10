@@ -2,7 +2,7 @@
 // <copyright file="Constants.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -22,12 +22,18 @@
 
 namespace Cadru.Internal
 {
-    internal class Constants
+    internal static class Constants
     {
+        public const int ApproximateSecondsPerMonth = SecondsPerDay * 30;
+
+        //2,592,000
+        public const int ApproximateSecondsPerYear = ApproximateSecondsPerMonth * 12;
+
+        public const int SecondsPerDay = SecondsPerHour * 24;
+        public const int SecondsPerHour = SecondsPerMinute * 60;
         public const int SecondsPerMinute = 60;
-        public const int SecondsPerHour = SecondsPerMinute * 60; //3,600
-        public const int SecondsPerDay = SecondsPerHour * 24; //86,400
-        public const int ApproximateSecondsPerMonth = SecondsPerDay * 30; //2,592,000
-        public const int ApproximateSecondsPerYear = ApproximateSecondsPerMonth * 12; //31,194,000
+        //3,600
+        //86,400
+        //31,194,000
     }
 }
