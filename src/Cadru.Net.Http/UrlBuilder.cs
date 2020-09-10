@@ -2,7 +2,7 @@
 // <copyright file="UrlBuilder.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,27 +20,22 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
+using Cadru.Contracts;
+using Cadru.Net.Http.Collections;
+
 namespace Cadru.Net.Http
 {
-    using System;
-
-    using Cadru.Contracts;
-    using Cadru.Net.Http.Collections;
-
     /// <summary>
     /// Provides a custom constructor for uniform resource identifiers (URIs)
     /// and modifies URIs for the <see cref="System.Uri"/> class.
     /// </summary>
     public class UrlBuilder
     {
-        #region fields
         private readonly UriBuilder builder;
         private readonly QueryStringParametersDictionary queryParameters;
-        #endregion
 
-        #region constructors
-
-        #region UrlBuilder()
         /// <summary>
         /// Initializes a new instance of the <see cref="UrlBuilder"/> class.
         /// </summary>
@@ -49,9 +44,7 @@ namespace Cadru.Net.Http
             this.builder = new UriBuilder();
             this.queryParameters = new QueryStringParametersDictionary();
         }
-        #endregion
 
-        #region UrlBuilder(string uri)
         /// <summary>
         /// Initializes a new instance of the <see cref="UrlBuilder"/> class
         /// with the specified URI.
@@ -78,9 +71,7 @@ namespace Cadru.Net.Http
             this.builder = new UriBuilder(uri);
             this.queryParameters = new QueryStringParametersDictionary(this.builder.Query);
         }
-        #endregion
 
-        #region UrlBuilder(string uri, string path)
         /// <summary>
         /// Initializes a new instance of the <see cref="UrlBuilder"/> class
         /// with the specified URI and path.
@@ -109,9 +100,7 @@ namespace Cadru.Net.Http
             this.queryParameters = new QueryStringParametersDictionary(this.builder.Query);
             this.builder.Path = path;
         }
-        #endregion
 
-        #region UrlBuilder(Uri uri)
         /// <summary>
         /// Initializes a new instance of the <see cref="UrlBuilder"/> class
         /// with the specified <see cref="System.Uri"/> instance.
@@ -127,9 +116,7 @@ namespace Cadru.Net.Http
             this.builder = new UriBuilder(uri);
             this.queryParameters = new QueryStringParametersDictionary(uri.Query);
         }
-        #endregion
 
-        #region UrlBuilder(Uri uri, string path)
         /// <summary>
         /// Initializes a new instance of the <see cref="UrlBuilder"/> class
         /// with the specified <see cref="System.Uri"/> instance.
@@ -147,9 +134,7 @@ namespace Cadru.Net.Http
             this.queryParameters = new QueryStringParametersDictionary(uri.Query);
             this.builder.Path = path;
         }
-        #endregion
 
-        #region UrlBuilder(UriScheme scheme, string host)
         /// <summary>
         /// Initializes a new instance of the <see cref="UrlBuilder"/> class
         /// with the specified scheme and host.
@@ -161,9 +146,7 @@ namespace Cadru.Net.Http
             this.builder = new UriBuilder(scheme, host);
             this.queryParameters = new QueryStringParametersDictionary();
         }
-        #endregion
 
-        #region UrlBuilder(UriScheme scheme, string host, int port)
         /// <summary>
         /// Initializes a new instance of the <see cref="UrlBuilder"/> class
         /// with the specified scheme and host.
@@ -179,9 +162,7 @@ namespace Cadru.Net.Http
             this.builder = new UriBuilder(scheme, host, port);
             this.queryParameters = new QueryStringParametersDictionary();
         }
-        #endregion
 
-        #region UrlBuilder(UriScheme scheme, string host, int port, string path)
         /// <summary>
         /// Initializes a new instance of the <see cref="UrlBuilder"/> class
         /// with the specified scheme and host.
@@ -198,9 +179,7 @@ namespace Cadru.Net.Http
             this.builder = new UriBuilder(scheme, host, port, path);
             this.queryParameters = new QueryStringParametersDictionary();
         }
-        #endregion
 
-        #region UrlBuilder(UriScheme scheme, string host, int port, string path, string extraValue)
         /// <summary>
         /// Initializes a new instance of the <see cref="UrlBuilder"/> class
         /// with the specified scheme and host.
@@ -224,16 +203,7 @@ namespace Cadru.Net.Http
             this.builder = new UriBuilder(scheme, host, port, path, extraValue);
             this.queryParameters = new QueryStringParametersDictionary(this.builder.Query);
         }
-        #endregion
 
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-
-        #region Fragment
         /// <summary>
         /// Gets or sets the fragment portion of the URI.
         /// </summary>
@@ -244,9 +214,7 @@ namespace Cadru.Net.Http
             get => this.builder.Fragment;
             set => this.builder.Fragment = value;
         }
-        #endregion
 
-        #region Host
         /// <summary>
         /// Gets or sets the Domain Name System (DNS) host name or IP address
         /// of a server.
@@ -257,9 +225,7 @@ namespace Cadru.Net.Http
             get => this.builder.Host;
             set => this.builder.Host = value;
         }
-        #endregion
 
-        #region Password
         /// <summary>
         /// Gets or sets the password associated with the user that accesses the URI.
         /// </summary>
@@ -269,9 +235,7 @@ namespace Cadru.Net.Http
             get => this.builder.Password;
             set => this.builder.Password = value;
         }
-        #endregion
 
-        #region Path
         /// <summary>
         /// Gets or sets the path to the resource referenced by the URI.
         /// </summary>
@@ -281,9 +245,7 @@ namespace Cadru.Net.Http
             get => this.builder.Path;
             set => this.builder.Path = value;
         }
-        #endregion
 
-        #region Port
         /// <summary>
         /// Gets or sets the port number of the URI.
         /// </summary>
@@ -296,9 +258,7 @@ namespace Cadru.Net.Http
             get => this.builder.Port;
             set => this.builder.Port = value;
         }
-        #endregion
 
-        #region Query
         /// <summary>
         /// Gets or sets any query information included in the URI.
         /// </summary>
@@ -308,17 +268,13 @@ namespace Cadru.Net.Http
             get => this.queryParameters.ToQueryString();
             set => this.queryParameters.FillFromString(value);
         }
-        #endregion
 
-        #region QueryParameters
         /// <summary>
         /// Gets the collection of query parameters to be included in the URI.
         /// </summary>
         /// <value>The collection of query parameters to be included in the URI.</value>
         public QueryStringParametersDictionary QueryParameters => this.queryParameters;
-        #endregion
 
-        #region Scheme
         /// <summary>
         /// Gets or sets the scheme name of the URI.
         /// </summary>
@@ -330,9 +286,7 @@ namespace Cadru.Net.Http
 
             set => this.builder.Scheme = value;
         }
-        #endregion
 
-        #region Uri
         /// <summary>
         /// Gets the <see cref="System.Uri"/> instance constructed by the
         /// specified <see cref="UrlBuilder"/> instance.
@@ -351,9 +305,7 @@ namespace Cadru.Net.Http
                 return this.builder.Uri;
             }
         }
-        #endregion
 
-        #region UserName
         /// <summary>
         /// Gets or sets the user name associated with the user that accesses the URI.
         /// </summary>
@@ -364,13 +316,7 @@ namespace Cadru.Net.Http
 
             set => this.builder.UserName = value;
         }
-        #endregion
 
-        #endregion
-
-        #region methods
-
-        #region Equals
         /// <summary>
         /// Compares an existing <see cref="System.Uri"/> instance with the
         /// contents of the <see cref="UrlBuilder"/> for equality.
@@ -386,9 +332,7 @@ namespace Cadru.Net.Http
             this.builder.Query = this.Query;
             return this.builder.Equals(obj);
         }
-        #endregion
 
-        #region GetHashCode
         /// <summary>
         /// Returns the hash code for the URI.
         /// </summary>
@@ -398,9 +342,7 @@ namespace Cadru.Net.Http
             this.builder.Query = this.Query;
             return this.builder.GetHashCode();
         }
-        #endregion
 
-        #region ToString
         /// <summary>
         /// Returns the display string for the specified
         /// <see cref="UrlBuilder"/> instance.
@@ -416,8 +358,5 @@ namespace Cadru.Net.Http
             this.builder.Query = this.Query;
             return this.builder.ToString();
         }
-        #endregion
-
-        #endregion
     }
 }

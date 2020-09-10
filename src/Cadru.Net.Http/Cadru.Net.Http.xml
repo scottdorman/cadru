@@ -1,0 +1,1163 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cadru.Net.Http</name>
+    </assembly>
+    <members>
+        <member name="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary">
+            <summary>
+            Represents a collection of query string parameters and values.
+            </summary>
+        </member>
+        <member name="M:Cadru.Net.Http.Collections.QueryStringParametersDictionary.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary"/>
+            class that is empty and has the default initial capacity.
+            </summary>
+        </member>
+        <member name="M:Cadru.Net.Http.Collections.QueryStringParametersDictionary.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary"/>
+            class that is empty and has the specified initial capacity.
+            </summary>
+            <param name="capacity">The initial number of elements that the
+            <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary"/> can contain.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="capacity"/> is less than 0.</exception>
+        </member>
+        <member name="M:Cadru.Net.Http.Collections.QueryStringParametersDictionary.#ctor(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary"/>
+            class that contains elements copied from the specified
+            <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </summary>
+            <param name="dictionary">
+            The <see cref="T:System.Collections.Generic.IDictionary`2"/>
+            whose elements are copied to the new
+            <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary"/>.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="dictionary"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            <paramref name="dictionary"/> contains one or more duplicate keys.
+            </exception>
+        </member>
+        <member name="M:Cadru.Net.Http.Collections.QueryStringParametersDictionary.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary"/>
+            class that contains elements parsed from the given query.
+            </summary>
+            <remarks>Multiple occurrences of the same query string variable are not supported.</remarks>
+            <param name="query">The string to be parsed.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="query"/> contains one or more keys whose value
+            is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            <paramref name="query"/> contains one or more duplicate keys.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            <paramref name="query"/> is not properly formed.
+            </exception>
+        </member>
+        <member name="M:Cadru.Net.Http.Collections.QueryStringParametersDictionary.AddRange(Cadru.Net.Http.Collections.QueryStringParametersDictionary)">
+            <summary>
+            Adds the items from the collection into this instance.
+            </summary>
+            <param name="collection">The source collection whose items will be copied.</param>
+        </member>
+        <member name="M:Cadru.Net.Http.Collections.QueryStringParametersDictionary.ToQueryString">
+            <summary>
+            Returns a string representation of the query parameters and
+            values.
+            </summary>
+            <returns>A string representation of the query parameters and
+            values.</returns>
+        </member>
+        <member name="T:Cadru.Net.Http.CompressingHttpClientHandler">
+            <summary>
+            An HTTP handler that sets the automatic decompression methods.
+            </summary>
+        </member>
+        <member name="M:Cadru.Net.Http.CompressingHttpClientHandler.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.CompressingHttpClientHandler"/> class
+            with a specific inner handler.
+            </summary>
+        </member>
+        <member name="T:Cadru.Net.Http.Extensions.HttpClientExtensions">
+            <summary>
+            Extension methods that aid in making formatted requests using <see
+            cref="T:System.Net.Http.HttpClient"></see>.
+            </summary>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpClientExtensions.PostAsync(System.Net.Http.HttpClient,System.String)">
+            <summary>
+            Send a POST request to the specified Uri as an asynchronous
+            operation.
+            </summary>
+            <param name="client">The client used to make the request.</param>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <returns>A task object representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpClientExtensions.PostAsync(System.Net.Http.HttpClient,System.Uri)">
+            <summary>
+            Send a POST request to the specified Uri as an asynchronous
+            operation.
+            </summary>
+            <param name="client">The client used to make the request.</param>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <returns>A task object representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpClientExtensions.PostAsync``1(System.Net.Http.HttpClient,System.String,``0,System.String)">
+            <summary>
+            Sends a POST request as an asynchronous operation to the specified Uri with the
+            given value serialized as JSON.
+            </summary>
+            <typeparam name="T">The type of value.</typeparam>
+            <param name="client">The client used to make the request.</param>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="value">The value that will be placed in the request's entity body.</param>
+            <param name="mediaType">The Content-Type header used to send the request.</param>
+            <returns>A task object representing the asynchronous operation.</returns>
+            <remarks>This method uses a default instance of <see cref="T:System.Net.Http.Formatting.JsonMediaTypeFormatter"></see>.</remarks>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpClientExtensions.PostAsync``1(System.Net.Http.HttpClient,System.Uri,``0,System.String)">
+            <summary>
+            Sends a POST request as an asynchronous operation to the specified Uri with the
+            given value serialized as JSON.
+            </summary>
+            <typeparam name="T">The type of value.</typeparam>
+            <param name="client">The client used to make the request.</param>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="value">The value that will be placed in the request's entity body.</param>
+            <param name="mediaType">The Content-Type header used to send the request.</param>
+            <returns>A task object representing the asynchronous operation.</returns>
+            <remarks>This method uses a default instance of <see cref="T:System.Net.Http.Formatting.JsonMediaTypeFormatter"></see>.</remarks>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpClientExtensions.PostAsync(System.Net.Http.HttpClient,System.String,System.String)">
+            <summary>
+            Sends a POST request as an asynchronous operation to the specified Uri.
+            </summary>
+            <param name="client">The client used to make the request.</param>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="mediaType">The Content-Type header used to send the request.</param>
+            <returns>A task object representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpClientExtensions.PostAsync(System.Net.Http.HttpClient,System.Uri,System.String)">
+            <summary>
+            Sends a POST request as an asynchronous operation to the specified Uri.
+            </summary>
+            <param name="client">The client used to make the request.</param>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="mediaType">The Content-Type header used to send the request.</param>
+            <returns>A task object representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpClientExtensions.PutAsync``1(System.Net.Http.HttpClient,System.String,``0,System.String)">
+            <summary>
+            Sends a PUT request as an asynchronous operation to the specified
+            Uri with the given value serialized as JSON.
+            </summary>
+            <typeparam name="T">The type of value.</typeparam>
+            <param name="client">The client used to make the request.</param>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="value">The value that will be placed in the request's
+            entity body.</param>
+            <param name="mediaType">The Content-Type header used to send the
+            request.</param>
+            <returns>A task object representing the asynchronous
+            operation.</returns>
+            <remarks>This method uses a default instance of <see cref="T:System.Net.Http.Formatting.JsonMediaTypeFormatter"></see>.</remarks>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpClientExtensions.PutAsync``1(System.Net.Http.HttpClient,System.Uri,``0,System.String)">
+            <summary>
+            Sends a PUT request as an asynchronous operation to the specified
+            Uri with the given value serialized as JSON.
+            </summary>
+            <typeparam name="T">The type of value.</typeparam>
+            <param name="client">The client used to make the request.</param>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="value">The value that will be placed in the request's entity body.</param>
+            <param name="mediaType">The Content-Type header used to send the request.</param>
+            <returns>A task object representing the asynchronous operation.</returns>
+            <remarks>This method uses a default instance of <see cref="T:System.Net.Http.Formatting.JsonMediaTypeFormatter"></see>.</remarks>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpClientExtensions.PutAsync(System.Net.Http.HttpClient,System.String,System.String)">
+            <summary>
+            Sends a PUT request as an asynchronous operation to the specified
+            Uri.
+            </summary>
+            <param name="client">The client used to make the request.</param>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="mediaType">The Content-Type header used to send the request.</param>
+            <returns>A task object representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpClientExtensions.PutAsync(System.Net.Http.HttpClient,System.Uri,System.String)">
+            <summary>
+            Sends a PUT request as an asynchronous operation to the specified
+            Uri.
+            </summary>
+            <param name="client">The client used to make the request.</param>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="mediaType">The Content-Type header used to send the request.</param>
+            <returns>A task object representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Cadru.Net.Http.Extensions.HttpExtensions">
+            <summary>
+            Provides basic routines for common HTTPClient related manipulation.
+            </summary>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpExtensions.AsFormattedString(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Returns string representation of a HttpRequestMessage.
+            </summary>
+            <param name="httpRequest">Request object to format.</param>
+            <returns>The string, formatted into curly braces.</returns>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpExtensions.AsFormattedString(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Returns string representation of a HttpResponseMessage.
+            </summary>
+            <param name="httpResponse">Response object to format.</param>
+            <returns>The string, formatted into curly braces.</returns>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpExtensions.AsFormattedString``2(System.Collections.Generic.IDictionary{``0,``1})">
+            <summary>
+            Converts given dictionary into a log string.
+            </summary>
+            <typeparam name="TKey">The dictionary key type.</typeparam>
+            <typeparam name="TValue">The dictionary value type.</typeparam>
+            <param name="dictionary">The dictionary object.</param>
+            <returns>The string, formatted into curly braces.</returns>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpExtensions.AsString(System.Net.Http.HttpContent)">
+            <summary>
+            Formats an HttpContent object as String.
+            </summary>
+            <param name="content">The HttpContent to format.</param>
+            <returns>The formatted string.</returns>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpExtensions.CreateRequestMessage(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.Uri,Cadru.Net.Http.Collections.QueryStringParametersDictionary,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Creates a valid <see cref="T:System.Net.Http.HttpRequestMessage"/> with the given properties.
+            </summary>
+            <param name="httpClient">The <see cref="T:System.Net.Http.HttpClient"/> instance used to create the message.</param>
+            <param name="method">The HTTP method.</param>
+            <param name="uri">The <see cref="T:System.Uri"/> to request.</param>
+            <param name="queryStringParameters">The query string parameters.</param>
+            <param name="headerCollection">Additional request headers to be included.</param>
+            <returns>A valid <see cref="T:System.Net.Http.HttpRequestMessage"/>.</returns>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpExtensions.GetContentHeaders(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Get the content headers of an HtttRequestMessage.
+            </summary>
+            <param name="request">The request message.</param>
+            <returns>The content headers.</returns>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpExtensions.GetContentHeaders(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Get the content headers of an HttpResponseMessage.
+            </summary>
+            <param name="response">The response message.</param>
+            <returns>The content headers.</returns>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpExtensions.GetHeadersAsJson(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Serializes HttpResponseHeaders and HttpContentHeaders as Json dictionary.
+            </summary>
+            <param name="message">HttpResponseMessage</param>
+            <returns>Json string</returns>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpExtensions.ToJson(System.Net.Http.Headers.HttpHeaders)">
+            <summary>
+            Serializes HttpHeaders as Json dictionary.
+            </summary>
+            <param name="headers">HttpHeaders</param>
+            <returns>Json string</returns>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpExtensions.ToJson(System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}})">
+            <summary>
+            Serializes header dictionary as Json dictionary.
+            </summary>
+            <param name="headers">Dictionary</param>
+            <returns>Json string</returns>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.HttpExtensions.TryGetHeaderValue(System.Net.Http.HttpRequestMessage,System.String,System.String@)">
+            <summary>
+            Return if a specified header and specified values are stored in the System.Net.Http.Headers.HttpHeaders
+            collection.
+            </summary>
+            <param name="requestMessage"></param>
+            <param name="name">The specified header.</param>
+            <param name="value">The specified header value.</param>
+            <returns><see langword="true"/> if the specified header name and values are stored in the collection; otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="T:Cadru.Net.Http.Extensions.UriExtensions">
+            <summary>
+            Extensions for working with <see cref="T:System.Uri"/> instances.
+            </summary>
+        </member>
+        <member name="M:Cadru.Net.Http.Extensions.UriExtensions.GetUriSegment(System.Uri,System.Int32)">
+            <summary>
+            Gets the path segment making up the specified URI at the specified index.
+            </summary>
+            <param name="uri">The URI instance.</param>
+            <param name="index">The index of the path segment.</param>
+            <returns>The path segment at the specified index or <see cref="F:System.String.Empty"/> if the segment is not found.</returns>
+        </member>
+        <member name="T:Cadru.Net.Http.HttpRequestWithStatusException">
+            <summary>
+            Inherits HttpRequestException adding HttpStatusCode to the exception.
+            </summary>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestWithStatusException.#ctor(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.HttpRequestWithStatusException"/> class.
+            </summary>
+            <param name="responseMessage">The response for this exception.</param>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestWithStatusException.#ctor(System.Net.Http.HttpResponseMessage,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.HttpRequestWithStatusException"/> class.
+            </summary>
+            <param name="responseMessage">A message that describes the current exception.</param>
+            <param name="inner">The inner exception.</param>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestWithStatusException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.HttpRequestWithStatusException"/> class.
+            </summary>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestWithStatusException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.HttpRequestWithStatusException"/> class
+            with a specific message that describes the current exception.
+            </summary>
+            <param name="message">A message that describes the current exception.</param>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestWithStatusException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.HttpRequestWithStatusException"/> class
+            with a specific message that describes the current exception and an inner
+            exception.
+            </summary>
+            <param name="message">A message that describes the current exception.</param>
+            <param name="inner">The inner exception.</param>
+        </member>
+        <member name="P:Cadru.Net.Http.HttpRequestWithStatusException.ReasonPhrase">
+            <summary>
+            Gets the reason phrase which typically is sent by servers together with
+            the status code.
+            </summary>
+            <value>The reason phrase sent by the server.</value>
+        </member>
+        <member name="P:Cadru.Net.Http.HttpRequestWithStatusException.StatusCode">
+            <summary>
+            Gets the status code of the HTTP response.
+            </summary>
+            <value>The status code of the HTTP response.</value>
+        </member>
+        <member name="T:Cadru.Net.Http.HttpTransientErrorDetectionStrategy">
+            <summary>
+            Represents a strategy that determines whether or not a given <see cref="T:System.Net.Http.HttpRequestException"/> should
+            be considered as a transient error.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.HttpTransientErrorDetectionStrategy.IsDefaultStrategy">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpTransientErrorDetectionStrategy.ShouldHandle(System.Exception)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.Net.Http.Resources.Strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ArgumentCannotBeGreaterThanBaseline">
+            <summary>
+              Looks up a localized string similar to The specified argument {0} cannot be greater than its ceiling value of {1}..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ArgumentCannotBeNegative">
+            <summary>
+              Looks up a localized string similar to The specified argument {0} cannot be initialized with a negative value..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.DefaultHttpOperationExceptionMessage">
+            <summary>
+              Looks up a localized string similar to Received unexpected Http response status code {0}.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.DefaultRetryStrategyMappingNotFound">
+            <summary>
+              Looks up a localized string similar to Default retry strategy for technology {0}, named &apos;{1}&apos;, is not defined..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.DefaultRetryStrategyNotFound">
+            <summary>
+              Looks up a localized string similar to Default retry strategy for technology {0} was not not defined, and there is no overall default strategy..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ExceptionRetryHandlerMissing">
+            <summary>
+              Looks up a localized string similar to Retry handler is not present in the HttpClient handler stack..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ExceptionRetryManagerAlreadySet">
+            <summary>
+              Looks up a localized string similar to The RetryManager is already set..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ExceptionRetryManagerNotSet">
+            <summary>
+              Looks up a localized string similar to The default RetryManager has not been set. Set it by invoking the RetryManager.SetDefault static method, or if you are using declarative configuration, you can invoke the RetryPolicyFactory.CreateDefault() method to automatically create the retry manager from the configuration file..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.InvalidOperation_QueryStringParameterDictionaryParsing">
+            <summary>
+              Looks up a localized string similar to The query string is not in a correct format..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ITransientErrorDetectionStrategyNotImplemented">
+            <summary>
+              Looks up a localized string similar to The error detection strategy type must implement the ITransientErrorDetectionStrategy interface..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_cancelled">
+            <summary>
+              Looks up a localized string similar to The operation was cancelled..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_argument_empty_string">
+            <summary>
+              Looks up a localized string similar to The value cannot be null or empty..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_chunked_not_allowed_with_content_length">
+            <summary>
+              Looks up a localized string similar to Both &apos;Content-Length&apos; and &apos;Transfer-Encoding: chunked&apos; headers can not be specified at the same time..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_chunked_not_allowed_with_empty_content">
+            <summary>
+              Looks up a localized string similar to &apos;Transfer-Encoding: chunked&apos; header can not be used when content object is not specified..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_client_absolute_baseaddress_required">
+            <summary>
+              Looks up a localized string similar to The base address must be an absolute URI..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_client_execution_error">
+            <summary>
+              Looks up a localized string similar to An error occurred while sending the request..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_client_http_baseaddress_required">
+            <summary>
+              Looks up a localized string similar to Only &apos;http&apos; and &apos;https&apos; schemes are allowed..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_client_invalid_requesturi">
+            <summary>
+              Looks up a localized string similar to An invalid request URI was provided. The request URI must either be an absolute URI or BaseAddress must be set..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_client_request_already_sent">
+            <summary>
+              Looks up a localized string similar to The request message was already sent. Cannot send the same request message multiple times..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_client_send_canceled">
+            <summary>
+              Looks up a localized string similar to Request for {0} was canceled..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_client_send_error">
+            <summary>
+              Looks up a localized string similar to An error occurred while sending {0}. {1}.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_content_buffersize_exceeded">
+            <summary>
+              Looks up a localized string similar to Cannot write more bytes to the buffer than the configured maximum buffer size: {0}..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_content_buffersize_limit">
+            <summary>
+              Looks up a localized string similar to Buffering more than {0} bytes is not supported..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_content_field_too_long">
+            <summary>
+              Looks up a localized string similar to The field cannot be longer than {0} characters..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_content_invalid_charset">
+            <summary>
+              Looks up a localized string similar to The character set provided in ContentType is invalid. Cannot read content as string using an invalid character set..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_content_no_task_returned">
+            <summary>
+              Looks up a localized string similar to The async operation did not return a System.Threading.Tasks.Task object..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_content_readonly_stream">
+            <summary>
+              Looks up a localized string similar to The stream does not support writing..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_content_stream_already_read">
+            <summary>
+              Looks up a localized string similar to The stream was already consumed. It cannot be read again..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_content_stream_copy_error">
+            <summary>
+              Looks up a localized string similar to Error while copying content to a stream..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_copyto_array_too_small">
+            <summary>
+              Looks up a localized string similar to The number of elements is greater than the available space from arrayIndex to the end of the destination array..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_handler_norequest">
+            <summary>
+              Looks up a localized string similar to A request message must be provided. It cannot be null..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_handler_noresponse">
+            <summary>
+              Looks up a localized string similar to Handler did not return a response message..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_handler_not_assigned">
+            <summary>
+              Looks up a localized string similar to The inner handler has not been assigned..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_headers_invalid_etag_name">
+            <summary>
+              Looks up a localized string similar to The specified value is not a valid quoted string..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_headers_invalid_from_header">
+            <summary>
+              Looks up a localized string similar to The specified value is not a valid &apos;From&apos; header string..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_headers_invalid_header_name">
+            <summary>
+              Looks up a localized string similar to The header name format is invalid..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_headers_invalid_host_header">
+            <summary>
+              Looks up a localized string similar to The specified value is not a valid &apos;Host&apos; header string..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_headers_invalid_range">
+            <summary>
+              Looks up a localized string similar to Invalid range. At least one of the two parameters must not be null..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_headers_invalid_value">
+            <summary>
+              Looks up a localized string similar to The format of value &apos;{0}&apos; is invalid..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_headers_no_newlines">
+            <summary>
+              Looks up a localized string similar to New-line characters in header values must be followed by a white-space character..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_headers_not_allowed_header_name">
+            <summary>
+              Looks up a localized string similar to Misused header name. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_headers_not_found">
+            <summary>
+              Looks up a localized string similar to The given header was not found..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_headers_single_value_header">
+            <summary>
+              Looks up a localized string similar to Cannot add value because header &apos;{0}&apos; does not support multiple values..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_httpmethod_format_error">
+            <summary>
+              Looks up a localized string similar to The format of the HTTP method is invalid..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_invalid_cookiecontainer">
+            <summary>
+              Looks up a localized string similar to When using CookieUsePolicy.UseSpecifiedCookieContainer, the CookieContainer property must not be null..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_invalid_enable_first">
+            <summary>
+              Looks up a localized string similar to The {0} property must be set to &apos;{1}&apos; to use this property..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_invalid_proxy">
+            <summary>
+              Looks up a localized string similar to When using WindowsProxyUsePolicy.UseCustomProxy, the Proxy property must not be null..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_invalid_proxyusepolicy">
+            <summary>
+              Looks up a localized string similar to When using a non-null Proxy, the WindowsProxyUsePolicy property must be set to WindowsProxyUsePolicy.UseCustomProxy..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_io_read">
+            <summary>
+              Looks up a localized string similar to The read operation failed, see inner exception..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_io_write">
+            <summary>
+              Looks up a localized string similar to The write operation failed, see inner exception..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_log_content_no_task_returned_copytoasync">
+            <summary>
+              Looks up a localized string similar to Type &apos;{0}.CopyToAsync()&apos; did not return a System.Threading.Tasks.Task object..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_log_headers_invalid_quality">
+            <summary>
+              Looks up a localized string similar to The &apos;q&apos; value is invalid: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_log_headers_no_newlines">
+            <summary>
+              Looks up a localized string similar to Value for header &apos;{0}&apos; contains invalid new-line characters. Value: &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_log_headers_wrong_email_format">
+            <summary>
+              Looks up a localized string similar to Value &apos;{0}&apos; is not a valid email address. Error: {1}.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_message_not_success_statuscode">
+            <summary>
+              Looks up a localized string similar to Response status code does not indicate success: {0} ({1})..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_operation_started">
+            <summary>
+              Looks up a localized string similar to This instance has already started one or more requests. Properties can only be modified before sending the first request..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_parser_invalid_base64_string">
+            <summary>
+              Looks up a localized string similar to Value &apos;{0}&apos; is not a valid Base64 string. Error: {1}.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_reasonphrase_format_error">
+            <summary>
+              Looks up a localized string similar to The reason phrase must not contain new-line characters..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_value_must_be_greater_than">
+            <summary>
+              Looks up a localized string similar to The specified value must be greater than {0}..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_http_value_not_supported">
+            <summary>
+              Looks up a localized string similar to The value &apos;{0}&apos; is not supported for property &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.net_timeout">
+            <summary>
+              Looks up a localized string similar to The operation has timed out..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ResponseStatusCodeError">
+            <summary>
+              Looks up a localized string similar to Response status code indicates server error: {0} ({1})..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.RetryStrategyNotFound">
+            <summary>
+              Looks up a localized string similar to The retry strategy with name &apos;{0}&apos; cannot be found..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.StringCannotBeEmpty">
+            <summary>
+              Looks up a localized string similar to The specified string argument {0} must not be empty..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.TaskCannotBeNull">
+            <summary>
+              Looks up a localized string similar to The specified argument &apos;{0}&apos; cannot return a null task when invoked..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.TaskMustBeScheduled">
+            <summary>
+              Looks up a localized string similar to The specified argument &apos;{0}&apos; must return a scheduled task (also known as &quot;hot&quot; task) when invoked..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.TokenProviderCannotBeNull">
+            <summary>
+              Looks up a localized string similar to You must specify a token provider or raw access token before using token credentials..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ValidationCannotBeNull">
+            <summary>
+              Looks up a localized string similar to cannot be null.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ValidationEnum">
+            <summary>
+              Looks up a localized string similar to cannot have value other than.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ValidationExclusiveMaximum">
+            <summary>
+              Looks up a localized string similar to is equal or exceeds maximum value of.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ValidationExclusiveMinimum">
+            <summary>
+              Looks up a localized string similar to is less than or equal minimum value of.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ValidationMaximum">
+            <summary>
+              Looks up a localized string similar to exceeds maximum value of.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ValidationMaximumItems">
+            <summary>
+              Looks up a localized string similar to exceeds maximum item count of.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ValidationMaximumLength">
+            <summary>
+              Looks up a localized string similar to exceeds maximum length of.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ValidationMinimum">
+            <summary>
+              Looks up a localized string similar to is less than minimum value of.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ValidationMinimumItems">
+            <summary>
+              Looks up a localized string similar to contains less items than.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ValidationMinimumLength">
+            <summary>
+              Looks up a localized string similar to is less than minimum length of.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ValidationMultipleOf">
+            <summary>
+              Looks up a localized string similar to has to be multiple of.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ValidationPattern">
+            <summary>
+              Looks up a localized string similar to does not match expected pattern.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.ValidationUniqueItems">
+            <summary>
+              Looks up a localized string similar to collection contains duplicate items.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.Resources.Strings.WebRequestHandlerNotFound">
+            <summary>
+              Looks up a localized string similar to The service client &apos;{0}&apos; did not contain an implementation of &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="T:Cadru.Net.Http.UriScheme">
+            <summary>
+            A helper class for retrieving and comparing standard URI schemes.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.UriScheme.File">
+            <summary>
+            Represents a URI scheme for a resource which is a file on the
+            local computer.
+            </summary>
+            <value>A URI scheme for a resource which is a file on the local
+            computer.</value>
+        </member>
+        <member name="P:Cadru.Net.Http.UriScheme.Ftp">
+            <summary>
+            Represents a URI scheme for a resource which is accessed through
+            FTP.
+            </summary>
+            <value>A URI scheme for a resource which is accessed through
+            FTP.</value>
+        </member>
+        <member name="P:Cadru.Net.Http.UriScheme.Gopher">
+            <summary>
+            Represents a URI scheme for a resource which is accessed through
+            the Gopher protocol.
+            </summary>
+            <value>A URI scheme for a resource which is accessed through
+            the Gopher protocol.</value>
+        </member>
+        <member name="P:Cadru.Net.Http.UriScheme.Http">
+            <summary>
+            Represents a URI scheme for a resource which is accessed through
+            HTTP.
+            </summary>
+            <value>A URI scheme for a resource which is accessed through
+            HTTP.</value>
+        </member>
+        <member name="P:Cadru.Net.Http.UriScheme.Https">
+            <summary>
+            Represents a URI scheme for a resource which is accessed through
+            SSL-encrypted HTTP.
+            </summary>
+            <value>A URI scheme for a resource which is accessed through
+            SSL-encrypted HTTP.</value>
+        </member>
+        <member name="P:Cadru.Net.Http.UriScheme.MailTo">
+            <summary>
+            Represents a URI scheme for a resource which is an e-mail address
+            and is access through SMTP.
+            </summary>
+            <value>A URI scheme for a resource which is an e-mail address and
+            is accessed through SMTP.</value>
+        </member>
+        <member name="P:Cadru.Net.Http.UriScheme.News">
+            <summary>
+            Represents a URI scheme for a resource which is accessed through
+            NNTP.
+            </summary>
+            <value>A URI scheme for a resource which is accessed through
+            NNTP.</value>
+        </member>
+        <member name="M:Cadru.Net.Http.UriScheme.op_Implicit(Cadru.Net.Http.UriScheme)~System.String">
+            <summary>
+            Defines an implicit conversion from <see cref="T:Cadru.Net.Http.UriScheme"/> to <see cref="T:System.String"/>.
+            </summary>
+            <param name="value">The object to convert.</param>
+            <returns>
+            The converted object.
+            </returns>
+        </member>
+        <member name="M:Cadru.Net.Http.UriScheme.op_Inequality(Cadru.Net.Http.UriScheme,Cadru.Net.Http.UriScheme)">
+            <summary>
+            Determines whether two specified <see cref="T:Cadru.Net.Http.UriScheme"/>
+            objects represent different schemes.
+            </summary>
+            <param name="left">The first object to compare.</param>
+            <param name="right">The second object to compare.</param>
+            <returns>
+            <see langword="true"/> if <paramref name="left"/> and
+            <paramref name="right"/> do not represent the same scheme;
+            otherwise, <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="M:Cadru.Net.Http.UriScheme.op_Equality(Cadru.Net.Http.UriScheme,Cadru.Net.Http.UriScheme)">
+            <summary>
+            Determines whether two specified <see cref="T:Cadru.Net.Http.UriScheme"/>
+            objects represent the same scheme.
+            </summary>
+            <param name="left">The first object to compare.</param>
+            <param name="right">The second object to compare.</param>
+            <returns>
+            <see langword="true"/> if both objects represent the same scheme;
+            otherwise, <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="M:Cadru.Net.Http.UriScheme.Equals(System.Object)">
+            <summary>
+            Returns a value indicating whether the value of this instance is
+            equal to the value of the specified <see cref="T:Cadru.Net.Http.UriScheme"/>
+            instance.
+            </summary>
+            <param name="obj">The object to compare to this
+            instance.</param>
+            <returns>
+            <see langword="true"/> if the <paramref name="obj"/> parameter
+            equals the value of this instance; otherwise, <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="M:Cadru.Net.Http.UriScheme.Equals(Cadru.Net.Http.UriScheme)">
+            <summary>
+            Returns a value indicating whether the value of this instance is
+            equal to the value of the specified <see cref="T:Cadru.Net.Http.UriScheme"/>
+            instance.
+            </summary>
+            <param name="other">The <see cref="T:Cadru.Net.Http.UriScheme"/> to compare to this
+            instance.</param>
+            <returns>
+            <see langword="true"/> if the <paramref name="other"/> parameter
+            equals the value of this instance; otherwise, <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="M:Cadru.Net.Http.UriScheme.GetHashCode">
+            <summary>
+            Returns the hash code for this instance.
+            </summary>
+            <returns>
+            A 32-bit signed integer hash code.
+            </returns>
+        </member>
+        <member name="M:Cadru.Net.Http.UriScheme.ToString">
+            <summary>
+            Converts the value of the current <see cref="T:Cadru.Net.Http.UriScheme"/>
+            object to its equivalent string representation.
+            </summary>
+            <returns>
+            A string representation of the value of the current <see cref="T:Cadru.Net.Http.UriScheme"/> object.
+            </returns>
+        </member>
+        <member name="T:Cadru.Net.Http.UrlBuilder">
+            <summary>
+            Provides a custom constructor for uniform resource identifiers (URIs)
+            and modifies URIs for the <see cref="T:System.Uri"/> class.
+            </summary>
+        </member>
+        <member name="M:Cadru.Net.Http.UrlBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class.
+            </summary>
+        </member>
+        <member name="M:Cadru.Net.Http.UrlBuilder.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class
+            with the specified URI.
+            </summary>
+            <param name="uri">A URI string.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="uri"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.FormatException">
+            <para><paramref name="uri"/> is a zero length string or contains
+            only spaces.</para>
+            <para>-or-</para>
+            <para>The parsing routine detected a scheme in an invalid form.</para>
+            <para>-or-</para>
+            <para>The parser detected more than two consecutive slashes in a
+            URI that does not use the "file" scheme.</para>
+            <para>-or-</para>
+            <para>paramref name="uri"/> is not a valid URI.</para>
+            </exception>
+        </member>
+        <member name="M:Cadru.Net.Http.UrlBuilder.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class
+            with the specified URI and path.
+            </summary>
+            <param name="uri">A URI string.</param>
+            <param name="path">The path to the Internet resource.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="uri"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.FormatException">
+            <para><paramref name="uri"/> is a zero length string or contains
+            only spaces.</para>
+            <para>-or-</para>
+            <para>The parsing routine detected a scheme in an invalid form.</para>
+            <para>-or-</para>
+            <para>The parser detected more than two consecutive slashes in a
+            URI that does not use the "file" scheme.</para>
+            <para>-or-</para>
+            <para>paramref name="uri"/> is not a valid URI.</para>
+            </exception>
+        </member>
+        <member name="M:Cadru.Net.Http.UrlBuilder.#ctor(System.Uri)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class
+            with the specified <see cref="T:System.Uri"/> instance.
+            </summary>
+            <param name="uri">An instance of the <see cref="T:System.Uri"/> class.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="uri"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.Net.Http.UrlBuilder.#ctor(System.Uri,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class
+            with the specified <see cref="T:System.Uri"/> instance.
+            </summary>
+            <param name="uri">An instance of the <see cref="T:System.Uri"/> class.</param>
+            <param name="path">The path to the Internet resource.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="uri"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.Net.Http.UrlBuilder.#ctor(Cadru.Net.Http.UriScheme,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class
+            with the specified scheme and host.
+            </summary>
+            <param name="scheme">An Internet access protocol.</param>
+            <param name="host">A DNS-style domain name or IP address.</param>
+        </member>
+        <member name="M:Cadru.Net.Http.UrlBuilder.#ctor(Cadru.Net.Http.UriScheme,System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class
+            with the specified scheme and host.
+            </summary>
+            <param name="scheme">An Internet access protocol.</param>
+            <param name="host">A DNS-style domain name or IP address.</param>
+            <param name="port">An IP port number for the service.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="port"/> is less than -1 or greater than 65,535.
+            </exception>
+        </member>
+        <member name="M:Cadru.Net.Http.UrlBuilder.#ctor(Cadru.Net.Http.UriScheme,System.String,System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class
+            with the specified scheme and host.
+            </summary>
+            <param name="scheme">An Internet access protocol.</param>
+            <param name="host">A DNS-style domain name or IP address.</param>
+            <param name="port">An IP port number for the service.</param>
+            <param name="path">The path to the Internet resource.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="port"/> is less than -1 or greater than 65,535.
+            </exception>
+        </member>
+        <member name="M:Cadru.Net.Http.UrlBuilder.#ctor(Cadru.Net.Http.UriScheme,System.String,System.Int32,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> class
+            with the specified scheme and host.
+            </summary>
+            <param name="scheme">An Internet access protocol.</param>
+            <param name="host">A DNS-style domain name or IP address.</param>
+            <param name="port">An IP port number for the service.</param>
+            <param name="path">The path to the Internet resource.</param>
+            <param name="extraValue">A query string or fragment identifier.</param>
+            <exception cref="T:System.ArgumentException">
+            <paramref name="extraValue"/> is neither <see langword="null"/>
+            nor <see cref="F:System.String.Empty">System.String.Empty</see>, nor
+            does a valid fragment identifier begin with a number sign (#), nor
+            a valid query string begin with a question mark (?).
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="port"/> is less than -1 or greater than 65,535.
+            </exception>
+        </member>
+        <member name="P:Cadru.Net.Http.UrlBuilder.Fragment">
+            <summary>
+            Gets or sets the fragment portion of the URI.
+            </summary>
+            <value>The fragment portion of the URI. The fragment identifier
+            ("#") is added to the beginning of the fragment.</value>
+        </member>
+        <member name="P:Cadru.Net.Http.UrlBuilder.Host">
+            <summary>
+            Gets or sets the Domain Name System (DNS) host name or IP address
+            of a server.
+            </summary>
+            <value>The DNS host name or IP address of the server.</value>
+        </member>
+        <member name="P:Cadru.Net.Http.UrlBuilder.Password">
+            <summary>
+            Gets or sets the password associated with the user that accesses the URI.
+            </summary>
+            <value>The password of the user that accesses the URI.</value>
+        </member>
+        <member name="P:Cadru.Net.Http.UrlBuilder.Path">
+            <summary>
+            Gets or sets the path to the resource referenced by the URI.
+            </summary>
+            <value>The path to the resource referenced by the URI.</value>
+        </member>
+        <member name="P:Cadru.Net.Http.UrlBuilder.Port">
+            <summary>
+            Gets or sets the port number of the URI.
+            </summary>
+            <value>The port number of the URI.</value>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            The port cannot be set to a value less than -1 or greater than 65,535.
+            </exception>
+        </member>
+        <member name="P:Cadru.Net.Http.UrlBuilder.Query">
+            <summary>
+            Gets or sets any query information included in the URI.
+            </summary>
+            <value>The query information included in the URI.</value>
+        </member>
+        <member name="P:Cadru.Net.Http.UrlBuilder.QueryParameters">
+            <summary>
+            Gets the collection of query parameters to be included in the URI.
+            </summary>
+            <value>The collection of query parameters to be included in the URI.</value>
+        </member>
+        <member name="P:Cadru.Net.Http.UrlBuilder.Scheme">
+            <summary>
+            Gets or sets the scheme name of the URI.
+            </summary>
+            <value>The scheme of the URI.</value>
+            <exception cref="T:System.ArgumentException">The scheme cannot be set to an invalid scheme name.</exception>
+        </member>
+        <member name="P:Cadru.Net.Http.UrlBuilder.Uri">
+            <summary>
+            Gets the <see cref="T:System.Uri"/> instance constructed by the
+            specified <see cref="T:Cadru.Net.Http.UrlBuilder"/> instance.
+            </summary>
+            <value>A <see cref="T:System.Uri"/> that contains the URI
+            constructed by the <see cref="T:Cadru.Net.Http.UrlBuilder"/>.</value>
+            <exception cref="T:System.FormatException">
+            <para>The URI constructed by the <see cref="T:Cadru.Net.Http.UrlBuilder"/> properties
+            is invalid.</para>
+            </exception>
+        </member>
+        <member name="P:Cadru.Net.Http.UrlBuilder.UserName">
+            <summary>
+            Gets or sets the user name associated with the user that accesses the URI.
+            </summary>
+            <value>The user name of the user that accesses the URI.</value>
+        </member>
+        <member name="M:Cadru.Net.Http.UrlBuilder.Equals(System.Object)">
+            <summary>
+            Compares an existing <see cref="T:System.Uri"/> instance with the
+            contents of the <see cref="T:Cadru.Net.Http.UrlBuilder"/> for equality.
+            </summary>
+            <param name="obj">The object to compare with the current instance.</param>
+            <returns><see langword="true"/> if <paramref name="obj"/>
+            represents the same <see cref="T:System.Uri"/> as the
+            <see cref="T:System.Uri"/> constructed by this
+            <see cref="T:Cadru.Net.Http.UrlBuilder"/> instance; otherwise, <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="M:Cadru.Net.Http.UrlBuilder.GetHashCode">
+            <summary>
+            Returns the hash code for the URI.
+            </summary>
+            <returns>The hash code generated for the URI.</returns>
+        </member>
+        <member name="M:Cadru.Net.Http.UrlBuilder.ToString">
+            <summary>
+            Returns the display string for the specified
+            <see cref="T:Cadru.Net.Http.UrlBuilder"/> instance.
+            </summary>
+            <returns>The string that contains the unescaped display string of
+            the <see cref="T:Cadru.Net.Http.UrlBuilder"/>.</returns>
+            <exception cref="T:System.FormatException">
+            <para>The <see cref="T:Cadru.Net.Http.UrlBuilder"/> instance has a bad password.</para>
+            </exception>
+        </member>
+    </members>
+</doc>

@@ -2,7 +2,7 @@
 // <copyright file="HttpRequestWithStatusException.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -32,16 +32,12 @@ namespace Cadru.Net.Http
     /// <summary>
     /// Inherits HttpRequestException adding HttpStatusCode to the exception.
     /// </summary>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2237:MarkISerializableTypesWithSerializable", Justification = "HttpRequestException hides the constructor needed for serialization.")]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2229:Implement serialization constructors", Justification = "HttpRequestException hides the constructor needed for serialization.")]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S3925:\"ISerializable\" should be implemented correctly", Justification = "HttpRequestException hides the constructor needed for serialization.")]
     public class HttpRequestWithStatusException : HttpRequestException
     {
-        private static string GetFormattedMessage(HttpResponseMessage responseMessage)
-        {
-            return String.Format(CultureInfo.InvariantCulture, Strings.ResponseStatusCodeError, (int)responseMessage.StatusCode, responseMessage.StatusCode);
-        }
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HttpRequestWithStatusException"/> class.
+        /// </summary>
+        /// <param name="responseMessage">The response for this exception.</param>
         public HttpRequestWithStatusException(HttpResponseMessage responseMessage) :
             base(GetFormattedMessage(responseMessage))
         {
@@ -49,6 +45,11 @@ namespace Cadru.Net.Http
             this.ReasonPhrase = responseMessage.ReasonPhrase;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HttpRequestWithStatusException"/> class.
+        /// </summary>
+        /// <param name="responseMessage">A message that describes the current exception.</param>
+        /// <param name="inner">The inner exception.</param>
         public HttpRequestWithStatusException(HttpResponseMessage responseMessage, Exception inner) :
             base(GetFormattedMessage(responseMessage), inner)
         {
@@ -61,6 +62,7 @@ namespace Cadru.Net.Http
         /// </summary>
         public HttpRequestWithStatusException()
         {
+            this.ReasonPhrase = String.Empty;
         }
 
         /// <summary>
@@ -70,6 +72,7 @@ namespace Cadru.Net.Http
         /// <param name="message">A message that describes the current exception.</param>
         public HttpRequestWithStatusException(string message) : base(message)
         {
+            this.ReasonPhrase = String.Empty;
         }
 
         /// <summary>
@@ -81,13 +84,8 @@ namespace Cadru.Net.Http
         /// <param name="inner">The inner exception.</param>
         public HttpRequestWithStatusException(string message, Exception inner) : base(message, inner)
         {
+            this.ReasonPhrase = String.Empty;
         }
-
-        /// <summary>
-        /// Gets the status code of the HTTP response.
-        /// </summary>
-        /// <value>The status code of the HTTP response.</value>
-        public HttpStatusCode StatusCode { get; }
 
         /// <summary>
         /// Gets the reason phrase which typically is sent by servers together with
@@ -95,5 +93,16 @@ namespace Cadru.Net.Http
         /// </summary>
         /// <value>The reason phrase sent by the server.</value>
         public string ReasonPhrase { get; }
+
+        /// <summary>
+        /// Gets the status code of the HTTP response.
+        /// </summary>
+        /// <value>The status code of the HTTP response.</value>
+        public HttpStatusCode? StatusCode { get; }
+
+        private static string GetFormattedMessage(HttpResponseMessage responseMessage)
+        {
+            return String.Format(CultureInfo.InvariantCulture, Strings.ResponseStatusCodeError, (int)responseMessage.StatusCode, responseMessage.StatusCode);
+        }
     }
 }

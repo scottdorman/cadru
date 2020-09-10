@@ -2,7 +2,7 @@
 // <copyright file="HttpExtensions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,25 +20,25 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+
+using Cadru.Net.Http.Collections;
+using Cadru.Net.Http.Resources;
+
+using Newtonsoft.Json.Linq;
+
 namespace Cadru.Net.Http.Extensions
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Net.Http;
-    using System.Net.Http.Headers;
-    using System.Text;
-
-    using Cadru.Net.Http.Collections;
-
-    using Newtonsoft.Json.Linq;
-
     /// <summary>
     /// Provides basic routines for common HTTPClient related manipulation.
     /// </summary>
     public static class HttpExtensions
     {
-        #region AsFormattedString
         /// <summary>
         /// Returns string representation of a HttpRequestMessage.
         /// </summary>
@@ -105,15 +105,9 @@ namespace Cadru.Net.Http.Extensions
                 return "{}";
             }
 
-            return "{" + String.Join(",",
-                dictionary.Select(kv => kv.Key.ToString() +
-                                        "=" +
-                                        (kv.Value == null ? String.Empty : kv.Value.ToString()))
-                    .ToArray()) + "}";
+            return $"{{{ String.Join(",", dictionary.Select(kv => $"{kv.Key}={kv.Value?.ToString() ?? String.Empty}").ToArray())}}}";
         }
-        #endregion
 
-        #region AsString
         /// <summary>
         /// Formats an HttpContent object as String.
         /// </summary>
@@ -121,26 +115,25 @@ namespace Cadru.Net.Http.Extensions
         /// <returns>The formatted string.</returns>
         public static string AsString(this HttpContent content)
         {
-            if (content != null)
-            {
-                // Await for the content.
-                return
-                    content
-                        .ReadAsStringAsync()
-                        .ConfigureAwait(false)
-                        .GetAwaiter()
-                        .GetResult();
-            }
-            return null;
+            return content?.ReadAsStringAsync()
+                    .ConfigureAwait(false).GetAwaiter().GetResult() ?? String.Empty;
         }
-        #endregion
 
-        public static HttpRequestMessage CreateRequestMessage(this HttpClient httpClient, HttpMethod method, Uri uri, QueryStringParametersDictionary queryStringParameters = null, IDictionary<string, string> headerCollection = null)
+        /// <summary>
+        /// Creates a valid <see cref="HttpRequestMessage"/> with the given properties.
+        /// </summary>
+        /// <param name="httpClient">The <see cref="HttpClient"/> instance used to create the message.</param>
+        /// <param name="method">The HTTP method.</param>
+        /// <param name="uri">The <see cref="Uri"/> to request.</param>
+        /// <param name="queryStringParameters">The query string parameters.</param>
+        /// <param name="headerCollection">Additional request headers to be included.</param>
+        /// <returns>A valid <see cref="HttpRequestMessage"/>.</returns>
+        public static HttpRequestMessage CreateRequestMessage(this HttpClient httpClient, HttpMethod method, Uri uri, QueryStringParametersDictionary? queryStringParameters = null, IDictionary<string, string>? headerCollection = null)
         {
-            Uri requestUri = null;
+            Uri? requestUri = null;
             if ((uri == null) && (httpClient.BaseAddress == null))
             {
-                throw new InvalidOperationException("SR.net_http_client_invalid_requesturi");
+                throw new InvalidOperationException(Strings.net_http_client_invalid_requesturi);
             }
             if (uri == null)
             {
@@ -153,7 +146,7 @@ namespace Cadru.Net.Http.Extensions
                 {
                     if (httpClient.BaseAddress == null)
                     {
-                        throw new InvalidOperationException("SR.net_http_client_invalid_requesturi");
+                        throw new InvalidOperationException(Strings.net_http_client_invalid_requesturi);
                     }
                     else
                     {
@@ -185,13 +178,12 @@ namespace Cadru.Net.Http.Extensions
             return requestMessge;
         }
 
-        #region GetContentHeaders
         /// <summary>
         /// Get the content headers of an HtttRequestMessage.
         /// </summary>
         /// <param name="request">The request message.</param>
         /// <returns>The content headers.</returns>
-        public static HttpContentHeaders GetContentHeaders(this HttpRequestMessage request)
+        public static HttpContentHeaders? GetContentHeaders(this HttpRequestMessage request)
         {
             if (request != null && request.Content != null)
             {
@@ -206,7 +198,7 @@ namespace Cadru.Net.Http.Extensions
         /// </summary>
         /// <param name="response">The response message.</param>
         /// <returns>The content headers.</returns>
-        public static HttpContentHeaders GetContentHeaders(this HttpResponseMessage response)
+        public static HttpContentHeaders? GetContentHeaders(this HttpResponseMessage response)
         {
             if (response != null && response.Content != null)
             {
@@ -215,9 +207,7 @@ namespace Cadru.Net.Http.Extensions
 
             return default;
         }
-        #endregion
 
-        #region GetHeadersAsJson
         /// <summary>
         /// Serializes HttpResponseHeaders and HttpContentHeaders as Json dictionary.
         /// </summary>
@@ -258,23 +248,7 @@ namespace Cadru.Net.Http.Extensions
             }
             return jObject;
         }
-        #endregion
 
-        public static bool TryGetHeaderValue(this HttpRequestMessage requestMessage, string name, out string value)
-        {
-            var found = false;
-            value = null;
-
-            if (requestMessage.Headers.TryGetValues(name, out var values))
-            {
-                value = values.First();
-                found = true;
-            }
-
-            return found;
-        }
-
-        #region ToJson
         /// <summary>
         /// Serializes HttpHeaders as Json dictionary.
         /// </summary>
@@ -320,6 +294,27 @@ namespace Cadru.Net.Http.Extensions
                 return jObject;
             }
         }
-        #endregion
+
+        /// <summary>
+        /// Return if a specified header and specified values are stored in the System.Net.Http.Headers.HttpHeaders
+        /// collection.
+        /// </summary>
+        /// <param name="requestMessage"></param>
+        /// <param name="name">The specified header.</param>
+        /// <param name="value">The specified header value.</param>
+        /// <returns><see langword="true"/> if the specified header name and values are stored in the collection; otherwise, <see langword="false"/>.</returns>
+        public static bool TryGetHeaderValue(this HttpRequestMessage requestMessage, string name, out string? value)
+        {
+            var found = false;
+            value = null;
+
+            if (requestMessage.Headers.TryGetValues(name, out var values))
+            {
+                value = values.First();
+                found = true;
+            }
+
+            return found;
+        }
     }
 }

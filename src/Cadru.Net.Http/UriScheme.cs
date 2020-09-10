@@ -2,7 +2,7 @@
 // <copyright file="UriScheme.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,12 +20,12 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
+using Cadru.Contracts;
+
 namespace Cadru.Net.Http
 {
-    using System;
-
-    using Cadru.Contracts;
-
     /// <summary>
     /// A helper class for retrieving and comparing standard URI schemes.
     /// </summary>
@@ -33,7 +33,6 @@ namespace Cadru.Net.Http
     [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
     public sealed class UriScheme : IEquatable<UriScheme>
     {
-        #region fields
         private static readonly UriScheme fileScheme = new UriScheme("file");
         private static readonly UriScheme ftpScheme = new UriScheme("ftp");
         private static readonly UriScheme gopherScheme = new UriScheme("gopher");
@@ -42,138 +41,69 @@ namespace Cadru.Net.Http
         private static readonly UriScheme mailtoScheme = new UriScheme("mailto");
         private static readonly UriScheme newsScheme = new UriScheme("news");
         private readonly string scheme;
-        #endregion
 
-        #region constructors
         internal UriScheme(string scheme)
         {
             Requires.NotNullOrEmpty(scheme, "scheme");
             this.scheme = scheme;
         }
-        #endregion
 
-        #region events
-        #endregion
-
-        #region properties
-
-        #region File
         /// <summary>
         /// Represents a URI scheme for a resource which is a file on the
         /// local computer.
         /// </summary>
         /// <value>A URI scheme for a resource which is a file on the local
         /// computer.</value>
-        public static UriScheme File
-        {
-            get
-            {
-                return fileScheme;
-            }
-        }
-        #endregion
+        public static UriScheme File => fileScheme;
 
-        #region Ftp
         /// <summary>
         /// Represents a URI scheme for a resource which is accessed through
         /// FTP.
         /// </summary>
         /// <value>A URI scheme for a resource which is accessed through
         /// FTP.</value>
-        public static UriScheme Ftp
-        {
-            get
-            {
-                return ftpScheme;
-            }
-        }
-        #endregion
+        public static UriScheme Ftp => ftpScheme;
 
-        #region Gopher
         /// <summary>
         /// Represents a URI scheme for a resource which is accessed through
         /// the Gopher protocol.
         /// </summary>
         /// <value>A URI scheme for a resource which is accessed through
         /// the Gopher protocol.</value>
-        public static UriScheme Gopher
-        {
-            get
-            {
-                return gopherScheme;
-            }
-        }
-        #endregion
+        public static UriScheme Gopher => gopherScheme;
 
-        #region Http
         /// <summary>
         /// Represents a URI scheme for a resource which is accessed through
         /// HTTP.
         /// </summary>
         /// <value>A URI scheme for a resource which is accessed through
         /// HTTP.</value>
-        public static UriScheme Http
-        {
-            get
-            {
-                return httpScheme;
-            }
-        }
-        #endregion
+        public static UriScheme Http => httpScheme;
 
-        #region Https
         /// <summary>
         /// Represents a URI scheme for a resource which is accessed through
         /// SSL-encrypted HTTP.
         /// </summary>
         /// <value>A URI scheme for a resource which is accessed through
         /// SSL-encrypted HTTP.</value>
-        public static UriScheme Https
-        {
-            get
-            {
-                return httpsScheme;
-            }
-        }
-        #endregion
+        public static UriScheme Https => httpsScheme;
 
-        #region MailTo
         /// <summary>
         /// Represents a URI scheme for a resource which is an e-mail address
         /// and is access through SMTP.
         /// </summary>
         /// <value>A URI scheme for a resource which is an e-mail address and
         /// is accessed through SMTP.</value>
-        public static UriScheme MailTo
-        {
-            get
-            {
-                return mailtoScheme;
-            }
-        }
-        #endregion
+        public static UriScheme MailTo => mailtoScheme;
 
-        #region News
         /// <summary>
         /// Represents a URI scheme for a resource which is accessed through
         /// NNTP.
         /// </summary>
         /// <value>A URI scheme for a resource which is accessed through
         /// NNTP.</value>
-        public static UriScheme News
-        {
-            get
-            {
-                return newsScheme;
-            }
-        }
-        #endregion
+        public static UriScheme News => newsScheme;
 
-        #endregion
-
-        #region operators
-
-        #region Implicit(UriScheme to string)
         /// <summary>
         /// Defines an implicit conversion from <see cref="UriScheme"/> to <see cref="System.String"/>.
         /// </summary>
@@ -187,31 +117,7 @@ namespace Cadru.Net.Http
 
             return value.scheme;
         }
-        #endregion
 
-        #region Equality
-        /// <summary>
-        /// Determines whether two specified <see cref="UriScheme"/>
-        /// objects represent the same scheme.
-        /// </summary>
-        /// <param name="left">The first object to compare.</param>
-        /// <param name="right">The second object to compare.</param>
-        /// <returns>
-        /// <see langword="true"/> if both objects represent the same scheme;
-        /// otherwise, <see langword="false"/>.
-        /// </returns>
-        public static bool operator ==(UriScheme left, UriScheme right)
-        {
-            if ((object)left == null || (object)right == null)
-            {
-                return Object.Equals(left, right);
-            }
-
-            return left.Equals(right);
-        }
-        #endregion
-
-        #region Inequality
         /// <summary>
         /// Determines whether two specified <see cref="UriScheme"/>
         /// objects represent different schemes.
@@ -227,15 +133,27 @@ namespace Cadru.Net.Http
         {
             return !(left == right);
         }
-        #endregion
 
-        #endregion
+        /// <summary>
+        /// Determines whether two specified <see cref="UriScheme"/>
+        /// objects represent the same scheme.
+        /// </summary>
+        /// <param name="left">The first object to compare.</param>
+        /// <param name="right">The second object to compare.</param>
+        /// <returns>
+        /// <see langword="true"/> if both objects represent the same scheme;
+        /// otherwise, <see langword="false"/>.
+        /// </returns>
+        public static bool operator ==(UriScheme left, UriScheme right)
+        {
+            if (left is null || right is null)
+            {
+                return Equals(left, right);
+            }
 
-        #region methods
+            return left.Equals(right);
+        }
 
-        #region Equals
-
-        #region Equals(object obj)
         /// <summary>
         /// Returns a value indicating whether the value of this instance is
         /// equal to the value of the specified <see cref="UriScheme"/>
@@ -249,11 +167,14 @@ namespace Cadru.Net.Http
         /// </returns>
         public override bool Equals(object obj)
         {
-            return this.Equals(obj as UriScheme);
-        }
-        #endregion
+            if (obj is UriScheme uriScheme)
+            {
+                return this.Equals(uriScheme);
+            }
 
-        #region Equals(UriScheme other)
+            return false;
+        }
+
         /// <summary>
         /// Returns a value indicating whether the value of this instance is
         /// equal to the value of the specified <see cref="UriScheme"/>
@@ -267,23 +188,19 @@ namespace Cadru.Net.Http
         /// </returns>
         public bool Equals(UriScheme other)
         {
-            if (other == null)
+            if (other == null!)
             {
                 return false;
             }
 
-            if (Object.ReferenceEquals(this.scheme, other.scheme))
+            if (ReferenceEquals(this.scheme, other.scheme))
             {
                 return true;
             }
 
             return String.Compare(this.scheme, other.scheme, StringComparison.OrdinalIgnoreCase) == 0;
         }
-        #endregion
 
-        #endregion
-
-        #region GetHashCode
         /// <summary>
         /// Returns the hash code for this instance.
         /// </summary>
@@ -294,9 +211,7 @@ namespace Cadru.Net.Http
         {
             return this.scheme.ToUpperInvariant().GetHashCode();
         }
-        #endregion
 
-        #region ToString
         /// <summary>
         /// Converts the value of the current <see cref="UriScheme"/>
         /// object to its equivalent string representation.
@@ -308,8 +223,5 @@ namespace Cadru.Net.Http
         {
             return this.scheme.ToString();
         }
-        #endregion
-
-        #endregion
     }
 }

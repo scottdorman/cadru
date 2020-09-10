@@ -2,7 +2,7 @@
 // <copyright file="CompressingHttpClientHandler.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,22 +20,16 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.Net;
+using System.Net.Http;
+
 namespace Cadru.Net.Http
 {
-    using System.Net;
-    using System.Net.Http;
-
     /// <summary>
     /// An HTTP handler that sets the automatic decompression methods.
     /// </summary>
     public class CompressingHttpClientHandler : HttpClientHandler
     {
-        #region fields
-        #endregion
-
-        #region constructors
-
-        #region CompressingHttpClientHandler()
         /// <summary>
         /// Initializes a new instance of the <see cref="CompressingHttpClientHandler"/> class
         /// with a specific inner handler.
@@ -48,14 +42,5 @@ namespace Cadru.Net.Http
                 this.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
             }
         }
-        #endregion
-
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methods
-        #endregion
     }
 }

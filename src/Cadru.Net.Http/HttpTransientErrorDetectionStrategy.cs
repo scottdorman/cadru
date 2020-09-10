@@ -2,7 +2,7 @@
 // <copyright file="HttpTransientErrorDetectionStrategy.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,49 +20,34 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Net;
+using System.Net.Http;
+
+using Cadru.Extensions;
+using Cadru.Polly;
+
 namespace Cadru.Net.Http
 {
-    using System;
-    using System.Net;
-    using System.Net.Http;
-    using Cadru.Extensions;
-    using Cadru.TransientFaultHandling.DetectionStrategies;
-
     /// <summary>
     /// Represents a strategy that determines whether or not a given <see cref="HttpRequestException"/> should
     /// be considered as a transient error.
-    /// </summary>ry>
-    public class HttpTransientErrorDetectionStrategy : ITransientErrorDetectionStrategy
+    /// </summary>
+    public class HttpTransientErrorDetectionStrategy : IExceptionHandlingStrategy
     {
-        private bool IsTransientWebException(HttpRequestException httpException)
+        /// <inheritdoc/>
+        public bool IsDefaultStrategy => true;
+
+        /// <inheritdoc/>
+        public bool ShouldHandle([NotNull] Exception exception)
         {
-            var isTransient = false;
-
-            if (httpException.InnerException is WebException webException)
+            if (exception is HttpRequestException httpRequestException)
             {
-                isTransient = true;
-
-                // The PCL version of WebExceptionStatus does not include
-                // all of the possible values, so we're switching on
-                // the raw integer values instead.
-                switch ((int)webException.Status)
-                {
-                    case 1: // NameResolutionFailure
-                    case 2: // ConnectFailure
-                    case 3: // RecieveFailure
-                    case 4: // SendFailure
-                    case 14: // Timeout
-                    case 15: // ProxyNameResolutionFailure
-                        isTransient = true;
-                        break;
-
-                    default:
-                        isTransient = false;
-                        break;
-                }
+                return this.IsTransientWebException(httpRequestException) || this.IsTransientHttpException(httpRequestException);
             }
 
-            return isTransient;
+            return false;
         }
 
         private bool IsTransientHttpException(HttpRequestException exception)
@@ -89,17 +74,30 @@ namespace Cadru.Net.Http
             return isTransient;
         }
 
-        /// <summary>
-        /// Determines whether the specified exception represents a transient failure that can be compensated by a retry.
-        /// </summary>
-        /// <param name="ex">The exception object to be verified.</param>
-        /// <returns>true if the specified exception is considered as transient; otherwise, false.</returns>
-        public bool IsTransient(Exception ex)
+        private bool IsTransientWebException(HttpRequestException httpException)
         {
             var isTransient = false;
-            if (ex is HttpRequestException httpException)
+
+            if (httpException.InnerException is WebException webException)
             {
-                isTransient = IsTransientWebException(httpException) || IsTransientHttpException(httpException);
+                // The PCL version of WebExceptionStatus does not include
+                // all of the possible values, so we're switching on
+                // the raw integer values instead.
+                switch ((int)webException.Status)
+                {
+                    case 1: // NameResolutionFailure
+                    case 2: // ConnectFailure
+                    case 3: // RecieveFailure
+                    case 4: // SendFailure
+                    case 14: // Timeout
+                    case 15: // ProxyNameResolutionFailure
+                        isTransient = true;
+                        break;
+
+                    default:
+                        isTransient = false;
+                        break;
+                }
             }
 
             return isTransient;

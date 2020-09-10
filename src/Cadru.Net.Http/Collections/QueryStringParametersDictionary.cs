@@ -2,7 +2,7 @@
 // <copyright file="QueryStringParametersDictionary.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,27 +20,23 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Runtime.Serialization;
+using System.Text;
+
+using Cadru.Internal;
+using Cadru.Net.Http.Resources;
+
 namespace Cadru.Net.Http.Collections
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Text;
-
-    using Cadru.Internal;
-    using Cadru.Net.Http.Resources;
-
     /// <summary>
     /// Represents a collection of query string parameters and values.
     /// </summary>
+    [Serializable]
     public sealed class QueryStringParametersDictionary : Dictionary<string, string>
     {
-        #region fields
-        #endregion
-
-        #region constructors
-
-        #region QueryStringParametersDictionary()
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryStringParametersDictionary"/>
         /// class that is empty and has the default initial capacity.
@@ -49,9 +45,7 @@ namespace Cadru.Net.Http.Collections
             : base()
         {
         }
-        #endregion
 
-        #region QueryStringParametersDictionary(int capacity)
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryStringParametersDictionary"/>
         /// class that is empty and has the specified initial capacity.
@@ -64,9 +58,7 @@ namespace Cadru.Net.Http.Collections
             : base(capacity)
         {
         }
-        #endregion
 
-        #region QueryStringParametersDictionary(IDictionary<string, string> dictionary)
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryStringParametersDictionary"/>
         /// class that contains elements copied from the specified
@@ -87,9 +79,7 @@ namespace Cadru.Net.Http.Collections
             : base(dictionary)
         {
         }
-        #endregion
 
-        #region QueryStringParametersDictionary(string query)
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryStringParametersDictionary"/>
         /// class that contains elements parsed from the given query.
@@ -111,17 +101,11 @@ namespace Cadru.Net.Http.Collections
         {
             this.FillFromString(query);
         }
-        #endregion
 
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methods
+        private QueryStringParametersDictionary(SerializationInfo info, StreamingContext context)
+            : base(info, context)
+        {
+        }
 
         /// <summary>
         /// Adds the items from the collection into this instance.
@@ -135,7 +119,6 @@ namespace Cadru.Net.Http.Collections
             }
         }
 
-        #region ToQueryString
         /// <summary>
         /// Returns a string representation of the query parameters and
         /// values.
@@ -161,13 +144,10 @@ namespace Cadru.Net.Http.Collections
 
             return queryString;
         }
-        #endregion
 
         internal void FillFromString(string query)
         {
-            var length = (query != null) ? query.Length : 0;
-
-            if (length > 0)
+            if (!String.IsNullOrWhiteSpace(query))
             {
                 if (query[0] == '?')
                 {
@@ -189,7 +169,5 @@ namespace Cadru.Net.Http.Collections
                 }
             }
         }
-
-        #endregion
     }
 }
