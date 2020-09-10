@@ -1,4 +1,26 @@
-﻿using System;
+﻿//------------------------------------------------------------------------------
+// <copyright file="CustomAssertTests.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
+using System;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 
@@ -10,18 +32,32 @@ namespace Cadru.UnitTest.Framework.Tests
     public class CustomAssertTests
     {
         [TestMethod]
+        public void CaseInsensitiveCompare()
+        {
+            CustomAssert.AreEqualIgnoringCase("name", "NAME");
+            CustomAssert.AreEqualIgnoringCase("name", "NAME", "test message");
+        }
+
+        [TestMethod, ExpectedException(typeof(AssertFailedException))]
+        public void CaseInsensitiveCompareFails()
+        {
+            CustomAssert.AreEqualIgnoringCase("Name", "NAMES");
+            CustomAssert.AreEqualIgnoringCase("Name", "NAMES", "test message");
+        }
+
+        [TestMethod]
         public void IsEmpty()
         {
             CustomAssert.IsEmpty("", "Failed on empty String");
-            CustomAssert.IsEmpty(new int[0], "Failed on empty Array");
+            CustomAssert.IsEmpty(Array.Empty<int>(), "Failed on empty Array");
             CustomAssert.IsEmpty(new ArrayList(), "Failed on empty ArrayList");
             CustomAssert.IsEmpty(new Hashtable(), "Failed on empty Hashtable");
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
-        public void IsEmptyFailsOnString()
+        public void IsEmptyFailsOnNonEmptyArray()
         {
-            CustomAssert.IsEmpty("Hi!");
+            CustomAssert.IsEmpty(new int[] { 1, 2, 3 });
         }
 
         [TestMethod, ExpectedException(typeof(NullReferenceException))]
@@ -31,9 +67,9 @@ namespace Cadru.UnitTest.Framework.Tests
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
-        public void IsEmptyFailsOnNonEmptyArray()
+        public void IsEmptyFailsOnString()
         {
-            CustomAssert.IsEmpty(new int[] { 1, 2, 3 });
+            CustomAssert.IsEmpty("Hi!");
         }
 
         [TestMethod]
@@ -41,8 +77,10 @@ namespace Cadru.UnitTest.Framework.Tests
         {
             var array = new int[] { 1, 2, 3 };
             var list = new ArrayList(array);
-            var hash = new Hashtable();
-            hash.Add("array", array);
+            var hash = new Hashtable
+            {
+                { "array", array }
+            };
 
             CustomAssert.IsNotEmpty("Hi!", "Failed on String");
             CustomAssert.IsNotEmpty(array, "Failed on Array");
@@ -51,15 +89,9 @@ namespace Cadru.UnitTest.Framework.Tests
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
-        public void IsNotEmptyFailsOnEmptyString()
-        {
-            CustomAssert.IsNotEmpty("");
-        }
-
-        [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void IsNotEmptyFailsOnEmptyArray()
         {
-            CustomAssert.IsNotEmpty(new int[0]);
+            CustomAssert.IsNotEmpty(Array.Empty<int>());
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
@@ -74,18 +106,10 @@ namespace Cadru.UnitTest.Framework.Tests
             CustomAssert.IsNotEmpty(new Hashtable());
         }
 
-        [TestMethod]
-        public void CaseInsensitiveCompare()
-        {
-            CustomAssert.AreEqualIgnoringCase("name", "NAME");
-            CustomAssert.AreEqualIgnoringCase("name", "NAME", "test message");
-        }
-
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
-        public void CaseInsensitiveCompareFails()
+        public void IsNotEmptyFailsOnEmptyString()
         {
-            CustomAssert.AreEqualIgnoringCase("Name", "NAMES");
-            CustomAssert.AreEqualIgnoringCase("Name", "NAMES", "test message");
+            CustomAssert.IsNotEmpty("");
         }
     }
 }

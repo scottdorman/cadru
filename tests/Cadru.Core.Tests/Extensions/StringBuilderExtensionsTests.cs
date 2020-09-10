@@ -1,4 +1,26 @@
-﻿using System;
+﻿//------------------------------------------------------------------------------
+// <copyright file="StringBuilderExtensionsTests.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Text;
@@ -28,6 +50,32 @@ namespace Cadru.Core.Extensions.Tests
         }
 
         [TestMethod]
+        public void AppendFormatIf()
+        {
+            Assert.AreEqual("test 2", new StringBuilder().AppendFormatIf(true, "test {0}", 2).ToString());
+            Assert.AreEqual("", new StringBuilder().AppendFormatIf(false, "test {0}", 2).ToString());
+
+            Assert.AreEqual("test 2", new StringBuilder().AppendFormatIf(true, CultureInfo.CurrentCulture, "test {0}", 2).ToString());
+            Assert.AreEqual("", new StringBuilder().AppendFormatIf(false, CultureInfo.CurrentCulture, "test {0}", 2).ToString());
+        }
+
+        [TestMethod]
+        public void AppendFormatLine()
+        {
+            Assert.AreEqual(@"test 2" + Environment.NewLine, new StringBuilder().AppendFormatLine("test {0}", 2).ToString());
+            Assert.AreEqual(@"test 2" + Environment.NewLine, new StringBuilder().AppendFormatLine(CultureInfo.CurrentCulture, "test {0}", 2).ToString());
+        }
+
+        [TestMethod]
+        public void AppendFormatLineIf()
+        {
+            Assert.AreEqual(@"test 2" + Environment.NewLine, new StringBuilder().AppendFormatLineIf(true, "test {0}", 2).ToString());
+            Assert.AreEqual(@"test 2" + Environment.NewLine, new StringBuilder().AppendFormatLineIf(true, CultureInfo.CurrentCulture, "test {0}", 2).ToString());
+            Assert.AreEqual("", new StringBuilder().AppendFormatLineIf(false, "test {0}", 2).ToString());
+            Assert.AreEqual("", new StringBuilder().AppendFormatLineIf(false, CultureInfo.CurrentCulture, "test {0}", 2).ToString());
+        }
+
+        [TestMethod]
         public void AppendIf()
         {
             Assert.AreEqual("True", new StringBuilder().AppendIf(true, true).ToString());
@@ -48,8 +96,8 @@ namespace Cadru.Core.Extensions.Tests
             Assert.AreEqual("4", new StringBuilder().AppendIf(true, (float)4).ToString());
             Assert.AreEqual("", new StringBuilder().AppendIf(false, (float)4).ToString());
 
-            Assert.AreEqual("4", new StringBuilder().AppendIf(true, (int)4).ToString());
-            Assert.AreEqual("", new StringBuilder().AppendIf(false, (int)4).ToString());
+            Assert.AreEqual("4", new StringBuilder().AppendIf(true, 4).ToString());
+            Assert.AreEqual("", new StringBuilder().AppendIf(false, 4).ToString());
 
             Assert.AreEqual("4", new StringBuilder().AppendIf(true, (long)4).ToString());
             Assert.AreEqual("", new StringBuilder().AppendIf(false, (long)4).ToString());
@@ -89,32 +137,6 @@ namespace Cadru.Core.Extensions.Tests
             Assert.AreEqual("", new StringBuilder().AppendIf(false, new char[] { 'a', 'b' }, 0, 1).ToString());
             Assert.AreEqual("b", new StringBuilder().AppendIf(true, new char[] { 'a', 'b' }, 1, 1).ToString());
             Assert.AreEqual("", new StringBuilder().AppendIf(false, new char[] { 'a', 'b' }, 1, 1).ToString());
-        }
-
-        [TestMethod]
-        public void AppendFormatIf()
-        {
-            Assert.AreEqual("test 2", new StringBuilder().AppendFormatIf(true, "test {0}", 2).ToString());
-            Assert.AreEqual("", new StringBuilder().AppendFormatIf(false, "test {0}", 2).ToString());
-
-            Assert.AreEqual("test 2", new StringBuilder().AppendFormatIf(true, CultureInfo.CurrentCulture, "test {0}", 2).ToString());
-            Assert.AreEqual("", new StringBuilder().AppendFormatIf(false, CultureInfo.CurrentCulture, "test {0}", 2).ToString());
-        }
-
-        [TestMethod]
-        public void AppendFormatLine()
-        {
-            Assert.AreEqual(@"test 2" + Environment.NewLine, new StringBuilder().AppendFormatLine("test {0}", 2).ToString());
-            Assert.AreEqual(@"test 2" + Environment.NewLine, new StringBuilder().AppendFormatLine(CultureInfo.CurrentCulture, "test {0}", 2).ToString());
-        }
-
-        [TestMethod]
-        public void AppendFormatLineIf()
-        {
-            Assert.AreEqual(@"test 2" + Environment.NewLine, new StringBuilder().AppendFormatLineIf(true, "test {0}", 2).ToString());
-            Assert.AreEqual(@"test 2" + Environment.NewLine, new StringBuilder().AppendFormatLineIf(true, CultureInfo.CurrentCulture, "test {0}", 2).ToString());
-            Assert.AreEqual("", new StringBuilder().AppendFormatLineIf(false, "test {0}", 2).ToString());
-            Assert.AreEqual("", new StringBuilder().AppendFormatLineIf(false, CultureInfo.CurrentCulture, "test {0}", 2).ToString());
         }
 
         [TestMethod]

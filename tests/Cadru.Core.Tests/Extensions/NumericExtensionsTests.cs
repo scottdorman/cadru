@@ -1,4 +1,26 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿//------------------------------------------------------------------------------
+// <copyright file="NumericExtensionsTests.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
+using System.Diagnostics.CodeAnalysis;
 
 using Cadru.Extensions;
 using Cadru.Text;
@@ -183,38 +205,6 @@ namespace Cadru.Core.Extensions.Tests
         }
 
         [TestMethod]
-        public void GreaterThanOrEqualTo()
-        {
-            Assert.IsTrue(((byte)5).GreaterThanOrEqualTo((byte)5));
-            Assert.IsTrue(((byte)10).GreaterThanOrEqualTo((byte)5));
-            Assert.IsFalse(((byte)4).GreaterThanOrEqualTo((byte)5));
-
-            Assert.IsTrue(5m.GreaterThanOrEqualTo(5m));
-            Assert.IsTrue(10m.GreaterThanOrEqualTo(5m));
-            Assert.IsFalse(4m.GreaterThanOrEqualTo(5m));
-
-            Assert.IsTrue(5d.GreaterThanOrEqualTo(5d));
-            Assert.IsTrue(10d.GreaterThanOrEqualTo(5d));
-            Assert.IsFalse(4d.GreaterThanOrEqualTo(5d));
-
-            Assert.IsTrue(5f.GreaterThanOrEqualTo(5f));
-            Assert.IsTrue(10f.GreaterThanOrEqualTo(5f));
-            Assert.IsFalse(4f.GreaterThanOrEqualTo(5f));
-
-            Assert.IsTrue(5.GreaterThanOrEqualTo(5));
-            Assert.IsTrue(10.GreaterThanOrEqualTo(5));
-            Assert.IsFalse(4.GreaterThanOrEqualTo(5));
-
-            Assert.IsTrue(5L.GreaterThanOrEqualTo(5L));
-            Assert.IsTrue(10L.GreaterThanOrEqualTo(5L));
-            Assert.IsFalse(4L.GreaterThanOrEqualTo(5L));
-
-            Assert.IsTrue(((short)5).GreaterThanOrEqualTo((short)5));
-            Assert.IsTrue(((short)10).GreaterThanOrEqualTo((short)5));
-            Assert.IsFalse(((short)4).GreaterThanOrEqualTo((short)5));
-        }
-
-        [TestMethod]
         public void GreaterThan()
         {
             Assert.IsFalse(((byte)5).GreaterThan((byte)5));
@@ -247,67 +237,35 @@ namespace Cadru.Core.Extensions.Tests
         }
 
         [TestMethod]
-        public void LessThanOrEqualTo()
+        public void GreaterThanOrEqualTo()
         {
-            Assert.IsTrue(((byte)5).LessThanOrEqualTo((byte)5));
-            Assert.IsFalse(((byte)10).LessThanOrEqualTo((byte)5));
-            Assert.IsTrue(((byte)4).LessThanOrEqualTo((byte)5));
+            Assert.IsTrue(((byte)5).GreaterThanOrEqualTo((byte)5));
+            Assert.IsTrue(((byte)10).GreaterThanOrEqualTo((byte)5));
+            Assert.IsFalse(((byte)4).GreaterThanOrEqualTo((byte)5));
 
-            Assert.IsTrue(5m.LessThanOrEqualTo(5m));
-            Assert.IsFalse(10m.LessThanOrEqualTo(5m));
-            Assert.IsTrue(4m.LessThanOrEqualTo(5m));
+            Assert.IsTrue(5m.GreaterThanOrEqualTo(5m));
+            Assert.IsTrue(10m.GreaterThanOrEqualTo(5m));
+            Assert.IsFalse(4m.GreaterThanOrEqualTo(5m));
 
-            Assert.IsTrue(5d.LessThanOrEqualTo(5d));
-            Assert.IsFalse(10d.LessThanOrEqualTo(5d));
-            Assert.IsTrue(4d.LessThanOrEqualTo(5d));
+            Assert.IsTrue(5d.GreaterThanOrEqualTo(5d));
+            Assert.IsTrue(10d.GreaterThanOrEqualTo(5d));
+            Assert.IsFalse(4d.GreaterThanOrEqualTo(5d));
 
-            Assert.IsTrue(5f.LessThanOrEqualTo(5f));
-            Assert.IsFalse(10f.LessThanOrEqualTo(5f));
-            Assert.IsTrue(4f.LessThanOrEqualTo(5f));
+            Assert.IsTrue(5f.GreaterThanOrEqualTo(5f));
+            Assert.IsTrue(10f.GreaterThanOrEqualTo(5f));
+            Assert.IsFalse(4f.GreaterThanOrEqualTo(5f));
 
-            Assert.IsTrue(5.LessThanOrEqualTo(5));
-            Assert.IsFalse(10.LessThanOrEqualTo(5));
-            Assert.IsTrue(4.LessThanOrEqualTo(5));
+            Assert.IsTrue(5.GreaterThanOrEqualTo(5));
+            Assert.IsTrue(10.GreaterThanOrEqualTo(5));
+            Assert.IsFalse(4.GreaterThanOrEqualTo(5));
 
-            Assert.IsTrue(5L.LessThanOrEqualTo(5L));
-            Assert.IsFalse(10L.LessThanOrEqualTo(5L));
-            Assert.IsTrue(4L.LessThanOrEqualTo(5L));
+            Assert.IsTrue(5L.GreaterThanOrEqualTo(5L));
+            Assert.IsTrue(10L.GreaterThanOrEqualTo(5L));
+            Assert.IsFalse(4L.GreaterThanOrEqualTo(5L));
 
-            Assert.IsTrue(((short)5).LessThanOrEqualTo((short)5));
-            Assert.IsFalse(((short)10).LessThanOrEqualTo((short)5));
-            Assert.IsTrue(((short)4).LessThanOrEqualTo((short)5));
-        }
-
-        [TestMethod]
-        public void LessThan()
-        {
-            Assert.IsFalse(((byte)5).LessThan((byte)5));
-            Assert.IsFalse(((byte)10).LessThan((byte)5));
-            Assert.IsTrue(((byte)4).LessThan((byte)5));
-
-            Assert.IsFalse(5m.LessThan(5m));
-            Assert.IsFalse(10m.LessThan(5m));
-            Assert.IsTrue(4m.LessThan(5m));
-
-            Assert.IsFalse(5d.LessThan(5d));
-            Assert.IsFalse(10d.LessThan(5d));
-            Assert.IsTrue(4d.LessThan(5d));
-
-            Assert.IsFalse(5f.LessThan(5f));
-            Assert.IsFalse(10f.LessThan(5f));
-            Assert.IsTrue(4f.LessThan(5f));
-
-            Assert.IsFalse(5.LessThan(5));
-            Assert.IsFalse(10.LessThan(5));
-            Assert.IsTrue(4.LessThan(5));
-
-            Assert.IsFalse(5L.LessThan(5L));
-            Assert.IsFalse(10L.LessThan(5L));
-            Assert.IsTrue(4L.LessThan(5L));
-
-            Assert.IsFalse(((short)5).LessThan((short)5));
-            Assert.IsFalse(((short)10).LessThan((short)5));
-            Assert.IsTrue(((short)4).LessThan((short)5));
+            Assert.IsTrue(((short)5).GreaterThanOrEqualTo((short)5));
+            Assert.IsTrue(((short)10).GreaterThanOrEqualTo((short)5));
+            Assert.IsFalse(((short)4).GreaterThanOrEqualTo((short)5));
         }
 
         [TestMethod]
@@ -344,6 +302,70 @@ namespace Cadru.Core.Extensions.Tests
             Assert.IsTrue(((int)3).IsOdd());
             Assert.IsTrue(((long)3).IsOdd());
             Assert.IsTrue(((short)3).IsOdd());
+        }
+
+        [TestMethod]
+        public void LessThan()
+        {
+            Assert.IsFalse(((byte)5).LessThan((byte)5));
+            Assert.IsFalse(((byte)10).LessThan((byte)5));
+            Assert.IsTrue(((byte)4).LessThan((byte)5));
+
+            Assert.IsFalse(5m.LessThan(5m));
+            Assert.IsFalse(10m.LessThan(5m));
+            Assert.IsTrue(4m.LessThan(5m));
+
+            Assert.IsFalse(5d.LessThan(5d));
+            Assert.IsFalse(10d.LessThan(5d));
+            Assert.IsTrue(4d.LessThan(5d));
+
+            Assert.IsFalse(5f.LessThan(5f));
+            Assert.IsFalse(10f.LessThan(5f));
+            Assert.IsTrue(4f.LessThan(5f));
+
+            Assert.IsFalse(5.LessThan(5));
+            Assert.IsFalse(10.LessThan(5));
+            Assert.IsTrue(4.LessThan(5));
+
+            Assert.IsFalse(5L.LessThan(5L));
+            Assert.IsFalse(10L.LessThan(5L));
+            Assert.IsTrue(4L.LessThan(5L));
+
+            Assert.IsFalse(((short)5).LessThan((short)5));
+            Assert.IsFalse(((short)10).LessThan((short)5));
+            Assert.IsTrue(((short)4).LessThan((short)5));
+        }
+
+        [TestMethod]
+        public void LessThanOrEqualTo()
+        {
+            Assert.IsTrue(((byte)5).LessThanOrEqualTo((byte)5));
+            Assert.IsFalse(((byte)10).LessThanOrEqualTo((byte)5));
+            Assert.IsTrue(((byte)4).LessThanOrEqualTo((byte)5));
+
+            Assert.IsTrue(5m.LessThanOrEqualTo(5m));
+            Assert.IsFalse(10m.LessThanOrEqualTo(5m));
+            Assert.IsTrue(4m.LessThanOrEqualTo(5m));
+
+            Assert.IsTrue(5d.LessThanOrEqualTo(5d));
+            Assert.IsFalse(10d.LessThanOrEqualTo(5d));
+            Assert.IsTrue(4d.LessThanOrEqualTo(5d));
+
+            Assert.IsTrue(5f.LessThanOrEqualTo(5f));
+            Assert.IsFalse(10f.LessThanOrEqualTo(5f));
+            Assert.IsTrue(4f.LessThanOrEqualTo(5f));
+
+            Assert.IsTrue(5.LessThanOrEqualTo(5));
+            Assert.IsFalse(10.LessThanOrEqualTo(5));
+            Assert.IsTrue(4.LessThanOrEqualTo(5));
+
+            Assert.IsTrue(5L.LessThanOrEqualTo(5L));
+            Assert.IsFalse(10L.LessThanOrEqualTo(5L));
+            Assert.IsTrue(4L.LessThanOrEqualTo(5L));
+
+            Assert.IsTrue(((short)5).LessThanOrEqualTo((short)5));
+            Assert.IsFalse(((short)10).LessThanOrEqualTo((short)5));
+            Assert.IsTrue(((short)4).LessThanOrEqualTo((short)5));
         }
     }
 }

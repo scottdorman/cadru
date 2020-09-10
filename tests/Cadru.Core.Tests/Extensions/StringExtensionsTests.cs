@@ -1,6 +1,27 @@
-﻿using System;
+﻿//------------------------------------------------------------------------------
+// <copyright file="StringExtensionsTests.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
+using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 
 using Cadru.Extensions;
 using Cadru.Text;
@@ -14,6 +35,55 @@ namespace Cadru.Core.Extensions.Tests
     public class StringExtensionsTests
     {
         [TestMethod]
+        public void Clean()
+        {
+            var testValue = " abc   defg abcdefg ";
+
+            Assert.AreEqual("abc defg abcdefg", testValue.Clean());
+            Assert.AreEqual("abc defg abcdefg", testValue.Clean(NormalizationOptions.Whitespace));
+
+            testValue = " abc\tdefg\n\u001Fabcdefg ";
+            Assert.AreEqual(" abcdefgabcdefg ", testValue.Clean(NormalizationOptions.ControlCharacters));
+            Assert.AreEqual(testValue, testValue.Clean(NormalizationOptions.None));
+            Assert.AreEqual("abcdefgabcdefg", "abcdefgabcdefg ".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("abc defgabcdefg", "abc  defgabcdefg ".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("abc defgabcdefg", "  abc  defgabcdefg ".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("abc defga bcdefg", "  abc  defga\nbcdefg ".Clean(NormalizationOptions.Whitespace));
+
+            Assert.AreEqual("\ufeff", "\ufeff".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff", "\ufeff".Clean(NormalizationOptions.All));
+            Assert.AreEqual("", "".Clean(NormalizationOptions.None));
+            Assert.AreEqual("\0", "\0".Clean(NormalizationOptions.None));
+            Assert.AreEqual("\0", "\0".Clean(NormalizationOptions.ControlCharacters));
+            Assert.AreEqual("\0", "\0\0".Clean(NormalizationOptions.ControlCharacters));
+            Assert.AreEqual("\0", "\0".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\0\0", "\0\0".Clean(NormalizationOptions.None));
+            Assert.AreEqual("\0", "\0\0\0".Clean(NormalizationOptions.ControlCharacters));
+            Assert.AreEqual("\0\ufeff", "\0\ufeff".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff\ufeff \u0100\u0100\u0100 \b", "\ufeff\ufeff\u1680\u0100\u0100\u0100 \b".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff\ufeff \u0100\u0100\u0100\u0100\u0100\u0100 \0\0\0", "\ufeff\ufeff\u1680\u0100\u0100\u0100\u0100\u0100\u0100\t\n\0\0\0".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff\u0100\u0100\u0100\u0100\u0100\u0100 \0", "\ufeff\u0100\u0100\u0100\u0100\u0100\u0100\t\t\t\n\0".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual(" \u0100\u0100\u0100\u0100\ufeff\ufeff\ufeff\ufeff\ufeff\ufeff", "\u0019 \u0100\u0100\u0100\u0100\0\ufeff\ufeff\ufeff\ufeff\ufeff\ufeff".Clean(NormalizationOptions.All));
+            Assert.AreEqual("\ufeff\0", "\ufeff\0".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff", "\ufeff\u2000".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff\0\ufeff", "\ufeff\0\ufeff".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff\u0100", "\ufeff\u0100".Clean(NormalizationOptions.All));
+            Assert.AreEqual(" \0", "\0 \0".Clean(NormalizationOptions.ControlCharacters));
+            Assert.AreEqual("\ufeff \0", "\ufeff\u2000\0".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("!\0", "!\0".Clean(NormalizationOptions.All));
+            Assert.AreEqual("\0\ufeff\ufeff", "\0\ufeff\ufeff".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff \u0100\u0100\u0100 \0", "\ufeff\u2000\u0100\u0100\u0100\n\0".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("\ufeff \u0100\0\0", "\ufeff\u2000\u1680\u0100\0\0".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("! !", "!\t\u0019\0!".Clean(NormalizationOptions.All));
+            Assert.AreEqual("\ufeff \u0100\u0100", "\ufeff\u2000\u1680\u1680\u0100\u0100".Clean(NormalizationOptions.Whitespace));
+            Assert.AreEqual("! \0", "!\t\t\u0019\0\0".Clean(NormalizationOptions.All));
+
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).Clean());
+            ExceptionAssert.Throws<ArgumentException>(() => testValue.Clean((NormalizationOptions)30));
+            ExceptionAssert.Throws<ArgumentException>(() => testValue.Clean((NormalizationOptions)(-1)));
+        }
+
+        [TestMethod]
         public void Contains()
         {
             Assert.IsTrue("this is a test".Contains("is", StringComparison.CurrentCultureIgnoreCase));
@@ -21,23 +91,47 @@ namespace Cadru.Core.Extensions.Tests
         }
 
         [TestMethod]
-        public void Truncate()
+        public void EndsWithAny()
         {
-            Assert.AreEqual("this", "this is a test".Truncate(4));
-            Assert.AreEqual("this is a test", "this is a test".Truncate(15));
-            Assert.AreEqual("", "".Truncate(15));
-            Assert.AreEqual("", "".Truncate(0));
-            Assert.AreEqual("", "this is a test".Truncate(0));
+            var testValue = "this is a test";
+
+            Assert.IsTrue(testValue.EndsWithAny(new string[] { "test", "fox", "hat" }));
+            Assert.IsTrue(testValue.EndsWithAny(new string[] { "fox", "test", "hat" }));
+            Assert.IsTrue(testValue.EndsWithAny(new string[] { "fox", "hat", "test" }));
+
+            Assert.IsFalse(testValue.EndsWithAny(new string[] { "cat", "fox", "hat" }));
+            Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "cat", "hat" }));
+            Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "hat", "cat" }));
+
+            Assert.IsTrue(testValue.EndsWithAny(new string[] { "test", "fox", "hat" }, StringComparison.Ordinal));
+            Assert.IsTrue(testValue.EndsWithAny(new string[] { "fox", "test", "hat" }, StringComparison.Ordinal));
+            Assert.IsTrue(testValue.EndsWithAny(new string[] { "fox", "hat", "test" }, StringComparison.Ordinal));
+
+            Assert.IsFalse(testValue.EndsWithAny(new string[] { "cat", "fox", "hat" }, StringComparison.Ordinal));
+            Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "cat", "hat" }, StringComparison.Ordinal));
+            Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "hat", "cat" }, StringComparison.Ordinal));
         }
 
         [TestMethod]
-        public void RemoveWhiteSpace()
+        public void EqualsAny()
         {
-            Assert.AreEqual("thisisatest.", "this  is  a  test.".RemoveWhiteSpace());
-            Assert.AreEqual("thisisatest.", "this is a test.".RemoveWhiteSpace());
-            Assert.AreEqual("thisisatest.", "thisisatest.".RemoveWhiteSpace());
-            Assert.AreEqual("", "".RemoveWhiteSpace());
-            Assert.AreEqual("a", "a".RemoveWhiteSpace());
+            var testValue = "ABCD";
+
+            Assert.IsTrue(testValue.EqualsAny(new string[] { "ABCD", "fox", "hat" }));
+            Assert.IsTrue(testValue.EqualsAny(new string[] { "fox", "ABCD", "hat" }));
+            Assert.IsTrue(testValue.EqualsAny(new string[] { "fox", "hat", "ABCD" }));
+
+            Assert.IsFalse(testValue.EqualsAny(new string[] { "cat", "fox", "hat" }));
+            Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "cat", "hat" }));
+            Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "hat", "cat" }));
+
+            Assert.IsTrue(testValue.EqualsAny(new string[] { "ABCD", "fox", "hat" }, StringComparison.Ordinal));
+            Assert.IsTrue(testValue.EqualsAny(new string[] { "fox", "ABCD", "hat" }, StringComparison.Ordinal));
+            Assert.IsTrue(testValue.EqualsAny(new string[] { "fox", "hat", "ABCD" }, StringComparison.Ordinal));
+
+            Assert.IsFalse(testValue.EqualsAny(new string[] { "cat", "fox", "hat" }, StringComparison.Ordinal));
+            Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "cat", "hat" }, StringComparison.Ordinal));
+            Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "hat", "cat" }, StringComparison.Ordinal));
         }
 
         [TestMethod]
@@ -111,35 +205,6 @@ namespace Cadru.Core.Extensions.Tests
         }
 
         [TestMethod]
-        public void SubstringBetween()
-        {
-            var testValue = "abcdefg";
-
-            Assert.AreEqual("d", testValue.SubstringBetween('c', 'e'));
-            Assert.AreEqual("d", testValue.SubstringBetween("c", "e"));
-            Assert.AreEqual("cde", testValue.SubstringBetween('c', 'e', true));
-            Assert.AreEqual("cde", testValue.SubstringBetween("c", "e", true));
-            Assert.AreEqual("cde", testValue.SubstringBetween("c", "e", true, StringComparison.Ordinal));
-            Assert.AreEqual("d", testValue.SubstringBetween('c', 'e', false));
-            Assert.AreEqual("d", testValue.SubstringBetween("c", "e", false));
-            Assert.AreEqual("d", testValue.SubstringBetween("c", "e", false, StringComparison.Ordinal));
-            Assert.AreEqual("abcde", testValue.SubstringBetween(String.Empty, "e", true));
-            Assert.AreEqual("abcd", testValue.SubstringBetween(String.Empty, "e", false));
-            Assert.AreEqual("c", testValue.SubstringBetween("c", String.Empty, true));
-            Assert.AreEqual("", testValue.SubstringBetween("c", String.Empty, false));
-            Assert.AreEqual("a", testValue.SubstringBetween(String.Empty, String.Empty, true));
-            Assert.AreEqual("", testValue.SubstringBetween("h", "j", true));
-            Assert.AreEqual("", testValue.SubstringBetween("h", "j", false));
-            Assert.AreEqual("", testValue.SubstringBetween("c", "j", true));
-            Assert.AreEqual("", testValue.SubstringBetween("c", "j", false));
-
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).SubstringBetween('c', 'e', false)).WithParameter("source");
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).SubstringBetween("c", "e", false)).WithParameter("source");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.SubstringBetween(null, "e", false)).WithParameter("start");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.SubstringBetween("c", null, false)).WithParameter("end");
-        }
-
-        [TestMethod]
         public void LastCharacter()
         {
             var testValue = "abcdefg";
@@ -181,52 +246,78 @@ namespace Cadru.Core.Extensions.Tests
         }
 
         [TestMethod]
-        public void Clean()
+        public void LengthBetween()
         {
-            var testValue = " abc   defg abcdefg ";
+            Assert.IsTrue("ABCDE".LengthBetween(5, 10));
+            Assert.IsTrue("ABCDEFGHIJ".LengthBetween(5, 10));
+            Assert.IsTrue("ABCDEF".LengthBetween(5, 10));
+            Assert.IsFalse("ABCD".LengthBetween(5, 10));
+            Assert.IsFalse("ABCDEFGHIJK".LengthBetween(5, 10));
 
-            Assert.AreEqual("abc defg abcdefg", testValue.Clean());
-            Assert.AreEqual("abc defg abcdefg", testValue.Clean(NormalizationOptions.Whitespace));
+            Assert.IsFalse("ABCDE".LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue("ABCDEFGHIJ".LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsTrue("ABCDEF".LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse("ABCD".LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse("ABCDEFGHIJK".LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
 
-            testValue = " abc\tdefg\n\u001Fabcdefg ";
-            Assert.AreEqual(" abcdefgabcdefg ", testValue.Clean(NormalizationOptions.ControlCharacters));
-            Assert.AreEqual(testValue, testValue.Clean(NormalizationOptions.None));
-            Assert.AreEqual("abcdefgabcdefg", "abcdefgabcdefg ".Clean(NormalizationOptions.Whitespace));
-            Assert.AreEqual("abc defgabcdefg", "abc  defgabcdefg ".Clean(NormalizationOptions.Whitespace));
-            Assert.AreEqual("abc defgabcdefg", "  abc  defgabcdefg ".Clean(NormalizationOptions.Whitespace));
-            Assert.AreEqual("abc defga bcdefg", "  abc  defga\nbcdefg ".Clean(NormalizationOptions.Whitespace));
+            Assert.IsTrue("ABCDE".LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse("ABCDEFGHIJ".LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsTrue("ABCDEF".LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse("ABCD".LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse("ABCDEFGHIJK".LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
 
-            Assert.AreEqual("\ufeff", "\ufeff".Clean(NormalizationOptions.Whitespace));
-            Assert.AreEqual("\ufeff", "\ufeff".Clean(NormalizationOptions.All));
-            Assert.AreEqual("", "".Clean(NormalizationOptions.None));
-            Assert.AreEqual("\0", "\0".Clean(NormalizationOptions.None));
-            Assert.AreEqual("\0", "\0".Clean(NormalizationOptions.ControlCharacters));
-            Assert.AreEqual("\0", "\0\0".Clean(NormalizationOptions.ControlCharacters));
-            Assert.AreEqual("\0", "\0".Clean(NormalizationOptions.Whitespace));
-            Assert.AreEqual("\0\0", "\0\0".Clean(NormalizationOptions.None));
-            Assert.AreEqual("\0", "\0\0\0".Clean(NormalizationOptions.ControlCharacters));
-            Assert.AreEqual("\0\ufeff", "\0\ufeff".Clean(NormalizationOptions.Whitespace));
-            Assert.AreEqual("\ufeff\ufeff \u0100\u0100\u0100 \b", "\ufeff\ufeff\u1680\u0100\u0100\u0100 \b".Clean(NormalizationOptions.Whitespace));
-            Assert.AreEqual("\ufeff\ufeff \u0100\u0100\u0100\u0100\u0100\u0100 \0\0\0", "\ufeff\ufeff\u1680\u0100\u0100\u0100\u0100\u0100\u0100\t\n\0\0\0".Clean(NormalizationOptions.Whitespace));
-            Assert.AreEqual("\ufeff\u0100\u0100\u0100\u0100\u0100\u0100 \0", "\ufeff\u0100\u0100\u0100\u0100\u0100\u0100\t\t\t\n\0".Clean(NormalizationOptions.Whitespace));
-            Assert.AreEqual(" \u0100\u0100\u0100\u0100\ufeff\ufeff\ufeff\ufeff\ufeff\ufeff", "\u0019 \u0100\u0100\u0100\u0100\0\ufeff\ufeff\ufeff\ufeff\ufeff\ufeff".Clean(NormalizationOptions.All));
-            Assert.AreEqual("\ufeff\0", "\ufeff\0".Clean(NormalizationOptions.Whitespace));
-            Assert.AreEqual("\ufeff", "\ufeff\u2000".Clean(NormalizationOptions.Whitespace));
-            Assert.AreEqual("\ufeff\0\ufeff", "\ufeff\0\ufeff".Clean(NormalizationOptions.Whitespace));
-            Assert.AreEqual("\ufeff\u0100", "\ufeff\u0100".Clean(NormalizationOptions.All));
-            Assert.AreEqual(" \0", "\0 \0".Clean(NormalizationOptions.ControlCharacters));
-            Assert.AreEqual("\ufeff \0", "\ufeff\u2000\0".Clean(NormalizationOptions.Whitespace));
-            Assert.AreEqual("!\0", "!\0".Clean(NormalizationOptions.All));
-            Assert.AreEqual("\0\ufeff\ufeff", "\0\ufeff\ufeff".Clean(NormalizationOptions.Whitespace));
-            Assert.AreEqual("\ufeff \u0100\u0100\u0100 \0", "\ufeff\u2000\u0100\u0100\u0100\n\0".Clean(NormalizationOptions.Whitespace));
-            Assert.AreEqual("\ufeff \u0100\0\0", "\ufeff\u2000\u1680\u0100\0\0".Clean(NormalizationOptions.Whitespace));
-            Assert.AreEqual("! !", "!\t\u0019\0!".Clean(NormalizationOptions.All));
-            Assert.AreEqual("\ufeff \u0100\u0100", "\ufeff\u2000\u1680\u1680\u0100\u0100".Clean(NormalizationOptions.Whitespace));
-            Assert.AreEqual("! \0", "!\t\t\u0019\0\0".Clean(NormalizationOptions.All));
+            Assert.IsFalse("ABCDE".LengthBetween(5, 10, NumericComparisonOptions.None));
+            Assert.IsFalse("ABCDEFGHIJ".LengthBetween(5, 10, NumericComparisonOptions.None));
+            Assert.IsTrue("ABCDEF".LengthBetween(5, 10, NumericComparisonOptions.None));
+            Assert.IsFalse("ABCD".LengthBetween(5, 10, NumericComparisonOptions.None));
+            Assert.IsFalse("ABCDEFGHIJK".LengthBetween(5, 10, NumericComparisonOptions.None));
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).Clean());
-            ExceptionAssert.Throws<ArgumentException>(() => testValue.Clean((NormalizationOptions)30));
-            ExceptionAssert.Throws<ArgumentException>(() => testValue.Clean((NormalizationOptions)(-1)));
+            Assert.IsFalse(String.Empty.LengthBetween(5, 10));
+            Assert.IsFalse(String.Empty.LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
+            Assert.IsFalse(String.Empty.LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
+            Assert.IsFalse(String.Empty.LengthBetween(5, 10, NumericComparisonOptions.None));
+
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthBetween(5, 10));
+        }
+
+        [TestMethod]
+        public void LengthGreaterThan()
+        {
+            Assert.IsTrue("ABCDEFGHIJ".LengthGreaterThan(5));
+            Assert.IsFalse("ABCDE".LengthGreaterThan(5));
+            Assert.IsFalse("ABCD".LengthGreaterThan(5));
+            Assert.IsFalse(String.Empty.LengthGreaterThan(5));
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthGreaterThan(5));
+        }
+
+        [TestMethod]
+        public void LengthGreaterThanOrEqualTo()
+        {
+            Assert.IsTrue("ABCDEFGHIJ".LengthGreaterThanOrEqualTo(5));
+            Assert.IsTrue("ABCDE".LengthGreaterThanOrEqualTo(5));
+            Assert.IsFalse("ABCD".LengthGreaterThanOrEqualTo(5));
+            Assert.IsFalse(String.Empty.LengthGreaterThanOrEqualTo(5));
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthGreaterThanOrEqualTo(5));
+        }
+
+        [TestMethod]
+        public void LengthLessThan()
+        {
+            Assert.IsTrue("ABCD".LengthLessThan(5));
+            Assert.IsFalse("ABCDE".LengthLessThan(5));
+            Assert.IsFalse("ABCDEF".LengthLessThan(5));
+            Assert.IsTrue(String.Empty.LengthLessThan(5));
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthLessThan(5));
+        }
+
+        [TestMethod]
+        public void LengthLessThanOrEqual()
+        {
+            Assert.IsTrue("ABCD".LengthLessThanOrEqualTo(5));
+            Assert.IsTrue("ABCDE".LengthLessThanOrEqualTo(5));
+            Assert.IsFalse("ABCDEF".LengthLessThanOrEqualTo(5));
+            Assert.IsTrue(String.Empty.LengthLessThanOrEqualTo(5));
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthLessThanOrEqualTo(5));
         }
 
         [TestMethod]
@@ -249,18 +340,28 @@ namespace Cadru.Core.Extensions.Tests
         }
 
         [TestMethod]
+        public void RemoveWhiteSpace()
+        {
+            Assert.AreEqual("thisisatest.", "this  is  a  test.".RemoveWhiteSpace());
+            Assert.AreEqual("thisisatest.", "this is a test.".RemoveWhiteSpace());
+            Assert.AreEqual("thisisatest.", "thisisatest.".RemoveWhiteSpace());
+            Assert.AreEqual("", "".RemoveWhiteSpace());
+            Assert.AreEqual("a", "a".RemoveWhiteSpace());
+        }
+
+        [TestMethod]
         public void Replace()
         {
             var testValue = "abcdefgabcdefg";
 
             Assert.AreEqual("abQdefgabcdefg", testValue.Replace('c', 'Q', 1));
-            Assert.AreEqual("abcdefgabcdefg", testValue.Replace('h', 'Q', 2));
+            Assert.AreEqual(testValue, testValue.Replace('h', 'Q', 2));
             Assert.AreEqual("abQdefgabQdefg", testValue.Replace('c', 'Q', 3));
             Assert.AreEqual("abQdefgabQdefg", testValue.Replace('c', 'Q', 2));
             Assert.AreEqual(testValue, testValue.Replace('c', 'Q', 0));
             Assert.AreEqual("abCDEfgabcdefg", testValue.Replace("cde", "CDE", 1));
             Assert.AreEqual("abCDEfgabCDEfg", testValue.Replace("cde", "CDE", 2));
-            Assert.AreEqual(testValue, testValue.Replace("cde", "CDE", 0));
+            Assert.AreEqual("abCDEfgabCDEfg", testValue.Replace("cde", "CDE", 0));
             Assert.AreEqual("abCDEfgabCDEfg", testValue.Replace("cde", "CDE", 3));
             Assert.AreEqual("abCDEfgabcdefg", testValue.Replace("cde", "CDE", 1, StringComparison.Ordinal));
             Assert.AreEqual("abCDEfgabCDEfg", testValue.Replace("cde", "CDE", 2, StringComparison.Ordinal));
@@ -309,6 +410,17 @@ namespace Cadru.Core.Extensions.Tests
         }
 
         [TestMethod]
+        public void ResizeString()
+        {
+            var testValue = "abcdefg";
+
+            Assert.AreEqual("abc", testValue.ResizeString(3));
+            Assert.AreEqual("abcdefg     ", testValue.ResizeString(12));
+            Assert.AreEqual("            ", String.Empty.ResizeString(12));
+            Assert.AreEqual("            ", ((string)null).ResizeString(12));
+        }
+
+        [TestMethod]
         public void RightSubstring()
         {
             var testValue = "abcdefgabcdefg";
@@ -343,114 +455,6 @@ namespace Cadru.Core.Extensions.Tests
         }
 
         [TestMethod]
-        public void ResizeString()
-        {
-            var testValue = "abcdefg";
-
-            Assert.AreEqual("abc", testValue.ResizeString(3));
-            Assert.AreEqual("abcdefg     ", testValue.ResizeString(12));
-            Assert.AreEqual("            ", String.Empty.ResizeString(12));
-            Assert.AreEqual("            ", ((string)null).ResizeString(12));
-        }
-
-        [TestMethod]
-        public void LengthLessThan()
-        {
-            Assert.IsTrue("ABCD".LengthLessThan(5));
-            Assert.IsFalse("ABCDE".LengthLessThan(5));
-            Assert.IsFalse("ABCDEF".LengthLessThan(5));
-            Assert.IsTrue(String.Empty.LengthLessThan(5));
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthLessThan(5));
-        }
-
-        [TestMethod]
-        public void LengthLessThanOrEqual()
-        {
-            Assert.IsTrue("ABCD".LengthLessThanOrEqualTo(5));
-            Assert.IsTrue("ABCDE".LengthLessThanOrEqualTo(5));
-            Assert.IsFalse("ABCDEF".LengthLessThanOrEqualTo(5));
-            Assert.IsTrue(String.Empty.LengthLessThanOrEqualTo(5));
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthLessThanOrEqualTo(5));
-        }
-
-        [TestMethod]
-        public void LengthGreaterThan()
-        {
-            Assert.IsTrue("ABCDEFGHIJ".LengthGreaterThan(5));
-            Assert.IsFalse("ABCDE".LengthGreaterThan(5));
-            Assert.IsFalse("ABCD".LengthGreaterThan(5));
-            Assert.IsFalse(String.Empty.LengthGreaterThan(5));
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthGreaterThan(5));
-        }
-
-        [TestMethod]
-        public void LengthGreaterThanOrEqualTo()
-        {
-            Assert.IsTrue("ABCDEFGHIJ".LengthGreaterThanOrEqualTo(5));
-            Assert.IsTrue("ABCDE".LengthGreaterThanOrEqualTo(5));
-            Assert.IsFalse("ABCD".LengthGreaterThanOrEqualTo(5));
-            Assert.IsFalse(String.Empty.LengthGreaterThanOrEqualTo(5));
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthGreaterThanOrEqualTo(5));
-        }
-
-        [TestMethod]
-        public void LengthBetween()
-        {
-            Assert.IsTrue("ABCDE".LengthBetween(5, 10));
-            Assert.IsTrue("ABCDEFGHIJ".LengthBetween(5, 10));
-            Assert.IsTrue("ABCDEF".LengthBetween(5, 10));
-            Assert.IsFalse("ABCD".LengthBetween(5, 10));
-            Assert.IsFalse("ABCDEFGHIJK".LengthBetween(5, 10));
-
-            Assert.IsFalse("ABCDE".LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue("ABCDEFGHIJ".LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsTrue("ABCDEF".LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse("ABCD".LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse("ABCDEFGHIJK".LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
-
-            Assert.IsTrue("ABCDE".LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse("ABCDEFGHIJ".LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsTrue("ABCDEF".LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse("ABCD".LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse("ABCDEFGHIJK".LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
-
-            Assert.IsFalse("ABCDE".LengthBetween(5, 10, NumericComparisonOptions.None));
-            Assert.IsFalse("ABCDEFGHIJ".LengthBetween(5, 10, NumericComparisonOptions.None));
-            Assert.IsTrue("ABCDEF".LengthBetween(5, 10, NumericComparisonOptions.None));
-            Assert.IsFalse("ABCD".LengthBetween(5, 10, NumericComparisonOptions.None));
-            Assert.IsFalse("ABCDEFGHIJK".LengthBetween(5, 10, NumericComparisonOptions.None));
-
-            Assert.IsFalse(String.Empty.LengthBetween(5, 10));
-            Assert.IsFalse(String.Empty.LengthBetween(5, 10, NumericComparisonOptions.IncludeMaximum));
-            Assert.IsFalse(String.Empty.LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
-            Assert.IsFalse(String.Empty.LengthBetween(5, 10, NumericComparisonOptions.None));
-
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthBetween(5, 10));
-        }
-
-        [TestMethod]
-        public void EndsWithAny()
-        {
-            var testValue = "this is a test";
-
-            Assert.IsTrue(testValue.EndsWithAny(new string[] { "test", "fox", "hat" }));
-            Assert.IsTrue(testValue.EndsWithAny(new string[] { "fox", "test", "hat" }));
-            Assert.IsTrue(testValue.EndsWithAny(new string[] { "fox", "hat", "test" }));
-
-            Assert.IsFalse(testValue.EndsWithAny(new string[] { "cat", "fox", "hat" }));
-            Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "cat", "hat" }));
-            Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "hat", "cat" }));
-
-            Assert.IsTrue(testValue.EndsWithAny(new string[] { "test", "fox", "hat" }, StringComparison.Ordinal));
-            Assert.IsTrue(testValue.EndsWithAny(new string[] { "fox", "test", "hat" }, StringComparison.Ordinal));
-            Assert.IsTrue(testValue.EndsWithAny(new string[] { "fox", "hat", "test" }, StringComparison.Ordinal));
-
-            Assert.IsFalse(testValue.EndsWithAny(new string[] { "cat", "fox", "hat" }, StringComparison.Ordinal));
-            Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "cat", "hat" }, StringComparison.Ordinal));
-            Assert.IsFalse(testValue.EndsWithAny(new string[] { "fox", "hat", "cat" }, StringComparison.Ordinal));
-        }
-
-        [TestMethod]
         public void StartsWithAny()
         {
             var testValue = "this is a test";
@@ -473,25 +477,42 @@ namespace Cadru.Core.Extensions.Tests
         }
 
         [TestMethod]
-        public void EqualsAny()
+        public void SubstringBetween()
         {
-            var testValue = "ABCD";
+            var testValue = "abcdefg";
 
-            Assert.IsTrue(testValue.EqualsAny(new string[] { "ABCD", "fox", "hat" }));
-            Assert.IsTrue(testValue.EqualsAny(new string[] { "fox", "ABCD", "hat" }));
-            Assert.IsTrue(testValue.EqualsAny(new string[] { "fox", "hat", "ABCD" }));
+            Assert.AreEqual("d", testValue.SubstringBetween('c', 'e'));
+            Assert.AreEqual("d", testValue.SubstringBetween("c", "e"));
+            Assert.AreEqual("cde", testValue.SubstringBetween('c', 'e', true));
+            Assert.AreEqual("cde", testValue.SubstringBetween("c", "e", true));
+            Assert.AreEqual("cde", testValue.SubstringBetween("c", "e", true, StringComparison.Ordinal));
+            Assert.AreEqual("d", testValue.SubstringBetween('c', 'e', false));
+            Assert.AreEqual("d", testValue.SubstringBetween("c", "e", false));
+            Assert.AreEqual("d", testValue.SubstringBetween("c", "e", false, StringComparison.Ordinal));
+            Assert.AreEqual("abcde", testValue.SubstringBetween(String.Empty, "e", true));
+            Assert.AreEqual("abcd", testValue.SubstringBetween(String.Empty, "e", false));
+            Assert.AreEqual("c", testValue.SubstringBetween("c", String.Empty, true));
+            Assert.AreEqual("", testValue.SubstringBetween("c", String.Empty, false));
+            Assert.AreEqual("a", testValue.SubstringBetween(String.Empty, String.Empty, true));
+            Assert.AreEqual("", testValue.SubstringBetween("h", "j", true));
+            Assert.AreEqual("", testValue.SubstringBetween("h", "j", false));
+            Assert.AreEqual("", testValue.SubstringBetween("c", "j", true));
+            Assert.AreEqual("", testValue.SubstringBetween("c", "j", false));
 
-            Assert.IsFalse(testValue.EqualsAny(new string[] { "cat", "fox", "hat" }));
-            Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "cat", "hat" }));
-            Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "hat", "cat" }));
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).SubstringBetween('c', 'e', false)).WithParameter("source");
+            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).SubstringBetween("c", "e", false)).WithParameter("source");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.SubstringBetween(null, "e", false)).WithParameter("start");
+            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.SubstringBetween("c", null, false)).WithParameter("end");
+        }
 
-            Assert.IsTrue(testValue.EqualsAny(new string[] { "ABCD", "fox", "hat" }, StringComparison.Ordinal));
-            Assert.IsTrue(testValue.EqualsAny(new string[] { "fox", "ABCD", "hat" }, StringComparison.Ordinal));
-            Assert.IsTrue(testValue.EqualsAny(new string[] { "fox", "hat", "ABCD" }, StringComparison.Ordinal));
-
-            Assert.IsFalse(testValue.EqualsAny(new string[] { "cat", "fox", "hat" }, StringComparison.Ordinal));
-            Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "cat", "hat" }, StringComparison.Ordinal));
-            Assert.IsFalse(testValue.EqualsAny(new string[] { "fox", "hat", "cat" }, StringComparison.Ordinal));
+        [TestMethod]
+        public void Truncate()
+        {
+            Assert.AreEqual("this", "this is a test".Truncate(4));
+            Assert.AreEqual("this is a test", "this is a test".Truncate(15));
+            Assert.AreEqual("", "".Truncate(15));
+            Assert.AreEqual("", "".Truncate(0));
+            Assert.AreEqual("", "this is a test".Truncate(0));
         }
     }
 }

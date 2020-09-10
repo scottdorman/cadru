@@ -1,4 +1,26 @@
-﻿using System.Collections;
+﻿//------------------------------------------------------------------------------
+// <copyright file="NameValuePairTests.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
+using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 
 using Cadru.UnitTest.Framework;
@@ -10,16 +32,6 @@ namespace Cadru.Collections.Tests
     [TestClass, ExcludeFromCodeCoverage]
     public class NameValuePairTests
     {
-        [TestMethod]
-        public void Constructor()
-        {
-            var nvp = new NameValuePair<string>("test");
-            Assert.IsNotNull(nvp.Key);
-            Assert.AreEqual("test", nvp.Key);
-            Assert.IsNotNull(nvp.Value);
-            CustomAssert.IsEmpty((ICollection)nvp.Value);
-        }
-
         [TestMethod]
         public void Add()
         {
@@ -33,13 +45,13 @@ namespace Cadru.Collections.Tests
         }
 
         [TestMethod]
-        public void String()
+        public void Constructor()
         {
             var nvp = new NameValuePair<string>("test");
-            nvp.Value.Add("one");
-            nvp.Value.Add("two");
-
-            Assert.AreEqual("[test: one, two]", nvp.ToString());
+            Assert.IsNotNull(nvp.Key);
+            Assert.AreEqual("test", nvp.Key);
+            Assert.IsNotNull(nvp.Value);
+            CustomAssert.IsEmpty((ICollection)nvp.Value);
         }
 
         [TestMethod]
@@ -81,6 +93,16 @@ namespace Cadru.Collections.Tests
             nvp.Value.Add("two");
 
             Assert.AreEqual("test".GetHashCode(), nvp.GetHashCode());
+        }
+
+        [TestMethod]
+        public void String()
+        {
+            var nvp = new NameValuePair<string>("test");
+            nvp.Value.Add("one");
+            nvp.Value.Add("two");
+
+            Assert.AreEqual("[test: one, two]", nvp.ToString());
         }
     }
 }

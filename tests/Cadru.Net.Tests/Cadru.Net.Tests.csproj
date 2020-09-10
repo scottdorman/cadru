@@ -1,7 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,17 +14,8 @@
     <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Cadru.Net.Http\Cadru.Net.Http.csproj">
-      <Project>{70550251-695d-4045-84e5-4ecb7c548b63}</Project>
-      <Name>Cadru.Net</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\src\Cadru.UnitTest.Framework\Cadru.UnitTest.Framework.csproj">
-      <Project>{b408912a-a6fe-4e76-bf2a-fbf9c012d283}</Project>
-      <Name>Cadru.UnitTest.Framework</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+    <ProjectReference Include="..\..\src\Cadru.Net.Http\Cadru.Net.Http.csproj"/>
+    <ProjectReference Include="..\..\src\Cadru.UnitTest.Framework\Cadru.UnitTest.Framework.csproj"/>
   </ItemGroup>
 
 </Project>

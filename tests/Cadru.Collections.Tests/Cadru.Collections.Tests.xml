@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!--
+Sample license text.
+-->
+<doc>
+    <assembly>
+        <name>Cadru.Collections.Tests</name>
+    </assembly>
+    <members>
+        <member name="M:Cadru.Collections.Tests.ComparisonComparerTests.Compare">
+             <summary>
+            A test for Compare (object, object)
+            </summary>
+        </member>
+        <member name="T:Cadru.Collections.Tests.DateComparerTests">
+             <summary>
+            This is a test class for CadruCollections.DateComparer and is intended
+            to contain all CadruCollections.DateComparer Unit Tests
+            </summary>
+        </member>
+        <member name="M:Cadru.Collections.Tests.DateComparerTests.Compare">
+             <summary>
+            A test for Compare (object, object)
+            </summary>
+        </member>
+        <member name="M:Cadru.Collections.Tests.DateComparerTests.Compare1">
+             <summary>
+            A test for Compare (string, string)
+            </summary>
+        </member>
+        <member name="M:Cadru.Collections.Tests.DateComparerTests.Compare5">
+             <summary>
+            A test for Compare (string, string)
+            </summary>
+        </member>
+        <member name="T:Cadru.Collections.Tests.LogicalStringComparerTests">
+             <summary>
+            This is a test class for CadruCollections.LogicalStringComparer and is intended
+            to contain all CadruCollections.LogicalStringComparer Unit Tests
+            </summary>
+        </member>
+        <member name="M:Cadru.Collections.Tests.LogicalStringComparerTests.Compare">
+             <summary>
+            A test for Compare (object, object)
+            </summary>
+        </member>
+        <member name="M:Cadru.Collections.Tests.LogicalStringComparerTests.Compare1">
+             <summary>
+            A test for Compare (string, string)
+            </summary>
+        </member>
+        <member name="T:Cadru.Collections.Tests.RangeTests.LastDigitComparer">
+            <summary>
+            Comparer which just compares the last digit of each operand
+            (but doesn't try to handle negative numbers intelligently).
+            </summary>
+        </member>
+        <member name="M:Cadru.Collections.Tests.ReverseComparisonComparerTests.Compare">
+             <summary>
+            A test for Compare (object, object)
+            </summary>
+        </member>
+    </members>
+</doc>

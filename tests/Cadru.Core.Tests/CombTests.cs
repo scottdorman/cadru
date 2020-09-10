@@ -1,4 +1,26 @@
-﻿using System;
+﻿//------------------------------------------------------------------------------
+// <copyright file="CombTests.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading;
@@ -12,17 +34,32 @@ namespace Cadru.Core.Tests
     [TestClass, ExcludeFromCodeCoverage]
     public class CombTests
     {
-        private static readonly DateTimeOffset BaseDate = new DateTimeOffset(1900, 1, 1, 0, 0, 0, TimeSpan.Zero);
-        private const double Accuracy = 3.333333;
+        [TestMethod]
+        public void CompareTo()
+        {
+            var a = new Comb("38ba4a03-0b00-b248-baa3-413faadaa2b8");
+            var b = new Comb("385175e2-0b00-b248-911d-413fa76b7979");
+            var c = new Comb("385175e2-0b00-b248-911d-413fa76b7979");
+
+            Assert.AreEqual(1, a.CompareTo(b));
+            Assert.AreEqual(-1, b.CompareTo(a));
+            Assert.AreEqual(0, b.CompareTo(c));
+
+            Assert.AreEqual(1, a.CompareTo(null));
+            Assert.AreEqual(1, a.CompareTo((object)b));
+
+            ExceptionAssert.Throws<ArgumentException>(() => a.CompareTo("test"));
+        }
 
         [TestMethod]
-        public void Scratch()
+        public void Constructors()
         {
-            for (var i = 0; i < 1000; i++)
-            {
-                var ticks = DateTimeOffset.UtcNow.UtcTicks;
-                Console.WriteLine(ticks);
-            }
+            var c = new Comb("38ba4a03-0b00-b248-baa3-413faadaa2b8");
+            ExceptionAssert.Throws<FormatException>(() => new Comb("3e3a6e75-0100-0f45-ae41a3e3d2536a57"));
+            Assert.AreEqual("38ba4a03-0b00-b248-baa3-413faadaa2b8", c.ToString());
+
+            c = new Comb();
+            Assert.AreEqual(Comb.Empty, c);
         }
 
         [TestMethod]
@@ -31,6 +68,28 @@ namespace Cadru.Core.Tests
             Assert.AreEqual("00000000-0000-0000-0000-000000000000", Comb.Empty.ToString());
             Assert.AreEqual(0, Comb.Empty.DateTime.Ticks);
             Assert.AreEqual(Comb.MinDate, Comb.Empty.DateTime);
+        }
+
+        [TestMethod]
+        public void Equality()
+        {
+            var left = Comb.NewComb();
+            var right = Comb.NewComb();
+
+            Assert.IsTrue(left != right);
+            Assert.IsFalse(left == right);
+
+            right = left;
+            Assert.IsTrue(left == right);
+            Assert.IsTrue(left.Equals(right));
+            Assert.IsTrue(left.Equals((object)right));
+            Assert.IsFalse(left.Equals(null));
+            Assert.IsFalse(left.Equals("test"));
+
+            var hash = Comb.Parse("385175e2-0b00-b248-911d-413fa76b7979");
+            Assert.AreEqual(1917962195, hash.GetHashCode());
+            Assert.AreEqual(left.GetHashCode(), right.GetHashCode());
+            Assert.AreNotEqual(left.GetHashCode(), hash.GetHashCode());
         }
 
         [TestMethod]
@@ -50,16 +109,6 @@ namespace Cadru.Core.Tests
             comb = Comb.NewComb(offset);
             Assert.AreNotEqual(Comb.Empty, comb);
             Assert.AreEqual(offset, comb.DateTime.LocalDateTime);
-
-            //comb = new Comb2("3e3a6e75-0100-0f45-ae41-a3e3d2536a57");
-            //Assert.AreEqual("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", comb.ToString());
-            //Assert.AreEqual(new DateTimeOffset(2014, 06, 25, 14, 43, 45, 550, TimeSpan.Zero), comb.DateTime);
-
-            //s = SequentialGuid.NewSequentialGuid();
-            //var d = s.GetDateTimeOffset();
-
-            //Assert.AreNotEqual("00000000-0000-0000-0000-000000000000", s.ToString());
-            //Assert.AreEqual(DateTime.Today.Date, s.GetDateTime().Date);
 
             var count = 10;
 
@@ -82,16 +131,13 @@ namespace Cadru.Core.Tests
         }
 
         [TestMethod]
-        public void ToStringTests()
+        public void Operators()
         {
-            Assert.AreEqual("00000000-0000-0000-0000-000000000000", $"{Comb.Empty}");
-            Assert.AreEqual("00000000-0000-0000-0000-000000000000", Comb.Empty.ToString());
-            Assert.AreEqual("00000000000000000000000000000000", Comb.Empty.ToString("N"));
-            Assert.AreEqual("00000000-0000-0000-0000-000000000000", Comb.Empty.ToString("D"));
-            Assert.AreEqual("(00000000-0000-0000-0000-000000000000)", Comb.Empty.ToString("P"));
-            Assert.AreEqual("{00000000-0000-0000-0000-000000000000}", Comb.Empty.ToString("B"));
-            Assert.AreEqual("{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}", Comb.Empty.ToString("X"));
-            ExceptionAssert.Throws<NotImplementedException>(() => Comb.Empty.ToString("e"));
+            var left = new Comb("38ad9d83-0b00-b248-adad-413fa7cd5e0f");
+            var right = new Comb("38ba4a03-0b00-b248-baa3-413faadaa2b8");
+
+            Assert.IsTrue(left < right);
+            Assert.IsFalse(left > right);
         }
 
         [TestMethod]
@@ -126,109 +172,7 @@ namespace Cadru.Core.Tests
             ExceptionAssert.Throws<ArgumentNullException>(() => Comb.Parse(null));
             ExceptionAssert.Throws<FormatException>(() => Comb.Parse("(00000000000000000000000000000000)"));
             ExceptionAssert.Throws<FormatException>(() => Comb.ParseExact("3e3a6e75-0100-0f45-ae41a3e3d2536a57", "x"));
-        }
-
-        [TestMethod]
-        public void TryParse()
-        {
-
-            Assert.IsTrue(Comb.TryParse("{0x3e3a6e75,0x0100,0x0f45,{0xae,0x41,0xa3,0xe3,0xd2,0x53,0x6a,0x57}}", out var c));
-            Assert.IsTrue(Comb.TryParse("{0x3E3A6E75,0x0100,0x0F45,{0xAE,0x41,0xA3,0xE3,0xD2,0x53,0x6A,0x57}}", out c));
-            Assert.IsTrue(Comb.TryParse("3e3a6e7501000f45ae41a3e3d2536a57", out c));
-            Assert.IsTrue(Comb.TryParse("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", out c));
-            Assert.IsTrue(Comb.TryParse("{3e3a6e75-0100-0f45-ae41-a3e3d2536a57}", out c));
-            Assert.IsTrue(Comb.TryParse("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", out c));
-
-            Assert.IsFalse(Comb.TryParse(null, out c));
-            Assert.IsFalse(Comb.TryParse("(00000000000000000000000000000000)", out c));
-        }
-
-        [TestMethod]
-        public void TryParseExact()
-        {
-
-            Assert.IsTrue(Comb.TryParseExact("{0x3e3a6e75,0x0100,0x0f45,{0xae,0x41,0xa3,0xe3,0xd2,0x53,0x6a,0x57}}", "X", out var c));
-            Assert.IsTrue(Comb.TryParseExact("{0x3E3A6E75,0x0100,0x0F45,{0xAE,0x41,0xA3,0xE3,0xD2,0x53,0x6A,0x57}}", "x", out c));
-
-            Assert.IsTrue(Comb.TryParseExact("3e3a6e7501000f45ae41a3e3d2536a57", "N", out c));
-            Assert.IsTrue(Comb.TryParseExact("3e3a6e7501000f45ae41a3e3d2536a57", "n", out c));
-            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "n", out c));
-            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-01000f45ae41a3e3d2536a57", "n", out c));
-            //Assert.IsFalse(Comb.TryParseExact("3e3a6e750100-0f45ae41a3e3d2536a57", "n", out c));
-            //Assert.IsFalse(Comb.TryParseExact("3e3a6e7501000f45-ae41a3e3d2536a57", "n", out c));
-            //Assert.IsFalse(Comb.TryParseExact("3e3a6e7501000f45ae41-a3e3d2536a57", "n", out c));
-
-            Assert.IsTrue(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "D", out c));
-            Assert.IsTrue(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "d", out c));
-            Assert.IsTrue(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "", out c));
-            Assert.IsFalse(Comb.TryParseExact("3e3a6e7501000f45ae41a3e3d2536a57", "d", out c));
-            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-01000f45ae41a3e3d2536a57", "d", out c));
-            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45ae41a3e3d2536a57", "d", out c));
-            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41a3e3d2536a57", "d", out c));
-            Assert.IsFalse(Comb.TryParseExact("{3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "d", out c));
-            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57}", "d", out c));
-            Assert.IsFalse(Comb.TryParseExact("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "d", out c));
-            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", "d", out c));
-
-            Assert.IsTrue(Comb.TryParseExact("{3e3a6e75-0100-0f45-ae41-a3e3d2536a57}", "B", out c));
-            Assert.IsTrue(Comb.TryParseExact("{3e3a6e75-0100-0f45-ae41-a3e3d2536a57}", "b", out c));
-            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "b", out c));
-            Assert.IsFalse(Comb.TryParseExact("{3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "b", out c));
-            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57}", "b", out c));
-            Assert.IsFalse(Comb.TryParseExact("{3e3a6e75-01000f45ae41a3e3d2536a57}", "b", out c));
-            Assert.IsFalse(Comb.TryParseExact("{3e3a6e75-0100-0f45ae41a3e3d2536a57}", "b", out c));
-            Assert.IsFalse(Comb.TryParseExact("{3e3a6e75-0100-0f45-ae41a3e3d2536a57}", "b", out c));
-
-            Assert.IsTrue(Comb.TryParseExact("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", "P", out c));
-            Assert.IsTrue(Comb.TryParseExact("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", "p", out c));
-            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "p", out c));
-            Assert.IsFalse(Comb.TryParseExact("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "p", out c));
-            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", "p", out c));
-            Assert.IsFalse(Comb.TryParseExact("(3e3a6e75-01000f45ae41a3e3d2536a57)", "p", out c));
-            Assert.IsFalse(Comb.TryParseExact("(3e3a6e75-0100-0f45ae41a3e3d2536a57)", "p", out c));
-            Assert.IsFalse(Comb.TryParseExact("(3e3a6e75-0100-0f45-ae41a3e3d2536a57)", "p", out c));
-
-            Assert.IsFalse(Comb.TryParseExact(null, "d", out c));
-            Assert.IsFalse(Comb.TryParseExact("(00000000000000000000000000000000)", "p", out c));
-            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "x", out c));
-
-            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a573e", "x", out c));
-            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a", "x", out c));
-
-            ExceptionAssert.Throws<FormatException>(() => Comb.TryParseExact("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", "e", out c));
-        }
-
-        [TestMethod]
-        public void Operators()
-        {
-            var left = new Comb("38ad9d83-0b00-b248-adad-413fa7cd5e0f");
-            var right = new Comb("38ba4a03-0b00-b248-baa3-413faadaa2b8");
-
-            Assert.IsTrue(left < right);
-            Assert.IsFalse(left > right);
-        }
-
-        [TestMethod]
-        public void Equality()
-        {
-            var left = Comb.NewComb();
-            var right = Comb.NewComb();
-
-            Assert.IsTrue(left != right);
-            Assert.IsFalse(left == right);
-
-            right = left;
-            Assert.IsTrue(left == right);
-            Assert.IsTrue(left.Equals(right));
-            Assert.IsTrue(left.Equals((object)right));
-            Assert.IsFalse(left.Equals(null));
-            Assert.IsFalse(left.Equals("test"));
-
-            var hash = Comb.Parse("385175e2-0b00-b248-911d-413fa76b7979");
-            Assert.AreEqual(1917962195, hash.GetHashCode());
-            Assert.AreEqual(left.GetHashCode(), right.GetHashCode());
-            Assert.AreNotEqual(left.GetHashCode(), hash.GetHashCode());
-        }
+        } 
 
         [TestMethod]
         public void ToByteArray()
@@ -246,33 +190,81 @@ namespace Cadru.Core.Tests
         }
 
         [TestMethod]
-        public void Constructors()
+        public void ToStringTests()
         {
-            var c = new Comb("38ba4a03-0b00-b248-baa3-413faadaa2b8");
-            ExceptionAssert.Throws<FormatException>(() => new Comb("3e3a6e75-0100-0f45-ae41a3e3d2536a57"));
-            Assert.AreEqual("38ba4a03-0b00-b248-baa3-413faadaa2b8", c.ToString());
-
-            c = new Comb();
-            Assert.AreEqual(Comb.Empty, c);
-
-
+            Assert.AreEqual("00000000-0000-0000-0000-000000000000", $"{Comb.Empty}");
+            Assert.AreEqual("00000000-0000-0000-0000-000000000000", Comb.Empty.ToString());
+            Assert.AreEqual("00000000000000000000000000000000", Comb.Empty.ToString("N"));
+            Assert.AreEqual("00000000-0000-0000-0000-000000000000", Comb.Empty.ToString("D"));
+            Assert.AreEqual("(00000000-0000-0000-0000-000000000000)", Comb.Empty.ToString("P"));
+            Assert.AreEqual("{00000000-0000-0000-0000-000000000000}", Comb.Empty.ToString("B"));
+            Assert.AreEqual("{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}", Comb.Empty.ToString("X"));
+            ExceptionAssert.Throws<NotImplementedException>(() => Comb.Empty.ToString("e"));
         }
 
         [TestMethod]
-        public void CompareTo()
+        public void TryParse()
         {
-            var a = new Comb("38ba4a03-0b00-b248-baa3-413faadaa2b8");
-            var b = new Comb("385175e2-0b00-b248-911d-413fa76b7979");
-            var c = new Comb("385175e2-0b00-b248-911d-413fa76b7979");
+            Assert.IsTrue(Comb.TryParse("{0x3e3a6e75,0x0100,0x0f45,{0xae,0x41,0xa3,0xe3,0xd2,0x53,0x6a,0x57}}", out _));
+            Assert.IsTrue(Comb.TryParse("{0x3E3A6E75,0x0100,0x0F45,{0xAE,0x41,0xA3,0xE3,0xD2,0x53,0x6A,0x57}}", out _));
+            Assert.IsTrue(Comb.TryParse("3e3a6e7501000f45ae41a3e3d2536a57", out _));
+            Assert.IsTrue(Comb.TryParse("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", out _));
+            Assert.IsTrue(Comb.TryParse("{3e3a6e75-0100-0f45-ae41-a3e3d2536a57}", out _));
+            Assert.IsTrue(Comb.TryParse("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", out _));
 
-            Assert.AreEqual(1, a.CompareTo(b));
-            Assert.AreEqual(-1, b.CompareTo(a));
-            Assert.AreEqual(0, b.CompareTo(c));
+            Assert.IsFalse(Comb.TryParse(null, out _));
+            Assert.IsFalse(Comb.TryParse("(00000000000000000000000000000000)", out _));
+        }
 
-            Assert.AreEqual(1, a.CompareTo(null));
-            Assert.AreEqual(1, a.CompareTo((object)b));
+        [TestMethod]
+        public void TryParseExact()
+        {
+            Assert.IsTrue(Comb.TryParseExact("{0x3e3a6e75,0x0100,0x0f45,{0xae,0x41,0xa3,0xe3,0xd2,0x53,0x6a,0x57}}", "X", out var _));
+            Assert.IsTrue(Comb.TryParseExact("{0x3E3A6E75,0x0100,0x0F45,{0xAE,0x41,0xA3,0xE3,0xD2,0x53,0x6A,0x57}}", "x", out _));
 
-            ExceptionAssert.Throws<ArgumentException>(() => a.CompareTo("test"));
+            Assert.IsTrue(Comb.TryParseExact("3e3a6e7501000f45ae41a3e3d2536a57", "N", out _));
+            Assert.IsTrue(Comb.TryParseExact("3e3a6e7501000f45ae41a3e3d2536a57", "n", out _));
+            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "n", out _));
+            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-01000f45ae41a3e3d2536a57", "n", out _));
+
+            Assert.IsTrue(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "D", out _));
+            Assert.IsTrue(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "d", out _));
+            Assert.IsTrue(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "", out _));
+            Assert.IsFalse(Comb.TryParseExact("3e3a6e7501000f45ae41a3e3d2536a57", "d", out _));
+            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-01000f45ae41a3e3d2536a57", "d", out _));
+            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45ae41a3e3d2536a57", "d", out _));
+            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41a3e3d2536a57", "d", out _));
+            Assert.IsFalse(Comb.TryParseExact("{3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "d", out _));
+            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57}", "d", out _));
+            Assert.IsFalse(Comb.TryParseExact("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "d", out _));
+            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", "d", out _));
+
+            Assert.IsTrue(Comb.TryParseExact("{3e3a6e75-0100-0f45-ae41-a3e3d2536a57}", "B", out _));
+            Assert.IsTrue(Comb.TryParseExact("{3e3a6e75-0100-0f45-ae41-a3e3d2536a57}", "b", out _));
+            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "b", out _));
+            Assert.IsFalse(Comb.TryParseExact("{3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "b", out _));
+            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57}", "b", out _));
+            Assert.IsFalse(Comb.TryParseExact("{3e3a6e75-01000f45ae41a3e3d2536a57}", "b", out _));
+            Assert.IsFalse(Comb.TryParseExact("{3e3a6e75-0100-0f45ae41a3e3d2536a57}", "b", out _));
+            Assert.IsFalse(Comb.TryParseExact("{3e3a6e75-0100-0f45-ae41a3e3d2536a57}", "b", out _));
+
+            Assert.IsTrue(Comb.TryParseExact("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", "P", out _));
+            Assert.IsTrue(Comb.TryParseExact("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", "p", out _));
+            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "p", out _));
+            Assert.IsFalse(Comb.TryParseExact("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "p", out _));
+            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", "p", out _));
+            Assert.IsFalse(Comb.TryParseExact("(3e3a6e75-01000f45ae41a3e3d2536a57)", "p", out _));
+            Assert.IsFalse(Comb.TryParseExact("(3e3a6e75-0100-0f45ae41a3e3d2536a57)", "p", out _));
+            Assert.IsFalse(Comb.TryParseExact("(3e3a6e75-0100-0f45-ae41a3e3d2536a57)", "p", out _));
+
+            Assert.IsFalse(Comb.TryParseExact(null, "d", out _));
+            Assert.IsFalse(Comb.TryParseExact("(00000000000000000000000000000000)", "p", out _));
+            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a57", "x", out _));
+
+            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a573e", "x", out _));
+            Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a", "x", out _));
+
+            ExceptionAssert.Throws<FormatException>(() => Comb.TryParseExact("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", "e", out _));
         }
     }
 }

@@ -1,4 +1,26 @@
-﻿using System;
+﻿//------------------------------------------------------------------------------
+// <copyright file="RequiresTests.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -33,18 +55,6 @@ namespace Cadru.Contracts.Tests
         }
 
         [TestMethod]
-        public void IsType()
-        {
-            ExceptionAssert.Throws<ArgumentNullException>(() => Requires.IsType(null, typeof(string), "foo"));
-            ExceptionAssert.Throws<InvalidOperationException>(() => Requires.IsType(2, typeof(string), "foo"));
-            Requires.IsType(String.Empty, typeof(string), "foo");
-
-            ExceptionAssert.Throws<ArgumentNullException>(() => Requires.IsType<string>(null, "foo"));
-            ExceptionAssert.Throws<InvalidOperationException>(() => Requires.IsType<string>(2, "foo"));
-            Requires.IsType<string>(String.Empty, "foo");
-        }
-
-        [TestMethod]
         public void IsFalse()
         {
             ExceptionAssert.Throws<InvalidOperationException>(() => Requires.IsFalse(true));
@@ -69,13 +79,24 @@ namespace Cadru.Contracts.Tests
         }
 
         [TestMethod]
+        public void IsType()
+        {
+            ExceptionAssert.Throws<ArgumentNullException>(() => Requires.IsType(null, typeof(string), "foo"));
+            ExceptionAssert.Throws<InvalidOperationException>(() => Requires.IsType(2, typeof(string), "foo"));
+            Requires.IsType(String.Empty, typeof(string), "foo");
+
+            ExceptionAssert.Throws<ArgumentNullException>(() => Requires.IsType<string>(null, "foo"));
+            ExceptionAssert.Throws<InvalidOperationException>(() => Requires.IsType<string>(2, "foo"));
+            Requires.IsType<string>(String.Empty, "foo");
+        }
+
+        [TestMethod]
         public void NotNull()
         {
             ExceptionAssert.Throws<ArgumentNullException>(() => Requires.NotNull(((string)null), "param")).WithParameter("param");
             ExceptionAssert.Throws<ArgumentNullException>(() => Requires.NotNull(((string)null), "param", "test")).WithMessage("test", ExceptionMessageComparison.StartsWith).WithParameter("param");
             ExceptionAssert.Throws<ArgumentNullException>(() => Requires.NotNull(((string)null), "param", null)).WithParameter("param");
             Requires.NotNull("", "");
-
 
             ExceptionAssert.Throws<ArgumentNullException>(() => Requires.NotNull(((IEnumerable)null), "param")).WithParameter("param");
             ExceptionAssert.Throws<ArgumentNullException>(() => Requires.NotNull(((List<string>)null), "param")).WithParameter("param");
@@ -100,15 +121,6 @@ namespace Cadru.Contracts.Tests
         }
 
         [TestMethod]
-        public void ValidRange()
-        {
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => Requires.ValidRange(true, "param")).WithParameter("param");
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => Requires.ValidRange(true, "param", "test")).WithMessage("test", ExceptionMessageComparison.StartsWith).WithParameter("param");
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => Requires.ValidRange(true, "param", null)).WithParameter("param");
-            ExceptionAssert.DoesNotThrow(() => Requires.ValidRange(false, "param"));
-        }
-
-        [TestMethod]
         public void ValidElements()
         {
             var values = new List<string>()
@@ -129,6 +141,15 @@ namespace Cadru.Contracts.Tests
             ExceptionAssert.DoesNotThrow(() => Requires.ValidElements(values, x => !String.IsNullOrWhiteSpace(x), "param", "test"));
         }
 
+        [TestMethod]
+        public void ValidRange()
+        {
+            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => Requires.ValidRange(true, "param")).WithParameter("param");
+            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => Requires.ValidRange(true, "param", "test")).WithMessage("test", ExceptionMessageComparison.StartsWith).WithParameter("param");
+            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => Requires.ValidRange(true, "param", null)).WithParameter("param");
+            ExceptionAssert.DoesNotThrow(() => Requires.ValidRange(false, "param"));
+        }
+
         internal class DisposeTester : IDisposablePattern
         {
             public DisposeTester(bool flag)
@@ -144,7 +165,6 @@ namespace Cadru.Contracts.Tests
 
             public void Dispose()
             {
-
             }
         }
 
@@ -154,6 +174,5 @@ namespace Cadru.Contracts.Tests
         //    ExceptionAssert.Throws<ObjectDisposedException>(() => Requires.NotDisposed(new DisposeTester(true), "test")).WithMessage("Object name: 'test'.", ExceptionMessageComparison.EndsWith);
         //    ExceptionAssert.DoesNotThrow(() => Requires.NotDisposed(new DisposeTester(false), "test"));
         //}
-
     }
 }

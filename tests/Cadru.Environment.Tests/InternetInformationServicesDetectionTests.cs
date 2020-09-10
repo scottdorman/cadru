@@ -1,4 +1,26 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿//------------------------------------------------------------------------------
+// <copyright file="InternetInformationServicesDetectionTests.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
+using System.Diagnostics.CodeAnalysis;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -12,21 +34,6 @@ namespace Cadru.Environment.Tests
     public class InternetInformationServicesDetectionTests
     {
         [TestMethod]
-        public void IsIISInstalled()
-        {
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesVersion.IIS4));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesVersion.IIS5));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesVersion.IIS6));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesVersion.IIS7));
-        }
-
-        [TestMethod]
-        public void IsAspRegistered()
-        {
-            Assert.IsFalse(InternetInformationServicesDetection.IsAspRegistered());
-        }
-
-        [TestMethod]
         public void IsAspNetRegistered()
         {
             Assert.IsFalse(InternetInformationServicesDetection.IsAspNetRegistered(FrameworkVersion.Fx10));
@@ -37,28 +44,13 @@ namespace Cadru.Environment.Tests
         }
 
         [TestMethod]
-        public void IsSubcomponentInstalled()
+        public void IsAspRegistered()
         {
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.ASP));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.Bits));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.BitsISAPI));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.Common));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.FrontPageExtensions));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.FTP));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.ManagementConsole));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.InternetDataConnector));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.InternetPrinting));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.NNTP));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.RemoteAdmin));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.ServerSideIncludes));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.SMTP));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.TSWebClient));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.WebDAV));
-            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.WWW));
+            Assert.IsFalse(InternetInformationServicesDetection.IsAspRegistered());
         }
 
         [TestMethod]
-        [Ignore]
+        [Ignore("Requires IIS to be installed on the server running tests.")]
         public void IsFeatureInstalled()
         {
             Assert.IsTrue(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesFeature.ApplicationInitialization));
@@ -83,5 +75,34 @@ namespace Cadru.Environment.Tests
             Assert.IsTrue(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesFeature.ISAPIExtensions));
         }
 
+        [TestMethod]
+        public void IsIISInstalled()
+        {
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesVersion.IIS4));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesVersion.IIS5));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesVersion.IIS6));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesVersion.IIS7));
+        }
+
+        [TestMethod]
+        public void IsSubcomponentInstalled()
+        {
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.ASP));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.Bits));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.BitsISAPI));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.Common));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.FrontPageExtensions));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.FTP));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.ManagementConsole));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.InternetDataConnector));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.InternetPrinting));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.NNTP));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.RemoteAdmin));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.ServerSideIncludes));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.SMTP));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.TSWebClient));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.WebDAV));
+            Assert.IsFalse(InternetInformationServicesDetection.IsInstalled(InternetInformationServicesSubcomponent.WWW));
+        }
     }
 }

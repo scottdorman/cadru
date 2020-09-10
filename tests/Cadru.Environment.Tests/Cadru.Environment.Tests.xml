@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+Sample license text.
+-->
+<doc>
+    <assembly>
+        <name>Cadru.Environment.Tests</name>
+    </assembly>
+    <members>
+        <member name="T:Cadru.Environment.Tests.FrameworkVersionDetectionTests">
+             <summary>
+            This is a test class for CadruUtilities.EnumerationUtilities and is intended
+            to contain all CadruUtilities.EnumerationUtilities Unit Tests
+            </summary>
+        </member>
+        <member name="T:Cadru.Environment.Tests.InternetInformationServicesDetectionTests">
+             <summary>
+            This is a test class for CadruUtilities.EnumerationUtilities and is intended
+            to contain all CadruUtilities.EnumerationUtilities Unit Tests
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,4 +1,26 @@
-﻿using System;
+﻿//------------------------------------------------------------------------------
+// <copyright file="EnumerableExtensionsTests.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -81,6 +103,25 @@ namespace Cadru.Core.Extensions.Tests
         }
 
         [TestMethod]
+        public void Partition()
+        {
+            int[] numbers = { 0, 30, 20, 15, 90, 85, 40, 75 };
+            var partitions = numbers.Partition(3).ToArray();
+            Assert.AreEqual(3, partitions.Length);
+            CollectionAssert.AreEqual(new[] { 0, 30, 20 }, partitions[0].ToArray());
+            CollectionAssert.AreEqual(new[] { 15, 90, 85 }, partitions[1].ToArray());
+            CollectionAssert.AreEqual(new[] { 40, 75 }, partitions[2].ToArray());
+
+            partitions = numbers.Partition(10).ToArray();
+            Assert.AreEqual(1, partitions.Length);
+            CollectionAssert.AreEqual(numbers, partitions[0].ToArray());
+
+            numbers = Array.Empty<int>();
+            partitions = numbers.Partition(3).ToArray();
+            Assert.AreEqual(0, partitions.Length);
+        }
+
+        [TestMethod]
         public void Slice()
         {
             var test = new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
@@ -103,25 +144,6 @@ namespace Cadru.Core.Extensions.Tests
 
             CollectionAssert.AreEqual(numbers, numbers.WhereIf(false, (number, index) => number <= index * 10).ToArray());
             CollectionAssert.AreEqual(new[] { 0, 20, 15, 40 }, numbers.WhereIf(true, (number, index) => number <= index * 10).ToArray());
-        }
-
-        [TestMethod]
-        public void Partition()
-        {
-            int[] numbers = { 0, 30, 20, 15, 90, 85, 40, 75 };
-            var partitions = numbers.Partition(3).ToArray();
-            Assert.AreEqual(3, partitions.Length);
-            CollectionAssert.AreEqual(new[] { 0, 30, 20 }, partitions[0].ToArray());
-            CollectionAssert.AreEqual(new[] { 15, 90, 85 }, partitions[1].ToArray());
-            CollectionAssert.AreEqual(new[] { 40, 75 }, partitions[2].ToArray());
-
-            partitions = numbers.Partition(10).ToArray();
-            Assert.AreEqual(1, partitions.Length);
-            CollectionAssert.AreEqual(numbers, partitions[0].ToArray());
-
-            numbers = Array.Empty<int>();
-            partitions = numbers.Partition(3).ToArray();
-            Assert.AreEqual(0, partitions.Length);
         }
     }
 }

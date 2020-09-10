@@ -1,4 +1,26 @@
-﻿using System;
+﻿//------------------------------------------------------------------------------
+// <copyright file="RangeTests.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -11,24 +33,14 @@ namespace Cadru.Collections.Tests
     public class RangeTests
     {
         [TestMethod]
-        public void ToStringTests()
+        public void AvoidWrapAround()
         {
-            Assert.AreEqual("(1, 6)", new Range<int>(1, 6, RangeEndpointOption.Closed).ToString());
-            Assert.AreEqual("[1, 6]", new Range<int>(1, 6, RangeEndpointOption.Open).ToString());
-            Assert.AreEqual("[1, 6)", new Range<int>(1, 6, RangeEndpointOption.LeftHalfOpen).ToString());
-            Assert.AreEqual("(1, 6]", new Range<int>(1, 6, RangeEndpointOption.RightHalfOpen).ToString());
-
-        }
-
-        [TestMethod]
-        public void ClosedRange()
-        {
-            var range = new Range<int>(5, 10, RangeEndpointOption.Closed);
-            Assert.IsFalse(range.Contains(4));
-            Assert.IsFalse(range.Contains(5));
-            Assert.IsTrue(range.Contains(6));
-            Assert.IsFalse(range.Contains(10));
-            Assert.IsFalse(range.Contains(11));
+            // Every byte value is valid, so we'll wrap on overflow.
+            var range = new Range<byte>(0, 255, RangeEndpointOption.Open);
+            range.SetDefaultEnumerator();
+            var expected = Enumerable.Range(0, 256).Select(x => (byte)x);
+            Assert.AreEqual(256, range.Take(300).Count());
+            Assert.IsTrue(expected.SequenceEqual(range));
         }
 
         [TestMethod]
@@ -39,15 +51,6 @@ namespace Cadru.Collections.Tests
             Assert.IsFalse(range.Contains('a'));
             Assert.IsTrue(range.Contains('b'));
             Assert.IsFalse(range.Contains('e'));
-        }
-
-        [TestMethod]
-        public void ClosedRangeSimpleIteration()
-        {
-            var range = new Range<int>(0, 5, RangeEndpointOption.Closed);
-            range.SetDefaultEnumerator();
-            var expected = new[] { 1, 2, 3, 4 };
-            Assert.IsTrue(expected.SequenceEqual(range));
         }
 
         [TestMethod]
@@ -71,10 +74,30 @@ namespace Cadru.Collections.Tests
         }
 
         [TestMethod]
+        public void ClosedRange()
+        {
+            var range = new Range<int>(5, 10, RangeEndpointOption.Closed);
+            Assert.IsFalse(range.Contains(4));
+            Assert.IsFalse(range.Contains(5));
+            Assert.IsTrue(range.Contains(6));
+            Assert.IsFalse(range.Contains(10));
+            Assert.IsFalse(range.Contains(11));
+        }
+
+        [TestMethod]
         public void ClosedRangeIntersection()
         {
             var range = new Range<int>(-10, 6, RangeEndpointOption.Closed).Intersect(new Range<int>(1, 10, RangeEndpointOption.Closed));
             Assert.AreEqual("(1, 6)", range.ToString());
+        }
+
+        [TestMethod]
+        public void ClosedRangeSimpleIteration()
+        {
+            var range = new Range<int>(0, 5, RangeEndpointOption.Closed);
+            range.SetDefaultEnumerator();
+            var expected = new[] { 1, 2, 3, 4 };
+            Assert.IsTrue(expected.SequenceEqual(range));
         }
 
         [TestMethod]
@@ -85,63 +108,72 @@ namespace Cadru.Collections.Tests
         }
 
         [TestMethod]
-        public void OpenRange()
+        public void ContainsRange()
         {
-            var range = new Range<int>(5, 10, RangeEndpointOption.Open);
-            Assert.IsFalse(range.Contains(4));
-            Assert.IsTrue(range.Contains(5));
-            Assert.IsTrue(range.Contains(6));
-            Assert.IsTrue(range.Contains(10));
-            Assert.IsFalse(range.Contains(11));
-
-            range = new Range<int>(5, 10);
-            Assert.IsFalse(range.Contains(4));
-            Assert.IsTrue(range.Contains(5));
-            Assert.IsTrue(range.Contains(6));
-            Assert.IsTrue(range.Contains(10));
-            Assert.IsFalse(range.Contains(11));
+            Assert.IsTrue(new Range<int>(0, 9).Contains(new Range<int>(0, 9)));
+            Assert.IsFalse(new Range<int>(0, 9).Contains(new Range<int>(0, 10)));
+            Assert.IsFalse(new Range<int>(0, 9).Contains(new Range<int>(-1, 9)));
+            Assert.IsFalse(new Range<int>(0, 9).Contains(new Range<int>(-1, 10)));
+            Assert.IsTrue(new Range<int>(0, 10).Contains(new Range<int>(0, 9)));
+            Assert.IsTrue(new Range<int>(-1, 9).Contains(new Range<int>(0, 9)));
+            Assert.IsTrue(new Range<int>(-1, 10).Contains(new Range<int>(0, 9)));
         }
 
         [TestMethod]
-        public void OpenRangeSimpleIteration()
+        public void CustomComparer()
         {
-            var range = new Range<int>(0, 5, RangeEndpointOption.Open);
-            range.SetDefaultEnumerator();
-            var expected = new[] { 0, 1, 2, 3, 4, 5 };
-            Assert.IsTrue(expected.SequenceEqual(range));
-
-            range = new Range<int>(0, 5);
-            range.SetDefaultEnumerator();
-            Assert.IsTrue(expected.SequenceEqual(range));
+            // Should contain any number with a final digit of 3, 4, 5 or 6
+            var range = new Range<int>(13, 7, new LastDigitComparer(), RangeEndpointOption.LeftHalfOpen);
+            Assert.IsTrue(range.Contains(45));
+            Assert.IsTrue(range.Contains(23));
+            Assert.IsFalse(range.Contains(37));
         }
 
         [TestMethod]
-        public void OpenCharRangeSimpleIteration()
+        public void HandleNoOpSteppingFunction()
         {
-            var range = new Range<char>('a', 'e', RangeEndpointOption.Open);
-            range.SetDefaultEnumerator();
-            var expected = new[] { 'a', 'b', 'c', 'd', 'e' };
+            var range = new Range<int>(0, 5);
+            range.SetEnumerator(new RangeIterator<int>(range, x => x));
+            var expected = new[] { 0 };
+            var actual = range.ToArray();
+
             Assert.IsTrue(expected.SequenceEqual(range));
         }
 
         [TestMethod]
-        public void OpenRangeIntersection()
+        public void InclusiveLowerExclusiveUpperWithOvershoot()
         {
-            var range = new Range<int>(-10, 6).Intersect(new Range<int>(1, 10));
-            Assert.AreEqual("[1, 6]", range.ToString());
-
-            range = new Range<int>(-10, 6, RangeEndpointOption.Open).Intersect(new Range<int>(1, 10, RangeEndpointOption.Open));
-            Assert.AreEqual("[1, 6]", range.ToString());
+            var range = new Range<int>(0, 5);
+            range.SetEnumerator(new RangeIterator<int>(range, x => x + 2));
+            var expected = new[] { 0, 2, 4 };
+            Assert.IsTrue(expected.SequenceEqual(range));
         }
 
         [TestMethod]
-        public void OpenRangeUnion()
+        public void IsContainedBy()
         {
-            var range = new Range<int>(3, 9).Union(new Range<int>(7, 11));
-            Assert.AreEqual("[3, 11]", range.ToString());
+            Assert.IsFalse(new Range<int>(0, 9).IsContainedBy(new Range<int>(-10, 1)));
+            Assert.IsFalse(new Range<int>(0, 9).IsContainedBy(new Range<int>(-10, 0)));
+            Assert.IsFalse(new Range<int>(0, 9).IsContainedBy(new Range<int>(-10, -1)));
 
-            range = new Range<int>(3, 9, RangeEndpointOption.Open).Union(new Range<int>(7, 11, RangeEndpointOption.Open));
-            Assert.AreEqual("[3, 11]", range.ToString());
+            Assert.IsTrue(new Range<int>(-10, 1).IsContainedBy(new Range<int>(-10, 1)));
+            Assert.IsTrue(new Range<int>(0, 1).IsContainedBy(new Range<int>(-10, 1)));
+            Assert.IsFalse(new Range<int>(-10, -1).IsContainedBy(new Range<int>(0, 1)));
+        }
+
+        [TestMethod]
+        public void IsContiguousWith()
+        {
+            Assert.IsTrue(new Range<int>(0, 9).IsContiguousWith(new Range<int>(-1, 10)));
+            Assert.IsTrue(new Range<int>(0, 9).IsContiguousWith(new Range<int>(5, 10)));
+            Assert.IsTrue(new Range<int>(0, 9).IsContiguousWith(new Range<int>(5, 6)));
+            Assert.IsTrue(new Range<int>(0, 9).IsContiguousWith(new Range<int>(9, 10)));
+            Assert.IsTrue(new Range<int>(0, 9).IsContiguousWith(new Range<int>(9, 10)));
+            Assert.IsTrue(new Range<int>(0, 9).IsContiguousWith(new Range<int>(-3, 0)));
+            Assert.IsTrue(new Range<int>(0, 9).IsContiguousWith(new Range<int>(-3, 0)));
+
+            Assert.IsFalse(new Range<int>(0, 9).IsContiguousWith(new Range<int>(10, 11)));
+            Assert.IsFalse(new Range<int>(0, 9).IsContiguousWith(new Range<int>(-3, -1)));
         }
 
         [TestMethod]
@@ -156,6 +188,13 @@ namespace Cadru.Collections.Tests
         }
 
         [TestMethod]
+        public void LeftHalfOpenRangeIntersection()
+        {
+            var range = new Range<int>(-10, 6, RangeEndpointOption.LeftHalfOpen).Intersect(new Range<int>(1, 10, RangeEndpointOption.LeftHalfOpen));
+            Assert.AreEqual("[1, 6)", range.ToString());
+        }
+
+        [TestMethod]
         public void LeftHalfOpenRangeSimpleIteration()
         {
             var range = new Range<int>(0, 5, RangeEndpointOption.LeftHalfOpen);
@@ -166,51 +205,10 @@ namespace Cadru.Collections.Tests
         }
 
         [TestMethod]
-        public void LeftHalfOpenRangeIntersection()
-        {
-            var range = new Range<int>(-10, 6, RangeEndpointOption.LeftHalfOpen).Intersect(new Range<int>(1, 10, RangeEndpointOption.LeftHalfOpen));
-            Assert.AreEqual("[1, 6)", range.ToString());
-        }
-
-        [TestMethod]
         public void LeftHalfOpenRangeUnion()
         {
             var range = new Range<int>(3, 9, RangeEndpointOption.LeftHalfOpen).Union(new Range<int>(7, 11, RangeEndpointOption.LeftHalfOpen));
             Assert.AreEqual("[3, 11)", range.ToString());
-        }
-
-        [TestMethod]
-        public void RightHalfOpenRange()
-        {
-            var range = new Range<int>(5, 10, RangeEndpointOption.RightHalfOpen);
-            Assert.IsFalse(range.Contains(4));
-            Assert.IsFalse(range.Contains(5));
-            Assert.IsTrue(range.Contains(6));
-            Assert.IsTrue(range.Contains(10));
-            Assert.IsFalse(range.Contains(11));
-        }
-
-        [TestMethod]
-        public void RightHalfOpenRangeSimpleIteration()
-        {
-            var range = new Range<int>(0, 5, RangeEndpointOption.RightHalfOpen);
-            range.SetDefaultEnumerator();
-            var expected = new[] { 1, 2, 3, 4, 5 };
-            Assert.IsTrue(expected.SequenceEqual(range));
-        }
-
-        [TestMethod]
-        public void RightHalfOpenRangeIntersection()
-        {
-            var range = new Range<int>(-10, 6, RangeEndpointOption.RightHalfOpen).Intersect(new Range<int>(1, 10, RangeEndpointOption.RightHalfOpen));
-            Assert.AreEqual("(1, 6]", range.ToString());
-        }
-
-        [TestMethod]
-        public void RightHalfOpenRangeUnion()
-        {
-            var range = new Range<int>(3, 9, RangeEndpointOption.RightHalfOpen).Union(new Range<int>(7, 11, RangeEndpointOption.RightHalfOpen));
-            Assert.AreEqual("(3, 11]", range.ToString());
         }
 
         [TestMethod]
@@ -307,78 +305,63 @@ namespace Cadru.Collections.Tests
         }
 
         [TestMethod]
-        public void CustomComparer()
+        public void OpenCharRangeSimpleIteration()
         {
-            // Should contain any number with a final digit of 3, 4, 5 or 6
-            var range = new Range<int>(13, 7, new LastDigitComparer(), RangeEndpointOption.LeftHalfOpen);
-            Assert.IsTrue(range.Contains(45));
-            Assert.IsTrue(range.Contains(23));
-            Assert.IsFalse(range.Contains(37));
-        }
-
-        [TestMethod]
-        public void InclusiveLowerExclusiveUpperWithOvershoot()
-        {
-            var range = new Range<int>(0, 5);
-            range.SetEnumerator(new RangeIterator<int>(range, x => x + 2));
-            var expected = new[] { 0, 2, 4 };
-            Assert.IsTrue(expected.SequenceEqual(range));
-        }
-
-        [TestMethod]
-        public void AvoidWrapAround()
-        {
-            // Every byte value is valid, so we'll wrap on overflow.
-            var range = new Range<byte>(0, 255, RangeEndpointOption.Open);
+            var range = new Range<char>('a', 'e', RangeEndpointOption.Open);
             range.SetDefaultEnumerator();
-            var expected = Enumerable.Range(0, 256).Select(x => (byte)x);
-            Assert.AreEqual(256, range.Take(300).Count());
+            var expected = new[] { 'a', 'b', 'c', 'd', 'e' };
             Assert.IsTrue(expected.SequenceEqual(range));
         }
 
         [TestMethod]
-        public void HandleNoOpSteppingFunction()
+        public void OpenRange()
         {
-            var range = new Range<int>(0, 5);
-            range.SetEnumerator(new RangeIterator<int>(range, x => x));
-            var expected = new[] { 0 };
-            var actual = range.ToArray();
+            var range = new Range<int>(5, 10, RangeEndpointOption.Open);
+            Assert.IsFalse(range.Contains(4));
+            Assert.IsTrue(range.Contains(5));
+            Assert.IsTrue(range.Contains(6));
+            Assert.IsTrue(range.Contains(10));
+            Assert.IsFalse(range.Contains(11));
 
+            range = new Range<int>(5, 10);
+            Assert.IsFalse(range.Contains(4));
+            Assert.IsTrue(range.Contains(5));
+            Assert.IsTrue(range.Contains(6));
+            Assert.IsTrue(range.Contains(10));
+            Assert.IsFalse(range.Contains(11));
+        }
+
+        [TestMethod]
+        public void OpenRangeIntersection()
+        {
+            var range = new Range<int>(-10, 6).Intersect(new Range<int>(1, 10));
+            Assert.AreEqual("[1, 6]", range.ToString());
+
+            range = new Range<int>(-10, 6, RangeEndpointOption.Open).Intersect(new Range<int>(1, 10, RangeEndpointOption.Open));
+            Assert.AreEqual("[1, 6]", range.ToString());
+        }
+
+        [TestMethod]
+        public void OpenRangeSimpleIteration()
+        {
+            var range = new Range<int>(0, 5, RangeEndpointOption.Open);
+            range.SetDefaultEnumerator();
+            var expected = new[] { 0, 1, 2, 3, 4, 5 };
+            Assert.IsTrue(expected.SequenceEqual(range));
+
+            range = new Range<int>(0, 5);
+            range.SetDefaultEnumerator();
             Assert.IsTrue(expected.SequenceEqual(range));
         }
 
         [TestMethod]
-        public void SteppingWithCustomComparer()
+        public void OpenRangeUnion()
         {
-            var range = new Range<int>(33, 29, new LastDigitComparer(), RangeEndpointOption.Open);
-            range.SetEnumerator(new RangeIterator<int>(range, x => x + 2));
-            var expected = new[] { 33, 35, 37, 39 };
-            var actual = range.ToArray();
-            Assert.IsTrue(expected.SequenceEqual(range));
-        }
+            var range = new Range<int>(3, 9).Union(new Range<int>(7, 11));
+            Assert.AreEqual("[3, 11]", range.ToString());
 
-        [TestMethod]
-        public void ContainsRange()
-        {
-            Assert.IsTrue(new Range<int>(0, 9).Contains(new Range<int>(0, 9)));
-            Assert.IsFalse(new Range<int>(0, 9).Contains(new Range<int>(0, 10)));
-            Assert.IsFalse(new Range<int>(0, 9).Contains(new Range<int>(-1, 9)));
-            Assert.IsFalse(new Range<int>(0, 9).Contains(new Range<int>(-1, 10)));
-            Assert.IsTrue(new Range<int>(0, 10).Contains(new Range<int>(0, 9)));
-            Assert.IsTrue(new Range<int>(-1, 9).Contains(new Range<int>(0, 9)));
-            Assert.IsTrue(new Range<int>(-1, 10).Contains(new Range<int>(0, 9)));
-        }
-
-        [TestMethod]
-        public void IsContainedBy()
-        {
-            Assert.IsFalse(new Range<int>(0, 9).IsContainedBy(new Range<int>(-10, 1)));
-            Assert.IsFalse(new Range<int>(0, 9).IsContainedBy(new Range<int>(-10, 0)));
-            Assert.IsFalse(new Range<int>(0, 9).IsContainedBy(new Range<int>(-10, -1)));
-
-            Assert.IsTrue(new Range<int>(-10, 1).IsContainedBy(new Range<int>(-10, 1)));
-            Assert.IsTrue(new Range<int>(0, 1).IsContainedBy(new Range<int>(-10, 1)));
-            Assert.IsFalse(new Range<int>(-10, -1).IsContainedBy(new Range<int>(0, 1)));
+            range = new Range<int>(3, 9, RangeEndpointOption.Open).Union(new Range<int>(7, 11, RangeEndpointOption.Open));
+            Assert.AreEqual("[3, 11]", range.ToString());
         }
 
         [TestMethod]
@@ -394,18 +377,56 @@ namespace Cadru.Collections.Tests
         }
 
         [TestMethod]
-        public void IsContiguousWith()
+        public void RightHalfOpenRange()
         {
-            Assert.IsTrue(new Range<int>(0, 9).IsContiguousWith(new Range<int>(-1, 10)));
-            Assert.IsTrue(new Range<int>(0, 9).IsContiguousWith(new Range<int>(5, 10)));
-            Assert.IsTrue(new Range<int>(0, 9).IsContiguousWith(new Range<int>(5, 6)));
-            Assert.IsTrue(new Range<int>(0, 9).IsContiguousWith(new Range<int>(9, 10)));
-            Assert.IsTrue(new Range<int>(0, 9).IsContiguousWith(new Range<int>(9, 10)));
-            Assert.IsTrue(new Range<int>(0, 9).IsContiguousWith(new Range<int>(-3, 0)));
-            Assert.IsTrue(new Range<int>(0, 9).IsContiguousWith(new Range<int>(-3, 0)));
+            var range = new Range<int>(5, 10, RangeEndpointOption.RightHalfOpen);
+            Assert.IsFalse(range.Contains(4));
+            Assert.IsFalse(range.Contains(5));
+            Assert.IsTrue(range.Contains(6));
+            Assert.IsTrue(range.Contains(10));
+            Assert.IsFalse(range.Contains(11));
+        }
 
-            Assert.IsFalse(new Range<int>(0, 9).IsContiguousWith(new Range<int>(10, 11)));
-            Assert.IsFalse(new Range<int>(0, 9).IsContiguousWith(new Range<int>(-3, -1)));
+        [TestMethod]
+        public void RightHalfOpenRangeIntersection()
+        {
+            var range = new Range<int>(-10, 6, RangeEndpointOption.RightHalfOpen).Intersect(new Range<int>(1, 10, RangeEndpointOption.RightHalfOpen));
+            Assert.AreEqual("(1, 6]", range.ToString());
+        }
+
+        [TestMethod]
+        public void RightHalfOpenRangeSimpleIteration()
+        {
+            var range = new Range<int>(0, 5, RangeEndpointOption.RightHalfOpen);
+            range.SetDefaultEnumerator();
+            var expected = new[] { 1, 2, 3, 4, 5 };
+            Assert.IsTrue(expected.SequenceEqual(range));
+        }
+
+        [TestMethod]
+        public void RightHalfOpenRangeUnion()
+        {
+            var range = new Range<int>(3, 9, RangeEndpointOption.RightHalfOpen).Union(new Range<int>(7, 11, RangeEndpointOption.RightHalfOpen));
+            Assert.AreEqual("(3, 11]", range.ToString());
+        }
+
+        [TestMethod]
+        public void SteppingWithCustomComparer()
+        {
+            var range = new Range<int>(33, 29, new LastDigitComparer(), RangeEndpointOption.Open);
+            range.SetEnumerator(new RangeIterator<int>(range, x => x + 2));
+            var expected = new[] { 33, 35, 37, 39 };
+            var actual = range.ToArray();
+            Assert.IsTrue(expected.SequenceEqual(range));
+        }
+
+        [TestMethod]
+        public void ToStringTests()
+        {
+            Assert.AreEqual("(1, 6)", new Range<int>(1, 6, RangeEndpointOption.Closed).ToString());
+            Assert.AreEqual("[1, 6]", new Range<int>(1, 6, RangeEndpointOption.Open).ToString());
+            Assert.AreEqual("[1, 6)", new Range<int>(1, 6, RangeEndpointOption.LeftHalfOpen).ToString());
+            Assert.AreEqual("(1, 6]", new Range<int>(1, 6, RangeEndpointOption.RightHalfOpen).ToString());
         }
 
         /// <summary>
