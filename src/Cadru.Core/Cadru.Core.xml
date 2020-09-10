@@ -6685,6 +6685,11 @@
               Looks up a localized string similar to The string was not recognized as a valid DateTime. There is a unknown word starting at index {0}..
             </summary>
         </member>
+        <member name="P:Cadru.Resources.Strings.InvalidCast_Color">
+            <summary>
+              Looks up a localized string similar to Unable to convert the given value to a color..
+            </summary>
+        </member>
         <member name="P:Cadru.Resources.Strings.InvalidCast_FromTo">
             <summary>
               Looks up a localized string similar to Invalid cast from &apos;{0}&apos; to &apos;{1}&apos;..
