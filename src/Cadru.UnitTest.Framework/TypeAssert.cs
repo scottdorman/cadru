@@ -36,33 +36,39 @@ namespace Cadru.UnitTest.Framework
     public static class TypeAssert
     {
         /// <summary>
-        /// Asserts that an object may be assigned a value of a given <see cref="Type" />.
+        /// Asserts that an object may be assigned a value of a given <see cref="Type"/>.
         /// </summary>
         /// <param name="value">The value to be tested.</param>
-        /// <param name="expectedType">The expected <see cref="Type" />.</param>
+        /// <param name="expectedType">The expected <see cref="Type"/>.</param>
         public static void IsAssignableFrom(object value, Type expectedType)
         {
             IsAssignableFrom(value, expectedType, Strings.Assertion_ExpectedToBeAssignableFrom, value, expectedType);
         }
 
         /// <summary>
-        /// Asserts that an object may be assigned a value of a given <see cref="Type" />.
+        /// Asserts that an object may be assigned a value of a given <see cref="Type"/>.
         /// </summary>
         /// <param name="value">The value to be tested.</param>
-        /// <param name="expectedType">The expected <see cref="Type" />.</param>
-        /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
+        /// <param name="expectedType">The expected <see cref="Type"/>.</param>
+        /// <param name="message">
+        /// A message to display. This message can be seen in the unit test results.
+        /// </param>
         public static void IsAssignableFrom(object value, Type expectedType, string message)
         {
             IsAssignableFrom(value, expectedType, message, null);
         }
 
         /// <summary>
-        /// Asserts that an object may be assigned a value of a given <see cref="Type" />.
+        /// Asserts that an object may be assigned a value of a given <see cref="Type"/>.
         /// </summary>
         /// <param name="value">The value to be tested.</param>
-        /// <param name="expectedType">The expected <see cref="Type" />.</param>
-        /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
-        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+        /// <param name="expectedType">The expected <see cref="Type"/>.</param>
+        /// <param name="message">
+        /// A message to display. This message can be seen in the unit test results.
+        /// </param>
+        /// <param name="parameters">
+        /// An array of parameters to use when formatting <paramref name="message"/>.
+        /// </param>
         public static void IsAssignableFrom(object value, Type expectedType, string message, params object[] parameters)
         {
             if (!value.GetType().GetTypeInfo().IsAssignableFrom(expectedType.GetTypeInfo()))
@@ -72,33 +78,39 @@ namespace Cadru.UnitTest.Framework
         }
 
         /// <summary>
-        /// Asserts that an object may not be assigned a value of a given <see cref="Type" />.
+        /// Asserts that an object may not be assigned a value of a given <see cref="Type"/>.
         /// </summary>
         /// <param name="value">The value to be tested.</param>
-        /// <param name="expectedType">The expected <see cref="Type" />.</param>
+        /// <param name="expectedType">The expected <see cref="Type"/>.</param>
         public static void IsNotAssignableFrom(object value, Type expectedType)
         {
             IsNotAssignableFrom(value, expectedType, Strings.Assertion_ExpectedToBeAssignableFrom, value, expectedType);
         }
 
         /// <summary>
-        /// Asserts that an object may not be assigned a value of a given <see cref="Type" />.
+        /// Asserts that an object may not be assigned a value of a given <see cref="Type"/>.
         /// </summary>
         /// <param name="value">The value to be tested.</param>
-        /// <param name="expectedType">The expected <see cref="Type" />.</param>
-        /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
+        /// <param name="expectedType">The expected <see cref="Type"/>.</param>
+        /// <param name="message">
+        /// A message to display. This message can be seen in the unit test results.
+        /// </param>
         public static void IsNotAssignableFrom(object value, Type expectedType, string message)
         {
             IsNotAssignableFrom(value, expectedType, message, null);
         }
 
         /// <summary>
-        /// Asserts that an object may not be assigned a value of a given <see cref="Type" />.
+        /// Asserts that an object may not be assigned a value of a given <see cref="Type"/>.
         /// </summary>
         /// <param name="value">The value to be tested.</param>
-        /// <param name="expectedType">The expected <see cref="Type" />.</param>
-        /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
-        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+        /// <param name="expectedType">The expected <see cref="Type"/>.</param>
+        /// <param name="message">
+        /// A message to display. This message can be seen in the unit test results.
+        /// </param>
+        /// <param name="parameters">
+        /// An array of parameters to use when formatting <paramref name="message"/>.
+        /// </param>
         public static void IsNotAssignableFrom(object value, Type expectedType, string message, params object[] parameters)
         {
             Requires.NotNull(value, "value");
@@ -109,10 +121,10 @@ namespace Cadru.UnitTest.Framework
         }
 
         /// <summary>
-        /// Asserts that an object is of the given <see cref="Type" />.
+        /// Asserts that an object is of the given <see cref="Type"/>.
         /// </summary>
         /// <param name="value">The value to be tested.</param>
-        /// <param name="expectedType">The expected <see cref="Type" />.</param>
+        /// <param name="expectedType">The expected <see cref="Type"/>.</param>
         public static void IsType(object value, Type expectedType)
         {
             Requires.NotNull(value, "value");
@@ -120,23 +132,29 @@ namespace Cadru.UnitTest.Framework
         }
 
         /// <summary>
-        /// Asserts that an object is of the given <see cref="Type" />.
+        /// Asserts that an object is of the given <see cref="Type"/>.
         /// </summary>
         /// <param name="value">The value to be tested.</param>
-        /// <param name="expectedType">The expected <see cref="Type" />.</param>
-        /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
+        /// <param name="expectedType">The expected <see cref="Type"/>.</param>
+        /// <param name="message">
+        /// A message to display. This message can be seen in the unit test results.
+        /// </param>
         public static void IsType(object value, Type expectedType, string message)
         {
             IsType(value, expectedType, message, null);
         }
 
         /// <summary>
-        /// Asserts that an object is of the given <see cref="Type" />.
+        /// Asserts that an object is of the given <see cref="Type"/>.
         /// </summary>
         /// <param name="value">The value to be tested.</param>
-        /// <param name="expectedType">The expected <see cref="Type" />.</param>
-        /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
-        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+        /// <param name="expectedType">The expected <see cref="Type"/>.</param>
+        /// <param name="message">
+        /// A message to display. This message can be seen in the unit test results.
+        /// </param>
+        /// <param name="parameters">
+        /// An array of parameters to use when formatting <paramref name="message"/>.
+        /// </param>
         public static void IsType(object value, Type expectedType, string message, params object[] parameters)
         {
             Requires.NotNull(value, "value");

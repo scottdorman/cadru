@@ -44,7 +44,7 @@ namespace Cadru.Postal
         private readonly IRazorEngineService razorEngineService;
 
         /// <summary>
-        /// Creates a new <see cref="EmailViewResult" />.
+        /// Creates a new <see cref="EmailViewResult"/>.
         /// </summary>
         public EmailViewResult(Email email, IRazorEngineService razorEngineService, IEmailParser parser)
         {
@@ -54,7 +54,7 @@ namespace Cadru.Postal
         }
 
         /// <summary>
-        /// Creates a new <see cref="EmailViewResult" />.
+        /// Creates a new <see cref="EmailViewResult"/>.
         /// </summary>
         public EmailViewResult(Email email)
             : this(email, null, null)

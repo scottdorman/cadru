@@ -31,7 +31,8 @@ namespace Cadru.Data.Annotations
     public sealed class ExtendedPropertyAttribute : Attribute
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExtendedPropertyAttribute" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="ExtendedPropertyAttribute"/> class.
         /// </summary>
         /// <param name="name">The name of the extended property.</param>
         /// <param name="value">The value of the extended property.</param>

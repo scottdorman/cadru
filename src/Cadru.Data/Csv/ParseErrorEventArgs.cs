@@ -25,7 +25,7 @@ using System;
 namespace Cadru.Data.Csv
 {
     /// <summary>
-    /// Provides data for the <see cref="M:CsvReader.ParseError" /> event.
+    /// Provides data for the <see cref="M:CsvReader.ParseError"/> event.
     /// </summary>
     public class ParseErrorEventArgs : EventArgs
     {

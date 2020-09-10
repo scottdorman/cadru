@@ -36,10 +36,11 @@ namespace Cadru.Data.Annotations
         public const int DefaultOrder = 10000;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExportableAttribute" /> class.
+        /// Initializes a new instance of the <see cref="ExportableAttribute"/> class.
         /// </summary>
         /// <param name="allowExport">
-        /// <see langword="true" /> to specify that the field is exportable; otherwise, <see langword="false" />.
+        /// <see langword="true"/> to specify that the field is exportable;
+        /// otherwise, <see langword="false"/>.
         /// </param>
         public ExportableAttribute(bool allowExport)
         {
@@ -50,20 +51,22 @@ namespace Cadru.Data.Annotations
         /// Gets a value that indicates whether a field is exportable.
         /// </summary>
         /// <value>
-        /// <see langword="true" /> if the field is exportable; otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the field is exportable; otherwise, <see langword="false"/>.
         /// </value>
         public bool AllowExport { get; private set; }
 
         /// <summary>
         /// Gets or sets the order weight of the column.
         /// </summary>
-        /// <remarks>Columns are sorted in increasing order based on the order
-        /// value. Columns without this attribute have an order value of 0.
-        /// Negative values are valid and can be used to position a column
-        /// before all non-negative columns. If an order is not specified,
-        /// presentation layers should consider using the value 10000. This
-        /// value lets explicitly-ordered fields be displayed before and after
-        /// the fields that do not have a specified order.</remarks>
+        /// <remarks>
+        /// Columns are sorted in increasing order based on the order value.
+        /// Columns without this attribute have an order value of 0. Negative
+        /// values are valid and can be used to position a column before all
+        /// non-negative columns. If an order is not specified, presentation
+        /// layers should consider using the value 10000. This value lets
+        /// explicitly-ordered fields be displayed before and after the fields
+        /// that do not have a specified order.
+        /// </remarks>
         public int Order { get; set; } = DefaultOrder;
     }
 }

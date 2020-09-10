@@ -30,8 +30,9 @@ using System.Net.Mime;
 namespace Cadru.Postal
 {
     /// <summary>
-    /// Used by the <see cref="HtmlExtensions.EmbedImage" /> helper method.
-    /// It generates the <see cref="LinkedResource" /> objects need to embed images into an email.
+    /// Used by the <see cref="HtmlExtensions.EmbedImage"/> helper method. It
+    /// generates the <see cref="LinkedResource"/> objects need to embed images
+    /// into an email.
     /// </summary>
     public class ImageEmbedder
     {
@@ -42,7 +43,7 @@ namespace Cadru.Postal
         private readonly Dictionary<string, LinkedResource> images = new Dictionary<string, LinkedResource>();
 
         /// <summary>
-        /// Creates a new <see cref="ImageEmbedder" />.
+        /// Creates a new <see cref="ImageEmbedder"/>.
         /// </summary>
         public ImageEmbedder()
         {
@@ -50,9 +51,12 @@ namespace Cadru.Postal
         }
 
         /// <summary>
-        /// Creates a new <see cref="ImageEmbedder" />.
+        /// Creates a new <see cref="ImageEmbedder"/>.
         /// </summary>
-        /// <param name="createLinkedResource">A delegate that creates a <see cref="LinkedResource" /> from an image path or URL.</param>
+        /// <param name="createLinkedResource">
+        /// A delegate that creates a <see cref="LinkedResource"/> from an image
+        /// path or URL.
+        /// </param>
         public ImageEmbedder(Func<string, LinkedResource> createLinkedResource)
         {
             this.createLinkedResource = createLinkedResource;
@@ -64,10 +68,10 @@ namespace Cadru.Postal
         public bool HasImages => this.images.Count > 0;
 
         /// <summary>
-        /// Creates a <see cref="LinkedResource" /> from an image path or URL.
+        /// Creates a <see cref="LinkedResource"/> from an image path or URL.
         /// </summary>
         /// <param name="imagePathOrUrl">The image path or URL.</param>
-        /// <returns>A new <see cref="LinkedResource" /></returns>
+        /// <returns>A new <see cref="LinkedResource"/></returns>
         public static LinkedResource CreateLinkedResource(string imagePathOrUrl)
         {
             if (Uri.IsWellFormedUriString(imagePathOrUrl, UriKind.Absolute))
@@ -83,7 +87,8 @@ namespace Cadru.Postal
         }
 
         /// <summary>
-        /// Adds recorded <see cref="LinkedResource" /> image references to the given <see cref="AlternateView" />.
+        /// Adds recorded <see cref="LinkedResource"/> image references to the
+        /// given <see cref="AlternateView"/>.
         /// </summary>
         public void AddImagesToView(AlternateView view)
         {
@@ -97,8 +102,13 @@ namespace Cadru.Postal
         /// Records a reference to the given image.
         /// </summary>
         /// <param name="imagePathOrUrl">The image path or URL.</param>
-        /// <param name="contentType">The content type of the image e.g. "image/png". If null, then content type is determined from the file name extension.</param>
-        /// <returns>A <see cref="LinkedResource" /> representing the embedded image.</returns>
+        /// <param name="contentType">
+        /// The content type of the image e.g. "image/png". If null, then
+        /// content type is determined from the file name extension.
+        /// </param>
+        /// <returns>
+        /// A <see cref="LinkedResource"/> representing the embedded image.
+        /// </returns>
         public LinkedResource ReferenceImage(string imagePathOrUrl, string contentType = null)
         {
             LinkedResource resource;

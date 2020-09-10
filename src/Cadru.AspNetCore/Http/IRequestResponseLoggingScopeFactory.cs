@@ -28,40 +28,52 @@ using Microsoft.AspNetCore.Http;
 namespace Cadru.AspNetCore.Http
 {
     /// <summary>
-    /// Provides methods for creating a <see
-    /// cref="RequestResponseLoggingScope" /> from an <see
-    /// cref="HttpRequestMessage" /> or <see cref="HttpRequest" />.
+    /// Provides methods for creating a
+    /// <see cref="RequestResponseLoggingScope"/> from an
+    /// <see cref="HttpRequestMessage"/> or <see cref="HttpRequest"/>.
     /// </summary>
     public interface IRequestResponseLoggingScopeFactory
     {
         /// <summary>
-        /// Creates a <see cref="RequestResponseLoggingScope" /> instance from
-        /// the given <see cref="HttpRequestMessage" />.
+        /// Creates a <see cref="RequestResponseLoggingScope"/> instance from
+        /// the given <see cref="HttpRequestMessage"/>.
         /// </summary>
-        /// <param name="requestMessage">The <see cref="HttpRequestMessage" />
-        /// whose properties will be added to the logging scope.</param>
-        /// <returns>A <see cref="RequestResponseLoggingScope" /> with properties
-        /// populated from the <paramref name="requestMessage" />.</returns>
+        /// <param name="requestMessage">
+        /// The <see cref="HttpRequestMessage"/> whose properties will be added
+        /// to the logging scope.
+        /// </param>
+        /// <returns>
+        /// A <see cref="RequestResponseLoggingScope"/> with properties
+        /// populated from the <paramref name="requestMessage"/>.
+        /// </returns>
         Task<RequestResponseLoggingScope> ToScopeObjectAsync(HttpRequestMessage requestMessage);
 
         /// <summary>
-        /// Creates a <see cref="RequestResponseLoggingScope" /> instance from
-        /// the given <see cref="HttpRequest" />.
+        /// Creates a <see cref="RequestResponseLoggingScope"/> instance from
+        /// the given <see cref="HttpRequest"/>.
         /// </summary>
-        /// <param name="request">The <see cref="HttpRequest" />
-        /// whose properties will be added to the logging scope.</param>
-        /// <returns>A <see cref="RequestResponseLoggingScope" /> with properties
-        /// populated from the <paramref name="request" />.</returns>
+        /// <param name="request">
+        /// The <see cref="HttpRequest"/> whose properties will be added to the
+        /// logging scope.
+        /// </param>
+        /// <returns>
+        /// A <see cref="RequestResponseLoggingScope"/> with properties
+        /// populated from the <paramref name="request"/>.
+        /// </returns>
         Task<RequestResponseLoggingScope> ToScopeObjectAsync(HttpRequest request);
 
         /// <summary>
-        /// Creates a <see cref="RequestResponseLoggingScope" /> instance from
-        /// the given <see cref="HttpContext" />.
+        /// Creates a <see cref="RequestResponseLoggingScope"/> instance from
+        /// the given <see cref="HttpContext"/>.
         /// </summary>
-        /// <param name="httpContext">The <see cref="HttpContext" />
-        /// whose properties will be added to the logging scope.</param>
-        /// <returns>A <see cref="RequestResponseLoggingScope" /> with properties
-        /// populated from the <paramref name="httpContext" />.</returns>
+        /// <param name="httpContext">
+        /// The <see cref="HttpContext"/> whose properties will be added to the
+        /// logging scope.
+        /// </param>
+        /// <returns>
+        /// A <see cref="RequestResponseLoggingScope"/> with properties
+        /// populated from the <paramref name="httpContext"/>.
+        /// </returns>
         Task<RequestResponseLoggingScope> ToScopeObjectAsync(HttpContext httpContext);
     }
 }

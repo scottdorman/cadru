@@ -28,7 +28,7 @@ using Dapper;
 namespace Cadru.Data.Dapper
 {
     /// <summary>
-    /// A type handler to convert between a <see cref="Comb" /> and a <see cref="Guid" />.
+    /// A type handler to convert between a <see cref="Comb"/> and a <see cref="Guid"/>.
     /// </summary>
     public class CombTypeHandler : SqlMapper.TypeHandler<Comb>
     {

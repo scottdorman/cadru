@@ -31,7 +31,7 @@ using RazorEngine.Templating;
 namespace Cadru.Postal
 {
     /// <summary>
-    /// Sends email using the default <see cref="SmtpClient" />.
+    /// Sends email using the default <see cref="SmtpClient"/>.
     /// </summary>
     public class EmailService : IEmailService
     {
@@ -52,24 +52,31 @@ namespace Cadru.Postal
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EmailService" /> class
+        /// Initializes a new instance of the <see cref="EmailService"/> class
         /// with the specified Razor Engine configuration and, optionally, a
-        /// delegate to create an <see cref="SmtpClient" />.
+        /// delegate to create an <see cref="SmtpClient"/>.
         /// </summary>
-        /// <param name="configuration">An <see cref="RazorEngine.Configuration.ITemplateServiceConfiguration" /> instance.</param>
+        /// <param name="configuration">
+        /// An
+        /// <see cref="RazorEngine.Configuration.ITemplateServiceConfiguration"/> instance.
+        /// </param>
         /// <param name="isolated"></param>
-        /// <param name="createSmtpClient">A delegate to create an <see cref="SmtpClient" /> instance or <see langword="null" />
-        /// to use a default delegate.</param>
+        /// <param name="createSmtpClient">
+        /// A delegate to create an <see cref="SmtpClient"/> instance or
+        /// <see langword="null"/> to use a default delegate.
+        /// </param>
         public static EmailService Create(ITemplateServiceConfiguration configuration, bool isolated = false, Func<SmtpClient> createSmtpClient = null)
         {
             return new EmailService(configuration, isolated, createSmtpClient);
         }
 
         /// <summary>
-        /// Renders the email view and builds a <see cref="MailMessage" />.
+        /// Renders the email view and builds a <see cref="MailMessage"/>.
         /// </summary>
         /// <param name="email">The email to render.</param>
-        /// <returns>A <see cref="MailMessage" /> containing the rendered email.</returns>
+        /// <returns>
+        /// A <see cref="MailMessage"/> containing the rendered email.
+        /// </returns>
         public async Task<MailMessage> CreateMailMessageAsync(IEmail email)
         {
             var templateOutput = this.Render(email);
@@ -88,8 +95,10 @@ namespace Cadru.Postal
         /// Renders the email view.
         /// </summary>
         /// <param name="email">The email to render.</param>
-        /// <param name="viewName">The email view name. If <see langword="null" /> then the
-        /// <see cref="Email.ViewName" /> property is used.</param>
+        /// <param name="viewName">
+        /// The email view name. If <see langword="null"/> then the
+        /// <see cref="Email.ViewName"/> property is used.
+        /// </param>
         /// <returns>The rendered email view output.</returns>
         public virtual string Render(IEmail email, string viewName = null)
         {
@@ -102,7 +111,9 @@ namespace Cadru.Postal
         /// Renders the email view.
         /// </summary>
         /// <param name="email">The email to render.</param>
-        /// <param name="key">The <see cref="ITemplateKey" /> used to resolve the template.</param>
+        /// <param name="key">
+        /// The <see cref="ITemplateKey"/> used to resolve the template.
+        /// </param>
         /// <returns>The rendered email view output.</returns>
         public virtual string Render(IEmail email, ITemplateKey key)
         {

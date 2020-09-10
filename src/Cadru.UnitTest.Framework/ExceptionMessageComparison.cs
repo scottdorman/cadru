@@ -25,7 +25,8 @@ using System;
 namespace Cadru.UnitTest.Framework
 {
     /// <summary>
-    /// Options used by the <see cref="Cadru.UnitTest.Framework.ExceptionAssert.WithMessage{T}(T, String, ExceptionMessageComparison)"/>
+    /// Options used by the
+    /// <see cref="Cadru.UnitTest.Framework.ExceptionAssert.WithMessage{T}(T, String, ExceptionMessageComparison)"/>
     /// method to determine how to compare the exception message.
     /// </summary>
     public enum ExceptionMessageComparison

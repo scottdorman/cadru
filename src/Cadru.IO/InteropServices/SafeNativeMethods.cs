@@ -49,8 +49,8 @@ namespace Cadru.IO.Interop
             int level,
             out IntPtr bufptr);
 
-        // Retrieves information about an object in the file system,
-        // such as a file, a folder, a directory, or a drive root.
+        // Retrieves information about an object in the file system, such as a
+        // file, a folder, a directory, or a drive root.
         [DllImport("shell32",
             EntryPoint = "SHGetFileInfo",
             ExactSpelling = false,

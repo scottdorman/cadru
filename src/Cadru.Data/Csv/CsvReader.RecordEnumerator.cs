@@ -31,7 +31,7 @@ namespace Cadru.Data.Csv
     public partial class CsvReader
     {
         /// <summary>
-        /// Supports a simple iteration over the records of a <see cref="T:CsvReader" />.
+        /// Supports a simple iteration over the records of a <see cref="T:CsvReader"/>.
         /// </summary>
         public struct RecordEnumerator : IEnumerator<string[]>
         {
@@ -46,16 +46,19 @@ namespace Cadru.Data.Csv
             private long _currentRecordIndex;
 
             /// <summary>
-            /// Contains the enumerated <see cref="T:CsvReader" />.
+            /// Contains the enumerated <see cref="T:CsvReader"/>.
             /// </summary>
             private CsvReader _reader;
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="T:RecordEnumerator" /> class.
+            /// Initializes a new instance of the
+            /// <see cref="T:RecordEnumerator"/> class.
             /// </summary>
-            /// <param name="reader">The <see cref="T:CsvReader" /> to iterate over.</param>
+            /// <param name="reader">
+            /// The <see cref="T:CsvReader"/> to iterate over.
+            /// </param>
             /// <exception cref="T:ArgumentNullException">
-            ///        <paramref name="reader" /> is a <see langword="null" />.
+            /// <paramref name="reader"/> is a <see langword="null"/>.
             /// </exception>
             public RecordEnumerator(CsvReader reader)
             {
@@ -92,7 +95,8 @@ namespace Cadru.Data.Csv
             }
 
             /// <summary>
-            /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            /// Performs application-defined tasks associated with freeing,
+            /// releasing, or resetting unmanaged resources.
             /// </summary>
             public void Dispose()
             {
@@ -103,7 +107,11 @@ namespace Cadru.Data.Csv
             /// <summary>
             /// Advances the enumerator to the next record of the CSV.
             /// </summary>
-            /// <returns><see langword="true" /> if the enumerator was successfully advanced to the next record, <see langword="false" /> if the enumerator has passed the end of the CSV.</returns>
+            /// <returns>
+            /// <see langword="true"/> if the enumerator was successfully
+            /// advanced to the next record, <see langword="false"/> if the
+            /// enumerator has passed the end of the CSV.
+            /// </returns>
             public bool MoveNext()
             {
                 if (this._reader.CurrentRecordIndex != this._currentRecordIndex)
@@ -130,7 +138,8 @@ namespace Cadru.Data.Csv
             }
 
             /// <summary>
-            /// Sets the enumerator to its initial position, which is before the first record in the CSV.
+            /// Sets the enumerator to its initial position, which is before the
+            /// first record in the CSV.
             /// </summary>
             public void Reset()
             {

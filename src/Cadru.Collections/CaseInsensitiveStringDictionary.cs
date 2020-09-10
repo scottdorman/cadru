@@ -26,48 +26,55 @@ using System.Collections.Generic;
 namespace Cadru.Collections
 {
     /// <summary>
-    /// Represents a collection of string keys and values that are compared
-    /// in a case insensitive manner.
+    /// Represents a collection of string keys and values that are compared in a
+    /// case insensitive manner.
     /// </summary>
     public class CaseInsensitiveStringDictionary : Dictionary<string, string>
     {
         /// <summary>
-        /// Initializes a new instance of the <see
-        /// cref="CaseInsensitiveStringDictionary" /> class that is empty, has
-        /// the default initial capacity, and uses <see
-        /// cref="StringComparer.OrdinalIgnoreCase" /> for the key type.
+        /// Initializes a new instance of the
+        /// <see cref="CaseInsensitiveStringDictionary"/> class that is empty,
+        /// has the default initial capacity, and uses
+        /// <see cref="StringComparer.OrdinalIgnoreCase"/> for the key type.
         /// </summary>
         public CaseInsensitiveStringDictionary() : base(StringComparer.OrdinalIgnoreCase)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see
-        /// cref="CaseInsensitiveStringDictionary" /> class that contains
-        /// elements copied from the specified <see cref="IDictionary{TKey,
-        /// TValue}"/>, and uses <see cref="StringComparer.OrdinalIgnoreCase" />
-        /// for the key type.
+        /// Initializes a new instance of the
+        /// <see cref="CaseInsensitiveStringDictionary"/> class that contains
+        /// elements copied from the specified
+        /// <see cref="IDictionary{TKey, TValue}"/>, and uses
+        /// <see cref="StringComparer.OrdinalIgnoreCase"/> for the key type.
         /// </summary>
-        /// <param name="dictionary">The <see cref="IDictionary{TKey, TValue}"/>
-        /// whose elements are copied to the new <see
-        /// cref="CaseInsensitiveStringDictionary" /></param>
-        /// <exception cref="System.ArgumentException"><paramref
-        /// name="dictionary" /> is <see langword="null" />.</exception>
-        /// <exception cref="System.ArgumentException"><paramref
-        /// name="dictionary" /> contains one or more duplicate keys.</exception>
+        /// <param name="dictionary">
+        /// The <see cref="IDictionary{TKey, TValue}"/> whose elements are
+        /// copied to the new <see cref="CaseInsensitiveStringDictionary"/>
+        /// </param>
+        /// <exception cref="System.ArgumentException">
+        /// <paramref name="dictionary"/> is <see langword="null"/>.
+        /// </exception>
+        /// <exception cref="System.ArgumentException">
+        /// <paramref name="dictionary"/> contains one or more duplicate keys.
+        /// </exception>
         public CaseInsensitiveStringDictionary(IDictionary<string, string> dictionary) : base(dictionary, StringComparer.OrdinalIgnoreCase)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see
-        /// cref="CaseInsensitiveStringDictionary" /> class that is empty, has
-        /// the specified initial capacity, and uses <see
-        /// cref="StringComparer.OrdinalIgnoreCase" /> for the key type.
+        /// Initializes a new instance of the
+        /// <see cref="CaseInsensitiveStringDictionary"/> class that is empty,
+        /// has the specified initial capacity, and uses
+        /// <see cref="StringComparer.OrdinalIgnoreCase"/> for the key type.
         /// </summary>
-        /// <param name="capacity">The initial number of elements that the <see
-        /// cref="CaseInsensitiveStringDictionary" /> can contain.</param>
-        /// <exception cref="System.ArgumentOutOfRangeException"><paramref name="capacity" /> is less than 0.</exception>
+        /// <param name="capacity">
+        /// The initial number of elements that the
+        /// <see cref="CaseInsensitiveStringDictionary"/> can contain.
+        /// </param>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// <paramref name="capacity"/> is less than 0.
+        /// </exception>
         public CaseInsensitiveStringDictionary(int capacity) : base(capacity, StringComparer.OrdinalIgnoreCase)
         {
         }

@@ -31,8 +31,9 @@ namespace Cadru.Net.Http
     public class CompressingHttpClientHandler : HttpClientHandler
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompressingHttpClientHandler" /> class
-        /// with a specific inner handler.
+        /// Initializes a new instance of the
+        /// <see cref="CompressingHttpClientHandler"/> class with a specific
+        /// inner handler.
         /// </summary>
         public CompressingHttpClientHandler()
             : base()

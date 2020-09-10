@@ -36,8 +36,13 @@ namespace Cadru.Extensions
         /// <summary>
         /// Returns the binary representation of the boolean value.
         /// </summary>
-        /// <param name="value">The boolean value whose binary representation should be returned.</param>
-        /// <returns>If the boolean value is <see langword="true" />, 1 (one); otherwise, 0 (zero).</returns>
+        /// <param name="value">
+        /// The boolean value whose binary representation should be returned.
+        /// </param>
+        /// <returns>
+        /// If the boolean value is <see langword="true"/>, 1 (one); otherwise,
+        /// 0 (zero).
+        /// </returns>
         public static int ToBit(this bool value)
         {
             return value ? 1 : 0;
@@ -46,34 +51,51 @@ namespace Cadru.Extensions
         /// <summary>
         /// Returns the character representation of the boolean value.
         /// </summary>
-        /// <param name="value">The boolean value whose character representation should be returned.</param>
-        /// <returns>If the boolean value is <see langword="true" />, the character 'T'; otherwise, the character 'F'.</returns>
+        /// <param name="value">
+        /// The boolean value whose character representation should be returned.
+        /// </param>
+        /// <returns>
+        /// If the boolean value is <see langword="true"/>, the character 'T';
+        /// otherwise, the character 'F'.
+        /// </returns>
         public static char ToChar(this bool value)
         {
             return value ? 'T' : 'F';
         }
 
         /// <summary>
-        /// Converts the value of this instance to its equivalent lowercase string representation
-        /// (either "true" or "false").
+        /// Converts the value of this instance to its equivalent lowercase
+        /// string representation (either "true" or "false").
         /// </summary>
-        /// <param name="value">The boolean value whose character representation should be returned.</param>
-        /// <returns>The lowercase representation of <see cref="System.Boolean.TrueString" /> if the value
-        /// of this instance is true, or the lowercase representation of
-        /// <see cref="System.Boolean.FalseString" /> if the value of this instance is false.</returns>
+        /// <param name="value">
+        /// The boolean value whose character representation should be returned.
+        /// </param>
+        /// <returns>
+        /// The lowercase representation of
+        /// <see cref="System.Boolean.TrueString"/> if the value of this
+        /// instance is true, or the lowercase representation of
+        /// <see cref="System.Boolean.FalseString"/> if the value of this
+        /// instance is false.
+        /// </returns>
         public static string ToLower(this bool value)
         {
             return value.ToString().ToLower();
         }
 
         /// <summary>
-        /// Converts the value of this instance to its equivalent uppercase string representation
-        /// (either "true" or "false").
+        /// Converts the value of this instance to its equivalent uppercase
+        /// string representation (either "true" or "false").
         /// </summary>
-        /// <param name="value">The boolean value whose character representation should be returned.</param>
-        /// <returns>The uppercase representation of <see cref="System.Boolean.TrueString" /> if the value
-        /// of this instance is true, or the uppercase representation of
-        /// <see cref="System.Boolean.FalseString" /> if the value of this instance is false.</returns>
+        /// <param name="value">
+        /// The boolean value whose character representation should be returned.
+        /// </param>
+        /// <returns>
+        /// The uppercase representation of
+        /// <see cref="System.Boolean.TrueString"/> if the value of this
+        /// instance is true, or the uppercase representation of
+        /// <see cref="System.Boolean.FalseString"/> if the value of this
+        /// instance is false.
+        /// </returns>
         public static string ToUpper(this bool value)
         {
             return value.ToString().ToUpper();
@@ -81,21 +103,29 @@ namespace Cadru.Extensions
 
         /// <overloads>
         /// <summary>
-        /// Tries to convert the specified representation of a logical value to its
-        /// Boolean equivalent. A return value indicates whether the conversion succeeded or failed.
+        /// Tries to convert the specified representation of a logical value to
+        /// its Boolean equivalent. A return value indicates whether the
+        /// conversion succeeded or failed.
         /// </summary>
         /// </overloads>
         /// <summary>
-        /// Tries to convert the specified integer representation of a logical value to its
-        /// Boolean equivalent. A return value indicates whether the conversion succeeded or failed.
+        /// Tries to convert the specified integer representation of a logical
+        /// value to its Boolean equivalent. A return value indicates whether
+        /// the conversion succeeded or failed.
         /// </summary>
-        /// <param name="value">An integer containing the value to convert. </param>
-        /// <param name="result">When this method returns, if the conversion succeeded, contains
-        /// <see langword="true" />true if <paramref name="value" /> is equal to 1 (one)
-        /// or <see langword="false" /> if <paramref name="value" /> is equal to 0 (zero).
-        /// If the conversion failed, contains <see langword="false" />. The conversion fails if
-        /// <paramref name="value" /> is not equal to 1 (one) or 0 (zero).</param>
-        /// <returns><see langword="true" /> if value was converted successfully; otherwise, <see langword="false" />.</returns>
+        /// <param name="value">An integer containing the value to convert.</param>
+        /// <param name="result">
+        /// When this method returns, if the conversion succeeded, contains
+        /// <see langword="true"/> true if <paramref name="value"/> is equal to
+        /// 1 (one) or <see langword="false"/> if <paramref name="value"/> is
+        /// equal to 0 (zero). If the conversion failed, contains
+        /// <see langword="false"/>. The conversion fails if
+        /// <paramref name="value"/> is not equal to 1 (one) or 0 (zero).
+        /// </param>
+        /// <returns>
+        /// <see langword="true"/> if value was converted successfully;
+        /// otherwise, <see langword="false"/>.
+        /// </returns>
         public static bool TryParseAsBoolean(this int value, out bool result)
         {
             result = false;
@@ -109,20 +139,30 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Tries to convert the specified string representation of a logical value to its
-        /// Boolean equivalent. A return value indicates whether the conversion succeeded or failed.
+        /// Tries to convert the specified string representation of a logical
+        /// value to its Boolean equivalent. A return value indicates whether
+        /// the conversion succeeded or failed.
         /// </summary>
-        /// <param name="value">A string containing the value to convert. </param>
-        /// <param name="result">When this method returns, if the conversion succeeded, contains
-        /// <see langword="true" />true if <paramref name="value" /> is equal to
-        /// <see cref="Boolean.TrueString" />, the character 'T', the word "Yes", or the character 'Y'
-        /// or <see langword="false" /> if <paramref name="value" /> is equal to
-        /// <see cref="Boolean.FalseString" />, the character 'F', the word "No", or the character 'N'.
-        /// If the conversion failed, contains <see langword="false" />. The conversion fails if
-        /// <paramref name="value" /> is <see langword="null" /> or is not equal to the value of
-        /// either <see cref="Boolean.TrueString" />, the character 'T', the word "Yes", or the character 'Y',
-        /// <see cref="Boolean.FalseString" />, the character 'F', the word "No", or the character 'N'.</param>
-        /// <returns><see langword="true" /> if value was converted successfully; otherwise, <see langword="false" />.</returns>
+        /// <param name="value">A string containing the value to convert.</param>
+        /// <param name="result">
+        /// When this method returns, if the conversion succeeded, contains
+        /// <see langword="true"/> true if <paramref name="value"/> is equal to
+        /// <see cref="Boolean.TrueString"/>, the character 'T', the word "Yes",
+        /// or the character 'Y' or <see langword="false"/> if
+        /// <paramref name="value"/> is equal to
+        /// <see cref="Boolean.FalseString"/>, the character 'F', the word "No",
+        /// or the character 'N'. If the conversion failed, contains
+        /// <see langword="false"/>. The conversion fails if
+        /// <paramref name="value"/> is <see langword="null"/> or is not equal
+        /// to the value of either <see cref="Boolean.TrueString"/>, the
+        /// character 'T', the word "Yes", or the character 'Y',
+        /// <see cref="Boolean.FalseString"/>, the character 'F', the word "No",
+        /// or the character 'N'.
+        /// </param>
+        /// <returns>
+        /// <see langword="true"/> if value was converted successfully;
+        /// otherwise, <see langword="false"/>.
+        /// </returns>
         public static bool TryParseAsBoolean(this string value, out bool result)
         {
             result = false;

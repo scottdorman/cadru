@@ -39,8 +39,10 @@ namespace Cadru.AspNetCore
         /// </summary>
         /// <param name="subpath">A file path</param>
         /// <returns>The resulting MIME type</returns>
-        /// <remarks>If the MIME type can't be determined, <see
-        /// cref="MimeTypes.OctetStream" /> will be returned.</remarks>
+        /// <remarks>
+        /// If the MIME type can't be determined,
+        /// <see cref="MimeTypes.OctetStream"/> will be returned.
+        /// </remarks>
         string GetContentType(string subpath);
     }
 }

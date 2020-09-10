@@ -27,9 +27,7 @@ namespace Cadru.Data.Excel
 
     using Cadru.Extensions;
 
-    /// <summary>
-    /// Defines the <see cref=ExcelDataReaderExtensions />
-    /// </summary>
+    /// <summary> Defines the <see cref=ExcelDataReaderExtensions /> </summary>
     public static partial class ExcelDataReaderExtensions
     {
         public static T Field<T>(this ExcelDataReader reader, int columnIndex)

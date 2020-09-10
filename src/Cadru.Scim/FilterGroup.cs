@@ -46,11 +46,10 @@ namespace Cadru.Scim.Filters
         }
 
         /// <summary>
-        /// Returns a string that represents the current <see
-        /// cref="FilterGroup"></see> as a valid query
+        /// Returns a string that represents the current
+        /// <see cref="FilterGroup"></see> as a valid query
         /// </summary>
-        /// <returns>A string that represents the current <see
-        /// cref="FilterGroup"></see>.</returns>
+        /// <returns>A string that represents the current <see cref="FilterGroup"></see>.</returns>
         public override string ToString()
         {
             var brackets = Array.Empty<string>();

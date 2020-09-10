@@ -23,14 +23,14 @@
 namespace Cadru.Text
 {
     /// <summary>
-    /// Specifies how a relative date within the current week
-    /// (+/- 5 days from today) should be formatted.
+    /// Specifies how a relative date within the current week (+/- 5 days from
+    /// today) should be formatted.
     /// </summary>
     public enum RelativeDateFormatting
     {
         /// <summary>
-        /// Format the relative date as a number of days ago if earlier
-        /// than today or a number of days from today if later.
+        /// Format the relative date as a number of days ago if earlier than
+        /// today or a number of days from today if later.
         /// </summary>
         Days = 0,
 

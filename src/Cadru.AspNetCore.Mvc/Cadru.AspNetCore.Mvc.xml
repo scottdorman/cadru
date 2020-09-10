@@ -8,8 +8,7 @@
             <summary>
             Extension methods that aid in working with ASP.NET Core session state by
             providing a common abstraction layer for <see cref="T:Microsoft.AspNetCore.Http.ISession"></see>,
-            <see cref="T:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary"></see>, and <see
-            cref="T:Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary"></see>.
+            <see cref="T:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary"></see>, and <see cref="T:Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary"></see>.
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary)">
@@ -17,8 +16,7 @@
             Gets the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <returns>
             When this method returns, the value associated with the specified
             key, if the key is found; otherwise, the default value for the type
@@ -26,8 +24,9 @@
             </returns>
             <remarks>
             <para>
-            This is equivalent to calling <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary,System.String)"></see> where the key is the full name of <typeparamref
-            name="T" />.
+            This is equivalent to calling
+            <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary,System.String)"></see> where the key
+            is the full name of <typeparamref name="T"/>.
             </para>
             </remarks>
         </member>
@@ -36,8 +35,7 @@
             Gets the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="key">The key whose value to get.</param>
             <returns>
             When this method returns, the value associated with the specified
@@ -50,8 +48,7 @@
             Gets the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <returns>
             When this method returns, the value associated with the specified
             key, if the key is found; otherwise, the default value for the type
@@ -59,8 +56,9 @@
             </returns>
             <remarks>
             <para>
-            This is equivalent to calling <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(Microsoft.AspNetCore.Http.ISession,System.String)"></see> where the key is the full name of <typeparamref
-            name="T" />.
+            This is equivalent to calling
+            <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(Microsoft.AspNetCore.Http.ISession,System.String)"></see> where the key is the
+            full name of <typeparamref name="T"/>.
             </para>
             </remarks>
         </member>
@@ -69,8 +67,7 @@
             Gets the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="key">The key whose value to get.</param>
             <returns>
             When this method returns, the value associated with the specified
@@ -83,8 +80,7 @@
             Gets the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <returns>
             When this method returns, the value associated with the specified
             key, if the key is found; otherwise, the default value for the type
@@ -92,8 +88,9 @@
             </returns>
             <remarks>
             <para>
-            This is equivalent to calling <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary,System.String)"></see> where the key is the full name of <typeparamref
-            name="T" />.
+            This is equivalent to calling
+            <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary,System.String)"></see> where the key
+            is the full name of <typeparamref name="T"/>.
             </para>
             </remarks>
         </member>
@@ -102,8 +99,7 @@
             Gets the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="key">The key whose value to get.</param>
             <returns>
             When this method returns, the value associated with the specified
@@ -117,8 +113,7 @@
             the key for deletion.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <returns>
             When this method returns, the value associated with the specified
             key, if the key is found; otherwise, the default value for the type
@@ -126,9 +121,9 @@
             </returns>
             <remarks>
             <para>
-            This is equivalent to calling <see
-            cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary,System.String)"></see> where the key is
-            the full name of <typeparamref name="T" />.
+            This is equivalent to calling
+            <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary,System.String)"></see> where the
+            key is the full name of <typeparamref name="T"/>.
             </para>
             </remarks>
         </member>
@@ -138,8 +133,7 @@
             the key for deletion.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="key">The key whose value to get.</param>
             <returns>
             When this method returns, the value associated with the specified
@@ -149,12 +143,10 @@
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek``1(Microsoft.AspNetCore.Http.ISession)">
             <summary>
-            Gets the value associated with the key derived from the full name of
-            <typeparamref name="T" />.
+            Gets the value associated with the key derived from the full name of <typeparamref name="T"/>.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <returns>
             When this method returns, the value associated with the specified
             key, if the key is found; otherwise, the default value for the type
@@ -162,9 +154,10 @@
             </returns>
             <remarks>
             <para>
-            This is equivalent to calling <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(Microsoft.AspNetCore.Http.ISession,System.String)"></see> where the key is the full name of <typeparamref
-            name="T" /> and is provided for ease of use when switching between
-            different storage providers.
+            This is equivalent to calling
+            <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(Microsoft.AspNetCore.Http.ISession,System.String)"></see> where the key is the
+            full name of <typeparamref name="T"/> and is provided for ease of
+            use when switching between different storage providers.
             </para>
             </remarks>
         </member>
@@ -173,8 +166,7 @@
             Gets the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="key">The key whose value to get.</param>
             <returns>
             When this method returns, the value associated with the specified
@@ -183,20 +175,19 @@
             </returns>
             <remarks>
             <para>
-            This is equivalent to calling <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(Microsoft.AspNetCore.Http.ISession,System.String)"></see> where the key is the full name of <typeparamref
-            name="T" /> and is provided for ease of use when switching between
-            different storage providers.
+            This is equivalent to calling
+            <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(Microsoft.AspNetCore.Http.ISession,System.String)"></see> where the key is the
+            full name of <typeparamref name="T"/> and is provided for ease of
+            use when switching between different storage providers.
             </para>
             </remarks>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary)">
             <summary>
-            Gets the value associated with the key derived from the full name of
-            <typeparamref name="T" />.
+            Gets the value associated with the key derived from the full name of <typeparamref name="T"/>.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <returns>
             When this method returns, the value associated with the specified
             key, if the key is found; otherwise, the default value for the type
@@ -204,9 +195,10 @@
             </returns>
             <remarks>
             <para>
-            This is equivalent to calling <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary,System.String)"></see> where the key is the full name of <typeparamref
-            name="T" /> and is provided for ease of use when switching between
-            different storage providers.
+            This is equivalent to calling
+            <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary,System.String)"></see> where the key
+            is the full name of <typeparamref name="T"/> and is provided for
+            ease of use when switching between different storage providers.
             </para>
             </remarks>
         </member>
@@ -215,8 +207,7 @@
             Gets the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="key">The key whose value to get.</param>
             <returns>
             When this method returns, the value associated with the specified
@@ -225,8 +216,9 @@
             </returns>
             <remarks>
             <para>
-            This is equivalent to calling <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary,System.String)"></see> and is provided for ease of use when switching
-            between different storage providers.
+            This is equivalent to calling
+            <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary,System.String)"></see> and is
+            provided for ease of use when switching between different storage providers.
             </para>
             </remarks>
         </member>
@@ -235,16 +227,14 @@
             Adds the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="value">The value to store.</param>
             <remarks>
+            <para>The value is stored as a JSON serialized string.</para>
             <para>
-            The value is stored as a JSON serialized string.
-            </para>
-            <para>
-            This is equivalent to calling <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary,System.String,``0)"></see> where the key is the full name of <typeparamref
-            name="T" />.
+            This is equivalent to calling
+            <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary,System.String,``0)"></see> where the
+            key is the full name of <typeparamref name="T"/>.
             </para>
             </remarks>
         </member>
@@ -253,14 +243,11 @@
             Adds the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="key">The key to associate with the stored value.</param>
             <param name="value">The value to store.</param>
             <remarks>
-            <para>
-            The value is stored as a JSON serialized string.
-            </para>
+            <para>The value is stored as a JSON serialized string.</para>
             </remarks>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put``1(Microsoft.AspNetCore.Http.ISession,``0)">
@@ -268,16 +255,14 @@
             Adds the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="value">The value to store.</param>
             <remarks>
+            <para>The value is stored as a JSON serialized string.</para>
             <para>
-            The value is stored as a JSON serialized string.
-            </para>
-            <para>
-            This is equivalent to calling <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put``1(Microsoft.AspNetCore.Http.ISession,System.String,``0)"></see> where the key is the full name of <typeparamref
-            name="T" />.
+            This is equivalent to calling
+            <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put``1(Microsoft.AspNetCore.Http.ISession,System.String,``0)"></see> where the key is the
+            full name of <typeparamref name="T"/>.
             </para>
             </remarks>
         </member>
@@ -286,14 +271,11 @@
             Adds the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="key">The key to associate with the stored value.</param>
             <param name="value">The value to store.</param>
             <remarks>
-            <para>
-            The value is stored as a JSON serialized string.
-            </para>
+            <para>The value is stored as a JSON serialized string.</para>
             </remarks>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary,``0)">
@@ -301,16 +283,14 @@
             Adds the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="value">The value to store.</param>
             <remarks>
+            <para>The value is stored as a JSON serialized string.</para>
             <para>
-            The value is stored as a JSON serialized string.
-            </para>
-            <para>
-            This is equivalent to calling <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary,System.String,``0)"></see> where the key is the full name of <typeparamref
-            name="T" />.
+            This is equivalent to calling
+            <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary,System.String,``0)"></see> where the
+            key is the full name of <typeparamref name="T"/>.
             </para>
             </remarks>
         </member>
@@ -319,14 +299,11 @@
             Adds the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="key">The key to associate with the stored value.</param>
             <param name="value">The value to store.</param>
             <remarks>
-            <para>
-            The value is stored as a JSON serialized string.
-            </para>
+            <para>The value is stored as a JSON serialized string.</para>
             </remarks>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryGetValue``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary,System.String,``0@)">
@@ -334,48 +311,54 @@
             Gets the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="key">The key whose value to get.</param>
-            <param name="value">When this method returns, the value associated
-            with the specified key, if the key is found; otherwise, the default
-            value for the type of the value parameter. This parameter is passed
-            uninitialized.</param>
-            <returns><see langword="true"></see> if the <paramref
-            name="storageProvider" /> contains an element with the specified key;
-            otherwise, <see langword="false"></see>.</returns>
+            <param name="value">
+            When this method returns, the value associated with the specified
+            key, if the key is found; otherwise, the default value for the type
+            of the value parameter. This parameter is passed uninitialized.
+            </param>
+            <returns>
+            <see langword="true"></see> if the
+            <paramref name="storageProvider"/> contains an element with the
+            specified key; otherwise, <see langword="false"></see>.
+            </returns>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryGetValue``1(Microsoft.AspNetCore.Http.ISession,System.String,``0@)">
             <summary>
             Gets the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="key">The key whose value to get.</param>
-            <param name="value">When this method returns, the value associated
-            with the specified key, if the key is found; otherwise, the default
-            value for the type of the value parameter. This parameter is passed
-            uninitialized.</param>
-            <returns><see langword="true"></see> if the <paramref
-            name="storageProvider" /> contains an element with the specified key;
-            otherwise, <see langword="false"></see>.</returns>
+            <param name="value">
+            When this method returns, the value associated with the specified
+            key, if the key is found; otherwise, the default value for the type
+            of the value parameter. This parameter is passed uninitialized.
+            </param>
+            <returns>
+            <see langword="true"></see> if the
+            <paramref name="storageProvider"/> contains an element with the
+            specified key; otherwise, <see langword="false"></see>.
+            </returns>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryGetValue``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary,System.String,``0@)">
             <summary>
             Gets the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="key">The key whose value to get.</param>
-            <param name="value">When this method returns, the value associated
-            with the specified key, if the key is found; otherwise, the default
-            value for the type of the value parameter. This parameter is passed
-            uninitialized.</param>
-            <returns><see langword="true"></see> if the <paramref
-            name="storageProvider" /> contains an element with the specified key;
-            otherwise, <see langword="false"></see>.</returns>
+            <param name="value">
+            When this method returns, the value associated with the specified
+            key, if the key is found; otherwise, the default value for the type
+            of the value parameter. This parameter is passed uninitialized.
+            </param>
+            <returns>
+            <see langword="true"></see> if the
+            <paramref name="storageProvider"/> contains an element with the
+            specified key; otherwise, <see langword="false"></see>.
+            </returns>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryPeekValue``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary,System.String,``0@)">
             <summary>
@@ -383,37 +366,40 @@
             the key for deletion.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="key">The key whose value to get.</param>
-            <param name="value">When this method returns, the value associated
-            with the specified key, if the key is found; otherwise, the default
-            value for the type of the value parameter. This parameter is passed
-            uninitialized.</param>
-            <returns><see langword="true"></see> if the <paramref
-            name="storageProvider" /> contains an element with the specified key;
-            otherwise, <see langword="false"></see>.</returns>
+            <param name="value">
+            When this method returns, the value associated with the specified
+            key, if the key is found; otherwise, the default value for the type
+            of the value parameter. This parameter is passed uninitialized.
+            </param>
+            <returns>
+            <see langword="true"></see> if the
+            <paramref name="storageProvider"/> contains an element with the
+            specified key; otherwise, <see langword="false"></see>.
+            </returns>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryPeekValue``1(Microsoft.AspNetCore.Http.ISession,System.String,``0@)">
             <summary>
             Gets the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="key">The key whose value to get.</param>
-            <param name="value">When this method returns, the value associated
-            with the specified key, if the key is found; otherwise, the default
-            value for the type of the value parameter. This parameter is passed
-            uninitialized.</param>
-            <returns><see langword="true"></see> if the <paramref
-            name="storageProvider" /> contains an element with the specified key;
-            otherwise, <see langword="false"></see>.</returns>
+            <param name="value">
+            When this method returns, the value associated with the specified
+            key, if the key is found; otherwise, the default value for the type
+            of the value parameter. This parameter is passed uninitialized.
+            </param>
+            <returns>
+            <see langword="true"></see> if the
+            <paramref name="storageProvider"/> contains an element with the
+            specified key; otherwise, <see langword="false"></see>.
+            </returns>
             <remarks>
-            This method is equivalent to calling <see
-            cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryGetValue``1(Microsoft.AspNetCore.Http.ISession,System.String,``0@)"></see> and is
-            provided for ease of use when switching between different storage
-            providers.
+            This method is equivalent to calling
+            <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryGetValue``1(Microsoft.AspNetCore.Http.ISession,System.String,``0@)"></see> and is
+            provided for ease of use when switching between different storage providers.
             </remarks>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryPeekValue``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary,System.String,``0@)">
@@ -421,39 +407,42 @@
             Gets the value associated with the specified key.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="storageProvider">The underlying storage
-            provider.</param>
+            <param name="storageProvider">The underlying storage provider.</param>
             <param name="key">The key whose value to get.</param>
-            <param name="value">When this method returns, the value associated
-            with the specified key, if the key is found; otherwise, the default
-            value for the type of the value parameter. This parameter is passed
-            uninitialized.</param>
-            <returns><see langword="true"></see> if the <paramref
-            name="storageProvider" /> contains an element with the specified key;
-            otherwise, <see langword="false"></see>.</returns>
+            <param name="value">
+            When this method returns, the value associated with the specified
+            key, if the key is found; otherwise, the default value for the type
+            of the value parameter. This parameter is passed uninitialized.
+            </param>
+            <returns>
+            <see langword="true"></see> if the
+            <paramref name="storageProvider"/> contains an element with the
+            specified key; otherwise, <see langword="false"></see>.
+            </returns>
             <remarks>
-            This method is equivalent to calling <see
-            cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryGetValue``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary,System.String,``0@)"></see> and
-            is provided for ease of use when switching between different storage
-            providers.
+            This method is equivalent to calling
+            <see cref="M:Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryGetValue``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary,System.String,``0@)"></see>
+            and is provided for ease of use when switching between different
+            storage providers.
             </remarks>
         </member>
         <member name="T:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.AdditionalMetadataAttribute">
             <summary>
-            Provides a class that implements the <see cref="T:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.IMetadataAware" />
+            Provides a class that implements the <see cref="T:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.IMetadataAware"/>
             interface in order to support additional metadata.
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.AdditionalMetadataAttribute.#ctor(System.String,System.Object)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.AdditionalMetadataAttribute" /> class.
+            Initializes a new instance of the
+            <see cref="T:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.AdditionalMetadataAttribute"/> class.
             </summary>
             <param name="name">The name of the model metadata.</param>
             <param name="value">The value of the model metadata.</param>
         </member>
         <member name="P:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.AdditionalMetadataAttribute.Key">
             <inheritdoc/>
-            <remarks>This property is not used by the <see cref="T:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.AdditionalMetadataAttribute" />.</remarks>
+            <remarks>This property is not used by the <see cref="T:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.AdditionalMetadataAttribute"/>.</remarks>
         </member>
         <member name="P:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.AdditionalMetadataAttribute.Name">
             <summary>
@@ -470,7 +459,8 @@
         </member>
         <member name="T:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.IMetadataAware">
             <summary>
-            Provides an interface for exposing attributes to the <see cref="T:Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DisplayMetadataProviderContext" /> class.
+            Provides an interface for exposing attributes to the
+            <see cref="T:Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DisplayMetadataProviderContext"/> class.
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.IMetadataAware.OnMetadataCreated(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DisplayMetadataProviderContext)">
@@ -481,15 +471,14 @@
         </member>
         <member name="T:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.MetadataAwareAttribute">
             <summary>
-            Represents the base class for attributes which implement the <see
-            cref="T:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.IMetadataAware" /> interface in order to support additional
-            metadata.
+            Represents the base class for attributes which implement the
+            <see cref="T:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.IMetadataAware"/> interface in order to support additional metadata.
             </summary>
         </member>
         <member name="P:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.MetadataAwareAttribute.Key">
             <summary>
-            The key used to reference this attribute in the <see
-            cref="P:Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DisplayMetadata.AdditionalValues" /> dictionary.
+            The key used to reference this attribute in the
+            <see cref="P:Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DisplayMetadata.AdditionalValues"/> dictionary.
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.MetadataAwareAttribute.OnMetadataCreated(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DisplayMetadataProviderContext)">
@@ -497,13 +486,13 @@
         </member>
         <member name="T:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.MetadataAwareProvider">
             <summary>
-            A provider to insert additional metadata into the
-            <see cref="T:Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DisplayMetadata" />.
+            A provider to insert additional metadata into the <see cref="T:Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DisplayMetadata"/>.
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.MetadataAwareProvider.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.MetadataAwareProvider" /> class.
+            Initializes a new instance of the
+            <see cref="T:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.MetadataAwareProvider"/> class.
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.MetadataAwareProvider.CreateDisplayMetadata(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DisplayMetadataProviderContext)">
@@ -511,7 +500,8 @@
         </member>
         <member name="T:Cadru.AspNetCore.Mvc.Razor.LayoutViewLocationExpander">
             <summary>
-            An <see cref="T:Microsoft.AspNetCore.Mvc.Razor.IViewLocationExpander" /> that adds a Layout folder as a prefix to view names.
+            An <see cref="T:Microsoft.AspNetCore.Mvc.Razor.IViewLocationExpander"/> that adds a Layout folder as a
+            prefix to view names.
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Razor.LayoutViewLocationExpander.ExpandViewLocations(Microsoft.AspNetCore.Mvc.Razor.ViewLocationExpanderContext,System.Collections.Generic.IEnumerable{System.String})">
@@ -522,14 +512,14 @@
         </member>
         <member name="T:Cadru.AspNetCore.Mvc.Rendering.HtmlHelperExtensions">
             <summary>
-            Extensions for working with <see cref="T:Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper" /> in Razor files.
+            Extensions for working with <see cref="T:Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper"/> in Razor files.
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Rendering.HtmlHelperExtensions.GetEnumSelectList``1(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.String)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Rendering.HtmlHelperExtensions.GetEnumSelectList(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.Type,System.String)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
     </members>
 </doc>

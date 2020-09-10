@@ -43,7 +43,7 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
         [HtmlAttributeName(IconAttributeName)]
         public string IconCss { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             if (!String.IsNullOrWhiteSpace(this.IconCss))

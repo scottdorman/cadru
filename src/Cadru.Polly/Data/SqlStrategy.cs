@@ -30,7 +30,7 @@ namespace Cadru.Polly.Data
     public sealed class SqlStrategy : ISqlStrategy
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlStrategy" /> class.
+        /// Initializes a new instance of the <see cref="SqlStrategy"/> class.
         /// </summary>
         internal SqlStrategy()
         {
@@ -39,7 +39,7 @@ namespace Cadru.Polly.Data
         }
 
         /// <summary>
-        /// Gets a <see cref="SqlStrategy" /> containing policies that will
+        /// Gets a <see cref="SqlStrategy"/> containing policies that will
         /// execute without any custom behavior.
         /// </summary>
         public static SqlStrategy Default => new SqlStrategy();
@@ -51,13 +51,15 @@ namespace Cadru.Polly.Data
         public ISyncPolicy SyncPolicy { get; internal set; }
 
         /// <summary>
-        /// Builds a NoOp <see cref="SyncPolicy" /> that will execute without any custom behavior.
+        /// Builds a NoOp <see cref="SyncPolicy"/> that will execute without any
+        /// custom behavior.
         /// </summary>
         /// <returns>The policy instance.</returns>
         public static ISyncPolicy NoOp() => SqlStrategyBuilder.NoOp();
 
         /// <summary>
-        /// Builds a NoOp <see cref="AsyncPolicy" /> that will execute without any custom behavior.
+        /// Builds a NoOp <see cref="AsyncPolicy"/> that will execute without
+        /// any custom behavior.
         /// </summary>
         /// <returns>The policy instance.</returns>
         public static IAsyncPolicy NoOpAsync() => SqlStrategyBuilder.NoOpAsync();

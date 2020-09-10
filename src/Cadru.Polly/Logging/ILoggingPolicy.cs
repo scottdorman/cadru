@@ -32,7 +32,8 @@ namespace Cadru.Polly.Logging
     }
 
     /// <summary>
-    /// Defines properties common to generic, synchronous and asynchronous Logging policies.
+    /// Defines properties common to generic, synchronous and asynchronous
+    /// Logging policies.
     /// </summary>
     public interface ILoggingPolicy<TResult> : ILoggingPolicy
     {

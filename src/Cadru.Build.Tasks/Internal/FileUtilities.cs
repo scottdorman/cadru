@@ -29,8 +29,8 @@ using Cadru.Build.Tasks.Resources;
 namespace Cadru.Build.Tasks.Internal
 {
     /// <summary>
-    /// This class contains utility methods for file IO.
-    /// PERF\COVERAGE NOTE: Try to keep classes in 'shared' as granular as possible. All the methods in
+    /// This class contains utility methods for file IO. PERF\COVERAGE NOTE: Try
+    /// to keep classes in 'shared' as granular as possible. All the methods in
     /// each class get pulled into the resulting assembly.
     /// </summary>
     internal static partial class FileUtilities
@@ -53,8 +53,8 @@ namespace Cadru.Build.Tasks.Internal
         }
 
         /// <summary>
-        /// Generates a unique directory name in the temporary folder.
-        /// Caller must delete when finished.
+        /// Generates a unique directory name in the temporary folder. Caller
+        /// must delete when finished.
         /// </summary>
         /// <param name="createDirectory"></param>
         internal static string GetTemporaryDirectory(bool createDirectory = true)
@@ -70,10 +70,9 @@ namespace Cadru.Build.Tasks.Internal
         }
 
         /// <summary>
-        /// Generates a unique temporary file name with a given extension in the temporary folder.
-        /// If no extension is provided, uses ".tmp".
-        /// File is guaranteed to be unique.
-        /// Caller must delete it when finished.
+        /// Generates a unique temporary file name with a given extension in the
+        /// temporary folder. If no extension is provided, uses ".tmp". File is
+        /// guaranteed to be unique. Caller must delete it when finished.
         /// </summary>
         internal static string GetTemporaryFile()
         {
@@ -81,11 +80,10 @@ namespace Cadru.Build.Tasks.Internal
         }
 
         /// <summary>
-        /// Generates a unique temporary file name with a given extension in the temporary folder.
-        /// File is guaranteed to be unique.
-        /// Extension may have an initial period.
-        /// Caller must delete it when finished.
-        /// May throw IOException.
+        /// Generates a unique temporary file name with a given extension in the
+        /// temporary folder. File is guaranteed to be unique. Extension may
+        /// have an initial period. Caller must delete it when finished. May
+        /// throw IOException.
         /// </summary>
         internal static string GetTemporaryFile(string extension)
         {
@@ -93,11 +91,10 @@ namespace Cadru.Build.Tasks.Internal
         }
 
         /// <summary>
-        /// Creates a file with unique temporary file name with a given extension in the specified folder.
-        /// File is guaranteed to be unique.
-        /// Extension may have an initial period.
-        /// If folder is null, the temporary folder will be used.
-        /// Caller must delete it when finished.
+        /// Creates a file with unique temporary file name with a given
+        /// extension in the specified folder. File is guaranteed to be unique.
+        /// Extension may have an initial period. If folder is null, the
+        /// temporary folder will be used. Caller must delete it when finished.
         /// May throw IOException.
         /// </summary>
         internal static string GetTemporaryFile(string directory, string extension, bool createFile = true)
@@ -134,11 +131,9 @@ namespace Cadru.Build.Tasks.Internal
         }
 
         /// <summary>
-        /// Generates a unique temporary file name with a given extension in the temporary folder.
-        /// File is guaranteed to be unique.
-        /// Extension may have an initial period.
-        /// File will NOT be created.
-        /// May throw IOException.
+        /// Generates a unique temporary file name with a given extension in the
+        /// temporary folder. File is guaranteed to be unique. Extension may
+        /// have an initial period. File will NOT be created. May throw IOException.
         /// </summary>
         internal static string GetTemporaryFileName(string extension)
         {

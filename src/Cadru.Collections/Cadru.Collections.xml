@@ -6,43 +6,51 @@
     <members>
         <member name="T:Cadru.Collections.CaseInsensitiveStringDictionary">
             <summary>
-            Represents a collection of string keys and values that are compared
-            in a case insensitive manner.
+            Represents a collection of string keys and values that are compared in a
+            case insensitive manner.
             </summary>
         </member>
         <member name="M:Cadru.Collections.CaseInsensitiveStringDictionary.#ctor">
             <summary>
-            Initializes a new instance of the <see
-            cref="T:Cadru.Collections.CaseInsensitiveStringDictionary" /> class that is empty, has
-            the default initial capacity, and uses <see
-            cref="P:System.StringComparer.OrdinalIgnoreCase" /> for the key type.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.CaseInsensitiveStringDictionary"/> class that is empty,
+            has the default initial capacity, and uses
+            <see cref="P:System.StringComparer.OrdinalIgnoreCase"/> for the key type.
             </summary>
         </member>
         <member name="M:Cadru.Collections.CaseInsensitiveStringDictionary.#ctor(System.Collections.Generic.IDictionary{System.String,System.String})">
             <summary>
-            Initializes a new instance of the <see
-            cref="T:Cadru.Collections.CaseInsensitiveStringDictionary" /> class that contains
-            elements copied from the specified <see cref="T:System.Collections.Generic.IDictionary`2"/>, and uses <see cref="P:System.StringComparer.OrdinalIgnoreCase" />
-            for the key type.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.CaseInsensitiveStringDictionary"/> class that contains
+            elements copied from the specified
+            <see cref="T:System.Collections.Generic.IDictionary`2"/>, and uses
+            <see cref="P:System.StringComparer.OrdinalIgnoreCase"/> for the key type.
             </summary>
-            <param name="dictionary">The <see cref="T:System.Collections.Generic.IDictionary`2"/>
-            whose elements are copied to the new <see
-            cref="T:Cadru.Collections.CaseInsensitiveStringDictionary" /></param>
-            <exception cref="T:System.ArgumentException"><paramref
-            name="dictionary" /> is <see langword="null" />.</exception>
-            <exception cref="T:System.ArgumentException"><paramref
-            name="dictionary" /> contains one or more duplicate keys.</exception>
+            <param name="dictionary">
+            The <see cref="T:System.Collections.Generic.IDictionary`2"/> whose elements are
+            copied to the new <see cref="T:Cadru.Collections.CaseInsensitiveStringDictionary"/>
+            </param>
+            <exception cref="T:System.ArgumentException">
+            <paramref name="dictionary"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            <paramref name="dictionary"/> contains one or more duplicate keys.
+            </exception>
         </member>
         <member name="M:Cadru.Collections.CaseInsensitiveStringDictionary.#ctor(System.Int32)">
             <summary>
-            Initializes a new instance of the <see
-            cref="T:Cadru.Collections.CaseInsensitiveStringDictionary" /> class that is empty, has
-            the specified initial capacity, and uses <see
-            cref="P:System.StringComparer.OrdinalIgnoreCase" /> for the key type.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.CaseInsensitiveStringDictionary"/> class that is empty,
+            has the specified initial capacity, and uses
+            <see cref="P:System.StringComparer.OrdinalIgnoreCase"/> for the key type.
             </summary>
-            <param name="capacity">The initial number of elements that the <see
-            cref="T:Cadru.Collections.CaseInsensitiveStringDictionary" /> can contain.</param>
-            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="capacity" /> is less than 0.</exception>
+            <param name="capacity">
+            The initial number of elements that the
+            <see cref="T:Cadru.Collections.CaseInsensitiveStringDictionary"/> can contain.
+            </param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="capacity"/> is less than 0.
+            </exception>
         </member>
         <member name="T:Cadru.Collections.ComparisonComparer`1">
             <summary>
@@ -53,8 +61,8 @@
         </member>
         <member name="M:Cadru.Collections.ComparisonComparer`1.#ctor(System.Comparison{`0})">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Collections.ComparisonComparer`1"/>
-            class.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.ComparisonComparer`1"/> class.
             </summary>
             <param name="comparison">The comparison to use.</param>
         </member>
@@ -64,12 +72,14 @@
             </summary>
             <param name="comparison">The comparison to use.</param>
             <returns>The new comparer.</returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="comparison" /> is <see langword="null" />.</exception>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="comparison"/> is <see langword="null"/>.
+            </exception>
         </member>
         <member name="M:Cadru.Collections.ComparisonComparer`1.Compare(`0,`0)">
             <summary>
-            Performs a comparison of two objects of the same type and returns
-            a value indicating whether one object is less than, equal to, or
+            Performs a comparison of two objects of the same type and returns a
+            value indicating whether one object is less than, equal to, or
             greater than the other.
             </summary>
             <param name="x">The first object to compare.</param>
@@ -84,21 +94,15 @@
             </listheader>
             <item>
             <term>Less than zero</term>
-            <description>
-            <paramref name="x" /> is less than <paramref name="y" />.
-            </description>
+            <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
             </item>
             <item>
             <term>Zero</term>
-            <description>
-            <paramref name="x" /> equals <paramref name="y" />.
-            </description>
+            <description><paramref name="x"/> equals <paramref name="y"/>.</description>
             </item>
             <item>
             <term>Greater than zero</term>
-            <description>
-            <paramref name="x" /> is greater than <paramref name="y" />.
-            </description>
+            <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
             </item>
             </list>
             </returns>
@@ -111,76 +115,87 @@
         </member>
         <member name="M:Cadru.Collections.DateComparer.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Collections.DateComparer" /> class using the
-            <see cref="P:System.Globalization.CultureInfo.CurrentCulture" /> of the current thread.
+            Initializes a new instance of the <see cref="T:Cadru.Collections.DateComparer"/> class
+            using the <see cref="P:System.Globalization.CultureInfo.CurrentCulture"/> of the current thread.
             </summary>
-            <remarks>When the <see cref="T:Cadru.Collections.DateComparer" /> instance is created using
-            this constructor, the <see cref="P:System.Globalization.CultureInfo.CurrentCulture" /> of the
-            current thread is saved. Comparison procedures use the saved
-            culture to determine the sort order and casing rules; therefore,
-            string comparisons might have different results depending on the
-            culture. For more information on culture-specific comparisons, see
-            the <see cref="N:System.Globalization" /> namespace and
-            <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+            <remarks>
+            When the <see cref="T:Cadru.Collections.DateComparer"/> instance is created using this
+            constructor, the <see cref="P:System.Globalization.CultureInfo.CurrentCulture"/> of the
+            current thread is saved. Comparison procedures use the saved culture
+            to determine the sort order and casing rules; therefore, string
+            comparisons might have different results depending on the culture.
+            For more information on culture-specific comparisons, see the
+            <see cref="N:System.Globalization"/> namespace and
+            <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
+            and Localization</see>.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.DateComparer.#ctor(System.Globalization.CultureInfo)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Collections.DateComparer" /> class using
-            the specified <see cref="T:System.Globalization.CultureInfo" />.
+            Initializes a new instance of the <see cref="T:Cadru.Collections.DateComparer"/> class
+            using the specified <see cref="T:System.Globalization.CultureInfo"/>.
             </summary>
-            <param name="culture">The <see cref="T:System.Globalization.CultureInfo" />
-            to use for the new <see cref="T:Cadru.Collections.DateComparer" />.</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="culture" /> is a <see langword="null" />.</exception>
-            <rermarks>Comparison procedures use the specified <see cref="T:System.Globalization.CultureInfo" /> to determine
-            the sort order and casing rules. String comparisons might have different results
-            depending on the culture. For more information on culture-specific comparisons, see
-            the <see cref="N:System.Globalization" /> namespace and
-            <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+            <param name="culture">
+            The <see cref="T:System.Globalization.CultureInfo"/> to use for the new <see cref="T:Cadru.Collections.DateComparer"/>.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="culture"/> is a <see langword="null"/>.
+            </exception>
+            <rermarks>
+            Comparison procedures use the specified <see cref="T:System.Globalization.CultureInfo"/> to
+            determine the sort order and casing rules. String comparisons might
+            have different results depending on the culture. For more
+            information on culture-specific comparisons, see the
+            <see cref="N:System.Globalization"/> namespace and
+            <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
+            and Localization</see>.
             </rermarks>
         </member>
         <member name="P:Cadru.Collections.DateComparer.Default">
             <summary>
-            Represents an instance of <see cref="T:Cadru.Collections.DateComparer" /> that is
-            associated with the <see cref="P:System.Globalization.CultureInfo.CurrentCulture" />.
+            Represents an instance of <see cref="T:Cadru.Collections.DateComparer"/> that is
+            associated with the <see cref="P:System.Globalization.CultureInfo.CurrentCulture"/>.
             </summary>
-            <value>The default <see cref="T:Cadru.Collections.DateComparer" /></value>
-            <remarks>Comparison procedures use the
-            <see cref="P:System.Globalization.CultureInfo.CurrentCulture" /> of the current thread to
-            determine the sort order and casing rules. String comparisons
-            might have different results depending on the culture. For more
+            <value>The default <see cref="T:Cadru.Collections.DateComparer"/></value>
+            <remarks>
+            Comparison procedures use the
+            <see cref="P:System.Globalization.CultureInfo.CurrentCulture"/> of the current thread to
+            determine the sort order and casing rules. String comparisons might
+            have different results depending on the culture. For more
             information on culture-specific comparisons, see the
-            <see cref="N:System.Globalization" /> namespace and
-            <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+            <see cref="N:System.Globalization"/> namespace and
+            <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
+            and Localization</see>.
             </remarks>
         </member>
         <member name="P:Cadru.Collections.DateComparer.DefaultInvariant">
             <summary>
-            Represents an instance of <see cref="T:Cadru.Collections.DateComparer" /> that is
-            associated with the
-            <see cref="P:System.Globalization.CultureInfo.InvariantCulture" /> and that is always
-            available.
+            Represents an instance of <see cref="T:Cadru.Collections.DateComparer"/> that is
+            associated with the <see cref="P:System.Globalization.CultureInfo.InvariantCulture"/> and
+            that is always available.
             </summary>
-            <value>An instance of <see cref="T:Cadru.Collections.DateComparer" /> that is
-            associated with <see cref="P:System.Globalization.CultureInfo.InvariantCulture" />.
+            <value>
+            An instance of <see cref="T:Cadru.Collections.DateComparer"/> that is associated with <see cref="P:System.Globalization.CultureInfo.InvariantCulture"/>.
             </value>
-            <remarks>Comparison procedures use the
-            <see cref="P:System.Globalization.CultureInfo.InvariantCulture" /> to determine the sort
+            <remarks>
+            Comparison procedures use the
+            <see cref="P:System.Globalization.CultureInfo.InvariantCulture"/> to determine the sort
             order and casing rules. String comparisons might have different
             results depending on the culture. For more information on
             culture-specific comparisons, see the
-            <see cref="N:System.Globalization" /> namespace and
-            <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+            <see cref="N:System.Globalization"/> namespace and
+            <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
+            and Localization</see>.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.DateComparer.Compare(System.DateTime,System.DateTime)">
             <summary>
-            Performs a comparison of two <see cref="T:System.DateTime" /> objects and returns a value
-            indicating whether one is less than, equal to or greater than
-            the other.
+            Performs a comparison of two <see cref="T:System.DateTime"/> objects and
+            returns a value indicating whether one is less than, equal to or
+            greater than the other.
             </summary>
-            <param name="x">The first <see cref="T:System.DateTime" /> to compare.</param>
-            <param name="y">The second <see cref="T:System.DateTime" /> to compare.</param>
+            <param name="x">The first <see cref="T:System.DateTime"/> to compare.</param>
+            <param name="y">The second <see cref="T:System.DateTime"/> to compare.</param>
             <returns>
             <list type="table">
             <listheader>
@@ -189,29 +204,23 @@
             </listheader>
             <item>
             <term>Less than zero</term>
-            <description>
-            <paramref name="x" /> is less than <paramref name="y" />.
-            </description>
+            <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
             </item>
             <item>
             <term>Zero</term>
-            <description>
-            <paramref name="x" /> equals <paramref name="y" />.
-            </description>
+            <description><paramref name="x"/> equals <paramref name="y"/>.</description>
             </item>
             <item>
             <term>Greater than zero</term>
-            <description>
-            <paramref name="x" /> is greater than <paramref name="y" />.
-            </description>
+            <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
             </item>
-            </list></returns>
+            </list>
+            </returns>
         </member>
         <member name="M:Cadru.Collections.DateComparer.Compare(System.Object,System.Object)">
             <summary>
-            Performs a comparison of two objects and returns a value
-            indicating whether one is less than, equal to or greater than
-            the other.
+            Performs a comparison of two objects and returns a value indicating
+            whether one is less than, equal to or greater than the other.
             </summary>
             <param name="x">The first object to compare.</param>
             <param name="y">The second object to compare.</param>
@@ -223,32 +232,27 @@
             </listheader>
             <item>
             <term>Less than zero</term>
-            <description>
-            <paramref name="x" /> is less than <paramref name="y" />.
-            </description>
+            <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
             </item>
             <item>
             <term>Zero</term>
-            <description>
-            <paramref name="x" /> equals <paramref name="y" />.
-            </description>
+            <description><paramref name="x"/> equals <paramref name="y"/>.</description>
             </item>
             <item>
             <term>Greater than zero</term>
-            <description>
-            <paramref name="x" /> is greater than <paramref name="y" />.
-            </description>
+            <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
             </item>
-            </list></returns>
+            </list>
+            </returns>
         </member>
         <member name="M:Cadru.Collections.DateComparer.Compare(System.String,System.String)">
             <summary>
-            Performs a comparison of two <see cref="T:System.String" /> objects and returns a value
-            indicating whether one is less than, equal to or greater than
-            the other.
+            Performs a comparison of two <see cref="T:System.String"/> objects and
+            returns a value indicating whether one is less than, equal to or
+            greater than the other.
             </summary>
-            <param name="x">The first <see cref="T:System.String" /> to compare.</param>
-            <param name="y">The second <see cref="T:System.String" /> to compare.</param>
+            <param name="x">The first <see cref="T:System.String"/> to compare.</param>
+            <param name="y">The second <see cref="T:System.String"/> to compare.</param>
             <returns>
             <list type="table">
             <listheader>
@@ -257,90 +261,96 @@
             </listheader>
             <item>
             <term>Less than zero</term>
-            <description>
-            <paramref name="x" /> is less than <paramref name="y" />.
-            </description>
+            <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
             </item>
             <item>
             <term>Zero</term>
-            <description>
-            <paramref name="x" /> equals <paramref name="y" />.
-            </description>
+            <description><paramref name="x"/> equals <paramref name="y"/>.</description>
             </item>
             <item>
             <term>Greater than zero</term>
-            <description>
-            <paramref name="x" /> is greater than <paramref name="y" />.
-            </description>
+            <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
             </item>
-            </list></returns>
+            </list>
+            </returns>
             <remarks>The strings should be a valid date time format.</remarks>
         </member>
         <member name="M:Cadru.Collections.DateComparer.Equals(System.DateTime,System.DateTime)">
             <summary>
-            Returns a value indicating whether two instances of <see cref="T:System.DateTime" /> are equal.
+            Returns a value indicating whether two instances of
+            <see cref="T:System.DateTime"/> are equal.
             </summary>
-            <param name="x">The first <see cref="T:System.DateTime" /> to compare.</param>
-            <param name="y">The second <see cref="T:System.DateTime" /> to compare.</param>
-            <returns><see langword="true" /> if the two <see cref="T:System.DateTime" /> values are equal;
-            otherwise, <see langword="false" />. </returns>
+            <param name="x">The first <see cref="T:System.DateTime"/> to compare.</param>
+            <param name="y">The second <see cref="T:System.DateTime"/> to compare.</param>
+            <returns>
+            <see langword="true"/> if the two <see cref="T:System.DateTime"/> values are
+            equal; otherwise, <see langword="false"/>.
+            </returns>
         </member>
         <member name="M:Cadru.Collections.DateComparer.Equals(System.String,System.String)">
             <summary>
-            Returns a value indicating whether two instances of <see cref="T:System.DateTime" /> are equal.
+            Returns a value indicating whether two instances of
+            <see cref="T:System.DateTime"/> are equal.
             </summary>
-            <param name="x">The first <see cref="T:System.DateTime" /> to compare.</param>
-            <param name="y">The second <see cref="T:System.DateTime" /> to compare.</param>
-            <returns><see langword="true" /> if the two <see cref="T:System.DateTime" /> values are equal;
-            otherwise, <see langword="false" />. </returns>
+            <param name="x">The first <see cref="T:System.DateTime"/> to compare.</param>
+            <param name="y">The second <see cref="T:System.DateTime"/> to compare.</param>
+            <returns>
+            <see langword="true"/> if the two <see cref="T:System.DateTime"/> values are
+            equal; otherwise, <see langword="false"/>.
+            </returns>
         </member>
         <member name="M:Cadru.Collections.DateComparer.System#Collections#IEqualityComparer#Equals(System.Object,System.Object)">
             <summary>
             Returns a value indicating whether two instances of objects are equal.
             </summary>
-            <param name="x">The first <see cref="T:System.Object" /> to compare.</param>
-            <param name="y">The second <see cref="T:System.Object" /> to compare.</param>
-            <returns><see langword="true" /> if the two <see cref="T:System.Object" /> values are equal;
-            otherwise, <see langword="false" />. </returns>
+            <param name="x">The first <see cref="T:System.Object"/> to compare.</param>
+            <param name="y">The second <see cref="T:System.Object"/> to compare.</param>
+            <returns>
+            <see langword="true"/> if the two <see cref="T:System.Object"/> values are
+            equal; otherwise, <see langword="false"/>.
+            </returns>
         </member>
         <member name="M:Cadru.Collections.DateComparer.GetHashCode(System.DateTime)">
             <summary>
-            Returns a hash code for the specified <see cref="T:System.DateTime" />.
+            Returns a hash code for the specified <see cref="T:System.DateTime"/>.
             </summary>
-            <param name="obj">The <see cref="T:System.DateTime" /> for which a hash code is to be
-            returned.</param>
-            <returns>A hash code for the specified <see cref="T:System.DateTime" />.</returns>
-            <exception cref="T:System.ArgumentNullException">The type of <paramref name="obj" /> is a
-            reference type and <paramref name="obj" /> is a <see langword="null" />.
+            <param name="obj">
+            The <see cref="T:System.DateTime"/> for which a hash code is to be returned.
+            </param>
+            <returns>A hash code for the specified <see cref="T:System.DateTime"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            The type of <paramref name="obj"/> is a reference type and
+            <paramref name="obj"/> is a <see langword="null"/>.
             </exception>
         </member>
         <member name="M:Cadru.Collections.DateComparer.GetHashCode(System.Object)">
             <summary>
             Returns a hash code for the specified object.
             </summary>
-            <param name="obj">The <see cref="T:System.Object" /> for which a hash code is to be
-            returned.</param>
-            <returns>A hash code for the specified <see cref="T:System.Object" />.</returns>
-            <exception cref="T:System.ArgumentNullException">The type of <paramref name="obj" /> is a
-            reference type and <paramref name="obj" /> is a <see langword="null" />.
+            <param name="obj">
+            The <see cref="T:System.Object"/> for which a hash code is to be returned.
+            </param>
+            <returns>A hash code for the specified <see cref="T:System.Object"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            The type of <paramref name="obj"/> is a reference type and
+            <paramref name="obj"/> is a <see langword="null"/>.
             </exception>
         </member>
         <member name="M:Cadru.Collections.DateComparer.GetHashCode(System.String)">
             <summary>
             Returns a hash code for the specified string.
             </summary>
-            <param name="obj">The string for which a hash code is to be
-            returned.</param>
+            <param name="obj">The string for which a hash code is to be returned.</param>
             <returns>A hash code for the specified string.</returns>
-            <exception cref="T:System.ArgumentNullException">The type of <paramref name="obj" /> is a
-            reference type and <paramref name="obj" /> is a <see langword="null" />.
+            <exception cref="T:System.ArgumentNullException">
+            The type of <paramref name="obj"/> is a reference type and
+            <paramref name="obj"/> is a <see langword="null"/>.
             </exception>
         </member>
         <member name="T:Cadru.Collections.Equality`1">
             <summary>
-            Represents an <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> which uses a
-            function to extract a key from an element and, optionally, using
-            the specified comparer.
+            Represents an <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> which uses a function
+            to extract a key from an element and, optionally, using the specified comparer.
             </summary>
             <typeparam name="TSource">The type of the objects to compare.</typeparam>
         </member>
@@ -348,9 +358,9 @@
             <summary>
             Creates an instance of an <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> using
             the provided function to extract a key from an element and the
-            default <see cref="T:System.Collections.Generic.EqualityComparer`1"/> for <typeparamref name="TKey" />.
+            default <see cref="T:System.Collections.Generic.EqualityComparer`1"/> for <typeparamref name="TKey"/>.
             </summary>
-            <typeparam name="TKey">The type of the key returned by <paramref name="keySelector" />.</typeparam>
+            <typeparam name="TKey">The type of the key returned by <paramref name="keySelector"/>.</typeparam>
             <param name="keySelector">A function to extract a key from an element.</param>
             <returns>An instance of an <see cref="T:System.Collections.Generic.EqualityComparer`1"/>.</returns>
         </member>
@@ -360,9 +370,11 @@
             the provided function to extract a key from an element and the
             specified <see cref="T:System.Collections.Generic.EqualityComparer`1"/>.
             </summary>
-            <typeparam name="TKey">The type of the key returned by <paramref name="keySelector" />.</typeparam>
+            <typeparam name="TKey">The type of the key returned by <paramref name="keySelector"/>.</typeparam>
             <param name="keySelector">A function to extract a key from an element.</param>
-            <param name="comparer">An <see cref="T:System.Collections.Generic.IComparer`1"/> to compare keys.</param>
+            <param name="comparer">
+            An <see cref="T:System.Collections.Generic.IComparer`1"/> to compare keys.
+            </param>
             <returns>An instance of an <see cref="T:System.Collections.Generic.EqualityComparer`1"/>.</returns>
         </member>
         <member name="T:Cadru.Collections.GenericKeyedCollection`2">
@@ -375,39 +387,51 @@
         </member>
         <member name="M:Cadru.Collections.GenericKeyedCollection`2.#ctor(System.Func{`1,`0})">
             <summary>
-            Initializes a new instance of the <see cref="T:System.Collections.ObjectModel.KeyedCollection`2"/>
-            class that uses the default equality comparer.
+            Initializes a new instance of the
+            <see cref="T:System.Collections.ObjectModel.KeyedCollection`2"/> class that uses the
+            default equality comparer.
             </summary>
-            <param name="getKeyFunc">The function used to extract a key from the item.</param>
+            <param name="getKeyFunc">
+            The function used to extract a key from the item.
+            </param>
         </member>
         <member name="M:Cadru.Collections.GenericKeyedCollection`2.#ctor(System.Func{`1,`0},System.Collections.Generic.IEqualityComparer{`0})">
             <summary>
-            Initializes a new instance of the <see cref="T:System.Collections.ObjectModel.KeyedCollection`2"/>
-            class that uses the that uses the specified equality comparer.
+            Initializes a new instance of the
+            <see cref="T:System.Collections.ObjectModel.KeyedCollection`2"/> class that uses the that
+            uses the specified equality comparer.
             </summary>
-            <param name="getKeyFunc">The function used to extract a key from the item.</param>
-            <param name="comparer">The implementation of the
-            <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> generic interface to use when
-            comparing keys, or <see langword="null" /> to use the default
-            equality comparer for the type of the key, obtained from
-            <see cref="P:System.Collections.Generic.EqualityComparer`1.Default">Default</see>.</param>
+            <param name="getKeyFunc">
+            The function used to extract a key from the item.
+            </param>
+            <param name="comparer">
+            The implementation of the <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> generic
+            interface to use when comparing keys, or <see langword="null"/> to
+            use the default equality comparer for the type of the key, obtained
+            from <see cref="P:System.Collections.Generic.EqualityComparer`1.Default">Default</see>.
+            </param>
         </member>
         <member name="M:Cadru.Collections.GenericKeyedCollection`2.#ctor(System.Func{`1,`0},System.Collections.Generic.IEqualityComparer{`0},System.Int32)">
             <summary>
-            Initializes a new instance of the <see cref="T:System.Collections.ObjectModel.KeyedCollection`2"/>
-            class that uses the that uses the specified equality comparer
-            and creates a lookup dictionary when the specified threshold is exceeded..
+            Initializes a new instance of the
+            <see cref="T:System.Collections.ObjectModel.KeyedCollection`2"/> class that uses the that
+            uses the specified equality comparer and creates a lookup dictionary
+            when the specified threshold is exceeded..
             </summary>
-            <param name="getKeyFunc">The function used to extract a key from the item.</param>
-            <param name="comparer">The implementation of the
-            <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> generic interface to use when
-            comparing keys, or <see langword="null" /> to use the default
-            equality comparer for the type of the key, obtained from
-            <see cref="P:System.Collections.Generic.EqualityComparer`1.Default">Default</see>.</param>
-            <param name="dictionaryCreationThreshold">The number of elements
-            the collection can hold without creating a lookup dictionary
-            (0 creates the lookup dictionary when the first item is added),
-            or –1 to specify that a lookup dictionary is never created.</param>
+            <param name="getKeyFunc">
+            The function used to extract a key from the item.
+            </param>
+            <param name="comparer">
+            The implementation of the <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> generic
+            interface to use when comparing keys, or <see langword="null"/> to
+            use the default equality comparer for the type of the key, obtained
+            from <see cref="P:System.Collections.Generic.EqualityComparer`1.Default">Default</see>.
+            </param>
+            <param name="dictionaryCreationThreshold">
+            The number of elements the collection can hold without creating a
+            lookup dictionary (0 creates the lookup dictionary when the first
+            item is added), or –1 to specify that a lookup dictionary is never created.
+            </param>
         </member>
         <member name="M:Cadru.Collections.GenericKeyedCollection`2.GetKeyForItem(`1)">
             <summary>
@@ -421,88 +445,111 @@
             Compares two strings for equivalence, ignoring case, in natural numeric order.
             </summary>
             <remarks>
-            <para>Windows implements natural numeric sorting inside the
+            <para>
+            Windows implements natural numeric sorting inside the
             <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb759947(v=vs.85).aspx">StrCmpLogicalW</see>
-            function in <seealso href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb759844(v=vs.85).aspx">Shell Lightweight Utility Functions</seealso>.
-            This function is available on Windows XP or higher.</para>
-            <para>This implementation is not 100% compatible with
+            function in
+            <seealso href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb759844(v=vs.85).aspx">Shell
+            Lightweight Utility Functions</seealso>. This function is available on
+            Windows XP or higher.
+            </para>
+            <para>
+            This implementation is not 100% compatible with
             <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb759947(v=vs.85).aspx">StrCmpLogicalW</see>.
-            It gives the same results for the numeric sort, with the exception of strings containing non-alphanumeric ASCII
-            characters. The code relies on the current locale to find the order of the characters.</para>
-            <para>The code here will order files that start with special characters based on the code table order.
-            Windows Explorer uses another order.</para>
+            It gives the same results for the numeric sort, with the exception of
+            strings containing non-alphanumeric ASCII characters. The code relies on
+            the current locale to find the order of the characters.
+            </para>
+            <para>
+            The code here will order files that start with special characters based
+            on the code table order. Windows Explorer uses another order.
+            </para>
             <para><example>Windows Explorer: (1.txt, [1.txt, _1.txt, =1.txt</example></para>
             <para><example>this code: (1.txt, =1.txt, [1.txt, _1.txt</example></para>
             </remarks>
         </member>
         <member name="M:Cadru.Collections.LogicalStringComparer.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Collections.LogicalStringComparer" /> class using the
-            <see cref="P:System.Globalization.CultureInfo.CurrentCulture" /> of the current thread.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.LogicalStringComparer"/> class using the
+            <see cref="P:System.Globalization.CultureInfo.CurrentCulture"/> of the current thread.
             </summary>
-            <remarks>When the <see cref="T:Cadru.Collections.LogicalStringComparer" /> instance is created using
-            this constructor, the <see cref="P:System.Globalization.CultureInfo.CurrentCulture" /> of the
-            current thread is saved. Comparison procedures use the saved
+            <remarks>
+            When the <see cref="T:Cadru.Collections.LogicalStringComparer"/> instance is created
+            using this constructor, the <see cref="P:System.Globalization.CultureInfo.CurrentCulture"/>
+            of the current thread is saved. Comparison procedures use the saved
             culture to determine the sort order and casing rules; therefore,
             string comparisons might have different results depending on the
             culture. For more information on culture-specific comparisons, see
-            the <see cref="N:System.Globalization" /> namespace and
-            <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+            the <see cref="N:System.Globalization"/> namespace and
+            <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
+            and Localization</see>.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.LogicalStringComparer.#ctor(System.Globalization.CultureInfo)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Collections.LogicalStringComparer" /> class using
-            the specified <see cref="T:System.Globalization.CultureInfo" />.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.LogicalStringComparer"/> class using the specified <see cref="T:System.Globalization.CultureInfo"/>.
             </summary>
-            <param name="culture">The <see cref="T:System.Globalization.CultureInfo" />
-            to use for the new <see cref="T:Cadru.Collections.LogicalStringComparer" />.</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="culture" /> is a <see langword="null" />.</exception>
-            <rermarks>Comparison procedures use the specified <see cref="T:System.Globalization.CultureInfo" /> to determine
-            the sort order and casing rules. String comparisons might have different results
-            depending on the culture. For more information on culture-specific comparisons, see
-            the <see cref="N:System.Globalization" /> namespace and
-            <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+            <param name="culture">
+            The <see cref="T:System.Globalization.CultureInfo"/> to use for the new <see cref="T:Cadru.Collections.LogicalStringComparer"/>.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="culture"/> is a <see langword="null"/>.
+            </exception>
+            <rermarks>
+            Comparison procedures use the specified <see cref="T:System.Globalization.CultureInfo"/> to
+            determine the sort order and casing rules. String comparisons might
+            have different results depending on the culture. For more
+            information on culture-specific comparisons, see the
+            <see cref="N:System.Globalization"/> namespace and
+            <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
+            and Localization</see>.
             </rermarks>
         </member>
         <member name="P:Cadru.Collections.LogicalStringComparer.Default">
             <summary>
-            Represents an instance of <see cref="T:Cadru.Collections.LogicalStringComparer" /> that is
-            associated with the <see cref="P:System.Globalization.CultureInfo.CurrentCulture" />.
+            Represents an instance of <see cref="T:Cadru.Collections.LogicalStringComparer"/> that
+            is associated with the <see cref="P:System.Globalization.CultureInfo.CurrentCulture"/>.
             </summary>
-            <value>The default <see cref="T:Cadru.Collections.LogicalStringComparer" /></value>
-            <remarks>Comparison procedures use the
-            <see cref="P:System.Globalization.CultureInfo.CurrentCulture" /> of the current thread to
-            determine the sort order and casing rules. String comparisons
-            might have different results depending on the culture. For more
+            <value>The default <see cref="T:Cadru.Collections.LogicalStringComparer"/></value>
+            <remarks>
+            Comparison procedures use the
+            <see cref="P:System.Globalization.CultureInfo.CurrentCulture"/> of the current thread to
+            determine the sort order and casing rules. String comparisons might
+            have different results depending on the culture. For more
             information on culture-specific comparisons, see the
-            <see cref="N:System.Globalization" /> namespace and
-            <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+            <see cref="N:System.Globalization"/> namespace and
+            <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
+            and Localization</see>.
             </remarks>
         </member>
         <member name="P:Cadru.Collections.LogicalStringComparer.DefaultInvariant">
             <summary>
-            Represents an instance of <see cref="T:Cadru.Collections.LogicalStringComparer" /> that is
-            associated with the
-            <see cref="P:System.Globalization.CultureInfo.InvariantCulture" /> and that is always
-            available.
+            Represents an instance of <see cref="T:Cadru.Collections.LogicalStringComparer"/> that
+            is associated with the <see cref="P:System.Globalization.CultureInfo.InvariantCulture"/>
+            and that is always available.
             </summary>
-            <value>An instance of <see cref="T:Cadru.Collections.LogicalStringComparer" /> that is
-            associated with <see cref="P:System.Globalization.CultureInfo.InvariantCulture" />.
+            <value>
+            An instance of <see cref="T:Cadru.Collections.LogicalStringComparer"/> that is
+            associated with <see cref="P:System.Globalization.CultureInfo.InvariantCulture"/>.
             </value>
-            <remarks>Comparison procedures use the
-            <see cref="P:System.Globalization.CultureInfo.InvariantCulture" /> to determine the sort
+            <remarks>
+            Comparison procedures use the
+            <see cref="P:System.Globalization.CultureInfo.InvariantCulture"/> to determine the sort
             order and casing rules. String comparisons might have different
             results depending on the culture. For more information on
             culture-specific comparisons, see the
-            <see cref="N:System.Globalization" /> namespace and
-            <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+            <see cref="N:System.Globalization"/> namespace and
+            <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
+            and Localization</see>.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.LogicalStringComparer.Compare(System.Object,System.Object)">
             <summary>
-            Performs a case-insensitive comparison of two string objects and returns a value
-            indicating whether one is less than, equal to or greater than the other.
+            Performs a case-insensitive comparison of two string objects and
+            returns a value indicating whether one is less than, equal to or
+            greater than the other.
             </summary>
             <param name="x">The first object to compare.</param>
             <param name="y">The second object to compare.</param>
@@ -514,22 +561,31 @@
             </listheader>
             <item>
             <term>Less than zero</term>
-            <description><paramref name="x" /> is less than <paramref name="y" />, with casing ignored.</description>
+            <description>
+            <paramref name="x"/> is less than <paramref name="y"/>, with casing ignored.
+            </description>
             </item>
             <item>
             <term>Zero</term>
-            <description><paramref name="x" /> equals <paramref name="y" />, with casing ignored.</description>
+            <description>
+            <paramref name="x"/> equals <paramref name="y"/>, with casing ignored.
+            </description>
             </item>
             <item>
             <term>Greater than zero</term>
-            <description><paramref name="x" /> is greater than <paramref name="y" />, with casing ignored.</description>
+            <description>
+            <paramref name="x"/> is greater than <paramref name="y"/>, with
+            casing ignored.
+            </description>
             </item>
-            </list></returns>
+            </list>
+            </returns>
         </member>
         <member name="M:Cadru.Collections.LogicalStringComparer.Compare(System.String,System.String)">
             <summary>
-            Performs a case-insensitive comparison of two strings and returns a value
-            indicating whether one is less than, equal to or greater than the other.
+            Performs a case-insensitive comparison of two strings and returns a
+            value indicating whether one is less than, equal to or greater than
+            the other.
             </summary>
             <param name="x">The first string to compare.</param>
             <param name="y">The second string to compare.</param>
@@ -541,17 +597,25 @@
             </listheader>
             <item>
             <term>Less than zero</term>
-            <description><paramref name="x" /> is less than <paramref name="y" />, with casing ignored.</description>
+            <description>
+            <paramref name="x"/> is less than <paramref name="y"/>, with casing ignored.
+            </description>
             </item>
             <item>
             <term>Zero</term>
-            <description><paramref name="x" /> equals <paramref name="y" />, with casing ignored.</description>
+            <description>
+            <paramref name="x"/> equals <paramref name="y"/>, with casing ignored.
+            </description>
             </item>
             <item>
             <term>Greater than zero</term>
-            <description><paramref name="x" /> is greater than <paramref name="y" />, with casing ignored.</description>
+            <description>
+            <paramref name="x"/> is greater than <paramref name="y"/>, with
+            casing ignored.
+            </description>
             </item>
-            </list></returns>
+            </list>
+            </returns>
         </member>
         <member name="M:Cadru.Collections.LogicalStringComparer.System#Collections#IEqualityComparer#Equals(System.Object,System.Object)">
             <summary>
@@ -559,8 +623,10 @@
             </summary>
             <param name="x">The first string to compare.</param>
             <param name="y">The second string to compare.</param>
-            <returns><see langword="true" /> if the two string values are equal;
-            otherwise, <see langword="false" />. </returns>
+            <returns>
+            <see langword="true"/> if the two string values are equal;
+            otherwise, <see langword="false"/>.
+            </returns>
         </member>
         <member name="M:Cadru.Collections.LogicalStringComparer.Equals(System.String,System.String)">
             <summary>
@@ -568,573 +634,877 @@
             </summary>
             <param name="x">The first string to compare.</param>
             <param name="y">The second string to compare.</param>
-            <returns><see langword="true" /> if the two string values are equal;
-            otherwise, <see langword="false" />. </returns>
+            <returns>
+            <see langword="true"/> if the two string values are equal;
+            otherwise, <see langword="false"/>.
+            </returns>
         </member>
         <member name="M:Cadru.Collections.LogicalStringComparer.GetHashCode(System.Object)">
             <summary>
             Returns a hash code for the specified object.
             </summary>
-            <param name="obj">The Object for which a hash code is to be
-            returned.</param>
+            <param name="obj">The Object for which a hash code is to be returned.</param>
             <returns>A hash code for the specified object.</returns>
-            <exception cref="T:System.ArgumentNullException">The type of <paramref name="obj" /> is a
-            reference type and <paramref name="obj" /> is a <see langword="null" />.
+            <exception cref="T:System.ArgumentNullException">
+            The type of <paramref name="obj"/> is a reference type and
+            <paramref name="obj"/> is a <see langword="null"/>.
             </exception>
         </member>
         <member name="M:Cadru.Collections.LogicalStringComparer.GetHashCode(System.String)">
             <summary>
             Returns a hash code for the specified string.
             </summary>
-            <param name="obj">The string for which a hash code is to be
-            returned.</param>
+            <param name="obj">The string for which a hash code is to be returned.</param>
             <returns>A hash code for the specified string.</returns>
-            <exception cref="T:System.ArgumentNullException">The type of <paramref name="obj" /> is a
-            reference type and <paramref name="obj" /> is a <see langword="null" />.
+            <exception cref="T:System.ArgumentNullException">
+            The type of <paramref name="obj"/> is a reference type and
+            <paramref name="obj"/> is a <see langword="null"/>.
             </exception>
         </member>
         <member name="T:Cadru.Collections.MultiValueDictionary`2">
              <summary>
-             A MultiValueDictionary can be viewed as a <see cref="T:System.Collections.IDictionary" /> that allows multiple
-             values for any given unique key. While the MultiValueDictionary API is
-             mostly the same as that of a regular <see cref="T:System.Collections.IDictionary" />, there is a distinction
-             in that getting the value for a key returns a <see cref="T:System.Collections.Generic.IReadOnlyCollection`1" /> of values
-             rather than a single value associated with that key. Additionally,
-             there is functionality to allow adding or removing more than a single
-             value at once.
+             A MultiValueDictionary can be viewed as a <see cref="T:System.Collections.IDictionary"/> that
+             allows multiple values for any given unique key. While the
+             MultiValueDictionary API is mostly the same as that of a regular
+             <see cref="T:System.Collections.IDictionary"/>, there is a distinction in that getting the
+             value for a key returns a <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> of
+             values rather than a single value associated with that key.
+             Additionally, there is functionality to allow adding or removing more
+             than a single value at once.
             
-             The MultiValueDictionary can also be viewed as a IReadOnlyDictionary&lt;TKey,IReadOnlyCollection&lt;TValue&gt;t&gt;
-             where the <see cref="T:System.Collections.Generic.IReadOnlyCollection`1" /> is abstracted from the view of the programmer.
+             The MultiValueDictionary can also be viewed as a
+             IReadOnlyDictionary&lt;TKey,IReadOnlyCollection&lt;TValue&gt;t&gt; where
+             the <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> is abstracted from the
+             view of the programmer.
             
-             For a read-only MultiValueDictionary, see <see cref="T:System.Linq.ILookup`2" />.
+             For a read-only MultiValueDictionary, see <see cref="T:System.Linq.ILookup`2"/>.
              </summary>
              <typeparam name="TKey">The type of the key.</typeparam>
              <typeparam name="TValue">The type of the value.</typeparam>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            class that is empty, has the default initial capacity, and uses the default
-            <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> for <typeparamref name="TKey" />.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that is
+            empty, has the default initial capacity, and uses the default
+            <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> for <typeparamref name="TKey"/>.
             </summary>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.#ctor(System.Int32)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> class that is
-            empty, has the specified initial capacity, and uses the default <see cref="T:System.Collections.Generic.IEqualityComparer`1"/>
-            for <typeparamref name="TKey" />.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that is
+            empty, has the specified initial capacity, and uses the default
+            <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> for <typeparamref name="TKey"/>.
             </summary>
-            <param name="capacity">Initial number of keys that the <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> will allocate space for</param>
-            <exception cref="T:System.ArgumentOutOfRangeException">capacity must be >= 0</exception>
+            <param name="capacity">
+            Initial number of keys that the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will allocate space for
+            </param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            capacity must be &gt;= 0
+            </exception>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> class
-            that is empty, has the default initial capacity, and uses the
-            specified <see cref="T:System.Collections.Generic.IEqualityComparer`1" />.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that is
+            empty, has the default initial capacity, and uses the specified <see cref="T:System.Collections.Generic.IEqualityComparer`1"/>.
             </summary>
-            <param name="comparer">Specified comparer to use for the <typeparamref name="TKey" />s</param>
-            <remarks>If <paramref name="comparer" /> is set to null, then the default <see cref="T:System.Collections.IEqualityComparer" /> for <typeparamref name="TKey" /> is used.</remarks>
+            <param name="comparer">
+            Specified comparer to use for the <typeparamref name="TKey"/> s
+            </param>
+            <remarks>
+            If <paramref name="comparer"/> is set to null, then the default
+            <see cref="T:System.Collections.IEqualityComparer"/> for <typeparamref name="TKey"/> is used.
+            </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.#ctor(System.Int32,System.Collections.Generic.IEqualityComparer{`0})">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> class
-            that is empty, has the specified initial capacity, and uses the
-            specified <see cref="T:System.Collections.Generic.IEqualityComparer`1" />.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that is
+            empty, has the specified initial capacity, and uses the specified <see cref="T:System.Collections.Generic.IEqualityComparer`1"/>.
             </summary>
-            <param name="capacity">Initial number of keys that the <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> will allocate space for</param>
-            <param name="comparer">Specified comparer to use for the <typeparamref name="TKey" />s</param>
-            <exception cref="T:System.ArgumentOutOfRangeException">Capacity must be >= 0</exception>
-            <remarks>If <paramref name="comparer" /> is set to null, then the default <see cref="T:System.Collections.IEqualityComparer" /> for <typeparamref name="TKey" /> is used.</remarks>
+            <param name="capacity">
+            Initial number of keys that the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will allocate space for
+            </param>
+            <param name="comparer">
+            Specified comparer to use for the <typeparamref name="TKey"/> s
+            </param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Capacity must be &gt;= 0
+            </exception>
+            <remarks>
+            If <paramref name="comparer"/> is set to null, then the default
+            <see cref="T:System.Collections.IEqualityComparer"/> for <typeparamref name="TKey"/> is used.
+            </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,System.Collections.Generic.IReadOnlyCollection{`1}}})">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> class that contains
-            elements copied from the specified IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt; and uses the
-            default <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> for the <typeparamref name="TKey" /> type.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that contains
+            elements copied from the specified
+            IEnumerable&lt;KeyValuePair&lt;TKey,
+            IReadOnlyCollection&lt;TValue&gt;&gt;&gt; and uses the default
+            <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> for the
+            <typeparamref name="TKey"/> type.
             </summary>
-            <param name="enumerable">IEnumerable to copy elements into this from</param>
-            <exception cref="T:System.ArgumentNullException">enumerable must be non-null</exception>
+            <param name="enumerable">
+            IEnumerable to copy elements into this from
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            enumerable must be non-null
+            </exception>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,System.Collections.Generic.IReadOnlyCollection{`1}}},System.Collections.Generic.IEqualityComparer{`0})">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> class that contains
-            elements copied from the specified IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt; and uses the
-            specified <see cref="T:System.Collections.Generic.IEqualityComparer`1" />.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that contains
+            elements copied from the specified
+            IEnumerable&lt;KeyValuePair&lt;TKey,
+            IReadOnlyCollection&lt;TValue&gt;&gt;&gt; and uses the specified <see cref="T:System.Collections.Generic.IEqualityComparer`1"/>.
             </summary>
-            <param name="enumerable">IEnumerable to copy elements into this from</param>
-            <param name="comparer">Specified comparer to use for the <typeparamref name="TKey" />s</param>
-            <exception cref="T:System.ArgumentNullException">enumerable must be non-null</exception>
-            <remarks>If <paramref name="comparer" /> is set to null, then the default <see cref="T:System.Collections.IEqualityComparer" /> for <typeparamref name="TKey" /> is used.</remarks>
+            <param name="enumerable">
+            IEnumerable to copy elements into this from
+            </param>
+            <param name="comparer">
+            Specified comparer to use for the <typeparamref name="TKey"/> s
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            enumerable must be non-null
+            </exception>
+            <remarks>
+            If <paramref name="comparer"/> is set to null, then the default
+            <see cref="T:System.Collections.IEqualityComparer"/> for <typeparamref name="TKey"/> is used.
+            </remarks>
         </member>
         <member name="P:Cadru.Collections.MultiValueDictionary`2.Count">
             <summary>
-            Returns the number of <typeparamref name="TKey" />s with one or more associated <typeparamref name="TValue" />
-            in this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            Returns the number of <typeparamref name="TKey"/> s with one or more
+            associated <typeparamref name="TValue"/> in this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
             </summary>
-            <value>The number of <typeparamref name="TKey" />s in this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.</value>
+            <value>The number of <typeparamref name="TKey"/> s in this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.</value>
         </member>
         <member name="P:Cadru.Collections.MultiValueDictionary`2.Keys">
             <summary>
-            Gets each <typeparamref name="TKey" /> in this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> that
-            has one or more associated <typeparamref name="TValue" />.
+            Gets each <typeparamref name="TKey"/> in this
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> that has one or more
+            associated <typeparamref name="TValue"/>.
             </summary>
             <value>
-            An <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing each <typeparamref name="TKey" />
-            in this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> that has one or more associated
-            <typeparamref name="TValue" />.
+            An <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing each
+            <typeparamref name="TKey"/> in this
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> that has one or more
+            associated <typeparamref name="TValue"/>.
             </value>
         </member>
         <member name="P:Cadru.Collections.MultiValueDictionary`2.Values">
             <summary>
-            Gets an enumerable of <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> from this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>,
-            where each <see cref="T:System.Collections.Generic.IReadOnlyCollection`1" /> is the collection of every <typeparamref name="TValue" /> associated
-            with a <typeparamref name="TKey" /> present in the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            Gets an enumerable of <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> from
+            this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>, where each
+            <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> is the collection of every
+            <typeparamref name="TValue"/> associated with a
+            <typeparamref name="TKey"/> present in the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
             </summary>
-            <value>An IEnumerable of each <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> in this
-            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/></value>
+            <value>
+            An IEnumerable of each <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> in
+            this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>
+            </value>
         </member>
         <member name="P:Cadru.Collections.MultiValueDictionary`2.Item(`0)">
             <summary>
-            Get every <typeparamref name="TValue" /> associated with the given <typeparamref name="TKey" />. If
-            <paramref name="key" /> is not found in this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>, will
-            throw a <see cref="T:System.Collections.Generic.KeyNotFoundException" />.
+            Get every <typeparamref name="TValue"/> associated with the given
+            <typeparamref name="TKey"/>. If <paramref name="key"/> is not found
+            in this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>, will throw
+            a <see cref="T:System.Collections.Generic.KeyNotFoundException"/>.
             </summary>
-            <param name="key">The <typeparamref name="TKey" /> of the elements to retrieve.</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="key" /> must be non-null</exception>
-            <exception cref="T:System.Collections.Generic.KeyNotFoundException"><paramref name="key" /> does not have any associated
-            <typeparamref name="TValue" />s in this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.</exception>
+            <param name="key">
+            The <typeparamref name="TKey"/> of the elements to retrieve.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="key"/> must be non-null
+            </exception>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">
+            <paramref name="key"/> does not have any associated
+            <typeparamref name="TValue"/> s in this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            </exception>
             <value>
-            An <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> containing every <typeparamref name="TValue" />
-            associated with <paramref name="key" />.
+            An <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> containing every
+            <typeparamref name="TValue"/> associated with <paramref name="key"/>.
             </value>
             <remarks>
-            Note that the <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> returned will change alongside any changes
-            to the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>
+            Note that the <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> returned
+            will change alongside any changes to the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>
             </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Create``1">
             <summary>
-            Creates a new new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            class that is empty, has the default initial capacity, and uses the default
-            <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> for <typeparamref name="TKey" />. The
-            internal dictionary will use instances of the <typeparamref name="TValueCollection" />
-            class as its collection type.
+            Creates a new new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that is
+            empty, has the default initial capacity, and uses the default
+            <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> for
+            <typeparamref name="TKey"/>. The internal dictionary will use
+            instances of the <typeparamref name="TValueCollection"/> class as
+            its collection type.
             </summary>
             <typeparam name="TValueCollection">
-            The collection type that this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            will contain in its internal dictionary.
+            The collection type that this
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will contain in its
+            internal dictionary.
             </typeparam>
-            <returns>A new <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> with the specified
-            parameters.</returns>
-            <exception cref="T:System.InvalidOperationException"><typeparamref name="TValueCollection" /> must not have
-            IsReadOnly set to true by default.</exception>
+            <returns>
+            A new <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> with the
+            specified parameters.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+            <typeparamref name="TValueCollection"/> must not have IsReadOnly set
+            to true by default.
+            </exception>
             <remarks>
-            Note that <typeparamref name="TValueCollection" /> must implement <see cref="T:System.Collections.Generic.ICollection`1"/>
-            in addition to being constructable through new(). The collection returned from the constructor
-            must also not have IsReadOnly set to True by default.
+            Note that <typeparamref name="TValueCollection"/> must implement
+            <see cref="T:System.Collections.Generic.ICollection`1"/> in addition to being constructable
+            through new(). The collection returned from the constructor must
+            also not have IsReadOnly set to True by default.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Create``1(System.Int32)">
             <summary>
-            Creates a new new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            class that is empty, has the specified initial capacity, and uses the default
-            <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> for <typeparamref name="TKey" />. The
-            internal dictionary will use instances of the <typeparamref name="TValueCollection" />
-            class as its collection type.
+            Creates a new new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that is
+            empty, has the specified initial capacity, and uses the default
+            <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> for
+            <typeparamref name="TKey"/>. The internal dictionary will use
+            instances of the <typeparamref name="TValueCollection"/> class as
+            its collection type.
             </summary>
             <typeparam name="TValueCollection">
-            The collection type that this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            will contain in its internal dictionary.
+            The collection type that this
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will contain in its
+            internal dictionary.
             </typeparam>
-            <param name="capacity">Initial number of keys that the <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> will allocate space for</param>
-            <returns>A new <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> with the specified
-            parameters.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">Capacity must be >= 0</exception>
-            <exception cref="T:System.InvalidOperationException"><typeparamref name="TValueCollection" /> must not have
-            IsReadOnly set to true by default.</exception>
+            <param name="capacity">
+            Initial number of keys that the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will allocate space for
+            </param>
+            <returns>
+            A new <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> with the
+            specified parameters.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Capacity must be &gt;= 0
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            <typeparamref name="TValueCollection"/> must not have IsReadOnly set
+            to true by default.
+            </exception>
             <remarks>
-            Note that <typeparamref name="TValueCollection" /> must implement <see cref="T:System.Collections.Generic.ICollection`1"/>
-            in addition to being constructable through new(). The collection returned from the constructor
-            must also not have IsReadOnly set to True by default.
+            Note that <typeparamref name="TValueCollection"/> must implement
+            <see cref="T:System.Collections.Generic.ICollection`1"/> in addition to being constructable
+            through new(). The collection returned from the constructor must
+            also not have IsReadOnly set to True by default.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Create``1(System.Collections.Generic.IEqualityComparer{`0})">
             <summary>
-            Creates a new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            class that is empty, has the default initial capacity, and uses the specified
-            <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> for <typeparamref name="TKey" />. The
-            internal dictionary will use instances of the <typeparamref name="TValueCollection" />
-            class as its collection type.
+            Creates a new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that is
+            empty, has the default initial capacity, and uses the specified
+            <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> for
+            <typeparamref name="TKey"/>. The internal dictionary will use
+            instances of the <typeparamref name="TValueCollection"/> class as
+            its collection type.
             </summary>
             <typeparam name="TValueCollection">
-            The collection type that this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            will contain in its internal dictionary.
+            The collection type that this
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will contain in its
+            internal dictionary.
             </typeparam>
-            <param name="comparer">Specified comparer to use for the <typeparamref name="TKey" />s</param>
-            <exception cref="T:System.InvalidOperationException"><typeparamref name="TValueCollection" /> must not have
-            IsReadOnly set to true by default.</exception>
-            <returns>A new <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> with the specified
-            parameters.</returns>
-            <remarks>If <paramref name="comparer" /> is set to null, then the default <see cref="T:System.Collections.IEqualityComparer" /> for <typeparamref name="TKey" /> is used.</remarks>
+            <param name="comparer">
+            Specified comparer to use for the <typeparamref name="TKey"/> s
+            </param>
+            <exception cref="T:System.InvalidOperationException">
+            <typeparamref name="TValueCollection"/> must not have IsReadOnly set
+            to true by default.
+            </exception>
+            <returns>
+            A new <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> with the
+            specified parameters.
+            </returns>
             <remarks>
-            Note that <typeparamref name="TValueCollection" /> must implement <see cref="T:System.Collections.Generic.ICollection`1"/>
-            in addition to being constructable through new(). The collection returned from the constructor
-            must also not have IsReadOnly set to True by default.
+            If <paramref name="comparer"/> is set to null, then the default
+            <see cref="T:System.Collections.IEqualityComparer"/> for <typeparamref name="TKey"/> is used.
+            </remarks>
+            <remarks>
+            Note that <typeparamref name="TValueCollection"/> must implement
+            <see cref="T:System.Collections.Generic.ICollection`1"/> in addition to being constructable
+            through new(). The collection returned from the constructor must
+            also not have IsReadOnly set to True by default.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Create``1(System.Int32,System.Collections.Generic.IEqualityComparer{`0})">
             <summary>
-            Creates a new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            class that is empty, has the specified initial capacity, and uses the specified
-            <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> for <typeparamref name="TKey" />. The
-            internal dictionary will use instances of the <typeparamref name="TValueCollection" />
-            class as its collection type.
+            Creates a new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that is
+            empty, has the specified initial capacity, and uses the specified
+            <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> for
+            <typeparamref name="TKey"/>. The internal dictionary will use
+            instances of the <typeparamref name="TValueCollection"/> class as
+            its collection type.
             </summary>
             <typeparam name="TValueCollection">
-            The collection type that this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            will contain in its internal dictionary.
+            The collection type that this
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will contain in its
+            internal dictionary.
             </typeparam>
-            <param name="capacity">Initial number of keys that the <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> will allocate space for</param>
-            <param name="comparer">Specified comparer to use for the <typeparamref name="TKey" />s</param>
-            <returns>A new <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> with the specified
-            parameters.</returns>
-            <exception cref="T:System.InvalidOperationException"><typeparamref name="TValueCollection" /> must not have
-            IsReadOnly set to true by default.</exception>
-            <exception cref="T:System.ArgumentOutOfRangeException">Capacity must be >= 0</exception>
-            <remarks>If <paramref name="comparer" /> is set to null, then the default <see cref="T:System.Collections.IEqualityComparer" /> for <typeparamref name="TKey" /> is used.</remarks>
+            <param name="capacity">
+            Initial number of keys that the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will allocate space for
+            </param>
+            <param name="comparer">
+            Specified comparer to use for the <typeparamref name="TKey"/> s
+            </param>
+            <returns>
+            A new <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> with the
+            specified parameters.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+            <typeparamref name="TValueCollection"/> must not have IsReadOnly set
+            to true by default.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Capacity must be &gt;= 0
+            </exception>
             <remarks>
-            Note that <typeparamref name="TValueCollection" /> must implement <see cref="T:System.Collections.Generic.ICollection`1"/>
-            in addition to being constructable through new(). The collection returned from the constructor
-            must also not have IsReadOnly set to True by default.
+            If <paramref name="comparer"/> is set to null, then the default
+            <see cref="T:System.Collections.IEqualityComparer"/> for <typeparamref name="TKey"/> is used.
+            </remarks>
+            <remarks>
+            Note that <typeparamref name="TValueCollection"/> must implement
+            <see cref="T:System.Collections.Generic.ICollection`1"/> in addition to being constructable
+            through new(). The collection returned from the constructor must
+            also not have IsReadOnly set to True by default.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Create``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,System.Collections.Generic.IReadOnlyCollection{`1}}})">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> class that contains
-            elements copied from the specified IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt;
-            and uses the default <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> for the <typeparamref name="TKey" /> type.
-            The internal dictionary will use instances of the <typeparamref name="TValueCollection" />
-            class as its collection type.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that contains
+            elements copied from the specified
+            IEnumerable&lt;KeyValuePair&lt;TKey,
+            IReadOnlyCollection&lt;TValue&gt;&gt;&gt; and uses the default
+            <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> for the
+            <typeparamref name="TKey"/> type. The internal dictionary will use
+            instances of the <typeparamref name="TValueCollection"/> class as
+            its collection type.
             </summary>
             <typeparam name="TValueCollection">
-            The collection type that this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            will contain in its internal dictionary.
+            The collection type that this
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will contain in its
+            internal dictionary.
             </typeparam>
-            <param name="enumerable">IEnumerable to copy elements into this from</param>
-            <returns>A new <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> with the specified
-            parameters.</returns>
-            <exception cref="T:System.InvalidOperationException"><typeparamref name="TValueCollection" /> must not have
-            IsReadOnly set to true by default.</exception>
-            <exception cref="T:System.ArgumentNullException">enumerable must be non-null</exception>
+            <param name="enumerable">
+            IEnumerable to copy elements into this from
+            </param>
+            <returns>
+            A new <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> with the
+            specified parameters.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+            <typeparamref name="TValueCollection"/> must not have IsReadOnly set
+            to true by default.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            enumerable must be non-null
+            </exception>
             <remarks>
-            Note that <typeparamref name="TValueCollection" /> must implement <see cref="T:System.Collections.Generic.ICollection`1"/>
-            in addition to being constructable through new(). The collection returned from the constructor
-            must also not have IsReadOnly set to True by default.
+            Note that <typeparamref name="TValueCollection"/> must implement
+            <see cref="T:System.Collections.Generic.ICollection`1"/> in addition to being constructable
+            through new(). The collection returned from the constructor must
+            also not have IsReadOnly set to True by default.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Create``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,System.Collections.Generic.IReadOnlyCollection{`1}}},System.Collections.Generic.IEqualityComparer{`0})">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> class that contains
-            elements copied from the specified IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt;
-            and uses the specified <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> for the <typeparamref name="TKey" /> type.
-            The internal dictionary will use instances of the <typeparamref name="TValueCollection" />
-            class as its collection type.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that contains
+            elements copied from the specified
+            IEnumerable&lt;KeyValuePair&lt;TKey,
+            IReadOnlyCollection&lt;TValue&gt;&gt;&gt; and uses the specified
+            <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> for the
+            <typeparamref name="TKey"/> type. The internal dictionary will use
+            instances of the <typeparamref name="TValueCollection"/> class as
+            its collection type.
             </summary>
             <typeparam name="TValueCollection">
-            The collection type that this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            will contain in its internal dictionary.
+            The collection type that this
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will contain in its
+            internal dictionary.
             </typeparam>
-            <param name="enumerable">IEnumerable to copy elements into this from</param>
-            <param name="comparer">Specified comparer to use for the <typeparamref name="TKey" />s</param>
-            <returns>A new <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> with the specified
-            parameters.</returns>
-            <exception cref="T:System.InvalidOperationException"><typeparamref name="TValueCollection" /> must not have
-            IsReadOnly set to true by default.</exception>
-            <exception cref="T:System.ArgumentNullException">enumerable must be non-null</exception>
-            <remarks>If <paramref name="comparer" /> is set to null, then the default <see cref="T:System.Collections.IEqualityComparer" /> for <typeparamref name="TKey" /> is used.</remarks>
+            <param name="enumerable">
+            IEnumerable to copy elements into this from
+            </param>
+            <param name="comparer">
+            Specified comparer to use for the <typeparamref name="TKey"/> s
+            </param>
+            <returns>
+            A new <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> with the
+            specified parameters.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+            <typeparamref name="TValueCollection"/> must not have IsReadOnly set
+            to true by default.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            enumerable must be non-null
+            </exception>
             <remarks>
-            Note that <typeparamref name="TValueCollection" /> must implement <see cref="T:System.Collections.Generic.ICollection`1"/>
-            in addition to being constructable through new(). The collection returned from the constructor
-            must also not have IsReadOnly set to True by default.
+            If <paramref name="comparer"/> is set to null, then the default
+            <see cref="T:System.Collections.IEqualityComparer"/> for <typeparamref name="TKey"/> is used.
+            </remarks>
+            <remarks>
+            Note that <typeparamref name="TValueCollection"/> must implement
+            <see cref="T:System.Collections.Generic.ICollection`1"/> in addition to being constructable
+            through new(). The collection returned from the constructor must
+            also not have IsReadOnly set to True by default.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Create``1(System.Func{``0})">
             <summary>
-            Creates a new new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            class that is empty, has the default initial capacity, and uses the default
-            <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> for <typeparamref name="TKey" />. The
-            internal dictionary will use instances of the <typeparamref name="TValueCollection" />
-            class as its collection type.
+            Creates a new new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that is
+            empty, has the default initial capacity, and uses the default
+            <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> for
+            <typeparamref name="TKey"/>. The internal dictionary will use
+            instances of the <typeparamref name="TValueCollection"/> class as
+            its collection type.
             </summary>
             <typeparam name="TValueCollection">
-            The collection type that this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            will contain in its internal dictionary.
+            The collection type that this
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will contain in its
+            internal dictionary.
             </typeparam>
-            <param name="collectionFactory">A function to create a new <see cref="T:System.Collections.Generic.ICollection`1"/> to use
-            in the internal dictionary store of this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />.</param>
-            <returns>A new <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> with the specified
-            parameters.</returns>
-            <exception cref="T:System.InvalidOperationException"><paramref name="collectionFactory" /> must create collections with
-            IsReadOnly set to true by default.</exception>
+            <param name="collectionFactory">
+            A function to create a new <see cref="T:System.Collections.Generic.ICollection`1"/> to use
+            in the internal dictionary store of this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            </param>
+            <returns>
+            A new <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> with the
+            specified parameters.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+            <paramref name="collectionFactory"/> must create collections with
+            IsReadOnly set to true by default.
+            </exception>
             <remarks>
-            Note that <typeparamref name="TValueCollection" /> must implement <see cref="T:System.Collections.Generic.ICollection`1"/>
-            in addition to being constructable through new(). The collection returned from the constructor
-            must also not have IsReadOnly set to True by default.
+            Note that <typeparamref name="TValueCollection"/> must implement
+            <see cref="T:System.Collections.Generic.ICollection`1"/> in addition to being constructable
+            through new(). The collection returned from the constructor must
+            also not have IsReadOnly set to True by default.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Create``1(System.Int32,System.Func{``0})">
             <summary>
-            Creates a new new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            class that is empty, has the specified initial capacity, and uses the default
-            <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> for <typeparamref name="TKey" />. The
-            internal dictionary will use instances of the <typeparamref name="TValueCollection" />
-            class as its collection type.
+            Creates a new new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that is
+            empty, has the specified initial capacity, and uses the default
+            <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> for
+            <typeparamref name="TKey"/>. The internal dictionary will use
+            instances of the <typeparamref name="TValueCollection"/> class as
+            its collection type.
             </summary>
             <typeparam name="TValueCollection">
-            The collection type that this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            will contain in its internal dictionary.
+            The collection type that this
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will contain in its
+            internal dictionary.
             </typeparam>
-            <param name="capacity">Initial number of keys that the <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> will allocate space for</param>
-            <param name="collectionFactory">A function to create a new <see cref="T:System.Collections.Generic.ICollection`1"/> to use
-            in the internal dictionary store of this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />.</param>
-            <returns>A new <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> with the specified
-            parameters.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">Capacity must be >= 0</exception>
-            <exception cref="T:System.InvalidOperationException"><paramref name="collectionFactory" /> must create collections with
-            IsReadOnly set to true by default.</exception>
+            <param name="capacity">
+            Initial number of keys that the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will allocate space for
+            </param>
+            <param name="collectionFactory">
+            A function to create a new <see cref="T:System.Collections.Generic.ICollection`1"/> to use
+            in the internal dictionary store of this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            </param>
+            <returns>
+            A new <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> with the
+            specified parameters.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Capacity must be &gt;= 0
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            <paramref name="collectionFactory"/> must create collections with
+            IsReadOnly set to true by default.
+            </exception>
             <remarks>
-            Note that <typeparamref name="TValueCollection" /> must implement <see cref="T:System.Collections.Generic.ICollection`1"/>
-            in addition to being constructable through new(). The collection returned from the constructor
-            must also not have IsReadOnly set to True by default.
+            Note that <typeparamref name="TValueCollection"/> must implement
+            <see cref="T:System.Collections.Generic.ICollection`1"/> in addition to being constructable
+            through new(). The collection returned from the constructor must
+            also not have IsReadOnly set to True by default.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Create``1(System.Collections.Generic.IEqualityComparer{`0},System.Func{``0})">
             <summary>
-            Creates a new new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            class that is empty, has the default initial capacity, and uses the specified
-            <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> for <typeparamref name="TKey" />. The
-            internal dictionary will use instances of the <typeparamref name="TValueCollection" />
-            class as its collection type.
+            Creates a new new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that is
+            empty, has the default initial capacity, and uses the specified
+            <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> for
+            <typeparamref name="TKey"/>. The internal dictionary will use
+            instances of the <typeparamref name="TValueCollection"/> class as
+            its collection type.
             </summary>
             <typeparam name="TValueCollection">
-            The collection type that this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            will contain in its internal dictionary.
+            The collection type that this
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will contain in its
+            internal dictionary.
             </typeparam>
-            <param name="comparer">Specified comparer to use for the <typeparamref name="TKey" />s</param>
-            <param name="collectionFactory">A function to create a new <see cref="T:System.Collections.Generic.ICollection`1"/> to use
-            in the internal dictionary store of this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />.</param>
-            <exception cref="T:System.InvalidOperationException"><paramref name="collectionFactory" /> must create collections with
-            IsReadOnly set to true by default.</exception>
-            <returns>A new <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> with the specified
-            parameters.</returns>
-            <remarks>If <paramref name="comparer" /> is set to null, then the default <see cref="T:System.Collections.IEqualityComparer" /> for <typeparamref name="TKey" /> is used.</remarks>
+            <param name="comparer">
+            Specified comparer to use for the <typeparamref name="TKey"/> s
+            </param>
+            <param name="collectionFactory">
+            A function to create a new <see cref="T:System.Collections.Generic.ICollection`1"/> to use
+            in the internal dictionary store of this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            </param>
+            <exception cref="T:System.InvalidOperationException">
+            <paramref name="collectionFactory"/> must create collections with
+            IsReadOnly set to true by default.
+            </exception>
+            <returns>
+            A new <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> with the
+            specified parameters.
+            </returns>
             <remarks>
-            Note that <typeparamref name="TValueCollection" /> must implement <see cref="T:System.Collections.Generic.ICollection`1"/>
-            in addition to being constructable through new(). The collection returned from the constructor
-            must also not have IsReadOnly set to True by default.
+            If <paramref name="comparer"/> is set to null, then the default
+            <see cref="T:System.Collections.IEqualityComparer"/> for <typeparamref name="TKey"/> is used.
+            </remarks>
+            <remarks>
+            Note that <typeparamref name="TValueCollection"/> must implement
+            <see cref="T:System.Collections.Generic.ICollection`1"/> in addition to being constructable
+            through new(). The collection returned from the constructor must
+            also not have IsReadOnly set to True by default.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Create``1(System.Int32,System.Collections.Generic.IEqualityComparer{`0},System.Func{``0})">
             <summary>
-            Creates a new new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            class that is empty, has the specified initial capacity, and uses the specified
-            <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> for <typeparamref name="TKey" />. The
-            internal dictionary will use instances of the <typeparamref name="TValueCollection" />
-            class as its collection type.
+            Creates a new new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that is
+            empty, has the specified initial capacity, and uses the specified
+            <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> for
+            <typeparamref name="TKey"/>. The internal dictionary will use
+            instances of the <typeparamref name="TValueCollection"/> class as
+            its collection type.
             </summary>
             <typeparam name="TValueCollection">
-            The collection type that this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            will contain in its internal dictionary.
+            The collection type that this
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will contain in its
+            internal dictionary.
             </typeparam>
-            <param name="capacity">Initial number of keys that the <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> will allocate space for</param>
-            <param name="comparer">Specified comparer to use for the <typeparamref name="TKey" />s</param>
-            <param name="collectionFactory">A function to create a new <see cref="T:System.Collections.Generic.ICollection`1"/> to use
-            in the internal dictionary store of this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />.</param>
-            <returns>A new <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> with the specified
-            parameters.</returns>
-            <exception cref="T:System.InvalidOperationException"><paramref name="collectionFactory" /> must create collections with
-            IsReadOnly set to true by default.</exception>
-            <exception cref="T:System.ArgumentOutOfRangeException">Capacity must be >= 0</exception>
-            <remarks>If <paramref name="comparer" /> is set to null, then the default <see cref="T:System.Collections.IEqualityComparer" /> for <typeparamref name="TKey" /> is used.</remarks>
+            <param name="capacity">
+            Initial number of keys that the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will allocate space for
+            </param>
+            <param name="comparer">
+            Specified comparer to use for the <typeparamref name="TKey"/> s
+            </param>
+            <param name="collectionFactory">
+            A function to create a new <see cref="T:System.Collections.Generic.ICollection`1"/> to use
+            in the internal dictionary store of this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            </param>
+            <returns>
+            A new <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> with the
+            specified parameters.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+            <paramref name="collectionFactory"/> must create collections with
+            IsReadOnly set to true by default.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Capacity must be &gt;= 0
+            </exception>
             <remarks>
-            Note that <typeparamref name="TValueCollection" /> must implement <see cref="T:System.Collections.Generic.ICollection`1"/>
-            in addition to being constructable through new(). The collection returned from the constructor
-            must also not have IsReadOnly set to True by default.
+            If <paramref name="comparer"/> is set to null, then the default
+            <see cref="T:System.Collections.IEqualityComparer"/> for <typeparamref name="TKey"/> is used.
+            </remarks>
+            <remarks>
+            Note that <typeparamref name="TValueCollection"/> must implement
+            <see cref="T:System.Collections.Generic.ICollection`1"/> in addition to being constructable
+            through new(). The collection returned from the constructor must
+            also not have IsReadOnly set to True by default.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Create``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,System.Collections.Generic.IReadOnlyCollection{`1}}},System.Func{``0})">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> class that contains
-            elements copied from the specified IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt;
-            and uses the default <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> for the <typeparamref name="TKey" /> type.
-            The internal dictionary will use instances of the <typeparamref name="TValueCollection" />
-            class as its collection type.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that contains
+            elements copied from the specified
+            IEnumerable&lt;KeyValuePair&lt;TKey,
+            IReadOnlyCollection&lt;TValue&gt;&gt;&gt; and uses the default
+            <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> for the
+            <typeparamref name="TKey"/> type. The internal dictionary will use
+            instances of the <typeparamref name="TValueCollection"/> class as
+            its collection type.
             </summary>
             <typeparam name="TValueCollection">
-            The collection type that this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            will contain in its internal dictionary.
+            The collection type that this
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will contain in its
+            internal dictionary.
             </typeparam>
-            <param name="enumerable">IEnumerable to copy elements into this from</param>
-            <param name="collectionFactory">A function to create a new <see cref="T:System.Collections.Generic.ICollection`1"/> to use
-            in the internal dictionary store of this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />.</param>
-            <returns>A new <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> with the specified
-            parameters.</returns>
-            <exception cref="T:System.InvalidOperationException"><paramref name="collectionFactory" /> must create collections with
-            IsReadOnly set to true by default.</exception>
-            <exception cref="T:System.ArgumentNullException">enumerable must be non-null</exception>
+            <param name="enumerable">
+            IEnumerable to copy elements into this from
+            </param>
+            <param name="collectionFactory">
+            A function to create a new <see cref="T:System.Collections.Generic.ICollection`1"/> to use
+            in the internal dictionary store of this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            </param>
+            <returns>
+            A new <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> with the
+            specified parameters.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+            <paramref name="collectionFactory"/> must create collections with
+            IsReadOnly set to true by default.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            enumerable must be non-null
+            </exception>
             <remarks>
-            Note that <typeparamref name="TValueCollection" /> must implement <see cref="T:System.Collections.Generic.ICollection`1"/>
-            in addition to being constructable through new(). The collection returned from the constructor
-            must also not have IsReadOnly set to True by default.
+            Note that <typeparamref name="TValueCollection"/> must implement
+            <see cref="T:System.Collections.Generic.ICollection`1"/> in addition to being constructable
+            through new(). The collection returned from the constructor must
+            also not have IsReadOnly set to True by default.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Create``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,System.Collections.Generic.IReadOnlyCollection{`1}}},System.Collections.Generic.IEqualityComparer{`0},System.Func{``0})">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> class that contains
-            elements copied from the specified IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt;
-            and uses the specified <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> for the <typeparamref name="TKey" /> type.
-            The internal dictionary will use instances of the <typeparamref name="TValueCollection" />
-            class as its collection type.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> class that contains
+            elements copied from the specified
+            IEnumerable&lt;KeyValuePair&lt;TKey,
+            IReadOnlyCollection&lt;TValue&gt;&gt;&gt; and uses the specified
+            <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> for the
+            <typeparamref name="TKey"/> type. The internal dictionary will use
+            instances of the <typeparamref name="TValueCollection"/> class as
+            its collection type.
             </summary>
             <typeparam name="TValueCollection">
-            The collection type that this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
-            will contain in its internal dictionary.
+            The collection type that this
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> will contain in its
+            internal dictionary.
             </typeparam>
-            <param name="enumerable">IEnumerable to copy elements into this from</param>
-            <param name="comparer">Specified comparer to use for the <typeparamref name="TKey" />s</param>
-            <param name="collectionFactory">A function to create a new <see cref="T:System.Collections.Generic.ICollection`1"/> to use
-            in the internal dictionary store of this <see cref="T:Cadru.Collections.MultiValueDictionary`2" />.</param>
-            <returns>A new <see cref="T:Cadru.Collections.MultiValueDictionary`2" /> with the specified
-            parameters.</returns>
-            <exception cref="T:System.InvalidOperationException"><paramref name="collectionFactory" /> must create collections with
-            IsReadOnly set to true by default.</exception>
-            <exception cref="T:System.ArgumentNullException">enumerable must be non-null</exception>
-            <remarks>If <paramref name="comparer" /> is set to null, then the default <see cref="T:System.Collections.IEqualityComparer" /> for <typeparamref name="TKey" /> is used.</remarks>
+            <param name="enumerable">
+            IEnumerable to copy elements into this from
+            </param>
+            <param name="comparer">
+            Specified comparer to use for the <typeparamref name="TKey"/> s
+            </param>
+            <param name="collectionFactory">
+            A function to create a new <see cref="T:System.Collections.Generic.ICollection`1"/> to use
+            in the internal dictionary store of this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            </param>
+            <returns>
+            A new <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> with the
+            specified parameters.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+            <paramref name="collectionFactory"/> must create collections with
+            IsReadOnly set to true by default.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            enumerable must be non-null
+            </exception>
             <remarks>
-            Note that <typeparamref name="TValueCollection" /> must implement <see cref="T:System.Collections.Generic.ICollection`1"/>
-            in addition to being constructable through new(). The collection returned from the constructor
-            must also not have IsReadOnly set to True by default.
+            If <paramref name="comparer"/> is set to null, then the default
+            <see cref="T:System.Collections.IEqualityComparer"/> for <typeparamref name="TKey"/> is used.
+            </remarks>
+            <remarks>
+            Note that <typeparamref name="TValueCollection"/> must implement
+            <see cref="T:System.Collections.Generic.ICollection`1"/> in addition to being constructable
+            through new(). The collection returned from the constructor must
+            also not have IsReadOnly set to True by default.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Add(`0,`1)">
             <summary>
-            Adds the specified <typeparamref name="TKey" /> and <typeparamref name="TValue" /> to the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            Adds the specified <typeparamref name="TKey"/> and
+            <typeparamref name="TValue"/> to the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
             </summary>
-            <param name="key">The <typeparamref name="TKey" /> of the element to add.</param>
-            <param name="value">The <typeparamref name="TValue" /> of the element to add.</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="key" /> is <c>null</c>.</exception>
+            <param name="key">
+            The <typeparamref name="TKey"/> of the element to add.
+            </param>
+            <param name="value">
+            The <typeparamref name="TValue"/> of the element to add.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="key"/> is <c>null</c>.
+            </exception>
             <remarks>
-            Unlike the Add for <see cref="T:System.Collections.IDictionary" />, the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> Add will not
-            throw any exceptions. If the given <typeparamref name="TKey" /> is already in the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>,
-            then <typeparamref name="TValue" /> will be added to <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> associated with <paramref name="key" />
+            Unlike the Add for <see cref="T:System.Collections.IDictionary"/>, the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> Add will not throw
+            any exceptions. If the given <typeparamref name="TKey"/> is already
+            in the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>, then
+            <typeparamref name="TValue"/> will be added to
+            <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> associated with <paramref name="key"/>
             </remarks>
             <remarks>
-            A call to this Add method will always invalidate any currently running enumeration regardless
-            of whether the Add method actually modified the <see cref="T:Cadru.Collections.MultiValueDictionary`2" />.
+            A call to this Add method will always invalidate any currently
+            running enumeration regardless of whether the Add method actually
+            modified the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.AddRange(`0,System.Collections.Generic.IEnumerable{`1})">
             <summary>
-            Adds a number of key-value pairs to this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>, where
-            the key for each value is <paramref name="key" />, and the value for a pair
-            is an element from <paramref name="values" />
+            Adds a number of key-value pairs to this
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>, where the key for
+            each value is <paramref name="key"/>, and the value for a pair is an
+            element from <paramref name="values"/>
             </summary>
-            <param name="key">The <typeparamref name="TKey" /> of all entries to add</param>
-            <param name="values">An <see cref="T:System.Collections.Generic.IEnumerable`1"/> of values to add</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="key" /> and <paramref name="values" /> must be non-null</exception>
+            <param name="key">
+            The <typeparamref name="TKey"/> of all entries to add
+            </param>
+            <param name="values">
+            An <see cref="T:System.Collections.Generic.IEnumerable`1"/> of values to add
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="key"/> and <paramref name="values"/> must be non-null
+            </exception>
             <remarks>
-            A call to this AddRange method will always invalidate any currently running enumeration regardless
-            of whether the AddRange method actually modified the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            A call to this AddRange method will always invalidate any currently
+            running enumeration regardless of whether the AddRange method
+            actually modified the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Clear">
             <summary>
-            Removes every <typeparamref name="TKey" /> and <typeparamref name="TValue" /> from this
-            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            Removes every <typeparamref name="TKey"/> and
+            <typeparamref name="TValue"/> from this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
             </summary>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Contains(`0,`1)">
             <summary>
-            Determines if the given <typeparamref name="TKey" />-<typeparamref name="TValue" />
-            pair exists within this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            Determines if the given <typeparamref name="TKey"/>-
+            <typeparamref name="TValue"/> pair exists within this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
             </summary>
-            <param name="key">The <typeparamref name="TKey" /> of the element.</param>
-            <param name="value">The <typeparamref name="TValue" /> of the element.</param>
+            <param name="key">The <typeparamref name="TKey"/> of the element.</param>
+            <param name="value">The <typeparamref name="TValue"/> of the element.</param>
             <returns><c>true</c> if found; otherwise <c>false</c></returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="key" /> must be non-null</exception>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="key"/> must be non-null
+            </exception>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.ContainsKey(`0)">
             <summary>
-            Determines if the given <typeparamref name="TKey" /> exists within this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> and has
-            at least one <typeparamref name="TValue" /> associated with it.
+            Determines if the given <typeparamref name="TKey"/> exists within
+            this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> and has at
+            least one <typeparamref name="TValue"/> associated with it.
             </summary>
-            <param name="key">The <typeparamref name="TKey" /> to search the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> for</param>
-            <returns><c>true</c> if the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> contains the requested <typeparamref name="TKey" />;
-            otherwise <c>false</c>.</returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="key" /> must be non-null</exception>
+            <param name="key">
+            The <typeparamref name="TKey"/> to search the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> for
+            </param>
+            <returns>
+            <c>true</c> if the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>
+            contains the requested <typeparamref name="TKey"/>; otherwise <c>false</c>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="key"/> must be non-null
+            </exception>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.ContainsValue(`1)">
             <summary>
-            Determines if the given <typeparamref name="TValue" /> exists within this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            Determines if the given <typeparamref name="TValue"/> exists within
+            this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
             </summary>
-            <param name="value">A <typeparamref name="TValue" /> to search the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> for</param>
-            <returns><c>true</c> if the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> contains the <paramref name="value" />; otherwise <c>false</c></returns>
+            <param name="value">
+            A <typeparamref name="TValue"/> to search the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> for
+            </param>
+            <returns>
+            <c>true</c> if the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>
+            contains the <paramref name="value"/>; otherwise <c>false</c>
+            </returns>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.GetEnumerator">
             <summary>
-            Get an Enumerator over the <typeparamref name="TKey" />-<see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/>
-            pairs in this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            Get an Enumerator over the <typeparamref name="TKey"/>-
+            <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> pairs in this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
             </summary>
-            <returns>an Enumerator over the <typeparamref name="TKey" />-<see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/>
-            pairs in this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.</returns>
+            <returns>
+            an Enumerator over the <typeparamref name="TKey"/>-
+            <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> pairs in this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            </returns>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Remove(`0)">
             <summary>
-            Removes every <typeparamref name="TValue" /> associated with the given <typeparamref name="TKey" />
-            from the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            Removes every <typeparamref name="TValue"/> associated with the
+            given <typeparamref name="TKey"/> from the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
             </summary>
-            <param name="key">The <typeparamref name="TKey" /> of the elements to remove</param>
-            <returns><c>true</c> if the removal was successful; otherwise <c>false</c></returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="key" /> is <c>null</c>.</exception>
+            <param name="key">
+            The <typeparamref name="TKey"/> of the elements to remove
+            </param>
+            <returns>
+            <c>true</c> if the removal was successful; otherwise <c>false</c>
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="key"/> is <c>null</c>.
+            </exception>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Remove(`0,`1)">
             <summary>
-            Removes the first instance (if any) of the given <typeparamref name="TKey" />-<typeparamref name="TValue" />
-            pair from this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
+            Removes the first instance (if any) of the given
+            <typeparamref name="TKey"/>- <typeparamref name="TValue"/> pair from
+            this <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>.
             </summary>
-            <param name="key">The <typeparamref name="TKey" /> of the element to remove</param>
-            <param name="value">The <typeparamref name="TValue" /> of the element to remove</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="key" /> must be non-null</exception>
-            <returns><c>true</c> if the removal was successful; otherwise <c>false</c></returns>
+            <param name="key">
+            The <typeparamref name="TKey"/> of the element to remove
+            </param>
+            <param name="value">
+            The <typeparamref name="TValue"/> of the element to remove
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="key"/> must be non-null
+            </exception>
+            <returns>
+            <c>true</c> if the removal was successful; otherwise <c>false</c>
+            </returns>
             <remarks>
-            If the <typeparamref name="TValue" /> being removed is the last one associated with its <typeparamref name="TKey" />, then that
-            <typeparamref name="TKey" /> will be removed from the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> and its
-            associated <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> will be freed as if a call to <see cref="M:Cadru.Collections.MultiValueDictionary`2.Remove(`0)"/>
-            had been made.
+            If the <typeparamref name="TValue"/> being removed is the last one
+            associated with its <typeparamref name="TKey"/>, then that
+            <typeparamref name="TKey"/> will be removed from the
+            <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> and its associated
+            <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/> will be freed as if a call
+            to <see cref="M:Cadru.Collections.MultiValueDictionary`2.Remove(`0)"/> had been made.
             </remarks>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.TryGetValue(`0,System.Collections.Generic.IReadOnlyCollection{`1}@)">
             <summary>
-            Attempts to get the <typeparamref name="TValue" /> associated with the given
-            <typeparamref name="TKey" /> and place it into <paramref name="value" />.
+            Attempts to get the <typeparamref name="TValue"/> associated with
+            the given <typeparamref name="TKey"/> and place it into <paramref name="value"/>.
             </summary>
-            <param name="key">The <typeparamref name="TKey" /> of the element to retrieve</param>
+            <param name="key">
+            The <typeparamref name="TKey"/> of the element to retrieve
+            </param>
             <param name="value">
-            When this method returns, contains the <typeparamref name="TValue" /> associated with the specified
-            <typeparamref name="TKey" /> if it is found; otherwise contains the default value of <typeparamref name="TValue" />.
+            When this method returns, contains the <typeparamref name="TValue"/>
+            associated with the specified <typeparamref name="TKey"/> if it is
+            found; otherwise contains the default value of <typeparamref name="TValue"/>.
             </param>
             <returns>
-            <c>true</c> if the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> contains an element with the specified
-            <typeparamref name="TKey" />; otherwise, <c>false</c>.
+            <c>true</c> if the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>
+            contains an element with the specified <typeparamref name="TKey"/>;
+            otherwise, <c>false</c>.
             </returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="key" /> must be non-null</exception>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="key"/> must be non-null
+            </exception>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Enumerator.#ctor(Cadru.Collections.MultiValueDictionary{`0,`1})">
             <summary>
             Constructor for the enumerator
             </summary>
-            <param name="multiValueDictionary">A MultiValueDictionary to iterate over</param>
+            <param name="multiValueDictionary">
+            A MultiValueDictionary to iterate over
+            </param>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Enumerator.Dispose">
             <summary>
@@ -1146,68 +1516,102 @@
             Advances the enumerator to the next element of the collection.
             </summary>
             <returns>
-            true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.
+            true if the enumerator was successfully advanced to the next
+            element; false if the enumerator has passed the end of the collection.
             </returns>
-            <exception cref="T:System.InvalidOperationException">The collection was modified after the enumerator was created. </exception>
+            <exception cref="T:System.InvalidOperationException">
+            The collection was modified after the enumerator was created.
+            </exception>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Enumerator.Reset">
             <summary>
-            Sets the enumerator to its initial position, which is before the first element in the collection.
+            Sets the enumerator to its initial position, which is before the
+            first element in the collection.
             </summary>
-            <exception cref="T:System.InvalidOperationException">The collection was modified after the enumerator was created. </exception>
+            <exception cref="T:System.InvalidOperationException">
+            The collection was modified after the enumerator was created.
+            </exception>
         </member>
         <member name="T:Cadru.Collections.NameValuePair`1">
-            <summary>Defines a key/value pair that can be set or retrieved.</summary>
+            <summary>
+            Defines a key/value pair that can be set or retrieved.
+            </summary>
             <typeparam name="TValue">The type of the value.</typeparam>
             <filterpriority>1</filterpriority>
         </member>
         <member name="M:Cadru.Collections.NameValuePair`1.#ctor(System.String)">
-            <summary>Initializes a new instance of the <see cref="T:Cadru.Collections.NameValuePair`1" />
-            structure with the specified key.</summary>
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.NameValuePair`1"/> structure with the specified key.
+            </summary>
             <param name="key">The object defined in each key/value pair.</param>
         </member>
         <member name="P:Cadru.Collections.NameValuePair`1.Key">
-            <summary>Gets the key in the key/value pair.</summary>
-            <value>A <see cref="T:System.String" /> that is the key of the <see cref="T:Cadru.Collections.NameValuePair`1" />. </value>
+            <summary>
+            Gets the key in the key/value pair.
+            </summary>
+            <value>A <see cref="T:System.String"/> that is the key of the <see cref="T:Cadru.Collections.NameValuePair`1"/>.</value>
         </member>
         <member name="P:Cadru.Collections.NameValuePair`1.Value">
-            <summary>Gets the value in the key/value pair.</summary>
-            <value>A <see cref="T:System.Collections.Generic.IList`1"/> that is the value of the <see cref="T:Cadru.Collections.NameValuePair`1" />. </value>
+            <summary>
+            Gets the value in the key/value pair.
+            </summary>
+            <value>A <see cref="T:System.Collections.Generic.IList`1"/> that is the value of the <see cref="T:Cadru.Collections.NameValuePair`1"/>.</value>
         </member>
         <member name="M:Cadru.Collections.NameValuePair`1.op_Inequality(Cadru.Collections.NameValuePair{`0},Cadru.Collections.NameValuePair{`0})">
             <summary>
-            Determines whether two specified instances of <see cref="T:Cadru.Collections.NameValuePair`1"/> are not equal.
+            Determines whether two specified instances of
+            <see cref="T:Cadru.Collections.NameValuePair`1"/> are not equal.
             </summary>
             <param name="left">An <see cref="T:Cadru.Collections.NameValuePair`1"/>.</param>
             <param name="right">An <see cref="T:Cadru.Collections.NameValuePair`1"/>.</param>
-            <returns><see langword="true" /> if left and right do note represent the same server;
-            otherwise <see langword="false" />.</returns>
+            <returns>
+            <see langword="true"/> if left and right do note represent the same
+            server; otherwise <see langword="false"/>.
+            </returns>
         </member>
         <member name="M:Cadru.Collections.NameValuePair`1.op_Equality(Cadru.Collections.NameValuePair{`0},Cadru.Collections.NameValuePair{`0})">
             <summary>
-            Determines whether two specified instances of <see cref="T:Cadru.Collections.NameValuePair`1"/> are equal.
+            Determines whether two specified instances of
+            <see cref="T:Cadru.Collections.NameValuePair`1"/> are equal.
             </summary>
             <param name="left">An <see cref="T:Cadru.Collections.NameValuePair`1"/>.</param>
             <param name="right">An <see cref="T:Cadru.Collections.NameValuePair`1"/>.</param>
-            <returns><see langword="true" /> if left and right represent the same server; otherwise <see langword="false" />.</returns>
+            <returns>
+            <see langword="true"/> if left and right represent the same server;
+            otherwise <see langword="false"/>.
+            </returns>
         </member>
         <member name="M:Cadru.Collections.NameValuePair`1.Equals(Cadru.Collections.NameValuePair{`0})">
             <summary>
-            Returns a value indicating whether this instance is equal to the specified <see cref="T:Cadru.Collections.NameValuePair`1"/> instance.
+            Returns a value indicating whether this instance is equal to the
+            specified <see cref="T:Cadru.Collections.NameValuePair`1"/> instance.
             </summary>
-            <param name="other">An <see cref="T:Cadru.Collections.NameValuePair`1"/> instance to compare to this instance.</param>
-            <returns><see langword="true" /> if the other parameter equals the value of this instance; otherwise, <see langword="false" />. </returns>
-            <remarks>This method implements the <see cref="T:System.IEquatable`1"/> interface and performs slightly
-            better than the <see cref="M:Cadru.Collections.NameValuePair`1.Equals(System.Object)"/> method because it does not have to convert
-            the other parameter to an object.</remarks>
+            <param name="other">
+            An <see cref="T:Cadru.Collections.NameValuePair`1"/> instance to compare to this instance.
+            </param>
+            <returns>
+            <see langword="true"/> if the other parameter equals the value of
+            this instance; otherwise, <see langword="false"/>.
+            </returns>
+            <remarks>
+            This method implements the <see cref="T:System.IEquatable`1"/>
+            interface and performs slightly better than the
+            <see cref="M:Cadru.Collections.NameValuePair`1.Equals(System.Object)"/> method because it
+            does not have to convert the other parameter to an object.
+            </remarks>
         </member>
         <member name="M:Cadru.Collections.NameValuePair`1.Equals(System.Object)">
             <summary>
-            Returns a value indicating whether this instance is equal to a specified object.
+            Returns a value indicating whether this instance is equal to a
+            specified object.
             </summary>
             <param name="obj">An object to compare to this instance.</param>
-            <returns><see langword="true" /> if value is an instance of <see cref="T:Cadru.Collections.NameValuePair`1"/>
-            equals the value of this instance; otherwise, <see langword="false" />. </returns>
+            <returns>
+            <see langword="true"/> if value is an instance of
+            <see cref="T:Cadru.Collections.NameValuePair`1"/> equals the value of this
+            instance; otherwise, <see langword="false"/>.
+            </returns>
         </member>
         <member name="M:Cadru.Collections.NameValuePair`1.GetHashCode">
             <summary>
@@ -1216,8 +1620,16 @@
             <returns>A 32-bit signed integer hash code.</returns>
         </member>
         <member name="M:Cadru.Collections.NameValuePair`1.ToString">
-            <summary>Returns a string representation of the <see cref="T:System.Collections.Generic.KeyValuePair`2" />, using the string representations of the key and value.</summary>
-            <returns>A string representation of the <see cref="T:System.Collections.Generic.KeyValuePair`2" />, which includes the string representations of the key and value.</returns>
+            <summary>
+            Returns a string representation of the
+            <see cref="T:System.Collections.Generic.KeyValuePair`2"/>, using the
+            string representations of the key and value.
+            </summary>
+            <returns>
+            A string representation of the
+            <see cref="T:System.Collections.Generic.KeyValuePair`2"/>, which
+            includes the string representations of the key and value.
+            </returns>
         </member>
         <member name="T:Cadru.Collections.Range`1">
             <summary>
@@ -1238,7 +1650,9 @@
             </summary>
             <param name="lowerBound">The start of the range.</param>
             <param name="upperBound">The end of the range.</param>
-            <param name="comparer">The <see cref="T:System.Collections.Generic.IComparer`1"/> used to perform range comparisons.</param>
+            <param name="comparer">
+            The <see cref="T:System.Collections.Generic.IComparer`1"/> used to perform range comparisons.
+            </param>
         </member>
         <member name="M:Cadru.Collections.Range`1.#ctor(`0,`0,System.Collections.Generic.IComparer{`0},Cadru.Collections.RangeEndpointOption)">
             <summary>
@@ -1246,7 +1660,9 @@
             </summary>
             <param name="lowerBound">The start of the range.</param>
             <param name="upperBound">The end of the range.</param>
-            <param name="comparer">The <see cref="T:System.Collections.Generic.IComparer`1"/> used to perform range comparisons.</param>
+            <param name="comparer">
+            The <see cref="T:System.Collections.Generic.IComparer`1"/> used to perform range comparisons.
+            </param>
             <param name="option"></param>
         </member>
         <member name="M:Cadru.Collections.Range`1.#ctor(`0,`0,Cadru.Collections.RangeEndpointOption)">
@@ -1259,7 +1675,8 @@
         </member>
         <member name="P:Cadru.Collections.Range`1.Comparer">
             <summary>
-            Gets the <see cref="T:System.Collections.Generic.IComparer`1"/> used to compare the values in the range.
+            Gets the <see cref="T:System.Collections.Generic.IComparer`1"/> used to compare the values in
+            the range.
             </summary>
             <value>An <see cref="T:System.Collections.Generic.IComparer`1"/> instance.</value>
         </member>
@@ -1280,51 +1697,72 @@
             Determines whether the <see cref="T:Cadru.Collections.Range`1"/> contains the specified value.
             </summary>
             <param name="value">The value to locate in the <see cref="T:Cadru.Collections.Range`1"/>.</param>
-            <returns><see langword="true" /> if the <see cref="T:Cadru.Collections.Range`1"/>
-            contains the specified value; otherwise, <see langword="false" />.</returns>
+            <returns>
+            <see langword="true"/> if the <see cref="T:Cadru.Collections.Range`1"/> contains the
+            specified value; otherwise, <see langword="false"/>.
+            </returns>
         </member>
         <member name="M:Cadru.Collections.Range`1.Contains(Cadru.Collections.Range{`0})">
             <summary>
             Determines whether the <see cref="T:Cadru.Collections.Range`1"/> contains the specified value.
             </summary>
             <param name="range">The value to locate in the <see cref="T:Cadru.Collections.Range`1"/>.</param>
-            <returns><see langword="true" /> if the <see cref="T:Cadru.Collections.Range`1"/>
-            contains the specified value; otherwise, <see langword="false" />.</returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="range" /> is <see langword="null" />.</exception>
+            <returns>
+            <see langword="true"/> if the <see cref="T:Cadru.Collections.Range`1"/> contains the
+            specified value; otherwise, <see langword="false"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="range"/> is <see langword="null"/>.
+            </exception>
         </member>
         <member name="M:Cadru.Collections.Range`1.GetEnumerator">
             <summary>
             Returns an enumerator that iterates through the <see cref="T:Cadru.Collections.Range`1"/>.
             </summary>
-            <returns>An <see cref="T:System.Collections.Generic.IEnumerator`1"/> object that can be used
-             to iterate through the <see cref="T:Cadru.Collections.Range`1"/>.</returns>
+            <returns>
+            An <see cref="T:System.Collections.Generic.IEnumerator`1"/> object that can be used to iterate
+            through the <see cref="T:Cadru.Collections.Range`1"/>.
+            </returns>
         </member>
         <member name="M:Cadru.Collections.Range`1.System#Collections#IEnumerable#GetEnumerator">
             <summary>
             Returns an enumerator that iterates through the <see cref="T:Cadru.Collections.Range`1"/>.
             </summary>
-            <returns>An <see cref="T:System.Collections.IEnumerator" /> object that can be used
-             to iterate through the <see cref="T:Cadru.Collections.Range`1"/>.</returns>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate
+            through the <see cref="T:Cadru.Collections.Range`1"/>.
+            </returns>
         </member>
         <member name="M:Cadru.Collections.Range`1.Intersect(Cadru.Collections.Range{`0})">
             <summary>
             Produces the intersection of two ranges.
             </summary>
-            <param name="other">A <see cref="T:Cadru.Collections.Range`1"/> whose distinct elements
-            that also appear in this instance will be returned.</param>
-            <returns>A <see cref="T:Cadru.Collections.Range`1"/> that contains the elements that form the interval intersection
-            of the two ranges, or <see langword="null" /> if there is no intersection.</returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="other" /> is <see langword="null" />.</exception>
+            <param name="other">
+            A <see cref="T:Cadru.Collections.Range`1"/> whose distinct elements that also appear in
+            this instance will be returned.
+            </param>
+            <returns>
+            A <see cref="T:Cadru.Collections.Range`1"/> that contains the elements that form the
+            interval intersection of the two ranges, or <see langword="null"/>
+            if there is no intersection.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="other"/> is <see langword="null"/>.
+            </exception>
         </member>
         <member name="M:Cadru.Collections.Range`1.IsContainedBy(Cadru.Collections.Range{`0})">
             <summary>
-            Determines whether the <see cref="T:Cadru.Collections.Range`1"/> is contained within the
-            specified range.
+            Determines whether the <see cref="T:Cadru.Collections.Range`1"/> is contained within
+            the specified range.
             </summary>
             <param name="range">The range used to test for containment.</param>
-            <returns><see langword="true" /> if the <see cref="T:Cadru.Collections.Range`1"/>
-            is contained within the specified range; otherwise, <see langword="false" />.</returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="range" /> is <see langword="null" />.</exception>
+            <returns>
+            <see langword="true"/> if the <see cref="T:Cadru.Collections.Range`1"/> is contained
+            within the specified range; otherwise, <see langword="false"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="range"/> is <see langword="null"/>.
+            </exception>
         </member>
         <member name="M:Cadru.Collections.Range`1.IsContiguousWith(Cadru.Collections.Range{`0})">
             <summary>
@@ -1332,45 +1770,61 @@
             specified range.
             </summary>
             <param name="range">The range to check.</param>
-            <returns><see langword="true" /> if the ranges are contiguous;
-            otherwise, <see langword="false" />.</returns>
-            <remarks>Contiguous can mean containing, overlapping, or being next to.</remarks>
-            <exception cref="T:System.ArgumentNullException"><paramref name="range" /> is <see langword="null" />.</exception>
+            <returns>
+            <see langword="true"/> if the ranges are contiguous; otherwise, <see langword="false"/>.
+            </returns>
+            <remarks>
+            Contiguous can mean containing, overlapping, or being next to.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="range"/> is <see langword="null"/>.
+            </exception>
         </member>
         <member name="M:Cadru.Collections.Range`1.Overlaps(Cadru.Collections.Range{`0})">
             <summary>
-            Determines whether the <see cref="T:Cadru.Collections.Range`1"/> overlaps the
-            specified range.
+            Determines whether the <see cref="T:Cadru.Collections.Range`1"/> overlaps the specified range.
             </summary>
             <param name="range">A range to test.</param>
-            <returns><see langword="true" /> if the ranges overlap;
-            otherwise, <see langword="false" />.</returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="range" /> is <see langword="null" />.</exception>
+            <returns>
+            <see langword="true"/> if the ranges overlap; otherwise, <see langword="false"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="range"/> is <see langword="null"/>.
+            </exception>
         </member>
         <member name="M:Cadru.Collections.Range`1.SetEnumerator(Cadru.Collections.RangeIterator{`0})">
             <summary>
             Sets an enumerator that iterates through the <see cref="T:Cadru.Collections.Range`1"/>.
             </summary>
-            <param name="iterator">An <see cref="T:Cadru.Collections.RangeIterator`1"/> object that
-            can be used to iterate through the <see cref="T:Cadru.Collections.Range`1"/>.</param>
+            <param name="iterator">
+            An <see cref="T:Cadru.Collections.RangeIterator`1"/> object that can be used to iterate
+            through the <see cref="T:Cadru.Collections.Range`1"/>.
+            </param>
         </member>
         <member name="M:Cadru.Collections.Range`1.ToString">
             <summary>
             Returns a string representation of the <see cref="T:Cadru.Collections.Range`1"/>.
             </summary>
-            <returns>The value of this <see cref="T:Cadru.Collections.Range`1"/>, formatted
-             using standard interval notation.
+            <returns>
+            The value of this <see cref="T:Cadru.Collections.Range`1"/>, formatted using standard
+            interval notation.
             </returns>
         </member>
         <member name="M:Cadru.Collections.Range`1.Union(Cadru.Collections.Range{`0})">
             <summary>
             Produces the union of two ranges.
             </summary>
-            <param name="other">A <see cref="T:Cadru.Collections.Range`1"/> whose distinct elements
-            form the second interval for the union.</param>
-            <returns>A <see cref="T:Cadru.Collections.Range`1"/> that contains the elements that from both ranges,
-            or <see langword="null" /> if there is no union.</returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="other" /> is <see langword="null" />.</exception>
+            <param name="other">
+            A <see cref="T:Cadru.Collections.Range`1"/> whose distinct elements form the second
+            interval for the union.
+            </param>
+            <returns>
+            A <see cref="T:Cadru.Collections.Range`1"/> that contains the elements that from both
+            ranges, or <see langword="null"/> if there is no union.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="other"/> is <see langword="null"/>.
+            </exception>
         </member>
         <member name="T:Cadru.Collections.RangeEndpointOption">
             <summary>
@@ -1489,15 +1943,19 @@
             <summary>
             Returns an enumerator that iterates through the <see cref="T:Cadru.Collections.Range`1"/>.
             </summary>
-            <returns>An <see cref="T:System.Collections.Generic.IEnumerator`1"/> object that can be used
-             to iterate through the <see cref="T:Cadru.Collections.Range`1"/>.</returns>
+            <returns>
+            An <see cref="T:System.Collections.Generic.IEnumerator`1"/> object that can be used to iterate
+            through the <see cref="T:Cadru.Collections.Range`1"/>.
+            </returns>
         </member>
         <member name="M:Cadru.Collections.RangeIterator`1.System#Collections#IEnumerable#GetEnumerator">
             <summary>
             Returns an enumerator that iterates through the <see cref="T:Cadru.Collections.Range`1"/>.
             </summary>
-            <returns>An <see cref="T:System.Collections.IEnumerator" /> object that can be used
-             to iterate through the <see cref="T:Cadru.Collections.Range`1"/>.</returns>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate
+            through the <see cref="T:Cadru.Collections.Range`1"/>.
+            </returns>
         </member>
         <member name="T:Cadru.Collections.Resources.Strings">
             <summary>
@@ -2078,15 +2536,15 @@
         <member name="T:Cadru.Collections.ReverseComparisonComparer`1">
             <summary>
             Represents a <see cref="T:System.Collections.Generic.Comparer`1"/> which uses a
-            <see cref="T:System.Comparison`1"/> as the basis for the comparison,
-            but that reverses the comparison operation.
+            <see cref="T:System.Comparison`1"/> as the basis for the comparison, but that
+            reverses the comparison operation.
             </summary>
             <typeparam name="T">The type of the objects to compare.</typeparam>
         </member>
         <member name="M:Cadru.Collections.ReverseComparisonComparer`1.#ctor(System.Comparison{`0})">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Collections.ReverseComparisonComparer`1"/>
-            class.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Collections.ReverseComparisonComparer`1"/> class.
             </summary>
             <param name="comparison">The comparison to use.</param>
         </member>
@@ -2096,12 +2554,14 @@
             </summary>
             <param name="comparison">The comparison to use.</param>
             <returns>The new comparer.</returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="comparison" /> is <see langword="null" />.</exception>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="comparison"/> is <see langword="null"/>.
+            </exception>
         </member>
         <member name="M:Cadru.Collections.ReverseComparisonComparer`1.Compare(`0,`0)">
             <summary>
-            Performs a comparison of two objects of the same type and returns
-            a value indicating whether one object is less than, equal to, or
+            Performs a comparison of two objects of the same type and returns a
+            value indicating whether one object is less than, equal to, or
             greater than the other.
             </summary>
             <param name="x">The first object to compare.</param>
@@ -2116,21 +2576,15 @@
             </listheader>
             <item>
             <term>Less than zero</term>
-            <description>
-            <paramref name="y" /> is less than <paramref name="x" />.
-            </description>
+            <description><paramref name="y"/> is less than <paramref name="x"/>.</description>
             </item>
             <item>
             <term>Zero</term>
-            <description>
-            <paramref name="y" /> equals <paramref name="x" />.
-            </description>
+            <description><paramref name="y"/> equals <paramref name="x"/>.</description>
             </item>
             <item>
             <term>Greater than zero</term>
-            <description>
-            <paramref name="y" /> is greater than <paramref name="x" />.
-            </description>
+            <description><paramref name="y"/> is greater than <paramref name="x"/>.</description>
             </item>
             </list>
             </returns>

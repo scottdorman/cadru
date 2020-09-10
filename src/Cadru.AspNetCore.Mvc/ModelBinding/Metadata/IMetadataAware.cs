@@ -25,7 +25,8 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 namespace Cadru.AspNetCore.Mvc.ModelBinding.Metadata
 {
     /// <summary>
-    /// Provides an interface for exposing attributes to the <see cref="DisplayMetadataProviderContext" /> class.
+    /// Provides an interface for exposing attributes to the
+    /// <see cref="DisplayMetadataProviderContext"/> class.
     /// </summary>
     public interface IMetadataAware
     {

@@ -49,68 +49,64 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Represents a URI scheme for a resource which is a file on the
-        /// local computer.
+        /// Represents a URI scheme for a resource which is a file on the local computer.
         /// </summary>
-        /// <value>A URI scheme for a resource which is a file on the local
-        /// computer.</value>
+        /// <value>
+        /// A URI scheme for a resource which is a file on the local computer.
+        /// </value>
         public static UriScheme File => fileScheme;
 
         /// <summary>
-        /// Represents a URI scheme for a resource which is accessed through
-        /// FTP.
+        /// Represents a URI scheme for a resource which is accessed through FTP.
         /// </summary>
-        /// <value>A URI scheme for a resource which is accessed through
-        /// FTP.</value>
+        /// <value>A URI scheme for a resource which is accessed through FTP.</value>
         public static UriScheme Ftp => ftpScheme;
 
         /// <summary>
-        /// Represents a URI scheme for a resource which is accessed through
-        /// the Gopher protocol.
+        /// Represents a URI scheme for a resource which is accessed through the
+        /// Gopher protocol.
         /// </summary>
-        /// <value>A URI scheme for a resource which is accessed through
-        /// the Gopher protocol.</value>
+        /// <value>
+        /// A URI scheme for a resource which is accessed through the Gopher protocol.
+        /// </value>
         public static UriScheme Gopher => gopherScheme;
 
         /// <summary>
-        /// Represents a URI scheme for a resource which is accessed through
-        /// HTTP.
+        /// Represents a URI scheme for a resource which is accessed through HTTP.
         /// </summary>
-        /// <value>A URI scheme for a resource which is accessed through
-        /// HTTP.</value>
+        /// <value>A URI scheme for a resource which is accessed through HTTP.</value>
         public static UriScheme Http => httpScheme;
 
         /// <summary>
         /// Represents a URI scheme for a resource which is accessed through
         /// SSL-encrypted HTTP.
         /// </summary>
-        /// <value>A URI scheme for a resource which is accessed through
-        /// SSL-encrypted HTTP.</value>
+        /// <value>
+        /// A URI scheme for a resource which is accessed through SSL-encrypted HTTP.
+        /// </value>
         public static UriScheme Https => httpsScheme;
 
         /// <summary>
         /// Represents a URI scheme for a resource which is an e-mail address
         /// and is access through SMTP.
         /// </summary>
-        /// <value>A URI scheme for a resource which is an e-mail address and
-        /// is accessed through SMTP.</value>
+        /// <value>
+        /// A URI scheme for a resource which is an e-mail address and is
+        /// accessed through SMTP.
+        /// </value>
         public static UriScheme MailTo => mailtoScheme;
 
         /// <summary>
-        /// Represents a URI scheme for a resource which is accessed through
-        /// NNTP.
+        /// Represents a URI scheme for a resource which is accessed through NNTP.
         /// </summary>
-        /// <value>A URI scheme for a resource which is accessed through
-        /// NNTP.</value>
+        /// <value>A URI scheme for a resource which is accessed through NNTP.</value>
         public static UriScheme News => newsScheme;
 
         /// <summary>
-        /// Defines an implicit conversion from <see cref="UriScheme" /> to <see cref="System.String" />.
+        /// Defines an implicit conversion from <see cref="UriScheme"/> to <see cref="System.String"/>.
         /// </summary>
         /// <param name="value">The object to convert.</param>
-        /// <returns>
-        /// The converted object.
-        /// </returns>
+        /// <returns>The converted object.</returns>
         public static implicit operator string(UriScheme value)
         {
             Requires.NotNull(value, "value");
@@ -119,15 +115,15 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Determines whether two specified <see cref="UriScheme" />
-        /// objects represent different schemes.
+        /// Determines whether two specified <see cref="UriScheme"/> objects
+        /// represent different schemes.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="left" /> and
-        /// <paramref name="right" /> do not represent the same scheme;
-        /// otherwise, <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="left"/> and
+        /// <paramref name="right"/> do not represent the same scheme;
+        /// otherwise, <see langword="false"/>.
         /// </returns>
         public static bool operator !=(UriScheme left, UriScheme right)
         {
@@ -135,14 +131,14 @@ namespace Cadru.Net.Http
         }
 
         /// <summary>
-        /// Determines whether two specified <see cref="UriScheme" />
-        /// objects represent the same scheme.
+        /// Determines whether two specified <see cref="UriScheme"/> objects
+        /// represent the same scheme.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true" /> if both objects represent the same scheme;
-        /// otherwise, <see langword="false" />.
+        /// <see langword="true"/> if both objects represent the same scheme;
+        /// otherwise, <see langword="false"/>.
         /// </returns>
         public static bool operator ==(UriScheme left, UriScheme right)
         {
@@ -156,14 +152,12 @@ namespace Cadru.Net.Http
 
         /// <summary>
         /// Returns a value indicating whether the value of this instance is
-        /// equal to the value of the specified <see cref="UriScheme" />
-        /// instance.
+        /// equal to the value of the specified <see cref="UriScheme"/> instance.
         /// </summary>
-        /// <param name="obj">The object to compare to this
-        /// instance.</param>
+        /// <param name="obj">The object to compare to this instance.</param>
         /// <returns>
-        /// <see langword="true" /> if the <paramref name="obj" /> parameter
-        /// equals the value of this instance; otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the <paramref name="obj"/> parameter
+        /// equals the value of this instance; otherwise, <see langword="false"/>.
         /// </returns>
         public override bool Equals(object obj)
         {
@@ -177,14 +171,14 @@ namespace Cadru.Net.Http
 
         /// <summary>
         /// Returns a value indicating whether the value of this instance is
-        /// equal to the value of the specified <see cref="UriScheme" />
-        /// instance.
+        /// equal to the value of the specified <see cref="UriScheme"/> instance.
         /// </summary>
-        /// <param name="other">The <see cref="UriScheme" /> to compare to this
-        /// instance.</param>
+        /// <param name="other">
+        /// The <see cref="UriScheme"/> to compare to this instance.
+        /// </param>
         /// <returns>
-        /// <see langword="true" /> if the <paramref name="other" /> parameter
-        /// equals the value of this instance; otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the <paramref name="other"/> parameter
+        /// equals the value of this instance; otherwise, <see langword="false"/>.
         /// </returns>
         public bool Equals(UriScheme other)
         {
@@ -204,20 +198,19 @@ namespace Cadru.Net.Http
         /// <summary>
         /// Returns the hash code for this instance.
         /// </summary>
-        /// <returns>
-        /// A 32-bit signed integer hash code.
-        /// </returns>
+        /// <returns>A 32-bit signed integer hash code.</returns>
         public override int GetHashCode()
         {
             return this.scheme.ToUpperInvariant().GetHashCode();
         }
 
         /// <summary>
-        /// Converts the value of the current <see cref="UriScheme" />
-        /// object to its equivalent string representation.
+        /// Converts the value of the current <see cref="UriScheme"/> object to
+        /// its equivalent string representation.
         /// </summary>
         /// <returns>
-        /// A string representation of the value of the current <see cref="UriScheme" /> object.
+        /// A string representation of the value of the current
+        /// <see cref="UriScheme"/> object.
         /// </returns>
         public override string ToString()
         {

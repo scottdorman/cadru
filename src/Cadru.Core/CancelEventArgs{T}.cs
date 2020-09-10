@@ -26,8 +26,8 @@ using System.Runtime.Serialization;
 namespace Cadru
 {
     /// <summary>
-    /// <see cref="CancelEventArgs{T}"/> is the base class for classes containing event data
-    /// for a cancelable event.
+    /// <see cref="CancelEventArgs{T}"/> is the base class for classes
+    /// containing event data for a cancelable event.
     /// </summary>
     /// <typeparam name="T">The type of the event data.</typeparam>
     [DataContract]

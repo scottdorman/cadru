@@ -45,12 +45,13 @@ namespace Cadru.AspNetCore
         /// <summary>
         /// Creates a lookup engine using the provided mapping.
         /// </summary>
-        /// <param name="mappings">The cross reference table of file extensions
-        /// and content-types.</param>
+        /// <param name="mappings">
+        /// The cross reference table of file extensions and content-types.
+        /// </param>
         /// <remarks>
         /// It is recommended that the <see cref="IDictionary{T,K}"/> instance
-        /// use <see cref="StringComparer.OrdinalIgnoreCase" />. This <see
-        /// cref="IDictionary{T,K}"/> instance replaces the default mappings.
+        /// use <see cref="StringComparer.OrdinalIgnoreCase"/>. This
+        /// <see cref="IDictionary{T,K}"/> instance replaces the default mappings.
         /// </remarks>
         public MimeMappingProvider(IDictionary<string, string> mappings)
         {
@@ -61,8 +62,9 @@ namespace Cadru.AspNetCore
         /// Creates a new provider with a set of default mappings plus the
         /// additional mappings provided.
         /// </summary>
-        /// <param name="mappings">The mappings to add to the cross reference
-        /// table.</param>
+        /// <param name="mappings">
+        /// The mappings to add to the cross reference table.
+        /// </param>
         public MimeMappingProvider(params KeyValuePair<string, string>[] mappings)
         {
             this._contentTypeProvider = new FileExtensionContentTypeProvider();

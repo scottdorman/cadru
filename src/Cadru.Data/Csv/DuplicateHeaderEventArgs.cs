@@ -25,7 +25,7 @@ using System;
 namespace Cadru.Data.Csv
 {
     /// <summary>
-    /// Provides data for the <see cref="M:CsvReader.OnDuplicateHeader" /> event.
+    /// Provides data for the <see cref="M:CsvReader.OnDuplicateHeader"/> event.
     /// </summary>
     public class DuplicateHeaderEventArgs : EventArgs
     {
@@ -34,7 +34,9 @@ namespace Cadru.Data.Csv
         /// </summary>
         /// <param name="headerName">The name of the duplicate header.</param>
         /// <param name="index">The index of the duplicate header being added.</param>
-        /// <param name="existingDuplicateIndex">The index of the duplicate header that is already in the Column collection.</param>
+        /// <param name="existingDuplicateIndex">
+        /// The index of the duplicate header that is already in the Column collection.
+        /// </param>
         public DuplicateHeaderEventArgs(string headerName, int index, int existingDuplicateIndex)
         {
             this.HeaderName = headerName;
@@ -43,7 +45,8 @@ namespace Cadru.Data.Csv
         }
 
         /// <summary>
-        /// Index of the duplicate header that has already been added to the Column collection
+        /// Index of the duplicate header that has already been added to the
+        /// Column collection
         /// </summary>
         /// <value>The column index</value>
         public int ExistingDuplicateIndex { get; }

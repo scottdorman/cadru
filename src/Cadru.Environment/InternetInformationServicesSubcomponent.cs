@@ -46,7 +46,8 @@ namespace Cadru.Environment
         FTP,
 
         /// <summary>
-        /// Internet Information Services Manager (Microsoft Management Console [MMC] snap-in).
+        /// Internet Information Services Manager (Microsoft Management Console
+        /// [MMC] snap-in).
         /// </summary>
         ManagementConsole,
 

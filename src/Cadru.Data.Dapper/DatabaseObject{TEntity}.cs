@@ -27,11 +27,14 @@ namespace Cadru.Data.Dapper
     /// <summary>
     /// Represents a database object.
     /// </summary>
-    /// <typeparam name="TEntity">The underlying entity type which this database object maps to.</typeparam>
+    /// <typeparam name="TEntity">
+    /// The underlying entity type which this database object maps to.
+    /// </typeparam>
     public abstract partial class DatabaseObject<TEntity> : IDatabaseObject where TEntity : class
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DatabaseObject{TDatabase}"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="DatabaseObject{TDatabase}"/> class.
         /// </summary>
         /// <param name="context">The context which contains this entity.</param>
         /// <param name="databaseObjectType">The database object type.</param>
@@ -51,8 +54,8 @@ namespace Cadru.Data.Dapper
         public IObjectMap ObjectMap { get; }
 
         /// <summary>
-        /// The <see cref="IDapperCommandBuilder" /> used by this object to
-        /// create <see cref="CommandDefinition" /> instances.
+        /// The <see cref="IDapperCommandBuilder"/> used by this object to
+        /// create <see cref="CommandDefinition"/> instances.
         /// </summary>
         protected IDapperCommandBuilder CommandBuilder { get; set; }
     }

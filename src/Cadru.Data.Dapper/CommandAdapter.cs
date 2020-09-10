@@ -162,7 +162,8 @@ namespace Cadru.Data.Dapper
                 buffer.Append(quotePrefix);
             }
 
-            // Assuming that the suffix is escaped by doubling it. i.e. foo"bar becomes "foo""bar".
+            // Assuming that the suffix is escaped by doubling it. i.e. foo"bar
+            // becomes "foo""bar".
             if (!String.IsNullOrEmpty(quoteSuffix))
             {
                 var start = buffer.Length;
@@ -176,8 +177,9 @@ namespace Cadru.Data.Dapper
             }
         }
 
-        // the return value is true if the string was quoted and false if it was not
-        // this allows the caller to determine if it is an error or not for the quotedString to not be quoted
+        // the return value is true if the string was quoted and false if it was
+        // not this allows the caller to determine if it is an error or not for
+        // the quotedString to not be quoted
         private bool RemoveStringQuotes(string quotedString, string prefix, string suffix, out string unquotedString)
         {
             var prefixLength = prefix != null ? prefix.Length : 0;

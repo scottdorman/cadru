@@ -65,8 +65,8 @@ namespace Cadru.Build.Tasks.Internal
         {
             if (parameter == null)
             {
-                // Most ArgumentNullException overloads append its own rather clunky multi-line message.
-                // So use the one overload that doesn't.
+                // Most ArgumentNullException overloads append its own rather
+                // clunky multi-line message. So use the one overload that doesn't.
                 throw new ArgumentNullException(String.Format(Strings.Shared_ParameterCannotBeNull, parameterName), (Exception)null);
             }
         }

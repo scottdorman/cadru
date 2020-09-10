@@ -26,7 +26,8 @@ using System.Runtime.Serialization;
 namespace Cadru
 {
     /// <summary>
-    /// <see cref="EventArgs{T}"/> is the base class for classes containing event data.
+    /// <see cref="EventArgs{T}"/> is the base class for classes containing
+    /// event data.
     /// </summary>
     /// <typeparam name="T">The type of the event data.</typeparam>
     [DataContract]

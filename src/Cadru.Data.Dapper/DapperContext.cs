@@ -34,17 +34,17 @@ using Microsoft.Extensions.Options;
 namespace Cadru.Data.Dapper
 {
     /// <summary>
-    /// A <see cref="DapperContext" /> represents a session with the database and
+    /// A <see cref="DapperContext"/> represents a session with the database and
     /// can be used to query and save instances of your entities.
     /// </summary>
     /// <remarks>
     /// <para>
     /// Typically you create a class that derives from DbContext and contains
-    /// <see cref="IDatabaseObject" /> properties for each entity in the model.
+    /// <see cref="IDatabaseObject"/> properties for each entity in the model.
     /// </para>
     /// <para>
     /// The model is discovered by running a set of conventions over the entity
-    /// classes found in the <see cref="IDatabaseObject" /> properties on the
+    /// classes found in the <see cref="IDatabaseObject"/> properties on the
     /// derived context.
     /// </para>
     /// </remarks>
@@ -53,11 +53,15 @@ namespace Cadru.Data.Dapper
         private readonly DapperContextBuilder contextBuilder;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DapperContext" /> class.
+        /// Initializes a new instance of the <see cref="DapperContext"/> class.
         /// </summary>
-        /// <param name="contextBuilder">Additional information for creating the context.</param>
+        /// <param name="contextBuilder">
+        /// Additional information for creating the context.
+        /// </param>
         /// <param name="optionsAccessor">The context configuration options.</param>
-        /// <param name="loggerFactory">An <see cref="ILoggerFactory" /> instance used to create a logger.</param>
+        /// <param name="loggerFactory">
+        /// An <see cref="ILoggerFactory"/> instance used to create a logger.
+        /// </param>
         protected DapperContext([NotNull] DapperContextBuilder contextBuilder, IOptions<DapperContextOptions> optionsAccessor, ILoggerFactory loggerFactory)
         {
             this.Options = optionsAccessor.Value;

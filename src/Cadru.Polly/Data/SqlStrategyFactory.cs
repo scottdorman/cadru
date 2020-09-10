@@ -26,13 +26,12 @@ using System.Collections.Generic;
 namespace Cadru.Polly.Data
 {
     /// <summary>
-    /// Represents a set of methods for creating instances of an <see
-    /// cref="ISqlStrategy" />.
+    /// Represents a set of methods for creating instances of an <see cref="ISqlStrategy"/>.
     /// </summary>
     public abstract class SqlStrategyFactory : ISqlStrategyFactory
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlStrategyFactory" /> class.
+        /// Initializes a new instance of the <see cref="SqlStrategyFactory"/> class.
         /// </summary>
         protected SqlStrategyFactory()
         {
@@ -45,10 +44,10 @@ namespace Cadru.Polly.Data
         }
 
         /// <summary>
-        /// When overridden in a derived class, creates a new <see
-        /// cref="ISqlStrategy" /> instance.
+        /// When overridden in a derived class, creates a new
+        /// <see cref="ISqlStrategy"/> instance.
         /// </summary>
-        /// <returns>A new <see cref="ISqlStrategy" />.</returns>
+        /// <returns>A new <see cref="ISqlStrategy"/>.</returns>
         protected abstract SqlStrategyBuilder CreateStrategyBuilder(IServiceProvider serviceProvider, IEnumerable<IExceptionHandlingStrategy> exceptionHandlingStrategies);
     }
 }

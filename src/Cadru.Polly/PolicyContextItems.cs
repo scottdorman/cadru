@@ -27,12 +27,12 @@ using Polly;
 namespace Cadru.Polly
 {
     /// <summary>
-    /// Standard <see cref="Context" /> item keys.
+    /// Standard <see cref="Context"/> item keys.
     /// </summary>
     public static class PolicyContextItems
     {
         /// <summary>
-        /// The key for an <see cref="ILogger" /> item.
+        /// The key for an <see cref="ILogger"/> item.
         /// </summary>
         public static readonly string Logger = $"Logger";
     }

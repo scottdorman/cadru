@@ -33,9 +33,13 @@ namespace Cadru.Polly.Utilities
         /// Generates a timeout based retries and exponential back-off.
         /// </summary>
         /// <param name="initialDelay">The initial delay added to the timeout.</param>
-        /// <param name="factor">The linear factor to use for increasing the duration.</param>
-        /// <param name="retryCount">The maximum number of retries to use, in addition to the original call.</param>
-        /// <returns>A <see cref="TimeSpan" /> representing the timeout.</returns>
+        /// <param name="factor">
+        /// The linear factor to use for increasing the duration.
+        /// </param>
+        /// <param name="retryCount">
+        /// The maximum number of retries to use, in addition to the original call.
+        /// </param>
+        /// <returns>A <see cref="TimeSpan"/> representing the timeout.</returns>
         public static TimeSpan GetTimeout(TimeSpan initialDelay, int retryCount, double factor = 2.0)
         {
             var delay = initialDelay;

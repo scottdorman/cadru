@@ -34,7 +34,7 @@ namespace Cadru
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="EnumDescriptionAttribute" /> class.
+        /// <see cref="EnumDescriptionAttribute"/> class.
         /// </summary>
         /// <param name="description">The description to store in this attribute.</param>
         public EnumDescriptionAttribute(string description)

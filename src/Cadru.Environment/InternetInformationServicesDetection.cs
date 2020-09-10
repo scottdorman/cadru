@@ -53,10 +53,13 @@ namespace Cadru.Environment
         /// Determines if the version of ASP.NET is registered with Internet
         /// Information Services (IIS) on the local computer.
         /// </summary>
-        /// <param name="frameworkVersion">One of the
-        /// <see cref="FrameworkVersion" /> values.</param>
-        /// <returns><see langword="true" /> if the specified ASP.NET version
-        /// is registered; otherwise <see langword="false" />.</returns>
+        /// <param name="frameworkVersion">
+        /// One of the <see cref="FrameworkVersion"/> values.
+        /// </param>
+        /// <returns>
+        /// <see langword="true"/> if the specified ASP.NET version is
+        /// registered; otherwise <see langword="false"/>.
+        /// </returns>
         public static bool IsAspNetRegistered(FrameworkVersion frameworkVersion)
         {
             var ret = false;
@@ -102,25 +105,28 @@ namespace Cadru.Environment
         }
 
         /// <summary>
-        /// Determines if ASP is registered with Internet Information
-        /// Services (IIS) on the local computer.
+        /// Determines if ASP is registered with Internet Information Services
+        /// (IIS) on the local computer.
         /// </summary>
-        /// <returns><see langword="true" /> if ASP is registered; otherwise
-        /// <see langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if ASP is registered; otherwise <see langword="false"/>.
+        /// </returns>
         public static bool IsAspRegistered()
         {
             return IsInstalled(InternetInformationServicesSubcomponent.ASP);
         }
 
         /// <summary>
-        /// Determines if the specified version of Internet Information
-        /// Services (IIS) is installed on the local computer.
+        /// Determines if the specified version of Internet Information Services
+        /// (IIS) is installed on the local computer.
         /// </summary>
-        /// <param name="iisVersion">One of the
-        /// <see cref="InternetInformationServicesVersion" /> values.</param>
-        /// <returns><see langword="true" /> if the specified Internet
-        /// Information Services version is installed; otherwise
-        /// <see langword="false" />.</returns>
+        /// <param name="iisVersion">
+        /// One of the <see cref="InternetInformationServicesVersion"/> values.
+        /// </param>
+        /// <returns>
+        /// <see langword="true"/> if the specified Internet Information
+        /// Services version is installed; otherwise <see langword="false"/>.
+        /// </returns>
         public static bool IsInstalled(InternetInformationServicesVersion iisVersion)
         {
             var ret = false;
@@ -160,11 +166,13 @@ namespace Cadru.Environment
         /// Determines if the specified Internet Information Services (IIS)
         /// subcomponent is installed on the local computer.
         /// </summary>
-        /// <param name="subcomponent">One of the
-        /// <see cref="InternetInformationServicesSubcomponent" /> values.</param>
-        /// <returns><see langword="true" /> if the specified Internet
-        /// Information Services subcomponent is installed; otherwise
-        /// <see langword="false" />.</returns>
+        /// <param name="subcomponent">
+        /// One of the <see cref="InternetInformationServicesSubcomponent"/> values.
+        /// </param>
+        /// <returns>
+        /// <see langword="true"/> if the specified Internet Information
+        /// Services subcomponent is installed; otherwise <see langword="false"/>.
+        /// </returns>
         /// <remarks>Subcomponents only apply to IIS versions 6 and earlier.</remarks>
         public static bool IsInstalled(InternetInformationServicesSubcomponent subcomponent)
         {
@@ -248,11 +256,13 @@ namespace Cadru.Environment
         /// Determines if the specified Internet Information Services (IIS)
         /// feature is installed and enabled on the local computer.
         /// </summary>
-        /// <param name="feature">One of the
-        /// <see cref="InternetInformationServicesFeature" /> values.</param>
-        /// <returns><see langword="true" /> if the specified Internet
-        /// Information Services feature is installed; otherwise
-        /// <see langword="false" />.</returns>
+        /// <param name="feature">
+        /// One of the <see cref="InternetInformationServicesFeature"/> values.
+        /// </param>
+        /// <returns>
+        /// <see langword="true"/> if the specified Internet Information
+        /// Services feature is installed; otherwise <see langword="false"/>.
+        /// </returns>
         /// <remarks>Features only apply to IIS versions 7 and later.</remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity",
             Justification = "This method appears to be complex because of it's length, but it's almost all just a switch statement which then calls out to other methods to do the work.")]
@@ -449,9 +459,10 @@ namespace Cadru.Environment
         /// <summary>
         /// Gets the installed IIS version.
         /// </summary>
-        /// <returns>A <see cref="Version" /> representing the installed IIS
-        /// version or a <see cref="Version" /> representing 0.0.0.0 if
-        /// IIS is not installed.</returns>
+        /// <returns>
+        /// A <see cref="Version"/> representing the installed IIS version or a
+        /// <see cref="Version"/> representing 0.0.0.0 if IIS is not installed.
+        /// </returns>
         private static Version GetInstalledVersion()
         {
             var version = EmptyVersion;
@@ -475,10 +486,12 @@ namespace Cadru.Environment
         /// <param name="key">The specified sub key to open.</param>
         /// <param name="value">The name of the value to retrieve.</param>
         /// <param name="kind">The registry data type of the specified value.</param>
-        /// <param name="data">The data associated with the registry hive,
-        /// key, and value name.</param>
-        /// <returns><see langword="true" /> if the registry value was found;
-        /// otherwise, <see langword="false" />.</returns>
+        /// <param name="data">
+        /// The data associated with the registry hive, key, and value name.
+        /// </param>
+        /// <returns>
+        /// <see langword="true"/> if the registry value was found; otherwise, <see langword="false"/>.
+        /// </returns>
         private static bool GetRegistryValue<T>(RegistryHive hive, string key, string value, RegistryValueKind kind, out T data)
         {
             var success = false;
@@ -511,8 +524,7 @@ namespace Cadru.Environment
                                 // The registry value doesn't exist. Since the
                                 // value doesn't exist we have to assume that
                                 // the component isn't installed and return
-                                // false and leave the data param as the
-                                // default value.
+                                // false and leave the data param as the default value.
                             }
                         }
                     }
@@ -525,8 +537,9 @@ namespace Cadru.Environment
         /// <summary>
         /// Detects if ASP.NET 1.0 is registered with IIS.
         /// </summary>
-        /// <returns><see langword="true" /> if ASP.NET 1.0 is
-        /// registered; otherwise <see langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if ASP.NET 1.0 is registered; otherwise <see langword="false"/>.
+        /// </returns>
         private static bool IsAspNet10Registered()
         {
             // TODO: Determine how to detect ASP.NET 1.0
@@ -536,8 +549,9 @@ namespace Cadru.Environment
         /// <summary>
         /// Detects if ASP.NET 1.1 is registered with IIS.
         /// </summary>
-        /// <returns><see langword="true" /> if ASP.NET 1.1 is
-        /// registered; otherwise <see langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if ASP.NET 1.1 is registered; otherwise <see langword="false"/>.
+        /// </returns>
         private static bool IsAspNet11Registered()
         {
             string regValue;
@@ -547,8 +561,9 @@ namespace Cadru.Environment
         /// <summary>
         /// Detects if ASP.NET 2.0 is registered with IIS.
         /// </summary>
-        /// <returns><see langword="true" /> if ASP.NET 2.0 is
-        /// registered; otherwise <see langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if ASP.NET 2.0 is registered; otherwise <see langword="false"/>.
+        /// </returns>
         private static bool IsAspNet20Registered()
         {
             string regValue;
@@ -558,8 +573,9 @@ namespace Cadru.Environment
         /// <summary>
         /// Detects if ASP.NET 4.0 is registered with IIS.
         /// </summary>
-        /// <returns><see langword="true" /> if ASP.NET 4.0 is
-        /// registered; otherwise <see langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if ASP.NET 4.0 is registered; otherwise <see langword="false"/>.
+        /// </returns>
         private static bool IsAspNet40Registered()
         {
             string regValue;
@@ -569,9 +585,12 @@ namespace Cadru.Environment
         /// <summary>
         /// Detects if the specified feature is installed.
         /// </summary>
-        /// <param name="featureKey">The registry value representing the feature to test.</param>
-        /// <returns><see langword="true" /> if the feature is
-        /// installed; otherwise <see langword="false" />.</returns>
+        /// <param name="featureKey">
+        /// The registry value representing the feature to test.
+        /// </param>
+        /// <returns>
+        /// <see langword="true"/> if the feature is installed; otherwise <see langword="false"/>.
+        /// </returns>
         private static bool IsFeatureInstalled(string featureKey)
         {
             var found = false;
@@ -587,10 +606,16 @@ namespace Cadru.Environment
         /// <summary>
         /// Detects if the specified features are installed.
         /// </summary>
-        /// <param name="featureKey1">The registry value representing the first feature to test.</param>
-        /// <param name="featureKey2">The registry value representing the second feature to test.</param>
-        /// <returns><see langword="true" /> if both of the features are
-        /// installed; otherwise <see langword="false" />.</returns>
+        /// <param name="featureKey1">
+        /// The registry value representing the first feature to test.
+        /// </param>
+        /// <param name="featureKey2">
+        /// The registry value representing the second feature to test.
+        /// </param>
+        /// <returns>
+        /// <see langword="true"/> if both of the features are installed;
+        /// otherwise <see langword="false"/>.
+        /// </returns>
         private static bool IsFeatureInstalled(string featureKey1, string featureKey2)
         {
             var regValue = -1;
@@ -612,9 +637,13 @@ namespace Cadru.Environment
         /// <summary>
         /// Detects if the specified features are installed.
         /// </summary>
-        /// <param name="featureKeys">An array of feature registry keys to test.</param>
-        /// <returns><see langword="true" /> if all of the features are
-        /// installed; otherwise <see langword="false" />.</returns>
+        /// <param name="featureKeys">
+        /// An array of feature registry keys to test.
+        /// </param>
+        /// <returns>
+        /// <see langword="true"/> if all of the features are installed;
+        /// otherwise <see langword="false"/>.
+        /// </returns>
         private static bool IsFeatureInstalled(string[] featureKeys)
         {
             var regValue = -1;
@@ -633,9 +662,12 @@ namespace Cadru.Environment
         /// <summary>
         /// Detects if the specified subcomponent is installed.
         /// </summary>
-        /// <param name="subcomponent">The registry value representing the subcomponent to test.</param>
-        /// <returns><see langword="true" /> if the subcomponent is
-        /// installed; otherwise <see langword="false" />.</returns>
+        /// <param name="subcomponent">
+        /// The registry value representing the subcomponent to test.
+        /// </param>
+        /// <returns>
+        /// <see langword="true"/> if the subcomponent is installed; otherwise <see langword="false"/>.
+        /// </returns>
         private static bool IsSubcomponentInstalled(string subcomponent)
         {
             var found = false;

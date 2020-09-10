@@ -64,14 +64,15 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Gets the string value contained at the index or <see
-        /// langword="null" /> if that value is not found, is <see
-        /// langword="null" />, empty, or consists of all white-space characters.
+        /// Gets the string value contained at the index or
+        /// <see langword="null"/> if that value is not found, is
+        /// <see langword="null"/>, empty, or consists of all white-space characters.
         /// </summary>
         /// <param name="record">The string array to search.</param>
-        /// <param name="index">An integer that represents the position of
-        /// the array element to get.</param>
-        /// <returns>The string value or <see langword="null" />.</returns>
+        /// <param name="index">
+        /// An integer that represents the position of the array element to get.
+        /// </param>
+        /// <returns>The string value or <see langword="null"/>.</returns>
         public static string? GetStringOrNull(this string[] record, int index)
         {
             var val = record.GetValue(index)?.ToString();
@@ -102,8 +103,9 @@ namespace Cadru.Extensions
         /// Reverses an array.
         /// </summary>
         /// <param name="source">The source array.</param>
-        /// <remarks>This is a destructive operation and will mutate the
-        /// original array.</remarks>
+        /// <remarks>
+        /// This is a destructive operation and will mutate the original array.
+        /// </remarks>
         public static void ReverseArrayInPlace(this byte[] source)
         {
             Contracts.Requires.NotNull(source, nameof(source));

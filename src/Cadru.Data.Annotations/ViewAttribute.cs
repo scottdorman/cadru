@@ -35,7 +35,7 @@ namespace Cadru.Data.Annotations
         private string schema;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ViewAttribute" /> class.
+        /// Initializes a new instance of the <see cref="ViewAttribute"/> class.
         /// </summary>
         /// <param name="name">The name of the view the class is mapped to.</param>
         public ViewAttribute(string name)

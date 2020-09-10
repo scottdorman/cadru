@@ -76,7 +76,9 @@ namespace Cadru.Data.Csv
         /// Initializes a new instance of the MalformedCsvException class.
         /// </summary>
         /// <param name="message">The message that describes the error.</param>
-        /// <param name="innerException">The exception that is the cause of the current exception.</param>
+        /// <param name="innerException">
+        /// The exception that is the cause of the current exception.
+        /// </param>
         public MalformedCsvException(string message, Exception innerException) : base(String.Empty, innerException)
         {
             this._message = (message == null ? String.Empty : message);
@@ -106,7 +108,9 @@ namespace Cadru.Data.Csv
         /// <param name="currentPosition">The current position in the raw data.</param>
         /// <param name="currentRecordIndex">The current record index.</param>
         /// <param name="currentFieldIndex">The current field index.</param>
-        /// <param name="innerException">The exception that is the cause of the current exception.</param>
+        /// <param name="innerException">
+        /// The exception that is the cause of the current exception.
+        /// </param>
         public MalformedCsvException(string rawData, int currentPosition, long currentRecordIndex, int currentFieldIndex, Exception innerException) : base(String.Empty, innerException)
         {
             this._rawData = (rawData == null ? String.Empty : rawData);

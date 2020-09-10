@@ -34,7 +34,7 @@ namespace Cadru.Data.Csv
         private string typeName;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Column" /> class.
+        /// Initializes a new instance of the <see cref="Column"/> class.
         /// </summary>
         public Column()
         {

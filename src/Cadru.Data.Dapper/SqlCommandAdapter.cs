@@ -32,7 +32,7 @@ namespace Cadru.Data.Dapper
     public class SqlCommandAdapter : CommandAdapter
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlCommandAdapter" /> class.
+        /// Initializes a new instance of the <see cref="SqlCommandAdapter"/> class.
         /// </summary>
         public SqlCommandAdapter() : base()
         {

@@ -49,7 +49,8 @@ namespace Cadru.Data.Dapper
         string ColumnName { get; }
 
         /// <summary>
-        /// Gets a value indicating the pattern used to generate values for a property in the database.
+        /// Gets a value indicating the pattern used to generate values for a
+        /// property in the database.
         /// </summary>
         DatabaseGeneratedOption DatabaseGeneratedOption { get; }
 
@@ -75,8 +76,8 @@ namespace Cadru.Data.Dapper
         bool IsKey { get; }
 
         /// <summary>
-        /// Gets the read-only status of the current property.
-        /// If read-only, the current property will not be included in INSERT and UPDATE queries.
+        /// Gets the read-only status of the current property. If read-only, the
+        /// current property will not be included in INSERT and UPDATE queries.
         /// </summary>
         bool IsReadOnly { get; }
 
@@ -88,9 +89,11 @@ namespace Cadru.Data.Dapper
         /// <summary>
         /// Gets a value indicating if the column is updatable.
         /// </summary>
-        /// <value><see langword="true" /> if <see cref="Ignored" /> is <see langword="false" />,
-        /// <see cref="IsReadOnly" /> is <see langword="false" />, or
-        /// <see cref="DatabaseGeneratedOption" /> is <see cref="DatabaseGeneratedOption.None" />.</value>
+        /// <value>
+        /// <see langword="true"/> if <see cref="Ignored"/> is
+        /// <see langword="false"/>, <see cref="IsReadOnly"/> is
+        /// <see langword="false"/>, or <see cref="DatabaseGeneratedOption"/> is <see cref="DatabaseGeneratedOption.None"/>.
+        /// </value>
         bool IsUpdatable { get; }
 
         /// <summary>
@@ -104,17 +107,18 @@ namespace Cadru.Data.Dapper
         int? Order { get; }
 
         /// <summary>
-        /// Gets a value that can be used to set the watermark for prompts in the UI.
+        /// Gets a value that can be used to set the watermark for prompts in
+        /// the UI.
         /// </summary>
         string? Prompt { get; }
 
         /// <summary>
-        /// Gets the <see cref="PropertyInfo" /> for the current property.
+        /// Gets the <see cref="PropertyInfo"/> for the current property.
         /// </summary>
         PropertyInfo PropertyInfo { get; }
 
         /// <summary>
-        /// Gets the name of the property by using the specified <see cref="PropertyInfo" />.
+        /// Gets the name of the property by using the specified <see cref="PropertyInfo"/>.
         /// </summary>
         string PropertyName { get; }
 

@@ -30,17 +30,17 @@ namespace Cadru.Extensions
     public static class CollectionExtensions
     {
         /// <summary>
-        /// Adds the elements of the specified collection to the <see
-        /// cref="ICollection{T}"/>.
+        /// Adds the elements of the specified collection to the <see cref="ICollection{T}"/>.
         /// </summary>
-        /// <typeparam name="T">The type of elements in the
-        /// collection.</typeparam>
+        /// <typeparam name="T">The type of elements in the collection.</typeparam>
         /// <param name="instance">The collection to update.</param>
-        /// <param name="collection">The collection whose elements should be
-        /// added to the end of the <see cref="ICollection{T}"/>. The collection
-        /// itself cannot be <see langword="null" />, but it can contain elements
-        /// that are <see langword="null" />, if type <typeparamref name="T" /> is
-        /// a reference type.</param>
+        /// <param name="collection">
+        /// The collection whose elements should be added to the end of the
+        /// <see cref="ICollection{T}"/>. The collection itself cannot be
+        /// <see langword="null"/>, but it can contain elements that are
+        /// <see langword="null"/>, if type <typeparamref name="T"/> is a
+        /// reference type.
+        /// </param>
         public static void AddRange<T>(this ICollection<T> instance, IEnumerable<T> collection)
         {
             foreach (var item in collection)

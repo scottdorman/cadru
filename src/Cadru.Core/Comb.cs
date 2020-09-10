@@ -33,31 +33,34 @@ namespace Cadru
     /// <summary>
     /// Represents a combined globally unique identifier (GUID) and time stamp.
     /// </summary>
-    /// <remarks>A COMB is a 128-bit integer (16 bytes) that can be used across
-    /// all computers and networks wherever a unique identifier is required.
-    /// Such an identifier has a low probability of being duplicated.
+    /// <remarks>
+    /// A COMB is a 128-bit integer (16 bytes) that can be used across all
+    /// computers and networks wherever a unique identifier is required. Such an
+    /// identifier has a low probability of being duplicated.
     /// </remarks>
     [StructLayout(LayoutKind.Sequential)]
     public partial struct Comb : IFormattable, IComparable, IComparable<Comb>, IEquatable<Comb>
     {
         /// <summary>
-        /// A read-only instance of <see cref="Comb" /> structure whose value
-        /// is all zeros.
+        /// A read-only instance of <see cref="Comb"/> structure whose value is
+        /// all zeros.
         /// </summary>
-        /// <remarks>You can compare a <see cref="Comb" /> with the value of the
-        /// <see cref="Comb.Empty" /> field to determine whether a
-        /// <see cref="Comb" /> is non-zero.</remarks>
+        /// <remarks>
+        /// You can compare a <see cref="Comb"/> with the value of the
+        /// <see cref="Comb.Empty"/> field to determine whether a
+        /// <see cref="Comb"/> is non-zero.
+        /// </remarks>
         public static readonly Comb Empty = new Comb(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
         /// <summary>
         /// Represents the greatest possible date and time value which can be
-        /// held by a <see cref="Comb" />.
+        /// held by a <see cref="Comb"/>.
         /// </summary>
         public static readonly DateTimeOffset MaxDate = new DateTimeOffset(9999, 12, 31, 23, 59, 5, 999, TimeSpan.Zero);
 
         /// <summary>
         /// Represents the earliest possible date and time value which can be
-        /// held by a <see cref="Comb" />.
+        /// held by a <see cref="Comb"/>.
         /// </summary>
         public static readonly DateTimeOffset MinDate = new DateTimeOffset(1, 1, 1, 0, 0, 0, TimeSpan.Zero);
 
@@ -85,11 +88,13 @@ namespace Cadru
         private DateTimeOffset dateTime;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Comb" /> structure
-        /// using the specified array of bytes.
+        /// Initializes a new instance of the <see cref="Comb"/> structure using
+        /// the specified array of bytes.
         /// </summary>
-        /// <param name="array">A 16 element byte array containing values with
-        /// which to initialize the <see cref="Comb" />.</param>
+        /// <param name="array">
+        /// A 16 element byte array containing values with which to initialize
+        /// the <see cref="Comb"/>.
+        /// </param>
         public Comb(byte[] array)
             : this()
         {
@@ -111,12 +116,13 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Comb" /> structure using the specified integers and bytes.
+        /// Initializes a new instance of the <see cref="Comb"/> structure using
+        /// the specified integers and bytes.
         /// </summary>
-        /// <param name="a">The first 4 bytes of the <see cref="Comb" />.</param>
-        /// <param name="b">The next 2 bytes of the <see cref="Comb" />.</param>
-        /// <param name="c">The next 2 bytes of the <see cref="Comb" />.</param>
-        /// <param name="d">The remaining 8 bytes of the <see cref="Comb" />.</param>
+        /// <param name="a">The first 4 bytes of the <see cref="Comb"/>.</param>
+        /// <param name="b">The next 2 bytes of the <see cref="Comb"/>.</param>
+        /// <param name="c">The next 2 bytes of the <see cref="Comb"/>.</param>
+        /// <param name="d">The remaining 8 bytes of the <see cref="Comb"/>.</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "a", Justification = "Reviewed.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "b", Justification = "Reviewed.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "c", Justification = "Reviewed.")]
@@ -143,19 +149,20 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Comb" /> structure using the specified integers and bytes.
+        /// Initializes a new instance of the <see cref="Comb"/> structure using
+        /// the specified integers and bytes.
         /// </summary>
-        /// <param name="a">The first 4 bytes of the <see cref="Comb" />.</param>
-        /// <param name="b">The next 2 bytes of the <see cref="Comb" />.</param>
-        /// <param name="c">The next 2 bytes of the <see cref="Comb" />.</param>
-        /// <param name="d">The next byte of the <see cref="Comb" />.</param>
-        /// <param name="e">The next byte of the <see cref="Comb" />.</param>
-        /// <param name="f">The next byte of the <see cref="Comb" />.</param>
-        /// <param name="g">The next byte of the <see cref="Comb" />.</param>
-        /// <param name="h">The next byte of the <see cref="Comb" />.</param>
-        /// <param name="i">The next byte of the <see cref="Comb" />.</param>
-        /// <param name="j">The next byte of the <see cref="Comb" />.</param>
-        /// <param name="k">The next byte of the <see cref="Comb" />.</param>
+        /// <param name="a">The first 4 bytes of the <see cref="Comb"/>.</param>
+        /// <param name="b">The next 2 bytes of the <see cref="Comb"/>.</param>
+        /// <param name="c">The next 2 bytes of the <see cref="Comb"/>.</param>
+        /// <param name="d">The next byte of the <see cref="Comb"/>.</param>
+        /// <param name="e">The next byte of the <see cref="Comb"/>.</param>
+        /// <param name="f">The next byte of the <see cref="Comb"/>.</param>
+        /// <param name="g">The next byte of the <see cref="Comb"/>.</param>
+        /// <param name="h">The next byte of the <see cref="Comb"/>.</param>
+        /// <param name="i">The next byte of the <see cref="Comb"/>.</param>
+        /// <param name="j">The next byte of the <see cref="Comb"/>.</param>
+        /// <param name="k">The next byte of the <see cref="Comb"/>.</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "a", Justification = "Reviewed.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "b", Justification = "Reviewed.")]
@@ -186,23 +193,28 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Comb" /> structure using
+        /// Initializes a new instance of the <see cref="Comb"/> structure using
         /// the specified integers and byte array.
         /// </summary>
-        /// <param name="value"><para>A string that contains a
-        /// <see cref="Comb" /> in the following format:</para>
-        /// <para>hexadecimal digits are arranged in groups of
-        /// 8, 4, 4, 4, and 12 digits with hyphens between the
-        /// groups. The <see cref="Comb" /> can optionally be
-        /// enclosed in matching braces.</para>
-        /// <para>For example:
-        /// dddddddd-dddd-dddd-dddd-dddddddddddd or
-        /// {dddddddd-dddd-dddd-dddd-dddddddddddd}.</para>
-        /// <para>Alternatively, the following format is permitted:
-        /// {0xdddddddd,0xdddd, 0xdddd,{0xdd},{0xdd},{0xdd},{0xdd},{0xdd},{0xdd},{0xdd},{0xdd}},
-        /// where d is a hexadecimal digit. If this format is used, all brackets and commas
-        /// indicated are required, and all numbers must be prefixed with "0x" as shown.
-        /// Fewer hexadecimal digits than shown can be used, but not more.</para>
+        /// <param name="value">
+        /// <para>
+        /// A string that contains a <see cref="Comb"/> in the following format:
+        /// </para>
+        /// <para>
+        /// hexadecimal digits are arranged in groups of 8, 4, 4, 4, and 12
+        /// digits with hyphens between the groups. The <see cref="Comb"/> can
+        /// optionally be enclosed in matching braces.
+        /// </para>
+        /// <para>For example: dddddddd-dddd-dddd-dddd-dddddddddddd or {dddddddd-dddd-dddd-dddd-dddddddddddd}.</para>
+        /// <para>
+        /// Alternatively, the following format is permitted:
+        /// {0xdddddddd,0xdddd,
+        /// 0xdddd,{0xdd},{0xdd},{0xdd},{0xdd},{0xdd},{0xdd},{0xdd},{0xdd}},
+        /// where d is a hexadecimal digit. If this format is used, all brackets
+        /// and commas indicated are required, and all numbers must be prefixed
+        /// with "0x" as shown. Fewer hexadecimal digits than shown can be used,
+        /// but not more.
+        /// </para>
         /// </param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         public Comb(string value)
@@ -220,19 +232,19 @@ namespace Cadru
         /// <summary>
         /// Gets the date and time represented by the current instance.
         /// </summary>
-        /// <value>A <see cref="DateTimeOffset" /> containing the data and time
-        /// represented by the current instance.</value>
+        /// <value>
+        /// A <see cref="DateTimeOffset"/> containing the data and time
+        /// represented by the current instance.
+        /// </value>
         public DateTimeOffset DateTime => this.dateTime;
 
         /// <summary>
-        /// Determines whether two specified <see cref="Comb" />
-        /// objects are equal.
+        /// Determines whether two specified <see cref="Comb"/> objects are equal.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true" /> if both objects are equal;
-        /// otherwise, <see langword="false" />.
+        /// <see langword="true"/> if both objects are equal; otherwise, <see langword="false"/>.
         /// </returns>
         public static bool operator ==(Comb left, Comb right)
         {
@@ -240,14 +252,14 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Determines whether one <see cref="Comb" /> instance is greater than
+        /// Determines whether one <see cref="Comb"/> instance is greater than
         /// the other.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true" /> if the first instance is greater than the second;
-        /// otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the first instance is greater than the
+        /// second; otherwise, <see langword="false"/>.
         /// </returns>
         public static bool operator >(Comb left, Comb right)
         {
@@ -255,14 +267,14 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Determines whether one <see cref="Comb" /> instance is greater than
+        /// Determines whether one <see cref="Comb"/> instance is greater than
         /// or equal to the other.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true" /> if the first instance is greater than or
-        /// equal to the second; otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the first instance is greater than or
+        /// equal to the second; otherwise, <see langword="false"/>.
         /// </returns>
         public static bool operator >=(Comb left, Comb right)
         {
@@ -270,14 +282,14 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Determines whether one <see cref="Comb" /> instance is less than
-        /// or equal to the other.
+        /// Determines whether one <see cref="Comb"/> instance is less than or
+        /// equal to the other.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true" /> if the first instance is less than or
-        /// equal to the second; otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the first instance is less than or equal
+        /// to the second; otherwise, <see langword="false"/>.
         /// </returns>
         public static bool operator <=(Comb left, Comb right)
         {
@@ -285,14 +297,12 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Determines whether two specified <see cref="Comb" />
-        /// objects are not equal.
+        /// Determines whether two specified <see cref="Comb"/> objects are not equal.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true" /> if both objects are not equal;
-        /// otherwise, <see langword="false" />.
+        /// <see langword="true"/> if both objects are not equal; otherwise, <see langword="false"/>.
         /// </returns>
         public static bool operator !=(Comb left, Comb right)
         {
@@ -300,14 +310,13 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Determines whether one <see cref="Comb" /> instance is less than
-        /// the other.
+        /// Determines whether one <see cref="Comb"/> instance is less than the other.
         /// </summary>
         /// <param name="left">The first object to compare.</param>
         /// <param name="right">The second object to compare.</param>
         /// <returns>
-        /// <see langword="true" /> if the first instance is less than the second;
-        /// otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the first instance is less than the
+        /// second; otherwise, <see langword="false"/>.
         /// </returns>
         public static bool operator <(Comb left, Comb right)
         {
@@ -315,34 +324,37 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Comb" /> structure.
+        /// Initializes a new instance of the <see cref="Comb"/> structure.
         /// </summary>
-        /// <returns>A new <see cref="Comb" /> object.</returns>
-        /// <remarks>The date and time value contained by the new
-        /// <see cref="Comb" /> is the current date and time
-        /// as represented by <see cref="DateTimeOffset.UtcNow" />.</remarks>
+        /// <returns>A new <see cref="Comb"/> object.</returns>
+        /// <remarks>
+        /// The date and time value contained by the new <see cref="Comb"/> is
+        /// the current date and time as represented by <see cref="DateTimeOffset.UtcNow"/>.
+        /// </remarks>
         public static Comb NewComb()
         {
             return NewComb(DateTimeOffset.UtcNow);
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Comb" /> structure.
+        /// Initializes a new instance of the <see cref="Comb"/> structure.
         /// </summary>
-        /// <param name="date">A date and time value to be contained by the
-        /// new <see cref="Comb" />.</param>
-        /// <returns>A new <see cref="Comb" /> object.</returns>
+        /// <param name="date">
+        /// A date and time value to be contained by the new <see cref="Comb"/>.
+        /// </param>
+        /// <returns>A new <see cref="Comb"/> object.</returns>
         public static Comb NewComb(DateTime date)
         {
             return NewComb(new DateTimeOffset(date));
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Comb" /> structure.
+        /// Initializes a new instance of the <see cref="Comb"/> structure.
         /// </summary>
-        /// <param name="date">A date and time value to be contained by the
-        /// new <see cref="Comb" />.</param>
-        /// <returns>A new <see cref="Comb" /> object.</returns>
+        /// <param name="date">
+        /// A date and time value to be contained by the new <see cref="Comb"/>.
+        /// </param>
+        /// <returns>A new <see cref="Comb"/> object.</returns>
         public static Comb NewComb(DateTimeOffset date)
         {
             var buffer = Guid.NewGuid().ToByteArray();
@@ -378,21 +390,24 @@ namespace Cadru
 
         /// <summary>
         /// Converts the string representation of a COMB to the equivalent
-        /// <see cref="Comb" /> structure.
+        /// <see cref="Comb"/> structure.
         /// </summary>
         /// <param name="input">The string to convert.</param>
         /// <returns>A structure that contains the value that was parsed.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="input" /> is
-        /// <see langword="null" />.</exception>
-        /// <exception cref="FormatException"><paramref name="input" /> is not
-        /// in a recognized format.</exception>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="input"/> is <see langword="null"/>.
+        /// </exception>
+        /// <exception cref="FormatException">
+        /// <paramref name="input"/> is not in a recognized format.
+        /// </exception>
         /// <remarks>
-        /// <para>The Parse method converts the string representation of a
-        /// COMB to a <see cref="Comb" /> value. This method can convert
-        /// strings in any of the five formats produced by the
-        /// <see cref="ToString(String)"/> and
-        /// <see cref="ToString(String, IFormatProvider)"/> methods, as shown
-        /// in the following table.</para>
+        /// <para>
+        /// The Parse method converts the string representation of a COMB to a
+        /// <see cref="Comb"/> value. This method can convert strings in any of
+        /// the five formats produced by the <see cref="ToString(String)"/> and
+        /// <see cref="ToString(String, IFormatProvider)"/> methods, as shown in
+        /// the following table.
+        /// </para>
         /// <list type="table">
         /// <listheader>
         /// <term>Specifier</term>
@@ -411,50 +426,61 @@ namespace Cadru
         /// </item>
         /// <item>
         /// <term>B</term>
-        /// <description>32 digits separated by hyphens, enclosed in
-        /// braces</description>
+        /// <description>
+        /// 32 digits separated by hyphens, enclosed in braces
+        /// </description>
         /// <description>{00000000-0000-0000-0000-000000000000}</description>
         /// </item>
         /// <item>
         /// <term>P</term>
-        /// <description>32 digits separated by hyphens, enclosed in
-        /// parentheses</description>
+        /// <description>
+        /// 32 digits separated by hyphens, enclosed in parentheses
+        /// </description>
         /// <description>(00000000-0000-0000-0000-000000000000)</description>
         /// </item>
         /// <item>
         /// <term>X</term>
-        /// <description>Four hexadecimal values enclosed in braces,
-        /// where the fourth value is a subset of eight hexadecimal values that
-        /// is also enclosed in braces</description>
+        /// <description>
+        /// Four hexadecimal values enclosed in braces, where the fourth value
+        /// is a subset of eight hexadecimal values that is also enclosed in braces
+        /// </description>
         /// <description>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</description>
         /// </item>
         /// </list>
-        /// <para>The method throws a <see cref="FormatException" /> if it is
-        /// unable to successfully parse the string. Some of the reasons why
-        /// this might occur include:</para>
+        /// <para>
+        /// The method throws a <see cref="FormatException"/> if it is unable to
+        /// successfully parse the string. Some of the reasons why this might
+        /// occur include:
+        /// </para>
         /// <list type="bullet">
         /// <item>
-        /// <description><paramref name="input" /> contains characters that are
-        /// not part of the hexadecimal character set.</description>
-        /// </item>
-        /// <item>
-        /// <description><paramref name="input" /> has too many or too few
-        /// numeric characters.</description>
-        /// </item>
-        /// <item>
-        /// <description><paramref name="input" /> has too many or too few of
-        /// the non-numeric characters appropriate for a particular format.
+        /// <description>
+        /// <paramref name="input"/> contains characters that are not part of
+        /// the hexadecimal character set.
         /// </description>
         /// </item>
         /// <item>
-        /// <description><paramref name="input" /> is not in one of the
-        /// formats recognized by the <see cref="ToString()"/> method and
-        /// listed in the previous table.</description>
+        /// <description>
+        /// <paramref name="input"/> has too many or too few numeric characters.
+        /// </description>
+        /// </item>
+        /// <item>
+        /// <description>
+        /// <paramref name="input"/> has too many or too few of the non-numeric
+        /// characters appropriate for a particular format.
+        /// </description>
+        /// </item>
+        /// <item>
+        /// <description>
+        /// <paramref name="input"/> is not in one of the formats recognized by
+        /// the <see cref="ToString()"/> method and listed in the previous table.
+        /// </description>
         /// </item>
         /// </list>
-        /// <para>Use the <see cref="TryParse" /> method to catch any
-        /// unsuccessful parse operations without having to handle an
-        /// exception.</para>
+        /// <para>
+        /// Use the <see cref="TryParse"/> method to catch any unsuccessful
+        /// parse operations without having to handle an exception.
+        /// </para>
         /// </remarks>
         public static Comb Parse(string input)
         {
@@ -470,23 +496,27 @@ namespace Cadru
 
         /// <summary>
         /// Converts the string representation of a COMB to the equivalent
-        /// <see cref="Comb" /> structure, provided that the string is in the
+        /// <see cref="Comb"/> structure, provided that the string is in the
         /// specified format.
         /// </summary>
         /// <param name="input">The string to convert.</param>
-        /// <param name="format">One of the following specifiers that indicates
-        /// the exact format to use when interpreting input: "N", "D", "B", "P",
-        /// or "X".</param>
+        /// <param name="format">
+        /// One of the following specifiers that indicates the exact format to
+        /// use when interpreting input: "N", "D", "B", "P", or "X".
+        /// </param>
         /// <returns>A structure that contains the value that was parsed.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="input" /> or
-        /// <paramref name="format" /> is <see langword="null" />.</exception>
-        /// <exception cref="FormatException"><paramref name="input" /> is not
-        /// in the format specified by <paramref name="format" />.</exception>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="input"/> or <paramref name="format"/> is <see langword="null"/>.
+        /// </exception>
+        /// <exception cref="FormatException">
+        /// <paramref name="input"/> is not in the format specified by <paramref name="format"/>.
+        /// </exception>
         /// <remarks>
-        /// <para>The following table shows the accepted format specifiers
-        /// for the <paramref name="format" /> parameter. "0" represents a
-        /// digit; hyphens ("-"), braces ("{", "}"), and parentheses
-        /// ("(", ")") appear as shown.</para>
+        /// <para>
+        /// The following table shows the accepted format specifiers for the
+        /// <paramref name="format"/> parameter. "0" represents a digit; hyphens
+        /// ("-"), braces ("{", "}"), and parentheses ("(", ")") appear as shown.
+        /// </para>
         /// <list type="table">
         /// <listheader>
         /// <term>Specifier</term>
@@ -494,32 +524,41 @@ namespace Cadru
         /// </listheader>
         /// <item>
         /// <term>N</term>
-        /// <description><para>32 digits:</para>
-        /// <para>00000000000000000000000000000000</para></description>
+        /// <description>
+        /// <para>32 digits:</para>
+        /// <para>00000000000000000000000000000000</para>
+        /// </description>
         /// </item>
         /// <item>
         /// <term>D</term>
-        /// <description><para>32 digits separated by hyphens:</para>
-        /// <para>00000000-0000-0000-0000-000000000000</para></description>
+        /// <description>
+        /// <para>32 digits separated by hyphens:</para>
+        /// <para>00000000-0000-0000-0000-000000000000</para>
+        /// </description>
         /// </item>
         /// <item>
         /// <term>B</term>
-        /// <description><para>32 digits separated by hyphens, enclosed in
-        /// braces:</para>
-        /// <para>{00000000-0000-0000-0000-000000000000}</para></description>
+        /// <description>
+        /// <para>32 digits separated by hyphens, enclosed in braces:</para>
+        /// <para>{00000000-0000-0000-0000-000000000000}</para>
+        /// </description>
         /// </item>
         /// <item>
         /// <term>P</term>
-        /// <description><para>32 digits separated by hyphens, enclosed in
-        /// parentheses:</para>
-        /// <para>(00000000-0000-0000-0000-000000000000)</para></description>
+        /// <description>
+        /// <para>32 digits separated by hyphens, enclosed in parentheses:</para>
+        /// <para>(00000000-0000-0000-0000-000000000000)</para>
+        /// </description>
         /// </item>
         /// <item>
         /// <term>X</term>
-        /// <description><para>Four hexadecimal values enclosed in braces,
-        /// where the fourth value is a subset of eight hexadecimal values that
-        /// is also enclosed in braces:</para>
-        /// <para>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</para></description>
+        /// <description>
+        /// <para>
+        /// Four hexadecimal values enclosed in braces, where the fourth value
+        /// is a subset of eight hexadecimal values that is also enclosed in braces:
+        /// </para>
+        /// <para>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</para>
+        /// </description>
         /// </item>
         /// </list>
         /// </remarks>
@@ -538,25 +577,30 @@ namespace Cadru
 
         /// <summary>
         /// Converts the string representation of a COMB to the equivalent
-        /// <see cref="Comb" /> structure.
+        /// <see cref="Comb"/> structure.
         /// </summary>
         /// <param name="input">The string to convert.</param>
-        /// <param name="result">The structure that will contain the parsed
-        /// value. If the method returns <see langword="true" />,
-        /// <paramref name="result" /> contains a valid <see cref="Comb" />.
-        /// If the method returns <see langword="false" />,
-        /// <paramref name="result" /> equals <see cref="Comb.Empty" />.</param>
-        /// <returns><see langword="true" /> if the parse operation was
-        /// successful; otherwise, <see langword="false" />.</returns>
+        /// <param name="result">
+        /// The structure that will contain the parsed value. If the method
+        /// returns <see langword="true"/>, <paramref name="result"/> contains a
+        /// valid <see cref="Comb"/>. If the method returns
+        /// <see langword="false"/>, <paramref name="result"/> equals <see cref="Comb.Empty"/>.
+        /// </param>
+        /// <returns>
+        /// <see langword="true"/> if the parse operation was successful;
+        /// otherwise, <see langword="false"/>.
+        /// </returns>
         /// <remarks>
-        /// <para>This method is like the <see cref="Parse" /> method, except
-        /// that instead of returning the parsed COMB, it returns
-        /// <see langword="false" /> if <paramref name="input" /> is
-        /// <see langword="null" /> or not in a recognized format and doesn't
+        /// <para>
+        /// This method is like the <see cref="Parse"/> method, except that
+        /// instead of returning the parsed COMB, it returns
+        /// <see langword="false"/> if <paramref name="input"/> is
+        /// <see langword="null"/> or not in a recognized format and doesn't
         /// throw an exception. It converts strings in any of the five formats
         /// produced by the <see cref="ToString(String)"/> and
-        /// <see cref="ToString(String, IFormatProvider)"/> methods, as shown
-        /// in the following table.</para>
+        /// <see cref="ToString(String, IFormatProvider)"/> methods, as shown in
+        /// the following table.
+        /// </para>
         /// <list type="table">
         /// <listheader>
         /// <term>Specifier</term>
@@ -575,21 +619,24 @@ namespace Cadru
         /// </item>
         /// <item>
         /// <term>B</term>
-        /// <description>32 digits separated by hyphens, enclosed in
-        /// braces</description>
+        /// <description>
+        /// 32 digits separated by hyphens, enclosed in braces
+        /// </description>
         /// <description>{00000000-0000-0000-0000-000000000000}</description>
         /// </item>
         /// <item>
         /// <term>P</term>
-        /// <description>32 digits separated by hyphens, enclosed in
-        /// parentheses</description>
+        /// <description>
+        /// 32 digits separated by hyphens, enclosed in parentheses
+        /// </description>
         /// <description>(00000000-0000-0000-0000-000000000000)</description>
         /// </item>
         /// <item>
         /// <term>X</term>
-        /// <description>Four hexadecimal values enclosed in braces,
-        /// where the fourth value is a subset of eight hexadecimal values that
-        /// is also enclosed in braces</description>
+        /// <description>
+        /// Four hexadecimal values enclosed in braces, where the fourth value
+        /// is a subset of eight hexadecimal values that is also enclosed in braces
+        /// </description>
         /// <description>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</description>
         /// </item>
         /// </list>
@@ -608,28 +655,35 @@ namespace Cadru
 
         /// <summary>
         /// Converts the string representation of a COMB to the equivalent
-        /// <see cref="Comb" /> structure provided that the string is in the
+        /// <see cref="Comb"/> structure provided that the string is in the
         /// specified format.
         /// </summary>
         /// <param name="input">The string to convert.</param>
-        /// <param name="format">One of the following specifiers that indicates
-        /// the exact format to use when interpreting input: "N", "D", "B", "P",
-        /// or "X".</param>
-        /// <param name="result">The structure that will contain the parsed
-        /// value. If the method returns <see langword="true" />,
-        /// <paramref name="result" /> contains a valid <see cref="Comb" />.
-        /// If the method returns <see langword="false" />,
-        /// <paramref name="result" /> equals <see cref="Comb.Empty" />.</param>
-        /// <returns><see langword="true" /> if the parse operation was
-        /// successful; otherwise, <see langword="false" />.</returns>
+        /// <param name="format">
+        /// One of the following specifiers that indicates the exact format to
+        /// use when interpreting input: "N", "D", "B", "P", or "X".
+        /// </param>
+        /// <param name="result">
+        /// The structure that will contain the parsed value. If the method
+        /// returns <see langword="true"/>, <paramref name="result"/> contains a
+        /// valid <see cref="Comb"/>. If the method returns
+        /// <see langword="false"/>, <paramref name="result"/> equals <see cref="Comb.Empty"/>.
+        /// </param>
+        /// <returns>
+        /// <see langword="true"/> if the parse operation was successful;
+        /// otherwise, <see langword="false"/>.
+        /// </returns>
         /// <remarks>
-        /// <para>This method returns <see langword="false" /> if
-        /// <paramref name="input" /> is <see langword="null" /> or not in a
-        /// recognized format and doesn't throw an exception.</para>
-        /// <para>The following table shows the accepted format specifiers
-        /// for the <paramref name="format" /> parameter. "0" represents a
-        /// digit; hyphens ("-"), braces ("{", "}"), and parentheses
-        /// ("(", ")") appear as shown.</para>
+        /// <para>
+        /// This method returns <see langword="false"/> if
+        /// <paramref name="input"/> is <see langword="null"/> or not in a
+        /// recognized format and doesn't throw an exception.
+        /// </para>
+        /// <para>
+        /// The following table shows the accepted format specifiers for the
+        /// <paramref name="format"/> parameter. "0" represents a digit; hyphens
+        /// ("-"), braces ("{", "}"), and parentheses ("(", ")") appear as shown.
+        /// </para>
         /// <list type="table">
         /// <listheader>
         /// <term>Specifier</term>
@@ -637,32 +691,41 @@ namespace Cadru
         /// </listheader>
         /// <item>
         /// <term>N</term>
-        /// <description><para>32 digits:</para>
-        /// <para>00000000000000000000000000000000</para></description>
+        /// <description>
+        /// <para>32 digits:</para>
+        /// <para>00000000000000000000000000000000</para>
+        /// </description>
         /// </item>
         /// <item>
         /// <term>D</term>
-        /// <description><para>32 digits separated by hyphens:</para>
-        /// <para>00000000-0000-0000-0000-000000000000</para></description>
+        /// <description>
+        /// <para>32 digits separated by hyphens:</para>
+        /// <para>00000000-0000-0000-0000-000000000000</para>
+        /// </description>
         /// </item>
         /// <item>
         /// <term>B</term>
-        /// <description><para>32 digits separated by hyphens, enclosed in
-        /// braces:</para>
-        /// <para>{00000000-0000-0000-0000-000000000000}</para></description>
+        /// <description>
+        /// <para>32 digits separated by hyphens, enclosed in braces:</para>
+        /// <para>{00000000-0000-0000-0000-000000000000}</para>
+        /// </description>
         /// </item>
         /// <item>
         /// <term>P</term>
-        /// <description><para>32 digits separated by hyphens, enclosed in
-        /// parentheses:</para>
-        /// <para>(00000000-0000-0000-0000-000000000000)</para></description>
+        /// <description>
+        /// <para>32 digits separated by hyphens, enclosed in parentheses:</para>
+        /// <para>(00000000-0000-0000-0000-000000000000)</para>
+        /// </description>
         /// </item>
         /// <item>
         /// <term>X</term>
-        /// <description><para>Four hexadecimal values enclosed in braces,
-        /// where the fourth value is a subset of eight hexadecimal values that
-        /// is also enclosed in braces:</para>
-        /// <para>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</para></description>
+        /// <description>
+        /// <para>
+        /// Four hexadecimal values enclosed in braces, where the fourth value
+        /// is a subset of eight hexadecimal values that is also enclosed in braces:
+        /// </para>
+        /// <para>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</para>
+        /// </description>
         /// </item>
         /// </list>
         /// </remarks>
@@ -682,10 +745,10 @@ namespace Cadru
         /// Compares this instance to a specified object and returns an
         /// indication of their relative values.
         /// </summary>
-        /// <param name="obj">A boxed object to compare, or <see langword="null" />.</param>
+        /// <param name="obj">A boxed object to compare, or <see langword="null"/>.</param>
         /// <returns>
-        /// A signed number indicating the relative values of this instance and the
-        /// <paramref name="obj" /> parameter.
+        /// A signed number indicating the relative values of this instance and
+        /// the <paramref name="obj"/> parameter.
         /// <list type="table">
         /// <listheader>
         /// <term>Value</term>
@@ -693,27 +756,23 @@ namespace Cadru
         /// </listheader>
         /// <item>
         /// <term>Less than zero</term>
-        /// <description>
-        /// This instance is less than <paramref name="obj" />.
-        /// </description>
+        /// <description>This instance is less than <paramref name="obj"/>.</description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
-        /// <description>
-        /// This instance is the same as <paramref name="obj" />.
-        /// </description>
+        /// <description>This instance is the same as <paramref name="obj"/>.</description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
         /// <description>
-        /// This instance is greater than <paramref name="obj" />,
-        /// or <paramref name="obj" /> is <see langword="null" />.
+        /// This instance is greater than <paramref name="obj"/>, or
+        /// <paramref name="obj"/> is <see langword="null"/>.
         /// </description>
         /// </item>
         /// </list>
         /// </returns>
         /// <exception cref="System.ArgumentException">
-        /// <paramref name="obj" /> is not a <see cref="Comb" />.
+        /// <paramref name="obj"/> is not a <see cref="Comb"/>.
         /// </exception>
         public int CompareTo(object obj)
         {
@@ -732,14 +791,14 @@ namespace Cadru
 
         /// <summary>
         /// Compares the value of this instance to a specified
-        /// <see cref="UnixTimestamp" /> value and returns an integer that
+        /// <see cref="UnixTimestamp"/> value and returns an integer that
         /// indicates whether this instance is earlier than, the same as, or
-        /// later than the specified <see cref="UnixTimestamp" /> value.
+        /// later than the specified <see cref="UnixTimestamp"/> value.
         /// </summary>
         /// <param name="other">The object to compare to the current instance.</param>
         /// <returns>
-        /// A signed number indicating the relative values of this instance and the
-        /// <paramref name="other" /> parameter.
+        /// A signed number indicating the relative values of this instance and
+        /// the <paramref name="other"/> parameter.
         /// <list type="table">
         /// <listheader>
         /// <term>Value</term>
@@ -747,21 +806,15 @@ namespace Cadru
         /// </listheader>
         /// <item>
         /// <term>Less than zero</term>
-        /// <description>
-        /// This instance is earlier than <paramref name="other" />.
-        /// </description>
+        /// <description>This instance is earlier than <paramref name="other"/>.</description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
-        /// <description>
-        /// This instance is the same as <paramref name="other" />.
-        /// </description>
+        /// <description>This instance is the same as <paramref name="other"/>.</description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
-        /// <description>
-        /// This instance is later than <paramref name="other" />.
-        /// </description>
+        /// <description>This instance is later than <paramref name="other"/>.</description>
         /// </item>
         /// </list>
         /// </returns>
@@ -771,12 +824,15 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Returns a value indicating whether this instance is equal to a specified object.
+        /// Returns a value indicating whether this instance is equal to a
+        /// specified object.
         /// </summary>
         /// <param name="obj">The object to compare with this instance.</param>
-        /// <returns><see langword="true" /> if <paramref name="obj" /> is a
-        /// <see cref="Comb" /> and has the same value as this instance;
-        /// otherwise, <see langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if <paramref name="obj"/> is a
+        /// <see cref="Comb"/> and has the same value as this instance;
+        /// otherwise, <see langword="false"/>.
+        /// </returns>
         public override bool Equals(object obj)
         {
             if (!(obj is Comb comb))
@@ -791,11 +847,13 @@ namespace Cadru
 
         /// <summary>
         /// Returns a value indicating whether this instance and a specified
-        /// <see cref="Comb" /> object represent the same value.
+        /// <see cref="Comb"/> object represent the same value.
         /// </summary>
         /// <param name="other">An object to compare to this instance.</param>
-        /// <returns><see langword="true" /> if <paramref name="other" /> has the
-        /// same value as this instance; otherwise, <see langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if <paramref name="other"/> has the same
+        /// value as this instance; otherwise, <see langword="false"/>.
+        /// </returns>
         public bool Equals(Comb other)
         {
             return Compare(this, other) == 0;
@@ -814,15 +872,20 @@ namespace Cadru
         /// Returns a string representation of the value of this instance in
         /// registry format.
         /// </summary>
-        /// <returns><para>The value of this <see cref="Comb" />, formatted by
-        /// using the "D" format specifier as follows:</para>
+        /// <returns>
+        /// <para>
+        /// The value of this <see cref="Comb"/>, formatted by using the "D"
+        /// format specifier as follows:
+        /// </para>
         /// <para>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</para>
-        /// <para>where the value of the GUID is represented as a series of
-        /// lowercase hexadecimal digits in groups of 8, 4, 4, 4, and 12 digits
-        /// and separated by hyphens. An example of a return value is
+        /// <para>
+        /// where the value of the GUID is represented as a series of lowercase
+        /// hexadecimal digits in groups of 8, 4, 4, 4, and 12 digits and
+        /// separated by hyphens. An example of a return value is
         /// "382c74c3-721d-4f34-80e5-57657b6cbc27". To convert the hexadecimal
         /// digits from a through f to uppercase, call the
-        /// <see cref="String.ToUpper" /> method on the returned string.</para>
+        /// <see cref="String.ToUpper"/> method on the returned string.
+        /// </para>
         /// </returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         public override string ToString()
@@ -832,25 +895,26 @@ namespace Cadru
 
         /// <summary>
         /// Returns a string representation of the value of this
-        /// <see cref="Comb" /> instance, according to the provided
-        /// format specifier.
+        /// <see cref="Comb"/> instance, according to the provided format specifier.
         /// </summary>
-        /// <param name="format">A single format specifier that
-        /// indicates how to format the value of this <see cref="Comb" />.
-        /// The format parameter can be "N", "D", "B", "P", or "X".
-        /// If <paramref name="format" /> is <see langword="null" /> or an empty
-        /// string (""), "D" is used.</param>
-        /// <returns>The value of this <see cref="Comb" />, represented
-        /// as a series of lowercase hexadecimal digits in the specified
-        /// format.</returns>
-        /// <exception cref="System.FormatException">The value of
-        /// <paramref name="format" /> is not <see langword="null" />, an empty
-        /// string (""), "N", "D", "B", "P", or "X".
+        /// <param name="format">
+        /// A single format specifier that indicates how to format the value of
+        /// this <see cref="Comb"/>. The format parameter can be "N", "D", "B",
+        /// "P", or "X". If <paramref name="format"/> is <see langword="null"/>
+        /// or an empty string (""), "D" is used.
+        /// </param>
+        /// <returns>
+        /// The value of this <see cref="Comb"/>, represented as a series of
+        /// lowercase hexadecimal digits in the specified format.
+        /// </returns>
+        /// <exception cref="System.FormatException">
+        /// The value of <paramref name="format"/> is not
+        /// <see langword="null"/>, an empty string (""), "N", "D", "B", "P", or "X".
         /// </exception>
-        /// <remarks>The following table shows the accepted format specifiers
-        /// for the <paramref name="format" /> parameter. "0" represents a
-        /// digit; hyphens ("-"), braces ("{", "}"), and parentheses
-        /// ("(", ")") appear as shown.
+        /// <remarks>
+        /// The following table shows the accepted format specifiers for the
+        /// <paramref name="format"/> parameter. "0" represents a digit; hyphens
+        /// ("-"), braces ("{", "}"), and parentheses ("(", ")") appear as shown.
         /// <list type="table">
         /// <listheader>
         /// <term>Specifier</term>
@@ -858,37 +922,48 @@ namespace Cadru
         /// </listheader>
         /// <item>
         /// <term>N</term>
-        /// <description><para>32 digits:</para>
-        /// <para>00000000000000000000000000000000</para></description>
+        /// <description>
+        /// <para>32 digits:</para>
+        /// <para>00000000000000000000000000000000</para>
+        /// </description>
         /// </item>
         /// <item>
         /// <term>D</term>
-        /// <description><para>32 digits separated by hyphens:</para>
-        /// <para>00000000-0000-0000-0000-000000000000</para></description>
+        /// <description>
+        /// <para>32 digits separated by hyphens:</para>
+        /// <para>00000000-0000-0000-0000-000000000000</para>
+        /// </description>
         /// </item>
         /// <item>
         /// <term>B</term>
-        /// <description><para>32 digits separated by hyphens, enclosed in
-        /// braces:</para>
-        /// <para>{00000000-0000-0000-0000-000000000000}</para></description>
+        /// <description>
+        /// <para>32 digits separated by hyphens, enclosed in braces:</para>
+        /// <para>{00000000-0000-0000-0000-000000000000}</para>
+        /// </description>
         /// </item>
         /// <item>
         /// <term>P</term>
-        /// <description><para>32 digits separated by hyphens, enclosed in
-        /// parentheses:</para>
-        /// <para>(00000000-0000-0000-0000-000000000000)</para></description>
+        /// <description>
+        /// <para>32 digits separated by hyphens, enclosed in parentheses:</para>
+        /// <para>(00000000-0000-0000-0000-000000000000)</para>
+        /// </description>
         /// </item>
         /// <item>
         /// <term>X</term>
-        /// <description><para>Four hexadecimal values enclosed in braces,
-        /// where the fourth value is a subset of eight hexadecimal values that
-        /// is also enclosed in braces:</para>
-        /// <para>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</para></description>
+        /// <description>
+        /// <para>
+        /// Four hexadecimal values enclosed in braces, where the fourth value
+        /// is a subset of eight hexadecimal values that is also enclosed in braces:
+        /// </para>
+        /// <para>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</para>
+        /// </description>
         /// </item>
         /// </list>
-        /// <para>The hexadecimal digits a through f are lowercase in the
-        /// returned string. To convert them to uppercase, call the
-        /// <see cref="String.ToUpper" /> method on the returned string.</para>
+        /// <para>
+        /// The hexadecimal digits a through f are lowercase in the returned
+        /// string. To convert them to uppercase, call the
+        /// <see cref="String.ToUpper"/> method on the returned string.
+        /// </para>
         /// </remarks>
         public string ToString(string format)
         {
@@ -995,31 +1070,37 @@ namespace Cadru
 
         /// <summary>
         /// Returns a string representation of the value of this
-        /// <see cref="Comb" /> instance, according to the provided
-        /// format specifier and culture-specific format information.
+        /// <see cref="Comb"/> instance, according to the provided format
+        /// specifier and culture-specific format information.
         /// </summary>
-        /// <param name="format">A single format specifier that
-        /// indicates how to format the value of this <see cref="Comb" />.
-        /// The format parameter can be "N", "D", "B", "P", or "X".
-        /// If <paramref name="format" /> is <see langword="null" /> or an empty
-        /// string (""), "D" is used.</param>
-        /// <param name="formatProvider">(Reserved) An object that supplies
-        /// culture-specific formatting information.</param>
-        /// <returns>The value of this <see cref="Comb" />, represented
-        /// as a series of lowercase hexadecimal digits in the specified
-        /// format.</returns>
-        /// <exception cref="System.FormatException">The value of
-        /// <paramref name="format" /> is not <see langword="null" />, an empty
-        /// string (""), "N", "D", "B", "P", or "X".
+        /// <param name="format">
+        /// A single format specifier that indicates how to format the value of
+        /// this <see cref="Comb"/>. The format parameter can be "N", "D", "B",
+        /// "P", or "X". If <paramref name="format"/> is <see langword="null"/>
+        /// or an empty string (""), "D" is used.
+        /// </param>
+        /// <param name="formatProvider">
+        /// (Reserved) An object that supplies culture-specific formatting information.
+        /// </param>
+        /// <returns>
+        /// The value of this <see cref="Comb"/>, represented as a series of
+        /// lowercase hexadecimal digits in the specified format.
+        /// </returns>
+        /// <exception cref="System.FormatException">
+        /// The value of <paramref name="format"/> is not
+        /// <see langword="null"/>, an empty string (""), "N", "D", "B", "P", or "X".
         /// </exception>
         /// <remarks>
-        /// <para>The <paramref name="formatProvider" /> parameter is reserved for
-        /// future use and does not contribute to the execution of this
-        /// method. You can pass <see langword="null" /> in the method call.</para>
-        /// <para>The following table shows the accepted format specifiers
-        /// for the <paramref name="format" /> parameter. "0" represents a
-        /// digit; hyphens ("-"), braces ("{", "}"), and parentheses
-        /// ("(", ")") appear as shown.</para>
+        /// <para>
+        /// The <paramref name="formatProvider"/> parameter is reserved for
+        /// future use and does not contribute to the execution of this method.
+        /// You can pass <see langword="null"/> in the method call.
+        /// </para>
+        /// <para>
+        /// The following table shows the accepted format specifiers for the
+        /// <paramref name="format"/> parameter. "0" represents a digit; hyphens
+        /// ("-"), braces ("{", "}"), and parentheses ("(", ")") appear as shown.
+        /// </para>
         /// <list type="table">
         /// <listheader>
         /// <term>Specifier</term>
@@ -1027,48 +1108,61 @@ namespace Cadru
         /// </listheader>
         /// <item>
         /// <term>N</term>
-        /// <description><para>32 digits:</para>
-        /// <para>00000000000000000000000000000000</para></description>
+        /// <description>
+        /// <para>32 digits:</para>
+        /// <para>00000000000000000000000000000000</para>
+        /// </description>
         /// </item>
         /// <item>
         /// <term>D</term>
-        /// <description><para>32 digits separated by hyphens:</para>
-        /// <para>00000000-0000-0000-0000-000000000000</para></description>
+        /// <description>
+        /// <para>32 digits separated by hyphens:</para>
+        /// <para>00000000-0000-0000-0000-000000000000</para>
+        /// </description>
         /// </item>
         /// <item>
         /// <term>B</term>
-        /// <description><para>32 digits separated by hyphens, enclosed in
-        /// braces:</para>
-        /// <para>{00000000-0000-0000-0000-000000000000}</para></description>
+        /// <description>
+        /// <para>32 digits separated by hyphens, enclosed in braces:</para>
+        /// <para>{00000000-0000-0000-0000-000000000000}</para>
+        /// </description>
         /// </item>
         /// <item>
         /// <term>P</term>
-        /// <description><para>32 digits separated by hyphens, enclosed in
-        /// parentheses:</para>
-        /// <para>(00000000-0000-0000-0000-000000000000)</para></description>
+        /// <description>
+        /// <para>32 digits separated by hyphens, enclosed in parentheses:</para>
+        /// <para>(00000000-0000-0000-0000-000000000000)</para>
+        /// </description>
         /// </item>
         /// <item>
         /// <term>X</term>
-        /// <description><para>Four hexadecimal values enclosed in braces,
-        /// where the fourth value is a subset of eight hexadecimal values that
-        /// is also enclosed in braces:</para>
-        /// <para>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</para></description>
+        /// <description>
+        /// <para>
+        /// Four hexadecimal values enclosed in braces, where the fourth value
+        /// is a subset of eight hexadecimal values that is also enclosed in braces:
+        /// </para>
+        /// <para>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</para>
+        /// </description>
         /// </item>
         /// </list>
-        /// <para>The hexadecimal digits a through f are lowercase in the
-        /// returned string. To convert them to uppercase, call the
-        /// <see cref="String.ToUpper" /> method on the returned string.</para>
-        /// <para>Because the <paramref name="formatProvider" /> parameter is ignored,
+        /// <para>
+        /// The hexadecimal digits a through f are lowercase in the returned
+        /// string. To convert them to uppercase, call the
+        /// <see cref="String.ToUpper"/> method on the returned string.
+        /// </para>
+        /// <para>
+        /// Because the <paramref name="formatProvider"/> parameter is ignored,
         /// you cannot use it to provide a custom formatting solution. To
-        /// represent a <see cref="Comb" /> value as a string in a format that
+        /// represent a <see cref="Comb"/> value as a string in a format that
         /// isn't supported by the standard COMB format strings, call the
         /// <see cref="String.Format(IFormatProvider, String, Object[])"/>
         /// method with a provider object that implements both the
-        /// <see cref="ICustomFormatter" /> and <see cref="IFormatProvider" />
+        /// <see cref="ICustomFormatter"/> and <see cref="IFormatProvider"/>
         /// interfaces. For more information, see the "Custom Formatting with
         /// ICustomFormatter" section in the
-        /// <see href="http://msdn.microsoft.com/en-us/library/26etazsy(v=vs.110).aspx">Formatting Types</see>
-        /// article.</para>
+        /// <see href="http://msdn.microsoft.com/en-us/library/26etazsy(v=vs.110).aspx">Formatting
+        /// Types</see> article.
+        /// </para>
         /// </remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1305:SpecifyIFormatProvider", MessageId = "Cadru.Comb.ToString(System.String)", Justification = "Reviewed.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1628:DocumentationTextMustBeginWithACapitalLetter", Justification = "Reviewed.")]
@@ -1078,7 +1172,7 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Returns a 16-element byte array that contains the value of the <see cref="Comb" />.
+        /// Returns a 16-element byte array that contains the value of the <see cref="Comb"/>.
         /// </summary>
         /// <returns>A 16-element byte array.</returns>
         public byte[] ToByteArray()

@@ -29,9 +29,8 @@ using Microsoft.AspNetCore.Http;
 namespace Cadru.AspNetCore.Http
 {
     /// <summary>
-    /// Provides methods for serializing an <see
-    /// cref="HttpRequestMessage" /> or <see cref="HttpRequest" />
-    /// to a format suitable for logging.
+    /// Provides methods for serializing an <see cref="HttpRequestMessage"/> or
+    /// <see cref="HttpRequest"/> to a format suitable for logging.
     /// </summary>
     public interface IRequestResponseLoggingSerializer
     {
@@ -53,7 +52,9 @@ namespace Cadru.AspNetCore.Http
         /// Serialize a response to a string suitable for logging.
         /// </summary>
         /// <param name="response">The response to be serialized.</param>
-        /// <param name="responseStream">A <see cref="MemoryStream" /> used to serialize the response body.</param>
+        /// <param name="responseStream">
+        /// A <see cref="MemoryStream"/> used to serialize the response body.
+        /// </param>
         /// <returns>A string representing the serialized response.</returns>
         Task<string> SerializeResponseAsync(HttpResponse? response, MemoryStream responseStream);
 

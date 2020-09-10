@@ -26,7 +26,8 @@ namespace Cadru.Net.NetworkInformation
     using System.Net.NetworkInformation;
 
     /// <summary>
-    /// Allows applications to receive notification when the network availability changes.
+    /// Allows applications to receive notification when the network
+    /// availability changes.
     /// </summary>
     public sealed class NetworkStatus : IDisposable
     {
@@ -34,7 +35,7 @@ namespace Cadru.Net.NetworkInformation
         private ConnectionStatus connectionStatus;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NetworkStatus" /> class.
+        /// Initializes a new instance of the <see cref="NetworkStatus"/> class.
         /// </summary>
         public NetworkStatus()
         {
@@ -57,7 +58,8 @@ namespace Cadru.Net.NetworkInformation
         }
 
         /// <summary>
-        /// Represents the method that will handle the <see cref="NetworkStatus.NetworkStatusChanged" /> event.
+        /// Represents the method that will handle the
+        /// <see cref="NetworkStatus.NetworkStatusChanged"/> event.
         /// </summary>
         public event EventHandler<NetworkStatusChangedEventArgs> NetworkStatusChanged;
 
@@ -68,7 +70,7 @@ namespace Cadru.Net.NetworkInformation
         public ConnectionStatus ConnectionStatus => this.connectionStatus;
 
         /// <summary>
-        /// Releases all resources used by the <see cref="NetworkStatus" />.
+        /// Releases all resources used by the <see cref="NetworkStatus"/>.
         /// </summary>
         public void Dispose()
         {

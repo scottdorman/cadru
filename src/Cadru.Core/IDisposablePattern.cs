@@ -32,8 +32,9 @@ namespace Cadru
         /// <summary>
         /// Gets a value indicating whether the object has been disposed.
         /// </summary>
-        /// <value><see langword="true" /> if the object has been disposed;
-        /// otherwise, <see langword="false" />.</value>
+        /// <value>
+        /// <see langword="true"/> if the object has been disposed; otherwise, <see langword="false"/>.
+        /// </value>
         bool Disposed { get; }
     }
 }

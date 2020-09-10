@@ -30,13 +30,12 @@ namespace Cadru.Scim.Filters
     public interface IFilterGroup : IFilter
     {
         /// <summary>
-        /// The collection of <see cref="IFilter"></see> instances to be
-        /// grouped.
+        /// The collection of <see cref="IFilter"></see> instances to be grouped.
         /// </summary>
         /// <remarks>
-        /// An <see cref="IFilterGroup"></see> may contain either <see
-        /// cref="IFilterExpression"></see> instances or <see
-        /// cref="IFilterGroup"></see> instances.
+        /// An <see cref="IFilterGroup"></see> may contain either
+        /// <see cref="IFilterExpression"></see> instances or
+        /// <see cref="IFilterGroup"></see> instances.
         /// </remarks>
         IList<IFilter> Filters { get; }
 

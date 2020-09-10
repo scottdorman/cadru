@@ -38,13 +38,19 @@ namespace Cadru.Extensions
     public static class TypeExtensions
     {
         /// <summary>
-        /// Retrieves a custom attribute of a specified type that is applied to a specified
-        /// field, and optionally inspects the ancestors of that field.
+        /// Retrieves a custom attribute of a specified type that is applied to
+        /// a specified field, and optionally inspects the ancestors of that field.
         /// </summary>
         /// <typeparam name="T">The type of attribute to search for.</typeparam>
         /// <param name="element">The field to inspect.</param>
-        /// <param name="inherit"><see langword="true" /> to inspect the ancestors of element; otherwise, <see langword="false" />.</param>
-        /// <returns>A custom attribute that matches <typeparamref name="T" />, or <see langword="null" /> if no such attribute is found.</returns>
+        /// <param name="inherit">
+        /// <see langword="true"/> to inspect the ancestors of element;
+        /// otherwise, <see langword="false"/>.
+        /// </param>
+        /// <returns>
+        /// A custom attribute that matches <typeparamref name="T"/>, or
+        /// <see langword="null"/> if no such attribute is found.
+        /// </returns>
         public static T GetAttributeOfType<T>(this FieldInfo element, bool inherit = false) where T : Attribute
         {
             return element.GetCustomAttributes<T>(inherit).FirstOrDefault();
@@ -55,22 +61,25 @@ namespace Cadru.Extensions
         /// and optionally inspects the ancestors of that field.
         /// </summary>
         /// <param name="field">The field to inspect.</param>
-        /// <param name="useNameAsFallback">If <see langword="true" />, the name
-        /// of the field is used if no description is found; otherwise, <see
-        /// langword="null" />.</param>
-        /// <returns>A string containing the description of the field; or <see
-        /// langword="null" /> if no such constant is found and <paramref
-        /// name="useNameAsFallback" /> is <see langword="false" />; otherwise,
-        /// the name of the field.
+        /// <param name="useNameAsFallback">
+        /// If <see langword="true"/>, the name of the field is used if no
+        /// description is found; otherwise, <see langword="null"/>.
+        /// </param>
+        /// <returns>
+        /// A string containing the description of the field; or
+        /// <see langword="null"/> if no such constant is found and
+        /// <paramref name="useNameAsFallback"/> is <see langword="false"/>;
+        /// otherwise, the name of the field.
         /// </returns>
         /// <remarks>
-        /// This method will use the value from an <see
-        /// cref="EnumDescriptionAttribute" />, <see cref="DisplayAttribute" />,
-        /// or <see cref="DescriptionAttribute" /> if found, in that respective
-        /// order. If none of those attributes are found, or the value is <see
-        /// langword="null" />, and <paramref name="useNameAsFallback" /> is <see
-        /// langword="true" />, then the name of the enumerated constant is used;
-        /// otherwise, a <see langword="null" /> is used.
+        /// This method will use the value from an
+        /// <see cref="EnumDescriptionAttribute"/>,
+        /// <see cref="DisplayAttribute"/>, or
+        /// <see cref="DescriptionAttribute"/> if found, in that respective
+        /// order. If none of those attributes are found, or the value is
+        /// <see langword="null"/>, and <paramref name="useNameAsFallback"/> is
+        /// <see langword="true"/>, then the name of the enumerated constant is
+        /// used; otherwise, a <see langword="null"/> is used.
         /// </remarks>
         public static string? GetDescription(this FieldInfo field, bool useNameAsFallback)
         {
@@ -85,13 +94,27 @@ namespace Cadru.Extensions
         /// </summary>
         /// <typeparam name="T">The type of attribute to search for.</typeparam>
         /// <param name="element">The member to inspect.</param>
-        /// <param name="inherit"><see langword="true" /> to inspect the ancestors of element; otherwise, <see langword="false" />.</param>
-        /// <returns><see langword="true" /> if the specified element has the attribute;
-        /// otherwise, <see langword="false" />.</returns>
-        /// <exception cref="System.ArgumentNullException"><paramref name="element" /> is null.</exception>
-        /// <exception cref="System.NotSupportedException"><paramref name="element" /> is not a constructor, method, property, event, type, or field.</exception>
-        /// <exception cref="System.Reflection.AmbiguousMatchException">More than one of the requested attributes was found.</exception>
-        /// <exception cref="System.TypeLoadException">A custom attribute type cannot be loaded.</exception>
+        /// <param name="inherit">
+        /// <see langword="true"/> to inspect the ancestors of element;
+        /// otherwise, <see langword="false"/>.
+        /// </param>
+        /// <returns>
+        /// <see langword="true"/> if the specified element has the attribute;
+        /// otherwise, <see langword="false"/>.
+        /// </returns>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="element"/> is null.
+        /// </exception>
+        /// <exception cref="System.NotSupportedException">
+        /// <paramref name="element"/> is not a constructor, method, property,
+        /// event, type, or field.
+        /// </exception>
+        /// <exception cref="System.Reflection.AmbiguousMatchException">
+        /// More than one of the requested attributes was found.
+        /// </exception>
+        /// <exception cref="System.TypeLoadException">
+        /// A custom attribute type cannot be loaded.
+        /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
         public static bool HasCustomAttribute<T>(this Type element, bool inherit = false) where T : Attribute
         {
@@ -104,13 +127,27 @@ namespace Cadru.Extensions
         /// </summary>
         /// <typeparam name="T">The type of attribute to search for.</typeparam>
         /// <param name="element">The member to inspect.</param>
-        /// <param name="inherit"><see langword="true" /> to inspect the ancestors of element; otherwise, <see langword="false" />.</param>
-        /// <returns><see langword="true" /> if the specified element has the attribute;
-        /// otherwise, <see langword="false" />.</returns>
-        /// <exception cref="System.ArgumentNullException"><paramref name="element" /> is null.</exception>
-        /// <exception cref="System.NotSupportedException"><paramref name="element" /> is not a constructor, method, property, event, type, or field.</exception>
-        /// <exception cref="System.Reflection.AmbiguousMatchException">More than one of the requested attributes was found.</exception>
-        /// <exception cref="System.TypeLoadException">A custom attribute type cannot be loaded.</exception>
+        /// <param name="inherit">
+        /// <see langword="true"/> to inspect the ancestors of element;
+        /// otherwise, <see langword="false"/>.
+        /// </param>
+        /// <returns>
+        /// <see langword="true"/> if the specified element has the attribute;
+        /// otherwise, <see langword="false"/>.
+        /// </returns>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="element"/> is null.
+        /// </exception>
+        /// <exception cref="System.NotSupportedException">
+        /// <paramref name="element"/> is not a constructor, method, property,
+        /// event, type, or field.
+        /// </exception>
+        /// <exception cref="System.Reflection.AmbiguousMatchException">
+        /// More than one of the requested attributes was found.
+        /// </exception>
+        /// <exception cref="System.TypeLoadException">
+        /// A custom attribute type cannot be loaded.
+        /// </exception>
         public static bool HasCustomAttribute<T>(this MemberInfo element, bool inherit = false) where T : Attribute
         {
             return element.GetCustomAttribute<T>(inherit) != null;
@@ -119,10 +156,14 @@ namespace Cadru.Extensions
         /// <summary>
         /// Determines whether the specified type implements an interface
         /// </summary>
-        /// <typeparam name="TInterface">The interface for which the type will be tested.</typeparam>
+        /// <typeparam name="TInterface">
+        /// The interface for which the type will be tested.
+        /// </typeparam>
         /// <param name="element">The type to test.</param>
-        /// <returns><see langword="true" /> if the specified type implements the interface;
-        /// otherwise, <see langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if the specified type implements the
+        /// interface; otherwise, <see langword="false"/>.
+        /// </returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
         public static bool HasInterface<TInterface>(this Type element)
         {
@@ -134,10 +175,14 @@ namespace Cadru.Extensions
         /// <summary>
         /// Determines whether the specified type implements an interface
         /// </summary>
-        /// <typeparam name="TInterface">The interface for which the type will be tested.</typeparam>
+        /// <typeparam name="TInterface">
+        /// The interface for which the type will be tested.
+        /// </typeparam>
         /// <param name="element">The type to test.</param>
-        /// <returns><see langword="true" /> if the specified type implements the interface;
-        /// otherwise, <see langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if the specified type implements the
+        /// interface; otherwise, <see langword="false"/>.
+        /// </returns>
         public static bool HasInterface<TInterface>(this TypeInfo element)
         {
             Requires.NotNull(element, nameof(element));
@@ -157,11 +202,12 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Determines whether the specified type is a <see cref="Boolean" />.
+        /// Determines whether the specified type is a <see cref="Boolean"/>.
         /// </summary>
         /// <param name="element">The type to test.</param>
         /// <returns>
-        /// <see langword="true" /> if the specified type is a <see cref="Boolean" />; otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the specified type is a
+        /// <see cref="Boolean"/>; otherwise, <see langword="false"/>.
         /// </returns>
         public static bool IsBoolean(this Type element)
         {
@@ -170,11 +216,12 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Determines whether the specified type is a <see cref="Boolean" />.
+        /// Determines whether the specified type is a <see cref="Boolean"/>.
         /// </summary>
         /// <param name="element">The type to test.</param>
         /// <returns>
-        /// <see langword="true" /> if the specified type is a <see cref="Boolean" />; otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the specified type is a
+        /// <see cref="Boolean"/>; otherwise, <see langword="false"/>.
         /// </returns>
         public static bool IsBoolean(this TypeInfo element)
         {
@@ -183,11 +230,12 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Determines whether the specified type is a <see cref="DateTime" />.
+        /// Determines whether the specified type is a <see cref="DateTime"/>.
         /// </summary>
         /// <param name="element">The type to test.</param>
         /// <returns>
-        /// <see langword="true" /> if the specified type is a <see cref="DateTime" />; otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the specified type is a
+        /// <see cref="DateTime"/>; otherwise, <see langword="false"/>.
         /// </returns>
         public static bool IsDate(this Type element)
         {
@@ -196,11 +244,12 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Determines whether the specified type is a <see cref="DateTime" />.
+        /// Determines whether the specified type is a <see cref="DateTime"/>.
         /// </summary>
         /// <param name="element">The type to test.</param>
         /// <returns>
-        /// <see langword="true" /> if the specified type is a <see cref="DateTime" />; otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the specified type is a
+        /// <see cref="DateTime"/>; otherwise, <see langword="false"/>.
         /// </returns>
         public static bool IsDate(this TypeInfo element)
         {
@@ -217,11 +266,12 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Determines whether the specified type is a <see cref="DateTimeOffset" />.
+        /// Determines whether the specified type is a <see cref="DateTimeOffset"/>.
         /// </summary>
         /// <param name="element">The type to test.</param>
         /// <returns>
-        /// <see langword="true" /> if the specified type is a <see cref="DateTimeOffset" />; otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the specified type is a
+        /// <see cref="DateTimeOffset"/>; otherwise, <see langword="false"/>.
         /// </returns>
         public static bool IsDateOffset(this Type element)
         {
@@ -230,11 +280,12 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Determines whether the specified type is a <see cref="DateTimeOffset" />.
+        /// Determines whether the specified type is a <see cref="DateTimeOffset"/>.
         /// </summary>
         /// <param name="element">The type to test.</param>
         /// <returns>
-        /// <see langword="true" /> if the specified type is a <see cref="DateTimeOffset" />; otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the specified type is a
+        /// <see cref="DateTimeOffset"/>; otherwise, <see langword="false"/>.
         /// </returns>
         public static bool IsDateOffset(this TypeInfo element)
         {
@@ -254,8 +305,10 @@ namespace Cadru.Extensions
         /// Determines if the type is an enumerable type.
         /// </summary>
         /// <param name="element">The type to test.</param>
-        /// <returns><see langword="true" /> if the specified type is an
-        /// enumerable type; otherwise, <see langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if the specified type is an enumerable type;
+        /// otherwise, <see langword="false"/>.
+        /// </returns>
         public static bool IsEnumerableType(this Type element)
         {
             return element.HasInterface<IEnumerable>();
@@ -265,21 +318,24 @@ namespace Cadru.Extensions
         /// Determines if the type is an enumerable type.
         /// </summary>
         /// <param name="element">The type to test.</param>
-        /// <returns><see langword="true" /> if the specified type is an
-        /// enumerable type; otherwise, <see langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if the specified type is an enumerable type;
+        /// otherwise, <see langword="false"/>.
+        /// </returns>
         public static bool IsEnumerableType(this TypeInfo element)
         {
             return element.HasInterface<IEnumerable>();
         }
 
         /// <summary>
-        /// Determines whether the specified type is an <see cref="Enum" /> with an associated
-        /// <see cref="FlagsAttribute" />.
+        /// Determines whether the specified type is an <see cref="Enum"/> with
+        /// an associated <see cref="FlagsAttribute"/>.
         /// </summary>
         /// <param name="element">The type to test.</param>
         /// <returns>
-        /// <see langword="true" /> if the specified type is an <see cref="Enum" /> with an associated
-        /// <see cref="FlagsAttribute" />; otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the specified type is an
+        /// <see cref="Enum"/> with an associated <see cref="FlagsAttribute"/>;
+        /// otherwise, <see langword="false"/>.
         /// </returns>
         public static bool IsFlagsEnum(this Type element)
         {
@@ -289,13 +345,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Determines whether the specified type is an <see cref="Enum" /> with an associated
-        /// <see cref="FlagsAttribute" />.
+        /// Determines whether the specified type is an <see cref="Enum"/> with
+        /// an associated <see cref="FlagsAttribute"/>.
         /// </summary>
         /// <param name="element">The type to test.</param>
         /// <returns>
-        /// <see langword="true" /> if the specified type is an <see cref="Enum" /> with an associated
-        /// <see cref="FlagsAttribute" />; otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the specified type is an
+        /// <see cref="Enum"/> with an associated <see cref="FlagsAttribute"/>;
+        /// otherwise, <see langword="false"/>.
         /// </returns>
         public static bool IsFlagsEnum(this TypeInfo element)
         {
@@ -310,7 +367,7 @@ namespace Cadru.Extensions
         /// </summary>
         /// <param name="element">The type to test.</param>
         /// <returns>
-        /// <see langword="true" /> if the specified type is nullable; otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the specified type is nullable; otherwise, <see langword="false"/>.
         /// </returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         public static bool IsNullable(this Type element)
@@ -325,7 +382,7 @@ namespace Cadru.Extensions
         /// </summary>
         /// <param name="element">The type to test.</param>
         /// <returns>
-        /// <see langword="true" /> if the specified type is nullable; otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the specified type is nullable; otherwise, <see langword="false"/>.
         /// </returns>
         public static bool IsNullable(this TypeInfo element)
         {
@@ -338,7 +395,8 @@ namespace Cadru.Extensions
         /// </summary>
         /// <param name="element">The type to test.</param>
         /// <returns>
-        /// <see langword="true" /> if the specified type is a numeric type; otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the specified type is a numeric type;
+        /// otherwise, <see langword="false"/>.
         /// </returns>
         public static bool IsNumeric(this Type element)
         {
@@ -351,7 +409,8 @@ namespace Cadru.Extensions
         /// </summary>
         /// <param name="element">The type to test.</param>
         /// <returns>
-        /// <see langword="true" /> if the specified type is a numeric type; otherwise, <see langword="false" />.
+        /// <see langword="true"/> if the specified type is a numeric type;
+        /// otherwise, <see langword="false"/>.
         /// </returns>
         public static bool IsNumeric(this TypeInfo element)
         {

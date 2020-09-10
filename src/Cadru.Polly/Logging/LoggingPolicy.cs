@@ -60,9 +60,12 @@ namespace Cadru.Polly.Logging
     }
 
     /// <summary>
-    /// A Logging policy that can be applied to delegates returning a value of type <typeparamref name="TResult" />
+    /// A Logging policy that can be applied to delegates returning a value of
+    /// type <typeparamref name="TResult"/>
     /// </summary>
-    /// <typeparam name="TResult">The type of return values this policy will handle.</typeparam>
+    /// <typeparam name="TResult">
+    /// The type of return values this policy will handle.
+    /// </typeparam>
     public class LoggingPolicy<TResult> : Policy<TResult>, ILoggingPolicy<TResult>
     {
         private readonly Action<ILogger, Context, DelegateResult<TResult>> _logAction;

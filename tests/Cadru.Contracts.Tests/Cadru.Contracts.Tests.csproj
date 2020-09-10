@@ -19,9 +19,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Cadru.Contracts\Cadru.Contracts.csproj"/>
-    <ProjectReference Include="..\..\src\Cadru.Core\Cadru.Core.csproj"/>
-    <ProjectReference Include="..\..\src\Cadru.UnitTest.Framework\Cadru.UnitTest.Framework.csproj"/>
+    <ProjectReference Include="..\..\src\Cadru.Contracts\Cadru.Contracts.csproj" />
+    <ProjectReference Include="..\..\src\Cadru.Core\Cadru.Core.csproj" />
+    <ProjectReference Include="..\..\src\Cadru.UnitTest.Framework\Cadru.UnitTest.Framework.csproj" />
   </ItemGroup>
 
 </Project>

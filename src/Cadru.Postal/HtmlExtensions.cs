@@ -27,15 +27,19 @@ using System.Web.Mvc;
 namespace Cadru.Postal
 {
     /// <summary>
-    /// Helper methods that extend <see cref="HtmlHelper" />.
+    /// Helper methods that extend <see cref="HtmlHelper"/>.
     /// </summary>
     public static class HtmlExtensions
     {
         /// <summary>
-        /// Embeds the given image into the email and returns an HTML &lt;img&gt; tag referencing the image.
+        /// Embeds the given image into the email and returns an HTML
+        /// &lt;img&gt; tag referencing the image.
         /// </summary>
-        /// <param name="html">The <see cref="HtmlHelper" />.</param>
-        /// <param name="imagePathOrUrl">An image file path or URL. A file path can be relative to the web application root directory.</param>
+        /// <param name="html">The <see cref="HtmlHelper"/>.</param>
+        /// <param name="imagePathOrUrl">
+        /// An image file path or URL. A file path can be relative to the web
+        /// application root directory.
+        /// </param>
         /// <param name="alt">The content for the &lt;img alt&gt; attribute.</param>
         /// <returns>An HTML &lt;img&gt; tag.</returns>
         public static IHtmlString EmbedImage(this HtmlHelper html, string imagePathOrUrl, string alt = "")

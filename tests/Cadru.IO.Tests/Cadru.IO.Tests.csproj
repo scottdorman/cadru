@@ -19,7 +19,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Cadru.UnitTest.Framework\Cadru.UnitTest.Framework.csproj"/>
+    <ProjectReference Include="..\..\src\Cadru.UnitTest.Framework\Cadru.UnitTest.Framework.csproj" />
   </ItemGroup>
 
 </Project>

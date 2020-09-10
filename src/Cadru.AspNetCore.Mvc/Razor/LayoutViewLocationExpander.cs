@@ -28,7 +28,8 @@ using Microsoft.AspNetCore.Mvc.Razor;
 namespace Cadru.AspNetCore.Mvc.Razor
 {
     /// <summary>
-    /// An <see cref="IViewLocationExpander" /> that adds a Layout folder as a prefix to view names.
+    /// An <see cref="IViewLocationExpander"/> that adds a Layout folder as a
+    /// prefix to view names.
     /// </summary>
     public class LayoutViewLocationExpander : IViewLocationExpander
     {

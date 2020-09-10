@@ -33,16 +33,16 @@ namespace Cadru.Data.Dapper
         string CatalogSeparator { get; }
 
         /// <summary>
-        /// Gets the starting character or characters to use when
-        /// specifying SQL Server database objects, such as tables or columns,
-        /// whose names contain characters such as spaces or reserved tokens.
+        /// Gets the starting character or characters to use when specifying SQL
+        /// Server database objects, such as tables or columns, whose names
+        /// contain characters such as spaces or reserved tokens.
         /// </summary>
         string IdentifierPrefix { get; }
 
         /// <summary>
-        /// Gets the ending character or characters to use when
-        /// specifying SQL Server database objects, such as tables or columns,
-        /// whose names contain characters such as spaces or reserved tokens.
+        /// Gets the ending character or characters to use when specifying SQL
+        /// Server database objects, such as tables or columns, whose names
+        /// contain characters such as spaces or reserved tokens.
         /// </summary>
         string IdentifierSuffix { get; }
 
@@ -67,22 +67,22 @@ namespace Cadru.Data.Dapper
         string ParameterPrefix { get; }
 
         /// <summary>
-        /// Gets the starting character or characters to use when
-        /// specifying SQL Server database objects, such as tables or columns,
-        /// whose names contain characters such as spaces or reserved tokens.
+        /// Gets the starting character or characters to use when specifying SQL
+        /// Server database objects, such as tables or columns, whose names
+        /// contain characters such as spaces or reserved tokens.
         /// </summary>
         string QuotePrefix { get; }
 
         /// <summary>
-        /// Gets the ending character or characters to use when
-        /// specifying SQL Server database objects, such as tables or columns,
-        /// whose names contain characters such as spaces or reserved tokens.
+        /// Gets the ending character or characters to use when specifying SQL
+        /// Server database objects, such as tables or columns, whose names
+        /// contain characters such as spaces or reserved tokens.
         /// </summary>
         string QuoteSuffix { get; }
 
         /// <summary>
-        /// Gets the character to be used for the separator between the
-        /// schema identifier and any other identifiers.
+        /// Gets the character to be used for the separator between the schema
+        /// identifier and any other identifiers.
         /// </summary>
         string SchemaSeparator { get; }
 
@@ -90,21 +90,23 @@ namespace Cadru.Data.Dapper
         /// Returns the full parameter name, given the partial parameter name.
         /// </summary>
         /// <param name="parameterName">The partial name of the parameter.</param>
-        /// <returns>The full parameter name corresponding to the partial parameter name requested.</returns>
+        /// <returns>
+        /// The full parameter name corresponding to the partial parameter name requested.
+        /// </returns>
         string GetParameterName(string parameterName);
 
         /// <summary>
         /// Checks whether the specified identifier is valid.
         /// </summary>
         /// <param name="identifier">The identifier to check.</param>
-        /// <returns><see langword="true" /> if <paramref name="identifier" />
-        /// represents a valid SQL identifier; otherwise, <see
-        /// langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if <paramref name="identifier"/> represents a
+        /// valid SQL identifier; otherwise, <see langword="false"/>.
+        /// </returns>
         /// <remarks>
         /// <list type="number">
         /// <item>
-        /// <description>
-        /// The first character must be one of the following:
+        /// <description>The first character must be one of the following:
         /// <list type="bullet">
         /// <item>
         /// <description>
@@ -138,27 +140,28 @@ namespace Cadru.Data.Dapper
         /// </description>
         /// </item>
         /// <item>
-        /// <description>
-        /// Subsequent characters can include the following:
+        /// <description>Subsequent characters can include the following:
         /// <list type="bullet">
         /// <item>
-        /// <description>Letters as defined in the Unicode Standard
-        /// 3.2.</description>
+        /// <description>Letters as defined in the Unicode Standard 3.2.</description>
         /// </item>
         /// <item>
-        /// <description>Decimal numbers from either Basic Latin or other
-        /// national scripts.</description>
+        /// <description>
+        /// Decimal numbers from either Basic Latin or other national scripts.
+        /// </description>
         /// </item>
         /// <item>
-        /// <description>The at sign, dollar sign ($), number sign, or
-        /// underscore.</description>
+        /// <description>
+        /// The at sign, dollar sign ($), number sign, or underscore.
+        /// </description>
         /// </item>
         /// </list>
         /// </description>
         /// </item>
         /// <item>
-        /// <description>Embedded spaces or special characters are not
-        /// allowed.</description>
+        /// <description>
+        /// Embedded spaces or special characters are not allowed.
+        /// </description>
         /// </item>
         /// <item>
         /// <description>Supplementary characters are not allowed.</description>
@@ -173,24 +176,29 @@ namespace Cadru.Data.Dapper
         /// escaping any embedded quotes in the identifier.
         /// </summary>
         /// <param name="identifier">The original unquoted identifier.</param>
-        /// <returns>The quoted version of the identifier. Embedded quotes
-        /// within the identifier are properly escaped.</returns>
+        /// <returns>
+        /// The quoted version of the identifier. Embedded quotes within the
+        /// identifier are properly escaped.
+        /// </returns>
         /// <remarks>
-        /// This uses the <see cref="IdentifierPrefix" /> and <see
-        /// cref="IdentifierSuffix" /> values.
+        /// This uses the <see cref="IdentifierPrefix"/> and
+        /// <see cref="IdentifierSuffix"/> values.
         /// </remarks>
         string QuoteIdentifier(string identifier);
 
         /// <summary>
-        /// Returns the correct quoted form of the value, including properly escaping any embedded quotes.
+        /// Returns the correct quoted form of the value, including properly
+        /// escaping any embedded quotes.
         /// </summary>
         /// <param name="value">The original value.</param>
         /// <remarks>
-        /// This uses the <see cref="QuotePrefix" /> and <see
-        /// cref="QuoteSuffix" /> values.
+        /// This uses the <see cref="QuotePrefix"/> and
+        /// <see cref="QuoteSuffix"/> values.
         /// </remarks>
-        /// <returns>The quoted version of the value. Embedded quotes
-        /// within the value are properly escaped.</returns>
+        /// <returns>
+        /// The quoted version of the value. Embedded quotes within the value
+        /// are properly escaped.
+        /// </returns>
         string QuoteStringLiteral(string value);
 
         /// <summary>
@@ -198,13 +206,15 @@ namespace Cadru.Data.Dapper
         /// identifier, including properly un-escaping any embedded quotes in
         /// the identifier.
         /// </summary>
-        /// <param name="identifier">The identifier that will have its embedded
-        /// quotes removed.</param>
-        /// <returns>The unquoted identifier, with embedded quotes properly
-        /// un-escaped.</returns>
+        /// <param name="identifier">
+        /// The identifier that will have its embedded quotes removed.
+        /// </param>
+        /// <returns>
+        /// The unquoted identifier, with embedded quotes properly un-escaped.
+        /// </returns>
         /// <remarks>
-        /// This uses the <see cref="IdentifierPrefix" /> and <see
-        /// cref="IdentifierSuffix" /> values.
+        /// This uses the <see cref="IdentifierPrefix"/> and
+        /// <see cref="IdentifierSuffix"/> values.
         /// </remarks>
         string UnquoteIdentifier(string identifier);
     }

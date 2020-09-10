@@ -31,14 +31,16 @@ using Cadru.Data.Dapper.Predicates.Internal;
 namespace Cadru.Data.Dapper.Predicates
 {
     /// <summary>
-    /// Provides factory methods for creating <see cref="IPredicate" /> instances.
+    /// Provides factory methods for creating <see cref="IPredicate"/> instances.
     /// </summary>
     public static class Predicate
     {
         /// <summary>
         /// Creates a predicate group whose predicates are joined using an AND operator.
         /// </summary>
-        /// <returns>An <see cref="IPredicateGroup" /> instance representing the predicate.</returns>
+        /// <returns>
+        /// An <see cref="IPredicateGroup"/> instance representing the predicate.
+        /// </returns>
         public static IPredicateGroup And()
         {
             var group = new PredicateGroup
@@ -52,8 +54,12 @@ namespace Cadru.Data.Dapper.Predicates
         /// <summary>
         /// Creates a predicate group whose predicates are joined using an AND operator.
         /// </summary>
-        /// <param name="predicates">A collection of predicates to add the group.</param>
-        /// <returns>An <see cref="IPredicateGroup" /> instance representing the predicate.</returns>
+        /// <param name="predicates">
+        /// A collection of predicates to add the group.
+        /// </param>
+        /// <returns>
+        /// An <see cref="IPredicateGroup"/> instance representing the predicate.
+        /// </returns>
         public static IPredicateGroup And(IList<IPredicate> predicates)
         {
             var group = (PredicateGroup)And();
@@ -64,15 +70,21 @@ namespace Cadru.Data.Dapper.Predicates
         /// <summary>
         /// Represents an empty predicate.
         /// </summary>
-        /// <returns>An <see cref="IPredicate" /> instance representing the predicate.</returns>
+        /// <returns>
+        /// An <see cref="IPredicate"/> instance representing the predicate.
+        /// </returns>
         public static IPredicate Empty() => new EmptyPredicate();
 
         /// <summary>
         /// Creates a predicate which represents an EXISTS clause.
         /// </summary>
         /// <param name="predicate"></param>
-        /// <param name="not"><see langword="true" /> to invert the comparison operator.</param>
-        /// <returns>An <see cref="IPredicate" /> instance representing the predicate.</returns>
+        /// <param name="not">
+        /// <see langword="true"/> to invert the comparison operator.
+        /// </param>
+        /// <returns>
+        /// An <see cref="IPredicate"/> instance representing the predicate.
+        /// </returns>
         public static IPredicate Exists(IPredicate predicate, bool not = false)
         {
             return new ExistsPredicate
@@ -88,11 +100,17 @@ namespace Cadru.Data.Dapper.Predicates
         /// </summary>
         /// <typeparam name="TModel">The type of the entity.</typeparam>
         /// <typeparam name="TFieldType">The data type of the property.</typeparam>
-        /// <param name="expression">An expression that returns the [FieldName] operand.</param>
-        /// <param name="op">One of the <see cref="Operator" /> values.</param>
+        /// <param name="expression">
+        /// An expression that returns the [FieldName] operand.
+        /// </param>
+        /// <param name="op">One of the <see cref="Operator"/> values.</param>
         /// <param name="value">The value for the predicate.</param>
-        /// <param name="not"><see langword="true" /> to invert the comparison operator.</param>
-        /// <returns>An <see cref="IPredicate" /> instance representing the predicate.</returns>
+        /// <param name="not">
+        /// <see langword="true"/> to invert the comparison operator.
+        /// </param>
+        /// <returns>
+        /// An <see cref="IPredicate"/> instance representing the predicate.
+        /// </returns>
         public static IPredicate FieldComparison<TModel, TFieldType>(Expression<Func<TModel, TFieldType>> expression, Operator op, TFieldType value, bool not = false)
             where TModel : class
         {
@@ -115,11 +133,17 @@ namespace Cadru.Data.Dapper.Predicates
         /// </summary>
         /// <typeparam name="TModel">The type of the entity.</typeparam>
         /// <typeparam name="TFieldType">The data type of the property.</typeparam>
-        /// <param name="expression">An expression that returns the [FieldName] operand.</param>
-        /// <param name="op">One of the <see cref="Operator" /> values.</param>
+        /// <param name="expression">
+        /// An expression that returns the [FieldName] operand.
+        /// </param>
+        /// <param name="op">One of the <see cref="Operator"/> values.</param>
         /// <param name="value">The value for the predicate.</param>
-        /// <param name="not"><see langword="true" /> to invert the comparison operator.</param>
-        /// <returns>An <see cref="IPredicate" /> instance representing the predicate.</returns>
+        /// <param name="not">
+        /// <see langword="true"/> to invert the comparison operator.
+        /// </param>
+        /// <returns>
+        /// An <see cref="IPredicate"/> instance representing the predicate.
+        /// </returns>
         public static IPredicate FieldComparison<TModel, TFieldType>(Expression<Func<TModel, TFieldType>> expression, Operator op, IEnumerable<TFieldType> value, bool not = false)
             where TModel : class
         {
@@ -141,10 +165,14 @@ namespace Cadru.Data.Dapper.Predicates
         /// <typeparam name="TModel">The type of the entity.</typeparam>
         /// <typeparam name="TFieldType">The data type of the property.</typeparam>
         /// <param name="fieldName">The [FieldName] operand.</param>
-        /// <param name="op">One of the <see cref="Operator" /> values.</param>
+        /// <param name="op">One of the <see cref="Operator"/> values.</param>
         /// <param name="value">The value for the predicate.</param>
-        /// <param name="not"><see langword="true" /> to invert the comparison operator.</param>
-        /// <returns>An <see cref="IPredicate" /> instance representing the predicate.</returns>
+        /// <param name="not">
+        /// <see langword="true"/> to invert the comparison operator.
+        /// </param>
+        /// <returns>
+        /// An <see cref="IPredicate"/> instance representing the predicate.
+        /// </returns>
         public static IPredicate FieldComparison<TModel, TFieldType>(string fieldName, Operator op, TFieldType value, bool not = false)
             where TModel : class
         {
@@ -166,10 +194,14 @@ namespace Cadru.Data.Dapper.Predicates
         /// <typeparam name="TModel">The type of the entity.</typeparam>
         /// <typeparam name="TFieldType">The data type of the property.</typeparam>
         /// <param name="fieldName">The [FieldName] operand.</param>
-        /// <param name="op">One of the <see cref="Operator" /> values.</param>
+        /// <param name="op">One of the <see cref="Operator"/> values.</param>
         /// <param name="value">The value for the predicate.</param>
-        /// <param name="not"><see langword="true" /> to invert the comparison operator.</param>
-        /// <returns>An <see cref="IPredicate" /> instance representing the predicate.</returns>
+        /// <param name="not">
+        /// <see langword="true"/> to invert the comparison operator.
+        /// </param>
+        /// <returns>
+        /// An <see cref="IPredicate"/> instance representing the predicate.
+        /// </returns>
         public static IPredicate FieldComparison<TModel, TFieldType>(string fieldName, Operator op, IEnumerable<TFieldType> value, bool not = false)
             where TModel : class
         {
@@ -187,7 +219,9 @@ namespace Cadru.Data.Dapper.Predicates
         /// <summary>
         /// Creates a predicate group whose predicates are joined using an OR operator.
         /// </summary>
-        /// <returns>An <see cref="IPredicateGroup" /> instance representing the predicate.</returns>
+        /// <returns>
+        /// An <see cref="IPredicateGroup"/> instance representing the predicate.
+        /// </returns>
         public static IPredicateGroup Or()
         {
             var group = new PredicateGroup
@@ -201,8 +235,12 @@ namespace Cadru.Data.Dapper.Predicates
         /// <summary>
         /// Creates a predicate group whose predicates are joined using an OR operator.
         /// </summary>
-        /// <param name="predicates">A collection of predicates to add the group.</param>
-        /// <returns>An <see cref="IPredicateGroup" /> instance representing the predicate.</returns>
+        /// <param name="predicates">
+        /// A collection of predicates to add the group.
+        /// </param>
+        /// <returns>
+        /// An <see cref="IPredicateGroup"/> instance representing the predicate.
+        /// </returns>
         public static IPredicateGroup Or(IList<IPredicate> predicates)
         {
             var group = (PredicateGroup)Or();
@@ -214,14 +252,26 @@ namespace Cadru.Data.Dapper.Predicates
         /// Creates a predicate which represents a standard comparison clause,
         /// of the form [FieldName1] [Operator] [FieldName2].
         /// </summary>
-        /// <typeparam name="TModel">The type of the entity for the left operand.</typeparam>
-        /// <typeparam name="TModel2">The type of the entity for the right operand.</typeparam>
+        /// <typeparam name="TModel">
+        /// The type of the entity for the left operand.
+        /// </typeparam>
+        /// <typeparam name="TModel2">
+        /// The type of the entity for the right operand.
+        /// </typeparam>
         /// <typeparam name="TFieldType">The data type of the property.</typeparam>
-        /// <param name="left">An expression that returns the [FieldName1] operand.</param>
-        /// <param name="op">One of the <see cref="Operator" /> values.</param>
-        /// <param name="right">An expression that returns the [FieldName2] operand.</param>
-        /// <param name="not"><see langword="true" /> to invert the comparison operator.</param>
-        /// <returns>An <see cref="IPredicate" /> instance representing the predicate.</returns>
+        /// <param name="left">
+        /// An expression that returns the [FieldName1] operand.
+        /// </param>
+        /// <param name="op">One of the <see cref="Operator"/> values.</param>
+        /// <param name="right">
+        /// An expression that returns the [FieldName2] operand.
+        /// </param>
+        /// <param name="not">
+        /// <see langword="true"/> to invert the comparison operator.
+        /// </param>
+        /// <returns>
+        /// An <see cref="IPredicate"/> instance representing the predicate.
+        /// </returns>
         public static IPredicate PropertyComparison<TModel, TModel2, TFieldType>(Expression<Func<TModel, TFieldType>> left, Operator op, Expression<Func<TModel2, TFieldType>> right, bool not = false)
             where TModel : class
             where TModel2 : class
@@ -241,13 +291,21 @@ namespace Cadru.Data.Dapper.Predicates
         /// Creates a predicate which represents a standard comparison clause,
         /// of the form [FieldName1] [Operator] [FieldName2].
         /// </summary>
-        /// <typeparam name="TModel">The type of the entity for the left operand.</typeparam>
-        /// <typeparam name="TModel2">The type of the entity for the right operand.</typeparam>
+        /// <typeparam name="TModel">
+        /// The type of the entity for the left operand.
+        /// </typeparam>
+        /// <typeparam name="TModel2">
+        /// The type of the entity for the right operand.
+        /// </typeparam>
         /// <param name="left">The [FieldName1] operand.</param>
-        /// <param name="op">One of the <see cref="Operator" /> values.</param>
+        /// <param name="op">One of the <see cref="Operator"/> values.</param>
         /// <param name="right">The [FieldName2] operand.</param>
-        /// <param name="not"><see langword="true" /> to invert the comparison operator.</param>
-        /// <returns>An <see cref="IPredicate" /> instance representing the predicate.</returns>
+        /// <param name="not">
+        /// <see langword="true"/> to invert the comparison operator.
+        /// </param>
+        /// <returns>
+        /// An <see cref="IPredicate"/> instance representing the predicate.
+        /// </returns>
         public static IPredicate PropertyComparison<TModel, TModel2>(string left, Operator op, string right, bool not = false)
             where TModel : class
             where TModel2 : class

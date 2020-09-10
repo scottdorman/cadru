@@ -31,8 +31,8 @@ using Cadru.Polly;
 namespace Cadru.Net.Http
 {
     /// <summary>
-    /// Represents a strategy that determines whether or not a given <see cref="HttpRequestException" /> should
-    /// be considered as a transient error.
+    /// Represents a strategy that determines whether or not a given
+    /// <see cref="HttpRequestException"/> should be considered as a transient error.
     /// </summary>
     public class HttpTransientErrorDetectionStrategy : IExceptionHandlingStrategy
     {
@@ -80,9 +80,9 @@ namespace Cadru.Net.Http
 
             if (httpException.InnerException is WebException webException)
             {
-                // The PCL version of WebExceptionStatus does not include
-                // all of the possible values, so we're switching on
-                // the raw integer values instead.
+                // The PCL version of WebExceptionStatus does not include all of
+                // the possible values, so we're switching on the raw integer
+                // values instead.
                 switch ((int)webException.Status)
                 {
                     case 1: // NameResolutionFailure

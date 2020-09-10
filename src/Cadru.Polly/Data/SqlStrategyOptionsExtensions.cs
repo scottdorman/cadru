@@ -28,16 +28,20 @@ using Polly.Contrib.WaitAndRetry;
 namespace Cadru.Polly.Data
 {
     /// <summary>
-    /// Helper methods for getting strongly typed values from an <see cref="SqlStrategyOptions" />.
+    /// Helper methods for getting strongly typed values from an <see cref="SqlStrategyOptions"/>.
     /// </summary>
     public static class SqlStrategyOptionsExtensions
     {
         /// <summary>
         /// The duration the circuit will stay open before resetting.
         /// </summary>
-        /// <param name="sqlStrategyOptions">The <see cref="SqlStrategyOptions" /> instance.</param>
-        /// <returns>The configured value if it is not <see langword="null" />;
-        /// otherwise, the default value.</returns>
+        /// <param name="sqlStrategyOptions">
+        /// The <see cref="SqlStrategyOptions"/> instance.
+        /// </param>
+        /// <returns>
+        /// The configured value if it is not <see langword="null"/>; otherwise,
+        /// the default value.
+        /// </returns>
         public static TimeSpan DurationOfBreak(this SqlStrategyOptions sqlStrategyOptions)
         {
             return (sqlStrategyOptions.DurationOfBreak ?? SqlStrategyOptions.Defaults.DurationOfBreak)!.Value;
@@ -46,9 +50,13 @@ namespace Cadru.Polly.Data
         /// <summary>
         /// The number of exceptions that are allowed before opening the circuit.
         /// </summary>
-        /// <param name="sqlStrategyOptions">The <see cref="SqlStrategyOptions" /> instance.</param>
-        /// <returns>The configured value if it is not <see langword="null" />;
-        /// otherwise, the default value.</returns>
+        /// <param name="sqlStrategyOptions">
+        /// The <see cref="SqlStrategyOptions"/> instance.
+        /// </param>
+        /// <returns>
+        /// The configured value if it is not <see langword="null"/>; otherwise,
+        /// the default value.
+        /// </returns>
         public static int ExceptionsAllowedBeforeBreaking(this SqlStrategyOptions sqlStrategyOptions)
         {
             return (sqlStrategyOptions.ExceptionsAllowedBeforeBreaking ?? SqlStrategyOptions.Defaults.ExceptionsAllowedBeforeBreaking)!.Value;
@@ -57,9 +65,13 @@ namespace Cadru.Polly.Data
         /// <summary>
         /// Generates sleep durations in an exponential manner.
         /// </summary>
-        /// <param name="sqlStrategyOptions">The <see cref="SqlStrategyOptions" /> instance.</param>
-        /// <returns>The configured value if it is not <see langword="null" />
-        /// otherwise, the default value.</returns>
+        /// <param name="sqlStrategyOptions">
+        /// The <see cref="SqlStrategyOptions"/> instance.
+        /// </param>
+        /// <returns>
+        /// The configured value if it is not <see langword="null"/> otherwise,
+        /// the default value.
+        /// </returns>
         public static IEnumerable<TimeSpan> ExponentialBackoff(this SqlStrategyOptions sqlStrategyOptions)
         {
             return Backoff.ExponentialBackoff(TimeSpan.FromSeconds(2), sqlStrategyOptions.RetryCount());
@@ -68,9 +80,13 @@ namespace Cadru.Polly.Data
         /// <summary>
         /// The timeout for the overall policy.
         /// </summary>
-        /// <param name="sqlStrategyOptions">The <see cref="SqlStrategyOptions" /> instance.</param>
-        /// <returns>The configured value if it is not <see langword="null" />;
-        /// otherwise, the default value.</returns>
+        /// <param name="sqlStrategyOptions">
+        /// The <see cref="SqlStrategyOptions"/> instance.
+        /// </param>
+        /// <returns>
+        /// The configured value if it is not <see langword="null"/>; otherwise,
+        /// the default value.
+        /// </returns>
         public static TimeSpan OverallTimeout(this SqlStrategyOptions sqlStrategyOptions)
         {
             return (sqlStrategyOptions.OverallTimeout ?? SqlStrategyOptions.Defaults.OverallTimeout)!.Value;
@@ -79,9 +95,13 @@ namespace Cadru.Polly.Data
         /// <summary>
         /// The retry count.
         /// </summary>
-        /// <param name="sqlStrategyOptions">The <see cref="SqlStrategyOptions" /> instance.</param>
-        /// <returns>The configured value if it is not <see langword="null" />;
-        /// otherwise, the default value.</returns>
+        /// <param name="sqlStrategyOptions">
+        /// The <see cref="SqlStrategyOptions"/> instance.
+        /// </param>
+        /// <returns>
+        /// The configured value if it is not <see langword="null"/>; otherwise,
+        /// the default value.
+        /// </returns>
         public static int RetryCount(this SqlStrategyOptions sqlStrategyOptions)
         {
             return (sqlStrategyOptions.RetryCount ?? SqlStrategyOptions.Defaults.RetryCount)!.Value;
@@ -90,9 +110,13 @@ namespace Cadru.Polly.Data
         /// <summary>
         /// The timeout for each retry.
         /// </summary>
-        /// <param name="sqlStrategyOptions">The <see cref="SqlStrategyOptions" /> instance.</param>
-        /// <returns>The configured value if it is not <see langword="null" />;
-        /// otherwise, the default value.</returns>
+        /// <param name="sqlStrategyOptions">
+        /// The <see cref="SqlStrategyOptions"/> instance.
+        /// </param>
+        /// <returns>
+        /// The configured value if it is not <see langword="null"/>; otherwise,
+        /// the default value.
+        /// </returns>
         public static TimeSpan TimeoutPerRetry(this SqlStrategyOptions sqlStrategyOptions)
         {
             return (sqlStrategyOptions.TimeoutPerRetry ?? SqlStrategyOptions.Defaults.TimeoutPerRetry)!.Value;

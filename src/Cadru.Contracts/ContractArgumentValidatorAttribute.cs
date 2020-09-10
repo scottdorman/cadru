@@ -25,14 +25,15 @@ using System;
 namespace Cadru.Contracts
 {
     /// <summary>
-    /// Enables factoring legacy if-then-throw into separate methods for reuse and full control over
-    /// thrown exception and arguments.
+    /// Enables factoring legacy if-then-throw into separate methods for reuse
+    /// and full control over thrown exception and arguments.
     /// </summary>
     /// <devdoc>
-    /// Important: the ContractArgumentValidatorAttribute type is not needed in the .Net Framework
-    /// prior to mscorlib.dll 4.5. In order to use this feature in earlier versions, please add the
-    /// file ContractExtensions.cs or ContractExtensions.vb to all of your projects that contain
-    /// contract validator methods.
+    /// Important: the ContractArgumentValidatorAttribute type is not needed in
+    ///            the .Net Framework prior to mscorlib.dll 4.5. In order to use
+    /// this feature in earlier versions, please add the file
+    /// ContractExtensions.cs or ContractExtensions.vb to all of your projects
+    /// that contain contract validator methods.
     /// </devdoc>
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
     public sealed class ContractArgumentValidatorAttribute : Attribute

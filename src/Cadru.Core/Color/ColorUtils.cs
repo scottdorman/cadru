@@ -36,7 +36,7 @@ namespace Cadru.Color
         /// </summary>
         /// <param name="value">The value to generate a color for.</param>
         /// <param name="defaultColor">The default color.</param>
-        /// <returns>An <see cref="RGB" /> color representing <paramref name="value" />.</returns>
+        /// <returns>An <see cref="RGB"/> color representing <paramref name="value"/>.</returns>
         public static RGB GenerateColor(string value, string defaultColor = "#142583")
         {
             var color = new RGB(defaultColor);
@@ -58,7 +58,7 @@ namespace Cadru.Color
         /// Gets the best foreground color given the specified background color.
         /// </summary>
         /// <param name="color">The background color.</param>
-        /// <returns>The best <see cref="RGB" /> foreground color.</returns>
+        /// <returns>The best <see cref="RGB"/> foreground color.</returns>
         public static RGB GetBestForegroundColor(this RGB color)
         {
             return color.Luminance() > rgbThreshold ? RGB.Black : RGB.White;
@@ -68,7 +68,7 @@ namespace Cadru.Color
         /// Gets the best foreground color given the specified background color.
         /// </summary>
         /// <param name="color">The background color.</param>
-        /// <returns>The best <see cref="RGBA" /> foreground color.</returns>
+        /// <returns>The best <see cref="RGBA"/> foreground color.</returns>
         public static RGBA GetBestForegroundColor(this RGBA color)
         {
             return color.Luminance() > rgbThreshold ? RGBA.Black : RGBA.White;
@@ -78,7 +78,7 @@ namespace Cadru.Color
         /// Gets the best foreground color given the specified background color.
         /// </summary>
         /// <param name="color">The background color.</param>
-        /// <returns>The best <see cref="HSV" /> foreground color.</returns>
+        /// <returns>The best <see cref="HSV"/> foreground color.</returns>
         public static HSV GetBestForegroundColor(this HSV color)
         {
             return (color.Value < .5) ? HSV.White : HSV.Black;

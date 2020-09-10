@@ -34,11 +34,14 @@ namespace Cadru.AspNetCore.Http
     public static class RequestResponseLoggingMiddlewareExtensions
     {
         /// <summary>
-        ///
         /// </summary>
-        /// <param name="services">The <see cref="IServiceCollection" /> to add services to.</param>
+        /// <param name="services">
+        /// The <see cref="IServiceCollection"/> to add services to.
+        /// </param>
         /// <param name="configuration">A set of key/value configuration properties.</param>
-        /// <returns>The <see cref="IServiceCollection" /> so that additional calls can be chained.</returns>
+        /// <returns>
+        /// The <see cref="IServiceCollection"/> so that additional calls can be chained.
+        /// </returns>
         public static IServiceCollection AddRequestResponseLogging([NotNull] this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<RequestResponseLoggingOptions>(configuration as IConfigurationSection ?? configuration.GetSection(RequestResponseLoggingOptions.SectionKey));
@@ -46,10 +49,16 @@ namespace Cadru.AspNetCore.Http
         }
 
         /// <summary>
-        /// Adds the <see cref="RequestResponseLoggingMiddleware" /> to the application's request pipeline.
+        /// Adds the <see cref="RequestResponseLoggingMiddleware"/> to the
+        /// application's request pipeline.
         /// </summary>
-        /// <param name="builder">The <see cref="IApplicationBuilder" /> to add middleware to.</param>
-        /// <returns>The <see cref="IApplicationBuilder" /> so that additional calls can be chained.</returns>
+        /// <param name="builder">
+        /// The <see cref="IApplicationBuilder"/> to add middleware to.
+        /// </param>
+        /// <returns>
+        /// The <see cref="IApplicationBuilder"/> so that additional calls can
+        /// be chained.
+        /// </returns>
         public static IApplicationBuilder UseRequestResponseLogging([NotNull] this IApplicationBuilder builder)
         {
             return builder.UseMiddleware<RequestResponseLoggingMiddleware>();

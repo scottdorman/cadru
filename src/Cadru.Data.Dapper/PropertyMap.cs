@@ -35,10 +35,12 @@ namespace Cadru.Data.Dapper
     public class PropertyMap : IPropertyMap
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PropertyMap" /> class.
+        /// Initializes a new instance of the <see cref="PropertyMap"/> class.
         /// </summary>
-        /// <param name="propertyInfo">The <see cref="PropertyInfo" /> for the
-        /// entity model property that maps to the database column.</param>
+        /// <param name="propertyInfo">
+        /// The <see cref="PropertyInfo"/> for the entity model property that
+        /// maps to the database column.
+        /// </param>
         public PropertyMap(PropertyInfo propertyInfo)
         {
             this.PropertyInfo = propertyInfo;

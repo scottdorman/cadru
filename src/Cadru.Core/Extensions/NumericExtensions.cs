@@ -33,224 +33,266 @@ namespace Cadru.Extensions
     public static class NumericExtensions
     {
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
-        /// is between the minimum and maximum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is between the minimum and maximum indicated.
         /// </summary>
         /// <param name="expression">Any byte value.</param>
         /// <param name="min">The minimum byte value.</param>
         /// <param name="max">The maximum byte value.</param>
-        /// <returns>Between returns <see langword="true" /> if <paramref name="expression" /> is greater than
-        /// the minimum value but less than the maximum value; otherwise it
-        /// returns <see langword="false" />.</returns>
+        /// <returns>
+        /// Between returns <see langword="true"/> if
+        /// <paramref name="expression"/> is greater than the minimum value but
+        /// less than the maximum value; otherwise it returns <see langword="false"/>.
+        /// </returns>
         public static bool Between(this byte expression, byte min, byte max)
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
-        /// is between the minimum and maximum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is between the minimum and maximum indicated.
         /// </summary>
         /// <param name="expression">Any byte value.</param>
         /// <param name="min">The minimum byte value.</param>
         /// <param name="max">The maximum byte value.</param>
-        /// <param name="options">A bitwise combination of enumeration values
-        /// that defines whether the comparison is inclusive.</param>
-        /// <returns>Between returns <see langword="true" /> if <paramref name="expression" /> is greater than
-        /// the minimum value but less than the maximum value; otherwise it
-        /// returns <see langword="false" />.</returns>
+        /// <param name="options">
+        /// A bitwise combination of enumeration values that defines whether the
+        /// comparison is inclusive.
+        /// </param>
+        /// <returns>
+        /// Between returns <see langword="true"/> if
+        /// <paramref name="expression"/> is greater than the minimum value but
+        /// less than the maximum value; otherwise it returns <see langword="false"/>.
+        /// </returns>
         public static bool Between(this byte expression, byte min, byte max, NumericComparisonOptions options)
         {
             return Between(expression, min, max, options, Comparer<byte>.Default);
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
-        /// is between the minimum and maximum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is between the minimum and maximum indicated.
         /// </summary>
         /// <param name="expression">Any decimal value.</param>
         /// <param name="min">The minimum decimal value.</param>
         /// <param name="max">The maximum decimal value.</param>
-        /// <returns>Between returns <see langword="true" /> if <paramref name="expression" /> is greater than
-        /// the minimum value but less than the maximum value; otherwise it
-        /// returns <see langword="false" />.</returns>
+        /// <returns>
+        /// Between returns <see langword="true"/> if
+        /// <paramref name="expression"/> is greater than the minimum value but
+        /// less than the maximum value; otherwise it returns <see langword="false"/>.
+        /// </returns>
         public static bool Between(this decimal expression, decimal min, decimal max)
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
-        /// is between the minimum and maximum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is between the minimum and maximum indicated.
         /// </summary>
         /// <param name="expression">Any decimal value.</param>
         /// <param name="min">The minimum decimal value.</param>
         /// <param name="max">The maximum decimal value.</param>
-        /// <param name="options">A bitwise combination of enumeration values
-        /// that defines whether the comparison is inclusive.</param>
-        /// <returns>Between returns <see langword="true" /> if <paramref name="expression" /> is greater than
-        /// the minimum value but less than the maximum value; otherwise it
-        /// returns <see langword="false" />.</returns>
+        /// <param name="options">
+        /// A bitwise combination of enumeration values that defines whether the
+        /// comparison is inclusive.
+        /// </param>
+        /// <returns>
+        /// Between returns <see langword="true"/> if
+        /// <paramref name="expression"/> is greater than the minimum value but
+        /// less than the maximum value; otherwise it returns <see langword="false"/>.
+        /// </returns>
         public static bool Between(this decimal expression, decimal min, decimal max, NumericComparisonOptions options)
         {
             return Between(expression, min, max, options, Comparer<decimal>.Default);
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
-        /// is between the minimum and maximum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is between the minimum and maximum indicated.
         /// </summary>
         /// <param name="expression">Any double value.</param>
         /// <param name="min">The minimum double value.</param>
         /// <param name="max">The maximum double value.</param>
-        /// <returns>Between returns <see langword="true" /> if <paramref name="expression" /> is greater than
-        /// the minimum value but less than the maximum value; otherwise it
-        /// returns <see langword="false" />.</returns>
+        /// <returns>
+        /// Between returns <see langword="true"/> if
+        /// <paramref name="expression"/> is greater than the minimum value but
+        /// less than the maximum value; otherwise it returns <see langword="false"/>.
+        /// </returns>
         public static bool Between(this double expression, double min, double max)
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
-        /// is between the minimum and maximum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is between the minimum and maximum indicated.
         /// </summary>
         /// <param name="expression">Any double value.</param>
         /// <param name="min">The minimum double value.</param>
         /// <param name="max">The maximum double value.</param>
-        /// <param name="options">A bitwise combination of enumeration values
-        /// that defines whether the comparison is inclusive.</param>
-        /// <returns>Between returns <see langword="true" /> if <paramref name="expression" /> is greater than
-        /// the minimum value but less than the maximum value; otherwise it
-        /// returns <see langword="false" />.</returns>
+        /// <param name="options">
+        /// A bitwise combination of enumeration values that defines whether the
+        /// comparison is inclusive.
+        /// </param>
+        /// <returns>
+        /// Between returns <see langword="true"/> if
+        /// <paramref name="expression"/> is greater than the minimum value but
+        /// less than the maximum value; otherwise it returns <see langword="false"/>.
+        /// </returns>
         public static bool Between(this double expression, double min, double max, NumericComparisonOptions options)
         {
             return Between(expression, min, max, options, Comparer<double>.Default);
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
-        /// is between the minimum and maximum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is between the minimum and maximum indicated.
         /// </summary>
         /// <param name="expression">Any short value.</param>
         /// <param name="min">The minimum short value.</param>
         /// <param name="max">The maximum short value.</param>
-        /// <returns>Between returns <see langword="true" /> if <paramref name="expression" /> is greater than
-        /// the minimum value but less than the maximum value; otherwise it
-        /// returns <see langword="false" />.</returns>
+        /// <returns>
+        /// Between returns <see langword="true"/> if
+        /// <paramref name="expression"/> is greater than the minimum value but
+        /// less than the maximum value; otherwise it returns <see langword="false"/>.
+        /// </returns>
         public static bool Between(this short expression, short min, short max)
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
-        /// is between the minimum and maximum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is between the minimum and maximum indicated.
         /// </summary>
         /// <param name="expression">Any short value.</param>
         /// <param name="min">The minimum short value.</param>
         /// <param name="max">The maximum short value.</param>
-        /// <param name="options">A bitwise combination of enumeration values
-        /// that defines whether the comparison is inclusive.</param>
-        /// <returns>Between returns <see langword="true" /> if <paramref name="expression" /> is greater than
-        /// the minimum value but less than the maximum value; otherwise it
-        /// returns <see langword="false" />.</returns>
+        /// <param name="options">
+        /// A bitwise combination of enumeration values that defines whether the
+        /// comparison is inclusive.
+        /// </param>
+        /// <returns>
+        /// Between returns <see langword="true"/> if
+        /// <paramref name="expression"/> is greater than the minimum value but
+        /// less than the maximum value; otherwise it returns <see langword="false"/>.
+        /// </returns>
         public static bool Between(this short expression, short min, short max, NumericComparisonOptions options)
         {
             return Between(expression, min, max, options, Comparer<short>.Default);
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
-        /// is between the minimum and maximum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is between the minimum and maximum indicated.
         /// </summary>
         /// <param name="expression">Any integer value.</param>
         /// <param name="min">The minimum integer value.</param>
         /// <param name="max">The maximum integer value.</param>
-        /// <returns>Between returns <see langword="true" /> if <paramref name="expression" /> is greater than
-        /// the minimum value but less than the maximum value; otherwise it
-        /// returns <see langword="false" />.</returns>
+        /// <returns>
+        /// Between returns <see langword="true"/> if
+        /// <paramref name="expression"/> is greater than the minimum value but
+        /// less than the maximum value; otherwise it returns <see langword="false"/>.
+        /// </returns>
         public static bool Between(this int expression, int min, int max)
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
-        /// is between the minimum and maximum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is between the minimum and maximum indicated.
         /// </summary>
         /// <param name="expression">Any integer value.</param>
         /// <param name="min">The minimum integer value.</param>
         /// <param name="max">The maximum integer value.</param>
-        /// <param name="options">A bitwise combination of enumeration values
-        /// that defines whether the comparison is inclusive.</param>
-        /// <returns>Between returns <see langword="true" /> if <paramref name="expression" /> is greater than
-        /// the minimum value but less than the maximum value; otherwise it
-        /// returns <see langword="false" />.</returns>
+        /// <param name="options">
+        /// A bitwise combination of enumeration values that defines whether the
+        /// comparison is inclusive.
+        /// </param>
+        /// <returns>
+        /// Between returns <see langword="true"/> if
+        /// <paramref name="expression"/> is greater than the minimum value but
+        /// less than the maximum value; otherwise it returns <see langword="false"/>.
+        /// </returns>
         public static bool Between(this int expression, int min, int max, NumericComparisonOptions options)
         {
             return Between(expression, min, max, options, Comparer<int>.Default);
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
-        /// is between the minimum and maximum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is between the minimum and maximum indicated.
         /// </summary>
         /// <param name="expression">Any long value.</param>
         /// <param name="min">The minimum long value.</param>
         /// <param name="max">The maximum long value.</param>
-        /// <returns>Between returns <see langword="true" /> if <paramref name="expression" /> is greater than
-        /// the minimum value but less than the maximum value; otherwise it
-        /// returns <see langword="false" />.</returns>
+        /// <returns>
+        /// Between returns <see langword="true"/> if
+        /// <paramref name="expression"/> is greater than the minimum value but
+        /// less than the maximum value; otherwise it returns <see langword="false"/>.
+        /// </returns>
         public static bool Between(this long expression, long min, long max)
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
-        /// is between the minimum and maximum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is between the minimum and maximum indicated.
         /// </summary>
         /// <param name="expression">Any long value.</param>
         /// <param name="min">The minimum long value.</param>
         /// <param name="max">The maximum long value.</param>
-        /// <param name="options">A bitwise combination of enumeration values
-        /// that defines whether the comparison is inclusive.</param>
-        /// <returns>Between returns <see langword="true" /> if <paramref name="expression" /> is greater than
-        /// the minimum value but less than the maximum value; otherwise it
-        /// returns <see langword="false" />.</returns>
+        /// <param name="options">
+        /// A bitwise combination of enumeration values that defines whether the
+        /// comparison is inclusive.
+        /// </param>
+        /// <returns>
+        /// Between returns <see langword="true"/> if
+        /// <paramref name="expression"/> is greater than the minimum value but
+        /// less than the maximum value; otherwise it returns <see langword="false"/>.
+        /// </returns>
         public static bool Between(this long expression, long min, long max, NumericComparisonOptions options)
         {
             return Between(expression, min, max, options, Comparer<long>.Default);
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
-        /// is between the minimum and maximum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is between the minimum and maximum indicated.
         /// </summary>
         /// <param name="expression">Any single value.</param>
         /// <param name="min">The minimum single value.</param>
         /// <param name="max">The maximum single value.</param>
-        /// <returns>Between returns <see langword="true" /> if <paramref name="expression" /> is greater than
-        /// the minimum value but less than the maximum value; otherwise it
-        /// returns <see langword="false" />.</returns>
+        /// <returns>
+        /// Between returns <see langword="true"/> if
+        /// <paramref name="expression"/> is greater than the minimum value but
+        /// less than the maximum value; otherwise it returns <see langword="false"/>.
+        /// </returns>
         public static bool Between(this float expression, float min, float max)
         {
             return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether <paramref name="expression" />
-        /// is between the minimum and maximum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is between the minimum and maximum indicated.
         /// </summary>
         /// <param name="expression">Any single value.</param>
         /// <param name="min">The minimum single value.</param>
         /// <param name="max">The maximum single value.</param>
-        /// <param name="options">A bitwise combination of enumeration values
-        /// that defines whether the comparison is inclusive.</param>
-        /// <returns>Between returns <see langword="true" /> if <paramref name="expression" /> is greater than
-        /// the minimum value but less than the maximum value; otherwise it
-        /// returns <see langword="false" />.</returns>
+        /// <param name="options">
+        /// A bitwise combination of enumeration values that defines whether the
+        /// comparison is inclusive.
+        /// </param>
+        /// <returns>
+        /// Between returns <see langword="true"/> if
+        /// <paramref name="expression"/> is greater than the minimum value but
+        /// less than the maximum value; otherwise it returns <see langword="false"/>.
+        /// </returns>
         public static bool Between(this float expression, float min, float max, NumericComparisonOptions options)
         {
             return Between(expression, min, max, options, Comparer<float>.Default);
@@ -258,19 +300,19 @@ namespace Cadru.Extensions
 
         /// <overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is greater than the minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is greater than the minimum indicated.
         /// </summary>
         /// </overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is greater than the minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is greater than the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is greater than the minimum indicated; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is greater
+        /// than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool GreaterThan(this byte expression, byte min)
         {
@@ -278,14 +320,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is greater than the minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is greater than the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is greater than the minimum indicated; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is greater
+        /// than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool GreaterThan(this decimal expression, decimal min)
         {
@@ -293,14 +335,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is greater than the minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is greater than the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is greater than the minimum indicated; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is greater
+        /// than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool GreaterThan(this double expression, double min)
         {
@@ -308,14 +350,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is greater than the minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is greater than the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is greater than the minimum indicated; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is greater
+        /// than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool GreaterThan(this short expression, short min)
         {
@@ -323,14 +365,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is greater than the minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is greater than the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is greater than the minimum indicated; otherwise <see clangwordref="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is greater
+        /// than the minimum indicated; otherwise <see clangwordref="false"/>.
         /// </returns>
         public static bool GreaterThan(this int expression, int min)
         {
@@ -338,14 +380,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is greater than the minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is greater than the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is greater than the minimum indicated; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is greater
+        /// than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool GreaterThan(this long expression, long min)
         {
@@ -353,14 +395,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is greater than the minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is greater than the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is greater than the minimum indicated; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is greater
+        /// than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool GreaterThan(this float expression, float min)
         {
@@ -369,22 +411,21 @@ namespace Cadru.Extensions
 
         /// <overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is greater than or equal to the
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is greater than or equal to the
         /// minimum indicated.
         /// </summary>
         /// </overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is greater than or equal to the
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is greater than or equal to the
         /// minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is greater than or equal to the minimum indicated;
-        /// otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is greater
+        /// than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool GreaterThanOrEqualTo(this byte expression, byte min)
         {
@@ -392,16 +433,15 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is greater than or equal to the
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is greater than or equal to the
         /// minimum indicated.
         /// </summary>
         /// <param name="expression">Any decimal value.</param>
         /// <param name="min">The minimum decimal value.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is greater than or equal to the minimum indicated;
-        /// otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is greater
+        /// than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool GreaterThanOrEqualTo(this decimal expression, decimal min)
         {
@@ -409,16 +449,15 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is greater than or equal to the
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is greater than or equal to the
         /// minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is greater than or equal to the minimum indicated;
-        /// otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is greater
+        /// than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool GreaterThanOrEqualTo(this double expression, double min)
         {
@@ -426,16 +465,15 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is greater than or equal to the
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is greater than or equal to the
         /// minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is greater than or equal to the minimum indicated;
-        /// otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is greater
+        /// than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool GreaterThanOrEqualTo(this short expression, short min)
         {
@@ -443,16 +481,15 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is greater than or equal to the
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is greater than or equal to the
         /// minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is greater than or equal to the minimum indicated;
-        /// otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is greater
+        /// than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool GreaterThanOrEqualTo(this int expression, int min)
         {
@@ -460,16 +497,15 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is greater than or equal to the
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is greater than or equal to the
         /// minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is greater than or equal to the minimum indicated;
-        /// otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is greater
+        /// than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool GreaterThanOrEqualTo(this long expression, long min)
         {
@@ -477,16 +513,15 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is greater than or equal to the
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is greater than or equal to the
         /// minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is greater than or equal to the minimum indicated;
-        /// otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is greater
+        /// than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool GreaterThanOrEqualTo(this float expression, float min)
         {
@@ -495,18 +530,18 @@ namespace Cadru.Extensions
 
         /// <overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is an even number.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is an even number.
         /// </summary>
         /// </overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is an even number.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is an even number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is an even number; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is an even
+        /// number; otherwise <see langword="false"/>.
         /// </returns>
         public static bool IsEven(this int expression)
         {
@@ -514,13 +549,13 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is an even number.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is an even number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is an even number; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is an even
+        /// number; otherwise <see langword="false"/>.
         /// </returns>
         public static bool IsEven(this short expression)
         {
@@ -528,13 +563,13 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is an even number.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is an even number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is an even number; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is an even
+        /// number; otherwise <see langword="false"/>.
         /// </returns>
         public static bool IsEven(this long expression)
         {
@@ -542,13 +577,13 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is an even number.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is an even number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is an even number; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is an even
+        /// number; otherwise <see langword="false"/>.
         /// </returns>
         public static bool IsEven(this decimal expression)
         {
@@ -556,13 +591,13 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is an even number.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is an even number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is an even number; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is an even
+        /// number; otherwise <see langword="false"/>.
         /// </returns>
         public static bool IsEven(this double expression)
         {
@@ -570,13 +605,13 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is an even number.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is an even number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is an even number; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is an even
+        /// number; otherwise <see langword="false"/>.
         /// </returns>
         public static bool IsEven(this float expression)
         {
@@ -585,18 +620,18 @@ namespace Cadru.Extensions
 
         /// <overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is an odd number.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is an odd number.
         /// </summary>
         /// </overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is an odd number.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is an odd number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is an odd number; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is an odd
+        /// number; otherwise <see langword="false"/>.
         /// </returns>
         public static bool IsOdd(this int expression)
         {
@@ -604,13 +639,13 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is an odd number.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is an odd number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is an odd number; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is an odd
+        /// number; otherwise <see langword="false"/>.
         /// </returns>
         public static bool IsOdd(this short expression)
         {
@@ -618,13 +653,13 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is an odd number.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is an odd number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is an odd number; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is an odd
+        /// number; otherwise <see langword="false"/>.
         /// </returns>
         public static bool IsOdd(this long expression)
         {
@@ -632,13 +667,13 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is an odd number.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is an odd number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is an odd number; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is an odd
+        /// number; otherwise <see langword="false"/>.
         /// </returns>
         public static bool IsOdd(this decimal expression)
         {
@@ -646,13 +681,13 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is an odd number.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is an odd number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is an odd number; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is an odd
+        /// number; otherwise <see langword="false"/>.
         /// </returns>
         public static bool IsOdd(this double expression)
         {
@@ -660,13 +695,13 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is an odd number.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is an odd number.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is an odd number; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is an odd
+        /// number; otherwise <see langword="false"/>.
         /// </returns>
         public static bool IsOdd(this float expression)
         {
@@ -675,19 +710,19 @@ namespace Cadru.Extensions
 
         /// <overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is less than the minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is less than the minimum indicated.
         /// </summary>
         /// </overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is less than the minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is less than the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is less than the minimum indicated; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is less than
+        /// the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool LessThan(this byte expression, byte min)
         {
@@ -695,14 +730,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is less than the minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is less than the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is less than the minimum indicated; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is less than
+        /// the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool LessThan(this decimal expression, decimal min)
         {
@@ -710,14 +745,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is less than the minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is less than the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is less than the minimum indicated; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is less than
+        /// the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool LessThan(this double expression, double min)
         {
@@ -725,14 +760,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is less than the minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is less than the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is less than the minimum indicated; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is less than
+        /// the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool LessThan(this short expression, short min)
         {
@@ -740,14 +775,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is less than the minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is less than the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is less than the minimum indicated; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is less than
+        /// the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool LessThan(this int expression, int min)
         {
@@ -755,14 +790,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is less than the minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is less than the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is less than the minimum indicated; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is less than
+        /// the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool LessThan(this long expression, long min)
         {
@@ -770,14 +805,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is less than the minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is less than the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is less than the minimum indicated; otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is less than
+        /// the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool LessThan(this float expression, float min)
         {
@@ -786,22 +821,19 @@ namespace Cadru.Extensions
 
         /// <overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is less than or equal to the
-        /// minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is less than or equal to the minimum indicated.
         /// </summary>
         /// </overloads>
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is less than or equal to the
-        /// minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is less than or equal to the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is less than or equal to the minimum indicated;
-        /// otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is less than
+        /// or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool LessThanOrEqualTo(this byte expression, byte min)
         {
@@ -809,16 +841,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is less than or equal to the
-        /// minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is less than or equal to the minimum indicated.
         /// </summary>
         /// <param name="expression">Any decimal value.</param>
         /// <param name="min">The minimum decimal value.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is less than or equal to the minimum indicated;
-        /// otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is less than
+        /// or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool LessThanOrEqualTo(this decimal expression, decimal min)
         {
@@ -826,16 +856,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is less than or equal to the
-        /// minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is less than or equal to the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is less than or equal to the minimum indicated;
-        /// otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is less than
+        /// or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool LessThanOrEqualTo(this double expression, double min)
         {
@@ -843,16 +871,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is less than or equal to the
-        /// minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is less than or equal to the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is less than or equal to the minimum indicated;
-        /// otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is less than
+        /// or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool LessThanOrEqualTo(this short expression, short min)
         {
@@ -860,16 +886,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is less than or equal to the
-        /// minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is less than or equal to the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is less than or equal to the minimum indicated;
-        /// otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is less than
+        /// or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool LessThanOrEqualTo(this int expression, int min)
         {
@@ -877,16 +901,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is less than or equal to the
-        /// minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is less than or equal to the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is less than or equal to the minimum indicated;
-        /// otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is less than
+        /// or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool LessThanOrEqualTo(this long expression, long min)
         {
@@ -894,16 +916,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="Boolean" /> expression indicating whether
-        /// <paramref name="expression" /> is less than or equal to the
-        /// minimum indicated.
+        /// Returns a <see cref="Boolean"/> expression indicating whether
+        /// <paramref name="expression"/> is less than or equal to the minimum indicated.
         /// </summary>
         /// <param name="expression">The value to test.</param>
         /// <param name="min">The minimum value to compare against.</param>
         /// <returns>
-        /// <see langword="true" /> if <paramref name="expression" />
-        /// is less than or equal to the minimum indicated;
-        /// otherwise <see langword="false" />.
+        /// <see langword="true"/> if <paramref name="expression"/> is less than
+        /// or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
         public static bool LessThanOrEqualTo(this float expression, float min)
         {

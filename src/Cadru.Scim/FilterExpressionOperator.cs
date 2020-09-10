@@ -33,7 +33,8 @@ namespace Cadru.Scim.Filters
         private readonly string _value;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FilterExpressionOperator" /> structure.
+        /// Initializes a new instance of the
+        /// <see cref="FilterExpressionOperator"/> structure.
         /// </summary>
         /// <param name="value">The string value of the instance.</param>
         public FilterExpressionOperator(string value)
@@ -42,17 +43,16 @@ namespace Cadru.Scim.Filters
         }
 
         /// <summary>
-        /// The entire operator value must be a substring of the attribute value for a match.
+        /// The entire operator value must be a substring of the attribute value
+        /// for a match.
         /// </summary>
         public static FilterExpressionOperator Contains => new FilterExpressionOperator("co");
 
         /// <summary>
-        /// The entire operator value must be a substring of the attribute value,
-        /// matching at the end of the attribute value.
+        /// The entire operator value must be a substring of the attribute
+        /// value, matching at the end of the attribute value.
         /// </summary>
-        /// <remarks>
-        /// This criterion is satisfied if the two strings are identical.
-        /// </remarks>
+        /// <remarks>This criterion is satisfied if the two strings are identical.</remarks>
         public static FilterExpressionOperator EndsWith => new FilterExpressionOperator("ew");
 
         /// <summary>
@@ -90,13 +90,12 @@ namespace Cadru.Scim.Filters
 
         /// <summary>
         /// If the attribute has a non-empty or non-null value, or if it
-        /// contains a  non-empty node for complex attributes, there is a match.
+        /// contains a non-empty node for complex attributes, there is a match.
         /// </summary>
         public static FilterExpressionOperator HasValue => new FilterExpressionOperator("pr");
 
         /// <summary>
-        /// If the attribute value is less than the operator value, there is
-        /// a match.
+        /// If the attribute value is less than the operator value, there is a match.
         /// </summary>
         /// <remarks>
         /// The actual comparison is dependent on the attribute type. For string
@@ -109,8 +108,8 @@ namespace Cadru.Scim.Filters
         public static FilterExpressionOperator LessThan => new FilterExpressionOperator("lt");
 
         /// <summary>
-        /// If the attribute value is less than or equal to the operator
-        /// value, there is a match.
+        /// If the attribute value is less than or equal to the operator value,
+        /// there is a match.
         /// </summary>
         /// <remarks>
         /// The actual comparison is dependent on the attribute type. For string
@@ -129,42 +128,53 @@ namespace Cadru.Scim.Filters
 
         /// <summary>
         /// If the attribute has a non-empty or non-null value, or if it
-        /// contains a  non-empty node for complex attributes, there is a match.
+        /// contains a non-empty node for complex attributes, there is a match.
         /// </summary>
-        /// <remarks>
-        /// This is synonymous with <see cref="HasValue"></see>.
-        /// </remarks>
+        /// <remarks>This is synonymous with <see cref="HasValue"></see>.</remarks>
         public static FilterExpressionOperator Present => new FilterExpressionOperator("pr");
 
         /// <summary>
-        /// The entire operator value must be a substring of the attribute value,
-        /// matching at the beginning of the attribute value.
+        /// The entire operator value must be a substring of the attribute
+        /// value, matching at the beginning of the attribute value.
         /// </summary>
-        /// <remarks>
-        /// This criterion is satisfied if the two strings are identical.
-        /// </remarks>
+        /// <remarks>This criterion is satisfied if the two strings are identical.</remarks>
         public static FilterExpressionOperator StartsWith => new FilterExpressionOperator("sw");
 
         /// <summary>
-        /// Converts a string to a <see cref="FilterExpressionOperator" />.
+        /// Converts a string to a <see cref="FilterExpressionOperator"/>.
         /// </summary>
         /// <param name="value">The string value to convert.</param>
         public static implicit operator FilterExpressionOperator(string value) => new FilterExpressionOperator(value);
 
         /// <summary>
-        /// Determines if two <see cref="FilterExpressionOperator" /> values are different.
+        /// Determines if two <see cref="FilterExpressionOperator"/> values are different.
         /// </summary>
-        /// <param name="left">The first <see cref="FilterExpressionOperator" /> to compare.</param>
-        /// <param name="right">The second <see cref="FilterExpressionOperator" /> to compare.</param>
-        /// <returns>True if <paramref name="left" /> and <paramref name="right" /> are different; otherwise, false.</returns>
+        /// <param name="left">
+        /// The first <see cref="FilterExpressionOperator"/> to compare.
+        /// </param>
+        /// <param name="right">
+        /// The second <see cref="FilterExpressionOperator"/> to compare.
+        /// </param>
+        /// <returns>
+        /// True if <paramref name="left"/> and <paramref name="right"/> are
+        /// different; otherwise, false.
+        /// </returns>
         public static bool operator !=(FilterExpressionOperator left, FilterExpressionOperator right) => !left.Equals(right);
 
         /// <summary>
-        /// Determines if two <see cref="FilterExpressionOperator" /> values are the same.
+        /// Determines if two <see cref="FilterExpressionOperator"/> values are
+        /// the same.
         /// </summary>
-        /// <param name="left">The first <see cref="FilterExpressionOperator" /> to compare.</param>
-        /// <param name="right">The second <see cref="FilterExpressionOperator" /> to compare.</param>
-        /// <returns>True if <paramref name="left" /> and <paramref name="right" /> are the same; otherwise, false.</returns>
+        /// <param name="left">
+        /// The first <see cref="FilterExpressionOperator"/> to compare.
+        /// </param>
+        /// <param name="right">
+        /// The second <see cref="FilterExpressionOperator"/> to compare.
+        /// </param>
+        /// <returns>
+        /// True if <paramref name="left"/> and <paramref name="right"/> are the
+        /// same; otherwise, false.
+        /// </returns>
         public static bool operator ==(FilterExpressionOperator left, FilterExpressionOperator right) => left.Equals(right);
 
         /// <inheritdoc/>

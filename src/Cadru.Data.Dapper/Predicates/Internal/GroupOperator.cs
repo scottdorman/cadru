@@ -23,7 +23,7 @@
 namespace Cadru.Data.Dapper.Predicates
 {
     /// <summary>
-    /// Operator to use when joining predicates in a <see cref="Cadru.Data.Dapper.Predicates.Internal.PredicateGroup" />.
+    /// Operator to use when joining predicates in a <see cref="Cadru.Data.Dapper.Predicates.Internal.PredicateGroup"/>.
     /// </summary>
     internal enum GroupOperator
     {

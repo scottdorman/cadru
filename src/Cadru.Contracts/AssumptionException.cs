@@ -32,7 +32,7 @@ namespace Cadru.Contracts
     public sealed class AssumptionException : Exception
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AssumptionException" /> class.
+        /// Initializes a new instance of the <see cref="AssumptionException"/> class.
         /// </summary>
         public AssumptionException()
             : base(Resources.Strings.AssumptionException_EmptyMessage)
@@ -40,7 +40,8 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AssumptionException" /> class with a specified error message.
+        /// Initializes a new instance of the <see cref="AssumptionException"/>
+        /// class with a specified error message.
         /// </summary>
         /// <param name="message">The message that describes the error.</param>
         public AssumptionException(string message)
@@ -49,12 +50,17 @@ namespace Cadru.Contracts
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AssumptionException" /> class with a specified
-        /// error message and a reference to the inner exception that is the cause of
-        /// this exception.
+        /// Initializes a new instance of the <see cref="AssumptionException"/>
+        /// class with a specified error message and a reference to the inner
+        /// exception that is the cause of this exception.
         /// </summary>
-        /// <param name="message">The error message that explains the reason for the exception.</param>
-        /// <param name="inner">The exception that is the cause of the current exception, or a <see langword="null" /> if no inner exception is specified.</param>
+        /// <param name="message">
+        /// The error message that explains the reason for the exception.
+        /// </param>
+        /// <param name="inner">
+        /// The exception that is the cause of the current exception, or a
+        /// <see langword="null"/> if no inner exception is specified.
+        /// </param>
         public AssumptionException(string message, Exception inner)
             : base(message, inner)
         {

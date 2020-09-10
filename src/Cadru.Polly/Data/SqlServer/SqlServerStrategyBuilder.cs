@@ -40,14 +40,18 @@ namespace Cadru.Polly.Data.SqlServer
     public class SqlServerStrategyBuilder : SqlStrategyBuilder
     {
         /// <summary>
-        /// Initializes a new instance of the <see
-        /// cref="SqlServerStrategyBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="SqlServerStrategyBuilder"/> class.
         /// </summary>
-        /// <param name="exceptionHandlingStrategies">The collection of <see
-        /// cref="IExceptionHandlingStrategy" /> strategies to use.</param>
-        /// <param name="strategyOptionsAccessor">The strategy configuration. If
-        /// <paramref name="strategyOptionsAccessor" /> is <see langword="null" />,
-        /// a default configuration will be used.</param>
+        /// <param name="exceptionHandlingStrategies">
+        /// The collection of <see cref="IExceptionHandlingStrategy"/>
+        /// strategies to use.
+        /// </param>
+        /// <param name="strategyOptionsAccessor">
+        /// The strategy configuration. If
+        /// <paramref name="strategyOptionsAccessor"/> is
+        /// <see langword="null"/>, a default configuration will be used.
+        /// </param>
         public SqlServerStrategyBuilder(IEnumerable<IExceptionHandlingStrategy> exceptionHandlingStrategies, IOptions<SqlStrategyOptions>? strategyOptionsAccessor)
             : base(exceptionHandlingStrategies, strategyOptionsAccessor)
         {

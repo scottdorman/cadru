@@ -41,17 +41,19 @@ namespace Cadru.Collections
         private readonly CultureInfo cultureInfo;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DateComparer" /> class using the
-        /// <see cref="CultureInfo.CurrentCulture" /> of the current thread.
+        /// Initializes a new instance of the <see cref="DateComparer"/> class
+        /// using the <see cref="CultureInfo.CurrentCulture"/> of the current thread.
         /// </summary>
-        /// <remarks>When the <see cref="DateComparer" /> instance is created using
-        /// this constructor, the <see cref="CultureInfo.CurrentCulture" /> of the
-        /// current thread is saved. Comparison procedures use the saved
-        /// culture to determine the sort order and casing rules; therefore,
-        /// string comparisons might have different results depending on the
-        /// culture. For more information on culture-specific comparisons, see
-        /// the <see cref="System.Globalization" /> namespace and
-        /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+        /// <remarks>
+        /// When the <see cref="DateComparer"/> instance is created using this
+        /// constructor, the <see cref="CultureInfo.CurrentCulture"/> of the
+        /// current thread is saved. Comparison procedures use the saved culture
+        /// to determine the sort order and casing rules; therefore, string
+        /// comparisons might have different results depending on the culture.
+        /// For more information on culture-specific comparisons, see the
+        /// <see cref="System.Globalization"/> namespace and
+        /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
+        /// and Localization</see>.
         /// </remarks>
         public DateComparer()
             : this(CultureInfo.CurrentCulture)
@@ -59,17 +61,23 @@ namespace Cadru.Collections
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DateComparer" /> class using
-        /// the specified <see cref="System.Globalization.CultureInfo" />.
+        /// Initializes a new instance of the <see cref="DateComparer"/> class
+        /// using the specified <see cref="System.Globalization.CultureInfo"/>.
         /// </summary>
-        /// <param name="culture">The <see cref="CultureInfo" />
-        /// to use for the new <see cref="DateComparer" />.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="culture" /> is a <see langword="null" />.</exception>
-        /// <rermarks>Comparison procedures use the specified <see cref="CultureInfo" /> to determine
-        /// the sort order and casing rules. String comparisons might have different results
-        /// depending on the culture. For more information on culture-specific comparisons, see
-        /// the <see cref="System.Globalization" /> namespace and
-        /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+        /// <param name="culture">
+        /// The <see cref="CultureInfo"/> to use for the new <see cref="DateComparer"/>.
+        /// </param>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="culture"/> is a <see langword="null"/>.
+        /// </exception>
+        /// <rermarks>
+        /// Comparison procedures use the specified <see cref="CultureInfo"/> to
+        /// determine the sort order and casing rules. String comparisons might
+        /// have different results depending on the culture. For more
+        /// information on culture-specific comparisons, see the
+        /// <see cref="System.Globalization"/> namespace and
+        /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
+        /// and Localization</see>.
         /// </rermarks>
         public DateComparer(CultureInfo culture)
         {
@@ -79,38 +87,41 @@ namespace Cadru.Collections
         }
 
         /// <summary>
-        /// Represents an instance of <see cref="DateComparer" /> that is
-        /// associated with the <see cref="CultureInfo.CurrentCulture" />.
+        /// Represents an instance of <see cref="DateComparer"/> that is
+        /// associated with the <see cref="CultureInfo.CurrentCulture"/>.
         /// </summary>
-        /// <value>The default <see cref="DateComparer" /></value>
-        /// <remarks>Comparison procedures use the
-        /// <see cref="CultureInfo.CurrentCulture" /> of the current thread to
-        /// determine the sort order and casing rules. String comparisons
-        /// might have different results depending on the culture. For more
+        /// <value>The default <see cref="DateComparer"/></value>
+        /// <remarks>
+        /// Comparison procedures use the
+        /// <see cref="CultureInfo.CurrentCulture"/> of the current thread to
+        /// determine the sort order and casing rules. String comparisons might
+        /// have different results depending on the culture. For more
         /// information on culture-specific comparisons, see the
-        /// <see cref="System.Globalization" /> namespace and
-        /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+        /// <see cref="System.Globalization"/> namespace and
+        /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
+        /// and Localization</see>.
         /// </remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1304:SpecifyCultureInfo", MessageId = "Cadru.Collections.DateComparer.#ctor", Justification = "This constructor call implicitly passes a culture.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer Default => new DateComparer();
 
         /// <summary>
-        /// Represents an instance of <see cref="DateComparer" /> that is
-        /// associated with the
-        /// <see cref="CultureInfo.InvariantCulture" /> and that is always
-        /// available.
+        /// Represents an instance of <see cref="DateComparer"/> that is
+        /// associated with the <see cref="CultureInfo.InvariantCulture"/> and
+        /// that is always available.
         /// </summary>
-        /// <value>An instance of <see cref="DateComparer" /> that is
-        /// associated with <see cref="CultureInfo.InvariantCulture" />.
+        /// <value>
+        /// An instance of <see cref="DateComparer"/> that is associated with <see cref="CultureInfo.InvariantCulture"/>.
         /// </value>
-        /// <remarks>Comparison procedures use the
-        /// <see cref="CultureInfo.InvariantCulture" /> to determine the sort
+        /// <remarks>
+        /// Comparison procedures use the
+        /// <see cref="CultureInfo.InvariantCulture"/> to determine the sort
         /// order and casing rules. String comparisons might have different
         /// results depending on the culture. For more information on
         /// culture-specific comparisons, see the
-        /// <see cref="System.Globalization" /> namespace and
-        /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding and Localization</see>.
+        /// <see cref="System.Globalization"/> namespace and
+        /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
+        /// and Localization</see>.
         /// </remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer DefaultInvariant
@@ -127,12 +138,12 @@ namespace Cadru.Collections
         }
 
         /// <summary>
-        /// Performs a comparison of two <see cref="DateTime" /> objects and returns a value
-        /// indicating whether one is less than, equal to or greater than
-        /// the other.
+        /// Performs a comparison of two <see cref="DateTime"/> objects and
+        /// returns a value indicating whether one is less than, equal to or
+        /// greater than the other.
         /// </summary>
-        /// <param name="x">The first <see cref="DateTime" /> to compare.</param>
-        /// <param name="y">The second <see cref="DateTime" /> to compare.</param>
+        /// <param name="x">The first <see cref="DateTime"/> to compare.</param>
+        /// <param name="y">The second <see cref="DateTime"/> to compare.</param>
         /// <returns>
         /// <list type="table">
         /// <listheader>
@@ -141,32 +152,26 @@ namespace Cadru.Collections
         /// </listheader>
         /// <item>
         /// <term>Less than zero</term>
-        /// <description>
-        /// <paramref name="x" /> is less than <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
-        /// <description>
-        /// <paramref name="x" /> equals <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> equals <paramref name="y"/>.</description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
-        /// <description>
-        /// <paramref name="x" /> is greater than <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
         /// </item>
-        /// </list></returns>
+        /// </list>
+        /// </returns>
         public int Compare(DateTime x, DateTime y)
         {
             return DateTime.Compare(x, y);
         }
 
         /// <summary>
-        /// Performs a comparison of two objects and returns a value
-        /// indicating whether one is less than, equal to or greater than
-        /// the other.
+        /// Performs a comparison of two objects and returns a value indicating
+        /// whether one is less than, equal to or greater than the other.
         /// </summary>
         /// <param name="x">The first object to compare.</param>
         /// <param name="y">The second object to compare.</param>
@@ -178,23 +183,18 @@ namespace Cadru.Collections
         /// </listheader>
         /// <item>
         /// <term>Less than zero</term>
-        /// <description>
-        /// <paramref name="x" /> is less than <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
-        /// <description>
-        /// <paramref name="x" /> equals <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> equals <paramref name="y"/>.</description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
-        /// <description>
-        /// <paramref name="x" /> is greater than <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
         /// </item>
-        /// </list></returns>
+        /// </list>
+        /// </returns>
         public int Compare(object x, object y)
         {
             var left = x as string;
@@ -222,12 +222,12 @@ namespace Cadru.Collections
         }
 
         /// <summary>
-        /// Performs a comparison of two <see cref="String" /> objects and returns a value
-        /// indicating whether one is less than, equal to or greater than
-        /// the other.
+        /// Performs a comparison of two <see cref="String"/> objects and
+        /// returns a value indicating whether one is less than, equal to or
+        /// greater than the other.
         /// </summary>
-        /// <param name="x">The first <see cref="String" /> to compare.</param>
-        /// <param name="y">The second <see cref="String" /> to compare.</param>
+        /// <param name="x">The first <see cref="String"/> to compare.</param>
+        /// <param name="y">The second <see cref="String"/> to compare.</param>
         /// <returns>
         /// <list type="table">
         /// <listheader>
@@ -236,23 +236,18 @@ namespace Cadru.Collections
         /// </listheader>
         /// <item>
         /// <term>Less than zero</term>
-        /// <description>
-        /// <paramref name="x" /> is less than <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
-        /// <description>
-        /// <paramref name="x" /> equals <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> equals <paramref name="y"/>.</description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
-        /// <description>
-        /// <paramref name="x" /> is greater than <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
         /// </item>
-        /// </list></returns>
+        /// </list>
+        /// </returns>
         /// <remarks>The strings should be a valid date time format.</remarks>
         public int Compare(string x, string y)
         {
@@ -273,24 +268,30 @@ namespace Cadru.Collections
         }
 
         /// <summary>
-        /// Returns a value indicating whether two instances of <see cref="DateTime" /> are equal.
+        /// Returns a value indicating whether two instances of
+        /// <see cref="DateTime"/> are equal.
         /// </summary>
-        /// <param name="x">The first <see cref="DateTime" /> to compare.</param>
-        /// <param name="y">The second <see cref="DateTime" /> to compare.</param>
-        /// <returns><see langword="true" /> if the two <see cref="DateTime" /> values are equal;
-        /// otherwise, <see langword="false" />. </returns>
+        /// <param name="x">The first <see cref="DateTime"/> to compare.</param>
+        /// <param name="y">The second <see cref="DateTime"/> to compare.</param>
+        /// <returns>
+        /// <see langword="true"/> if the two <see cref="DateTime"/> values are
+        /// equal; otherwise, <see langword="false"/>.
+        /// </returns>
         public bool Equals(DateTime x, DateTime y)
         {
             return x.Equals(y);
         }
 
         /// <summary>
-        /// Returns a value indicating whether two instances of <see cref="DateTime" /> are equal.
+        /// Returns a value indicating whether two instances of
+        /// <see cref="DateTime"/> are equal.
         /// </summary>
-        /// <param name="x">The first <see cref="DateTime" /> to compare.</param>
-        /// <param name="y">The second <see cref="DateTime" /> to compare.</param>
-        /// <returns><see langword="true" /> if the two <see cref="DateTime" /> values are equal;
-        /// otherwise, <see langword="false" />. </returns>
+        /// <param name="x">The first <see cref="DateTime"/> to compare.</param>
+        /// <param name="y">The second <see cref="DateTime"/> to compare.</param>
+        /// <returns>
+        /// <see langword="true"/> if the two <see cref="DateTime"/> values are
+        /// equal; otherwise, <see langword="false"/>.
+        /// </returns>
         public bool Equals(string x, string y)
         {
             if (x.IsNull() && y.IsNull())
@@ -334,23 +335,27 @@ namespace Cadru.Collections
         /// <summary>
         /// Returns a value indicating whether two instances of objects are equal.
         /// </summary>
-        /// <param name="x">The first <see cref="Object" /> to compare.</param>
-        /// <param name="y">The second <see cref="Object" /> to compare.</param>
-        /// <returns><see langword="true" /> if the two <see cref="Object" /> values are equal;
-        /// otherwise, <see langword="false" />. </returns>
+        /// <param name="x">The first <see cref="Object"/> to compare.</param>
+        /// <param name="y">The second <see cref="Object"/> to compare.</param>
+        /// <returns>
+        /// <see langword="true"/> if the two <see cref="Object"/> values are
+        /// equal; otherwise, <see langword="false"/>.
+        /// </returns>
         bool IEqualityComparer.Equals(object x, object y)
         {
             return Equals(x, y);
         }
 
         /// <summary>
-        /// Returns a hash code for the specified <see cref="DateTime" />.
+        /// Returns a hash code for the specified <see cref="DateTime"/>.
         /// </summary>
-        /// <param name="obj">The <see cref="DateTime" /> for which a hash code is to be
-        /// returned.</param>
-        /// <returns>A hash code for the specified <see cref="DateTime" />.</returns>
-        /// <exception cref="ArgumentNullException">The type of <paramref name="obj" /> is a
-        /// reference type and <paramref name="obj" /> is a <see langword="null" />.
+        /// <param name="obj">
+        /// The <see cref="DateTime"/> for which a hash code is to be returned.
+        /// </param>
+        /// <returns>A hash code for the specified <see cref="DateTime"/>.</returns>
+        /// <exception cref="ArgumentNullException">
+        /// The type of <paramref name="obj"/> is a reference type and
+        /// <paramref name="obj"/> is a <see langword="null"/>.
         /// </exception>
         public int GetHashCode(DateTime obj)
         {
@@ -360,11 +365,13 @@ namespace Cadru.Collections
         /// <summary>
         /// Returns a hash code for the specified object.
         /// </summary>
-        /// <param name="obj">The <see cref="Object" /> for which a hash code is to be
-        /// returned.</param>
-        /// <returns>A hash code for the specified <see cref="Object" />.</returns>
-        /// <exception cref="ArgumentNullException">The type of <paramref name="obj" /> is a
-        /// reference type and <paramref name="obj" /> is a <see langword="null" />.
+        /// <param name="obj">
+        /// The <see cref="Object"/> for which a hash code is to be returned.
+        /// </param>
+        /// <returns>A hash code for the specified <see cref="Object"/>.</returns>
+        /// <exception cref="ArgumentNullException">
+        /// The type of <paramref name="obj"/> is a reference type and
+        /// <paramref name="obj"/> is a <see langword="null"/>.
         /// </exception>
         public int GetHashCode(object obj)
         {
@@ -403,11 +410,11 @@ namespace Cadru.Collections
         /// <summary>
         /// Returns a hash code for the specified string.
         /// </summary>
-        /// <param name="obj">The string for which a hash code is to be
-        /// returned.</param>
+        /// <param name="obj">The string for which a hash code is to be returned.</param>
         /// <returns>A hash code for the specified string.</returns>
-        /// <exception cref="ArgumentNullException">The type of <paramref name="obj" /> is a
-        /// reference type and <paramref name="obj" /> is a <see langword="null" />.
+        /// <exception cref="ArgumentNullException">
+        /// The type of <paramref name="obj"/> is a reference type and
+        /// <paramref name="obj"/> is a <see langword="null"/>.
         /// </exception>
         public int GetHashCode(string obj)
         {

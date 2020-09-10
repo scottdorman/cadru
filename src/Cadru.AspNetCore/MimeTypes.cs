@@ -34,8 +34,7 @@ namespace Cadru.AspNetCore
 
         /// <summary>
         /// This is the default for binary files. As it means unknown binary
-        /// file, browsers usually don't execute it, or even ask if it should be
-        /// executed.
+        /// file, browsers usually don't execute it, or even ask if it should be executed.
         /// </summary>
         public const string OctetStream = "application/octet-stream";
 

@@ -27,8 +27,8 @@ using Cadru.Extensions;
 namespace Cadru.Text
 {
     /// <summary>
-    /// Options used by the <see cref="StringExtensions.Clean(String)"/> methods to
-    /// determine how to normalize a string.
+    /// Options used by the <see cref="StringExtensions.Clean(String)"/> methods
+    /// to determine how to normalize a string.
     /// </summary>
     [Flags]
     public enum NormalizationOptions
@@ -44,18 +44,17 @@ namespace Cadru.Text
         ControlCharacters = 0x002,
 
         /// <summary>
-        /// Remove all white space characters from the beginning
-        /// and end of the string and collapse all internal white
-        /// space characters to a single white space character.
+        /// Remove all white space characters from the beginning and end of the
+        /// string and collapse all internal white space characters to a single
+        /// white space character.
         /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "Whitespace", Justification = "Both case forms (Whitespace or WhiteSpace) generate this error, so we are choosing one and ignoring the error.")]
         Whitespace = 0x004,
 
         /// <summary>
-        /// Remove all white space and control characters from
-        /// the beginning and end of the string and collapse
-        /// all internal white space characters to a single
-        /// white space character.
+        /// Remove all white space and control characters from the beginning and
+        /// end of the string and collapse all internal white space characters
+        /// to a single white space character.
         /// </summary>
         All = Whitespace | ControlCharacters,
     }

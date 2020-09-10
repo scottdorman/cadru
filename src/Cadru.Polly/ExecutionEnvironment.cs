@@ -25,15 +25,18 @@ using Polly;
 namespace Cadru.Polly
 {
     /// <summary>
-    /// Represents both a <see cref="Context" /> and an <see cref="IAsyncPolicy" /> for execution.
+    /// Represents both a <see cref="Context"/> and an
+    /// <see cref="IAsyncPolicy"/> for execution.
     /// </summary>
     public class AsyncExecutionEnvironment : PolicyExecutionEnvironment
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExecutionEnvironment" />.
+        /// Initializes a new instance of the <see cref="ExecutionEnvironment"/>.
         /// </summary>
         /// <param name="policy">The policy for executing actions.</param>
-        /// <param name="context">The context for a single execution through a Policy.</param>
+        /// <param name="context">
+        /// The context for a single execution through a Policy.
+        /// </param>
         public AsyncExecutionEnvironment(IAsyncPolicy policy, Context context) : base(context)
         {
             this.Policy = policy;
@@ -46,15 +49,18 @@ namespace Cadru.Polly
     }
 
     /// <summary>
-    /// Represents both a <see cref="Context" /> and an <see cref="ISyncPolicy" /> for execution.
+    /// Represents both a <see cref="Context"/> and an <see cref="ISyncPolicy"/>
+    /// for execution.
     /// </summary>
     public class ExecutionEnvironment : PolicyExecutionEnvironment
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExecutionEnvironment" />.
+        /// Initializes a new instance of the <see cref="ExecutionEnvironment"/>.
         /// </summary>
         /// <param name="policy">The policy for executing actions.</param>
-        /// <param name="context">The context for a single execution through a Policy.</param>
+        /// <param name="context">
+        /// The context for a single execution through a Policy.
+        /// </param>
         public ExecutionEnvironment(ISyncPolicy policy, Context context) : base(context)
         {
             this.Policy = policy;
@@ -67,14 +73,16 @@ namespace Cadru.Polly
     }
 
     /// <summary>
-    /// Represents both a <see cref="Context" /> and a Policy for execution.
+    /// Represents both a <see cref="Context"/> and a Policy for execution.
     /// </summary>
     public abstract class PolicyExecutionEnvironment
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PolicyExecutionEnvironment" />.
+        /// Initializes a new instance of the <see cref="PolicyExecutionEnvironment"/>.
         /// </summary>
-        /// <param name="context">The context for a single execution through a Policy.</param>
+        /// <param name="context">
+        /// The context for a single execution through a Policy.
+        /// </param>
         protected PolicyExecutionEnvironment(Context context)
         {
             this.Context = context;

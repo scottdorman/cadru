@@ -32,18 +32,18 @@ namespace Cadru.Color
     public struct RGB
     {
         /// <summary>
-        /// The color black as an <see cref="RGB" /> value.
+        /// The color black as an <see cref="RGB"/> value.
         /// </summary>
         public static readonly RGB Black = new RGB(1, 1, 1);
 
         /// <summary>
-        /// The color white as an <see cref="RGB" /> value.
+        /// The color white as an <see cref="RGB"/> value.
         /// </summary>
 
         public static readonly RGB White = new RGB(255, 255, 255);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RGB" /> structure.
+        /// Initializes a new instance of the <see cref="RGB"/> structure.
         /// </summary>
         /// <param name="red">The red color component.</param>
         /// <param name="green">The green color component.</param>
@@ -56,7 +56,7 @@ namespace Cadru.Color
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RGB" /> structure.
+        /// Initializes a new instance of the <see cref="RGB"/> structure.
         /// </summary>
         /// <param name="value">An integer value that represents the color.</param>
         public RGB(int value)
@@ -67,14 +67,14 @@ namespace Cadru.Color
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RGB" /> structure.
+        /// Initializes a new instance of the <see cref="RGB"/> structure.
         /// </summary>
         /// <param name="hex">A string containing a hexadecimal color representation.</param>
         public RGB(string hex)
         {
-            // Hex color values must start with a # and be followed
-            // by 6 digits (2 for each color channel). If there are
-            // 8 digits, then the color includes an alpha channel.
+            // Hex color values must start with a # and be followed by 6 digits
+            // (2 for each color channel). If there are 8 digits, then the color
+            // includes an alpha channel.
             if (!hex.StartsWith("#"))
             {
                 throw new InvalidCastException(Strings.InvalidCast_Color);
@@ -153,9 +153,10 @@ namespace Cadru.Color
         /// Indicates whether this instance and a specified object are equal.
         /// </summary>
         /// <param name="other"></param>
-        /// <returns><see langword="true" /> if <paramref name="other" /> and this
-        /// instance represent the same value; otherwise, <see
-        /// langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if <paramref name="other"/> and this instance
+        /// represent the same value; otherwise, <see langword="false"/>.
+        /// </returns>
         public bool Equals(RGB other)
         {
             if (this.Red != other.Red)

@@ -120,14 +120,18 @@ namespace Cadru.Net.Http.Extensions
         }
 
         /// <summary>
-        /// Creates a valid <see cref="HttpRequestMessage" /> with the given properties.
+        /// Creates a valid <see cref="HttpRequestMessage"/> with the given properties.
         /// </summary>
-        /// <param name="httpClient">The <see cref="HttpClient" /> instance used to create the message.</param>
+        /// <param name="httpClient">
+        /// The <see cref="HttpClient"/> instance used to create the message.
+        /// </param>
         /// <param name="method">The HTTP method.</param>
-        /// <param name="uri">The <see cref="Uri" /> to request.</param>
+        /// <param name="uri">The <see cref="Uri"/> to request.</param>
         /// <param name="queryStringParameters">The query string parameters.</param>
-        /// <param name="headerCollection">Additional request headers to be included.</param>
-        /// <returns>A valid <see cref="HttpRequestMessage" />.</returns>
+        /// <param name="headerCollection">
+        /// Additional request headers to be included.
+        /// </param>
+        /// <returns>A valid <see cref="HttpRequestMessage"/>.</returns>
         public static HttpRequestMessage CreateRequestMessage(this HttpClient httpClient, HttpMethod method, Uri uri, QueryStringParametersDictionary? queryStringParameters = null, IDictionary<string, string>? headerCollection = null)
         {
             Uri? requestUri = null;
@@ -141,7 +145,8 @@ namespace Cadru.Net.Http.Extensions
             }
             else
             {
-                // If the request Uri is an absolute Uri, just use it. Otherwise try to combine it with the base Uri.
+                // If the request Uri is an absolute Uri, just use it. Otherwise
+                // try to combine it with the base Uri.
                 if (!uri.IsAbsoluteUri)
                 {
                     if (httpClient.BaseAddress == null)
@@ -296,13 +301,16 @@ namespace Cadru.Net.Http.Extensions
         }
 
         /// <summary>
-        /// Return if a specified header and specified values are stored in the System.Net.Http.Headers.HttpHeaders
-        /// collection.
+        /// Return if a specified header and specified values are stored in the
+        /// System.Net.Http.Headers.HttpHeaders collection.
         /// </summary>
         /// <param name="requestMessage"></param>
         /// <param name="name">The specified header.</param>
         /// <param name="value">The specified header value.</param>
-        /// <returns><see langword="true" /> if the specified header name and values are stored in the collection; otherwise, <see langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if the specified header name and values are
+        /// stored in the collection; otherwise, <see langword="false"/>.
+        /// </returns>
         public static bool TryGetHeaderValue(this HttpRequestMessage requestMessage, string name, out string? value)
         {
             var found = false;

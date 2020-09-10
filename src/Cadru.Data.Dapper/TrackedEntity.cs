@@ -50,7 +50,7 @@ namespace Cadru.Data.Dapper
         }
 
         /// <summary>
-        /// Raises the <see cref="INotifyPropertyChanged.PropertyChanged" /> event.
+        /// Raises the <see cref="INotifyPropertyChanged.PropertyChanged"/> event.
         /// </summary>
         /// <param name="propertyName">The name of the property which changed.</param>
         protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
@@ -59,7 +59,7 @@ namespace Cadru.Data.Dapper
         }
 
         /// <summary>
-        /// Raises the <see cref="INotifyPropertyChanging.PropertyChanging" /> event.
+        /// Raises the <see cref="INotifyPropertyChanging.PropertyChanging"/> event.
         /// </summary>
         /// <param name="propertyName">The name of the property which changed.</param>
         protected void OnPropertyChanging([CallerMemberName] string? propertyName = null)
@@ -68,14 +68,17 @@ namespace Cadru.Data.Dapper
         }
 
         /// <summary>
-        /// Sets the property value and raises the <see cref="INotifyPropertyChanged.PropertyChanged" /> event
-        /// if the value was changed.
+        /// Sets the property value and raises the
+        /// <see cref="INotifyPropertyChanged.PropertyChanged"/> event if the
+        /// value was changed.
         /// </summary>
         /// <typeparam name="T">The data type of the field.</typeparam>
         /// <param name="field">A reference to the field which will be changed.</param>
         /// <param name="value">The new value of the field.</param>
         /// <param name="propertyName">The name of the property being changed.</param>
-        /// <returns><see langword="true" /> if the property value was changed; otherwise, <see langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if the property value was changed; otherwise, <see langword="false"/>.
+        /// </returns>
         protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
         {
             var propertyChanged = false;

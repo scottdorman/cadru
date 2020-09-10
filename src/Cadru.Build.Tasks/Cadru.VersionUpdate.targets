@@ -9,16 +9,16 @@ WARNING: DO NOT MODIFY this file unless you are knowledgeable about MSBuild and 
     <VersionProps>$(BuildDir)\version.props</VersionProps>
   </PropertyGroup>
 
-  <Import Project="$(VersionProps)" Condition="Exists('$(VersionProps)')" />
+  <Import Project="$(VersionProps)" Condition="Exists('$(VersionProps)')"/>
 
   <PropertyGroup>
     <VersionUpdateTasksLib Condition="'$(OS)' == 'Windows_NT'">$([MSBUILD]::Unescape($(BuildDir)\Cadru.Build.Tasks.dll))</VersionUpdateTasksLib>
     <VersionUpdateTasksLib Condition="'$(OS)' != 'Windows_NT'">$(BuildDir)\Cadru.Build.Tasks.dll</VersionUpdateTasksLib>
   </PropertyGroup>
 
-  <UsingTask AssemblyFile="$(VersionUpdateTasksLib)" TaskName="Cadru.Build.Tasks.GetVersionProperties" />
-  <UsingTask AssemblyFile="$(VersionUpdateTasksLib)" TaskName="Cadru.Build.Tasks.GetAssemblyVersion" />
-  <UsingTask AssemblyFile="$(VersionUpdateTasksLib)" TaskName="Cadru.Build.Tasks.AddReleaseNotesRootEntry" />
+  <UsingTask AssemblyFile="$(VersionUpdateTasksLib)" TaskName="Cadru.Build.Tasks.GetVersionProperties"/>
+  <UsingTask AssemblyFile="$(VersionUpdateTasksLib)" TaskName="Cadru.Build.Tasks.GetAssemblyVersion"/>
+  <UsingTask AssemblyFile="$(VersionUpdateTasksLib)" TaskName="Cadru.Build.Tasks.AddReleaseNotesRootEntry"/>
 
   <!--
       Sets the BuildDate, VersionPatch, and VersionRevision properties in the
@@ -27,13 +27,13 @@ WARNING: DO NOT MODIFY this file unless you are knowledgeable about MSBuild and 
   <Target Name="UpdateAssemblyVersionInfo"
           Outputs="$(VersionProps);$(GeneratedAssemblyInfoFile)">
     <GetVersionProperties PropertiesFile="$(VersionProps)">
-      <Output PropertyName="VersionPatch" TaskParameter="Patch" />
-      <Output PropertyName="VersionRevision" TaskParameter="Revision" />
-      <Output PropertyName="VersionBuildDate" TaskParameter="BuildDate" />
+      <Output PropertyName="VersionPatch" TaskParameter="Patch"/>
+      <Output PropertyName="VersionRevision" TaskParameter="Revision"/>
+      <Output PropertyName="VersionBuildDate" TaskParameter="BuildDate"/>
     </GetVersionProperties>
 
-    <Message Importance="high" Text="UpdateAssemblyVersionInfo: VersionPatch = $(VersionPatch)" />
-    <Message Importance="high" Text="UpdateAssemblyVersionInfo: VersionRevision = $(VersionRevision)" />
-    <Message Importance="high" Text="UpdateAssemblyVersionInfo: VersionBuildDate = $(VersionBuildDate)" />
+    <Message Importance="high" Text="UpdateAssemblyVersionInfo: VersionPatch = $(VersionPatch)"/>
+    <Message Importance="high" Text="UpdateAssemblyVersionInfo: VersionRevision = $(VersionRevision)"/>
+    <Message Importance="high" Text="UpdateAssemblyVersionInfo: VersionBuildDate = $(VersionBuildDate)"/>
   </Target>
 </Project>

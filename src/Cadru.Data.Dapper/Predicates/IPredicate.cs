@@ -32,9 +32,10 @@ namespace Cadru.Data.Dapper.Predicates
         /// <summary>
         /// Gets the SQL text representing the given predicate.
         /// </summary>
-        /// <param name="parameters">A <see cref="DynamicParameters" />
-        /// collection to which the parameters and values for the predicate
-        /// will be added.</param>
+        /// <param name="parameters">
+        /// A <see cref="DynamicParameters"/> collection to which the parameters
+        /// and values for the predicate will be added.
+        /// </param>
         /// <param name="objectMap"></param>
         /// <returns>A string containing the SQL representation of the predicate.</returns>
         string GetSql(DynamicParameters parameters, IObjectMap objectMap);

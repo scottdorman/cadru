@@ -40,14 +40,20 @@ namespace Cadru.Data.IO
         private readonly int _threshold;
 
         /// <summary>
-        ///     A stream implmentation that removes consecutive null bytes above a threshold from source
+        /// A stream implmentation that removes consecutive null bytes above a
+        /// threshold from source
         /// </summary>
-        /// <param name="source"> A <see cref="T:Stream" /> pointing to the source data</param>
-        /// <param name="addMark">
-        ///     add a mark ([removed x null bytes]) to indicate removal if set to <see langword="true" />, remove silently if
-        ///     <see langword="false" />
+        /// <param name="source">
+        /// A <see cref="T:Stream"/> pointing to the source data
         /// </param>
-        /// <param name="threshold"> only consecutive null bytes above this threshold will be removed or replaced by a mark</param>
+        /// <param name="addMark">
+        /// add a mark ([removed x null bytes]) to indicate removal if set to
+        /// <see langword="true"/>, remove silently if <see langword="false"/>
+        /// </param>
+        /// <param name="threshold">
+        /// only consecutive null bytes above this threshold will be removed or
+        /// replaced by a mark
+        /// </param>
         /// <param name="bufferSize">Size of buffer</param>
         public NullRemovalStream(Stream source, bool addMark = true, int threshold = 60, int bufferSize = 4096)
         {
@@ -126,10 +132,12 @@ namespace Cadru.Data.IO
                 }
                 else
                 {
-                    // if last PopulateBuffer() exhausted the source stream, _bufferSize will be less than 4096
+                    // if last PopulateBuffer() exhausted the source stream,
+                    // _bufferSize will be less than 4096
                     if (this._bufferIndex == this._bufferSize)
                     {
-                        // save the current last byte in _buffer before populating _buffer again
+                        // save the current last byte in _buffer before
+                        // populating _buffer again
                         lastByteInBuffer = this._bufferIndex > 0 ? this._buffer[this._bufferIndex - 1] : lastByteInBuffer;
                         this.PopulateBuffer();
                         if (this._bufferSize == 0)
@@ -149,7 +157,9 @@ namespace Cadru.Data.IO
                     var processed = false;
                     if (this._storageSize == 0 && this._storageIndex > 0 && !readFromStorage)
                     {
-                        // last iteration was reading from storage so no need to process again even the last byte was null; best place to reset storage index
+                        // last iteration was reading from storage so no need to
+                        // process again even the last byte was null; best place
+                        // to reset storage index
                         this._storageIndex = 0;
                         processed = true;
                     }
@@ -176,7 +186,8 @@ namespace Cadru.Data.IO
             }
             if (nullCount > 0 && dataRead == 0 || this._bufferSize == 0 && lastByteInBuffer == 0)
             {
-                // the end of the source stream is a null byte so couldn't enter the else block in the while loop above, do the needful
+                // the end of the source stream is a null byte so couldn't enter
+                // the else block in the while loop above, do the needful
                 return this.Process(target, targetIndex, nullCount);
             }
             return dataRead;

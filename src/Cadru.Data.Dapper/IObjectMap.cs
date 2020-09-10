@@ -26,7 +26,8 @@ using System.Reflection;
 namespace Cadru.Data.Dapper
 {
     /// <summary>
-    /// Represents the type mapping information between the database object and it's entity.
+    /// Represents the type mapping information between the database object and
+    /// it's entity.
     /// </summary>
     public interface IObjectMap
     {
@@ -36,12 +37,12 @@ namespace Cadru.Data.Dapper
         IReadOnlyDictionary<string, object> AdditionalValues { get; }
 
         /// <summary>
-        /// The <see cref="ICommandAdapter" /> used by this object to create SQL statements.
+        /// The <see cref="ICommandAdapter"/> used by this object to create SQL statements.
         /// </summary>
         ICommandAdapter CommandAdapter { get; }
 
         /// <summary>
-        /// Gets the <see cref="TypeInfo" /> for entity model of the database object.
+        /// Gets the <see cref="TypeInfo"/> for entity model of the database object.
         /// </summary>
         TypeInfo EntityType { get; }
 

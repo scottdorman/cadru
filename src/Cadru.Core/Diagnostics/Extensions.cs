@@ -37,10 +37,11 @@ namespace Cadru.Diagnostics
         /// Flattens all exception messages into a single string.
         /// </summary>
         /// <param name="e">The exception to flatten.</param>
-        /// <returns>A string containing all of the exception
-        /// messages.</returns>
-        /// <remarks>This method recursively follows all nested <see
-        /// cref="Exception.InnerException" /> properties.</remarks>
+        /// <returns>A string containing all of the exception messages.</returns>
+        /// <remarks>
+        /// This method recursively follows all nested
+        /// <see cref="Exception.InnerException"/> properties.
+        /// </remarks>
         public static string Flatten(this Exception e)
         {
             Requires.NotNull(e, nameof(e));
@@ -48,8 +49,7 @@ namespace Cadru.Diagnostics
         }
 
         /// <summary>
-        /// Formats the elapsed time of a <see cref="Stopwatch" />
-        /// as hh':'mm':'ss'.'ff.
+        /// Formats the elapsed time of a <see cref="Stopwatch"/> as hh':'mm':'ss'.'ff.
         /// </summary>
         /// <param name="stopwatch"></param>
         /// <returns>The formatted elapsed time as a string.</returns>

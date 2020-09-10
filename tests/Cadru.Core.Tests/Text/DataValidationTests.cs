@@ -168,60 +168,49 @@ namespace Cadru.Core.Text.Tests
         //    Assert.IsTrue("joe_cool@xyz.com".IsEmailAddress());
         //    Assert.IsTrue("joe-cool@xyz.com".IsEmailAddress());
 
-        //    Assert.IsTrue("joecool@[123.123.123.134]".IsEmailAddress());
-        //    Assert.IsTrue("joe.cool@[123.123.123.134]".IsEmailAddress());
-        //    Assert.IsTrue("joe_cool@[123.123.123.134]".IsEmailAddress());
-        //    Assert.IsTrue("joe-cool@[123.123.123.134]".IsEmailAddress());
+        // Assert.IsTrue("joecool@[123.123.123.134]".IsEmailAddress());
+        // Assert.IsTrue("joe.cool@[123.123.123.134]".IsEmailAddress());
+        // Assert.IsTrue("joe_cool@[123.123.123.134]".IsEmailAddress()); Assert.IsTrue("joe-cool@[123.123.123.134]".IsEmailAddress());
 
-        //    Assert.IsTrue("joecool@xyz.com.us".IsEmailAddress());
-        //    Assert.IsTrue("joe.cool@xyz.com.us".IsEmailAddress());
-        //    Assert.IsTrue("joe_cool@xyz.com.us".IsEmailAddress());
-        //    Assert.IsTrue("joe-cool@xyz.com.us".IsEmailAddress());
+        // Assert.IsTrue("joecool@xyz.com.us".IsEmailAddress());
+        // Assert.IsTrue("joe.cool@xyz.com.us".IsEmailAddress());
+        // Assert.IsTrue("joe_cool@xyz.com.us".IsEmailAddress()); Assert.IsTrue("joe-cool@xyz.com.us".IsEmailAddress());
 
-        //    Assert.IsTrue("joecool@xyz.def.com.us".IsEmailAddress());
-        //    Assert.IsTrue("joe.cool@xyz.def.com.us".IsEmailAddress());
-        //    Assert.IsTrue("joe_cool@xyz.def.com.us".IsEmailAddress());
-        //    Assert.IsTrue("joe-cool@xyz.def.com.us".IsEmailAddress());
+        // Assert.IsTrue("joecool@xyz.def.com.us".IsEmailAddress());
+        // Assert.IsTrue("joe.cool@xyz.def.com.us".IsEmailAddress());
+        // Assert.IsTrue("joe_cool@xyz.def.com.us".IsEmailAddress()); Assert.IsTrue("joe-cool@xyz.def.com.us".IsEmailAddress());
 
-        //    Assert.IsFalse("joecool@xyz".IsEmailAddress());
-        //    Assert.IsFalse("joe.cool@xyz".IsEmailAddress());
-        //    Assert.IsFalse("joe_cool@xyz".IsEmailAddress());
-        //    Assert.IsFalse("joe-cool@xyz".IsEmailAddress());
+        // Assert.IsFalse("joecool@xyz".IsEmailAddress());
+        // Assert.IsFalse("joe.cool@xyz".IsEmailAddress());
+        // Assert.IsFalse("joe_cool@xyz".IsEmailAddress()); Assert.IsFalse("joe-cool@xyz".IsEmailAddress());
 
-        //    Assert.IsFalse("joecool@".IsEmailAddress());
-        //    Assert.IsFalse("joe.cool@".IsEmailAddress());
-        //    Assert.IsFalse("joe_cool@".IsEmailAddress());
-        //    Assert.IsFalse("joe-cool@".IsEmailAddress());
+        // Assert.IsFalse("joecool@".IsEmailAddress());
+        // Assert.IsFalse("joe.cool@".IsEmailAddress());
+        // Assert.IsFalse("joe_cool@".IsEmailAddress()); Assert.IsFalse("joe-cool@".IsEmailAddress());
 
-        //    Assert.IsFalse("joecool".IsEmailAddress());
-        //    Assert.IsFalse("joe.cool".IsEmailAddress());
-        //    Assert.IsFalse("joe_cool".IsEmailAddress());
-        //    Assert.IsFalse("joe-cool".IsEmailAddress());
+        // Assert.IsFalse("joecool".IsEmailAddress());
+        // Assert.IsFalse("joe.cool".IsEmailAddress());
+        // Assert.IsFalse("joe_cool".IsEmailAddress()); Assert.IsFalse("joe-cool".IsEmailAddress());
 
-        //    Assert.IsFalse("joecool@123.123.123.123.123.123".IsEmailAddress());
-        //    Assert.IsFalse("joe.cool@123.123.123.123.123.123".IsEmailAddress());
-        //    Assert.IsFalse("joe_cool@123.123.123.123.123.123".IsEmailAddress());
-        //    Assert.IsFalse("joe-cool@123.123.123.123.123.123".IsEmailAddress());
+        // Assert.IsFalse("joecool@123.123.123.123.123.123".IsEmailAddress());
+        // Assert.IsFalse("joe.cool@123.123.123.123.123.123".IsEmailAddress());
+        // Assert.IsFalse("joe_cool@123.123.123.123.123.123".IsEmailAddress()); Assert.IsFalse("joe-cool@123.123.123.123.123.123".IsEmailAddress());
 
-        //    Assert.IsTrue("joecool@123.123".IsEmailAddress());
-        //    Assert.IsTrue("joe.cool@123.123".IsEmailAddress());
-        //    Assert.IsTrue("joe_cool@123.123".IsEmailAddress());
-        //    Assert.IsTrue("joe-cool@123.123".IsEmailAddress());
+        // Assert.IsTrue("joecool@123.123".IsEmailAddress());
+        // Assert.IsTrue("joe.cool@123.123".IsEmailAddress());
+        // Assert.IsTrue("joe_cool@123.123".IsEmailAddress()); Assert.IsTrue("joe-cool@123.123".IsEmailAddress());
 
-        //    Assert.IsFalse("joecool@[123.123.123.134].com".IsEmailAddress());
-        //    Assert.IsFalse("joe.cool@[123.123.123.134].com".IsEmailAddress());
-        //    Assert.IsFalse("joe_cool@[123.123.123.134].com".IsEmailAddress());
-        //    Assert.IsFalse("joe-cool@[123.123.123.134].com".IsEmailAddress());
+        // Assert.IsFalse("joecool@[123.123.123.134].com".IsEmailAddress());
+        // Assert.IsFalse("joe.cool@[123.123.123.134].com".IsEmailAddress());
+        // Assert.IsFalse("joe_cool@[123.123.123.134].com".IsEmailAddress()); Assert.IsFalse("joe-cool@[123.123.123.134].com".IsEmailAddress());
 
-        //    Assert.IsFalse("joecool@[123.123.123.123.123.123]".IsEmailAddress());
-        //    Assert.IsFalse("joe.cool@[123.123.123.123.123.123]".IsEmailAddress());
-        //    Assert.IsFalse("joe_cool@[123.123.123.123.123.123]".IsEmailAddress());
-        //    Assert.IsFalse("joe-cool@[123.123.123.123.123.123]".IsEmailAddress());
+        // Assert.IsFalse("joecool@[123.123.123.123.123.123]".IsEmailAddress());
+        // Assert.IsFalse("joe.cool@[123.123.123.123.123.123]".IsEmailAddress());
+        // Assert.IsFalse("joe_cool@[123.123.123.123.123.123]".IsEmailAddress()); Assert.IsFalse("joe-cool@[123.123.123.123.123.123]".IsEmailAddress());
 
-        //    Assert.IsTrue("joecool@[123.123]".IsEmailAddress());
-        //    Assert.IsTrue("joe.cool@[123.123]".IsEmailAddress());
-        //    Assert.IsTrue("joe_cool@[123.123]".IsEmailAddress());
-        //    Assert.IsTrue("joe-cool@[123.123]".IsEmailAddress());
+        // Assert.IsTrue("joecool@[123.123]".IsEmailAddress());
+        // Assert.IsTrue("joe.cool@[123.123]".IsEmailAddress());
+        // Assert.IsTrue("joe_cool@[123.123]".IsEmailAddress()); Assert.IsTrue("joe-cool@[123.123]".IsEmailAddress());
 
         //    Assert.IsFalse("joecool@[123.123".IsEmailAddress());
         //    Assert.IsFalse("joe.cool@[123.123".IsEmailAddress());

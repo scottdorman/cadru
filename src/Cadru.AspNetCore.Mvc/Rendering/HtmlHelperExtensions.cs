@@ -33,17 +33,17 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace Cadru.AspNetCore.Mvc.Rendering
 {
     /// <summary>
-    /// Extensions for working with <see cref="IHtmlHelper" /> in Razor files.
+    /// Extensions for working with <see cref="IHtmlHelper"/> in Razor files.
     /// </summary>
     public static class HtmlHelperExtensions
     {
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public static IEnumerable<SelectListItem> GetEnumSelectList<TEnum>(this IHtmlHelper htmlHelper, string uiHint) where TEnum : struct
         {
             return GetEnumSelectList(htmlHelper, typeof(TEnum), uiHint);
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
 #pragma warning disable IDE0060 // Remove unused parameter
 
         public static IEnumerable<SelectListItem> GetEnumSelectList(this IHtmlHelper htmlHelper, Type enumType, string uiHint)
@@ -71,9 +71,10 @@ namespace Cadru.AspNetCore.Mvc.Rendering
         {
             // EnumDisplayNamesAndValues and EnumNamesAndValues
             //
-            // Order EnumDisplayNamesAndValues to match Enum.GetNames(). That method orders by absolute value,
-            // then its behavior is undefined (but hopefully stable). Add to EnumNamesAndValues in same order but
-            // Dictionary does not guarantee order will be preserved.
+            // Order EnumDisplayNamesAndValues to match Enum.GetNames(). That
+            // method orders by absolute value, then its behavior is undefined
+            // (but hopefully stable). Add to EnumNamesAndValues in same order
+            // but Dictionary does not guarantee order will be preserved.
             var displayNamesAndValues = new List<KeyValuePair<string, string>>();
             foreach (var name in Enum.GetNames(underlyingType))
             {

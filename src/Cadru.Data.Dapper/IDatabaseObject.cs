@@ -33,7 +33,8 @@ namespace Cadru.Data.Dapper
         IDapperContext Context { get; }
 
         /// <summary>
-        /// Gets the property mapping information between the database object and it's entity.
+        /// Gets the property mapping information between the database object
+        /// and it's entity.
         /// </summary>
         IObjectMap ObjectMap { get; }
     }

@@ -31,9 +31,12 @@ using Cadru.Data.Annotations;
 namespace Cadru.Data.Dapper
 {
     /// <summary>
-    /// Represents the type mapping information between the database object and it's entity.
+    /// Represents the type mapping information between the database object and
+    /// it's entity.
     /// </summary>
-    /// <typeparam name="T">The entity type to map the database object to.</typeparam>
+    /// <typeparam name="T">
+    /// The entity type to map the database object to.
+    /// </typeparam>
     public class ObjectMap<T> : IObjectMap where T : class
     {
         private readonly Dictionary<string, object> additionalValues = new Dictionary<string, object>();
@@ -42,8 +45,12 @@ namespace Cadru.Data.Dapper
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectMap{T}"/> class.
         /// </summary>
-        /// <param name="commandAdapter">The <see cref="ICommandAdapter" /> used by this object to create SQL statements.</param>
-        /// <param name="databaseObjectType">A value indicating if the database object is a View or a Table.</param>
+        /// <param name="commandAdapter">
+        /// The <see cref="ICommandAdapter"/> used by this object to create SQL statements.
+        /// </param>
+        /// <param name="databaseObjectType">
+        /// A value indicating if the database object is a View or a Table.
+        /// </param>
         protected internal ObjectMap(ICommandAdapter commandAdapter, DatabaseObjectType databaseObjectType)
         {
             this.CommandAdapter = commandAdapter;

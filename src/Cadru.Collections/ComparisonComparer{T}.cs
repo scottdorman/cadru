@@ -37,8 +37,8 @@ namespace Cadru.Collections
         private readonly Comparison<T> comparison;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ComparisonComparer{T}"/>
-        /// class.
+        /// Initializes a new instance of the
+        /// <see cref="ComparisonComparer{T}"/> class.
         /// </summary>
         /// <param name="comparison">The comparison to use.</param>
         protected ComparisonComparer(Comparison<T> comparison)
@@ -51,7 +51,9 @@ namespace Cadru.Collections
         /// </summary>
         /// <param name="comparison">The comparison to use.</param>
         /// <returns>The new comparer.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="comparison" /> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="comparison"/> is <see langword="null"/>.
+        /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "The type must be generic but the Create method shouldn't be.")]
         public new static Comparer<T> Create(Comparison<T> comparison)
         {
@@ -61,8 +63,8 @@ namespace Cadru.Collections
         }
 
         /// <summary>
-        /// Performs a comparison of two objects of the same type and returns
-        /// a value indicating whether one object is less than, equal to, or
+        /// Performs a comparison of two objects of the same type and returns a
+        /// value indicating whether one object is less than, equal to, or
         /// greater than the other.
         /// </summary>
         /// <param name="x">The first object to compare.</param>
@@ -77,21 +79,15 @@ namespace Cadru.Collections
         /// </listheader>
         /// <item>
         /// <term>Less than zero</term>
-        /// <description>
-        /// <paramref name="x" /> is less than <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
-        /// <description>
-        /// <paramref name="x" /> equals <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> equals <paramref name="y"/>.</description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
-        /// <description>
-        /// <paramref name="x" /> is greater than <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
         /// </item>
         /// </list>
         /// </returns>

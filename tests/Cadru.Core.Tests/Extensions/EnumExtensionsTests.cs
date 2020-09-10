@@ -72,13 +72,13 @@ namespace Cadru.Core.Extensions.Tests
             string actual;
             ExceptionAssert.Throws<ArgumentNullException>(() => actual = value.GetDescription()).WithParameter("value");
 
-            // This enum has the Flags attribute,
-            // but not a Description attribute, so the description should
-            // be the enum value.
+            // This enum has the Flags attribute, but not a Description
+            // attribute, so the description should be the enum value.
             Assert.AreEqual("None", Enum<System.Net.DecompressionMethods>.GetDescription(System.Net.DecompressionMethods.None));
             Assert.AreEqual(null, Enum<System.Net.DecompressionMethods>.GetDescription(System.Net.DecompressionMethods.None, false));
 
-            // This enum has no attributes, so the description should be the enum value.
+            // This enum has no attributes, so the description should be the
+            // enum value.
             Assert.AreEqual("SafeUnescaped", Enum<UriFormat>.GetDescription(UriFormat.SafeUnescaped));
             Assert.AreEqual(null, Enum<UriFormat>.GetDescription(UriFormat.SafeUnescaped, false));
 
@@ -104,19 +104,20 @@ namespace Cadru.Core.Extensions.Tests
             string actual;
             ExceptionAssert.Throws<ArgumentNullException>(() => actual = value.GetDescription()).WithParameter("value");
 
-            // This enum has the Flags and ComVisible(true) attributes,
-            // but not a Description attribute, so the description should
-            // be the enum value.
+            // This enum has the Flags and ComVisible(true) attributes, but not
+            // a Description attribute, so the description should be the enum value.
             var expectedValues = this.GetExpectedValues<System.Net.DecompressionMethods>();
             CollectionAssert.AreEqual(expectedValues.Item1, Enum<System.Net.DecompressionMethods>.GetDescriptions().ToArray());
             CollectionAssert.AreEqual(expectedValues.Item2, Enum<System.Net.DecompressionMethods>.GetDescriptions(false).ToArray());
 
-            // This enum has no attributes, so the description should be the enum value.
+            // This enum has no attributes, so the description should be the
+            // enum value.
             expectedValues = this.GetExpectedValues<UriFormat>();
 
-            // The OrderBy calls seem to be necessary for this to pass when running tests normally.
-            // Without them, the next test passes when run under the debugger, but fails otherwise
-            // because the collection apparently comes back in a different order.
+            // The OrderBy calls seem to be necessary for this to pass when
+            // running tests normally. Without them, the next test passes when
+            // run under the debugger, but fails otherwise because the
+            // collection apparently comes back in a different order.
             CollectionAssert.AreEqual(expectedValues.Item1.OrderBy(v => v).ToArray(), Enum<UriFormat>.GetDescriptions().OrderBy(v => v).ToArray());
             CollectionAssert.AreEqual(expectedValues.Item2, Enum<UriFormat>.GetDescriptions(false).ToArray());
 
@@ -140,13 +141,13 @@ namespace Cadru.Core.Extensions.Tests
             string actual;
             ExceptionAssert.Throws<ArgumentNullException>(() => actual = value.GetDescription()).WithParameter("value");
 
-            // This enum has the Flags attribute,
-            // but not a Description attribute, so the description should
-            // be the enum value.
+            // This enum has the Flags attribute, but not a Description
+            // attribute, so the description should be the enum value.
             Assert.AreEqual("None", System.Net.DecompressionMethods.None.GetDescription());
             Assert.AreEqual(null, System.Net.DecompressionMethods.None.GetDescription(false));
 
-            // This enum has no attributes, so the description should be the enum value.
+            // This enum has no attributes, so the description should be the
+            // enum value.
             Assert.AreEqual("SafeUnescaped", UriFormat.SafeUnescaped.GetDescription());
             Assert.AreEqual(null, UriFormat.SafeUnescaped.GetDescription(false));
 

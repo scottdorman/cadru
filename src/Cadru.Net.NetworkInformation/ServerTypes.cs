@@ -182,8 +182,8 @@ namespace Cadru.Net.NetworkInformation
         TerminalServer = 0x02000000,
 
         /// <summary>
-        /// Cluster virtual servers available in the domain
-        /// (Not supported for Windows 2000/NT).
+        /// Cluster virtual servers available in the domain (Not supported for
+        /// Windows 2000/NT).
         /// </summary>
         VirtualCluster = 0x04000000,
 

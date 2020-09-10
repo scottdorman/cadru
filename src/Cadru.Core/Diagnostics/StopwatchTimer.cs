@@ -26,18 +26,22 @@ using System.Diagnostics;
 namespace Cadru.Diagnostics
 {
     /// <summary>
-    /// Provides a set of methods and properties that you can use to accurate measure
-    /// elapsed time using the scope syntax provided by the <c>using</c> statement.
+    /// Provides a set of methods and properties that you can use to accurate
+    /// measure elapsed time using the scope syntax provided by the <c>using</c> statement.
     /// </summary>
     public sealed class StopwatchTimer : IDisposable
     {
         private readonly Action<Stopwatch>? stopAction;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StopwatchTimer" /> class.
+        /// Initializes a new instance of the <see cref="StopwatchTimer"/> class.
         /// </summary>
-        /// <param name="startAction">An optional action to run when the <see cref="Stopwatch" /> is started.</param>
-        /// <param name="stopAction">An optional action to run when the <see cref="Stopwatch" /> is stopped.</param>
+        /// <param name="startAction">
+        /// An optional action to run when the <see cref="Stopwatch"/> is started.
+        /// </param>
+        /// <param name="stopAction">
+        /// An optional action to run when the <see cref="Stopwatch"/> is stopped.
+        /// </param>
         public StopwatchTimer(Action<Stopwatch>? startAction = null, Action<Stopwatch>? stopAction = null)
         {
             this.stopAction = stopAction;
@@ -46,13 +50,13 @@ namespace Cadru.Diagnostics
         }
 
         /// <summary>
-        /// Gets the <see cref="Stopwatch" /> instance.
+        /// Gets the <see cref="Stopwatch"/> instance.
         /// </summary>
         public Stopwatch Stopwatch { get; }
 
         /// <summary>
-        /// Stops the internal <see cref="Stopwatch" /> and performs
-        /// the stop action, if it was provided.
+        /// Stops the internal <see cref="Stopwatch"/> and performs the stop
+        /// action, if it was provided.
         /// </summary>
         public void Dispose()
         {

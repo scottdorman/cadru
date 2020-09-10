@@ -40,11 +40,12 @@ namespace Cadru.Networking
     public static class ExtendedNetworkInformation
     {
         /// <summary>
-        /// Gets an array of <see cref="ServerInfo" /> instances for all
+        /// Gets an array of <see cref="ServerInfo"/> instances for all
         /// available domains.
         /// </summary>
-        /// <returns>An array of <see cref="ServerInfo" /> instances for all
-        /// available domains.</returns>
+        /// <returns>
+        /// An array of <see cref="ServerInfo"/> instances for all available domains.
+        /// </returns>
         [SecurityCritical]
         public static ServerInfo[] GetDomains()
         {
@@ -54,7 +55,10 @@ namespace Cadru.Networking
         /// <summary>
         /// Gets the fully qualified hostname of the local computer.
         /// </summary>
-        /// <returns>A <see cref="String" /> representing the fully qualified hostname of the local computer.</returns>
+        /// <returns>
+        /// A <see cref="String"/> representing the fully qualified hostname of
+        /// the local computer.
+        /// </returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
         public async static Task<string> GetHostNameAsync()
         {
@@ -93,7 +97,10 @@ namespace Cadru.Networking
         /// <summary>
         /// Gets the IP addresses of the local computer.
         /// </summary>
-        /// <returns>An <see cref="IPAddress" /> array containing the IP addresses of the local computer.</returns>
+        /// <returns>
+        /// An <see cref="IPAddress"/> array containing the IP addresses of the
+        /// local computer.
+        /// </returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
         public async static Task<IPAddress[]> GetIPAddressesAsync()
         {
@@ -131,19 +138,23 @@ namespace Cadru.Networking
         }
 
         /// <summary>
-        /// Gets a <see cref="ServerInfo" /> instance representing the local computer.
+        /// Gets a <see cref="ServerInfo"/> instance representing the local computer.
         /// </summary>
-        /// <returns>A <see cref="ServerInfo" /> instance representing the local computer.</returns>
+        /// <returns>
+        /// A <see cref="ServerInfo"/> instance representing the local computer.
+        /// </returns>
         public static ServerInfo GetServerInfo()
         {
             return GetServerInfoInternal(null);
         }
 
         /// <summary>
-        /// Gets a <see cref="ServerInfo" /> instance representing the named computer.
+        /// Gets a <see cref="ServerInfo"/> instance representing the named computer.
         /// </summary>
         /// <param name="serverName">The name of the computer.</param>
-        /// <returns>A <see cref="ServerInfo" /> instance representing the named computer.</returns>
+        /// <returns>
+        /// A <see cref="ServerInfo"/> instance representing the named computer.
+        /// </returns>
         public static ServerInfo GetServerInfo(string serverName)
         {
             Contracts.Requires.NotNull(serverName, "serverName");
@@ -157,15 +168,21 @@ namespace Cadru.Networking
         }
 
         /// <summary>
-        /// Gets an array of <see cref="ServerInfo" /> instances of the
-        /// specified server type for the given domain.
+        /// Gets an array of <see cref="ServerInfo"/> instances of the specified
+        /// server type for the given domain.
         /// </summary>
-        /// <param name="serverType">A bitwise combination of enumeration values
-        /// that defines what server types to search. </param>
-        /// <param name="domain">The name of the domain to search, or <see langword="null" />
-        /// to search the primary domain.</param>
-        /// <returns>An array of <see cref="ServerInfo" /> instances of the
-        /// specified server type for the given domain.</returns>
+        /// <param name="serverType">
+        /// A bitwise combination of enumeration values that defines what server
+        /// types to search.
+        /// </param>
+        /// <param name="domain">
+        /// The name of the domain to search, or <see langword="null"/> to
+        /// search the primary domain.
+        /// </param>
+        /// <returns>
+        /// An array of <see cref="ServerInfo"/> instances of the specified
+        /// server type for the given domain.
+        /// </returns>
         [SecurityCritical]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
         public static ServerInfo[] GetServerList(ServerTypes serverType, string domain)

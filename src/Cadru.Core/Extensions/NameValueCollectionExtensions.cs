@@ -26,7 +26,7 @@ using System.Collections.Specialized;
 namespace Cadru.Extensions
 {
     /// <summary>
-    /// Provides extensions for working with <see cref="NameValueCollection" />.
+    /// Provides extensions for working with <see cref="NameValueCollection"/>.
     /// </summary>
     public static class NameValueCollectionExtensions
     {

@@ -24,7 +24,9 @@
             <typeparam name="T">The type of the values to compare.</typeparam>
             <param name="arg1">The first value, expected to be greater.</param>
             <param name="arg2">The second value, expected to be less.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ConditionAssert.Greater``1(``0,``0,System.String,System.Object[])">
             <summary>
@@ -33,8 +35,12 @@
             <typeparam name="T">The type of the values to compare.</typeparam>
             <param name="arg1">The first value, expected to be greater.</param>
             <param name="arg2">The second value, expected to be less.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ConditionAssert.GreaterOrEqual``1(``0,``0)">
             <summary>
@@ -51,7 +57,9 @@
             <typeparam name="T">The type of the values to compare.</typeparam>
             <param name="arg1">The first value, expected to be greater.</param>
             <param name="arg2">The second value, expected to be less.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ConditionAssert.GreaterOrEqual``1(``0,``0,System.String,System.Object[])">
             <summary>
@@ -60,93 +68,127 @@
             <typeparam name="T">The type of the values to compare.</typeparam>
             <param name="arg1">The first value, expected to be greater.</param>
             <param name="arg2">The second value, expected to be less.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsFalse(System.Nullable{System.Boolean})">
             <summary>
-            Verifies that the specified condition is <see langword="false" />.
-            The assertion fails if the condition is <see langword="true" />.
+            Verifies that the specified condition is <see langword="false"/>.
+            The assertion fails if the condition is <see langword="true"/>.
             </summary>
-            <param name="condition">The condition to verify is <see langword="false" />.</param>
+            <param name="condition">The condition to verify is <see langword="false"/>.</param>
             <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-            <paramref name="condition" /> evaluates to <see langword="true" />.</exception>
+            <paramref name="condition"/> evaluates to <see langword="true"/>.
+            </exception>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsFalse(System.Nullable{System.Boolean},System.String)">
             <summary>
-            Verifies that the specified condition is <see langword="false" />.
-            The assertion fails if the condition is <see langword="true" />.
+            Verifies that the specified condition is <see langword="false"/>.
+            The assertion fails if the condition is <see langword="true"/>.
             Displays a message if the assertion fails.
             </summary>
-            <param name="condition">The condition to verify is <see langword="false" />.</param>
-            <param name="message">A message to display if the assertion fails. This message can be seen in the unit test results.</param>
+            <param name="condition">The condition to verify is <see langword="false"/>.</param>
+            <param name="message">
+            A message to display if the assertion fails. This message can be
+            seen in the unit test results.
+            </param>
             <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-            <paramref name="condition" /> evaluates to <see langword="true" />.</exception>
+            <paramref name="condition"/> evaluates to <see langword="true"/>.
+            </exception>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsFalse(System.Nullable{System.Boolean},System.String,System.Object[])">
             <summary>
-            Verifies that the specified condition is <see langword="false" />.
-            The assertion fails if the condition is <see langword="true" />.
-            Displays a message if the assertion fails, and applies the specified formatting to it.
+            Verifies that the specified condition is <see langword="false"/>.
+            The assertion fails if the condition is <see langword="true"/>.
+            Displays a message if the assertion fails, and applies the specified
+            formatting to it.
             </summary>
-            <param name="condition">The condition to verify is <see langword="false" />.</param>
-            <param name="message">A message to display if the assertion fails. This message can be seen in the unit test results.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+            <param name="condition">The condition to verify is <see langword="false"/>.</param>
+            <param name="message">
+            A message to display if the assertion fails. This message can be
+            seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
             <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-            <paramref name="condition" /> evaluates to <see langword="true" />.</exception>
+            <paramref name="condition"/> evaluates to <see langword="true"/>.
+            </exception>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsNaN(System.Double)">
             <summary>
-            Verifies that the value is <see cref="F:System.Double.NaN" />.
+            Verifies that the value is <see cref="F:System.Double.NaN"/>.
             </summary>
             <param name="value">The value to test.</param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsNaN(System.Double,System.String)">
             <summary>
-            Verifies that the value is <see cref="F:System.Double.NaN" />.
+            Verifies that the value is <see cref="F:System.Double.NaN"/>.
             </summary>
             <param name="value">The value to test.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsNaN(System.Double,System.String,System.Object[])">
             <summary>
-            Verifies that the value is <see cref="F:System.Double.NaN" />.
+            Verifies that the value is <see cref="F:System.Double.NaN"/>.
             </summary>
             <param name="value">The value to test.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsTrue(System.Nullable{System.Boolean})">
             <summary>
-            Verifies that the specified condition is <see langword="true" />.
-            The assertion fails if the condition is <see langword="false" />.
+            Verifies that the specified condition is <see langword="true"/>. The
+            assertion fails if the condition is <see langword="false"/>.
             </summary>
-            <param name="condition">The condition to verify is <see langword="true" />.</param>
+            <param name="condition">The condition to verify is <see langword="true"/>.</param>
             <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-            <paramref name="condition" /> evaluates to <see langword="false" />.</exception>
+            <paramref name="condition"/> evaluates to <see langword="false"/>.
+            </exception>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsTrue(System.Nullable{System.Boolean},System.String)">
             <summary>
-            Verifies that the specified condition is <see langword="true" />.
-            The assertion fails if the condition is <see langword="false" />.
+            Verifies that the specified condition is <see langword="true"/>. The
+            assertion fails if the condition is <see langword="false"/>.
             Displays a message if the assertion fails.
             </summary>
-            <param name="condition">The condition to verify is <see langword="true" />.</param>
-            <param name="message">A message to display if the assertion fails. This message can be seen in the unit test results.</param>
+            <param name="condition">The condition to verify is <see langword="true"/>.</param>
+            <param name="message">
+            A message to display if the assertion fails. This message can be
+            seen in the unit test results.
+            </param>
             <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-            <paramref name="condition" /> evaluates to <see langword="false" />.</exception>
+            <paramref name="condition"/> evaluates to <see langword="false"/>.
+            </exception>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsTrue(System.Nullable{System.Boolean},System.String,System.Object[])">
             <summary>
-            Verifies that the specified condition is <see langword="true" />.
-            The assertion fails if the condition is <see langword="false" />.
-            Displays a message if the assertion fails, and applies the specified formatting to it.
+            Verifies that the specified condition is <see langword="true"/>. The
+            assertion fails if the condition is <see langword="false"/>.
+            Displays a message if the assertion fails, and applies the specified
+            formatting to it.
             </summary>
-            <param name="condition">The condition to verify is <see langword="true" />.</param>
-            <param name="message">A message to display if the assertion fails. This message can be seen in the unit test results.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+            <param name="condition">The condition to verify is <see langword="true"/>.</param>
+            <param name="message">
+            A message to display if the assertion fails. This message can be
+            seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
             <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-            <paramref name="condition" /> evaluates to <see langword="false" />.</exception>
+            <paramref name="condition"/> evaluates to <see langword="false"/>.
+            </exception>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ConditionAssert.Less``1(``0,``0)">
             <summary>
@@ -163,7 +205,9 @@
             <typeparam name="T">The type of the values to compare.</typeparam>
             <param name="arg1">The first value, expected to be less.</param>
             <param name="arg2">The second value, expected to be greater.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ConditionAssert.Less``1(``0,``0,System.String,System.Object[])">
             <summary>
@@ -172,8 +216,12 @@
             <typeparam name="T">The type of the values to compare.</typeparam>
             <param name="arg1">The first value, expected to be less.</param>
             <param name="arg2">The second value, expected to be greater.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ConditionAssert.LessOrEqual``1(``0,``0)">
             <summary>
@@ -190,7 +238,9 @@
             <typeparam name="T">The type of the values to compare.</typeparam>
             <param name="arg1">The first value, expected to be less.</param>
             <param name="arg2">The second value, expected to be greater.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ConditionAssert.LessOrEqual``1(``0,``0,System.String,System.Object[])">
             <summary>
@@ -199,8 +249,12 @@
             <typeparam name="T">The type of the values to compare.</typeparam>
             <param name="arg1">The first value, expected to be less.</param>
             <param name="arg2">The second value, expected to be greater.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
         </member>
         <member name="T:Cadru.UnitTest.Framework.CustomAssert">
             <summary>
@@ -220,7 +274,9 @@
             </summary>
             <param name="expected">The expected string.</param>
             <param name="actual">The actual string.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.CustomAssert.AreEqualIgnoringCase(System.String,System.String,System.String,System.Object[])">
             <summary>
@@ -228,8 +284,12 @@
             </summary>
             <param name="expected">The expected string.</param>
             <param name="actual">The actual string.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsEmpty(System.Collections.ICollection)">
             <summary>
@@ -242,15 +302,21 @@
             Assert that an array, list or other collection is empty.
             </summary>
             <param name="collection">The value to be tested.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsEmpty(System.Collections.ICollection,System.String,System.Object[])">
             <summary>
             Assert that an array, list or other collection is empty.
             </summary>
             <param name="collection">The value to be tested.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsEmpty(System.String)">
             <summary>
@@ -263,15 +329,21 @@
             Asserts that a string is empty.
             </summary>
             <param name="value">The value to be tested.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsEmpty(System.String,System.String,System.Object[])">
             <summary>
             Asserts that a string is empty.
             </summary>
             <param name="value">The value to be tested.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsNotEmpty(System.Collections.ICollection)">
             <summary>
@@ -284,15 +356,21 @@
             Assert that an array, list or other collection is not empty.
             </summary>
             <param name="collection">The value to be tested.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsNotEmpty(System.Collections.ICollection,System.String,System.Object[])">
             <summary>
             Assert that an array, list or other collection is not empty.
             </summary>
             <param name="collection">The value to be tested.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsNotEmpty(System.String)">
             <summary>
@@ -305,15 +383,21 @@
             Asserts that a string is not empty.
             </summary>
             <param name="value">The value to be tested.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsNotEmpty(System.String,System.String,System.Object[])">
             <summary>
             Asserts that a string is not empty.
             </summary>
             <param name="value">The value to be tested.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
         </member>
         <member name="T:Cadru.UnitTest.Framework.ExceptionAssert">
             <summary>
@@ -322,239 +406,267 @@
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch(System.Action,System.String,System.Object[])">
             <summary>
-            Verifies that <paramref name="code" /> throws an exception when called
-            and returns it.
+            Verifies that <paramref name="code"/> throws an exception when
+            called and returns it.
             </summary>
             <param name="code">The code to test.</param>
             <param name="message">The message that will be displayed on failure.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch(System.Action,System.String)">
             <summary>
-            Verifies that <paramref name="code" /> throws an exception when called
-            and returns it.
+            Verifies that <paramref name="code"/> throws an exception when
+            called and returns it.
             </summary>
             <param name="code">The code to test.</param>
             <param name="message">The message that will be displayed on failure.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch(System.Action)">
             <summary>
-            Verifies that <paramref name="code" /> throws an exception when called
-            and returns it.
+            Verifies that <paramref name="code"/> throws an exception when
+            called and returns it.
             </summary>
             <param name="code">The code to test.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch(System.Type,System.Action,System.String,System.Object[])">
             <summary>
-            Verifies that <paramref name="code" /> throws an exception of a certain Type
-            or one derived from it when called and returns it.
+            Verifies that <paramref name="code"/> throws an exception of a
+            certain Type or one derived from it when called and returns it.
             </summary>
             <param name="expectedExceptionType">The expected exception type.</param>
             <param name="code">The code to test.</param>
             <param name="message">The message that will be displayed on failure.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch(System.Type,System.Action,System.String)">
             <summary>
-            Verifies that <paramref name="code" /> throws an exception of a certain Type
-            or one derived from it when called and returns it.
+            Verifies that <paramref name="code"/> throws an exception of a
+            certain Type or one derived from it when called and returns it.
             </summary>
             <param name="expectedExceptionType">The expected exception type.</param>
             <param name="code">The code to test.</param>
             <param name="message">The message that will be displayed on failure.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch(System.Type,System.Action)">
             <summary>
-            Verifies that <paramref name="code" /> throws an exception of a certain Type
-            or one derived from it when called and returns it.
+            Verifies that <paramref name="code"/> throws an exception of a
+            certain Type or one derived from it when called and returns it.
             </summary>
             <param name="expectedExceptionType">The expected exception type.</param>
             <param name="code">The code to test.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch``1(System.Action,System.String,System.Object[])">
             <summary>
-            Verifies that <paramref name="code" /> throws an exception of a certain Type
-            or one derived from it when called and returns it.
+            Verifies that <paramref name="code"/> throws an exception of a
+            certain Type or one derived from it when called and returns it.
             </summary>
             <typeparam name="T">The expected exception type.</typeparam>
             <param name="code">The code to test.</param>
             <param name="message">The message that will be displayed on failure.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch``1(System.Action,System.String)">
             <summary>
-            Verifies that <paramref name="code" /> throws an exception of a certain Type
-            or one derived from it when called and returns it.
+            Verifies that <paramref name="code"/> throws an exception of a
+            certain Type or one derived from it when called and returns it.
             </summary>
             <typeparam name="T">The expected exception type.</typeparam>
             <param name="code">The code to test.</param>
             <param name="message">The message that will be displayed on failure.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch``1(System.Action)">
             <summary>
-            Verifies that <paramref name="code" /> throws an exception of a certain Type
-            or one derived from it when called and returns it.
+            Verifies that <paramref name="code"/> throws an exception of a
+            certain Type or one derived from it when called and returns it.
             </summary>
             <typeparam name="T">The expected exception type.</typeparam>
             <param name="code">The code to test.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.DoesNotThrow(System.Action,System.String,System.Object[])">
             <summary>
-            Verifies that <paramref name="code" /> does not throw an exception.
+            Verifies that <paramref name="code"/> does not throw an exception.
             </summary>
             <param name="code">The code to test.</param>
             <param name="message">The message that will be displayed on failure.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.DoesNotThrow(System.Action,System.String)">
             <summary>
-            Verifies that <paramref name="code" /> does not throw an exception.
+            Verifies that <paramref name="code"/> does not throw an exception.
             </summary>
             <param name="code">The code to test.</param>
             <param name="message">The message that will be displayed on failure.</param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.DoesNotThrow(System.Action)">
             <summary>
-            Verifies that <paramref name="code" /> does not throw an exception.
+            Verifies that <paramref name="code"/> does not throw an exception.
             </summary>
             <param name="code">The code to test.</param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws(System.Action,System.String,System.Object[])">
             <summary>
-            Verifies that <paramref name="code" /> throws an exception when called.
+            Verifies that <paramref name="code"/> throws an exception when called.
             </summary>
             <param name="code">The code to test.</param>
             <param name="message">The message that will be displayed on failure.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws(System.Action,System.String)">
             <summary>
-            Verifies that <paramref name="code" /> throws an exception when called.
+            Verifies that <paramref name="code"/> throws an exception when called.
             </summary>
             <param name="code">The code to test.</param>
             <param name="message">The message that will be displayed on failure.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws(System.Action)">
             <summary>
-            Verifies that <paramref name="code" /> throws an exception when called.
+            Verifies that <paramref name="code"/> throws an exception when called.
             </summary>
             <param name="code">The code to test.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws(System.Type,System.Action,System.String,System.Object[])">
             <summary>
-            Verifies that <paramref name="code" /> throws a particular exception when called.
+            Verifies that <paramref name="code"/> throws a particular exception
+            when called.
             </summary>
             <param name="expectedExceptionType">The exception Type expected.</param>
             <param name="code">The code to test.</param>
             <param name="message">The message that will be displayed on failure.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws(System.Type,System.Action,System.String)">
             <summary>
-            Verifies that <paramref name="code" /> throws a particular exception when called.
+            Verifies that <paramref name="code"/> throws a particular exception
+            when called.
             </summary>
             <param name="expectedExceptionType">The exception Type expected.</param>
             <param name="code">The code to test.</param>
             <param name="message">The message that will be displayed on failure.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws(System.Type,System.Action)">
             <summary>
-            Verifies that <paramref name="code" /> throws a particular exception when called.
+            Verifies that <paramref name="code"/> throws a particular exception
+            when called.
             </summary>
             <param name="expectedExceptionType">The exception Type expected.</param>
             <param name="code">The code to test.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws``1(System.Action,System.String,System.Object[])">
             <summary>
-            Verifies that <paramref name="code" /> throws a particular exception when called.
+            Verifies that <paramref name="code"/> throws a particular exception
+            when called.
             </summary>
             <typeparam name="T">Type of the expected exception.</typeparam>
             <param name="code">The code to test.</param>
             <param name="message">The message that will be displayed on failure.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws``1(System.Action,System.String)">
             <summary>
-            Verifies that <paramref name="code" /> throws a particular exception when called.
+            Verifies that <paramref name="code"/> throws a particular exception
+            when called.
             </summary>
             <typeparam name="T">Type of the expected exception.</typeparam>
             <param name="code">The code to test.</param>
             <param name="message">The message that will be displayed on failure.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws``1(System.Action)">
             <summary>
-            Verifies that <paramref name="code" /> throws a particular exception when called.
+            Verifies that <paramref name="code"/> throws a particular exception
+            when called.
             </summary>
             <typeparam name="T">Type of the expected exception.</typeparam>
             <param name="code">The code to test.</param>
-            <returns>The <see cref="T:System.Exception" /> thrown by <paramref name="code" />.</returns>
+            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.WithInnerException``1(``0,System.Type)">
             <summary>
-            Verifies that the exception <see cref="P:System.Exception.InnerException" />
+            Verifies that the exception <see cref="P:System.Exception.InnerException"/>
             is of the specified type.
             </summary>
             <typeparam name="T">The source exception type.</typeparam>
-            <param name="exception">The exception whose <see cref="P:System.Exception.InnerException" />
-            will be tested.</param>
+            <param name="exception">
+            The exception whose <see cref="P:System.Exception.InnerException"/> will be tested.
+            </param>
             <param name="innerException">The expected type of the inner exception.</param>
-            <returns>The original <see cref="T:System.Exception" />.</returns>
+            <returns>The original <see cref="T:System.Exception"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.WithMessage``1(``0,System.String,Cadru.UnitTest.Framework.ExceptionMessageComparison)">
             <summary>
-            Verifies that the exception <see cref="P:System.Exception.Message" />
-            contains the given text.
+            Verifies that the exception <see cref="P:System.Exception.Message"/> contains
+            the given text.
             </summary>
             <typeparam name="T">The exception type.</typeparam>
-            <param name="exception">The exception whose <see cref="P:System.Exception.Message" />
-            will be searched.</param>
-            <param name="message">The text to search for in the exception
-            <see cref="P:System.Exception.Message" />.</param>
-            <param name="comparison">One of the <see cref="T:Cadru.UnitTest.Framework.ExceptionMessageComparison" /> values.</param>
-            <returns>The original <see cref="T:System.Exception" />.</returns>
+            <param name="exception">
+            The exception whose <see cref="P:System.Exception.Message"/> will be searched.
+            </param>
+            <param name="message">The text to search for in the exception <see cref="P:System.Exception.Message"/>.</param>
+            <param name="comparison">
+            One of the <see cref="T:Cadru.UnitTest.Framework.ExceptionMessageComparison"/> values.
+            </param>
+            <returns>The original <see cref="T:System.Exception"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.WithMessage``1(``0,System.String)">
             <summary>
-            Verifies that the exception <see cref="P:System.Exception.Message" />
-            is equal to the given text.
+            Verifies that the exception <see cref="P:System.Exception.Message"/> is equal
+            to the given text.
             </summary>
             <typeparam name="T">The exception type.</typeparam>
-            <param name="exception">The exception whose <see cref="P:System.Exception.Message" />
-            will be compared.</param>
+            <param name="exception">
+            The exception whose <see cref="P:System.Exception.Message"/> will be compared.
+            </param>
             <param name="message">The text to compare.</param>
-            <returns>The original <see cref="T:System.Exception" />.</returns>
+            <returns>The original <see cref="T:System.Exception"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.WithParameter``1(``0,System.String)">
             <summary>
-            Verifies that the exception <see cref="P:System.ArgumentException.ParamName" />
-            property is equal to the given text.
+            Verifies that the exception
+            <see cref="P:System.ArgumentException.ParamName"/> property is equal to the
+            given text.
             </summary>
             <typeparam name="T">The exception type.</typeparam>
-            <param name="exception">The exception whose <see cref="P:System.ArgumentException.ParamName" />
-            property will be compared.</param>
+            <param name="exception">
+            The exception whose <see cref="P:System.ArgumentException.ParamName"/>
+            property will be compared.
+            </param>
             <param name="parameterName">The text to compare.</param>
-            <returns>The original <see cref="T:System.Exception" />.</returns>
+            <returns>The original <see cref="T:System.Exception"/>.</returns>
         </member>
         <member name="T:Cadru.UnitTest.Framework.ExceptionMessageComparison">
             <summary>
-            Options used by the <see cref="M:Cadru.UnitTest.Framework.ExceptionAssert.WithMessage``1(``0,System.String,Cadru.UnitTest.Framework.ExceptionMessageComparison)"/>
+            Options used by the
+            <see cref="M:Cadru.UnitTest.Framework.ExceptionAssert.WithMessage``1(``0,System.String,Cadru.UnitTest.Framework.ExceptionMessageComparison)"/>
             method to determine how to compare the exception message.
             </summary>
         </member>
@@ -671,75 +783,93 @@
         </member>
         <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsAssignableFrom(System.Object,System.Type)">
             <summary>
-            Asserts that an object may be assigned a value of a given <see cref="T:System.Type" />.
+            Asserts that an object may be assigned a value of a given <see cref="T:System.Type"/>.
             </summary>
             <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type" />.</param>
+            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsAssignableFrom(System.Object,System.Type,System.String)">
             <summary>
-            Asserts that an object may be assigned a value of a given <see cref="T:System.Type" />.
+            Asserts that an object may be assigned a value of a given <see cref="T:System.Type"/>.
             </summary>
             <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type" />.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
+            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsAssignableFrom(System.Object,System.Type,System.String,System.Object[])">
             <summary>
-            Asserts that an object may be assigned a value of a given <see cref="T:System.Type" />.
+            Asserts that an object may be assigned a value of a given <see cref="T:System.Type"/>.
             </summary>
             <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type" />.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsNotAssignableFrom(System.Object,System.Type)">
             <summary>
-            Asserts that an object may not be assigned a value of a given <see cref="T:System.Type" />.
+            Asserts that an object may not be assigned a value of a given <see cref="T:System.Type"/>.
             </summary>
             <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type" />.</param>
+            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsNotAssignableFrom(System.Object,System.Type,System.String)">
             <summary>
-            Asserts that an object may not be assigned a value of a given <see cref="T:System.Type" />.
+            Asserts that an object may not be assigned a value of a given <see cref="T:System.Type"/>.
             </summary>
             <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type" />.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
+            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsNotAssignableFrom(System.Object,System.Type,System.String,System.Object[])">
             <summary>
-            Asserts that an object may not be assigned a value of a given <see cref="T:System.Type" />.
+            Asserts that an object may not be assigned a value of a given <see cref="T:System.Type"/>.
             </summary>
             <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type" />.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsType(System.Object,System.Type)">
             <summary>
-            Asserts that an object is of the given <see cref="T:System.Type" />.
+            Asserts that an object is of the given <see cref="T:System.Type"/>.
             </summary>
             <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type" />.</param>
+            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsType(System.Object,System.Type,System.String)">
             <summary>
-            Asserts that an object is of the given <see cref="T:System.Type" />.
+            Asserts that an object is of the given <see cref="T:System.Type"/>.
             </summary>
             <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type" />.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
+            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsType(System.Object,System.Type,System.String,System.Object[])">
             <summary>
-            Asserts that an object is of the given <see cref="T:System.Type" />.
+            Asserts that an object is of the given <see cref="T:System.Type"/>.
             </summary>
             <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type" />.</param>
-            <param name="message">A message to display. This message can be seen in the unit test results.</param>
-            <param name="parameters">An array of parameters to use when formatting <paramref name="message" />.</param>
+            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
         </member>
     </members>
 </doc>

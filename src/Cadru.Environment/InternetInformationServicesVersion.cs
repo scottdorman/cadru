@@ -34,7 +34,9 @@ namespace Cadru.Environment
     /// </listheader>
     /// <item>
     /// <description>1.0</description>
-    /// <description>Included with Windows NT 3.51 SP 3 (or as a self-contained download).</description>
+    /// <description>
+    /// Included with Windows NT 3.51 SP 3 (or as a self-contained download).
+    /// </description>
     /// <description>Windows NT Server 3.51</description>
     /// </item>
     /// <item>
@@ -44,13 +46,22 @@ namespace Cadru.Environment
     /// </item>
     /// <item>
     /// <description>3.0</description>
-    /// <description>Included with Windows NT Server 4.0 Service Pack 3 (Internet Information Server 2.0 is automatically upgraded to Internet Information Server 3.0 during the install of SP3).</description>
+    /// <description>
+    /// Included with Windows NT Server 4.0 Service Pack 3 (Internet Information
+    /// Server 2.0 is automatically upgraded to Internet Information Server 3.0
+    /// during the install of SP3).
+    /// </description>
     /// <description>Windows NT Server 4.0</description>
     /// </item>
     /// <item>
     /// <description>4.0</description>
-    /// <description>Self-contained download from www.microsoft.com or the Windows NT Option Pack compact disc.</description>
-    /// <description>Windows NT Server 4.0 SP3 and Microsoft Internet Explorer 4.01</description>
+    /// <description>
+    /// Self-contained download from www.microsoft.com or the Windows NT Option
+    /// Pack compact disc.
+    /// </description>
+    /// <description>
+    /// Windows NT Server 4.0 SP3 and Microsoft Internet Explorer 4.01
+    /// </description>
     /// </item>
     /// <item>
     /// <description></description>
@@ -69,17 +80,23 @@ namespace Cadru.Environment
     /// </item>
     /// <item>
     /// <description>7.0</description>
-    /// <description>Built-in component of Windows Vista and Windows Server 2008.</description>
+    /// <description>
+    /// Built-in component of Windows Vista and Windows Server 2008.
+    /// </description>
     /// <description>Windows Vista and Windows Server 2008</description>
     /// </item>
     /// <item>
     /// <description>7.5</description>
-    /// <description>Built-in component of Windows 7 and Windows Server 2008 R2.</description>
+    /// <description>
+    /// Built-in component of Windows 7 and Windows Server 2008 R2.
+    /// </description>
     /// <description>Windows 7 and Windows Server 2008 R2</description>
     /// </item>
     /// <item>
     /// <description>8.0</description>
-    /// <description>Built-in component of Windows 8 and Windows Server 2012.</description>
+    /// <description>
+    /// Built-in component of Windows 8 and Windows Server 2012.
+    /// </description>
     /// <description>Windows 8 and Windows Server 2012</description>
     /// </item>
     /// </list>

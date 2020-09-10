@@ -37,45 +37,57 @@ namespace Cadru.Collections
         private readonly Func<TItem, TKey> getKeyFunc;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="KeyedCollection{TKey,TItem}"/>
-        /// class that uses the default equality comparer.
+        /// Initializes a new instance of the
+        /// <see cref="KeyedCollection{TKey,TItem}"/> class that uses the
+        /// default equality comparer.
         /// </summary>
-        /// <param name="getKeyFunc">The function used to extract a key from the item.</param>
+        /// <param name="getKeyFunc">
+        /// The function used to extract a key from the item.
+        /// </param>
         public GenericKeyedCollection(Func<TItem, TKey> getKeyFunc) : base()
         {
             this.getKeyFunc = getKeyFunc;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="KeyedCollection{TKey,TItem}"/>
-        /// class that uses the that uses the specified equality comparer.
+        /// Initializes a new instance of the
+        /// <see cref="KeyedCollection{TKey,TItem}"/> class that uses the that
+        /// uses the specified equality comparer.
         /// </summary>
-        /// <param name="getKeyFunc">The function used to extract a key from the item.</param>
-        /// <param name="comparer">The implementation of the
-        /// <see cref="IEqualityComparer{T}"/> generic interface to use when
-        /// comparing keys, or <see langword="null" /> to use the default
-        /// equality comparer for the type of the key, obtained from
-        /// <see cref="EqualityComparer{T}.Default">Default</see>.</param>
+        /// <param name="getKeyFunc">
+        /// The function used to extract a key from the item.
+        /// </param>
+        /// <param name="comparer">
+        /// The implementation of the <see cref="IEqualityComparer{T}"/> generic
+        /// interface to use when comparing keys, or <see langword="null"/> to
+        /// use the default equality comparer for the type of the key, obtained
+        /// from <see cref="EqualityComparer{T}.Default">Default</see>.
+        /// </param>
         public GenericKeyedCollection(Func<TItem, TKey> getKeyFunc, IEqualityComparer<TKey> comparer) : base(comparer)
         {
             this.getKeyFunc = getKeyFunc;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="KeyedCollection{TKey,TItem}"/>
-        /// class that uses the that uses the specified equality comparer
-        /// and creates a lookup dictionary when the specified threshold is exceeded..
+        /// Initializes a new instance of the
+        /// <see cref="KeyedCollection{TKey,TItem}"/> class that uses the that
+        /// uses the specified equality comparer and creates a lookup dictionary
+        /// when the specified threshold is exceeded..
         /// </summary>
-        /// <param name="getKeyFunc">The function used to extract a key from the item.</param>
-        /// <param name="comparer">The implementation of the
-        /// <see cref="IEqualityComparer{T}"/> generic interface to use when
-        /// comparing keys, or <see langword="null" /> to use the default
-        /// equality comparer for the type of the key, obtained from
-        /// <see cref="EqualityComparer{T}.Default">Default</see>.</param>
-        /// <param name="dictionaryCreationThreshold">The number of elements
-        /// the collection can hold without creating a lookup dictionary
-        /// (0 creates the lookup dictionary when the first item is added),
-        /// or –1 to specify that a lookup dictionary is never created.</param>
+        /// <param name="getKeyFunc">
+        /// The function used to extract a key from the item.
+        /// </param>
+        /// <param name="comparer">
+        /// The implementation of the <see cref="IEqualityComparer{T}"/> generic
+        /// interface to use when comparing keys, or <see langword="null"/> to
+        /// use the default equality comparer for the type of the key, obtained
+        /// from <see cref="EqualityComparer{T}.Default">Default</see>.
+        /// </param>
+        /// <param name="dictionaryCreationThreshold">
+        /// The number of elements the collection can hold without creating a
+        /// lookup dictionary (0 creates the lookup dictionary when the first
+        /// item is added), or –1 to specify that a lookup dictionary is never created.
+        /// </param>
         public GenericKeyedCollection(Func<TItem, TKey> getKeyFunc, IEqualityComparer<TKey> comparer, int dictionaryCreationThreshold) : base(comparer, dictionaryCreationThreshold)
         {
             this.getKeyFunc = getKeyFunc;

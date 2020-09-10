@@ -57,7 +57,9 @@ namespace Cadru.Collections
         /// </summary>
         /// <param name="lowerBound">The start of the range.</param>
         /// <param name="upperBound">The end of the range.</param>
-        /// <param name="comparer">The <see cref="IComparer{T}"/> used to perform range comparisons.</param>
+        /// <param name="comparer">
+        /// The <see cref="IComparer{T}"/> used to perform range comparisons.
+        /// </param>
         public Range(T lowerBound, T upperBound, IComparer<T> comparer)
             : this(lowerBound, upperBound, comparer, RangeEndpointOption.Open)
         {
@@ -68,7 +70,9 @@ namespace Cadru.Collections
         /// </summary>
         /// <param name="lowerBound">The start of the range.</param>
         /// <param name="upperBound">The end of the range.</param>
-        /// <param name="comparer">The <see cref="IComparer{T}"/> used to perform range comparisons.</param>
+        /// <param name="comparer">
+        /// The <see cref="IComparer{T}"/> used to perform range comparisons.
+        /// </param>
         /// <param name="option"></param>
         public Range(T lowerBound, T upperBound, IComparer<T> comparer, RangeEndpointOption option)
         {
@@ -93,7 +97,8 @@ namespace Cadru.Collections
         }
 
         /// <summary>
-        /// Gets the <see cref="IComparer{T}"/> used to compare the values in the range.
+        /// Gets the <see cref="IComparer{T}"/> used to compare the values in
+        /// the range.
         /// </summary>
         /// <value>An <see cref="IComparer{T}"/> instance.</value>
         public IComparer<T> Comparer { get; private set; }
@@ -126,8 +131,10 @@ namespace Cadru.Collections
         /// Determines whether the <see cref="Range{T}"/> contains the specified value.
         /// </summary>
         /// <param name="value">The value to locate in the <see cref="Range{T}"/>.</param>
-        /// <returns><see langword="true" /> if the <see cref="Range{T}"/>
-        /// contains the specified value; otherwise, <see langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if the <see cref="Range{T}"/> contains the
+        /// specified value; otherwise, <see langword="false"/>.
+        /// </returns>
         public bool Contains(T value)
         {
             bool result;
@@ -158,9 +165,13 @@ namespace Cadru.Collections
         /// Determines whether the <see cref="Range{T}"/> contains the specified value.
         /// </summary>
         /// <param name="range">The value to locate in the <see cref="Range{T}"/>.</param>
-        /// <returns><see langword="true" /> if the <see cref="Range{T}"/>
-        /// contains the specified value; otherwise, <see langword="false" />.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="range" /> is <see langword="null" />.</exception>
+        /// <returns>
+        /// <see langword="true"/> if the <see cref="Range{T}"/> contains the
+        /// specified value; otherwise, <see langword="false"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="range"/> is <see langword="null"/>.
+        /// </exception>
         public bool Contains(Range<T> range)
         {
             Requires.NotNull(range, nameof(range));
@@ -171,8 +182,10 @@ namespace Cadru.Collections
         /// <summary>
         /// Returns an enumerator that iterates through the <see cref="Range{T}"/>.
         /// </summary>
-        /// <returns>An <see cref="IEnumerator{T}"/> object that can be used
-        ///  to iterate through the <see cref="Range{T}"/>.</returns>
+        /// <returns>
+        /// An <see cref="IEnumerator{T}"/> object that can be used to iterate
+        /// through the <see cref="Range{T}"/>.
+        /// </returns>
         public IEnumerator<T> GetEnumerator()
         {
             Requires.IsTrue(this.enumerator.IsNotNull());
@@ -182,8 +195,10 @@ namespace Cadru.Collections
         /// <summary>
         /// Returns an enumerator that iterates through the <see cref="Range{T}"/>.
         /// </summary>
-        /// <returns>An <see cref="IEnumerator" /> object that can be used
-        ///  to iterate through the <see cref="Range{T}"/>.</returns>
+        /// <returns>
+        /// An <see cref="IEnumerator"/> object that can be used to iterate
+        /// through the <see cref="Range{T}"/>.
+        /// </returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this.GetEnumerator();
@@ -192,11 +207,18 @@ namespace Cadru.Collections
         /// <summary>
         /// Produces the intersection of two ranges.
         /// </summary>
-        /// <param name="other">A <see cref="Range{T}"/> whose distinct elements
-        /// that also appear in this instance will be returned.</param>
-        /// <returns>A <see cref="Range{T}"/> that contains the elements that form the interval intersection
-        /// of the two ranges, or <see langword="null" /> if there is no intersection.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="other" /> is <see langword="null" />.</exception>
+        /// <param name="other">
+        /// A <see cref="Range{T}"/> whose distinct elements that also appear in
+        /// this instance will be returned.
+        /// </param>
+        /// <returns>
+        /// A <see cref="Range{T}"/> that contains the elements that form the
+        /// interval intersection of the two ranges, or <see langword="null"/>
+        /// if there is no intersection.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="other"/> is <see langword="null"/>.
+        /// </exception>
         public Range<T> Intersect(Range<T> other)
         {
             Requires.NotNull(other, nameof(other));
@@ -213,13 +235,17 @@ namespace Cadru.Collections
         }
 
         /// <summary>
-        /// Determines whether the <see cref="Range{T}"/> is contained within the
-        /// specified range.
+        /// Determines whether the <see cref="Range{T}"/> is contained within
+        /// the specified range.
         /// </summary>
         /// <param name="range">The range used to test for containment.</param>
-        /// <returns><see langword="true" /> if the <see cref="Range{T}"/>
-        /// is contained within the specified range; otherwise, <see langword="false" />.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="range" /> is <see langword="null" />.</exception>
+        /// <returns>
+        /// <see langword="true"/> if the <see cref="Range{T}"/> is contained
+        /// within the specified range; otherwise, <see langword="false"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="range"/> is <see langword="null"/>.
+        /// </exception>
         public bool IsContainedBy(Range<T> range)
         {
             Requires.NotNull(range, nameof(range));
@@ -231,10 +257,15 @@ namespace Cadru.Collections
         /// specified range.
         /// </summary>
         /// <param name="range">The range to check.</param>
-        /// <returns><see langword="true" /> if the ranges are contiguous;
-        /// otherwise, <see langword="false" />.</returns>
-        /// <remarks>Contiguous can mean containing, overlapping, or being next to.</remarks>
-        /// <exception cref="ArgumentNullException"><paramref name="range" /> is <see langword="null" />.</exception>
+        /// <returns>
+        /// <see langword="true"/> if the ranges are contiguous; otherwise, <see langword="false"/>.
+        /// </returns>
+        /// <remarks>
+        /// Contiguous can mean containing, overlapping, or being next to.
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="range"/> is <see langword="null"/>.
+        /// </exception>
         public bool IsContiguousWith(Range<T> range)
         {
             if (this.Overlaps(range) || range.Overlaps(this) || range.Contains(this) || this.Contains(range))
@@ -247,13 +278,15 @@ namespace Cadru.Collections
         }
 
         /// <summary>
-        /// Determines whether the <see cref="Range{T}"/> overlaps the
-        /// specified range.
+        /// Determines whether the <see cref="Range{T}"/> overlaps the specified range.
         /// </summary>
         /// <param name="range">A range to test.</param>
-        /// <returns><see langword="true" /> if the ranges overlap;
-        /// otherwise, <see langword="false" />.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="range" /> is <see langword="null" />.</exception>
+        /// <returns>
+        /// <see langword="true"/> if the ranges overlap; otherwise, <see langword="false"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="range"/> is <see langword="null"/>.
+        /// </exception>
         public bool Overlaps(Range<T> range)
         {
             Requires.NotNull(range, nameof(range));
@@ -264,8 +297,10 @@ namespace Cadru.Collections
         /// <summary>
         /// Sets an enumerator that iterates through the <see cref="Range{T}"/>.
         /// </summary>
-        /// <param name="iterator">An <see cref="RangeIterator{T}"/> object that
-        /// can be used to iterate through the <see cref="Range{T}"/>.</param>
+        /// <param name="iterator">
+        /// An <see cref="RangeIterator{T}"/> object that can be used to iterate
+        /// through the <see cref="Range{T}"/>.
+        /// </param>
         public void SetEnumerator(RangeIterator<T> iterator)
         {
             this.enumerator = iterator;
@@ -274,8 +309,9 @@ namespace Cadru.Collections
         /// <summary>
         /// Returns a string representation of the <see cref="Range{T}"/>.
         /// </summary>
-        /// <returns>The value of this <see cref="Range{T}"/>, formatted
-        ///  using standard interval notation.
+        /// <returns>
+        /// The value of this <see cref="Range{T}"/>, formatted using standard
+        /// interval notation.
         /// </returns>
         public override string ToString()
         {
@@ -289,11 +325,17 @@ namespace Cadru.Collections
         /// <summary>
         /// Produces the union of two ranges.
         /// </summary>
-        /// <param name="other">A <see cref="Range{T}"/> whose distinct elements
-        /// form the second interval for the union.</param>
-        /// <returns>A <see cref="Range{T}"/> that contains the elements that from both ranges,
-        /// or <see langword="null" /> if there is no union.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="other" /> is <see langword="null" />.</exception>
+        /// <param name="other">
+        /// A <see cref="Range{T}"/> whose distinct elements form the second
+        /// interval for the union.
+        /// </param>
+        /// <returns>
+        /// A <see cref="Range{T}"/> that contains the elements that from both
+        /// ranges, or <see langword="null"/> if there is no union.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="other"/> is <see langword="null"/>.
+        /// </exception>
         public Range<T> Union(Range<T> other)
         {
             Requires.NotNull(other, nameof(other));
@@ -326,14 +368,10 @@ namespace Cadru.Collections
 
             // Computed options follow these rules:
             //
-            // (a,b) (c,d) => (e,f)
-            // (a,b] (c,d) => (e,f)
-            // [a,b) (c,d) => [e,f)
+            // (a,b) (c,d) => (e,f) (a,b] (c,d) => (e,f) [a,b) (c,d) => [e,f)
             // [a,b] (c,d) => [e,f)
             //
-            // (a,b) (c,d) => (e,f)
-            // (a,b) (c,d] => (e,f]
-            // (a,b) [c,d) => (e,f)
+            // (a,b) (c,d) => (e,f) (a,b) (c,d] => (e,f] (a,b) [c,d) => (e,f)
             // (a,b) [c,d] => (e,f]
 
             switch (left.option)

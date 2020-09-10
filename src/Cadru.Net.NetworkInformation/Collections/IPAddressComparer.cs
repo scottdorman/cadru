@@ -30,32 +30,31 @@ namespace Cadru.Net.NetworkInformation.Collections
     using System.Net;
 
     /// <summary>
-    /// Compares two IP Addresses or string IP address representations for
-    /// equivalence.
+    /// Compares two IP Addresses or string IP address representations for equivalence.
     /// </summary>
     public sealed class IPAddressComparer : IComparer, IEqualityComparer, IComparer<IPAddress>, IEqualityComparer<IPAddress>, IComparer<string>, IEqualityComparer<string>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="IPAddressComparer" /> class.
+        /// Initializes a new instance of the <see cref="IPAddressComparer"/> class.
         /// </summary>
         public IPAddressComparer()
         {
         }
 
         /// <summary>
-        /// Represents an instance of <see cref="IPAddressComparer" />.
+        /// Represents an instance of <see cref="IPAddressComparer"/>.
         /// </summary>
-        /// <value>The default <see cref="IPAddressComparer" /></value>
+        /// <value>The default <see cref="IPAddressComparer"/></value>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer Default => new IPAddressComparer();
 
         /// <summary>
-        /// Performs a comparison of two <see cref="IPAddress" /> objects and returns a value
-        /// indicating whether one is less than, equal to or greater than
-        /// the other.
+        /// Performs a comparison of two <see cref="IPAddress"/> objects and
+        /// returns a value indicating whether one is less than, equal to or
+        /// greater than the other.
         /// </summary>
-        /// <param name="x">The first <see cref="IPAddress" /> to compare.</param>
-        /// <param name="y">The second <see cref="IPAddress" /> to compare.</param>
+        /// <param name="x">The first <see cref="IPAddress"/> to compare.</param>
+        /// <param name="y">The second <see cref="IPAddress"/> to compare.</param>
         /// <returns>
         /// <list type="table">
         /// <listheader>
@@ -64,23 +63,18 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// </listheader>
         /// <item>
         /// <term>Less than zero</term>
-        /// <description>
-        /// <paramref name="x" /> is less than <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
-        /// <description>
-        /// <paramref name="x" /> equals <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> equals <paramref name="y"/>.</description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
-        /// <description>
-        /// <paramref name="x" /> is greater than <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
         /// </item>
-        /// </list></returns>
+        /// </list>
+        /// </returns>
         public int Compare(IPAddress x, IPAddress y)
         {
             Contracts.Requires.NotNull(x, "x");
@@ -108,9 +102,8 @@ namespace Cadru.Net.NetworkInformation.Collections
         }
 
         /// <summary>
-        /// Performs a comparison of two objects and returns a value
-        /// indicating whether one is less than, equal to or greater than
-        /// the other.
+        /// Performs a comparison of two objects and returns a value indicating
+        /// whether one is less than, equal to or greater than the other.
         /// </summary>
         /// <param name="x">The first object to compare.</param>
         /// <param name="y">The second object to compare.</param>
@@ -122,23 +115,18 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// </listheader>
         /// <item>
         /// <term>Less than zero</term>
-        /// <description>
-        /// <paramref name="x" /> is less than <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
-        /// <description>
-        /// <paramref name="x" /> equals <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> equals <paramref name="y"/>.</description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
-        /// <description>
-        /// <paramref name="x" /> is greater than <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
         /// </item>
-        /// </list></returns>
+        /// </list>
+        /// </returns>
         public int Compare(object x, object y)
         {
             var left = x as string;
@@ -167,8 +155,7 @@ namespace Cadru.Net.NetworkInformation.Collections
 
         /// <summary>
         /// Performs a comparison of two string objects and returns a value
-        /// indicating whether one is less than, equal to or greater than
-        /// the other.
+        /// indicating whether one is less than, equal to or greater than the other.
         /// </summary>
         /// <param name="x">The first string to compare.</param>
         /// <param name="y">The second string to compare.</param>
@@ -180,23 +167,18 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// </listheader>
         /// <item>
         /// <term>Less than zero</term>
-        /// <description>
-        /// <paramref name="x" /> is less than <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
         /// </item>
         /// <item>
         /// <term>Zero</term>
-        /// <description>
-        /// <paramref name="x" /> equals <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> equals <paramref name="y"/>.</description>
         /// </item>
         /// <item>
         /// <term>Greater than zero</term>
-        /// <description>
-        /// <paramref name="x" /> is greater than <paramref name="y" />.
-        /// </description>
+        /// <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
         /// </item>
-        /// </list></returns>
+        /// </list>
+        /// </returns>
         /// <remarks>The strings should be a valid date time format.</remarks>
         public int Compare(string x, string y)
         {
@@ -220,12 +202,15 @@ namespace Cadru.Net.NetworkInformation.Collections
         }
 
         /// <summary>
-        /// Returns a value indicating whether two instances of <see cref="IPAddress" /> are equal.
+        /// Returns a value indicating whether two instances of
+        /// <see cref="IPAddress"/> are equal.
         /// </summary>
-        /// <param name="x">The first <see cref="IPAddress" /> to compare.</param>
-        /// <param name="y">The second <see cref="IPAddress" /> to compare.</param>
-        /// <returns><see langword="true" /> if the two <see cref="IPAddress" /> values are equal;
-        /// otherwise, <see langword="false" />. </returns>
+        /// <param name="x">The first <see cref="IPAddress"/> to compare.</param>
+        /// <param name="y">The second <see cref="IPAddress"/> to compare.</param>
+        /// <returns>
+        /// <see langword="true"/> if the two <see cref="IPAddress"/> values are
+        /// equal; otherwise, <see langword="false"/>.
+        /// </returns>
         public bool Equals(IPAddress x, IPAddress y)
         {
             if (x == null)
@@ -241,8 +226,10 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// </summary>
         /// <param name="x">The first string to compare.</param>
         /// <param name="y">The second string to compare.</param>
-        /// <returns><see langword="true" /> if the two string values are equal;
-        /// otherwise, <see langword="false" />. </returns>
+        /// <returns>
+        /// <see langword="true"/> if the two string values are equal;
+        /// otherwise, <see langword="false"/>.
+        /// </returns>
         public bool Equals(string x, string y)
         {
             if (x == null && y == null)
@@ -267,8 +254,8 @@ namespace Cadru.Net.NetworkInformation.Collections
 
                     if (!IPAddress.TryParse(x, out t1) || !IPAddress.TryParse(y, out t2))
                     {
-                        // At least of the strings was not a valid IP address, so
-                        // return the string comparison result.
+                        // At least of the strings was not a valid IP address,
+                        // so return the string comparison result.
                         return stringComparison;
                     }
                     else
@@ -287,13 +274,15 @@ namespace Cadru.Net.NetworkInformation.Collections
         }
 
         /// <summary>
-        /// Returns a hash code for the specified <see cref="IPAddress" />.
+        /// Returns a hash code for the specified <see cref="IPAddress"/>.
         /// </summary>
-        /// <param name="obj">The <see cref="IPAddress" /> for which a hash code is to be
-        /// returned.</param>
-        /// <returns>A hash code for the specified <see cref="IPAddress" />.</returns>
-        /// <exception cref="ArgumentNullException">The type of <paramref name="obj" /> is a
-        /// reference type and <paramref name="obj" /> is a <see langword="null" />.
+        /// <param name="obj">
+        /// The <see cref="IPAddress"/> for which a hash code is to be returned.
+        /// </param>
+        /// <returns>A hash code for the specified <see cref="IPAddress"/>.</returns>
+        /// <exception cref="ArgumentNullException">
+        /// The type of <paramref name="obj"/> is a reference type and
+        /// <paramref name="obj"/> is a <see langword="null"/>.
         /// </exception>
         public int GetHashCode(IPAddress obj)
         {
@@ -305,11 +294,11 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// <summary>
         /// Returns a hash code for the specified object.
         /// </summary>
-        /// <param name="obj">The Object for which a hash code is to be
-        /// returned.</param>
+        /// <param name="obj">The Object for which a hash code is to be returned.</param>
         /// <returns>A hash code for the specified object.</returns>
-        /// <exception cref="ArgumentNullException">The type of <paramref name="obj" /> is a
-        /// reference type and <paramref name="obj" /> is a <see langword="null" />.
+        /// <exception cref="ArgumentNullException">
+        /// The type of <paramref name="obj"/> is a reference type and
+        /// <paramref name="obj"/> is a <see langword="null"/>.
         /// </exception>
         public int GetHashCode(object obj)
         {
@@ -352,11 +341,11 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// <summary>
         /// Returns a hash code for the specified string.
         /// </summary>
-        /// <param name="obj">The string for which a hash code is to be
-        /// returned.</param>
+        /// <param name="obj">The string for which a hash code is to be returned.</param>
         /// <returns>A hash code for the specified string.</returns>
-        /// <exception cref="ArgumentNullException">The type of <paramref name="obj" /> is a
-        /// reference type and <paramref name="obj" /> is a <see langword="null" />.
+        /// <exception cref="ArgumentNullException">
+        /// The type of <paramref name="obj"/> is a reference type and
+        /// <paramref name="obj"/> is a <see langword="null"/>.
         /// </exception>
         public int GetHashCode(string obj)
         {

@@ -37,7 +37,9 @@ namespace Cadru.Extensions.FileProviders
         /// </summary>
         /// <param name="path">The initial folder or file name.</param>
         /// <returns>A unique folder or file name.</returns>
-        /// <remarks><see cref="NextAvailableFilename(String)"/> does not create a file.</remarks>
+        /// <remarks>
+        /// <see cref="NextAvailableFilename(String)"/> does not create a file.
+        /// </remarks>
         public static string NextAvailableFilename(string path)
         {
             // Short-cut if already available
@@ -46,7 +48,8 @@ namespace Cadru.Extensions.FileProviders
                 return path;
             }
 
-            // If path has extension then insert the number pattern just before the extension and return next filename
+            // If path has extension then insert the number pattern just before
+            // the extension and return next filename
             if (Path.HasExtension(path))
             {
                 return GetNextFilename(path.Insert(path.LastIndexOf(Path.GetExtension(path)), Strings.FileName_NumberPattern));

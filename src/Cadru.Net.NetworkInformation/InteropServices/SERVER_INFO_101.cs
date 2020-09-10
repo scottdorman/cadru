@@ -27,9 +27,8 @@ namespace Cadru.Net.NetworkInformation.Interop
     using System.Runtime.InteropServices;
 
     /// <summary>
-    /// The SERVER_INFO_101 structure contains information about the
-    /// specified server, including name, platform, type of server,
-    /// and associated software.
+    /// The SERVER_INFO_101 structure contains information about the specified
+    /// server, including name, platform, type of server, and associated software.
     /// </summary>
     [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1307:AccessibleFieldsMustBeginWithUpperCaseLetter", Justification = "Reviewed.")]
     [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1310:FieldNamesMustNotContainUnderscore", Justification = "Reviewed.")]
@@ -50,9 +49,9 @@ namespace Cadru.Net.NetworkInformation.Interop
 
         /// <summary>
         /// Specifies, in the least significant 4 bits of the byte, the major
-        /// release version number of the operating system. The most significant 4
-        /// bits of the byte specifies the server type. The mask MAJOR_VERSION_MASK should
-        /// be used to ensure correct results.
+        /// release version number of the operating system. The most significant
+        /// 4 bits of the byte specifies the server type. The mask
+        /// MAJOR_VERSION_MASK should be used to ensure correct results.
         /// </summary>
         [MarshalAs(UnmanagedType.U4)]
         internal uint sv101_version_major;
@@ -70,8 +69,8 @@ namespace Cadru.Net.NetworkInformation.Interop
         internal uint sv101_type;
 
         /// <summary>
-        /// Pointer to a Unicode string specifying a comment describing the server.
-        /// The comment can be null.
+        /// Pointer to a Unicode string specifying a comment describing the
+        /// server. The comment can be null.
         /// </summary>
         [MarshalAs(UnmanagedType.LPWStr)]
         internal string sv101_comment;

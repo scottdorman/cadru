@@ -28,14 +28,14 @@ namespace Cadru.Scim.Filters
     public interface IFilter
     {
         /// <summary>
-        /// Returns a string that represents the current <see
-        /// cref="FilterExpression"></see> as a valid query
+        /// Returns a string that represents the current
+        /// <see cref="FilterExpression"></see> as a valid query
         /// </summary>
-        /// <param name="prependQuerySeprator">To prepend the "?" query string
-        /// separator, <see langword="true"></see>; otherwise, <see
-        /// langword="false"></see>.</param>
-        /// <returns>A string that represents the current <see
-        /// cref="FilterExpression"></see>.</returns>
+        /// <param name="prependQuerySeprator">
+        /// To prepend the "?" query string separator,
+        /// <see langword="true"></see>; otherwise, <see langword="false"></see>.
+        /// </param>
+        /// <returns>A string that represents the current <see cref="FilterExpression"></see>.</returns>
         string ToFilterExpression(bool prependQuerySeprator = true);
     }
 }

@@ -25,7 +25,7 @@ using System;
 namespace Cadru.Net.Http.Extensions
 {
     /// <summary>
-    /// Extensions for working with <see cref="Uri" /> instances.
+    /// Extensions for working with <see cref="Uri"/> instances.
     /// </summary>
     public static class UriExtensions
     {
@@ -34,7 +34,10 @@ namespace Cadru.Net.Http.Extensions
         /// </summary>
         /// <param name="uri">The URI instance.</param>
         /// <param name="index">The index of the path segment.</param>
-        /// <returns>The path segment at the specified index or <see cref="String.Empty" /> if the segment is not found.</returns>
+        /// <returns>
+        /// The path segment at the specified index or
+        /// <see cref="String.Empty"/> if the segment is not found.
+        /// </returns>
         public static string GetUriSegment(this Uri uri, int index)
         {
             var segment = String.Empty;

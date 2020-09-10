@@ -25,7 +25,8 @@ using System;
 namespace Cadru.Data.Csv
 {
     /// <summary>
-    /// Represents the exception that is thrown when a duplicate column header name encounter.
+    /// Represents the exception that is thrown when a duplicate column header
+    /// name encounter.
     /// </summary>
     public class DuplicateHeaderException : Exception
     {

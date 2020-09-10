@@ -81,17 +81,18 @@ namespace Cadru.Extensions
         public static int FindIndex(this IEnumerable<string> items, string value) => FindIndex(items, h => String.CompareOrdinal(h, value) == 0);
 
         /// <summary>
-        /// Performs the specified action on each element of the <see
-        /// cref="IEnumerable{T}"/>.
+        /// Performs the specified action on each element of the <see cref="IEnumerable{T}"/>.
         /// </summary>
-        /// <typeparam name="T">The type of the values in the
-        /// collection.</typeparam>
-        /// <param name="source">The source <see
-        /// cref="IEnumerable{T}"/>.</param>
-        /// <param name="action">The <see cref="Action{T1, T2}"/> delegate to
-        /// perform on each element of the <see cref="IEnumerable{T}"/>.</param>
-        /// <remarks>The <see cref="Action{T1, T2}"/> delegate receives the item
-        /// and the index of the item.</remarks>
+        /// <typeparam name="T">The type of the values in the collection.</typeparam>
+        /// <param name="source">The source <see cref="IEnumerable{T}"/>.</param>
+        /// <param name="action">
+        /// The <see cref="Action{T1, T2}"/> delegate to perform on each element
+        /// of the <see cref="IEnumerable{T}"/>.
+        /// </param>
+        /// <remarks>
+        /// The <see cref="Action{T1, T2}"/> delegate receives the item and the
+        /// index of the item.
+        /// </remarks>
         public static void ForEach<T>(this IEnumerable<T> source, Action<T, int> action)
         {
             var index = 0;
@@ -102,14 +103,14 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Performs the specified action on each element of the <see
-        /// cref="IEnumerable{T}"/>.
+        /// Performs the specified action on each element of the <see cref="IEnumerable{T}"/>.
         /// </summary>
-        /// <typeparam name="T">The type of the values in the
-        /// collection.</typeparam>
+        /// <typeparam name="T">The type of the values in the collection.</typeparam>
         /// <param name="source">The source <see cref="IEnumerable{T}"/>.</param>
-        /// <param name="action">The <see cref="Action{T}"/> delegate to perform
-        /// on each element of the <see cref="IEnumerable{T}"/>.</param>
+        /// <param name="action">
+        /// The <see cref="Action{T}"/> delegate to perform on each element of
+        /// the <see cref="IEnumerable{T}"/>.
+        /// </param>
         public static void ForEach<T>(this IEnumerable<T> source, Action<T> action)
         {
             foreach (var item in source)
@@ -123,8 +124,15 @@ namespace Cadru.Extensions
         /// of the first occurrence within the range of elements in the <see cref="IEnumerable{T}"/>.
         /// </summary>
         /// <param name="source">The source <see cref="IEnumerable{T}"/>.</param>
-        /// <param name="item">The object to locate. The value can be <see langword="null" /> for reference types.</param>
-        /// <returns>The zero-based index of the first occurrence of item within the range of elements in the <see cref="IEnumerable{T}"/>, if found; otherwise, -1.</returns>
+        /// <param name="item">
+        /// The object to locate. The value can be <see langword="null"/> for
+        /// reference types.
+        /// </param>
+        /// <returns>
+        /// The zero-based index of the first occurrence of item within the
+        /// range of elements in the <see cref="IEnumerable{T}"/>, if found;
+        /// otherwise, -1.
+        /// </returns>
         public static int IndexOf(this IEnumerable source, object item) => FindIndex(source, i => Equals(i, item));
 
         /// <summary>
@@ -141,8 +149,15 @@ namespace Cadru.Extensions
         /// of the first occurrence within the range of elements in the <see cref="IEnumerable{T}"/>.
         /// </summary>
         /// <param name="source">The source <see cref="IEnumerable{T}"/>.</param>
-        /// <param name="item">The object to locate. The value can be <see langword="null" /> for reference types.</param>
-        /// <returns>The zero-based index of the first occurrence of item within the range of elements in the <see cref="IEnumerable{T}"/>, if found; otherwise, -1.</returns>
+        /// <param name="item">
+        /// The object to locate. The value can be <see langword="null"/> for
+        /// reference types.
+        /// </param>
+        /// <returns>
+        /// The zero-based index of the first occurrence of item within the
+        /// range of elements in the <see cref="IEnumerable{T}"/>, if found;
+        /// otherwise, -1.
+        /// </returns>
         public static int IndexOf<T>(this IEnumerable<T> source, T item) => FindIndex(source, i => Equals(i, item));
 
         /// <summary>
@@ -159,16 +174,22 @@ namespace Cadru.Extensions
         /// of the first occurrence within the range of elements in the <see cref="IEnumerable{T}"/>.
         /// </summary>
         /// <param name="source">The source <see cref="IEnumerable{T}"/>.</param>
-        /// <param name="item">The object to locate. The value can be <see langword="null" />.</param>
-        /// <returns>The zero-based index of the first occurrence of item within the range of elements in the <see cref="IEnumerable{T}"/>, if found; otherwise, -1.</returns>
+        /// <param name="item">The object to locate. The value can be <see langword="null"/>.</param>
+        /// <returns>
+        /// The zero-based index of the first occurrence of item within the
+        /// range of elements in the <see cref="IEnumerable{T}"/>, if found;
+        /// otherwise, -1.
+        /// </returns>
         public static int IndexOf(this IEnumerable<string> source, string item) => source.FindIndex(item);
 
         /// <summary>
         /// Determines if the collection contains values.
         /// </summary>
         /// <param name="source">The collection to test.</param>
-        /// <returns><see langword="true" /> if the collection does not contain values;
-        /// otherwise, <see langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if the collection does not contain values;
+        /// otherwise, <see langword="false"/>.
+        /// </returns>
         public static bool IsEmpty(this IEnumerable source)
         {
             Contracts.Requires.NotNull(source, nameof(source));
@@ -192,47 +213,75 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Determines if the collection is <see langword="null" />.
+        /// Determines if the collection is <see langword="null"/>.
         /// </summary>
         /// <param name="source">The collection to test.</param>
-        /// <returns><see langword="true" /> if the collection is <see langword="null" />;
-        /// otherwise, <see langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if the collection is <see langword="null"/>;
+        /// otherwise, <see langword="false"/>.
+        /// </returns>
         public static bool IsNull([ValidatedNotNull] this IEnumerable source)
         {
             return source == null;
         }
 
         /// <summary>
-        /// Determines if the collection is <see langword="null" /> or contains values.
+        /// Determines if the collection is <see langword="null"/> or contains values.
         /// </summary>
         /// <param name="source">The collection to test.</param>
-        /// <returns><see langword="true" /> if the collection is <see langword="null" />
-        /// or does not contain values; otherwise, <see langword="false" />.</returns>
+        /// <returns>
+        /// <see langword="true"/> if the collection is <see langword="null"/>
+        /// or does not contain values; otherwise, <see langword="false"/>.
+        /// </returns>
         public static bool IsNullOrEmpty([ValidatedNotNull] this IEnumerable source)
         {
             return source == null || source.IsEmpty();
         }
 
         /// <summary>
-        /// Concatenates the members of a collection, using the specified separator between each member.
+        /// Concatenates the members of a collection, using the specified
+        /// separator between each member.
         /// </summary>
-        /// <param name="values">A collection that contains the strings to concatenate.</param>
-        /// <param name="separator">The string to use as a separator. <paramref name="separator" />
-        /// is included in the returned string only if <paramref name="values" /> has more than one element.</param>
-        /// <param name="startIndex">The first element in <paramref name="values" /> to use.</param>
-        /// <param name="count">The number of elements of <paramref name="values" /> to use.</param>
-        /// <returns><para>A string that consists of the members of values delimited by the separator string.</para>
+        /// <param name="values">
+        /// A collection that contains the strings to concatenate.
+        /// </param>
+        /// <param name="separator">
+        /// The string to use as a separator. <paramref name="separator"/> is
+        /// included in the returned string only if <paramref name="values"/>
+        /// has more than one element.
+        /// </param>
+        /// <param name="startIndex">
+        /// The first element in <paramref name="values"/> to use.
+        /// </param>
+        /// <param name="count">
+        /// The number of elements of <paramref name="values"/> to use.
+        /// </param>
+        /// <returns>
+        /// <para>
+        /// A string that consists of the members of values delimited by the
+        /// separator string.
+        /// </para>
         /// <para>-or-</para>
-        /// <para><see cref="System.String.Empty" /> if <paramref name="count" /> is zero,
-        /// <paramref name="values" /> has no elements, or <paramref name="separator" /> and
-        /// all of the elements of <paramref name="values" /> are <see cref="System.String.Empty" />.</para>
+        /// <para>
+        /// <see cref="System.String.Empty"/> if <paramref name="count"/> is
+        /// zero, <paramref name="values"/> has no elements, or
+        /// <paramref name="separator"/> and all of the elements of
+        /// <paramref name="values"/> are <see cref="System.String.Empty"/>.
+        /// </para>
         /// </returns>
-        /// <exception cref="System.ArgumentNullException"><paramref name="values" /> is <see langword="null" />.</exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="values"/> is <see langword="null"/>.
+        /// </exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// <para><paramref name="startIndex" /> or <paramref name="count" /> is less than 0.</para>
+        /// <para>
+        /// <paramref name="startIndex"/> or <paramref name="count"/> is less
+        /// than 0.
+        /// </para>
         /// <para>-or-</para>
-        /// <para><paramref name="startIndex" /> plus <paramref name="count" /> is greater than the
-        /// number of elements in <paramref name="values" />.</para>
+        /// <para>
+        /// <paramref name="startIndex"/> plus <paramref name="count"/> is
+        /// greater than the number of elements in <paramref name="values"/>.
+        /// </para>
         /// </exception>
         /// <exception cref="System.OutOfMemoryException">Out of memory.</exception>
         public static string Join(this IList<string> values, string separator, int startIndex, int count)
@@ -241,23 +290,42 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Concatenates the members of a collection, using a comma (,) between each member.
+        /// Concatenates the members of a collection, using a comma (,) between
+        /// each member.
         /// </summary>
-        /// <param name="values">A collection that contains the strings to concatenate.</param>
-        /// <param name="startIndex">The first element in <paramref name="values" /> to use.</param>
-        /// <param name="count">The number of elements of <paramref name="values" /> to use.</param>
-        /// <returns><para>A string that consists of the members of values delimited by a comma (,).</para>
+        /// <param name="values">
+        /// A collection that contains the strings to concatenate.
+        /// </param>
+        /// <param name="startIndex">
+        /// The first element in <paramref name="values"/> to use.
+        /// </param>
+        /// <param name="count">
+        /// The number of elements of <paramref name="values"/> to use.
+        /// </param>
+        /// <returns>
+        /// <para>
+        /// A string that consists of the members of values delimited by a comma (,).
+        /// </para>
         /// <para>-or-</para>
-        /// <para><see cref="System.String.Empty" /> if <paramref name="count" /> is zero,
-        /// <paramref name="values" /> has no elements, or all of the elements of
-        /// <paramref name="values" /> are <see cref="System.String.Empty" />.</para>
+        /// <para>
+        /// <see cref="System.String.Empty"/> if <paramref name="count"/> is
+        /// zero, <paramref name="values"/> has no elements, or all of the
+        /// elements of <paramref name="values"/> are <see cref="System.String.Empty"/>.
+        /// </para>
         /// </returns>
-        /// <exception cref="System.ArgumentNullException"><paramref name="values" /> is <see langword="null" />.</exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="values"/> is <see langword="null"/>.
+        /// </exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// <para><paramref name="startIndex" /> or <paramref name="count" /> is less than 0.</para>
+        /// <para>
+        /// <paramref name="startIndex"/> or <paramref name="count"/> is less
+        /// than 0.
+        /// </para>
         /// <para>-or-</para>
-        /// <para><paramref name="startIndex" /> plus <paramref name="count" /> is greater than the
-        /// number of elements in <paramref name="values" />.</para>
+        /// <para>
+        /// <paramref name="startIndex"/> plus <paramref name="count"/> is
+        /// greater than the number of elements in <paramref name="values"/>.
+        /// </para>
         /// </exception>
         /// <exception cref="System.OutOfMemoryException">Out of memory.</exception>
         public static string Join(this IList<string> values, int startIndex, int count)
@@ -266,58 +334,90 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Concatenates the members of a collection, using a comma (,) separator between each member.
+        /// Concatenates the members of a collection, using a comma (,)
+        /// separator between each member.
         /// </summary>
-        /// <param name="values">A collection that contains the strings to concatenate.</param>
-        /// <returns>A string that consists of the members of values delimited by a comma (,).
-        /// If <paramref name="values" /> has no members, the method returns <see cref="System.String.Empty" />.
+        /// <param name="values">
+        /// A collection that contains the strings to concatenate.
+        /// </param>
+        /// <returns>
+        /// A string that consists of the members of values delimited by a comma
+        /// (,). If <paramref name="values"/> has no members, the method returns <see cref="System.String.Empty"/>.
         /// </returns>
-        /// <exception cref="System.ArgumentNullException"><paramref name="values" /> is <see langword="null" />.</exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="values"/> is <see langword="null"/>.
+        /// </exception>
         public static string Join(this IEnumerable<string> values)
         {
             return String.Join(",", values);
         }
 
         /// <summary>
-        /// Concatenates the members of a collection, using the specified separator between each member.
+        /// Concatenates the members of a collection, using the specified
+        /// separator between each member.
         /// </summary>
-        /// <param name="values">A collection that contains the strings to concatenate.</param>
-        /// <param name="separator">The string to use as a separator. <paramref name="separator" />
-        /// is included in the returned string only if <paramref name="values" /> has more than one element.</param>
-        /// <returns>A string that consists of the members of values delimited by the separator string.
-        /// If <paramref name="values" /> has no members, the method returns <see cref="System.String.Empty" />.
+        /// <param name="values">
+        /// A collection that contains the strings to concatenate.
+        /// </param>
+        /// <param name="separator">
+        /// The string to use as a separator. <paramref name="separator"/> is
+        /// included in the returned string only if <paramref name="values"/>
+        /// has more than one element.
+        /// </param>
+        /// <returns>
+        /// A string that consists of the members of values delimited by the
+        /// separator string. If <paramref name="values"/> has no members, the
+        /// method returns <see cref="System.String.Empty"/>.
         /// </returns>
-        /// <exception cref="System.ArgumentNullException"><paramref name="values" /> is <see langword="null" />.</exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="values"/> is <see langword="null"/>.
+        /// </exception>
         public static string Join(this IEnumerable<string> values, string separator)
         {
             return String.Join(separator, values);
         }
 
         /// <summary>
-        /// Concatenates the members of a collection, using a comma (,) separator between each member.
+        /// Concatenates the members of a collection, using a comma (,)
+        /// separator between each member.
         /// </summary>
-        /// <typeparam name="T">The type of the members of <paramref name="values" />.</typeparam>
-        /// <param name="values">A collection that contains the objects to concatenate.</param>
-        /// <returns>A string that consists of the members of values delimited by a comma (,).
-        /// If <paramref name="values" /> has no members, the method returns <see cref="System.String.Empty" />.
+        /// <typeparam name="T">The type of the members of <paramref name="values"/>.</typeparam>
+        /// <param name="values">
+        /// A collection that contains the objects to concatenate.
+        /// </param>
+        /// <returns>
+        /// A string that consists of the members of values delimited by a comma
+        /// (,). If <paramref name="values"/> has no members, the method returns <see cref="System.String.Empty"/>.
         /// </returns>
-        /// <exception cref="System.ArgumentNullException"><paramref name="values" /> is <see langword="null" />.</exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="values"/> is <see langword="null"/>.
+        /// </exception>
         public static string Join<T>(this IEnumerable<T> values)
         {
             return String.Join(",", values);
         }
 
         /// <summary>
-        /// Concatenates the members of a collection, using the specified separator between each member.
+        /// Concatenates the members of a collection, using the specified
+        /// separator between each member.
         /// </summary>
-        /// <typeparam name="T">The type of the members of <paramref name="values" />.</typeparam>
-        /// <param name="values">A collection that contains the objects to concatenate.</param>
-        /// <param name="separator">The string to use as a separator. <paramref name="separator" />
-        /// is included in the returned string only if <paramref name="values" /> has more than one element.</param>
-        /// <returns>A string that consists of the members of values delimited by the separator string.
-        /// If <paramref name="values" /> has no members, the method returns <see cref="System.String.Empty" />.
+        /// <typeparam name="T">The type of the members of <paramref name="values"/>.</typeparam>
+        /// <param name="values">
+        /// A collection that contains the objects to concatenate.
+        /// </param>
+        /// <param name="separator">
+        /// The string to use as a separator. <paramref name="separator"/> is
+        /// included in the returned string only if <paramref name="values"/>
+        /// has more than one element.
+        /// </param>
+        /// <returns>
+        /// A string that consists of the members of values delimited by the
+        /// separator string. If <paramref name="values"/> has no members, the
+        /// method returns <see cref="System.String.Empty"/>.
         /// </returns>
-        /// <exception cref="System.ArgumentNullException"><paramref name="values" /> is <see langword="null" />.</exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="values"/> is <see langword="null"/>.
+        /// </exception>
         public static string Join<T>(this IEnumerable<T> values, string separator)
         {
             return String.Join(separator, values);
@@ -326,11 +426,15 @@ namespace Cadru.Extensions
         /// <summary>
         /// Partitions the specified collection into a collection of smaller collections.
         /// </summary>
-        /// <typeparam name="T">The type of the members of <paramref name="source" />.</typeparam>
-        /// <param name="source">A collection that contains the objects to partition.</param>
+        /// <typeparam name="T">The type of the members of <paramref name="source"/>.</typeparam>
+        /// <param name="source">
+        /// A collection that contains the objects to partition.
+        /// </param>
         /// <param name="size">The size of each partition.</param>
-        /// <returns>A new <see cref="IEnumerable{T}"/> containing one or more
-        /// <see cref="IEnumerable{T}"/> collections.</returns>
+        /// <returns>
+        /// A new <see cref="IEnumerable{T}"/> containing one or more
+        /// <see cref="IEnumerable{T}"/> collections.
+        /// </returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures", Justification = "Reviewed.")]
         public static IEnumerable<IEnumerable<T>> Partition<T>(this IEnumerable<T> source, int size)
         {
@@ -365,8 +469,10 @@ namespace Cadru.Extensions
         /// <summary>
         /// Returns a pseudo-random element from the specified collection.
         /// </summary>
-        /// <typeparam name="T">The type of the members of <paramref name="source" />.</typeparam>
-        /// <param name="source">A collection that contains the objects to segment.</param>
+        /// <typeparam name="T">The type of the members of <paramref name="source"/>.</typeparam>
+        /// <param name="source">
+        /// A collection that contains the objects to segment.
+        /// </param>
         /// <returns>A pseudo-random element from the specified collection.</returns>
         public static T RandomElement<T>(this IEnumerable<T> source)
         {
@@ -376,8 +482,10 @@ namespace Cadru.Extensions
         /// <summary>
         /// Returns a pseudo-random element from the specified collection.
         /// </summary>
-        /// <typeparam name="T">The type of the members of <paramref name="source" />.</typeparam>
-        /// <param name="source">A collection that contains the objects to segment.</param>
+        /// <typeparam name="T">The type of the members of <paramref name="source"/>.</typeparam>
+        /// <param name="source">
+        /// A collection that contains the objects to segment.
+        /// </param>
         /// <param name="random">A pseudo-random number generator.</param>
         /// <returns>A pseudo-random element from the specified collection.</returns>
         public static T RandomElement<T>(this IEnumerable<T> source, Random random)
@@ -396,16 +504,22 @@ namespace Cadru.Extensions
             return current!;
         }
 
-        /// <summary>Returns a segment of the specified collection.</summary>
-        /// <typeparam name="T">The type of the members of <paramref name="source" />.</typeparam>
-        /// <param name="source">A collection that contains the objects to segment.</param>
+        /// <summary>
+        /// Returns a segment of the specified collection.
+        /// </summary>
+        /// <typeparam name="T">The type of the members of <paramref name="source"/>.</typeparam>
+        /// <param name="source">
+        /// A collection that contains the objects to segment.
+        /// </param>
         /// <param name="startIndex">The starting index of the collection.</param>
         /// <param name="endIndex">The ending index of the collection.</param>
-        /// <returns>A new <see cref="IEnumerable{T}"/> containing the segment
-        /// of the specified collection.</returns>
+        /// <returns>
+        /// A new <see cref="IEnumerable{T}"/> containing the segment of the
+        /// specified collection.
+        /// </returns>
         /// <exception cref="System.ArgumentException">
-        /// <paramref name="startIndex" /> must be less than or equal to
-        /// <paramref name="endIndex" />.</exception>
+        /// <paramref name="startIndex"/> must be less than or equal to <paramref name="endIndex"/>.
+        /// </exception>
         public static IEnumerable<T> Slice<T>(this IEnumerable<T> source, int startIndex, int endIndex)
         {
             Contracts.Requires.NotNull(source, nameof(source));
@@ -429,20 +543,23 @@ namespace Cadru.Extensions
         /// Filters a sequence of values based on a predicate. Each element's
         /// index is used in the logic of the predicate function.
         /// </summary>
-        /// <typeparam name="T">The type of the elements of <paramref name="source" />.</typeparam>
+        /// <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
         /// <param name="source">An <see cref="IEnumerable{T}"/> to filter.</param>
-        /// <param name="condition">The condition used to determine if the
-        /// sequence should be filtered.</param>
-        /// <param name="predicate">A function to test each source element for
-        /// a condition; the second parameter of the function represents the
-        /// index of the source element.</param>
-        /// <returns>If <paramref name="condition" /> is <see langword="true" />,
-        /// an <see cref="IEnumerable{T}"/> that contains elements from the input
-        /// sequence that satisfy the condition; otherwise, the original input
-        /// sequence.</returns>
+        /// <param name="condition">
+        /// The condition used to determine if the sequence should be filtered.
+        /// </param>
+        /// <param name="predicate">
+        /// A function to test each source element for a condition; the second
+        /// parameter of the function represents the index of the source element.
+        /// </param>
+        /// <returns>
+        /// If <paramref name="condition"/> is <see langword="true"/>, an
+        /// <see cref="IEnumerable{T}"/> that contains elements from the input
+        /// sequence that satisfy the condition; otherwise, the original input sequence.
+        /// </returns>
         /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="source" /> or <paramref name="predicate" /> is
-        /// <see langword="null" />.</exception>
+        /// <paramref name="source"/> or <paramref name="predicate"/> is <see langword="null"/>.
+        /// </exception>
         public static IEnumerable<T> WhereIf<T>(this IEnumerable<T> source, bool condition, Func<T, bool> predicate)
         {
             return condition ? source.Where(predicate) : source;
@@ -451,19 +568,22 @@ namespace Cadru.Extensions
         /// <summary>
         /// Filters a sequence of values based on a predicate.
         /// </summary>
-        /// <typeparam name="T">The type of the elements of <paramref name="source" />.</typeparam>
+        /// <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
         /// <param name="source">An <see cref="IEnumerable{T}"/> to filter.</param>
-        /// <param name="condition">The condition used to determine if the
-        /// sequence should be filtered.</param>
-        /// <param name="predicate">A function to test each source element for
-        /// a condition.</param>
-        /// <returns>If <paramref name="condition" /> is <see langword="true" />,
-        /// an <see cref="IEnumerable{T}"/> that contains elements from the input
-        /// sequence that satisfy the condition; otherwise, the original input
-        /// sequence.</returns>
+        /// <param name="condition">
+        /// The condition used to determine if the sequence should be filtered.
+        /// </param>
+        /// <param name="predicate">
+        /// A function to test each source element for a condition.
+        /// </param>
+        /// <returns>
+        /// If <paramref name="condition"/> is <see langword="true"/>, an
+        /// <see cref="IEnumerable{T}"/> that contains elements from the input
+        /// sequence that satisfy the condition; otherwise, the original input sequence.
+        /// </returns>
         /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="source" /> or <paramref name="predicate" /> is
-        /// <see langword="null" />.</exception>
+        /// <paramref name="source"/> or <paramref name="predicate"/> is <see langword="null"/>.
+        /// </exception>
         public static IEnumerable<T> WhereIf<T>(this IEnumerable<T> source, bool condition, Func<T, int, bool> predicate)
         {
             return condition ? source.Where(predicate) : source;
@@ -472,10 +592,17 @@ namespace Cadru.Extensions
         /// <summary>
         /// Returns the element at a specified index in a sequence.
         /// </summary>
-        /// <param name="source">An <see cref="IEnumerable" /> to return an element from.</param>
+        /// <param name="source">
+        /// An <see cref="IEnumerable"/> to return an element from.
+        /// </param>
         /// <param name="index">The zero-based index of the element to retrieve.</param>
-        /// <returns>The element at the specified position in the source sequence.</returns>
-        /// <exception cref="ArgumentOutOfRangeException"><paramref name="index" /> is less than 0 or greater than or equal to the number of elements in <paramref name="source" />.</exception>
+        /// <returns>
+        /// The element at the specified position in the source sequence.
+        /// </returns>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// <paramref name="index"/> is less than 0 or greater than or equal to
+        /// the number of elements in <paramref name="source"/>.
+        /// </exception>
         internal static object ElementAt(this IEnumerable source, int index)
         {
             if (index < 0)
@@ -502,19 +629,22 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
-        /// Returns the element at a specified index in a sequence or <see
-        /// langword="null" /> if the index is out of range.
+        /// Returns the element at a specified index in a sequence or
+        /// <see langword="null"/> if the index is out of range.
         /// </summary>
-        /// <param name="source">An <see cref="IEnumerable" /> to return an
-        /// element from.</param>
-        /// <param name="index">The zero-based index of the element to
-        /// retrieve.</param>
-        /// <returns><see langword="null" /> if the index is outside the bounds
-        /// of the source sequence; otherwise, the element at the specified
-        /// position in the source sequence.</returns>
-        /// <exception cref="ArgumentOutOfRangeException"><paramref
-        /// name="index" /> is less than 0 or greater than or equal to the number
-        /// of elements in <paramref name="source" />.</exception>
+        /// <param name="source">
+        /// An <see cref="IEnumerable"/> to return an element from.
+        /// </param>
+        /// <param name="index">The zero-based index of the element to retrieve.</param>
+        /// <returns>
+        /// <see langword="null"/> if the index is outside the bounds of the
+        /// source sequence; otherwise, the element at the specified position in
+        /// the source sequence.
+        /// </returns>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// <paramref name="index"/> is less than 0 or greater than or equal to
+        /// the number of elements in <paramref name="source"/>.
+        /// </exception>
         internal static object? ElementAtOrDefault(this IEnumerable source, int index)
         {
             if (index < 0)

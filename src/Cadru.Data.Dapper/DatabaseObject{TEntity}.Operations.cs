@@ -43,8 +43,13 @@ namespace Cadru.Data.Dapper
         /// Gets all of the records which matches the predicate, if provided.
         /// </summary>
         /// <param name="predicate">The predicate to match.</param>
-        /// <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
-        /// <returns>An instance of <typeparamref name="TEntity" /> representing the matched record.</returns>
+        /// <param name="commandTimeout">
+        /// An optional command timeout, in seconds, for this command.
+        /// </param>
+        /// <returns>
+        /// An instance of <typeparamref name="TEntity"/> representing the
+        /// matched record.
+        /// </returns>
         public virtual IEnumerable<TEntity> All(IPredicate? predicate = null, int? commandTimeout = null)
         {
             var command = this.CommandBuilder.GetSelectCommand(predicate: predicate, commandTimeout: commandTimeout);
@@ -58,9 +63,16 @@ namespace Cadru.Data.Dapper
         /// Gets all of the records which matches the predicate, if provided.
         /// </summary>
         /// <param name="predicate">The predicate to match.</param>
-        /// <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
-        /// <param name="cancellationToken">An optional <see cref="CancellationToken" /> for this command.</param>
-        /// <returns>An instance of <typeparamref name="TEntity" /> representing the matched record.</returns>
+        /// <param name="commandTimeout">
+        /// An optional command timeout, in seconds, for this command.
+        /// </param>
+        /// <param name="cancellationToken">
+        /// An optional <see cref="CancellationToken"/> for this command.
+        /// </param>
+        /// <returns>
+        /// An instance of <typeparamref name="TEntity"/> representing the
+        /// matched record.
+        /// </returns>
         public virtual async Task<IEnumerable<TEntity>> AllAsync(IPredicate? predicate = null, int? commandTimeout = null, CancellationToken cancellationToken = default)
         {
             var command = this.CommandBuilder.GetSelectCommand(predicate: predicate, commandTimeout: commandTimeout, cancellationToken: cancellationToken);
@@ -74,8 +86,13 @@ namespace Cadru.Data.Dapper
         /// Gets the first record which matches the predicate, if provided.
         /// </summary>
         /// <param name="predicate">The predicate to match.</param>
-        /// <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
-        /// <returns>An instance of <typeparamref name="TEntity" /> representing the matched record.</returns>
+        /// <param name="commandTimeout">
+        /// An optional command timeout, in seconds, for this command.
+        /// </param>
+        /// <returns>
+        /// An instance of <typeparamref name="TEntity"/> representing the
+        /// matched record.
+        /// </returns>
         public TEntity First(IPredicate? predicate = null, int? commandTimeout = null)
         {
             var command = this.CommandBuilder.GetSelectTopCommand(predicate: predicate, commandTimeout: commandTimeout);
@@ -89,9 +106,16 @@ namespace Cadru.Data.Dapper
         /// Gets the first record which matches the predicate, if provided.
         /// </summary>
         /// <param name="predicate">The predicate to match.</param>
-        /// <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
-        /// <param name="cancellationToken">An optional <see cref="CancellationToken" /> for this command.</param>
-        /// <returns>An instance of <typeparamref name="TEntity" /> representing the matched record.</returns>
+        /// <param name="commandTimeout">
+        /// An optional command timeout, in seconds, for this command.
+        /// </param>
+        /// <param name="cancellationToken">
+        /// An optional <see cref="CancellationToken"/> for this command.
+        /// </param>
+        /// <returns>
+        /// An instance of <typeparamref name="TEntity"/> representing the
+        /// matched record.
+        /// </returns>
         public virtual async Task<TEntity> FirstAsync(IPredicate? predicate = null, int? commandTimeout = null, CancellationToken cancellationToken = default)
         {
             var command = this.CommandBuilder.GetSelectTopCommand(predicate: predicate, commandTimeout: commandTimeout, cancellationToken: cancellationToken);
@@ -105,8 +129,13 @@ namespace Cadru.Data.Dapper
         /// Gets the record which matches the predicate, if provided.
         /// </summary>
         /// <param name="predicate">The predicate to match.</param>
-        /// <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
-        /// <returns>An instance of <typeparamref name="TEntity" /> representing the matched record.</returns>
+        /// <param name="commandTimeout">
+        /// An optional command timeout, in seconds, for this command.
+        /// </param>
+        /// <returns>
+        /// An instance of <typeparamref name="TEntity"/> representing the
+        /// matched record.
+        /// </returns>
         public virtual TEntity Get(IPredicate predicate, int? commandTimeout = null)
         {
             Requires.NotNull(predicate, "predicate");
@@ -121,9 +150,16 @@ namespace Cadru.Data.Dapper
         /// Gets the record which matches the predicate, if provided.
         /// </summary>
         /// <param name="predicate">The predicate to match.</param>
-        /// <param name="commandTimeout">An optional command timeout, in seconds, for this command.</param>
-        /// <param name="cancellationToken">An optional <see cref="CancellationToken" /> for this command.</param>
-        /// <returns>An instance of <typeparamref name="TEntity" /> representing the matched record.</returns>
+        /// <param name="commandTimeout">
+        /// An optional command timeout, in seconds, for this command.
+        /// </param>
+        /// <param name="cancellationToken">
+        /// An optional <see cref="CancellationToken"/> for this command.
+        /// </param>
+        /// <returns>
+        /// An instance of <typeparamref name="TEntity"/> representing the
+        /// matched record.
+        /// </returns>
         public virtual async Task<TEntity> GetAsync(IPredicate predicate, int? commandTimeout = null, CancellationToken cancellationToken = default)
         {
             Requires.NotNull(predicate, "predicate");
@@ -135,9 +171,11 @@ namespace Cadru.Data.Dapper
         }
 
         /// <summary>
-        /// Logs the given <see cref="CommandDefinition" />
+        /// Logs the given <see cref="CommandDefinition"/>
         /// </summary>
-        /// <param name="commandDefinition">The <see cref="CommandDefinition" /> instance to be logged.</param>
+        /// <param name="commandDefinition">
+        /// The <see cref="CommandDefinition"/> instance to be logged.
+        /// </param>
         protected void LogCommandDefinition(CommandDefinition commandDefinition)
         {
             if (this.Context.Options.Logging.CommandDefinitionLoggingEnabled)

@@ -33,8 +33,8 @@ namespace Cadru.Postal
     public static class ParserUtils
     {
         /// <summary>
-        /// Headers are of the form "(key): (value)" e.g. "Subject: Hello, world".
-        /// The headers block is terminated by an empty line.
+        /// Headers are of the form "(key): (value)" e.g. "Subject: Hello,
+        /// world". The headers block is terminated by an empty line.
         /// </summary>
         public static void ParseHeaders(TextReader reader, Action<string, string> useKeyAndValue)
         {
@@ -57,8 +57,8 @@ namespace Cadru.Postal
         }
 
         /// <summary>
-        /// Headers are of the form "(key): (value)" e.g. "Subject: Hello, world".
-        /// The headers block is terminated by an empty line.
+        /// Headers are of the form "(key): (value)" e.g. "Subject: Hello,
+        /// world". The headers block is terminated by an empty line.
         /// </summary>
         public static async Task ParseHeadersAsync(TextReader reader, Action<string, string> useKeyAndValue)
         {

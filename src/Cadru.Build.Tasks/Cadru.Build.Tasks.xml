@@ -15,19 +15,25 @@
             </summary>
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.GetXmlLineAndColumn(System.Exception)">
-            <summary> Extracts line and column numbers from the exception if it is XML-related one. </summary>
-            <param name="e"> XML-related exception. </param>
-            <returns> Line and column numbers if available, (0,0) if not. </returns>
-            <remarks> This function works around the fact that XmlException and XmlSchemaException are not directly related. </remarks>
+            <summary>
+            Extracts line and column numbers from the exception if it is
+            XML-related one.
+            </summary>
+            <param name="e">XML-related exception.</param>
+            <returns>Line and column numbers if available, (0,0) if not.</returns>
+            <remarks>
+            This function works around the fact that XmlException and
+            XmlSchemaException are not directly related.
+            </remarks>
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.IsCriticalException(System.Exception)">
             <summary>
-            If the given exception is "ignorable under some circumstances" return false.
-            Otherwise it's "really bad", and return true.
-            This makes it possible to catch(Exception ex) without catching disasters.
+            If the given exception is "ignorable under some circumstances"
+            return false. Otherwise it's "really bad", and return true. This
+            makes it possible to catch(Exception ex) without catching disasters.
             </summary>
-            <param name="e"> The exception to check. </param>
-            <returns> True if exception is critical. </returns>
+            <param name="e">The exception to check.</param>
+            <returns>True if exception is critical.</returns>
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.IsIoRelatedException(System.Exception)">
             <summary>
@@ -37,9 +43,11 @@
             <returns>True if exception is IO related.</returns>
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.IsXmlException(System.Exception)">
-            <summary> Checks if the exception is an XML one. </summary>
-            <param name="e"> Exception to check. </param>
-            <returns> True if exception is related to XML parsing. </returns>
+            <summary>
+            Checks if the exception is an XML one.
+            </summary>
+            <param name="e">Exception to check.</param>
+            <returns>True if exception is related to XML parsing.</returns>
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.NotExpectedException(System.Exception)">
             <summary>
@@ -47,7 +55,9 @@
             Otherwise, return true.
             </summary>
             <param name="e">The exception to check.</param>
-            <returns>True if exception is not IO related or expected otherwise false.</returns>
+            <returns>
+            True if exception is not IO related or expected otherwise false.
+            </returns>
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.NotExpectedFunctionException(System.Exception)">
             <summary>
@@ -56,8 +66,8 @@
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.NotExpectedIoOrXmlException(System.Exception)">
             <summary>
-            If the given exception is file IO related or Xml related return false.
-            Otherwise, return true.
+            If the given exception is file IO related or Xml related return
+            false. Otherwise, return true.
             </summary>
             <param name="e">The exception to check.</param>
         </member>
@@ -75,9 +85,9 @@
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.NotExpectedSerializationException(System.Exception)">
             <summary>
-            Serialization has been observed to throw TypeLoadException as
-            well as SerializationException and IO exceptions. (Obviously
-            it has to do reflection but it ought to be wrapping the exceptions.)
+            Serialization has been observed to throw TypeLoadException as well
+            as SerializationException and IO exceptions. (Obviously it has to do
+            reflection but it ought to be wrapping the exceptions.)
             </summary>
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.ExceptionHandling.GetDebugDumpPath">
@@ -87,62 +97,63 @@
             <returns></returns>
         </member>
         <member name="T:Cadru.Build.Tasks.Internal.ExceptionHandling.LineAndColumn">
-            <summary> Line and column pair. </summary>
+            <summary>
+            Line and column pair.
+            </summary>
         </member>
         <member name="P:Cadru.Build.Tasks.Internal.ExceptionHandling.LineAndColumn.Column">
-            <summary> Gets or sets column position. </summary>
+            <summary>
+            Gets or sets column position.
+            </summary>
         </member>
         <member name="P:Cadru.Build.Tasks.Internal.ExceptionHandling.LineAndColumn.Line">
-            <summary> Gets or sets line number. </summary>
+            <summary>
+            Gets or sets line number.
+            </summary>
         </member>
         <member name="T:Cadru.Build.Tasks.Internal.FileUtilities">
             <summary>
-            This class contains utility methods for file IO.
-            PERF\COVERAGE NOTE: Try to keep classes in 'shared' as granular as possible. All the methods in
+            This class contains utility methods for file IO. PERF\COVERAGE NOTE: Try
+            to keep classes in 'shared' as granular as possible. All the methods in
             each class get pulled into the resulting assembly.
             </summary>
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.FileUtilities.GetTemporaryDirectory(System.Boolean)">
             <summary>
-            Generates a unique directory name in the temporary folder.
-            Caller must delete when finished.
+            Generates a unique directory name in the temporary folder. Caller
+            must delete when finished.
             </summary>
             <param name="createDirectory"></param>
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.FileUtilities.GetTemporaryFile">
             <summary>
-            Generates a unique temporary file name with a given extension in the temporary folder.
-            If no extension is provided, uses ".tmp".
-            File is guaranteed to be unique.
-            Caller must delete it when finished.
+            Generates a unique temporary file name with a given extension in the
+            temporary folder. If no extension is provided, uses ".tmp". File is
+            guaranteed to be unique. Caller must delete it when finished.
             </summary>
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.FileUtilities.GetTemporaryFile(System.String)">
             <summary>
-            Generates a unique temporary file name with a given extension in the temporary folder.
-            File is guaranteed to be unique.
-            Extension may have an initial period.
-            Caller must delete it when finished.
-            May throw IOException.
+            Generates a unique temporary file name with a given extension in the
+            temporary folder. File is guaranteed to be unique. Extension may
+            have an initial period. Caller must delete it when finished. May
+            throw IOException.
             </summary>
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.FileUtilities.GetTemporaryFile(System.String,System.String,System.Boolean)">
             <summary>
-            Creates a file with unique temporary file name with a given extension in the specified folder.
-            File is guaranteed to be unique.
-            Extension may have an initial period.
-            If folder is null, the temporary folder will be used.
-            Caller must delete it when finished.
+            Creates a file with unique temporary file name with a given
+            extension in the specified folder. File is guaranteed to be unique.
+            Extension may have an initial period. If folder is null, the
+            temporary folder will be used. Caller must delete it when finished.
             May throw IOException.
             </summary>
         </member>
         <member name="M:Cadru.Build.Tasks.Internal.FileUtilities.GetTemporaryFileName(System.String)">
             <summary>
-            Generates a unique temporary file name with a given extension in the temporary folder.
-            File is guaranteed to be unique.
-            Extension may have an initial period.
-            File will NOT be created.
-            May throw IOException.
+            Generates a unique temporary file name with a given extension in the
+            temporary folder. File is guaranteed to be unique. Extension may
+            have an initial period. File will NOT be created. May throw IOException.
             </summary>
         </member>
         <member name="T:Cadru.Build.Tasks.Resources.Strings">
@@ -218,50 +229,49 @@
         </member>
         <member name="T:Cadru.Build.Tasks.WriteThisAssemblyCodeFile">
             <summary>
-            Generates a temporary code file with the specified generated code fragment.
-            Does not delete the file.
+            Generates a temporary code file with the specified generated code
+            fragment. Does not delete the file.
             </summary>
-            <comment>
-            Currently only supports writing .NET attributes.
-            </comment>
+            <comment>Currently only supports writing .NET attributes.</comment>
         </member>
         <member name="M:Cadru.Build.Tasks.WriteThisAssemblyCodeFile.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Build.Tasks.WriteThisAssemblyCodeFile" /> task.
+            Initializes a new instance of the
+            <see cref="T:Cadru.Build.Tasks.WriteThisAssemblyCodeFile"/> task.
             </summary>
         </member>
         <member name="P:Cadru.Build.Tasks.WriteThisAssemblyCodeFile.Language">
             <summary>
-            Language of code to generate.
-            Language name can be any language for which a CodeDom provider is
-            available. For example, "C#", "VisualBasic".
-            Emitted file will have the default extension for that language.
+            Language of code to generate. Language name can be any language for
+            which a CodeDom provider is available. For example, "C#",
+            "VisualBasic". Emitted file will have the default extension for that language.
             </summary>
         </member>
         <member name="P:Cadru.Build.Tasks.WriteThisAssemblyCodeFile.AssemblyAttributes">
             <summary>
-            Description of attributes to write.
-            Item include is the full type name of the attribute.
-            For example, "System.AssemblyVersionAttribute".
-            Each piece of metadata is the name-value pair of a parameter, which must be of type System.String.
-            Some attributes only allow positional constructor arguments, or the user may just prefer them.
-            To set those, use metadata names like "_Parameter1", "_Parameter2" etc.
-            If a parameter index is skipped, it's an error.
+            Description of attributes to write. Item include is the full type
+            name of the attribute. For example,
+            "System.AssemblyVersionAttribute". Each piece of metadata is the
+            name-value pair of a parameter, which must be of type System.String.
+            Some attributes only allow positional constructor arguments, or the
+            user may just prefer them. To set those, use metadata names like
+            "_Parameter1", "_Parameter2" etc. If a parameter index is skipped,
+            it's an error.
             </summary>
         </member>
         <member name="P:Cadru.Build.Tasks.WriteThisAssemblyCodeFile.OutputDirectory">
             <summary>
-            Destination folder for the generated code.
-            Typically the intermediate folder.
+            Destination folder for the generated code. Typically the
+            intermediate folder.
             </summary>
         </member>
         <member name="P:Cadru.Build.Tasks.WriteThisAssemblyCodeFile.OutputFile">
             <summary>
-            The path to the file that was generated.
-            If this is set, and a file name, the destination folder will be prepended.
-            If this is set, and is rooted, the destination folder will be ignored.
-            If this is not set, the destination folder will be used, an arbitrary file name will be used, and
-            the default extension for the language selected.
+            The path to the file that was generated. If this is set, and a file
+            name, the destination folder will be prepended. If this is set, and
+            is rooted, the destination folder will be ignored. If this is not
+            set, the destination folder will be used, an arbitrary file name
+            will be used, and the default extension for the language selected.
             </summary>
         </member>
         <member name="M:Cadru.Build.Tasks.WriteThisAssemblyCodeFile.Execute">
@@ -271,10 +281,9 @@
         </member>
         <member name="M:Cadru.Build.Tasks.WriteThisAssemblyCodeFile.GenerateCode(System.String@)">
             <summary>
-            Generates the code into a string.
-            If it fails, logs an error and returns null.
-            If no meaningful code is generated, returns empty string.
-            Returns the default language extension as an out parameter.
+            Generates the code into a string. If it fails, logs an error and
+            returns null. If no meaningful code is generated, returns empty
+            string. Returns the default language extension as an out parameter.
             </summary>
         </member>
     </members>

@@ -47,10 +47,16 @@ namespace Cadru.Build.Tasks.Internal
         /// </summary>
         internal static string DebugDumpPath { get; private set; }
 
-        /// <summary> Extracts line and column numbers from the exception if it is XML-related one. </summary>
-        /// <param name="e"> XML-related exception. </param>
-        /// <returns> Line and column numbers if available, (0,0) if not. </returns>
-        /// <remarks> This function works around the fact that XmlException and XmlSchemaException are not directly related. </remarks>
+        /// <summary>
+        /// Extracts line and column numbers from the exception if it is
+        /// XML-related one.
+        /// </summary>
+        /// <param name="e">XML-related exception.</param>
+        /// <returns>Line and column numbers if available, (0,0) if not.</returns>
+        /// <remarks>
+        /// This function works around the fact that XmlException and
+        /// XmlSchemaException are not directly related.
+        /// </remarks>
         internal static LineAndColumn GetXmlLineAndColumn(Exception e)
         {
             var line = 0;
@@ -78,12 +84,12 @@ namespace Cadru.Build.Tasks.Internal
         }
 
         /// <summary>
-        /// If the given exception is "ignorable under some circumstances" return false.
-        /// Otherwise it's "really bad", and return true.
-        /// This makes it possible to catch(Exception ex) without catching disasters.
+        /// If the given exception is "ignorable under some circumstances"
+        /// return false. Otherwise it's "really bad", and return true. This
+        /// makes it possible to catch(Exception ex) without catching disasters.
         /// </summary>
-        /// <param name="e"> The exception to check. </param>
-        /// <returns> True if exception is critical. </returns>
+        /// <param name="e">The exception to check.</param>
+        /// <returns>True if exception is critical.</returns>
         internal static bool IsCriticalException(Exception e)
         {
             if (e is OutOfMemoryException
@@ -93,8 +99,10 @@ namespace Cadru.Build.Tasks.Internal
              || e is AccessViolationException
              )
             {
-                // Ideally we would include NullReferenceException, because it should only ever be thrown by CLR (use ArgumentNullException for arguments)
-                // but we should handle it if tasks and loggers throw it.
+                // Ideally we would include NullReferenceException, because it
+                // should only ever be thrown by CLR (use ArgumentNullException
+                // for arguments) but we should handle it if tasks and loggers
+                // throw it.
 
                 // ExecutionEngineException has been deprecated by the CLR
                 return true;
@@ -104,7 +112,8 @@ namespace Cadru.Build.Tasks.Internal
 
             if (e is AggregateException aggregateException)
             {
-                // If the aggregate exception contains a critical exception it is considered a critical exception
+                // If the aggregate exception contains a critical exception it
+                // is considered a critical exception
                 if (aggregateException.InnerExceptions.Any(innerException => IsCriticalException(innerException)))
                 {
                     return true;
@@ -121,14 +130,9 @@ namespace Cadru.Build.Tasks.Internal
         /// <returns>True if exception is IO related.</returns>
         internal static bool IsIoRelatedException(Exception e)
         {
-            // These all derive from IOException
-            //     DirectoryNotFoundException
-            //     DriveNotFoundException
-            //     EndOfStreamException
-            //     FileLoadException
-            //     FileNotFoundException
-            //     PathTooLongException
-            //     PipeException
+            // These all derive from IOException DirectoryNotFoundException
+            // DriveNotFoundException EndOfStreamException FileLoadException
+            // FileNotFoundException PathTooLongException PipeException
             return e is UnauthorizedAccessException
                    || e is NotSupportedException
                    || (e is ArgumentException && !(e is ArgumentNullException))
@@ -136,9 +140,11 @@ namespace Cadru.Build.Tasks.Internal
                    || e is IOException;
         }
 
-        /// <summary> Checks if the exception is an XML one. </summary>
-        /// <param name="e"> Exception to check. </param>
-        /// <returns> True if exception is related to XML parsing. </returns>
+        /// <summary>
+        /// Checks if the exception is an XML one.
+        /// </summary>
+        /// <param name="e">Exception to check.</param>
+        /// <returns>True if exception is related to XML parsing.</returns>
         internal static bool IsXmlException(Exception e)
         {
             return e is XmlException
@@ -151,7 +157,9 @@ namespace Cadru.Build.Tasks.Internal
         /// Otherwise, return true.
         /// </summary>
         /// <param name="e">The exception to check.</param>
-        /// <returns>True if exception is not IO related or expected otherwise false.</returns>
+        /// <returns>
+        /// True if exception is not IO related or expected otherwise false.
+        /// </returns>
         internal static bool NotExpectedException(Exception e)
         {
             return !IsIoRelatedException(e);
@@ -175,8 +183,8 @@ namespace Cadru.Build.Tasks.Internal
         }
 
         /// <summary>
-        /// If the given exception is file IO related or Xml related return false.
-        /// Otherwise, return true.
+        /// If the given exception is file IO related or Xml related return
+        /// false. Otherwise, return true.
         /// </summary>
         /// <param name="e">The exception to check.</param>
         internal static bool NotExpectedIoOrXmlException(Exception e)
@@ -200,9 +208,10 @@ namespace Cadru.Build.Tasks.Internal
         /// <param name="e">The exception to check.</param>
         internal static bool NotExpectedReflectionException(Exception e)
         {
-            // We are explicitly not handling TargetInvocationException. Those are just wrappers around
-            // exceptions thrown by the called code (such as a task or logger) which callers will typically
-            // want to treat differently.
+            // We are explicitly not handling TargetInvocationException. Those
+            // are just wrappers around exceptions thrown by the called code
+            // (such as a task or logger) which callers will typically want to
+            // treat differently.
             if
             (
                 e is TypeLoadException                  // thrown when the common language runtime cannot find the assembly, the type within the assembly, or cannot load the type
@@ -217,7 +226,11 @@ namespace Cadru.Build.Tasks.Internal
                 || e is CustomAttributeFormatException  // thrown if a custom attribute on a data type is formatted incorrectly
                 || e is InvalidFilterCriteriaException  // thrown in FindMembers when the filter criteria is not valid for the type of filter you are using
                 || e is TargetException                 // thrown when an attempt is made to invoke a non-static method on a null object.  This may occur because the caller does not
-                                                        //     have access to the member, or because the target does not define the member, and so on.
+                                                        // have access to the
+                                                        // member, or because
+                                                        // the target does not
+                                                        // define the member,
+                                                        // and so on.
                 || e is MissingFieldException           // thrown when code in a dependent assembly attempts to access a missing field in an assembly that was modified.
                 || !NotExpectedException(e)             // Reflection can throw IO exceptions if the assembly cannot be opened
 
@@ -247,9 +260,9 @@ namespace Cadru.Build.Tasks.Internal
         }
 
         /// <summary>
-        /// Serialization has been observed to throw TypeLoadException as
-        /// well as SerializationException and IO exceptions. (Obviously
-        /// it has to do reflection but it ought to be wrapping the exceptions.)
+        /// Serialization has been observed to throw TypeLoadException as well
+        /// as SerializationException and IO exceptions. (Obviously it has to do
+        /// reflection but it ought to be wrapping the exceptions.)
         /// </summary>
         internal static bool NotExpectedSerializationException(Exception e)
         {
@@ -277,13 +290,19 @@ namespace Cadru.Build.Tasks.Internal
                     : Path.GetTempPath();
         }
 
-        /// <summary> Line and column pair. </summary>
+        /// <summary>
+        /// Line and column pair.
+        /// </summary>
         internal struct LineAndColumn
         {
-            /// <summary> Gets or sets column position. </summary>
+            /// <summary>
+            /// Gets or sets column position.
+            /// </summary>
             internal int Column { get; set; }
 
-            /// <summary> Gets or sets line number. </summary>
+            /// <summary>
+            /// Gets or sets line number.
+            /// </summary>
             internal int Line { get; set; }
         }
     }

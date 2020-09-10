@@ -40,23 +40,30 @@ namespace Cadru
     public static class Enum<TEnum> where TEnum : struct
     {
         /// <summary>
-        /// Retrieves the description of the constant in the enumeration
-        /// that has the specified value.
+        /// Retrieves the description of the constant in the enumeration that
+        /// has the specified value.
         /// </summary>
-        /// <param name="value">The value of a particular enumerated constant
-        /// in terms of its underlying type.</param>
-        /// <returns>A string containing the description of the enumerated constant
-        /// in <typeparamref name="TEnum" /> whose value
-        /// is <paramref name="value" />; or <see langword="null" /> if no such
-        /// constant is found.</returns>
+        /// <param name="value">
+        /// The value of a particular enumerated constant in terms of its
+        /// underlying type.
+        /// </param>
+        /// <returns>
+        /// A string containing the description of the enumerated constant in
+        /// <typeparamref name="TEnum"/> whose value is
+        /// <paramref name="value"/>; or <see langword="null"/> if no such
+        /// constant is found.
+        /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="value" /> is <see langword="null" /></exception>
+        /// <paramref name="value"/> is <see langword="null"/>
+        /// </exception>
         /// <exception cref="ArgumentException">
-        /// <p><typeparamref name="TEnum" /> is not an <see cref="Enum" /></p>
+        /// <p><typeparamref name="TEnum"/> is not an <see cref="Enum"/></p>
         /// <p>-or</p>
-        /// <p><paramref name="value" /> is neither of type
-        /// <typeparamref name="TEnum" /> nor does it have the same underlying
-        /// type as <typeparamref name="TEnum" />.</p>
+        /// <p>
+        /// <paramref name="value"/> is neither of type
+        /// <typeparamref name="TEnum"/> nor does it have the same underlying
+        /// type as <typeparamref name="TEnum"/>.
+        /// </p>
         /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static string? GetDescription(TEnum value)
@@ -65,37 +72,45 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Retrieves the description of the constant in the enumeration
-        /// that has the specified value.
+        /// Retrieves the description of the constant in the enumeration that
+        /// has the specified value.
         /// </summary>
-        /// <param name="value">The value of a particular enumerated constant
-        /// in terms of its underlying type.</param>
-        /// <param name="useNameAsFallback">If <see langword="true" />, the
-        /// name of the enumerated constant is used if no description is found;
-        /// otherwise, <see langword="null" />.</param>
-        /// <returns>A string containing the description of the enumerated constant
-        /// in <typeparamref name="TEnum" /> whose value
-        /// is <paramref name="value" />; or <see langword="null" /> if no such
-        /// constant is found and <paramref name="useNameAsFallback" /> is
-        /// <see langword="false" />; otherwise, the name of the enumerated constant.
+        /// <param name="value">
+        /// The value of a particular enumerated constant in terms of its
+        /// underlying type.
+        /// </param>
+        /// <param name="useNameAsFallback">
+        /// If <see langword="true"/>, the name of the enumerated constant is
+        /// used if no description is found; otherwise, <see langword="null"/>.
+        /// </param>
+        /// <returns>
+        /// A string containing the description of the enumerated constant in
+        /// <typeparamref name="TEnum"/> whose value is
+        /// <paramref name="value"/>; or <see langword="null"/> if no such
+        /// constant is found and <paramref name="useNameAsFallback"/> is
+        /// <see langword="false"/>; otherwise, the name of the enumerated constant.
         /// </returns>
         /// <remarks>
-        /// This method will use the value from an <see
-        /// cref="EnumDescriptionAttribute" />, <see cref="DisplayAttribute" />,
-        /// or <see cref="DescriptionAttribute" /> if found, in that respective
-        /// order. If none of those attributes are found, or the value is <see
-        /// langword="null" />, and <paramref name="useNameAsFallback" /> is <see
-        /// langword="true" />, then the name of the enumerated constant is used;
-        /// otherwise, a <see langword="null" /> is used.
+        /// This method will use the value from an
+        /// <see cref="EnumDescriptionAttribute"/>,
+        /// <see cref="DisplayAttribute"/>, or
+        /// <see cref="DescriptionAttribute"/> if found, in that respective
+        /// order. If none of those attributes are found, or the value is
+        /// <see langword="null"/>, and <paramref name="useNameAsFallback"/> is
+        /// <see langword="true"/>, then the name of the enumerated constant is
+        /// used; otherwise, a <see langword="null"/> is used.
         /// </remarks>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="value" /> is <see langword="null" /></exception>
+        /// <paramref name="value"/> is <see langword="null"/>
+        /// </exception>
         /// <exception cref="ArgumentException">
-        /// <p><typeparamref name="TEnum" /> is not an <see cref="Enum" /></p>
+        /// <p><typeparamref name="TEnum"/> is not an <see cref="Enum"/></p>
         /// <p>-or</p>
-        /// <p><paramref name="value" /> is neither of type
-        /// <typeparamref name="TEnum" /> nor does it have the same underlying
-        /// type as <typeparamref name="TEnum" />.</p>
+        /// <p>
+        /// <paramref name="value"/> is neither of type
+        /// <typeparamref name="TEnum"/> nor does it have the same underlying
+        /// type as <typeparamref name="TEnum"/>.
+        /// </p>
         /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static string? GetDescription(TEnum value, bool useNameAsFallback)
@@ -107,10 +122,10 @@ namespace Cadru
         /// <summary>
         /// Retrieves an array of the descriptions of the constants in the enumeration.
         /// </summary>
-        /// <returns>A collection of the names of the constants in
-        /// <typeparamref name="TEnum" />.</returns>
+        /// <returns>A collection of the names of the constants in <typeparamref name="TEnum"/>.</returns>
         /// <exception cref="ArgumentException">
-        /// <typeparamref name="TEnum" /> is not an <see cref="Enum" />.</exception>
+        /// <typeparamref name="TEnum"/> is not an <see cref="Enum"/>.
+        /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static IEnumerable<string?> GetDescriptions()
         {
@@ -120,18 +135,19 @@ namespace Cadru
         /// <summary>
         /// Retrieves an array of the descriptions of the constants in the enumeration.
         /// </summary>
-        /// <returns>A collection of the names of the constants in
-        /// <typeparamref name="TEnum" />.</returns>
+        /// <returns>A collection of the names of the constants in <typeparamref name="TEnum"/>.</returns>
         /// <exception cref="ArgumentException">
-        /// <typeparamref name="TEnum" /> is not an <see cref="Enum" />.</exception>
+        /// <typeparamref name="TEnum"/> is not an <see cref="Enum"/>.
+        /// </exception>
         /// <remarks>
-        /// This method will use the value from an <see
-        /// cref="EnumDescriptionAttribute" />, <see cref="DisplayAttribute" />,
-        /// or <see cref="DescriptionAttribute" /> if found, in that respective
-        /// order. If none of those attributes are found, or the value is <see
-        /// langword="null" />, and <paramref name="useNameAsFallback" /> is <see
-        /// langword="true" />, then the name of the enumerated constant is used;
-        /// otherwise, a <see langword="null" /> is used.
+        /// This method will use the value from an
+        /// <see cref="EnumDescriptionAttribute"/>,
+        /// <see cref="DisplayAttribute"/>, or
+        /// <see cref="DescriptionAttribute"/> if found, in that respective
+        /// order. If none of those attributes are found, or the value is
+        /// <see langword="null"/>, and <paramref name="useNameAsFallback"/> is
+        /// <see langword="true"/>, then the name of the enumerated constant is
+        /// used; otherwise, a <see langword="null"/> is used.
         /// </remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static IEnumerable<string?> GetDescriptions(bool useNameAsFallback)
@@ -151,23 +167,30 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Retrieves the name of the constant in the enumeration
-        /// that has the specified value.
+        /// Retrieves the name of the constant in the enumeration that has the
+        /// specified value.
         /// </summary>
-        /// <param name="value">The value of a particular enumerated constant
-        /// in terms of its underlying type.</param>
-        /// <returns>A string containing the name of the enumerated constant
-        /// in <typeparamref name="TEnum" /> whose value
-        /// is <paramref name="value" />; or <see langword="null" /> if no such
-        /// constant is found.</returns>
+        /// <param name="value">
+        /// The value of a particular enumerated constant in terms of its
+        /// underlying type.
+        /// </param>
+        /// <returns>
+        /// A string containing the name of the enumerated constant in
+        /// <typeparamref name="TEnum"/> whose value is
+        /// <paramref name="value"/>; or <see langword="null"/> if no such
+        /// constant is found.
+        /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="value" /> is <see langword="null" /></exception>
+        /// <paramref name="value"/> is <see langword="null"/>
+        /// </exception>
         /// <exception cref="ArgumentException">
-        /// <p><typeparamref name="TEnum" /> is not an <see cref="Enum" /></p>
+        /// <p><typeparamref name="TEnum"/> is not an <see cref="Enum"/></p>
         /// <p>-or</p>
-        /// <p><paramref name="value" /> is neither of type
-        /// <typeparamref name="TEnum" /> nor does it have the same underlying
-        /// type as <typeparamref name="TEnum" />.</p>
+        /// <p>
+        /// <paramref name="value"/> is neither of type
+        /// <typeparamref name="TEnum"/> nor does it have the same underlying
+        /// type as <typeparamref name="TEnum"/>.
+        /// </p>
         /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static string GetName(TEnum value)
@@ -178,10 +201,10 @@ namespace Cadru
         /// <summary>
         /// Retrieves an array of the names of the constants in the enumeration.
         /// </summary>
-        /// <returns>A collection of the names of the constants in
-        /// <typeparamref name="TEnum" />.</returns>
+        /// <returns>A collection of the names of the constants in <typeparamref name="TEnum"/>.</returns>
         /// <exception cref="ArgumentException">
-        /// <typeparamref name="TEnum" /> is not an <see cref="Enum" />.</exception>
+        /// <typeparamref name="TEnum"/> is not an <see cref="Enum"/>.
+        /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static IEnumerable<string> GetNames()
@@ -192,9 +215,10 @@ namespace Cadru
         /// <summary>
         /// Returns the underlying type of the enumeration.
         /// </summary>
-        /// <returns>The underlying type of <typeparamref name="TEnum" />.</returns>
+        /// <returns>The underlying type of <typeparamref name="TEnum"/>.</returns>
         /// <exception cref="ArgumentException">
-        /// <typeparamref name="TEnum" /> is not an <see cref="Enum" />.</exception>
+        /// <typeparamref name="TEnum"/> is not an <see cref="Enum"/>.
+        /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static Type GetUnderlyingType()
@@ -203,18 +227,21 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Retrieves collection of the values of the constants in the
-        /// enumeration.
+        /// Retrieves collection of the values of the constants in the enumeration.
         /// </summary>
-        /// <returns>A collection that contains the values of the
-        /// constants in <typeparamref name="TEnum" />.</returns>
+        /// <returns>
+        /// A collection that contains the values of the constants in <typeparamref name="TEnum"/>.
+        /// </returns>
         /// <exception cref="ArgumentException">
-        /// <typeparamref name="TEnum" /> is not an <see cref="Enum" />.</exception>
+        /// <typeparamref name="TEnum"/> is not an <see cref="Enum"/>.
+        /// </exception>
         /// <exception cref="InvalidOperationException">
         /// <p>The method is invoked by reflection in a reflection-only context.</p>
         /// <p>-or-</p>
-        /// <p><typeparamref name="TEnum" /> is a type from an assembly loaded
-        /// in a reflection-only context.</p>
+        /// <p>
+        /// <typeparamref name="TEnum"/> is a type from an assembly loaded in a
+        /// reflection-only context.
+        /// </p>
         /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
@@ -227,28 +254,31 @@ namespace Cadru
         /// Returns an indication whether a constant with a specified value
         /// exists in the enumeration.
         /// </summary>
-        /// <param name="value">The value or name of a constant in
-        /// <typeparamref name="TEnum" />.</param>
-        /// <returns><see langword="true" /> if a constant in
-        /// <typeparamref name="TEnum" /> has a value equal to
-        /// <paramref name="value" />; otherwise, <see langword="false" />.</returns>
+        /// <param name="value">The value or name of a constant in <typeparamref name="TEnum"/>.</param>
+        /// <returns>
+        /// <see langword="true"/> if a constant in <typeparamref name="TEnum"/>
+        /// has a value equal to <paramref name="value"/>; otherwise, <see langword="false"/>.
+        /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="value" /> is <see langword="null" />.</exception>
+        /// <paramref name="value"/> is <see langword="null"/>.
+        /// </exception>
         /// <exception cref="ArgumentException">
-        /// <p><typeparamref name="TEnum" /> is not an <see cref="Enum" />.</p>
+        /// <p><typeparamref name="TEnum"/> is not an <see cref="Enum"/>.</p>
         /// <p>-or-</p>
-        /// <p>The type of <paramref name="value" /> is an enumeration, but it
-        /// is not an enumeration of type <typeparamref name="TEnum" />.</p>
+        /// <p>
+        /// The type of <paramref name="value"/> is an enumeration, but it is
+        /// not an enumeration of type <typeparamref name="TEnum"/>.
+        /// </p>
         /// <p>-or-</p>
-        /// <p>The type of <paramref name="value" /> is not an underlying type
-        /// of <typeparamref name="TEnum" />.</p>
+        /// <p>
+        /// The type of <paramref name="value"/> is not an underlying type of <typeparamref name="TEnum"/>.
+        /// </p>
         /// </exception>
         /// <exception cref="InvalidOperationException">
-        /// <paramref name="value" /> is not type <see cref="SByte" />,
-        /// <see cref="Int16" />, <see cref="Int32" />,
-        /// <see cref="Int64" />, <see cref="Byte" />,
-        /// <see cref="UInt16" />, <see cref="UInt32" />,
-        /// <see cref="UInt64" />, or <see cref="String" />.
+        /// <paramref name="value"/> is not type <see cref="SByte"/>,
+        /// <see cref="Int16"/>, <see cref="Int32"/>, <see cref="Int64"/>,
+        /// <see cref="Byte"/>, <see cref="UInt16"/>, <see cref="UInt32"/>,
+        /// <see cref="UInt64"/>, or <see cref="String"/>.
         /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static bool IsDefined(object value)
@@ -260,24 +290,31 @@ namespace Cadru
         /// Converts the string representation of the name or numeric value of
         /// one or more enumerated constants to an equivalent enumerated object.
         /// </summary>
-        /// <param name="value">A string containing the name or value to
-        /// convert.</param>
-        /// <returns>An instance of <typeparamref name="TEnum" /> whose value
-        /// is represented by <paramref name="value" />.</returns>
+        /// <param name="value">A string containing the name or value to convert.</param>
+        /// <returns>
+        /// An instance of <typeparamref name="TEnum"/> whose value is
+        /// represented by <paramref name="value"/>.
+        /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="value" /> is <see langword="null" />.</exception>
-        /// <exception cref="ArgumentException">
-        /// <p><typeparamref name="TEnum" /> is not an <see cref="Enum" />.</p>
-        /// <p>-or-</p>
-        /// <p><paramref name="value" /> is either <see langword="String.Empty" /> or
-        /// contains only white space.</p>
-        /// <p>-or-</p>
-        /// <p><paramref name="value" /> is a name, but not one of the named
-        /// constants defined for the enumeration.</p>
+        /// <paramref name="value"/> is <see langword="null"/>.
         /// </exception>
-        /// <exception cref="OverflowException"><paramref name="value" />
-        /// is outside the range of the underlying type of
-        /// <typeparamref name="TEnum" />.</exception>
+        /// <exception cref="ArgumentException">
+        /// <p><typeparamref name="TEnum"/> is not an <see cref="Enum"/>.</p>
+        /// <p>-or-</p>
+        /// <p>
+        /// <paramref name="value"/> is either <see langword="String.Empty"/> or
+        /// contains only white space.
+        /// </p>
+        /// <p>-or-</p>
+        /// <p>
+        /// <paramref name="value"/> is a name, but not one of the named
+        /// constants defined for the enumeration.
+        /// </p>
+        /// </exception>
+        /// <exception cref="OverflowException">
+        /// <paramref name="value"/> is outside the range of the underlying type
+        /// of <typeparamref name="TEnum"/>.
+        /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static TEnum Parse(string value)
         {
@@ -289,26 +326,35 @@ namespace Cadru
         /// one or more enumerated constants to an equivalent enumerated object.
         /// A parameter specifies whether the operation is case-insensitive.
         /// </summary>
-        /// <param name="value">A string containing the name or value to
-        /// convert.</param>
-        /// <param name="ignoreCase"><see langword="true" /> to ignore case;
-        /// <see langword="false" /> to regard case.</param>
-        /// <returns>An instance of <typeparamref name="TEnum" /> whose value
-        /// is represented by <paramref name="value" />.</returns>
+        /// <param name="value">A string containing the name or value to convert.</param>
+        /// <param name="ignoreCase">
+        /// <see langword="true"/> to ignore case; <see langword="false"/> to
+        /// regard case.
+        /// </param>
+        /// <returns>
+        /// An instance of <typeparamref name="TEnum"/> whose value is
+        /// represented by <paramref name="value"/>.
+        /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="value" /> is <see langword="null" />.</exception>
-        /// <exception cref="ArgumentException">
-        /// <p><typeparamref name="TEnum" /> is not an <see cref="Enum" />.</p>
-        /// <p>-or-</p>
-        /// <p><paramref name="value" /> is either <see langword="String.Empty" /> or
-        /// contains only white space.</p>
-        /// <p>-or-</p>
-        /// <p><paramref name="value" /> is a name, but not one of the named
-        /// constants defined for the enumeration.</p>
+        /// <paramref name="value"/> is <see langword="null"/>.
         /// </exception>
-        /// <exception cref="OverflowException"><paramref name="value" />
-        /// is outside the range of the underlying type of
-        /// <typeparamref name="TEnum" />.</exception>
+        /// <exception cref="ArgumentException">
+        /// <p><typeparamref name="TEnum"/> is not an <see cref="Enum"/>.</p>
+        /// <p>-or-</p>
+        /// <p>
+        /// <paramref name="value"/> is either <see langword="String.Empty"/> or
+        /// contains only white space.
+        /// </p>
+        /// <p>-or-</p>
+        /// <p>
+        /// <paramref name="value"/> is a name, but not one of the named
+        /// constants defined for the enumeration.
+        /// </p>
+        /// </exception>
+        /// <exception cref="OverflowException">
+        /// <paramref name="value"/> is outside the range of the underlying type
+        /// of <typeparamref name="TEnum"/>.
+        /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static TEnum Parse(string value, bool ignoreCase)
         {
@@ -316,20 +362,23 @@ namespace Cadru
         }
 
         /// <summary>
-        /// Converts the specified object with an integer value to an enumeration member.
+        /// Converts the specified object with an integer value to an
+        /// enumeration member.
         /// </summary>
         /// <param name="value">The value convert to an enumeration member.</param>
-        /// <returns>An enumeration whose value is <paramref name="value" />.</returns>
+        /// <returns>An enumeration whose value is <paramref name="value"/>.</returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="value" /> is <see langword="null" />.</exception>
+        /// <paramref name="value"/> is <see langword="null"/>.
+        /// </exception>
         /// <exception cref="ArgumentException">
-        /// <p><typeparamref name="TEnum" /> is not an <see cref="Enum" />.</p>
+        /// <p><typeparamref name="TEnum"/> is not an <see cref="Enum"/>.</p>
         /// <p>-or-</p>
-        /// <p><paramref name="value" /> is not type <see cref="SByte" />,
-        /// <see cref="Int16" />, <see cref="Int32" />,
-        /// <see cref="Int64" />, <see cref="Byte" />,
-        /// <see cref="UInt16" />, <see cref="UInt32" />,
-        /// <see cref="UInt64" />, or <see cref="String" />.</p>
+        /// <p>
+        /// <paramref name="value"/> is not type <see cref="SByte"/>,
+        /// <see cref="Int16"/>, <see cref="Int32"/>, <see cref="Int64"/>,
+        /// <see cref="Byte"/>, <see cref="UInt16"/>, <see cref="UInt32"/>,
+        /// <see cref="UInt64"/>, or <see cref="String"/>.
+        /// </p>
         /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static TEnum ToEnum(object value)
@@ -342,15 +391,22 @@ namespace Cadru
         /// one or more enumerated constants to an equivalent enumerated object.
         /// The return value indicates whether the conversion succeeded.
         /// </summary>
-        /// <param name="value">The string representation of the enumeration
-        /// name or underlying value to convert.</param>
-        /// <param name="result">When this method returns, contains an object of
-        /// type <typeparamref name="TEnum" /> whose value is represented
-        /// by value. This parameter is passed uninitialized.</param>
-        /// <returns><see langword="true" /> if the value parameter was
-        /// converted successfully; otherwise, <see langword="false" />.</returns>
+        /// <param name="value">
+        /// The string representation of the enumeration name or underlying
+        /// value to convert.
+        /// </param>
+        /// <param name="result">
+        /// When this method returns, contains an object of type
+        /// <typeparamref name="TEnum"/> whose value is represented by value.
+        /// This parameter is passed uninitialized.
+        /// </param>
+        /// <returns>
+        /// <see langword="true"/> if the value parameter was converted
+        /// successfully; otherwise, <see langword="false"/>.
+        /// </returns>
         /// <exception cref="ArgumentException">
-        /// <typeparamref name="TEnum" /> is not an enumeration type.</exception>
+        /// <typeparamref name="TEnum"/> is not an enumeration type.
+        /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static bool TryParse(string value, out TEnum result)
         {
@@ -363,17 +419,26 @@ namespace Cadru
         /// A parameter specifies whether the operation is case-sensitive. The
         /// return value indicates whether the conversion succeeded.
         /// </summary>
-        /// <param name="value">The string representation of the enumeration
-        /// name or underlying value to convert.</param>
-        /// <param name="ignoreCase"><see langword="true" /> to ignore case;
-        /// <see langword="false" /> to regard case.</param>
-        /// <param name="result">When this method returns, contains an object of
-        /// type <typeparamref name="TEnum" /> whose value is represented
-        /// by value. This parameter is passed uninitialized.</param>
-        /// <returns><see langword="true" /> if the value parameter was
-        /// converted successfully; otherwise, <see langword="false" />.</returns>
+        /// <param name="value">
+        /// The string representation of the enumeration name or underlying
+        /// value to convert.
+        /// </param>
+        /// <param name="ignoreCase">
+        /// <see langword="true"/> to ignore case; <see langword="false"/> to
+        /// regard case.
+        /// </param>
+        /// <param name="result">
+        /// When this method returns, contains an object of type
+        /// <typeparamref name="TEnum"/> whose value is represented by value.
+        /// This parameter is passed uninitialized.
+        /// </param>
+        /// <returns>
+        /// <see langword="true"/> if the value parameter was converted
+        /// successfully; otherwise, <see langword="false"/>.
+        /// </returns>
         /// <exception cref="ArgumentException">
-        /// <typeparamref name="TEnum" /> is not an enumeration type.</exception>
+        /// <typeparamref name="TEnum"/> is not an enumeration type.
+        /// </exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static bool TryParse(string value, bool ignoreCase, out TEnum result)
         {

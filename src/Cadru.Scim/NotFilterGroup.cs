@@ -27,8 +27,7 @@ namespace Cadru.Scim.Filters
 {
     /// <summary>
     /// Represents a group of <see cref="IFilter"></see> instances where the
-    /// filter is a match if the expression evaluates to <see
-    /// langword="false"></see>.
+    /// filter is a match if the expression evaluates to <see langword="false"></see>.
     /// </summary>
     public class NotFilterGroup : IFilterGroup
     {
@@ -48,11 +47,10 @@ namespace Cadru.Scim.Filters
         }
 
         /// <summary>
-        /// Returns a string that represents the current <see
-        /// cref="NotFilterGroup"></see> as a valid query
+        /// Returns a string that represents the current
+        /// <see cref="NotFilterGroup"></see> as a valid query
         /// </summary>
-        /// <returns>A string that represents the current <see
-        /// cref="NotFilterGroup"></see>.</returns>
+        /// <returns>A string that represents the current <see cref="NotFilterGroup"></see>.</returns>
         public override string ToString()
         {
             var brackets = Array.Empty<string>();

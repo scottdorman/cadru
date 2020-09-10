@@ -32,10 +32,10 @@ using Cadru.Contracts;
 namespace Cadru.Postal
 {
     /// <summary>
-    /// An Email object has the name of the MVC view to render and a view data dictionary
-    /// to store the data to render. It is best used as a dynamic object, just like the
-    /// ViewBag property of a Controller. Any dynamic property access is mapped to the
-    /// view data dictionary.
+    /// An Email object has the name of the MVC view to render and a view data
+    /// dictionary to store the data to render. It is best used as a dynamic
+    /// object, just like the ViewBag property of a Controller. Any dynamic
+    /// property access is mapped to the view data dictionary.
     /// </summary>
     public class Email : DynamicObject, IViewDataContainer, IEmail
     {
@@ -57,14 +57,18 @@ namespace Cadru.Postal
         /// Creates a new Email, that will render the given view.
         /// </summary>
         /// <param name="viewName">The name of the view to render</param>
-        /// <param name="areaName">The name of the area containing the view to render</param>
+        /// <param name="areaName">
+        /// The name of the area containing the view to render
+        /// </param>
         public Email(string viewName, string areaName)
             : this(viewName)
         {
             this.AreaName = areaName;
         }
 
-        /// <summary>Create an Email where the ViewName is derived from the name of the class.</summary>
+        /// <summary>
+        /// Create an Email where the ViewName is derived from the name of the class.
+        /// </summary>
         /// <remarks>Used when defining strongly typed Email classes.</remarks>
         protected Email() : this(DeriveViewNameFromClassName())
         {
@@ -81,7 +85,7 @@ namespace Cadru.Postal
         public List<Attachment> Attachments { get; }
 
         /// <summary>
-        /// Gets the <see cref="ImageEmbedder" /> instance used to the inline
+        /// Gets the <see cref="ImageEmbedder"/> instance used to the inline
         /// images in the rendered view.
         /// </summary>
         public ImageEmbedder ImageEmbedder { get; }
@@ -106,7 +110,8 @@ namespace Cadru.Postal
         }
 
         /// <summary>
-        /// Convenience method that saves this email asynchronously via a default EmailService.
+        /// Convenience method that saves this email asynchronously via a
+        /// default EmailService.
         /// </summary>
         public async Task SaveToFileAsync(string path)
         {
@@ -114,7 +119,8 @@ namespace Cadru.Postal
         }
 
         /// <summary>
-        /// Convenience method that sends this email asynchronously via a default EmailService.
+        /// Convenience method that sends this email asynchronously via a
+        /// default EmailService.
         /// </summary>
         public async Task SendAsync()
         {
@@ -122,7 +128,7 @@ namespace Cadru.Postal
         }
 
         /// <summary>
-        /// Tries to get a stored value from <see cref="ViewData" />.
+        /// Tries to get a stored value from <see cref="ViewData"/>.
         /// </summary>
         /// <param name="binder">Provides the name of the view data property.</param>
         /// <param name="result">If found, this is the view data property value.</param>
@@ -133,7 +139,7 @@ namespace Cadru.Postal
         }
 
         /// <summary>
-        /// Stores the given value into the <see cref="ViewData" />.
+        /// Stores the given value into the <see cref="ViewData"/>.
         /// </summary>
         /// <param name="binder">Provides the name of the view data property.</param>
         /// <param name="value">The value to store.</param>

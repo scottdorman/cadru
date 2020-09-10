@@ -430,8 +430,8 @@ namespace Cadru.Collections.Tests
         }
 
         /// <summary>
-        /// Comparer which just compares the last digit of each operand
-        /// (but doesn't try to handle negative numbers intelligently).
+        /// Comparer which just compares the last digit of each operand (but
+        /// doesn't try to handle negative numbers intelligently).
         /// </summary>
         private sealed class LastDigitComparer : IComparer<int>
         {

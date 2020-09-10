@@ -25,8 +25,7 @@ using Microsoft.Extensions.Logging;
 namespace Cadru.AspNetCore.Http
 {
     /// <summary>
-    /// The options for <see cref="RequestResponseLoggingDelegatingHandler" />
-    /// or <see cref="RequestResponseLoggingMiddleware" />.
+    /// The options for <see cref="RequestResponseLoggingDelegatingHandler"/> or <see cref="RequestResponseLoggingMiddleware"/>.
     /// </summary>
     public class RequestResponseLoggingOptions
     {
@@ -36,8 +35,8 @@ namespace Cadru.AspNetCore.Http
         public const string SectionKey = "RequestResponseLogging";
 
         /// <summary>
-        /// Gets or sets a value indicating whether logging scopes are being captured.
-        /// Defaults to <see langword="true" />.
+        /// Gets or sets a value indicating whether logging scopes are being
+        /// captured. Defaults to <see langword="true"/>.
         /// </summary>
         public bool CaptureScopes { get; set; } = true;
 

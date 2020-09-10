@@ -14,8 +14,8 @@
     <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Cadru.Net.Http\Cadru.Net.Http.csproj"/>
-    <ProjectReference Include="..\..\src\Cadru.UnitTest.Framework\Cadru.UnitTest.Framework.csproj"/>
+    <ProjectReference Include="..\..\src\Cadru.Net.Http\Cadru.Net.Http.csproj" />
+    <ProjectReference Include="..\..\src\Cadru.UnitTest.Framework\Cadru.UnitTest.Framework.csproj" />
   </ItemGroup>
 
 </Project>

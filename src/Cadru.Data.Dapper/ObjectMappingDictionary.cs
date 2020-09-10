@@ -26,8 +26,9 @@ using System.Collections.Concurrent;
 namespace Cadru.Data.Dapper
 {
     /// <summary>
-    /// A thread-safe collection of key/value pairs representing the mapping for all database
-    /// objects contained in the context between their entity type and database object.
+    /// A thread-safe collection of key/value pairs representing the mapping for
+    /// all database objects contained in the context between their entity type
+    /// and database object.
     /// </summary>
     public class ObjectMappingDictionary : ConcurrentDictionary<Type, IObjectMap>
     {

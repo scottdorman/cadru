@@ -27,14 +27,15 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 namespace Cadru.AspNetCore.Mvc.ModelBinding.Metadata
 {
     /// <summary>
-    /// Provides a class that implements the <see cref="IMetadataAware" />
+    /// Provides a class that implements the <see cref="IMetadataAware"/>
     /// interface in order to support additional metadata.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Property, AllowMultiple = true)]
     public sealed class AdditionalMetadataAttribute : MetadataAwareAttribute
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AdditionalMetadataAttribute" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="AdditionalMetadataAttribute"/> class.
         /// </summary>
         /// <param name="name">The name of the model metadata.</param>
         /// <param name="value">The value of the model metadata.</param>
@@ -45,7 +46,7 @@ namespace Cadru.AspNetCore.Mvc.ModelBinding.Metadata
         }
 
         /// <inheritdoc/>
-        /// <remarks>This property is not used by the <see cref="AdditionalMetadataAttribute" />.</remarks>
+        /// <remarks>This property is not used by the <see cref="AdditionalMetadataAttribute"/>.</remarks>
         public override string Key => throw new NotImplementedException();
 
         /// <summary>
