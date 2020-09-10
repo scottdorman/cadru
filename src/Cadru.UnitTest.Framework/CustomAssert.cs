@@ -2,7 +2,7 @@
 // <copyright file="CustomAssert.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,35 +20,20 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections;
+
+using Cadru.UnitTest.Framework.Resources;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 namespace Cadru.UnitTest.Framework
 {
-    using System;
-    using System.Collections;
-    using Cadru.UnitTest.Framework.Resources;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     /// <summary>
     /// Contains assertion types that are not provided with the standard MSTest assertions.
     /// </summary>
     public static class CustomAssert
     {
-        #region fields
-        #endregion
-
-        #region constructors
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methods
-
-        #region AreEqualIgnoringCase
-
-        #region AreEqualIgnoringCase(string expected, string actual)
         /// <summary>
         /// Asserts that two strings are equal, without regard to case.
         /// </summary>
@@ -56,11 +41,9 @@ namespace Cadru.UnitTest.Framework
         /// <param name="actual">The actual string.</param>
         public static void AreEqualIgnoringCase(string expected, string actual)
         {
-            CustomAssert.AreEqualIgnoringCase(expected, actual, Strings.Assertion_GenericFailure, expected, actual);
+            AreEqualIgnoringCase(expected, actual, Strings.Assertion_GenericFailure, expected, actual);
         }
-        #endregion
 
-        #region AreEqualIgnoringCase(string expected, string actual, string message)
         /// <summary>
         /// Asserts that two strings are equal, without regard to case.
         /// </summary>
@@ -69,11 +52,9 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
         public static void AreEqualIgnoringCase(string expected, string actual, string message)
         {
-            CustomAssert.AreEqualIgnoringCase(expected, actual, message, null);
+            AreEqualIgnoringCase(expected, actual, message, null);
         }
-        #endregion
 
-        #region AreEqualIgnoringCase(string expected, string actual, string message, params object[] parameters)
         /// <summary>
         /// Asserts that two strings are equal, without regard to case.
         /// </summary>
@@ -85,24 +66,16 @@ namespace Cadru.UnitTest.Framework
         {
             Assert.IsTrue(String.Compare(expected, actual, StringComparison.CurrentCultureIgnoreCase) == 0, message, parameters);
         }
-        #endregion
 
-        #endregion
-
-        #region IsEmpty
-
-        #region IsEmpty(ICollection collection)
         /// <summary>
         /// Assert that an array, list or other collection is empty.
         /// </summary>
         /// <param name="collection">The value to be tested.</param>
         public static void IsEmpty(ICollection collection)
         {
-            CustomAssert.IsEmpty(collection, Strings.Assertion_CollectionFailure, 0, collection.Count);
+            IsEmpty(collection, Strings.Assertion_CollectionFailure, 0, collection.Count);
         }
-        #endregion
 
-        #region IsEmpty(ICollection collection, string message)
         /// <summary>
         /// Assert that an array, list or other collection is empty.
         /// </summary>
@@ -110,11 +83,9 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
         public static void IsEmpty(ICollection collection, string message)
         {
-            CustomAssert.IsEmpty(collection, message, null);
+            IsEmpty(collection, message, null);
         }
-        #endregion
 
-        #region IsEmpty(ICollection collection, string message, params object[] parameters)
         /// <summary>
         /// Assert that an array, list or other collection is empty.
         /// </summary>
@@ -125,20 +96,16 @@ namespace Cadru.UnitTest.Framework
         {
             Assert.IsTrue(collection.Count == 0, message, parameters);
         }
-        #endregion
 
-        #region IsEmpty(string value)
         /// <summary>
         /// Asserts that a string is empty.
         /// </summary>
         /// <param name="value">The value to be tested.</param>
         public static void IsEmpty(string value)
         {
-            CustomAssert.IsEmpty(value, Strings.Assertion_GenericFailure, String.Empty, value);
+            IsEmpty(value, Strings.Assertion_GenericFailure, String.Empty, value);
         }
-        #endregion
 
-        #region IsEmpty(string value, string message)
         /// <summary>
         /// Asserts that a string is empty.
         /// </summary>
@@ -146,11 +113,9 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
         public static void IsEmpty(string value, string message)
         {
-            CustomAssert.IsEmpty(value, message, null);
+            IsEmpty(value, message, null);
         }
-        #endregion
 
-        #region IsEmpty(string value, string message, params object[] parameters)
         /// <summary>
         /// Asserts that a string is empty.
         /// </summary>
@@ -161,24 +126,16 @@ namespace Cadru.UnitTest.Framework
         {
             Assert.IsTrue(value.Length == 0, message, parameters);
         }
-        #endregion
 
-        #endregion
-
-        #region IsNotEmpty
-
-        #region IsNotEmpty(ICollection collection)
         /// <summary>
         /// Assert that an array, list or other collection is not empty.
         /// </summary>
         /// <param name="collection">The value to be tested.</param>
         public static void IsNotEmpty(ICollection collection)
         {
-            CustomAssert.IsNotEmpty(collection, Strings.Assertion_CollectionFailure, collection.Count, 0);
+            IsNotEmpty(collection, Strings.Assertion_CollectionFailure, collection.Count, 0);
         }
-        #endregion
 
-        #region IsNotEmpty(ICollection collection, string message)
         /// <summary>
         /// Assert that an array, list or other collection is not empty.
         /// </summary>
@@ -186,11 +143,9 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
         public static void IsNotEmpty(ICollection collection, string message)
         {
-            CustomAssert.IsNotEmpty(collection, message, null);
+            IsNotEmpty(collection, message, null);
         }
-        #endregion
 
-        #region IsNotEmpty(ICollection collection, string message, params object[] parameters)
         /// <summary>
         /// Assert that an array, list or other collection is not empty.
         /// </summary>
@@ -201,20 +156,16 @@ namespace Cadru.UnitTest.Framework
         {
             Assert.IsFalse(collection.Count == 0, message, parameters);
         }
-        #endregion
 
-        #region IsNotEmpty(string value)
         /// <summary>
         /// Asserts that a string is not empty.
         /// </summary>
         /// <param name="value">The value to be tested.</param>
         public static void IsNotEmpty(string value)
         {
-            CustomAssert.IsNotEmpty(value, Strings.Assertion_GenericFailure, value, String.Empty);
+            IsNotEmpty(value, Strings.Assertion_GenericFailure, value, String.Empty);
         }
-        #endregion
 
-        #region IsNotEmpty(string value, string message)
         /// <summary>
         /// Asserts that a string is not empty.
         /// </summary>
@@ -222,11 +173,9 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
         public static void IsNotEmpty(string value, string message)
         {
-            CustomAssert.IsNotEmpty(value, message, null);
+            IsNotEmpty(value, message, null);
         }
-        #endregion
 
-        #region IsNotEmpty(string value, string message, params object[] parameters)
         /// <summary>
         /// Asserts that a string is not empty.
         /// </summary>
@@ -237,10 +186,5 @@ namespace Cadru.UnitTest.Framework
         {
             Assert.IsFalse(value.Length == 0, message, parameters);
         }
-        #endregion
-
-        #endregion
-
-        #endregion
     }
 }

@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="ExceptionMessageComparison.cs" 
-//  company="Scott Dorman" 
+// <copyright file="ExceptionMessageComparison.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -20,13 +20,10 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace Cadru.UnitTest.Framework
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
     /// <summary>
     /// Options used by the <see cref="Cadru.UnitTest.Framework.ExceptionAssert.WithMessage{T}(T, String, ExceptionMessageComparison)"/>
     /// method to determine how to compare the exception message.

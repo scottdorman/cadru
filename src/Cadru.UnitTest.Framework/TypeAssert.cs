@@ -2,7 +2,7 @@
 // <copyright file="TypeAssert.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2014 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,36 +20,21 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Reflection;
+
+using Cadru.Contracts;
+using Cadru.UnitTest.Framework.Resources;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 namespace Cadru.UnitTest.Framework
 {
-    using System;
-    using System.Reflection;
-    using Cadru.Contracts;
-    using Cadru.UnitTest.Framework.Resources;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     /// <summary>
     /// Contains assertion types that are not provided with the standard MSTest assertions.
     /// </summary>
     public static class TypeAssert
     {
-        #region fields
-        #endregion
-
-        #region constructors
-        #endregion
-
-        #region events
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methods
-
-        #region IsAssignableFrom
-
-        #region IsAssignableFrom(object value, Type expectedType)
         /// <summary>
         /// Asserts that an object may be assigned a value of a given <see cref="Type"/>.
         /// </summary>
@@ -57,11 +42,9 @@ namespace Cadru.UnitTest.Framework
         /// <param name="expectedType">The expected <see cref="Type"/>.</param>
         public static void IsAssignableFrom(object value, Type expectedType)
         {
-            TypeAssert.IsAssignableFrom(value, expectedType, Strings.Assertion_ExpectedToBeAssignableFrom, value, expectedType);
+            IsAssignableFrom(value, expectedType, Strings.Assertion_ExpectedToBeAssignableFrom, value, expectedType);
         }
-        #endregion
 
-        #region IsAssignableFrom(object value, Type expectedType, string message)
         /// <summary>
         /// Asserts that an object may be assigned a value of a given <see cref="Type"/>.
         /// </summary>
@@ -70,11 +53,9 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
         public static void IsAssignableFrom(object value, Type expectedType, string message)
         {
-            TypeAssert.IsAssignableFrom(value, expectedType, message, null);
+            IsAssignableFrom(value, expectedType, message, null);
         }
-        #endregion
 
-        #region IsAssignableFrom(object value, Type expectedType, string message, params object[] parameters)
         /// <summary>
         /// Asserts that an object may be assigned a value of a given <see cref="Type"/>.
         /// </summary>
@@ -89,13 +70,7 @@ namespace Cadru.UnitTest.Framework
                 Assert.Fail(message, parameters);
             }
         }
-        #endregion
 
-        #endregion
-
-        #region IsNotAssignableFrom
-
-        #region IsNotAssignableFrom(object value, Type expectedType)
         /// <summary>
         /// Asserts that an object may not be assigned a value of a given <see cref="Type"/>.
         /// </summary>
@@ -103,11 +78,9 @@ namespace Cadru.UnitTest.Framework
         /// <param name="expectedType">The expected <see cref="Type"/>.</param>
         public static void IsNotAssignableFrom(object value, Type expectedType)
         {
-            TypeAssert.IsNotAssignableFrom(value, expectedType, Strings.Assertion_ExpectedToBeAssignableFrom, value, expectedType);
+            IsNotAssignableFrom(value, expectedType, Strings.Assertion_ExpectedToBeAssignableFrom, value, expectedType);
         }
-        #endregion
 
-        #region IsNotAssignableFrom(object value, Type expectedType, string message)
         /// <summary>
         /// Asserts that an object may not be assigned a value of a given <see cref="Type"/>.
         /// </summary>
@@ -116,11 +89,9 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
         public static void IsNotAssignableFrom(object value, Type expectedType, string message)
         {
-            TypeAssert.IsNotAssignableFrom(value, expectedType, message, null);
+            IsNotAssignableFrom(value, expectedType, message, null);
         }
-        #endregion
 
-        #region IsNotAssignableFrom(object value, Type expectedType, string message, params object[] parameters)
         /// <summary>
         /// Asserts that an object may not be assigned a value of a given <see cref="Type"/>.
         /// </summary>
@@ -136,13 +107,7 @@ namespace Cadru.UnitTest.Framework
                 Assert.Fail(message, parameters);
             }
         }
-        #endregion
 
-        #endregion
-
-        #region IsType
-
-        #region IsType(object value, Type expectedType)
         /// <summary>
         /// Asserts that an object is of the given <see cref="Type"/>.
         /// </summary>
@@ -151,11 +116,9 @@ namespace Cadru.UnitTest.Framework
         public static void IsType(object value, Type expectedType)
         {
             Requires.NotNull(value, "value");
-            TypeAssert.IsType(value, expectedType, Strings.Assertion_WrongType, expectedType, value.GetType());
+            IsType(value, expectedType, Strings.Assertion_WrongType, expectedType, value.GetType());
         }
-        #endregion
 
-        #region IsType(object value, Type expectedType, string message)
         /// <summary>
         /// Asserts that an object is of the given <see cref="Type"/>.
         /// </summary>
@@ -164,11 +127,9 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">A message to display. This message can be seen in the unit test results.</param>
         public static void IsType(object value, Type expectedType, string message)
         {
-            TypeAssert.IsType(value, expectedType, message, null);
+            IsType(value, expectedType, message, null);
         }
-        #endregion
 
-        #region IsType(object value, Type expectedType, string message, params object[] parameters)
         /// <summary>
         /// Asserts that an object is of the given <see cref="Type"/>.
         /// </summary>
@@ -192,10 +153,5 @@ namespace Cadru.UnitTest.Framework
                 }
             }
         }
-        #endregion
-
-        #endregion
-
-        #endregion
     }
 }
