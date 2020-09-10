@@ -1,0 +1,1532 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cadru.Net.NetworkInformation</name>
+    </assembly>
+    <members>
+        <member name="T:Cadru.Net.NetworkInformation.Collections.IPAddressComparer">
+            <summary>
+            Compares two IP Addresses or string IP address representations for
+            equivalence.
+            </summary>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.NetworkInformation.Collections.IPAddressComparer"/> class.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.Default">
+            <summary>
+            Represents an instance of <see cref="T:Cadru.Net.NetworkInformation.Collections.IPAddressComparer"/>.
+            </summary>
+            <value>The default <see cref="T:Cadru.Net.NetworkInformation.Collections.IPAddressComparer"/></value>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.Compare(System.Net.IPAddress,System.Net.IPAddress)">
+            <summary>
+            Performs a comparison of two <see cref="T:System.Net.IPAddress"/> objects and returns a value
+            indicating whether one is less than, equal to or greater than
+            the other.
+            </summary>
+            <param name="x">The first <see cref="T:System.Net.IPAddress"/> to compare.</param>
+            <param name="y">The second <see cref="T:System.Net.IPAddress"/> to compare.</param>
+            <returns>
+            <list type="table">
+            <listheader>
+            <term>Value</term>
+            <term>Condition</term>
+            </listheader>
+            <item>
+            <term>Less than zero</term>
+            <description>
+            <paramref name="x"/> is less than <paramref name="y"/>.
+            </description>
+            </item>
+            <item>
+            <term>Zero</term>
+            <description>
+            <paramref name="x"/> equals <paramref name="y"/>.
+            </description>
+            </item>
+            <item>
+            <term>Greater than zero</term>
+            <description>
+            <paramref name="x"/> is greater than <paramref name="y"/>.
+            </description>
+            </item>
+            </list></returns>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.Compare(System.Object,System.Object)">
+            <summary>
+            Performs a comparison of two objects and returns a value
+            indicating whether one is less than, equal to or greater than
+            the other.
+            </summary>
+            <param name="x">The first object to compare.</param>
+            <param name="y">The second object to compare.</param>
+            <returns>
+            <list type="table">
+            <listheader>
+            <term>Value</term>
+            <term>Condition</term>
+            </listheader>
+            <item>
+            <term>Less than zero</term>
+            <description>
+            <paramref name="x"/> is less than <paramref name="y"/>.
+            </description>
+            </item>
+            <item>
+            <term>Zero</term>
+            <description>
+            <paramref name="x"/> equals <paramref name="y"/>.
+            </description>
+            </item>
+            <item>
+            <term>Greater than zero</term>
+            <description>
+            <paramref name="x"/> is greater than <paramref name="y"/>.
+            </description>
+            </item>
+            </list></returns>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.Compare(System.String,System.String)">
+            <summary>
+            Performs a comparison of two string objects and returns a value
+            indicating whether one is less than, equal to or greater than
+            the other.
+            </summary>
+            <param name="x">The first string to compare.</param>
+            <param name="y">The second string to compare.</param>
+            <returns>
+            <list type="table">
+            <listheader>
+            <term>Value</term>
+            <term>Condition</term>
+            </listheader>
+            <item>
+            <term>Less than zero</term>
+            <description>
+            <paramref name="x"/> is less than <paramref name="y"/>.
+            </description>
+            </item>
+            <item>
+            <term>Zero</term>
+            <description>
+            <paramref name="x"/> equals <paramref name="y"/>.
+            </description>
+            </item>
+            <item>
+            <term>Greater than zero</term>
+            <description>
+            <paramref name="x"/> is greater than <paramref name="y"/>.
+            </description>
+            </item>
+            </list></returns>
+            <remarks>The strings should be a valid date time format.</remarks>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.Equals(System.Net.IPAddress,System.Net.IPAddress)">
+            <summary>
+            Returns a value indicating whether two instances of <see cref="T:System.Net.IPAddress"/> are equal.
+            </summary>
+            <param name="x">The first <see cref="T:System.Net.IPAddress"/> to compare.</param>
+            <param name="y">The second <see cref="T:System.Net.IPAddress"/> to compare.</param>
+            <returns><see langword="true" /> if the two <see cref="T:System.Net.IPAddress"/> values are equal;
+            otherwise, <see langword="false" />. </returns>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.Equals(System.String,System.String)">
+            <summary>
+            Returns a value indicating whether two instances of string are equal.
+            </summary>
+            <param name="x">The first string to compare.</param>
+            <param name="y">The second string to compare.</param>
+            <returns><see langword="true" /> if the two string values are equal;
+            otherwise, <see langword="false" />. </returns>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.GetHashCode(System.Net.IPAddress)">
+            <summary>
+            Returns a hash code for the specified <see cref="T:System.Net.IPAddress"/>.
+            </summary>
+            <param name="obj">The <see cref="T:System.Net.IPAddress"/> for which a hash code is to be
+            returned.</param>
+            <returns>A hash code for the specified <see cref="T:System.Net.IPAddress"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">The type of <paramref name="obj"/> is a
+            reference type and <paramref name="obj"/> is a <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.GetHashCode(System.Object)">
+            <summary>
+            Returns a hash code for the specified object.
+            </summary>
+            <param name="obj">The Object for which a hash code is to be
+            returned.</param>
+            <returns>A hash code for the specified object.</returns>
+            <exception cref="T:System.ArgumentNullException">The type of <paramref name="obj"/> is a
+            reference type and <paramref name="obj"/> is a <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.GetHashCode(System.String)">
+            <summary>
+            Returns a hash code for the specified string.
+            </summary>
+            <param name="obj">The string for which a hash code is to be
+            returned.</param>
+            <returns>A hash code for the specified string.</returns>
+            <exception cref="T:System.ArgumentNullException">The type of <paramref name="obj"/> is a
+            reference type and <paramref name="obj"/> is a <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="T:Cadru.Net.NetworkInformation.ConnectionStatus">
+            <summary>
+            Represents the network connection connectionStatus.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ConnectionStatus.Unknown">
+            <summary>
+            The network connection status is not known.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ConnectionStatus.Connected">
+            <summary>
+            The network is connected.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ConnectionStatus.Disconnected">
+            <summary>
+            The network is disconnected.
+            </summary>
+        </member>
+        <member name="T:Cadru.Net.NetworkInformation.Interop.Constants">
+            <summary>
+            An internal class that defines the p/invoke constants required by the
+            Win32 API calls that are used inside the library.
+            </summary>
+        </member>
+        <member name="T:Cadru.Net.NetworkInformation.Interop.SERVER_INFO_101">
+            <summary>
+            The SERVER_INFO_101 structure contains information about the
+            specified server, including name, platform, type of server,
+            and associated software.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SERVER_INFO_101.sv101_platform_id">
+            <summary>
+            Specifies the information level to use for platform-specific information.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SERVER_INFO_101.sv101_name">
+            <summary>
+            Pointer to a Unicode string specifying the name of a server.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SERVER_INFO_101.sv101_version_major">
+            <summary>
+            Specifies, in the least significant 4 bits of the byte, the major
+            release version number of the operating system. The most significant 4
+            bits of the byte specifies the server type. The mask MAJOR_VERSION_MASK should
+            be used to ensure correct results.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SERVER_INFO_101.sv101_version_minor">
+            <summary>
+            Specifies the minor release version number of the operating system.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SERVER_INFO_101.sv101_type">
+            <summary>
+            Specifies the type of software the computer is running.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SERVER_INFO_101.sv101_comment">
+            <summary>
+            Pointer to a Unicode string specifying a comment describing the server.
+            The comment can be null.
+            </summary>
+        </member>
+        <member name="T:Cadru.Net.NetworkInformation.Interop.SystemMetric">
+            <summary>
+            Flags used with the <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms724385(v=vs.85).aspx">GetSystemMetrics</see> function.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXSCREEN">
+            <summary>
+             Width of the screen of the primary display monitor, in pixels.
+            This is the same values obtained by calling GetDeviceCaps as
+            follows: GetDeviceCaps( hdcPrimaryMonitor, HORZRES).
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYSCREEN">
+            <summary>
+            Height of the screen of the primary display monitor, in pixels.
+            This is the same values obtained by calling GetDeviceCaps as
+            follows: GetDeviceCaps( hdcPrimaryMonitor, VERTRES).
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYVSCROLL">
+            <summary>
+            Width of a horizontal scroll bar, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXVSCROLL">
+            <summary>
+            Height of a horizontal scroll bar, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYCAPTION">
+            <summary>
+            Height of a caption area, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXBORDER">
+            <summary>
+            Width of a window border, in pixels. This is equivalent to the
+            SM_CXEDGE value for windows with the 3-D look.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYBORDER">
+            <summary>
+            Height of a window border, in pixels. This is equivalent to the
+            SM_CYEDGE value for windows with the 3-D look.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXDLGFRAME">
+            <summary>
+            Thickness of the frame around the perimeter of a window that has
+            a caption but is not sizable, in pixels. SM_CXFIXEDFRAME is the
+            height of the horizontal border and SM_CYFIXEDFRAME is the width
+            of the vertical border.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYDLGFRAME">
+            <summary>
+            Thickness of the frame around the perimeter of a window that has
+            a caption but is not sizable, in pixels. SM_CXFIXEDFRAME is the
+            height of the horizontal border and SM_CYFIXEDFRAME is the width
+            of the vertical border.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYVTHUMB">
+            <summary>
+            Height of the thumb box in a vertical scroll bar, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXHTHUMB">
+            <summary>
+            Width of the thumb box in a horizontal scroll bar, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXICON">
+            <summary>
+            Default width of an icon, in pixels. The LoadIcon function can
+            load only icons with the dimensions specified by SM_CXICON and
+            SM_CYICON.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYICON">
+            <summary>
+            Default height of an icon, in pixels. The LoadIcon function can
+            load only icons with the dimensions SM_CXICON and SM_CYICON.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXCURSOR">
+            <summary>
+            Width of a cursor, in pixels. The system cannot create
+            cursors of other sizes.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYCURSOR">
+            <summary>
+            Height of a cursor, in pixels. The system cannot create cursors
+             of other sizes.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYMENU">
+            <summary>
+            Height of a single-line menu bar, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXFULLSCREEN">
+            <summary>
+            Width of the client area for a full-screen window on the primary
+            display monitor, in pixels. To get the coordinates of the portion
+            of the screen not obscured by the system taskbar or by application
+            desktop toolbars, call the SystemParametersInfo function with the
+            SPI_GETWORKAREA value.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYFULLSCREEN">
+            <summary>
+            Height of the client area for a full-screen window on the primary
+            display monitor, in pixels. To get the coordinates of the portion
+            of the screen not obscured by the system taskbar or by application
+            desktop toolbars, call the SystemParametersInfo function with the
+            SPI_GETWORKAREA value.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYKANJIWINDOW">
+            <summary>
+            For double byte character set versions of the system, this is the
+            height of the Kanji window at the bottom of the screen, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_MOUSEWHEELPRESENT">
+            <summary>
+            Nonzero if a mouse with a wheel is installed; zero otherwise.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYHSCROLL">
+            <summary>
+            Height of the arrow bitmap on a vertical scroll bar, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXHSCROLL">
+            <summary>
+            Width of the arrow bitmap on a horizontal scroll bar, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_DEBUG">
+            <summary>
+            Nonzero if the debug version of User.exe is installed; zero
+            otherwise.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_SWAPBUTTON">
+            <summary>
+            Nonzero if the left and right mouse buttons are reversed; zero
+            otherwise.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_RESERVED1">
+            <summary>
+            Reserved for future use.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_RESERVED2">
+            <summary>
+            Reserved for future use.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_RESERVED3">
+            <summary>
+            Reserved for future use.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_RESERVED4">
+            <summary>
+            Reserved for future use.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXMIN">
+            <summary>
+            Minimum width of a window, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYMIN">
+            <summary>
+            Minimum height of a window, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXSIZE">
+            <summary>
+            Width of a button in a window's caption or title bar, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYSIZE">
+            <summary>
+            Height of a button in a window's caption or title bar, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXFRAME">
+            <summary>
+            Thickness of the sizing border around the perimeter of a window
+            that can be resized, in pixels. SM_CXSIZEFRAME is the width of the
+            horizontal border, and SM_CYSIZEFRAME is the height of the
+            vertical border.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYFRAME">
+            <summary>
+            Thickness of the sizing border around the perimeter of a window
+            that can be resized, in pixels. SM_CXSIZEFRAME is the width of the
+            horizontal border, and SM_CYSIZEFRAME is the height of the
+            vertical border.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXMINTRACK">
+            <summary>
+            Minimum tracking width of a window, in pixels. The user cannot drag
+            the window frame to a size smaller than these dimensions. A window
+            can override this value by processing the WM_GETMINMAXINFO message.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYMINTRACK">
+            <summary>
+            Minimum tracking height of a window, in pixels. The user cannot
+            drag the window frame to a size smaller than these dimensions. A
+            window can override this value by processing the WM_GETMINMAXINFO
+            message.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXDOUBLECLK">
+            <summary>
+            Width of the rectangle around the location of a first click in a
+            double-click sequence, in pixels. The second click must occur
+            within the rectangle defined by SM_CXDOUBLECLK and SM_CYDOUBLECLK
+            for the system to consider the two clicks a double-click.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYDOUBLECLK">
+            <summary>
+            Height of the rectangle around the location of a first click in a
+            double-click sequence, in pixels. The second click must occur
+            within the rectangle defined by SM_CXDOUBLECLK and SM_CYDOUBLECLK
+            for the system to consider the two clicks a double-click. The two
+            clicks must also occur within a specified time.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXICONSPACING">
+            <summary>
+            Width of a grid cell for items in large icon view, in pixels. Each
+            item fits into a rectangle of size SM_CXICONSPACING by
+            SM_CYICONSPACING when arranged. This value is always greater
+            than or equal to SM_CXICON.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYICONSPACING">
+            <summary>
+            Height of a grid cell for items in large icon view, in pixels.
+            Each item fits into a rectangle of size SM_CXICONSPACING by
+            SM_CYICONSPACING when arranged. This value is always greater than
+            or equal to SM_CYICON.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_MENUDROPALIGNMENT">
+            <summary>
+            Nonzero if drop-down menus are right-aligned with the corresponding
+            menu-bar item; zero if the menus are left-aligned.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_PENWINDOWS">
+            <summary>
+            Nonzero if the Microsoft Windows for Pen computing extensions are
+            installed; zero otherwise.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_DBCSENABLED">
+            <summary>
+            Nonzero if User32.dll supports DBCS; zero otherwise.
+            (WinMe/95/98): Unicode.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CMOUSEBUTTONS">
+            <summary>
+            Number of buttons on mouse, or zero if no mouse is installed.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXFIXEDFRAME">
+            <summary>
+            Identical Values Changed After Windows NT 4.0.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYFIXEDFRAME">
+            <summary>
+            Identical Values Changed After Windows NT 4.0.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXSIZEFRAME">
+            <summary>
+            Identical Values Changed After Windows NT 4.0.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYSIZEFRAME">
+            <summary>
+            Identical Values Changed After Windows NT 4.0.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_SECURE">
+            <summary>
+            Nonzero if security is present; zero otherwise.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXEDGE">
+            <summary>
+            Width of a 3-D border, in pixels. This is the 3-D counterpart
+            of SM_CXBORDER.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYEDGE">
+            <summary>
+            Height of a 3-D border, in pixels. This is the 3-D counterpart
+            of SM_CYBORDER.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXMINSPACING">
+            <summary>
+            Width of a grid cell for a minimized window, in pixels. Each
+            minimized window fits into a rectangle this size when arranged.
+            This value is always greater than or equal to SM_CXMINIMIZED.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYMINSPACING">
+            <summary>
+            Height of a grid cell for a minimized window, in pixels. Each
+            minimized window fits into a rectangle this size when arranged.
+            This value is always greater than or equal to SM_CYMINIMIZED.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXSMICON">
+            <summary>
+            Recommended width of a small icon, in pixels. Small icons typically
+            appear in window captions and in small icon view.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYSMICON">
+            <summary>
+            Recommended height of a small icon, in pixels. Small icons
+            typically appear in window captions and in small icon view.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYSMCAPTION">
+            <summary>
+            Height of a small caption, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXSMSIZE">
+            <summary>
+            Width of small caption buttons, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYSMSIZE">
+            <summary>
+            Height of small caption buttons, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXMENUSIZE">
+            <summary>
+            Width of menu bar buttons, such as the child window close button
+            used in the multiple document interface, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYMENUSIZE">
+            <summary>
+            Height of menu bar buttons, such as the child window close button
+            used in the multiple document interface, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_ARRANGE">
+            <summary>
+            Flags specifying how the system arranged minimized windows.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXMINIMIZED">
+            <summary>
+            Width of a minimized window, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYMINIMIZED">
+            <summary>
+            Height of a minimized window, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXMAXTRACK">
+            <summary>
+            Default maximum width of a window that has a caption and sizing
+            borders, in pixels. This metric refers to the entire desktop. The
+            user cannot drag the window frame to a size larger than these
+            dimensions. A window can override this value by processing the
+            WM_GETMINMAXINFO message.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYMAXTRACK">
+            <summary>
+            Default maximum height of a window that has a caption and sizing
+            borders, in pixels. This metric refers to the entire desktop. The
+            user cannot drag the window frame to a size larger than these
+            dimensions. A window can override this value by processing the
+            WM_GETMINMAXINFO message.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXMAXIMIZED">
+            <summary>
+            Default width, in pixels, of a maximized top-level window on the
+            primary display monitor.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYMAXIMIZED">
+            <summary>
+            Default height, in pixels, of a maximized top-level window on the
+            primary display monitor.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_NETWORK">
+            <summary>
+            Least significant bit is set if a network is present; otherwise,
+            it is cleared. The other bits are reserved for future use.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CLEANBOOT">
+            <summary>
+            Value that specifies how the system was started: 0-normal,
+            1-failsafe, 2-failsafe /w net.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXDRAG">
+            <summary>
+            Width of a rectangle centered on a drag point to allow for limited
+            movement of the mouse pointer before a drag operation begins,
+            in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYDRAG">
+            <summary>
+            Height of a rectangle centered on a drag point to allow for limited
+            movement of the mouse pointer before a drag operation begins. This
+            value is in pixels. It allows the user to click and release the
+            mouse button easily without unintentionally starting a drag
+            operation.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_SHOWSOUNDS">
+            <summary>
+            Nonzero if the user requires an application to present information
+            visually in situations where it would otherwise present the
+            information only in audible form; zero otherwise.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXMENUCHECK">
+            <summary>
+            Width of the default menu check-mark bitmap, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYMENUCHECK">
+            <summary>
+            Height of the default menu check-mark bitmap, in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_SLOWMACHINE">
+            <summary>
+            Nonzero if the computer has a low-end (slow) processor;
+            zero otherwise.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_MIDEASTENABLED">
+            <summary>
+            Nonzero if the system is enabled for Hebrew and Arabic languages,
+            zero if not.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_MOUSEPRESENT">
+            <summary>
+            Nonzero if a mouse is installed; zero otherwise. This value is
+            rarely zero, because of support for virtual mice and because some
+            systems detect the presence of the port instead of the presence of
+            a mouse.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_XVIRTUALSCREEN">
+            <summary>
+            Windows 2000 (v5.0+) Coordinate of the top of the virtual screen.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_YVIRTUALSCREEN">
+            <summary>
+            Windows 2000 (v5.0+) Coordinate of the left of the virtual screen.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXVIRTUALSCREEN">
+            <summary>
+            Windows 2000 (v5.0+) Width of the virtual screen.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYVIRTUALSCREEN">
+            <summary>
+            Windows 2000 (v5.0+) Height of the virtual screen.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CMONITORS">
+            <summary>
+            Number of display monitors on the desktop.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_SAMEDISPLAYFORMAT">
+            <summary>
+            Windows XP (v5.1+) Nonzero if all the display monitors have the
+            same color format, zero otherwise. Note that two displays can have
+            the same bit depth, but different color formats. For example, the
+            red, green, and blue pixels can be encoded with different numbers
+            of bits, or those bits can be located in different places in a
+            pixel's color value.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_IMMENABLED">
+            <summary>
+            Windows XP (v5.1+) Nonzero if Input Method Manager/Input Method
+            Editor features are enabled; zero otherwise.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CXFOCUSBORDER">
+            <summary>
+            Windows XP (v5.1+) Width of the left and right edges of the focus
+            rectangle drawn by DrawFocusRect. This value is in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CYFOCUSBORDER">
+            <summary>
+            Windows XP (v5.1+) Height of the top and bottom edges of the focus
+            rectangle drawn by DrawFocusRect. This value is in pixels.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_TABLETPC">
+            <summary>
+            Nonzero if the current operating system is the Windows XP Tablet PC
+            edition, zero if not.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_MEDIACENTER">
+            <summary>
+            Nonzero if the current operating system is the Windows XP, Media
+            Center Edition, zero if not.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CMETRICS_OTHER">
+            <summary>
+            Metrics Other.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CMETRICS_2000">
+            <summary>
+            Metrics Windows 2000.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_CMETRICS_NT">
+            <summary>
+            Metrics Windows NT.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_REMOTESESSION">
+            <summary>
+            Windows XP (v5.1+) This system metric is used in a Terminal
+            Services environment. If the calling process is associated with a
+            Terminal Services client session, the return value is nonzero. If
+            the calling process is associated with the Terminal Server console
+            session, the return value is zero. The console session is not
+            necessarily the physical console - see WTSGetActiveConsoleSessionId
+            for more information.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_SHUTTINGDOWN">
+            <summary>
+            Windows XP (v5.1+) Nonzero if the current session is shutting down;
+            zero otherwise.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.Interop.SystemMetric.SM_REMOTECONTROL">
+            <summary>
+            Windows XP (v5.1+) This system metric is used in a Terminal
+            Services environment. Its value is nonzero if the current session
+            is remotely controlled; zero otherwise.
+            </summary>
+        </member>
+        <member name="T:Cadru.Net.NetworkInformation.NetworkStatus">
+            <summary>
+            Allows applications to receive notification when the network availability changes.
+            </summary>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.NetworkStatus.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.NetworkInformation.NetworkStatus"/> class.
+            </summary>
+        </member>
+        <member name="E:Cadru.Net.NetworkInformation.NetworkStatus.NetworkStatusChanged">
+            <summary>
+            Represents the method that will handle the <see cref="E:Cadru.Net.NetworkInformation.NetworkStatus.NetworkStatusChanged"/> event.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.NetworkStatus.ConnectionStatus">
+            <summary>
+            Gets the current network connection status.
+            </summary>
+            <value>The current network connection status.</value>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.NetworkStatus.Dispose">
+            <summary>
+            Releases all resources used by the <see cref="T:Cadru.Net.NetworkInformation.NetworkStatus"/>.
+            </summary>
+        </member>
+        <member name="T:Cadru.Net.NetworkInformation.NetworkStatusChangedEventArgs">
+            <summary>
+            Provides event data for the <see cref="E:Cadru.Net.NetworkInformation.NetworkStatus.NetworkStatusChanged"/> event.
+            </summary>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.NetworkStatusChangedEventArgs.#ctor(Cadru.Net.NetworkInformation.ConnectionStatus)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Net.NetworkInformation.NetworkStatusChangedEventArgs"/> class.
+            </summary>
+            <param name="status">The event data representing the current connection status.</param>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.NetworkStatusChangedEventArgs.ConnectionStatus">
+            <summary>
+            Gets the current network connection status.
+            </summary>
+            <value>The current network connection status.</value>
+        </member>
+        <member name="T:Cadru.Net.NetworkInformation.PlatformId">
+            <summary>
+            Specifies the information level to use for platform-specific information.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.PlatformId.Unknown">
+            <summary>
+            Retrieve platform-specific information for an unknown system.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.PlatformId.DOS">
+            <summary>
+            Retrieve platform-specific information for a DOS system.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.PlatformId.OS2">
+            <summary>
+            Retrieve platform-specific information for an OS2 system.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.PlatformId.WindowsNT">
+            <summary>
+            Retrieve platform-specific information for a Windows system.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.PlatformId.OSF">
+            <summary>
+            Retrieve platform-specific information for an OSF system.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.PlatformId.VMS">
+            <summary>
+            Retrieve platform-specific information for a VMS system.
+            </summary>
+        </member>
+        <member name="T:Cadru.Net.NetworkInformation.Resources.Strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.Format_Dns_Bad_Ip_Address">
+            <summary>
+              Looks up a localized string similar to An invalid IP address was specified..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.InvalidOperation_QueryStringParameterDictionaryParsing">
+            <summary>
+              Looks up a localized string similar to The query string is not in a correct format..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_cancelled">
+            <summary>
+              Looks up a localized string similar to The operation was cancelled..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_argument_empty_string">
+            <summary>
+              Looks up a localized string similar to The value cannot be null or empty..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_chunked_not_allowed_with_content_length">
+            <summary>
+              Looks up a localized string similar to Both &apos;Content-Length&apos; and &apos;Transfer-Encoding: chunked&apos; headers can not be specified at the same time..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_chunked_not_allowed_with_empty_content">
+            <summary>
+              Looks up a localized string similar to &apos;Transfer-Encoding: chunked&apos; header can not be used when content object is not specified..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_client_absolute_baseaddress_required">
+            <summary>
+              Looks up a localized string similar to The base address must be an absolute URI..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_client_execution_error">
+            <summary>
+              Looks up a localized string similar to An error occurred while sending the request..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_client_http_baseaddress_required">
+            <summary>
+              Looks up a localized string similar to Only &apos;http&apos; and &apos;https&apos; schemes are allowed..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_client_invalid_requesturi">
+            <summary>
+              Looks up a localized string similar to An invalid request URI was provided. The request URI must either be an absolute URI or BaseAddress must be set..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_client_request_already_sent">
+            <summary>
+              Looks up a localized string similar to The request message was already sent. Cannot send the same request message multiple times..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_client_send_canceled">
+            <summary>
+              Looks up a localized string similar to Request for {0} was canceled..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_client_send_error">
+            <summary>
+              Looks up a localized string similar to An error occurred while sending {0}. {1}.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_content_buffersize_exceeded">
+            <summary>
+              Looks up a localized string similar to Cannot write more bytes to the buffer than the configured maximum buffer size: {0}..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_content_buffersize_limit">
+            <summary>
+              Looks up a localized string similar to Buffering more than {0} bytes is not supported..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_content_field_too_long">
+            <summary>
+              Looks up a localized string similar to The field cannot be longer than {0} characters..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_content_invalid_charset">
+            <summary>
+              Looks up a localized string similar to The character set provided in ContentType is invalid. Cannot read content as string using an invalid character set..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_content_no_task_returned">
+            <summary>
+              Looks up a localized string similar to The async operation did not return a System.Threading.Tasks.Task object..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_content_readonly_stream">
+            <summary>
+              Looks up a localized string similar to The stream does not support writing..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_content_stream_already_read">
+            <summary>
+              Looks up a localized string similar to The stream was already consumed. It cannot be read again..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_content_stream_copy_error">
+            <summary>
+              Looks up a localized string similar to Error while copying content to a stream..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_copyto_array_too_small">
+            <summary>
+              Looks up a localized string similar to The number of elements is greater than the available space from arrayIndex to the end of the destination array..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_handler_norequest">
+            <summary>
+              Looks up a localized string similar to A request message must be provided. It cannot be null..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_handler_noresponse">
+            <summary>
+              Looks up a localized string similar to Handler did not return a response message..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_handler_not_assigned">
+            <summary>
+              Looks up a localized string similar to The inner handler has not been assigned..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_headers_invalid_etag_name">
+            <summary>
+              Looks up a localized string similar to The specified value is not a valid quoted string..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_headers_invalid_from_header">
+            <summary>
+              Looks up a localized string similar to The specified value is not a valid &apos;From&apos; header string..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_headers_invalid_header_name">
+            <summary>
+              Looks up a localized string similar to The header name format is invalid..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_headers_invalid_host_header">
+            <summary>
+              Looks up a localized string similar to The specified value is not a valid &apos;Host&apos; header string..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_headers_invalid_range">
+            <summary>
+              Looks up a localized string similar to Invalid range. At least one of the two parameters must not be null..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_headers_invalid_value">
+            <summary>
+              Looks up a localized string similar to The format of value &apos;{0}&apos; is invalid..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_headers_no_newlines">
+            <summary>
+              Looks up a localized string similar to New-line characters in header values must be followed by a white-space character..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_headers_not_allowed_header_name">
+            <summary>
+              Looks up a localized string similar to Misused header name. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_headers_not_found">
+            <summary>
+              Looks up a localized string similar to The given header was not found..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_headers_single_value_header">
+            <summary>
+              Looks up a localized string similar to Cannot add value because header &apos;{0}&apos; does not support multiple values..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_httpmethod_format_error">
+            <summary>
+              Looks up a localized string similar to The format of the HTTP method is invalid..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_invalid_cookiecontainer">
+            <summary>
+              Looks up a localized string similar to When using CookieUsePolicy.UseSpecifiedCookieContainer, the CookieContainer property must not be null..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_invalid_enable_first">
+            <summary>
+              Looks up a localized string similar to The {0} property must be set to &apos;{1}&apos; to use this property..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_invalid_proxy">
+            <summary>
+              Looks up a localized string similar to When using WindowsProxyUsePolicy.UseCustomProxy, the Proxy property must not be null..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_invalid_proxyusepolicy">
+            <summary>
+              Looks up a localized string similar to When using a non-null Proxy, the WindowsProxyUsePolicy property must be set to WindowsProxyUsePolicy.UseCustomProxy..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_io_read">
+            <summary>
+              Looks up a localized string similar to The read operation failed, see inner exception..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_io_write">
+            <summary>
+              Looks up a localized string similar to The write operation failed, see inner exception..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_log_content_no_task_returned_copytoasync">
+            <summary>
+              Looks up a localized string similar to Type &apos;{0}.CopyToAsync()&apos; did not return a System.Threading.Tasks.Task object..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_log_headers_invalid_quality">
+            <summary>
+              Looks up a localized string similar to The &apos;q&apos; value is invalid: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_log_headers_no_newlines">
+            <summary>
+              Looks up a localized string similar to Value for header &apos;{0}&apos; contains invalid new-line characters. Value: &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_log_headers_wrong_email_format">
+            <summary>
+              Looks up a localized string similar to Value &apos;{0}&apos; is not a valid email address. Error: {1}.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_message_not_success_statuscode">
+            <summary>
+              Looks up a localized string similar to Response status code does not indicate success: {0} ({1})..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_operation_started">
+            <summary>
+              Looks up a localized string similar to This instance has already started one or more requests. Properties can only be modified before sending the first request..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_parser_invalid_base64_string">
+            <summary>
+              Looks up a localized string similar to Value &apos;{0}&apos; is not a valid Base64 string. Error: {1}.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_reasonphrase_format_error">
+            <summary>
+              Looks up a localized string similar to The reason phrase must not contain new-line characters..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_value_must_be_greater_than">
+            <summary>
+              Looks up a localized string similar to The specified value must be greater than {0}..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_http_value_not_supported">
+            <summary>
+              Looks up a localized string similar to The value &apos;{0}&apos; is not supported for property &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.Resources.Strings.net_timeout">
+            <summary>
+              Looks up a localized string similar to The operation has timed out..
+            </summary>
+        </member>
+        <member name="T:Cadru.Net.NetworkInformation.ServerInfo">
+            <summary>
+            The Server structure contains information about the specified server,
+            including name, platform, type of server, and associated software.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.ServerInfo.PlatformId">
+            <summary>
+            Gets the information level used for platform-specific information.
+            </summary>
+            <value>One of the <see cref="P:Cadru.Net.NetworkInformation.ServerInfo.PlatformId"/> values.</value>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.ServerInfo.Name">
+            <summary>
+            Gets the name of the computer.
+            </summary>
+            <value>A <see cref="T:System.String"/> that represents the name of the
+            computer.</value>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.ServerInfo.Comment">
+            <summary>
+            Gets the Server comment.
+            </summary>
+            <value>A <see cref="T:System.String"/> that represents the comment
+            associated with the server or an empty string if there is no
+            comment.</value>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.ServerInfo.MajorVersion">
+            <summary>
+            Gets the operating system major version number.
+            </summary>
+            <value>An <see cref="T:System.Int32"></see> value representing the major
+            version number of the operating system.</value>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.ServerInfo.MinorVersion">
+            <summary>
+            Gets the operating system minor version number.
+            </summary>
+            <value>An <see cref="T:System.Int32"></see> value representing the minor
+            version number of the operating system.</value>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.ServerInfo.Version">
+            <summary>
+            Gets the operating system version number.
+            </summary>
+            <value>A <see cref="P:Cadru.Net.NetworkInformation.ServerInfo.Version"/> representing the operating system
+            version.</value>
+        </member>
+        <member name="P:Cadru.Net.NetworkInformation.ServerInfo.ServerType">
+            <summary>
+            Gets the type of software the computer is running.
+            </summary>
+            <value>A <see cref="T:Cadru.Net.NetworkInformation.ServerTypes"/> value that represents the
+            operating system running on the computer.</value>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.ServerInfo.op_Equality(Cadru.Net.NetworkInformation.ServerInfo,Cadru.Net.NetworkInformation.ServerInfo)">
+            <summary>
+            Determines whether two specified instances of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> are equal.
+            </summary>
+            <param name="left">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>.</param>
+            <param name="right">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>.</param>
+            <returns><see langword="true"/> if s1 and s2 represent the same server; otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.ServerInfo.op_Inequality(Cadru.Net.NetworkInformation.ServerInfo,Cadru.Net.NetworkInformation.ServerInfo)">
+            <summary>
+            Determines whether two specified instances of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> are not equal.
+            </summary>
+            <param name="left">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>.</param>
+            <param name="right">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>.</param>
+            <returns><see langword="true"/> if s1 and s2 do note represent the same server;
+            otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.ServerInfo.Equals(Cadru.Net.NetworkInformation.ServerInfo,Cadru.Net.NetworkInformation.ServerInfo)">
+            <summary>
+            Returns a value indicating whether two instances of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> are equal.
+            </summary>
+            <param name="left">The first <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>. </param>
+            <param name="right">The second <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>.</param>
+            <returns><see langword="true"/> if the two <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> values are equal; otherwise, <see langword="false"/>. </returns>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.ServerInfo.Equals(System.Object)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified object.
+            </summary>
+            <param name="obj">An object to compare to this instance.</param>
+            <returns><see langword="true"/> if value is an instance of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>
+            equals the value of this instance; otherwise, <see langword="false"/>. </returns>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.ServerInfo.Equals(Cadru.Net.NetworkInformation.ServerInfo)">
+            <summary>
+            Returns a value indicating whether this instance is equal to the specified <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instance.
+            </summary>
+            <param name="other">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instance to compare to this instance.</param>
+            <returns><see langword="true"/> if the other parameter equals the value of this instance; otherwise, <see langword="false"/>. </returns>
+            <remarks>This method implements the <see cref="T:System.IEquatable`1"/> interface and performs slightly
+            better than the <see cref="M:Cadru.Net.NetworkInformation.ServerInfo.Equals(System.Object)"/> method because it does not have to convert
+            the other parameter to an object.</remarks>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.ServerInfo.GetHashCode">
+            <summary>
+            Returns the hash code for this instance.
+            </summary>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.ServerInfo.ToString">
+            <summary>
+            Converts the value of this instance to its equivalent string representation.
+            </summary>
+            <returns>The string representation of this instance.</returns>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.ServerInfo.ToString(System.IFormatProvider)">
+            <summary>
+            Converts the value of the current Server object to its equivalent string representation using the specified culture-specific format information.
+            </summary>
+            <param name="provider">An object that supplies culture-specific formatting information. </param>
+            <returns>The string representation of this instance as specified by <paramref name="provider"/>.</returns>
+        </member>
+        <member name="T:Cadru.Net.NetworkInformation.ServerTypes">
+            <summary>
+            Specifies the type of software the computer is running.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.Unknown">
+            <summary>
+            Unknown server type.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.Workstation">
+            <summary>
+            All workstations.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.Server">
+            <summary>
+            All computers that have the server service running.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.SqlServer">
+            <summary>
+            Any server running Microsoft SQL Server.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.DomainController">
+            <summary>
+            Primary domain controller.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.BackupDomainController">
+            <summary>
+            Backup domain controller.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.TimeSource">
+            <summary>
+            Server running the Timesource service.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.AppleFileProtocol">
+            <summary>
+            Apple File Protocol servers.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.Novell">
+            <summary>
+            Novell servers.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.DomainMember">
+            <summary>
+            LAN Manager 2.x domain member.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.PrintQueue">
+            <summary>
+            Server sharing print queue.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.DialIn">
+            <summary>
+            Server running dial-in service.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.Xenix">
+            <summary>
+            Xenix server.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.Unix">
+            <summary>
+            Unix server.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.WindowsNT">
+            <summary>
+            Windows NT workstation or server.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.WindowsForWorkgroups">
+            <summary>
+            Server running Windows for Workgroups.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.MicrosoftFilePrintForNetware">
+            <summary>
+            Microsoft File and Print for NetWare.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.WindowsNTServer">
+            <summary>
+            Server that is not a domain controller.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.PotentialBrowser">
+            <summary>
+            Server that can run the browser service.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.BackupBrowser">
+            <summary>
+            Server running a browser service as backup.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.MasterBrowser">
+            <summary>
+            Server running the master browser service.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.DomainMaster">
+            <summary>
+            Server running the domain master browser.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.OSF">
+            <summary>
+            OSF server.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.VMS">
+            <summary>
+            VAX VMS server.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.Windows">
+            <summary>
+            Windows 95 or later.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.DFS">
+            <summary>
+            Root of a DFS tree.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.Cluster">
+            <summary>
+            Server clusters available in the domain.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.TerminalServer">
+            <summary>
+            Terminal Server.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.VirtualCluster">
+            <summary>
+            Cluster virtual servers available in the domain
+            (Not supported for Windows 2000/NT).
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.DSS">
+            <summary>
+            IBM DSS (Directory and Security Services) or equivalent.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.AlternateTransport">
+            <summary>
+            Return list for alternate transport.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.LocalListOnly">
+            <summary>
+            Return local list only.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.AllDomains">
+            <summary>
+            Lists available domains.
+            </summary>
+        </member>
+        <member name="F:Cadru.Net.NetworkInformation.ServerTypes.All">
+            <summary>
+            All server types.
+            </summary>
+        </member>
+        <member name="T:Cadru.Networking.ExtendedNetworkInformation">
+            <summary>
+            Provides information about a computer or computers on a domain.
+            </summary>
+        </member>
+        <member name="M:Cadru.Networking.ExtendedNetworkInformation.GetDomains">
+            <summary>
+            Gets an array of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instances for all
+            available domains.
+            </summary>
+            <returns>An array of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instances for all
+            available domains.</returns>
+        </member>
+        <member name="M:Cadru.Networking.ExtendedNetworkInformation.GetHostNameAsync">
+            <summary>
+            Gets the fully qualified hostname of the local computer.
+            </summary>
+            <returns>A <see cref="T:System.String"/> representing the fully qualified hostname of the local computer.</returns>
+        </member>
+        <member name="M:Cadru.Networking.ExtendedNetworkInformation.GetServerInfo">
+            <summary>
+            Gets a <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instance representing the local computer.
+            </summary>
+            <returns>A <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instance representing the local computer.</returns>
+        </member>
+        <member name="M:Cadru.Networking.ExtendedNetworkInformation.GetServerInfo(System.String)">
+            <summary>
+            Gets a <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instance representing the named computer.
+            </summary>
+            <param name="serverName">The name of the computer.</param>
+            <returns>A <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instance representing the named computer.</returns>
+        </member>
+        <member name="M:Cadru.Networking.ExtendedNetworkInformation.GetServerList(Cadru.Net.NetworkInformation.ServerTypes,System.String)">
+            <summary>
+            Gets an array of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instances of the
+            specified server type for the given domain.
+            </summary>
+            <param name="serverType">A bitwise combination of enumeration values
+            that defines what server types to search. </param>
+            <param name="domain">The name of the domain to search, or <see langword="null"/>
+            to search the primary domain.</param>
+            <returns>An array of <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instances of the
+            specified server type for the given domain.</returns>
+        </member>
+        <member name="M:Cadru.Networking.ExtendedNetworkInformation.GetIPAddressesAsync">
+            <summary>
+            Gets the IP addresses of the local computer.
+            </summary>
+            <returns>An <see cref="T:System.Net.IPAddress"/> array containing the IP addresses of the local computer.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,4 +1,26 @@
-﻿using System;
+﻿//------------------------------------------------------------------------------
+// <copyright file="EmailParser.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
+using System;
 using System.IO;
 using System.Net.Mail;
 using System.Net.Mime;
@@ -27,7 +49,7 @@ namespace Cadru.Postal
 
         private MailAddress GetValidEmailAddressOrDefault(string value)
         {
-            MailAddress mailAddress = null;
+            MailAddress mailAddress;
             try
             {
                 mailAddress = new MailAddress(value);
@@ -49,7 +71,7 @@ namespace Cadru.Postal
             string body;
             using (var reader = new StringReader(output))
             {
-                contentType = await ParseHeadersForContentType(reader);
+                contentType = await this.ParseHeadersForContentType(reader);
                 body = reader.ReadToEnd();
             }
 
@@ -69,7 +91,7 @@ namespace Cadru.Postal
                 }
             }
 
-            var stream = CreateStreamOfBody(body);
+            var stream = this.CreateStreamOfBody(body);
             var alternativeView = new AlternateView(stream, contentType);
             if (alternativeView.ContentType.CharSet == null)
             {
@@ -133,7 +155,7 @@ namespace Cadru.Postal
                     message.To.Add(value);
                     break;
                 case "from":
-                    message.From = GetValidEmailAddressOrDefault(value);
+                    message.From = this.GetValidEmailAddressOrDefault(value);
                     break;
                 case "subject":
                     message.Subject = value;
@@ -148,7 +170,7 @@ namespace Cadru.Postal
                     message.ReplyToList.Add(value);
                     break;
                 case "sender":
-                    message.Sender = GetValidEmailAddressOrDefault(value);
+                    message.Sender = this.GetValidEmailAddressOrDefault(value);
                     break;
                 case "priority":
                     MailPriority priority;
@@ -186,38 +208,38 @@ namespace Cadru.Postal
         {
             if (message.To.Count == 0)
             {
-                AssignCommonHeader<string>(email, "to", to => message.To.Add(to));
-                AssignCommonHeader<MailAddress>(email, "to", to => message.To.Add(to));
+                this.AssignCommonHeader<string>(email, "to", to => message.To.Add(to));
+                this.AssignCommonHeader<MailAddress>(email, "to", to => message.To.Add(to));
             }
 
             if (message.From == null)
             {
-                AssignCommonHeader<string>(email, "from", from => message.From = GetValidEmailAddressOrDefault(from));
-                AssignCommonHeader<MailAddress>(email, "from", from => message.From = from);
+                this.AssignCommonHeader<string>(email, "from", from => message.From = this.GetValidEmailAddressOrDefault(from));
+                this.AssignCommonHeader<MailAddress>(email, "from", from => message.From = from);
             }
             if (message.CC.Count == 0)
             {
-                AssignCommonHeader<string>(email, "cc", cc => message.CC.Add(cc));
-                AssignCommonHeader<MailAddress>(email, "cc", cc => message.CC.Add(cc));
+                this.AssignCommonHeader<string>(email, "cc", cc => message.CC.Add(cc));
+                this.AssignCommonHeader<MailAddress>(email, "cc", cc => message.CC.Add(cc));
             }
             if (message.Bcc.Count == 0)
             {
-                AssignCommonHeader<string>(email, "bcc", bcc => message.Bcc.Add(bcc));
-                AssignCommonHeader<MailAddress>(email, "bcc", bcc => message.Bcc.Add(bcc));
+                this.AssignCommonHeader<string>(email, "bcc", bcc => message.Bcc.Add(bcc));
+                this.AssignCommonHeader<MailAddress>(email, "bcc", bcc => message.Bcc.Add(bcc));
             }
             if (message.ReplyToList.Count == 0)
             {
-                AssignCommonHeader<string>(email, "replyto", replyTo => message.ReplyToList.Add(replyTo));
-                AssignCommonHeader<MailAddress>(email, "replyto", replyTo => message.ReplyToList.Add(replyTo));
+                this.AssignCommonHeader<string>(email, "replyto", replyTo => message.ReplyToList.Add(replyTo));
+                this.AssignCommonHeader<MailAddress>(email, "replyto", replyTo => message.ReplyToList.Add(replyTo));
             }
             if (message.Sender == null)
             {
-                AssignCommonHeader<string>(email, "sender", sender => message.Sender = GetValidEmailAddressOrDefault(sender));
-                AssignCommonHeader<MailAddress>(email, "sender", sender => message.Sender = sender);
+                this.AssignCommonHeader<string>(email, "sender", sender => message.Sender = this.GetValidEmailAddressOrDefault(sender));
+                this.AssignCommonHeader<MailAddress>(email, "sender", sender => message.Sender = sender);
             }
             if (String.IsNullOrEmpty(message.Subject))
             {
-                AssignCommonHeader<string>(email, "subject", subject => message.Subject = subject);
+                this.AssignCommonHeader<string>(email, "subject", subject => message.Subject = subject);
             }
         }
 
@@ -232,18 +254,18 @@ namespace Cadru.Postal
 
         private async Task ProcessHeaderAsync(string key, string value, MailMessage message, IEmail email)
         {
-            if (IsAlternativeViewsHeader(key))
+            if (this.IsAlternativeViewsHeader(key))
             {
                 var viewNames = value.Split(new[] { ',', ' ', ';' }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (var viewName in viewNames)
                 {
-                    var view = await CreateAlternativeViewAsync(email, viewName);
+                    var view = await this.CreateAlternativeViewAsync(email, viewName);
                     message.AlternateViews.Add(view);
                 }
             }
             else
             {
-                AssignEmailHeaderToMailMessage(key, value, message);
+                this.AssignEmailHeaderToMailMessage(key, value, message);
             }
         }
 
@@ -258,8 +280,8 @@ namespace Cadru.Postal
             var message = new MailMessage();
             using (var reader = new StringReader(template))
             {
-                await ParserUtils.ParseHeadersAsync(reader, async (key, value) => await ProcessHeaderAsync(key, value, message, email));
-                AssignCommonHeaders(message, email);
+                await ParserUtils.ParseHeadersAsync(reader, async (key, value) => await this.ProcessHeaderAsync(key, value, message, email));
+                this.AssignCommonHeaders(message, email);
                 if (message.AlternateViews.Count == 0)
                 {
                     var messageBody = (await reader.ReadToEndAsync()).Trim();
@@ -278,7 +300,7 @@ namespace Cadru.Postal
                     }
                 }
 
-                AddAttachments(message, email);
+                this.AddAttachments(message, email);
             }
 
             return message;

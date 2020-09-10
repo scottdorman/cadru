@@ -1,4 +1,26 @@
-﻿using System;
+﻿//------------------------------------------------------------------------------
+// <copyright file="Column.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
+using System;
 using System.Globalization;
 
 namespace Cadru.Data.Csv
@@ -12,15 +34,15 @@ namespace Cadru.Data.Csv
         private string typeName;
 
         /// <summary>
-        /// Creates a new instance of the <see cref="Column" /> class.
+        /// Initializes a new instance of the <see cref="Column" /> class.
         /// </summary>
         public Column()
         {
-            Type = typeof(string);
-            Culture = CultureInfo.CurrentCulture;
-            NumberStyles = NumberStyles.Any;
-            DateTimeStyles = DateTimeStyles.None;
-            DateParseExact = null;
+            this.Type = typeof(string);
+            this.Culture = CultureInfo.CurrentCulture;
+            this.NumberStyles = NumberStyles.Any;
+            this.DateTimeStyles = DateTimeStyles.None;
+            this.DateParseExact = null;
         }
 
         /// <summary>
@@ -33,11 +55,11 @@ namespace Cadru.Data.Csv
         /// </summary>
         public Type Type
         {
-            get { return type; }
+            get { return this.type; }
             set
             {
-                type = value;
-                typeName = value.Name;
+                this.type = value;
+                this.typeName = value.Name;
             }
         }
 
@@ -66,7 +88,7 @@ namespace Cadru.Data.Csv
         /// <returns>Converted value.</returns>
         public object Convert(string value)
         {
-            TryConvert(value, out var x);
+            this.TryConvert(value, out var x);
 
             return x;
         }
@@ -81,7 +103,7 @@ namespace Cadru.Data.Csv
         {
             bool converted;
 
-            switch (typeName)
+            switch (this.typeName)
             {
                 case "Guid":
                     try
@@ -114,7 +136,7 @@ namespace Cadru.Data.Csv
                 case "Boolean":
                     {
                         int x;
-                        converted = Int32.TryParse(value, NumberStyles, Culture, out x);
+                        converted = Int32.TryParse(value, this.NumberStyles, this.Culture, out x);
                         if (converted)
                         {
                             result = x != 0;
@@ -131,7 +153,7 @@ namespace Cadru.Data.Csv
                 case "Int32":
                     {
                         int x;
-                        converted = Int32.TryParse(value, NumberStyles, Culture, out x);
+                        converted = Int32.TryParse(value, this.NumberStyles, this.Culture, out x);
                         result = x;
                     }
                     break;
@@ -139,7 +161,7 @@ namespace Cadru.Data.Csv
                 case "Int64":
                     {
                         long x;
-                        converted = Int64.TryParse(value, NumberStyles, Culture, out x);
+                        converted = Int64.TryParse(value, this.NumberStyles, this.Culture, out x);
                         result = x;
                     }
                     break;
@@ -147,7 +169,7 @@ namespace Cadru.Data.Csv
                 case "Single":
                     {
                         float x;
-                        converted = Single.TryParse(value, NumberStyles, Culture, out x);
+                        converted = Single.TryParse(value, this.NumberStyles, this.Culture, out x);
                         result = x;
                     }
                     break;
@@ -155,7 +177,7 @@ namespace Cadru.Data.Csv
                 case "Double":
                     {
                         double x;
-                        converted = Double.TryParse(value, NumberStyles, Culture, out x);
+                        converted = Double.TryParse(value, this.NumberStyles, this.Culture, out x);
                         result = x;
                     }
                     break;
@@ -163,7 +185,7 @@ namespace Cadru.Data.Csv
                 case "Decimal":
                     {
                         decimal x;
-                        converted = Decimal.TryParse(value, NumberStyles, Culture, out x);
+                        converted = Decimal.TryParse(value, this.NumberStyles, this.Culture, out x);
                         result = x;
                     }
                     break;
@@ -171,13 +193,13 @@ namespace Cadru.Data.Csv
                 case "DateTime":
                     {
                         DateTime x;
-                        if (!String.IsNullOrEmpty(DateParseExact))
+                        if (!String.IsNullOrEmpty(this.DateParseExact))
                         {
-                            converted = DateTime.TryParseExact(value, DateParseExact, Culture, DateTimeStyles, out x);
+                            converted = DateTime.TryParseExact(value, this.DateParseExact, this.Culture, this.DateTimeStyles, out x);
                         }
                         else
                         {
-                            converted = DateTime.TryParse(value, Culture, DateTimeStyles, out x);
+                            converted = DateTime.TryParse(value, this.Culture, this.DateTimeStyles, out x);
                         }
                         result = x;
                     }

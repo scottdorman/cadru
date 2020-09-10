@@ -1,8 +1,8 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="ExcelDataReader.cs"
+// <copyright file="ExcelDataReader.IDataReader.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -36,7 +36,7 @@ namespace Cadru.Data.Excel
 
         public int RecordsAffected => -1;
 
-        public void Close() => Dispose();
+        public void Close() => this.Dispose();
 
         public void Dispose()
         {
@@ -60,7 +60,7 @@ namespace Cadru.Data.Excel
                 return false;
             }
 
-            Reset();
+            this.Reset();
             this.currentIndex++;
             return true;
         }
@@ -69,18 +69,18 @@ namespace Cadru.Data.Excel
         {
             if (this.firstRead)
             {
-                this.currentSheet = GetSheetByIndex(this.currentIndex);
+                this.currentSheet = this.GetSheetByIndex(this.currentIndex);
                 var currentWorksheetPart = this.document.WorkbookPart.GetPartById(this.CurrentSheetId);
                 this.reader = OpenXmlReader.Create(currentWorksheetPart);
-                SkipRows(GetEmptyRowsCount(currentWorksheetPart));
-                this.headers = this.FirstRowAsHeader ? GetFirstRowAsHeaders(currentWorksheetPart) : GetRangeHeaders(currentWorksheetPart);
+                this.SkipRows(this.GetEmptyRowsCount(currentWorksheetPart));
+                this.headers = this.FirstRowAsHeader ? this.GetFirstRowAsHeaders(currentWorksheetPart) : GetRangeHeaders(currentWorksheetPart);
                 this.firstRead = false;
             }
         }
 
         public bool Read()
         {
-            FirstRead();
+            this.FirstRead();
 
             OpenXmlElement currentRow = null;
 
@@ -94,7 +94,7 @@ namespace Cadru.Data.Excel
                         this.currentRowIndex = rowIndex;
                     }
 
-                    if (IsRowEmpty(currentRow))
+                    if (this.IsRowEmpty(currentRow))
                     {
                         continue;
                     }
@@ -120,10 +120,9 @@ namespace Cadru.Data.Excel
         private static IEnumerable<Cell> AdjustRow(OpenXmlElement row, int capacity)
         {
             var currentCount = 0;
-            var currentColumnIndex = 0;
             foreach (var cell in row.Descendants<Cell>())
             {
-                currentColumnIndex = GetColumnIndexByName(cell.CellReference);
+                var currentColumnIndex = GetColumnIndexByName(cell.CellReference);
 
                 for (; currentCount < currentColumnIndex; currentCount++)
                 {
@@ -171,7 +170,7 @@ namespace Cadru.Data.Excel
                     if (reader.ElementType == typeof(Row))
                     {
                         var row = reader.LoadCurrentElement();
-                        if (!IsRowEmpty(row))
+                        if (!this.IsRowEmpty(row))
                         {
                             break;
                         }
@@ -199,7 +198,7 @@ namespace Cadru.Data.Excel
                 }
             }
 
-            SkipRow();
+            this.SkipRow();
             return result;
         }
 
@@ -296,7 +295,7 @@ namespace Cadru.Data.Excel
         {
             for (var i = 0; i < count; i++)
             {
-                SkipRow();
+                this.SkipRow();
             }
         }
     }

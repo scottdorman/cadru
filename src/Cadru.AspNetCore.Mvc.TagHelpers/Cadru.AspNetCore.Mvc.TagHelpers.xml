@@ -22,10 +22,11 @@
             Creates a new <see cref="T:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper"/>.
             </summary>
             <param name="generator">The <see cref="T:Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator"/>.</param>
+            <param name="htmlEncoder">The HTML character encoding.</param>
         </member>
         <member name="P:Cadru.AspNetCore.Mvc.TagHelpers.BreadcrumbItemTagHelper.ViewContext">
             <summary>
-            Gets or sets the <see cref="!:Rendering.ViewContext"/> for the current request.
+            Gets or sets the <see cref="P:Cadru.AspNetCore.Mvc.TagHelpers.BreadcrumbItemTagHelper.ViewContext"/> for the current request.
             </summary>
         </member>
         <member name="P:Cadru.AspNetCore.Mvc.TagHelpers.BreadcrumbItemTagHelper.Generator">
@@ -36,7 +37,11 @@
         <member name="M:Cadru.AspNetCore.Mvc.TagHelpers.BreadcrumbItemTagHelper.Process(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext,Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)">
             <inheritdoc />
         </member>
-        <!-- Badly formed XML comment ignored for member "M:Cadru.AspNetCore.Mvc.TagHelpers.BreadcrumbItemTagHelper.ProcessAsync(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext,Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)" -->
+        <member name="M:Cadru.AspNetCore.Mvc.TagHelpers.BreadcrumbItemTagHelper.ProcessAsync(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext,Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)">
+            <summary>
+            The name of the action method.
+            </summary>
+        </member>
         <member name="P:Cadru.AspNetCore.Mvc.TagHelpers.InputPlaceholderTagHelper.Placeholder">
             <summary>
             An expression to be evaluated against the current model.

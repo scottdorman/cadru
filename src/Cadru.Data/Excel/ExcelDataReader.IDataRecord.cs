@@ -1,8 +1,8 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="ExcelDataReader.cs"
+// <copyright file="ExcelDataReader.IDataRecord.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -174,7 +174,7 @@ namespace Cadru.Data.Excel
         public object GetValue(int i)
         {
             var cell = this.currentRowData.ElementAtOrDefault(i);
-            return GetCellValue(cell);
+            return this.GetCellValue(cell);
         }
 
         public int GetValues(object[] values)
@@ -202,7 +202,7 @@ namespace Cadru.Data.Excel
 
         public bool IsDBNull(int i)
         {
-            return DBNull.Value == GetValue(i);
+            return DBNull.Value == this.GetValue(i);
         }
     }
 }

@@ -2,7 +2,7 @@
 // <copyright file="ExcelDataReader.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -37,10 +37,10 @@ namespace Cadru.Data.Excel
         private int? currentRowIndex = null;
         private IEnumerable<Cell> currentRowData;
         private Sheet currentSheet;
-        private SpreadsheetDocument document;
+        private readonly SpreadsheetDocument document;
         private IList<string> headers;
-        private IDictionary<int, string> sharedStrings;
-        private IList<Sheet> sheets;
+        private readonly IDictionary<int, string> sharedStrings;
+        private readonly IList<Sheet> sheets;
         private OpenXmlReader reader;
         private bool firstRead = true;
 

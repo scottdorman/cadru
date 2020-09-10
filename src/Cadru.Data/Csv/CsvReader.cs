@@ -1,3 +1,25 @@
+//------------------------------------------------------------------------------
+// <copyright file="CsvReader.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -308,7 +330,7 @@ namespace Cadru.Data.Csv
         {
 #if DEBUG
 #if !NETSTANDARD1_3
-            _allocStack = new System.Diagnostics.StackTrace();
+            this._allocStack = new System.Diagnostics.StackTrace();
 #endif
 #endif
 
@@ -322,7 +344,7 @@ namespace Cadru.Data.Csv
                 throw new ArgumentOutOfRangeException(nameof(bufferSize), bufferSize, Strings.BufferSizeTooSmall);
             }
 
-            BufferSize = bufferSize;
+            this.BufferSize = bufferSize;
 
             var streamReader = reader as StreamReader;
             if (streamReader != null)
@@ -334,28 +356,28 @@ namespace Cadru.Data.Csv
                     // Handle bad implementations returning 0 or less
                     if (stream.Length > 0)
                     {
-                        BufferSize = (int)Math.Min(bufferSize, stream.Length);
+                        this.BufferSize = (int)Math.Min(bufferSize, stream.Length);
                     }
                 }
             }
 
-            _reader = reader;
-            Delimiter = delimiter;
-            Quote = quote;
-            Escape = escape;
-            Comment = comment;
+            this._reader = reader;
+            this.Delimiter = delimiter;
+            this.Quote = quote;
+            this.Escape = escape;
+            this.Comment = comment;
 
-            HasHeaders = hasHeaders;
-            TrimmingOption = trimmingOptions;
-            NullValue = nullValue;
-            SupportsMultiline = true;
-            SkipEmptyLines = true;
+            this.HasHeaders = hasHeaders;
+            this.TrimmingOption = trimmingOptions;
+            this.NullValue = nullValue;
+            this.SupportsMultiline = true;
+            this.SkipEmptyLines = true;
 
-            Columns = new List<Column>();
-            DefaultHeaderName = "Column";
+            this.Columns = new List<Column>();
+            this.DefaultHeaderName = "Column";
 
-            FileRecordIndex = -1;
-            DefaultParseErrorAction = ParseErrorAction.RaiseEvent;
+            this.FileRecordIndex = -1;
+            this.DefaultParseErrorAction = ParseErrorAction.RaiseEvent;
         }
 
         /// <summary>
@@ -482,8 +504,8 @@ namespace Cadru.Data.Csv
         {
             get
             {
-                EnsureInitialize();
-                return _fieldCount;
+                this.EnsureInitialize();
+                return this._fieldCount;
             }
         }
 
@@ -500,14 +522,14 @@ namespace Cadru.Data.Csv
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
         public string[] GetFieldHeaders()
         {
-            EnsureInitialize();
-            Debug.Assert(Columns != null, "Columns must be non null.");
+            this.EnsureInitialize();
+            Debug.Assert(this.Columns != null, "Columns must be non null.");
 
-            var fieldHeaders = new string[Columns.Count];
+            var fieldHeaders = new string[this.Columns.Count];
 
             for (var i = 0; i < fieldHeaders.Length; i++)
             {
-                fieldHeaders[i] = Columns[i].Name;
+                fieldHeaders[i] = this.Columns[i].Name;
             }
 
             return fieldHeaders;
@@ -531,7 +553,7 @@ namespace Cadru.Data.Csv
         /// </para>
         /// </summary>
         /// <value>The current record index in the CSV file.</value>
-        public virtual long CurrentRecordIndex => FileRecordIndex;
+        public virtual long CurrentRecordIndex => this.FileRecordIndex;
 
         /// <summary>
         /// Indicates if one or more field are missing for the current record.
@@ -563,7 +585,7 @@ namespace Cadru.Data.Csv
         {
             get
             {
-                if (!MoveTo(record))
+                if (!this.MoveTo(record))
                 {
                     throw new InvalidOperationException(String.Format(CultureInfo.InvariantCulture, Strings.CannotReadRecordAtIndex, record));
                 }
@@ -589,7 +611,7 @@ namespace Cadru.Data.Csv
         {
             get
             {
-                if (!MoveTo(record))
+                if (!this.MoveTo(record))
                 {
                     throw new InvalidOperationException(String.Format(CultureInfo.InvariantCulture, Strings.CannotReadRecordAtIndex, record));
                 }
@@ -618,16 +640,23 @@ namespace Cadru.Data.Csv
                     throw new ArgumentNullException(nameof(field));
                 }
 
-                if (!HasHeaders)
+                if (!this.HasHeaders)
                 {
                     throw new InvalidOperationException(Strings.NoHeaders);
                 }
 
-                var index = GetFieldIndex(field);
+                var index = this.GetFieldIndex(field);
 
                 if (index < 0)
                 {
+
+/* Unmerged change from project 'Cadru.Data (netstandard1.3)'
+Before:
                     throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, Strings.FieldHeaderNotFound, field), "field");
+After:
+                    throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, Strings.FieldHeaderNotFound, field), "field));
+*/
+                    throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, Strings.FieldHeaderNotFound, field), nameof(field));
                 }
 
                 return this[index];
@@ -642,20 +671,20 @@ namespace Cadru.Data.Csv
         /// <exception cref="T:InvalidOperationException">No record read yet. Call ReadLine() first.</exception>
         /// <exception cref="T:MalformedCsvException">The CSV appears to be corrupt at the current position.</exception>
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
-        public virtual string this[int field] => ReadField(field, false, false);
+        public virtual string this[int field] => this.ReadField(field, false, false);
 
         /// <summary>
         /// Ensures that the reader is initialized.
         /// </summary>
         private void EnsureInitialize()
         {
-            if (!_initialized)
+            if (!this._initialized)
             {
-                ReadNextRecord(true, false);
+                this.ReadNextRecord(true, false);
             }
 
-            Debug.Assert(Columns != null);
-            Debug.Assert(Columns.Count > 0 || (Columns.Count == 0 && (_fieldHeaderIndexes == null || _fieldHeaderIndexes.Count == 0)));
+            Debug.Assert(this.Columns != null);
+            Debug.Assert(this.Columns.Count > 0 || (this.Columns.Count == 0 && (this._fieldHeaderIndexes == null || this._fieldHeaderIndexes.Count == 0)));
         }
 
         /// <summary>
@@ -666,9 +695,9 @@ namespace Cadru.Data.Csv
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
         public int GetFieldIndex(string header)
         {
-            EnsureInitialize();
+            this.EnsureInitialize();
 
-            if (_fieldHeaderIndexes != null && _fieldHeaderIndexes.TryGetValue(header, out var index))
+            if (this._fieldHeaderIndexes != null && this._fieldHeaderIndexes.TryGetValue(header, out var index))
             {
                 return index;
             }
@@ -685,16 +714,16 @@ namespace Cadru.Data.Csv
         /// <returns>A flag indicating if the header exists</returns>
         public bool HasHeader(string header)
         {
-            EnsureInitialize();
+            this.EnsureInitialize();
 
             if (String.IsNullOrEmpty(header))
             {
                 throw new ArgumentNullException(nameof(header));
             }
 
-            if (_fieldHeaderIndexes != null)
+            if (this._fieldHeaderIndexes != null)
             {
-                return _fieldHeaderIndexes.ContainsKey(header);
+                return this._fieldHeaderIndexes.ContainsKey(header);
             }
             else
             {
@@ -723,19 +752,19 @@ namespace Cadru.Data.Csv
                 throw new ArgumentOutOfRangeException(nameof(index), index, String.Empty);
             }
 
-            if (FileRecordIndex < 0 || !_initialized)
+            if (this.FileRecordIndex < 0 || !this._initialized)
             {
                 throw new InvalidOperationException(Strings.NoCurrentRecord);
             }
 
-            if (array.Length - index < _fieldCount)
+            if (array.Length - index < this._fieldCount)
             {
                 throw new ArgumentException(Strings.NotEnoughSpaceInArray, nameof(array));
             }
 
-            for (var i = 0; i < _fieldCount; i++)
+            for (var i = 0; i < this._fieldCount; i++)
             {
-                array[index + i] = ParseErrorFlag ? null : this[i];
+                array[index + i] = this.ParseErrorFlag ? null : this[i];
             }
         }
 
@@ -746,9 +775,9 @@ namespace Cadru.Data.Csv
         /// <returns>The current raw CSV data.</returns>
         public string GetCurrentRawData()
         {
-            if (_buffer != null && _bufferLength > 0)
+            if (this._buffer != null && this._bufferLength > 0)
             {
-                return new string(_buffer, 0, _bufferLength);
+                return new string(this._buffer, 0, this._bufferLength);
             }
             else
             {
@@ -764,7 +793,7 @@ namespace Cadru.Data.Csv
         private bool IsWhiteSpace(char c)
         {
             // Handle cases where the delimiter is a whitespace (e.g. tab)
-            if (c == Delimiter)
+            if (c == this.Delimiter)
             {
                 return false;
             }
@@ -790,17 +819,17 @@ namespace Cadru.Data.Csv
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
         public virtual bool MoveTo(long record)
         {
-            if (record < FileRecordIndex)
+            if (record < this.FileRecordIndex)
             {
                 return false;
             }
 
             // Get number of record to read
-            var offset = record - FileRecordIndex;
+            var offset = record - this.FileRecordIndex;
 
             while (offset > 0)
             {
-                if (!ReadNextRecord())
+                if (!this.ReadNextRecord())
                 {
                     return false;
                 }
@@ -819,40 +848,40 @@ namespace Cadru.Data.Csv
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
         private bool ParseNewLine(ref int pos)
         {
-            Debug.Assert(pos <= _bufferLength);
+            Debug.Assert(pos <= this._bufferLength);
 
             // Check if already at the end of the buffer
-            if (pos == _bufferLength)
+            if (pos == this._bufferLength)
             {
                 pos = 0;
 
-                if (!ReadBuffer())
+                if (!this.ReadBuffer())
                 {
                     return false;
                 }
             }
 
-            var c = _buffer[pos];
+            var c = this._buffer[pos];
 
             // Treat \r as new line only if it's not the delimiter
-            if (c == '\r' && Delimiter != '\r')
+            if (c == '\r' && this.Delimiter != '\r')
             {
                 pos++;
 
                 // Skip following \n (if there is one)
 
-                if (pos < _bufferLength)
+                if (pos < this._bufferLength)
                 {
-                    if (_buffer[pos] == '\n')
+                    if (this._buffer[pos] == '\n')
                     {
                         pos++;
                     }
                 }
                 else
                 {
-                    if (ReadBuffer())
+                    if (this.ReadBuffer())
                     {
-                        if (_buffer[0] == '\n')
+                        if (this._buffer[0] == '\n')
                         {
                             pos = 1;
                         }
@@ -863,9 +892,9 @@ namespace Cadru.Data.Csv
                     }
                 }
 
-                if (pos >= _bufferLength)
+                if (pos >= this._bufferLength)
                 {
-                    ReadBuffer();
+                    this.ReadBuffer();
                     pos = 0;
                 }
 
@@ -875,9 +904,9 @@ namespace Cadru.Data.Csv
             {
                 pos++;
 
-                if (pos >= _bufferLength)
+                if (pos >= this._bufferLength)
                 {
-                    ReadBuffer();
+                    this.ReadBuffer();
                     pos = 0;
                 }
 
@@ -894,15 +923,15 @@ namespace Cadru.Data.Csv
         /// <returns><see langword="true"/> if the character at the specified position is a new line delimiter; otherwise, <see langword="false"/>.</returns>
         private bool IsNewLine(int pos)
         {
-            Debug.Assert(pos < _bufferLength);
+            Debug.Assert(pos < this._bufferLength);
 
-            var c = _buffer[pos];
+            var c = this._buffer[pos];
 
             if (c == '\n')
             {
                 return true;
             }
-            else if (c == '\r' && Delimiter != '\r')
+            else if (c == '\r' && this.Delimiter != '\r')
             {
                 return true;
             }
@@ -919,23 +948,23 @@ namespace Cadru.Data.Csv
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
         private bool ReadBuffer()
         {
-            if (_eof)
+            if (this._eof)
             {
                 return false;
             }
 
-            CheckDisposed();
+            this.CheckDisposed();
 
-            _bufferLength = _reader.Read(_buffer, 0, BufferSize);
+            this._bufferLength = this._reader.Read(this._buffer, 0, this.BufferSize);
 
-            if (_bufferLength > 0)
+            if (this._bufferLength > 0)
             {
                 return true;
             }
             else
             {
-                _eof = true;
-                _buffer = null;
+                this._eof = true;
+                this._buffer = null;
 
                 return false;
             }
@@ -961,68 +990,68 @@ namespace Cadru.Data.Csv
         {
             if (!initializing)
             {
-                var maxField = UseColumnDefaults ? Columns.Count : _fieldCount;
+                var maxField = this.UseColumnDefaults ? this.Columns.Count : this._fieldCount;
                 if (field < 0 || field >= maxField)
                 {
                     throw new ArgumentOutOfRangeException(nameof(field), field, String.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, field));
                 }
 
-                if (FileRecordIndex < 0)
+                if (this.FileRecordIndex < 0)
                 {
                     throw new InvalidOperationException(Strings.NoCurrentRecord);
                 }
 
-                if (Columns.Count > field && !String.IsNullOrEmpty(Columns[field].OverrideValue))
+                if (this.Columns.Count > field && !String.IsNullOrEmpty(this.Columns[field].OverrideValue))
                 {
                     // Use the override value for this column.
-                    return Columns[field].OverrideValue;
+                    return this.Columns[field].OverrideValue;
                 }
 
-                if (field >= _fieldCount)
+                if (field >= this._fieldCount)
                 {
                     // Use the column default as UseColumnDefaults is true at this point
-                    return Columns[field].DefaultValue;
+                    return this.Columns[field].DefaultValue;
                 }
 
                 // Directly return field if cached
-                if (_fields[field] != null)
+                if (this._fields[field] != null)
                 {
-                    return _fields[field];
+                    return this._fields[field];
                 }
 
-                if (MissingFieldFlag)
+                if (this.MissingFieldFlag)
                 {
-                    return HandleMissingField(null, field, ref _nextFieldStart);
+                    return this.HandleMissingField(null, field, ref this._nextFieldStart);
                 }
             }
 
-            CheckDisposed();
+            this.CheckDisposed();
 
-            var index = _nextFieldIndex;
+            var index = this._nextFieldIndex;
 
             while (index < field + 1)
             {
                 // Handle case where stated start of field is past buffer
                 // This can occur because _nextFieldStart is simply 1 + last char position of previous field
-                if (_nextFieldStart == _bufferLength)
+                if (this._nextFieldStart == this._bufferLength)
                 {
-                    _nextFieldStart = 0;
+                    this._nextFieldStart = 0;
 
                     // Possible EOF will be handled later (see Handle_EOF1)
-                    ReadBuffer();
+                    this.ReadBuffer();
                 }
 
                 StringBuilder value = null;
 
-                if (MissingFieldFlag)
+                if (this.MissingFieldFlag)
                 {
-                    var result = HandleMissingField(value?.ToString(), index, ref _nextFieldStart);
-                    if (value == null && result == String.Empty && MissingFieldAction == MissingFieldAction.ReplaceByEmpty)
+                    var result = this.HandleMissingField(value?.ToString(), index, ref this._nextFieldStart);
+                    if (value == null && result == String.Empty && this.MissingFieldAction == MissingFieldAction.ReplaceByEmpty)
                     {
                         value = new StringBuilder();
                     }
                 }
-                else if (_nextFieldStart == _bufferLength)
+                else if (this._nextFieldStart == this._bufferLength)
                 {
                     // Handle_EOF1: Handle EOF here
 
@@ -1034,15 +1063,15 @@ namespace Cadru.Data.Csv
                         if (!discardValue)
                         {
                             value = new StringBuilder();
-                            _fields[index] = String.Empty;
+                            this._fields[index] = String.Empty;
                         }
 
-                        MissingFieldFlag = true;
+                        this.MissingFieldFlag = true;
                     }
                     else
                     {
-                        var result = HandleMissingField(value?.ToString(), index, ref _nextFieldStart);
-                        if (value == null && result == String.Empty && MissingFieldAction == MissingFieldAction.ReplaceByEmpty)
+                        var result = this.HandleMissingField(value?.ToString(), index, ref this._nextFieldStart);
+                        if (value == null && result == String.Empty && this.MissingFieldAction == MissingFieldAction.ReplaceByEmpty)
                         {
                             value = new StringBuilder();
                         }
@@ -1051,44 +1080,44 @@ namespace Cadru.Data.Csv
                 else
                 {
                     // Trim spaces at start
-                    if ((TrimmingOption & ValueTrimmingOptions.UnquotedOnly) != 0)
+                    if ((this.TrimmingOption & ValueTrimmingOptions.UnquotedOnly) != 0)
                     {
-                        SkipWhiteSpaces(ref _nextFieldStart);
+                        this.SkipWhiteSpaces(ref this._nextFieldStart);
                     }
 
-                    if (_eof)
+                    if (this._eof)
                     {
                         value = new StringBuilder();
-                        _fields[field] = String.Empty;
+                        this._fields[field] = String.Empty;
 
-                        if (field < _fieldCount)
+                        if (field < this._fieldCount)
                         {
-                            MissingFieldFlag = true;
+                            this.MissingFieldFlag = true;
                         }
                     }
-                    else if (_buffer[_nextFieldStart] != Quote)
+                    else if (this._buffer[this._nextFieldStart] != this.Quote)
                     {
                         // Non-quoted field
 
-                        var start = _nextFieldStart;
-                        var pos = _nextFieldStart;
+                        var start = this._nextFieldStart;
+                        var pos = this._nextFieldStart;
 
                         for (; ; )
                         {
-                            while (pos < _bufferLength)
+                            while (pos < this._bufferLength)
                             {
-                                var c = _buffer[pos];
+                                var c = this._buffer[pos];
 
-                                if (c == Delimiter)
+                                if (c == this.Delimiter)
                                 {
-                                    _nextFieldStart = pos + 1;
+                                    this._nextFieldStart = pos + 1;
 
                                     break;
                                 }
                                 else if (c == '\r' || c == '\n')
                                 {
-                                    _nextFieldStart = pos;
-                                    _eol = true;
+                                    this._nextFieldStart = pos;
+                                    this._eol = true;
 
                                     break;
                                 }
@@ -1098,7 +1127,7 @@ namespace Cadru.Data.Csv
                                 }
                             }
 
-                            if (pos < _bufferLength)
+                            if (pos < this._bufferLength)
                             {
                                 break;
                             }
@@ -1107,14 +1136,14 @@ namespace Cadru.Data.Csv
                                 if (!discardValue)
                                 {
                                     value = value ?? new StringBuilder();
-                                    value.Append(_buffer, start, pos - start);
+                                    value.Append(this._buffer, start, pos - start);
                                 }
 
                                 start = 0;
                                 pos = 0;
-                                _nextFieldStart = 0;
+                                this._nextFieldStart = 0;
 
-                                if (!ReadBuffer())
+                                if (!this.ReadBuffer())
                                 {
                                     break;
                                 }
@@ -1123,21 +1152,21 @@ namespace Cadru.Data.Csv
 
                         if (!discardValue)
                         {
-                            if ((TrimmingOption & ValueTrimmingOptions.UnquotedOnly) == 0)
+                            if ((this.TrimmingOption & ValueTrimmingOptions.UnquotedOnly) == 0)
                             {
-                                if (!_eof && pos > start)
+                                if (!this._eof && pos > start)
                                 {
                                     value = value ?? new StringBuilder();
-                                    value.Append(_buffer, start, pos - start);
+                                    value.Append(this._buffer, start, pos - start);
                                 }
                             }
                             else
                             {
-                                if (!_eof && pos > start)
+                                if (!this._eof && pos > start)
                                 {
                                     // Do the trimming
                                     pos--;
-                                    while (pos > -1 && IsWhiteSpace(_buffer[pos]))
+                                    while (pos > -1 && this.IsWhiteSpace(this._buffer[pos]))
                                     {
                                         pos--;
                                     }
@@ -1147,7 +1176,7 @@ namespace Cadru.Data.Csv
                                     if (pos > 0)
                                     {
                                         value = value ?? new StringBuilder();
-                                        value.Append(_buffer, start, pos - start);
+                                        value.Append(this._buffer, start, pos - start);
                                     }
                                 }
                                 else
@@ -1162,7 +1191,7 @@ namespace Cadru.Data.Csv
                                     pos = value?.Length - 1 ?? -1;
 
                                     // Do the trimming
-                                    while (pos > -1 && IsWhiteSpace(value[pos]))
+                                    while (pos > -1 && this.IsWhiteSpace(value[pos]))
                                     {
                                         pos--;
                                     }
@@ -1179,20 +1208,20 @@ namespace Cadru.Data.Csv
                             value = value ?? new StringBuilder();
                         }
 
-                        if (_eol || _eof)
+                        if (this._eol || this._eof)
                         {
-                            _eol = ParseNewLine(ref _nextFieldStart);
+                            this._eol = this.ParseNewLine(ref this._nextFieldStart);
 
                             // Reaching a new line is ok as long as the parser is initializing or it is the last field
-                            if (!initializing && index != _fieldCount - 1)
+                            if (!initializing && index != this._fieldCount - 1)
                             {
                                 if (value != null && value.Length == 0)
                                 {
                                     value = null;
                                 }
 
-                                var result = HandleMissingField(value?.ToString(), index, ref _nextFieldStart);
-                                if (value == null && result == String.Empty && MissingFieldAction == MissingFieldAction.ReplaceByEmpty)
+                                var result = this.HandleMissingField(value?.ToString(), index, ref this._nextFieldStart);
+                                if (value == null && result == String.Empty && this.MissingFieldAction == MissingFieldAction.ReplaceByEmpty)
                                 {
                                     value = new StringBuilder();
                                 }
@@ -1201,7 +1230,7 @@ namespace Cadru.Data.Csv
 
                         if (!discardValue)
                         {
-                            _fields[index] = value?.ToString();
+                            this._fields[index] = value?.ToString();
                         }
                     }
                     else
@@ -1209,24 +1238,24 @@ namespace Cadru.Data.Csv
                         // Quoted field
 
                         // Skip quote
-                        var start = _nextFieldStart + 1;
+                        var start = this._nextFieldStart + 1;
                         var pos = start;
 
                         var quoted = true;
                         var escaped = false;
                         var fieldLength = 0;
 
-                        if ((TrimmingOption & ValueTrimmingOptions.QuotedOnly) != 0)
+                        if ((this.TrimmingOption & ValueTrimmingOptions.QuotedOnly) != 0)
                         {
-                            SkipWhiteSpaces(ref start);
+                            this.SkipWhiteSpaces(ref start);
                             pos = start;
                         }
 
                         for (; ; )
                         {
-                            while (pos < _bufferLength)
+                            while (pos < this._bufferLength)
                             {
-                                var c = _buffer[pos];
+                                var c = this._buffer[pos];
 
                                 if (escaped)
                                 {
@@ -1234,17 +1263,17 @@ namespace Cadru.Data.Csv
                                     start = pos;
                                 }
                                 // IF current char is escape AND (escape and quote are different OR next char is a quote)
-                                else if (c == Escape && (Escape != Quote || (pos + 1 < _bufferLength && _buffer[pos + 1] == Quote) || (pos + 1 == _bufferLength && _reader.Peek() == Quote)))
+                                else if (c == this.Escape && (this.Escape != this.Quote || (pos + 1 < this._bufferLength && this._buffer[pos + 1] == this.Quote) || (pos + 1 == this._bufferLength && this._reader.Peek() == this.Quote)))
                                 {
                                     if (!discardValue)
                                     {
                                         value = value ?? new StringBuilder();
-                                        value.Append(_buffer, start, pos - start);
+                                        value.Append(this._buffer, start, pos - start);
                                     }
 
                                     escaped = true;
                                 }
-                                else if (c == Quote)
+                                else if (c == this.Quote)
                                 {
                                     quoted = false;
                                     break;
@@ -1252,9 +1281,9 @@ namespace Cadru.Data.Csv
 
                                 fieldLength++;
 
-                                if (MaxQuotedFieldLength.HasValue && fieldLength > MaxQuotedFieldLength.Value)
+                                if (this.MaxQuotedFieldLength.HasValue && fieldLength > this.MaxQuotedFieldLength.Value)
                                 {
-                                    HandleParseError(new MalformedCsvException(GetCurrentRawData(), _nextFieldStart, Math.Max(0, FileRecordIndex), index), ref _nextFieldStart);
+                                    this.HandleParseError(new MalformedCsvException(this.GetCurrentRawData(), this._nextFieldStart, Math.Max(0, this.FileRecordIndex), index), ref this._nextFieldStart);
                                     return null;
                                 }
 
@@ -1270,34 +1299,34 @@ namespace Cadru.Data.Csv
                                 if (!discardValue && !escaped)
                                 {
                                     value = value ?? new StringBuilder();
-                                    value.Append(_buffer, start, pos - start);
+                                    value.Append(this._buffer, start, pos - start);
                                 }
 
                                 start = 0;
                                 pos = 0;
-                                _nextFieldStart = 0;
+                                this._nextFieldStart = 0;
 
-                                if (!ReadBuffer())
+                                if (!this.ReadBuffer())
                                 {
-                                    HandleParseError(new MalformedCsvException(GetCurrentRawData(), _nextFieldStart, Math.Max(0, FileRecordIndex), index), ref _nextFieldStart);
+                                    this.HandleParseError(new MalformedCsvException(this.GetCurrentRawData(), this._nextFieldStart, Math.Max(0, this.FileRecordIndex), index), ref this._nextFieldStart);
                                     return null;
                                 }
                             }
                         }
 
-                        if (!_eof)
+                        if (!this._eof)
                         {
                             // Append remaining parsed buffer content
                             if (!discardValue && pos > start)
                             {
                                 value = value ?? new StringBuilder();
-                                value.Append(_buffer, start, pos - start);
+                                value.Append(this._buffer, start, pos - start);
                             }
 
-                            if (!discardValue && value != null && (TrimmingOption & ValueTrimmingOptions.QuotedOnly) != 0)
+                            if (!discardValue && value != null && (this.TrimmingOption & ValueTrimmingOptions.QuotedOnly) != 0)
                             {
                                 var newLength = value.Length;
-                                while (newLength > 0 && IsWhiteSpace(value[newLength - 1]))
+                                while (newLength > 0 && this.IsWhiteSpace(value[newLength - 1]))
                                 {
                                     newLength--;
                                 }
@@ -1309,22 +1338,22 @@ namespace Cadru.Data.Csv
                             }
 
                             // Skip quote
-                            _nextFieldStart = pos + 1;
+                            this._nextFieldStart = pos + 1;
 
                             // Skip whitespaces between the quote and the delimiter/eol
-                            SkipWhiteSpaces(ref _nextFieldStart);
+                            this.SkipWhiteSpaces(ref this._nextFieldStart);
 
                             // Skip delimiter
                             bool delimiterSkipped;
-                            if (_nextFieldStart < _bufferLength && _buffer[_nextFieldStart] == Delimiter)
+                            if (this._nextFieldStart < this._bufferLength && this._buffer[this._nextFieldStart] == this.Delimiter)
                             {
-                                _nextFieldStart++;
+                                this._nextFieldStart++;
                                 delimiterSkipped = true;
                             }
-                            else if (_nextFieldStart < _bufferLength && (_buffer[_nextFieldStart] == '\r' || _buffer[_nextFieldStart] == '\n'))
+                            else if (this._nextFieldStart < this._bufferLength && (this._buffer[this._nextFieldStart] == '\r' || this._buffer[this._nextFieldStart] == '\n'))
                             {
-                                _nextFieldStart++;
-                                _eol = true;
+                                this._nextFieldStart++;
+                                this._eol = true;
                                 delimiterSkipped = true;
                             }
                             else
@@ -1334,25 +1363,25 @@ namespace Cadru.Data.Csv
 
                             // Skip new line delimiter if initializing or last field
                             // (if the next field is missing, it will be caught when parsed)
-                            if (!_eof && !delimiterSkipped && (initializing || index == _fieldCount - 1))
+                            if (!this._eof && !delimiterSkipped && (initializing || index == this._fieldCount - 1))
                             {
-                                _eol = ParseNewLine(ref _nextFieldStart);
+                                this._eol = this.ParseNewLine(ref this._nextFieldStart);
                             }
 
                             // If no delimiter is present after the quoted field and it is not the last field, then it is a parsing error
-                            if (!delimiterSkipped && !_eof && !(_eol || IsNewLine(_nextFieldStart)))
+                            if (!delimiterSkipped && !this._eof && !(this._eol || this.IsNewLine(this._nextFieldStart)))
                             {
-                                HandleParseError(new MalformedCsvException(GetCurrentRawData(), _nextFieldStart, Math.Max(0, FileRecordIndex), index), ref _nextFieldStart);
+                                this.HandleParseError(new MalformedCsvException(this.GetCurrentRawData(), this._nextFieldStart, Math.Max(0, this.FileRecordIndex), index), ref this._nextFieldStart);
                             }
                         }
 
                         // If we are at the end, then verify we have all the fields
-                        if (_eol || _eof)
+                        if (this._eol || this._eof)
                         {
-                            if (!initializing && index < _fieldCount - 1)
+                            if (!initializing && index < this._fieldCount - 1)
                             {
-                                var result = HandleMissingField(value?.ToString(), index, ref _nextFieldStart);
-                                if (value == null && result == String.Empty && MissingFieldAction == MissingFieldAction.ReplaceByEmpty)
+                                var result = this.HandleMissingField(value?.ToString(), index, ref this._nextFieldStart);
+                                if (value == null && result == String.Empty && this.MissingFieldAction == MissingFieldAction.ReplaceByEmpty)
                                 {
                                     value = new StringBuilder();
                                 }
@@ -1362,12 +1391,12 @@ namespace Cadru.Data.Csv
                         if (!discardValue)
                         {
                             value = value ?? new StringBuilder();
-                            _fields[index] = value.ToString();
+                            this._fields[index] = value.ToString();
                         }
                     }
                 }
 
-                _nextFieldIndex = Math.Max(index + 1, _nextFieldIndex);
+                this._nextFieldIndex = Math.Max(index + 1, this._nextFieldIndex);
 
                 if (index == field)
                 {
@@ -1375,7 +1404,7 @@ namespace Cadru.Data.Csv
 
                     if (initializing)
                     {
-                        if (_eol || _eof)
+                        if (this._eol || this._eof)
                         {
                             return null;
                         }
@@ -1394,7 +1423,7 @@ namespace Cadru.Data.Csv
             }
 
             // Getting here is bad ...
-            HandleParseError(new MalformedCsvException(GetCurrentRawData(), _nextFieldStart, Math.Max(0, FileRecordIndex), index), ref _nextFieldStart);
+            this.HandleParseError(new MalformedCsvException(this.GetCurrentRawData(), this._nextFieldStart, Math.Max(0, this.FileRecordIndex), index), ref this._nextFieldStart);
             return null;
         }
 
@@ -1405,7 +1434,7 @@ namespace Cadru.Data.Csv
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
         public bool ReadNextRecord()
         {
-            return ReadNextRecord(false, false);
+            return this.ReadNextRecord(false, false);
         }
 
         /// <summary>
@@ -1423,12 +1452,12 @@ namespace Cadru.Data.Csv
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
         protected virtual bool ReadNextRecord(bool onlyReadHeaders, bool skipToNextLine)
         {
-            if (_eof)
+            if (this._eof)
             {
-                if (_firstRecordInCache)
+                if (this._firstRecordInCache)
                 {
-                    _firstRecordInCache = false;
-                    FileRecordIndex++;
+                    this._firstRecordInCache = false;
+                    this.FileRecordIndex++;
 
                     return true;
                 }
@@ -1438,18 +1467,18 @@ namespace Cadru.Data.Csv
                 }
             }
 
-            CheckDisposed();
+            this.CheckDisposed();
 
-            if (!_initialized)
+            if (!this._initialized)
             {
-                _buffer = new char[BufferSize];
+                this._buffer = new char[this.BufferSize];
 
-                if (!ReadBuffer())
+                if (!this.ReadBuffer())
                 {
                     return false;
                 }
 
-                if (!SkipEmptyAndCommentedLines(ref _nextFieldStart))
+                if (!this.SkipEmptyAndCommentedLines(ref this._nextFieldStart))
                 {
                     return false;
                 }
@@ -1457,60 +1486,60 @@ namespace Cadru.Data.Csv
                 // Keep growing _fields array until the last field has been found
                 // and then resize it to its final correct size
 
-                _fieldCount = 0;
-                _fields = new string[16];
+                this._fieldCount = 0;
+                this._fields = new string[16];
 
-                while (ReadField(_fieldCount, true, false) != null)
+                while (this.ReadField(this._fieldCount, true, false) != null)
                 {
-                    if (ParseErrorFlag)
+                    if (this.ParseErrorFlag)
                     {
-                        _fieldCount = 0;
-                        Array.Clear(_fields, 0, _fields.Length);
-                        ParseErrorFlag = false;
-                        _nextFieldIndex = 0;
+                        this._fieldCount = 0;
+                        Array.Clear(this._fields, 0, this._fields.Length);
+                        this.ParseErrorFlag = false;
+                        this._nextFieldIndex = 0;
                     }
                     else
                     {
-                        _fieldCount++;
+                        this._fieldCount++;
 
-                        if (_fieldCount == _fields.Length)
+                        if (this._fieldCount == this._fields.Length)
                         {
-                            Array.Resize(ref _fields, (_fieldCount + 1) * 2);
+                            Array.Resize(ref this._fields, (this._fieldCount + 1) * 2);
                         }
                     }
                 }
 
                 // _fieldCount contains the last field index, but it must contains the field count,
                 // so increment by 1
-                _fieldCount++;
+                this._fieldCount++;
 
-                if (_fields.Length != _fieldCount)
+                if (this._fields.Length != this._fieldCount)
                 {
-                    Array.Resize(ref _fields, _fieldCount);
+                    Array.Resize(ref this._fields, this._fieldCount);
                 }
 
-                _fieldHeaderIndexes = new Dictionary<string, int>(_fieldCount, StringComparer.CurrentCultureIgnoreCase);
+                this._fieldHeaderIndexes = new Dictionary<string, int>(this._fieldCount, StringComparer.CurrentCultureIgnoreCase);
 
-                _initialized = true;
+                this._initialized = true;
 
                 // If headers are present, call ReadNextRecord again
-                if (HasHeaders)
+                if (this.HasHeaders)
                 {
                     // Don't count first record as it was the headers
-                    FileRecordIndex = -1;
+                    this.FileRecordIndex = -1;
 
-                    _firstRecordInCache = false;
+                    this._firstRecordInCache = false;
 
-                    for (var i = 0; i < _fields.Length; i++)
+                    for (var i = 0; i < this._fields.Length; i++)
                     {
-                        var headerName = _fields[i];
+                        var headerName = this._fields[i];
                         if (String.IsNullOrEmpty(headerName) || headerName.Trim().Length == 0)
                         {
-                            headerName = DefaultHeaderName + i;
+                            headerName = this.DefaultHeaderName + i;
                         }
 
                         // Create it if we haven't already set it explicitly
-                        var col = Columns.Count < i + 1 ? null : Columns[i];
+                        var col = this.Columns.Count < i + 1 ? null : this.Columns[i];
                         if (col == null)
                         {
                             col = new Column
@@ -1521,7 +1550,7 @@ namespace Cadru.Data.Csv
                             };
 
                             int existingIndex;
-                            if (_fieldHeaderIndexes.TryGetValue(headerName, out existingIndex))
+                            if (this._fieldHeaderIndexes.TryGetValue(headerName, out existingIndex))
                             {
                                 if (DuplicateHeaderEncountered == null)
                                 {
@@ -1533,9 +1562,9 @@ namespace Cadru.Data.Csv
                                 col.Name = args.HeaderName;
                             }
 
-                            _fieldHeaderIndexes.Add(col.Name, i);
+                            this._fieldHeaderIndexes.Add(col.Name, i);
                             // Should be correct as we are going in ascending order.
-                            Columns.Add(col);
+                            this.Columns.Add(col);
                         }
                     }
 
@@ -1546,36 +1575,36 @@ namespace Cadru.Data.Csv
                         // but in fact would probably cause many subtle bugs because a derived class does not expect a recursive behavior
                         // so simply do what is needed here and no more.
 
-                        if (!SkipEmptyAndCommentedLines(ref _nextFieldStart))
+                        if (!this.SkipEmptyAndCommentedLines(ref this._nextFieldStart))
                         {
                             return false;
                         }
 
-                        Array.Clear(_fields, 0, _fields.Length);
-                        _nextFieldIndex = 0;
-                        _eol = false;
+                        Array.Clear(this._fields, 0, this._fields.Length);
+                        this._nextFieldIndex = 0;
+                        this._eol = false;
 
-                        FileRecordIndex++;
+                        this.FileRecordIndex++;
                         return true;
                     }
                 }
                 else
                 {
                     // If we have explicity columne, now build up the reverse dictionary
-                    for (var i = 0; i < Columns.Count; i++)
+                    for (var i = 0; i < this.Columns.Count; i++)
                     {
-                        _fieldHeaderIndexes.Add(Columns[i].Name, i);
+                        this._fieldHeaderIndexes.Add(this.Columns[i].Name, i);
                     }
 
                     if (onlyReadHeaders)
                     {
-                        _firstRecordInCache = true;
-                        FileRecordIndex = -1;
+                        this._firstRecordInCache = true;
+                        this.FileRecordIndex = -1;
                     }
                     else
                     {
-                        _firstRecordInCache = false;
-                        FileRecordIndex = 0;
+                        this._firstRecordInCache = false;
+                        this.FileRecordIndex = 0;
                     }
                 }
             }
@@ -1583,43 +1612,43 @@ namespace Cadru.Data.Csv
             {
                 if (skipToNextLine)
                 {
-                    SkipToNewLine(ref _nextFieldStart);
+                    this.SkipToNewLine(ref this._nextFieldStart);
                 }
-                else if (FileRecordIndex > -1 && !MissingFieldFlag)
+                else if (this.FileRecordIndex > -1 && !this.MissingFieldFlag)
                 {
                     // If not already at end of record, move there
-                    if (!_eol && !_eof)
+                    if (!this._eol && !this._eof)
                     {
-                        HandleExtraFieldsInCurrentRecord(_nextFieldStart);
+                        this.HandleExtraFieldsInCurrentRecord(this._nextFieldStart);
                     }
                 }
 
-                if (!_firstRecordInCache && !SkipEmptyAndCommentedLines(ref _nextFieldStart))
+                if (!this._firstRecordInCache && !this.SkipEmptyAndCommentedLines(ref this._nextFieldStart))
                 {
                     return false;
                 }
 
-                if (HasHeaders || !_firstRecordInCache)
+                if (this.HasHeaders || !this._firstRecordInCache)
                 {
-                    _eol = false;
+                    this._eol = false;
                 }
 
                 // Check to see if the first record is in cache.
                 // This can happen when initializing a reader with no headers
                 // because one record must be read to get the field count automatically
-                if (_firstRecordInCache)
+                if (this._firstRecordInCache)
                 {
-                    _firstRecordInCache = false;
+                    this._firstRecordInCache = false;
                 }
                 else
                 {
-                    Array.Clear(_fields, 0, _fields.Length);
-                    _nextFieldIndex = 0;
+                    Array.Clear(this._fields, 0, this._fields.Length);
+                    this._nextFieldIndex = 0;
                 }
 
-                MissingFieldFlag = false;
-                ParseErrorFlag = false;
-                FileRecordIndex++;
+                this.MissingFieldFlag = false;
+                this.ParseErrorFlag = false;
+                this.FileRecordIndex++;
             }
 
             return true;
@@ -1627,21 +1656,21 @@ namespace Cadru.Data.Csv
 
         private void HandleExtraFieldsInCurrentRecord(int currentFieldIndex)
         {
-            if (DefaultParseErrorAction == ParseErrorAction.AdvanceToNextLine)
+            if (this.DefaultParseErrorAction == ParseErrorAction.AdvanceToNextLine)
             {
-                SkipToNextRecord();
+                this.SkipToNextRecord();
             }
             else
             {
-                var exception = new MalformedCsvException(GetCurrentRawData(), _nextFieldStart, Math.Max(0, FileRecordIndex), currentFieldIndex);
+                var exception = new MalformedCsvException(this.GetCurrentRawData(), this._nextFieldStart, Math.Max(0, this.FileRecordIndex), currentFieldIndex);
 
-                if (DefaultParseErrorAction == ParseErrorAction.RaiseEvent)
+                if (this.DefaultParseErrorAction == ParseErrorAction.RaiseEvent)
                 {
                     var e = new ParseErrorEventArgs(exception, ParseErrorAction.ThrowException);
-                    OnParseError(e);
-                    SkipToNextRecord();
+                    this.OnParseError(e);
+                    this.SkipToNextRecord();
                 }
-                else if (DefaultParseErrorAction == ParseErrorAction.ThrowException)
+                else if (this.DefaultParseErrorAction == ParseErrorAction.ThrowException)
                 {
                     throw exception;
                 }
@@ -1650,13 +1679,13 @@ namespace Cadru.Data.Csv
 
         private void SkipToNextRecord()
         {
-            if (!SupportsMultiline)
+            if (!this.SupportsMultiline)
             {
-                SkipToNewLine(ref _nextFieldStart);
+                this.SkipToNewLine(ref this._nextFieldStart);
             }
             else
             {
-                while (ReadField(_nextFieldIndex, true, true) != null)
+                while (this.ReadField(this._nextFieldIndex, true, true) != null)
                 {
                 }
             }
@@ -1676,17 +1705,17 @@ namespace Cadru.Data.Csv
         /// </exception>
         private bool SkipEmptyAndCommentedLines(ref int pos)
         {
-            if (pos < _bufferLength)
+            if (pos < this._bufferLength)
             {
-                DoSkipEmptyAndCommentedLines(ref pos);
+                this.DoSkipEmptyAndCommentedLines(ref pos);
             }
 
-            while (pos >= _bufferLength && !_eof)
+            while (pos >= this._bufferLength && !this._eof)
             {
-                if (ReadBuffer())
+                if (this.ReadBuffer())
                 {
                     pos = 0;
-                    DoSkipEmptyAndCommentedLines(ref pos);
+                    this.DoSkipEmptyAndCommentedLines(ref pos);
                 }
                 else
                 {
@@ -1694,7 +1723,7 @@ namespace Cadru.Data.Csv
                 }
             }
 
-            return !_eof;
+            return !this._eof;
         }
 
         /// <summary>
@@ -1708,14 +1737,14 @@ namespace Cadru.Data.Csv
         /// <exception cref="T:System.ComponentModel.ObjectDisposedException">The instance has been disposed of.</exception>
         private void DoSkipEmptyAndCommentedLines(ref int pos)
         {
-            while (pos < _bufferLength)
+            while (pos < this._bufferLength)
             {
-                if (_buffer[pos] == Comment)
+                if (this._buffer[pos] == this.Comment)
                 {
                     pos++;
-                    SkipToNewLine(ref pos);
+                    this.SkipToNewLine(ref pos);
                 }
-                else if (SkipEmptyLines && ParseNewLine(ref pos))
+                else if (this.SkipEmptyLines && this.ParseNewLine(ref pos))
                 {
                     continue;
                 }
@@ -1736,12 +1765,12 @@ namespace Cadru.Data.Csv
         {
             for (; ; )
             {
-                while (pos < _bufferLength && IsWhiteSpace(_buffer[pos]))
+                while (pos < this._bufferLength && this.IsWhiteSpace(this._buffer[pos]))
                 {
                     pos++;
                 }
 
-                if (pos < _bufferLength)
+                if (pos < this._bufferLength)
                 {
                     break;
                 }
@@ -1749,7 +1778,7 @@ namespace Cadru.Data.Csv
                 {
                     pos = 0;
 
-                    if (!ReadBuffer())
+                    if (!this.ReadBuffer())
                     {
                         return false;
                     }
@@ -1772,12 +1801,12 @@ namespace Cadru.Data.Csv
         private bool SkipToNewLine(ref int pos)
         {
             // ((pos = 0) == 0) is a little trick to reset position inline
-            while ((pos < _bufferLength || (ReadBuffer() && ((pos = 0) == 0))) && !ParseNewLine(ref pos))
+            while ((pos < this._bufferLength || (this.ReadBuffer() && ((pos = 0) == 0))) && !this.ParseNewLine(ref pos))
             {
                 pos++;
             }
 
-            return !_eof;
+            return !this._eof;
         }
 
         /// <summary>
@@ -1793,16 +1822,16 @@ namespace Cadru.Data.Csv
                 throw new ArgumentNullException(nameof(error));
             }
 
-            ParseErrorFlag = true;
+            this.ParseErrorFlag = true;
 
-            switch (DefaultParseErrorAction)
+            switch (this.DefaultParseErrorAction)
             {
                 case ParseErrorAction.ThrowException:
                     throw error;
 
                 case ParseErrorAction.RaiseEvent:
                     var e = new ParseErrorEventArgs(error, ParseErrorAction.ThrowException);
-                    OnParseError(e);
+                    this.OnParseError(e);
 
                     switch (e.Action)
                     {
@@ -1814,9 +1843,9 @@ namespace Cadru.Data.Csv
 
                         case ParseErrorAction.AdvanceToNextLine:
                             // already at EOL when fields are missing, so don't skip to next line in that case
-                            if (!MissingFieldFlag && pos >= 0)
+                            if (!this.MissingFieldFlag && pos >= 0)
                             {
-                                SkipToNewLine(ref pos);
+                                this.SkipToNewLine(ref pos);
                             }
                             break;
 
@@ -1827,15 +1856,15 @@ namespace Cadru.Data.Csv
 
                 case ParseErrorAction.AdvanceToNextLine:
                     // already at EOL when fields are missing, so don't skip to next line in that case
-                    if (!MissingFieldFlag && pos >= 0)
+                    if (!this.MissingFieldFlag && pos >= 0)
                     {
-                        SkipToNewLine(ref pos);
+                        this.SkipToNewLine(ref pos);
                     }
 
                     break;
 
                 default:
-                    throw new NotSupportedException(String.Format(CultureInfo.InvariantCulture, Strings.ParseErrorActionNotSupported, DefaultParseErrorAction), error);
+                    throw new NotSupportedException(String.Format(CultureInfo.InvariantCulture, Strings.ParseErrorActionNotSupported, this.DefaultParseErrorAction), error);
             }
         }
 
@@ -1852,16 +1881,16 @@ namespace Cadru.Data.Csv
         /// </returns>
         private string HandleMissingField(string value, int fieldIndex, ref int currentPosition)
         {
-            if (fieldIndex < 0 || fieldIndex >= _fieldCount)
+            if (fieldIndex < 0 || fieldIndex >= this._fieldCount)
             {
                 throw new ArgumentOutOfRangeException(nameof(fieldIndex), fieldIndex, String.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, fieldIndex));
             }
 
-            MissingFieldFlag = true;
+            this.MissingFieldFlag = true;
 
-            for (var i = fieldIndex + 1; i < _fieldCount; i++)
+            for (var i = fieldIndex + 1; i < this._fieldCount; i++)
             {
-                _fields[i] = null;
+                this._fields[i] = null;
             }
 
             if (value != null)
@@ -1870,10 +1899,10 @@ namespace Cadru.Data.Csv
             }
             else
             {
-                switch (MissingFieldAction)
+                switch (this.MissingFieldAction)
                 {
                     case MissingFieldAction.ParseError:
-                        HandleParseError(new MissingFieldCsvException(GetCurrentRawData(), currentPosition, Math.Max(0, FileRecordIndex), fieldIndex), ref currentPosition);
+                        this.HandleParseError(new MissingFieldCsvException(this.GetCurrentRawData(), currentPosition, Math.Max(0, this.FileRecordIndex), fieldIndex), ref currentPosition);
                         return value;
 
                     case MissingFieldAction.ReplaceByEmpty:
@@ -1883,7 +1912,7 @@ namespace Cadru.Data.Csv
                         return null;
 
                     default:
-                        throw new NotSupportedException(String.Format(CultureInfo.InvariantCulture, Strings.MissingFieldActionNotSupported, MissingFieldAction));
+                        throw new NotSupportedException(String.Format(CultureInfo.InvariantCulture, Strings.MissingFieldActionNotSupported, this.MissingFieldAction));
                 }
             }
         }
@@ -1896,12 +1925,12 @@ namespace Cadru.Data.Csv
         /// <exception cref="InvalidOperationException">This operation is invalid when the reader is closed.</exception>
         private void ValidateDataReader(DataReaderValidations validations)
         {
-            if ((validations & DataReaderValidations.IsInitialized) != 0 && !_initialized)
+            if ((validations & DataReaderValidations.IsInitialized) != 0 && !this._initialized)
             {
                 throw new InvalidOperationException(Strings.NoCurrentRecord);
             }
 
-            if ((validations & DataReaderValidations.IsNotClosed) != 0 && _isDisposed)
+            if ((validations & DataReaderValidations.IsNotClosed) != 0 && this._isDisposed)
             {
                 throw new InvalidOperationException(Strings.ReaderClosed);
             }
@@ -1918,9 +1947,9 @@ namespace Cadru.Data.Csv
         /// <returns></returns>
         private long CopyFieldToArray(int field, long fieldOffset, Array destinationArray, int destinationOffset, int length)
         {
-            EnsureInitialize();
+            this.EnsureInitialize();
 
-            if (field < 0 || field >= _fieldCount)
+            if (field < 0 || field >= this._fieldCount)
             {
                 throw new ArgumentOutOfRangeException(nameof(field), field, String.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, field));
             }
@@ -1969,47 +1998,36 @@ namespace Cadru.Data.Csv
         }
 
 #if !NETSTANDARD1_3
-        int System.Data.IDataReader.RecordsAffected
-        {
-            get
-            {
+        int System.Data.IDataReader.RecordsAffected =>
                 // For SELECT statements, -1 must be returned.
-                return -1;
-            }
-        }
+                -1;
 
-        bool System.Data.IDataReader.IsClosed
-        {
-            get
-            {
-                return _eof;
-            }
-        }
+        bool System.Data.IDataReader.IsClosed => this._eof;
 
         bool System.Data.IDataReader.NextResult()
         {
-            ValidateDataReader(DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsNotClosed);
 
             return false;
         }
 
         void System.Data.IDataReader.Close()
         {
-            Dispose();
+            this.Dispose();
         }
 
         bool System.Data.IDataReader.Read()
         {
-            ValidateDataReader(DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsNotClosed);
 
-            return ReadNextRecord();
+            return this.ReadNextRecord();
         }
 
         int System.Data.IDataReader.Depth
         {
             get
             {
-                ValidateDataReader(DataReaderValidations.IsNotClosed);
+                this.ValidateDataReader(DataReaderValidations.IsNotClosed);
 
                 return 0;
             }
@@ -2017,8 +2035,8 @@ namespace Cadru.Data.Csv
 
         System.Data.DataTable System.Data.IDataReader.GetSchemaTable()
         {
-            EnsureInitialize();
-            ValidateDataReader(DataReaderValidations.IsNotClosed);
+            this.EnsureInitialize();
+            this.ValidateDataReader(DataReaderValidations.IsNotClosed);
 
             var schema = new DataTable("SchemaTable")
             {
@@ -2079,18 +2097,18 @@ namespace Cadru.Data.Csv
             };
 
             IList<Column> columns;
-            if (Columns.Count > 0)
+            if (this.Columns.Count > 0)
             {
-                columns = Columns;
+                columns = this.Columns;
             }
             else
             {
                 columns = new List<Column>();
-                for (var i = 0; i < _fieldCount; i++)
+                for (var i = 0; i < this._fieldCount; i++)
                 {
                     columns.Add(new Column
                     {
-                        Name = DefaultHeaderName + i,
+                        Name = this.DefaultHeaderName + i,
                         Type = typeof(string)
                     });
                 }
@@ -2111,7 +2129,7 @@ namespace Cadru.Data.Csv
 
         int IDataRecord.GetInt32(int i)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
 
             var value = this[i];
 
@@ -2122,7 +2140,7 @@ namespace Cadru.Data.Csv
         {
             get
             {
-                ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+                this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
                 return this[name];
             }
         }
@@ -2131,108 +2149,108 @@ namespace Cadru.Data.Csv
         {
             get
             {
-                ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
-                return FieldValue(i);
+                this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+                return this.FieldValue(i);
             }
         }
 
         object IDataRecord.GetValue(int i)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
 
-            return ((IDataRecord)this).IsDBNull(i) ? DBNull.Value : FieldValue(i);
+            return ((IDataRecord)this).IsDBNull(i) ? DBNull.Value : this.FieldValue(i);
         }
 
         bool IDataRecord.IsDBNull(int i)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
-            return NullValue == null ? String.IsNullOrEmpty(this[i]) : String.Equals(this[i], NullValue, StringComparison.OrdinalIgnoreCase);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            return this.NullValue == null ? String.IsNullOrEmpty(this[i]) : String.Equals(this[i], this.NullValue, StringComparison.OrdinalIgnoreCase);
         }
 
         long IDataRecord.GetBytes(int i, long fieldOffset, byte[] buffer, int bufferoffset, int length)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
 
-            return CopyFieldToArray(i, fieldOffset, buffer, bufferoffset, length);
+            return this.CopyFieldToArray(i, fieldOffset, buffer, bufferoffset, length);
         }
 
         byte IDataRecord.GetByte(int i)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
             return Byte.Parse(this[i], CultureInfo.CurrentCulture);
         }
 
         Type IDataRecord.GetFieldType(int i)
         {
-            EnsureInitialize();
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.EnsureInitialize();
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
 
-            if (i < 0 || i >= _fieldCount)
+            if (i < 0 || i >= this._fieldCount)
             {
                 throw new ArgumentOutOfRangeException(nameof(i), i, String.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, i));
             }
 
-            if (Columns == null || i < 0 || i >= Columns.Count)
+            if (this.Columns == null || i < 0 || i >= this.Columns.Count)
             {
                 return typeof(string);
             }
-            var column = Columns[i];
+            var column = this.Columns[i];
             return column.Type;
         }
 
         decimal IDataRecord.GetDecimal(int i)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
             return Decimal.Parse(this[i], CultureInfo.CurrentCulture);
         }
 
         int IDataRecord.GetValues(object[] values)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
 
             var record = (IDataRecord)this;
 
-            for (var i = 0; i < _fieldCount; i++)
+            for (var i = 0; i < this._fieldCount; i++)
             {
                 values[i] = record.GetValue(i);
             }
 
-            return _fieldCount;
+            return this._fieldCount;
         }
 
         string IDataRecord.GetName(int i)
         {
-            EnsureInitialize();
-            ValidateDataReader(DataReaderValidations.IsNotClosed);
+            this.EnsureInitialize();
+            this.ValidateDataReader(DataReaderValidations.IsNotClosed);
 
-            if (i < 0 || i >= FieldCount)
+            if (i < 0 || i >= this.FieldCount)
             {
                 throw new ArgumentOutOfRangeException(nameof(i), i, String.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, i));
             }
 
-            if (i >= Columns.Count)
+            if (i >= this.Columns.Count)
             {
                 return null;
             }
 
-            return Columns[i].Name;
+            return this.Columns[i].Name;
         }
 
         long IDataRecord.GetInt64(int i)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
             return Int64.Parse(this[i], CultureInfo.CurrentCulture);
         }
 
         double IDataRecord.GetDouble(int i)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
             return Double.Parse(this[i], CultureInfo.CurrentCulture);
         }
 
         bool IDataRecord.GetBoolean(int i)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
 
             var value = this[i];
 
@@ -2246,24 +2264,24 @@ namespace Cadru.Data.Csv
 
         Guid IDataRecord.GetGuid(int i)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
             return new Guid(this[i]);
         }
 
         DateTime IDataRecord.GetDateTime(int i)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
             return DateTime.Parse(this[i], CultureInfo.CurrentCulture);
         }
 
         int IDataRecord.GetOrdinal(string name)
         {
-            EnsureInitialize();
-            ValidateDataReader(DataReaderValidations.IsNotClosed);
+            this.EnsureInitialize();
+            this.ValidateDataReader(DataReaderValidations.IsNotClosed);
 
-            if (!_fieldHeaderIndexes.TryGetValue(name, out var index))
+            if (!this._fieldHeaderIndexes.TryGetValue(name, out var index))
             {
-                throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, Strings.FieldHeaderNotFound, name), "name");
+                throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, Strings.FieldHeaderNotFound, name), nameof(name));
             }
 
             return index;
@@ -2271,56 +2289,56 @@ namespace Cadru.Data.Csv
 
         string IDataRecord.GetDataTypeName(int i)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
             return typeof(string).FullName;
         }
 
         float IDataRecord.GetFloat(int i)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
             return Single.Parse(this[i], CultureInfo.CurrentCulture);
         }
 
         IDataReader IDataRecord.GetData(int i)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
 
             return i == 0 ? this : null;
         }
 
         long IDataRecord.GetChars(int i, long fieldoffset, char[] buffer, int bufferoffset, int length)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
 
-            return CopyFieldToArray(i, fieldoffset, buffer, bufferoffset, length);
+            return this.CopyFieldToArray(i, fieldoffset, buffer, bufferoffset, length);
         }
 
         string IDataRecord.GetString(int i)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
             return this[i];
         }
 
         char IDataRecord.GetChar(int i)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
             return Char.Parse(this[i]);
         }
 
         short IDataRecord.GetInt16(int i)
         {
-            ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
+            this.ValidateDataReader(DataReaderValidations.IsInitialized | DataReaderValidations.IsNotClosed);
             return Int16.Parse(this[i], CultureInfo.CurrentCulture);
         }
 #endif
         object FieldValue(int i)
         {
             var value = this[i];
-            if (Columns == null || i < 0 || i >= Columns.Count)
+            if (this.Columns == null || i < 0 || i >= this.Columns.Count)
             {
                 return value;
             }
-            var column = Columns[i];
+            var column = this.Columns[i];
             return column.Convert(value);
         }
 
@@ -2357,7 +2375,7 @@ namespace Cadru.Data.Csv
         /// </exception>
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return GetEnumerator();
+            return this.GetEnumerator();
         }
 
 #if DEBUG
@@ -2365,7 +2383,7 @@ namespace Cadru.Data.Csv
         /// <summary>
         /// Contains the stack when the object was allocated.
         /// </summary>
-        private System.Diagnostics.StackTrace _allocStack;
+        private readonly System.Diagnostics.StackTrace _allocStack;
 #endif
 #endif
 
@@ -2390,7 +2408,7 @@ namespace Cadru.Data.Csv
         /// <value>
         ///     <see langword="true"/> if the instance has been disposed of; otherwise, <see langword="false"/>.
         /// </value>
-        public bool IsDisposed => _isDisposed;
+        public bool IsDisposed => this._isDisposed;
 
         /// <summary>
         /// Raises the <see cref="M:Disposed"/> event.
@@ -2412,7 +2430,7 @@ namespace Cadru.Data.Csv
         /// </remarks>
         protected void CheckDisposed()
         {
-            if (_isDisposed)
+            if (this._isDisposed)
             {
                 throw new ObjectDisposedException(this.GetType().FullName);
             }
@@ -2426,9 +2444,9 @@ namespace Cadru.Data.Csv
         /// </remarks>
         public void Dispose()
         {
-            if (!_isDisposed)
+            if (!this._isDisposed)
             {
-                Dispose(true);
+                this.Dispose(true);
                 GC.SuppressFinalize(this);
             }
         }
@@ -2444,7 +2462,7 @@ namespace Cadru.Data.Csv
 
             // No exception should ever be thrown except in critical scenarios.
             // Unhandled exceptions during finalization will tear down the process.
-            if (!_isDisposed)
+            if (!this._isDisposed)
             {
                 try
                 {
@@ -2458,17 +2476,17 @@ namespace Cadru.Data.Csv
                     {
                         // Acquire a lock on the object while disposing.
 
-                        if (_reader != null)
+                        if (this._reader != null)
                         {
-                            lock (_lock)
+                            lock (this._lock)
                             {
-                                if (_reader != null)
+                                if (this._reader != null)
                                 {
-                                    _reader.Dispose();
+                                    this._reader.Dispose();
 
-                                    _reader = null;
-                                    _buffer = null;
-                                    _eof = true;
+                                    this._reader = null;
+                                    this._buffer = null;
+                                    this._eof = true;
                                 }
                             }
                         }
@@ -2477,12 +2495,12 @@ namespace Cadru.Data.Csv
                 finally
                 {
                     // Ensure that the flag is set
-                    _isDisposed = true;
+                    this._isDisposed = true;
 
                     // Catch any issues about firing an event on an already disposed object.
                     try
                     {
-                        OnDisposed(EventArgs.Empty);
+                        this.OnDisposed(EventArgs.Empty);
                     }
                     catch { }
                 }
@@ -2496,10 +2514,10 @@ namespace Cadru.Data.Csv
         {
 #if DEBUG
 #if !NETSTANDARD1_3
-            Debug.WriteLine("FinalizableObject was not disposed" + _allocStack.ToString());
+            Debug.WriteLine("FinalizableObject was not disposed" + this._allocStack.ToString());
 #endif
 #endif
-            Dispose(false);
+            this.Dispose(false);
         }
     }
 }

@@ -1,3 +1,25 @@
+//------------------------------------------------------------------------------
+// <copyright file="CsvBindingList.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,7 +36,7 @@ namespace Cadru.Data.Csv
         /// <summary>
         /// Contains the linked CSV reader.
         /// </summary>
-        private CachedCsvReader _csv;
+        private readonly CachedCsvReader _csv;
 
         /// <summary>
         /// Contains the cached record count.
@@ -42,40 +64,28 @@ namespace Cadru.Data.Csv
         /// <param name="csv"></param>
         public CsvBindingList(CachedCsvReader csv)
         {
-            _csv = csv;
-            _count = -1;
-            _direction = ListSortDirection.Ascending;
+            this._csv = csv;
+            this._count = -1;
+            this._direction = ListSortDirection.Ascending;
         }
 
         public void AddIndex(PropertyDescriptor property)
         {
         }
 
-        public bool AllowNew
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool AllowNew => false;
 
         public void ApplySort(PropertyDescriptor property, System.ComponentModel.ListSortDirection direction)
         {
-            _sort = (CsvPropertyDescriptor)property;
-            _direction = direction;
+            this._sort = (CsvPropertyDescriptor)property;
+            this._direction = direction;
 
-            _csv.ReadToEnd();
+            this._csv.ReadToEnd();
 
-            _csv.Records.Sort(new CsvRecordComparer(_sort.Index, _direction));
+            this._csv.Records.Sort(new CsvRecordComparer(this._sort.Index, this._direction));
         }
 
-        public PropertyDescriptor SortProperty
-        {
-            get
-            {
-                return _sort;
-            }
-        }
+        public PropertyDescriptor SortProperty => this._sort;
 
         public int Find(PropertyDescriptor property, object key)
         {
@@ -85,36 +95,21 @@ namespace Cadru.Data.Csv
             var recordIndex = 0;
             var count = this.Count;
 
-            while (recordIndex < count && _csv[recordIndex, fieldIndex] != value)
+            while (recordIndex < count && this._csv[recordIndex, fieldIndex] != value)
                 recordIndex++;
 
             return recordIndex == count ? -1 : recordIndex;
         }
 
-        public bool SupportsSorting
-        {
-            get { return true; }
-        }
+        public bool SupportsSorting => true;
 
-        public bool IsSorted
-        {
-            get { return _sort != null; }
-        }
+        public bool IsSorted => this._sort != null;
 
-        public bool AllowRemove
-        {
-            get { return false; }
-        }
+        public bool AllowRemove => false;
 
-        public bool SupportsSearching
-        {
-            get { return true; }
-        }
+        public bool SupportsSearching => true;
 
-        public System.ComponentModel.ListSortDirection SortDirection
-        {
-            get { return _direction; }
-        }
+        public System.ComponentModel.ListSortDirection SortDirection => this._direction;
 
         public event System.ComponentModel.ListChangedEventHandler ListChanged
         {
@@ -122,15 +117,12 @@ namespace Cadru.Data.Csv
             remove { }
         }
 
-        public bool SupportsChangeNotification
-        {
-            get { return false; }
-        }
+        public bool SupportsChangeNotification => false;
 
         public void RemoveSort()
         {
-            _sort = null;
-            _direction = ListSortDirection.Ascending;
+            this._sort = null;
+            this._direction = ListSortDirection.Ascending;
         }
 
         public object AddNew()
@@ -138,10 +130,7 @@ namespace Cadru.Data.Csv
             throw new NotSupportedException();
         }
 
-        public bool AllowEdit
-        {
-            get { return false; }
-        }
+        public bool AllowEdit => false;
 
         public void RemoveIndex(PropertyDescriptor property)
         {
@@ -149,19 +138,19 @@ namespace Cadru.Data.Csv
 
         public PropertyDescriptorCollection GetItemProperties(PropertyDescriptor[] listAccessors)
         {
-            if (_properties == null)
+            if (this._properties == null)
             {
-                var properties = new PropertyDescriptor[_csv.FieldCount];
+                var properties = new PropertyDescriptor[this._csv.FieldCount];
 
                 for (var i = 0; i < properties.Length; i++)
                 {
-                    properties[i] = new CsvPropertyDescriptor(((System.Data.IDataReader) _csv).GetName(i), i);
+                    properties[i] = new CsvPropertyDescriptor(((System.Data.IDataReader)this._csv).GetName(i), i);
                 }
 
-                _properties = new PropertyDescriptorCollection(properties);
+                this._properties = new PropertyDescriptorCollection(properties);
             }
 
-            return _properties;
+            return this._properties;
         }
 
         public string GetListName(PropertyDescriptor[] listAccessors)
@@ -188,8 +177,8 @@ namespace Cadru.Data.Csv
         {
             get
             {
-                _csv.MoveTo(index);
-                return _csv.Records[index];
+                this._csv.MoveTo(index);
+                return this._csv.Records[index];
             }
             set
             {
@@ -214,11 +203,11 @@ namespace Cadru.Data.Csv
 
         public void CopyTo(string[][] array, int arrayIndex)
         {
-            _csv.MoveToStart();
+            this._csv.MoveToStart();
 
-            while (_csv.ReadNextRecord())
+            while (this._csv.ReadNextRecord())
             {
-                _csv.CopyCurrentRecordTo(array[arrayIndex++]);
+                this._csv.CopyCurrentRecordTo(array[arrayIndex++]);
             }
         }
 
@@ -226,20 +215,17 @@ namespace Cadru.Data.Csv
         {
             get
             {
-                if (_count < 0)
+                if (this._count < 0)
                 {
-                    _csv.ReadToEnd();
-                    _count = (int)_csv.CurrentRecordIndex + 1;
+                    this._csv.ReadToEnd();
+                    this._count = (int)this._csv.CurrentRecordIndex + 1;
                 }
 
-                return _count;
+                return this._count;
             }
         }
 
-        public bool IsReadOnly
-        {
-            get { return true; }
-        }
+        public bool IsReadOnly => true;
 
         public bool Remove(string[] item)
         {
@@ -248,7 +234,7 @@ namespace Cadru.Data.Csv
 
         public IEnumerator<string[]> GetEnumerator()
         {
-            return _csv.GetEnumerator();
+            return this._csv.GetEnumerator();
         }
 
         public int Add(object value)
@@ -271,10 +257,7 @@ namespace Cadru.Data.Csv
             throw new NotSupportedException();
         }
 
-        public bool IsFixedSize
-        {
-            get { return true; }
-        }
+        public bool IsFixedSize => true;
 
         public void Remove(object value)
         {
@@ -295,23 +278,17 @@ namespace Cadru.Data.Csv
 
         public void CopyTo(Array array, int index)
         {
-            _csv.MoveToStart();
+            this._csv.MoveToStart();
 
-            while (_csv.ReadNextRecord())
+            while (this._csv.ReadNextRecord())
             {
-                _csv.CopyCurrentRecordTo((string[]) array.GetValue(index++));
+                this._csv.CopyCurrentRecordTo((string[]) array.GetValue(index++));
             }
         }
 
-        public bool IsSynchronized
-        {
-            get { return false; }
-        }
+        public bool IsSynchronized => false;
 
-        public object SyncRoot
-        {
-            get { return null; }
-        }
+        public object SyncRoot => null;
 
         IEnumerator IEnumerable.GetEnumerator()
         {

@@ -1,3 +1,25 @@
+//------------------------------------------------------------------------------
+// <copyright file="CsvReader.RecordEnumerator.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -42,19 +64,16 @@ namespace Cadru.Data.Csv
                     throw new ArgumentNullException(nameof(reader));
                 }
 
-                _reader = reader;
-                _current = null;
+                this._reader = reader;
+                this._current = null;
 
-                _currentRecordIndex = reader.CurrentRecordIndex;
+                this._currentRecordIndex = reader.CurrentRecordIndex;
             }
 
             /// <summary>
             /// Gets the current record.
             /// </summary>
-            public string[] Current
-            {
-                get { return _current; }
-            }
+            public string[] Current => this._current;
 
             /// <summary>
             /// Advances the enumerator to the next record of the CSV.
@@ -62,24 +81,24 @@ namespace Cadru.Data.Csv
             /// <returns><see langword="true"/> if the enumerator was successfully advanced to the next record, <see langword="false"/> if the enumerator has passed the end of the CSV.</returns>
             public bool MoveNext()
             {
-                if (_reader.CurrentRecordIndex != _currentRecordIndex)
+                if (this._reader.CurrentRecordIndex != this._currentRecordIndex)
                 {
                     throw new InvalidOperationException(Strings.EnumerationVersionCheckFailed);
                 }
 
-                if (_reader.ReadNextRecord())
+                if (this._reader.ReadNextRecord())
                 {
-                    _current = new string[_reader._fieldCount];
+                    this._current = new string[this._reader._fieldCount];
 
-                    _reader.CopyCurrentRecordTo(_current);
-                    _currentRecordIndex = _reader.CurrentRecordIndex;
+                    this._reader.CopyCurrentRecordTo(this._current);
+                    this._currentRecordIndex = this._reader.CurrentRecordIndex;
 
                     return true;
                 }
                 else
                 {
-                    _current = null;
-                    _currentRecordIndex = _reader.CurrentRecordIndex;
+                    this._current = null;
+                    this._currentRecordIndex = this._reader.CurrentRecordIndex;
 
                     return false;
                 }
@@ -90,15 +109,15 @@ namespace Cadru.Data.Csv
             /// </summary>
             public void Reset()
             {
-                if (_reader.CurrentRecordIndex != _currentRecordIndex)
+                if (this._reader.CurrentRecordIndex != this._currentRecordIndex)
                 {
                     throw new InvalidOperationException(Strings.EnumerationVersionCheckFailed);
                 }
 
-                _reader.MoveTo(-1);
+                this._reader.MoveTo(-1);
 
-                _current = null;
-                _currentRecordIndex = _reader.CurrentRecordIndex;
+                this._current = null;
+                this._currentRecordIndex = this._reader.CurrentRecordIndex;
             }
 
             /// <summary>
@@ -108,7 +127,7 @@ namespace Cadru.Data.Csv
             {
                 get
                 {
-                    if (_reader.CurrentRecordIndex != _currentRecordIndex)
+                    if (this._reader.CurrentRecordIndex != this._currentRecordIndex)
                     {
                         throw new InvalidOperationException(Strings.EnumerationVersionCheckFailed);
                     }
@@ -122,8 +141,8 @@ namespace Cadru.Data.Csv
             /// </summary>
             public void Dispose()
             {
-                _reader = null;
-                _current = null;
+                this._reader = null;
+                this._current = null;
             }
         }
     }

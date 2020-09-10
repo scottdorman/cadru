@@ -2,7 +2,7 @@
 // <copyright file="ExtendedFileInfo.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -116,13 +116,7 @@ namespace Cadru.IO
         /// </summary>
         /// <value>The comments associated with the file or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks>This property contains additional information that can be displayed for diagnostic purposes.</remarks>
-        public string Comments
-        {
-            get
-            {
-                return this.fileVersionInfo.Comments;
-            }
-        }
+        public string Comments => this.fileVersionInfo.Comments;
         #endregion
 
         #region CompanyName
@@ -130,13 +124,7 @@ namespace Cadru.IO
         /// Gets the name of the company that produced the file.
         /// </summary>
         /// <value>The name of the company that produced the file or a <see langword="null" /> if the file did not contain version information.</value>
-        public string CompanyName
-        {
-            get
-            {
-                return this.fileVersionInfo.CompanyName;
-            }
-        }
+        public string CompanyName => this.fileVersionInfo.CompanyName;
         #endregion
 
         #region CreationTime
@@ -184,13 +172,7 @@ namespace Cadru.IO
         /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
-        public DateTime CreateTimeUtc
-        {
-            get
-            {
-                return this.fileInfo.CreationTimeUtc;
-            }
-        }
+        public DateTime CreateTimeUtc => this.fileInfo.CreationTimeUtc;
         #endregion
 
         #region Directory
@@ -205,13 +187,7 @@ namespace Cadru.IO
         /// required permission.</exception>
         /// <remarks><para>To get the parent directory as a string, use the
         /// <see cref="DirectoryName"/> property.</para></remarks>
-        public DirectoryInfo Directory
-        {
-            get
-            {
-                return this.fileInfo.Directory;
-            }
-        }
+        public DirectoryInfo Directory => this.fileInfo.Directory;
         #endregion
 
         #region DirectoryName
@@ -230,13 +206,7 @@ namespace Cadru.IO
         /// <see cref="Refresh"/> and caches information on the file. On
         /// subsequent calls, you must call <see cref="Refresh"/> to get the
         /// latest copy of the information.</para></remarks>
-        public string DirectoryName
-        {
-            get
-            {
-                return this.fileInfo.DirectoryName;
-            }
-        }
+        public string DirectoryName => this.fileInfo.DirectoryName;
         #endregion
 
         #region ExecutableType
@@ -244,13 +214,7 @@ namespace Cadru.IO
         /// Gets the type of executable that this instance of FileVersionInfo describes.
         /// </summary>
         /// <value>The type of executable of the file described by this instance of FileVersionInfo.</value>
-        public ExecutableType ExecutableType
-        {
-            get
-            {
-                return this.executableType;
-            }
-        }
+        public ExecutableType ExecutableType => this.executableType;
         #endregion
 
         #region Exists
@@ -264,13 +228,7 @@ namespace Cadru.IO
         /// calls <see cref="Refresh"/> and caches information on the file. On
         /// subsequent calls, you must call <see cref="Refresh"/> to get the
         /// latest copy of the information.</para></remarks>
-        public bool Exists
-        {
-            get
-            {
-                return this.fileInfo.Exists;
-            }
-        }
+        public bool Exists => this.fileInfo.Exists;
         #endregion
 
         #region Extension
@@ -279,13 +237,7 @@ namespace Cadru.IO
         /// </summary>
         /// <value>A string containing the FileSystemInfo extension.</value>
         /// <remarks>The Extension property returns the FileSystemInfo extension, including the period (.). For example, for a file C:\NewFile.txt, this property returns ".txt".</remarks>
-        public string Extension
-        {
-            get
-            {
-                return this.fileInfo.Extension;
-            }
-        }
+        public string Extension => this.fileInfo.Extension;
         #endregion
 
         #region FileBuildPart
@@ -302,13 +254,7 @@ namespace Cadru.IO
         /// </list>
         /// <para>This property gets the third set of 16 bits.</para>
         /// </remarks>
-        public int FileBuildPart
-        {
-            get
-            {
-                return this.fileVersionInfo.FileBuildPart;
-            }
-        }
+        public int FileBuildPart => this.fileVersionInfo.FileBuildPart;
         #endregion
 
         #region FileDescription
@@ -316,13 +262,7 @@ namespace Cadru.IO
         /// Gets the description of the file.
         /// </summary>
         /// <value>The description of the file or a <see langword="null" /> if the file did not contain version information.</value>
-        public string FileDescription
-        {
-            get
-            {
-                return this.fileVersionInfo.FileDescription;
-            }
-        }
+        public string FileDescription => this.fileVersionInfo.FileDescription;
         #endregion
 
         #region FileMajorPart
@@ -339,13 +279,7 @@ namespace Cadru.IO
         /// </list>
         /// <para>This property gets the first set of 16 bits.</para>
         /// </remarks>
-        public int FileMajorPart
-        {
-            get
-            {
-                return this.fileVersionInfo.FileMajorPart;
-            }
-        }
+        public int FileMajorPart => this.fileVersionInfo.FileMajorPart;
         #endregion
 
         #region FileMinorPart
@@ -362,13 +296,7 @@ namespace Cadru.IO
         /// </list>
         /// <para>This property gets the second set of 16 bits.</para>
         /// </remarks>
-        public int FileMinorPart
-        {
-            get
-            {
-                return this.fileVersionInfo.FileMinorPart;
-            }
-        }
+        public int FileMinorPart => this.fileVersionInfo.FileMinorPart;
         #endregion
 
         #region FileName
@@ -376,13 +304,7 @@ namespace Cadru.IO
         /// Gets the name of the file that this instance of FileVersionInfo describes.
         /// </summary>
         /// <value>The name of the file described by this instance of FileVersionInfo.</value>
-        public string FileName
-        {
-            get
-            {
-                return this.fileVersionInfo.FileName;
-            }
-        }
+        public string FileName => this.fileVersionInfo.FileName;
         #endregion
 
         #region FileOwner
@@ -390,13 +312,7 @@ namespace Cadru.IO
         /// Gets the Windows owner associated with the file.
         /// </summary>
         /// <value>A string representing the owner of the file or <see langword="null"/> if the owner cannot be determined.</value>
-        public string FileOwner
-        {
-            get
-            {
-                return this.fileOwner;
-            }
-        }
+        public string FileOwner => this.fileOwner;
         #endregion
 
         #region FilePrivatePart
@@ -413,13 +329,7 @@ namespace Cadru.IO
         /// </list>
         /// <para>This property gets the last set of 16 bits.</para>
         /// </remarks>
-        public int FilePrivatePart
-        {
-            get
-            {
-                return this.fileVersionInfo.FilePrivatePart;
-            }
-        }
+        public int FilePrivatePart => this.fileVersionInfo.FilePrivatePart;
         #endregion
 
         #region FileType
@@ -427,13 +337,7 @@ namespace Cadru.IO
         /// Gets the type of file.
         /// </summary>
         /// <value>The type of the file as displayed by the Shell.</value>
-        public string FileType
-        {
-            get
-            {
-                return this.shellFileInfo.szTypeName;
-            }
-        }
+        public string FileType => this.shellFileInfo.szTypeName;
         #endregion
 
         #region FileVersion
@@ -449,13 +353,7 @@ namespace Cadru.IO
         /// <item>The last 16 bits are the FilePrivatePart number.</item>
         /// </list>
         /// </remarks>
-        public string FileVersion
-        {
-            get
-            {
-                return this.fileVersionInfo.FileVersion;
-            }
-        }
+        public string FileVersion => this.fileVersionInfo.FileVersion;
         #endregion
 
         #region FullName
@@ -465,13 +363,7 @@ namespace Cadru.IO
         /// <value>A string containing the full path.</value>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         /// <remarks>For example, for a file C:\NewFile.txt, this property returns "C:\NewFile.txt".</remarks>
-        public string FullName
-        {
-            get
-            {
-                return this.fileInfo.FullName;
-            }
-        }
+        public string FullName => this.fileInfo.FullName;
         #endregion
 
         #region InternalName
@@ -479,13 +371,7 @@ namespace Cadru.IO
         /// Gets the internal name of the file, if one exists.
         /// </summary>
         /// <value>The internal name of the file. If none exists, this property will contain the original name of the file without the extension.</value>
-        public string InternalName
-        {
-            get
-            {
-                return this.fileVersionInfo.InternalName;
-            }
-        }
+        public string InternalName => this.fileVersionInfo.InternalName;
         #endregion
 
         #region IsDebug
@@ -497,13 +383,7 @@ namespace Cadru.IO
         /// <para>The FileVersionInfo properties are based on version resource information built into the file. Version resources are often built into binary files such as .exe or .dll files; text files do not have version resource information.</para>
         /// <para>Version resources are typically specified in a Win32 resource file, or in assembly attributes. The IsDebug property reflects the VS_FF_DEBUG flag value in the file's VS_FIXEDFILEINFO block, which is built from the VERSIONINFO resource in a Win32 resource file. For more information about specifying version resources in a Win32 resource file, see the Platform SDK About Resource Files topic and VERSIONINFO Resource topic topics.</para>
         /// </remarks>
-        public bool IsDebug
-        {
-            get
-            {
-                return this.fileVersionInfo.IsDebug;
-            }
-        }
+        public bool IsDebug => this.fileVersionInfo.IsDebug;
         #endregion
 
         #region IsPatched
@@ -511,13 +391,7 @@ namespace Cadru.IO
         /// Gets a value indicating whether the file has been modified and is not identical to the original shipping file of the same version number.
         /// </summary>
         /// <value><see langword="true"/> if the file is patched; otherwise, <see langword="false"/>.</value>
-        public bool IsPatched
-        {
-            get
-            {
-                return this.fileVersionInfo.IsPatched;
-            }
-        }
+        public bool IsPatched => this.fileVersionInfo.IsPatched;
         #endregion
 
         #region IsPreRelease
@@ -526,13 +400,7 @@ namespace Cadru.IO
         /// </summary>
         /// <value><see langword="true"/> if the file is prerelease; otherwise, <see langword="false"/>.</value>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "PreRelease", Justification = "This property follows the same naming convention as the underlying property in the FileVersionInfo class.")]
-        public bool IsPreRelease
-        {
-            get
-            {
-                return this.fileVersionInfo.IsPreRelease;
-            }
-        }
+        public bool IsPreRelease => this.fileVersionInfo.IsPreRelease;
         #endregion
 
         #region IsPrivateBuild
@@ -541,13 +409,7 @@ namespace Cadru.IO
         /// </summary>
         /// <value><see langword="true"/> if the file is a private build; <see langword="false"/> if the file was built using standard release procedures or if the file did not contain version information.</value>
         /// <remarks>If this value is true, PrivateBuild will describe how this version of the file differs from the standard version.</remarks>
-        public bool IsPrivateBuild
-        {
-            get
-            {
-                return this.fileVersionInfo.IsPrivateBuild;
-            }
-        }
+        public bool IsPrivateBuild => this.fileVersionInfo.IsPrivateBuild;
         #endregion
 
         #region IsReadOnly
@@ -597,13 +459,7 @@ namespace Cadru.IO
         /// </summary>
         /// <value><see langword="true"/> if the file is a special build; otherwise, <see langword="false"/>.</value>
         /// <remarks>A file that is a special build was built using standard release procedures, but the file differs from a standard file of the same version number. If this value is true, the SpecialBuild property must specify how this file differs from the standard version.</remarks>
-        public bool IsSpecialBuild
-        {
-            get
-            {
-                return this.fileVersionInfo.IsSpecialBuild;
-            }
-        }
+        public bool IsSpecialBuild => this.fileVersionInfo.IsSpecialBuild;
         #endregion
 
         #region Language
@@ -611,13 +467,7 @@ namespace Cadru.IO
         /// Gets the default language string for the version info block.
         /// </summary>
         /// <value>The description string for the Microsoft Language Identifier in the version resource or a <see langword="null" /> if the file did not contain version information.</value>
-        public string Language
-        {
-            get
-            {
-                return this.fileVersionInfo.Language;
-            }
-        }
+        public string Language => this.fileVersionInfo.Language;
         #endregion
 
         #region LastAccessTime
@@ -635,13 +485,7 @@ namespace Cadru.IO
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// <para>Windows Mobile for Pocket PC, Windows Mobile for Smartphone, Windows CE Platform Note: This property is read-only.</para>
         /// </remarks>
-        public DateTime LastAccessTime
-        {
-            get
-            {
-                return this.fileInfo.LastAccessTime;
-            }
-        }
+        public DateTime LastAccessTime => this.fileInfo.LastAccessTime;
         #endregion
 
         #region LastAccessTimeUtc
@@ -658,13 +502,7 @@ namespace Cadru.IO
         /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
-        public DateTime LastAccessTimeUtc
-        {
-            get
-            {
-                return this.fileInfo.LastAccessTimeUtc;
-            }
-        }
+        public DateTime LastAccessTimeUtc => this.fileInfo.LastAccessTimeUtc;
         #endregion
 
         #region LastWriteTime
@@ -682,13 +520,7 @@ namespace Cadru.IO
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// <para>Windows Mobile for Pocket PC, Windows Mobile for Smartphone, Windows CE Platform Note: This property is read-only.</para>
         /// </remarks>
-        public DateTime LastWriteTime
-        {
-            get
-            {
-                return this.fileInfo.LastWriteTime;
-            }
-        }
+        public DateTime LastWriteTime => this.fileInfo.LastWriteTime;
         #endregion
 
         #region LastWriteTimeUtc
@@ -705,13 +537,7 @@ namespace Cadru.IO
         /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
-        public DateTime LastWriteTimUtc
-        {
-            get
-            {
-                return this.fileInfo.LastWriteTimeUtc;
-            }
-        }
+        public DateTime LastWriteTimUtc => this.fileInfo.LastWriteTimeUtc;
         #endregion
 
         #region LegalCopyright
@@ -720,13 +546,7 @@ namespace Cadru.IO
         /// </summary>
         /// <value>The copyright notices that apply to the specified file.</value>
         /// <remarks>This should include the full text of all notices, legal symbols, copyright dates, and so on or a <see langword="null" /> if the file did not contain version information.</remarks>
-        public string LegalCopyright
-        {
-            get
-            {
-                return this.fileVersionInfo.LegalCopyright;
-            }
-        }
+        public string LegalCopyright => this.fileVersionInfo.LegalCopyright;
         #endregion
 
         #region LegalTrademarks
@@ -735,13 +555,7 @@ namespace Cadru.IO
         /// </summary>
         /// <value>The trademarks and registered trademarks that apply to the file or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks>The legal trademarks include the full text of all notices, legal symbols, and trademark numbers.</remarks>
-        public string LegalTrademarks
-        {
-            get
-            {
-                return this.fileVersionInfo.LegalTrademarks;
-            }
-        }
+        public string LegalTrademarks => this.fileVersionInfo.LegalTrademarks;
         #endregion
 
         #region Length
@@ -765,13 +579,7 @@ namespace Cadru.IO
         /// subsequent calls, you must call <see cref="Refresh"/> to get the
         /// latest copy of the information.</para>
         /// </remarsk>
-        public long Length
-        {
-            get
-            {
-                return this.fileInfo.Length;
-            }
-        }
+        public long Length => this.fileInfo.Length;
         #endregion
 
         #region Name
@@ -785,13 +593,7 @@ namespace Cadru.IO
         /// subsequent calls, you must call <see cref="Refresh"/> to get the
         /// latest copy of the information.</para>
         /// </remarsk>
-        public string Name
-        {
-            get
-            {
-                return this.fileInfo.Name;
-            }
-        }
+        public string Name => this.fileInfo.Name;
         #endregion
 
         #region OriginalFilename
@@ -801,13 +603,7 @@ namespace Cadru.IO
         /// <value>The name the file was created with or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks>This property enables an application to determine whether a file has been renamed.</remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "Filename", Justification = "This property follows the same naming convention as the underlying property in the FileVersionInfo class.")]
-        public string OriginalFilename
-        {
-            get
-            {
-                return this.fileVersionInfo.OriginalFilename;
-            }
-        }
+        public string OriginalFilename => this.fileVersionInfo.OriginalFilename;
         #endregion
 
         #region PrivateBuild
@@ -816,13 +612,7 @@ namespace Cadru.IO
         /// </summary>
         /// <value>Information about a private version of the file or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks>This information is present when IsPrivateBuild is true.</remarks>
-        public string PrivateBuild
-        {
-            get
-            {
-                return this.fileVersionInfo.PrivateBuild;
-            }
-        }
+        public string PrivateBuild => this.fileVersionInfo.PrivateBuild;
         #endregion
 
         #region ProductBuildPart
@@ -839,13 +629,7 @@ namespace Cadru.IO
         /// </list>
         /// <para>This property gets the third set of 16 bits.</para>
         /// </remarks>
-        public int ProductBuildPart
-        {
-            get
-            {
-                return this.fileVersionInfo.ProductBuildPart;
-            }
-        }
+        public int ProductBuildPart => this.fileVersionInfo.ProductBuildPart;
         #endregion
 
         #region ProductMajorPart
@@ -862,13 +646,7 @@ namespace Cadru.IO
         /// </list>
         /// <para>This property gets the first set of 16 bits.</para>
         /// </remarks>
-        public int ProductMajorPart
-        {
-            get
-            {
-                return this.fileVersionInfo.ProductMajorPart;
-            }
-        }
+        public int ProductMajorPart => this.fileVersionInfo.ProductMajorPart;
         #endregion
 
         #region ProductMinorPart
@@ -885,13 +663,7 @@ namespace Cadru.IO
         /// </list>
         /// <para>This property gets the second set of 16 bits.</para>
         /// </remarks>
-        public int ProductMinorPart
-        {
-            get
-            {
-                return this.fileVersionInfo.ProductMinorPart;
-            }
-        }
+        public int ProductMinorPart => this.fileVersionInfo.ProductMinorPart;
         #endregion
 
         #region ProductName
@@ -899,13 +671,7 @@ namespace Cadru.IO
         /// Gets the name of the product this file is distributed with.
         /// </summary>
         /// <value>The name of the product this file is distributed with or a <see langword="null" /> if the file did not contain version information.</value>
-        public string ProductName
-        {
-            get
-            {
-                return this.fileVersionInfo.ProductName;
-            }
-        }
+        public string ProductName => this.fileVersionInfo.ProductName;
         #endregion
 
         #region ProductPrivatePart
@@ -922,13 +688,7 @@ namespace Cadru.IO
         /// </list>
         /// <para>This property gets the last set of 16 bits.</para>
         /// </remarks>
-        public int ProductPrivatePart
-        {
-            get
-            {
-                return this.fileVersionInfo.ProductPrivatePart;
-            }
-        }
+        public int ProductPrivatePart => this.fileVersionInfo.ProductPrivatePart;
         #endregion
 
         #region ProductVersion
@@ -944,13 +704,7 @@ namespace Cadru.IO
         /// <item>The last 16 bits are the ProductPrivatePart number.</item>
         /// </list>
         /// </remarks>
-        public string ProductVersion
-        {
-            get
-            {
-                return this.fileVersionInfo.ProductVersion;
-            }
-        }
+        public string ProductVersion => this.fileVersionInfo.ProductVersion;
         #endregion
 
         #region SpecialBuild
@@ -959,13 +713,7 @@ namespace Cadru.IO
         /// </summary>
         /// <value>The special build information for the file or a <see langword="null" /> if the file did not contain version information.</value>
         /// <remarks>If IsSpecialBuild is true, SpecialBuild must specify how this file differs from the standard version of the file.</remarks>
-        public string SpecialBuild
-        {
-            get
-            {
-                return this.fileVersionInfo.SpecialBuild;
-            }
-        }
+        public string SpecialBuild => this.fileVersionInfo.SpecialBuild;
         #endregion
 
         #endregion
@@ -1593,7 +1341,6 @@ namespace Cadru.IO
 
                 // Try to fill the same SHFILEINFO struct for the exe type. The returned pointer contains the encoded
                 // executable type data.
-                ptr = IntPtr.Zero;
                 ptr = SafeNativeMethods.SHGetFileInfo(fileName, FileAttributes.Normal, ref this.shellFileInfo, Marshal.SizeOf<SHFILEINFO>(), SHGFI.EXETYPE);
 
                 // We need to split the returned pointer up into the high and low order words. These are important

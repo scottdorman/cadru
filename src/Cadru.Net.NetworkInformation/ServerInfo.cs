@@ -2,7 +2,7 @@
 // <copyright file="ServerInfo.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -40,12 +40,12 @@ namespace Cadru.Net.NetworkInformation
     #endregion
 
     #region fields
-        private PlatformId platformId;
-        private string name;
-        private int majorVersion;
-        private int minorVersion;
-        private ServerTypes serverType;
-        private string comment;
+        private readonly PlatformId platformId;
+        private readonly string name;
+        private readonly int majorVersion;
+        private readonly int minorVersion;
+        private readonly ServerTypes serverType;
+        private readonly string comment;
     #endregion
 
     #region constructors
@@ -60,36 +60,24 @@ namespace Cadru.Net.NetworkInformation
             this.serverType = (ServerTypes)info.sv101_type;
             this.comment = info.sv101_comment;
         }
-    #endregion
+        #endregion
 
-    #endregion
+        #endregion
 
-    #region properties
+        #region properties
 
         /// <summary>
         /// Gets the information level used for platform-specific information.
         /// </summary>
         /// <value>One of the <see cref="PlatformId"/> values.</value>
-        public PlatformId PlatformId
-        {
-            get
-            {
-                return this.platformId;
-            }
-        }
+        public PlatformId PlatformId => this.platformId;
 
         /// <summary>
         /// Gets the name of the computer.
         /// </summary>
         /// <value>A <see cref="String"/> that represents the name of the
         /// computer.</value>
-        public string Name
-        {
-            get
-            {
-                return this.name;
-            }
-        }
+        public string Name => this.name;
 
         /// <summary>
         /// Gets the Server comment.
@@ -97,71 +85,41 @@ namespace Cadru.Net.NetworkInformation
         /// <value>A <see cref="String"/> that represents the comment
         /// associated with the server or an empty string if there is no
         /// comment.</value>
-        public string Comment
-        {
-            get
-            {
-                return this.comment;
-            }
-        }
+        public string Comment => this.comment;
 
         /// <summary>
         /// Gets the operating system major version number.
         /// </summary>
         /// <value>An <see cref="Int32"></see> value representing the major
         /// version number of the operating system.</value>
-        public int MajorVersion
-        {
-            get
-            {
-                return this.majorVersion;
-            }
-        }
+        public int MajorVersion => this.majorVersion;
 
         /// <summary>
         /// Gets the operating system minor version number.
         /// </summary>
         /// <value>An <see cref="Int32"></see> value representing the minor
         /// version number of the operating system.</value>
-        public int MinorVersion
-        {
-            get
-            {
-                return this.minorVersion;
-            }
-        }
+        public int MinorVersion => this.minorVersion;
 
         /// <summary>
         /// Gets the operating system version number.
         /// </summary>
         /// <value>A <see cref="Version"/> representing the operating system
         /// version.</value>
-        public Version Version
-        {
-            get
-            {
-                return new Version(this.majorVersion, this.minorVersion);
-            }
-        }
+        public Version Version => new Version(this.majorVersion, this.minorVersion);
 
         /// <summary>
         /// Gets the type of software the computer is running.
         /// </summary>
         /// <value>A <see cref="ServerTypes"/> value that represents the
         /// operating system running on the computer.</value>
-        public ServerTypes ServerType
-        {
-            get
-            {
-                return this.serverType;
-            }
-        }
+        public ServerTypes ServerType => this.serverType;
 
-    #endregion
+        #endregion
 
-    #region operators
+        #region operators
 
-    #region op_Equality
+        #region op_Equality
         /// <summary>
         /// Determines whether two specified instances of <see cref="ServerInfo"/> are equal.
         /// </summary>
@@ -216,7 +174,7 @@ namespace Cadru.Net.NetworkInformation
         /// <param name="obj">An object to compare to this instance.</param>
         /// <returns><see langword="true"/> if value is an instance of <see cref="ServerInfo"/>
         /// equals the value of this instance; otherwise, <see langword="false"/>. </returns>
-        public override bool Equals(Object obj)
+        public override bool Equals(object obj)
         {
             ServerInfo s;
 
@@ -336,7 +294,7 @@ namespace Cadru.Net.NetworkInformation
         /// Converts the value of this instance to its equivalent string representation.
         /// </summary>
         /// <returns>The string representation of this instance.</returns>
-        public override String ToString()
+        public override string ToString()
         {
             return this.ToString(CultureInfo.CurrentCulture);
         }
@@ -348,7 +306,7 @@ namespace Cadru.Net.NetworkInformation
         /// </summary>
         /// <param name="provider">An object that supplies culture-specific formatting information. </param>
         /// <returns>The string representation of this instance as specified by <paramref name="provider"/>.</returns>
-        public String ToString(IFormatProvider provider)
+        public string ToString(IFormatProvider provider)
         {
             return String.Format(provider, "{0}, {1}", this.name, this.serverType.ToString());
         }

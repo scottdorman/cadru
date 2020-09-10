@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// <copyright file="InternetInformationServicesDetection.cs" 
-//  company="Scott Dorman" 
+// <copyright file="InternetInformationServicesDetection.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2013 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -19,15 +19,6 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
-//
-// The methods used are based on the information available here:
-// http://www.iis.net/learn/install/installing-iis-7/discover-installed-components
-// http://technet.microsoft.com/en-us/library/cc780409(v=WS.10).aspx
-//
-// Additional (historical) information can be found here:
-// http://technet2.microsoft.com/WindowsServer/en/library/5b36c13b-c72e-4488-8bbe-7e4228911c381033.mspx?mfr=true
-// http://geekswithblogs.net/sdorman/archive/2007/03/01/107732.aspx
-// http://blogs.iis.net:80/chrisad/archive/2006/09/01/Detecting-if-IIS-is-installed_2E002E002E00_.aspx
 
 namespace Cadru.Environment
 {
@@ -493,12 +484,12 @@ namespace Cadru.Environment
         /// IIS is not installed.</returns>
         private static Version GetInstalledVersion()
         {
-            var majorVersion = -1;
-            var minorVersion = -1;
             var version = EmptyVersion;
 
+            int majorVersion;
             if (GetRegistryValue(RegistryHive.LocalMachine, IISRegKeyName, IISRegKeyValue, RegistryValueKind.DWord, out majorVersion))
             {
+                int minorVersion;
                 GetRegistryValue(RegistryHive.LocalMachine, IISRegKeyName, IISRegKeyMinorVersionValue, RegistryValueKind.DWord, out minorVersion);
                 version = new Version(majorVersion, minorVersion);
             }
@@ -587,7 +578,7 @@ namespace Cadru.Environment
         /// registered; otherwise <see langword="false"/>.</returns>
         private static bool IsAspNet11Registered()
         {
-            var regValue = String.Empty;
+            string regValue;
             return GetRegistryValue(RegistryHive.LocalMachine, Netfx11RegKeyName, NetRegKeyValue, RegistryValueKind.String, out regValue);
         }
         #endregion
@@ -600,7 +591,7 @@ namespace Cadru.Environment
         /// registered; otherwise <see langword="false"/>.</returns>
         private static bool IsAspNet20Registered()
         {
-            var regValue = String.Empty;
+            string regValue;
             return GetRegistryValue(RegistryHive.LocalMachine, Netfx20RegKeyName, NetRegKeyValue, RegistryValueKind.String, out regValue);
         }
         #endregion
@@ -613,7 +604,7 @@ namespace Cadru.Environment
         /// registered; otherwise <see langword="false"/>.</returns>
         private static bool IsAspNet40Registered()
         {
-            var regValue = String.Empty;
+            string regValue;
             return GetRegistryValue(RegistryHive.LocalMachine, Netfx40RegKeyName, NetRegKeyValue, RegistryValueKind.String, out regValue);
         }
         #endregion
@@ -630,8 +621,7 @@ namespace Cadru.Environment
         private static bool IsFeatureInstalled(string featureKey)
         {
             var found = false;
-            var regValue = -1;
-
+            int regValue;
             if (GetRegistryValue(RegistryHive.LocalMachine, IISComponentRegKeyName, featureKey, RegistryValueKind.DWord, out regValue))
             {
                 found = regValue == 1;
@@ -697,8 +687,7 @@ namespace Cadru.Environment
         private static bool IsSubcomponentInstalled(string subcomponent)
         {
             var found = false;
-            var regValue = -1;
-
+            int regValue;
             if (GetRegistryValue(RegistryHive.LocalMachine, IISLegacyComponentRegKeyName, subcomponent, RegistryValueKind.DWord, out regValue))
             {
                 if (regValue == 1)

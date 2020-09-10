@@ -1,3 +1,25 @@
+//------------------------------------------------------------------------------
+// <copyright file="CachedCsvReader.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -142,15 +164,15 @@ namespace Cadru.Data.Csv
         public CachedCsvReader(TextReader reader, bool hasHeaders, char delimiter, char quote, char escape, char comment, ValueTrimmingOptions trimmingOptions, int bufferSize, string nullValue = null)
             : base(reader, hasHeaders, delimiter, quote, escape, comment, trimmingOptions, bufferSize, nullValue)
         {
-            Records = new List<string[]>();
-            CacheRecordIndex = -1;
+            this.Records = new List<string[]>();
+            this.CacheRecordIndex = -1;
         }
 
         /// <summary>
         /// Gets the current record index in the CSV file.
         /// </summary>
         /// <value>The current record index in the CSV file.</value>
-        public override long CurrentRecordIndex => CacheRecordIndex;
+        public override long CurrentRecordIndex => this.CacheRecordIndex;
 
         /// <summary>
         /// Contains the current record index (inside the cached records array).
@@ -161,7 +183,7 @@ namespace Cadru.Data.Csv
         /// Gets a value that indicates whether the current stream position is at the end of the stream.
         /// </summary>
         /// <value><see langword="true"/> if the current stream position is at the end of the stream; otherwise <see langword="false"/>.</value>
-        public override bool EndOfStream => CacheRecordIndex >= FileRecordIndex && base.EndOfStream;
+        public override bool EndOfStream => this.CacheRecordIndex >= this.FileRecordIndex && base.EndOfStream;
 
         /// <summary>
         /// Gets the field at the specified index.
@@ -176,16 +198,16 @@ namespace Cadru.Data.Csv
         {
             get
             {
-                if (_readingStream)
+                if (this._readingStream)
                 {
                     return base[field];
                 }
 
-                if (CacheRecordIndex > -1)
+                if (this.CacheRecordIndex > -1)
                 {
-                    if (field > -1 && field < FieldCount)
+                    if (field > -1 && field < this.FieldCount)
                     {
-                        return Records[(int) CacheRecordIndex][field];
+                        return this.Records[(int)this.CacheRecordIndex][field];
                     }
 
                     throw new ArgumentOutOfRangeException(nameof(field), field, String.Format(CultureInfo.InvariantCulture, Strings.FieldIndexOutOfRange, field));
@@ -203,9 +225,9 @@ namespace Cadru.Data.Csv
         /// </exception>
         public virtual void ReadToEnd()
         {
-            CacheRecordIndex = FileRecordIndex;
+            this.CacheRecordIndex = this.FileRecordIndex;
 
-            while (ReadNextRecord()) ;
+            while (this.ReadNextRecord()) ;
         }
 
         /// <summary>
@@ -225,14 +247,14 @@ namespace Cadru.Data.Csv
         /// </exception>
         protected override bool ReadNextRecord(bool onlyReadHeaders, bool skipToNextLine)
         {
-            if (CacheRecordIndex < FileRecordIndex)
+            if (this.CacheRecordIndex < this.FileRecordIndex)
             {
-                CacheRecordIndex++;
+                this.CacheRecordIndex++;
                 return true;
             }
             else
             {
-                _readingStream = true;
+                this._readingStream = true;
                 
                 try
                 {
@@ -240,39 +262,39 @@ namespace Cadru.Data.Csv
 
                     if (canRead)
                     {
-                        var record = new string[FieldCount];
+                        var record = new string[this.FieldCount];
 
-                        if (FileRecordIndex > -1)
+                        if (this.FileRecordIndex > -1)
                         {
-                            CopyCurrentRecordTo(record);
-                            Records.Add(record);
+                            this.CopyCurrentRecordTo(record);
+                            this.Records.Add(record);
                         }
                         else
                         {
-                            if (MoveTo(0))
+                            if (this.MoveTo(0))
                             {
-                                CopyCurrentRecordTo(record);
+                                this.CopyCurrentRecordTo(record);
                             }
 
-                            MoveTo(-1);
+                            this.MoveTo(-1);
                         }
 
                         if (!onlyReadHeaders)
                         {
-                            CacheRecordIndex++;
+                            this.CacheRecordIndex++;
                         }
                     }
                     else
                     {
                         // No more records to read, so set array size to only what is needed
-                        Records.Capacity = Records.Count;
+                        this.Records.Capacity = this.Records.Count;
                     }
 
                     return canRead;
                 }
                 finally
                 {
-                    _readingStream = false;
+                    this._readingStream = false;
                 }
             }
         }
@@ -282,7 +304,7 @@ namespace Cadru.Data.Csv
         /// </summary>
         public void MoveToStart()
         {
-            CacheRecordIndex = -1;
+            this.CacheRecordIndex = -1;
         }
 
         /// <summary>
@@ -290,7 +312,7 @@ namespace Cadru.Data.Csv
         /// </summary>
         public void MoveToLastCachedRecord()
         {
-            CacheRecordIndex = FileRecordIndex;
+            this.CacheRecordIndex = this.FileRecordIndex;
         }
 
         /// <summary>
@@ -306,13 +328,13 @@ namespace Cadru.Data.Csv
                 record = -1;
             }
 
-            if (record <= FileRecordIndex)
+            if (record <= this.FileRecordIndex)
             {
-                CacheRecordIndex = record;
+                this.CacheRecordIndex = record;
                 return true;
             }
 
-            CacheRecordIndex = FileRecordIndex;
+            this.CacheRecordIndex = this.FileRecordIndex;
             return base.MoveTo(record);
         }
 
@@ -320,7 +342,7 @@ namespace Cadru.Data.Csv
 
         System.Collections.IList IListSource.GetList()
         {
-            return _bindingList ?? (_bindingList = new CsvBindingList(this));
+            return this._bindingList ?? (this._bindingList = new CsvBindingList(this));
         }
     }
 #endif

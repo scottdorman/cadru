@@ -1,3 +1,25 @@
+//------------------------------------------------------------------------------
+// <copyright file="CsvRecordComparer.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,11 +44,11 @@ namespace Cadru.Data.Csv
         {
             if (field < 0)
             {
-                throw new ArgumentOutOfRangeException("field", field, String.Format(CultureInfo.InvariantCulture, Resources.Strings.FieldIndexOutOfRange, field));
+                throw new ArgumentOutOfRangeException(nameof(field), field, String.Format(CultureInfo.InvariantCulture, Resources.Strings.FieldIndexOutOfRange, field));
             }
 
-            Field = field;
-            Direction = direction;
+            this.Field = field;
+            this.Direction = direction;
         }
 
         /// <summary>
@@ -41,11 +63,11 @@ namespace Cadru.Data.Csv
 
         public int Compare(string[] x, string[] y)
         {
-            Debug.Assert(x != null && y != null && x.Length == y.Length && Field < x.Length);
+            Debug.Assert(x != null && y != null && x.Length == y.Length && this.Field < x.Length);
 
-            var result = String.Compare(x[Field], y[Field], StringComparison.CurrentCulture);
+            var result = String.Compare(x[this.Field], y[this.Field], StringComparison.CurrentCulture);
 
-            return (Direction == ListSortDirection.Ascending ? result : -result);
+            return (this.Direction == ListSortDirection.Ascending ? result : -result);
         }
     }
 #endif

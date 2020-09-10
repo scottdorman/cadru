@@ -2,7 +2,7 @@
 // <copyright file="ExtendedDirectoryInfo.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -150,13 +150,7 @@ namespace Cadru.IO
         /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
-        public DateTime CreateTimeUtc
-        {
-            get
-            {
-                return this.directoryInfo.CreationTimeUtc;
-            }
-        }
+        public DateTime CreateTimeUtc => this.directoryInfo.CreationTimeUtc;
         #endregion
 
         #region Exists
@@ -165,13 +159,7 @@ namespace Cadru.IO
         /// </summary>
         /// <value><see langword="true"/> if the directory exists;
         /// otherwise, <see langword="false"/>.</value>
-        public bool Exists
-        {
-            get
-            {
-                return this.directoryInfo.Exists;
-            }
-        }
+        public bool Exists => this.directoryInfo.Exists;
         #endregion
 
         #region Extension
@@ -180,13 +168,7 @@ namespace Cadru.IO
         /// </summary>
         /// <value>A string containing the FileSystemInfo extension.</value>
         /// <remarks>The Extension property returns the FileSystemInfo extension, including the period (.). For example, for a file C:\NewFile.txt, this property returns ".txt".</remarks>
-        public string Extension
-        {
-            get
-            {
-                return this.directoryInfo.Extension;
-            }
-        }
+        public string Extension => this.directoryInfo.Extension;
         #endregion
 
         #region DirectoryOwner
@@ -194,13 +176,7 @@ namespace Cadru.IO
         /// Gets the Windows owner associated with the directory.
         /// </summary>
         /// <value>A string representing the owner of the directory or <see langword="null"/> if the owner cannot be determined.</value>
-        public string DirectoryOwner
-        {
-            get
-            {
-                return this.directoryOwner;
-            }
-        }
+        public string DirectoryOwner => this.directoryOwner;
         #endregion
 
         #region FullName
@@ -210,13 +186,7 @@ namespace Cadru.IO
         /// <value>A string containing the full path.</value>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
         /// <remarks>For example, for a file C:\NewFile.txt, this property returns "C:\NewFile.txt".</remarks>
-        public string FullName
-        {
-            get
-            {
-                return this.directoryInfo.FullName;
-            }
-        }
+        public string FullName => this.directoryInfo.FullName;
         #endregion
 
         #region LastAccessTime
@@ -234,13 +204,7 @@ namespace Cadru.IO
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// <para>Windows Mobile for Pocket PC, Windows Mobile for Smartphone, Windows CE Platform Note: This property is read-only.</para>
         /// </remarks>
-        public DateTime LastAccessTime
-        {
-            get
-            {
-                return this.directoryInfo.LastAccessTime;
-            }
-        }
+        public DateTime LastAccessTime => this.directoryInfo.LastAccessTime;
         #endregion
 
         #region LastAccessTimeUtc
@@ -257,13 +221,7 @@ namespace Cadru.IO
         /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
-        public DateTime LastAccessTimeUtc
-        {
-            get
-            {
-                return this.directoryInfo.LastAccessTimeUtc;
-            }
-        }
+        public DateTime LastAccessTimeUtc => this.directoryInfo.LastAccessTimeUtc;
         #endregion
 
         #region LastWriteTime
@@ -281,13 +239,7 @@ namespace Cadru.IO
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// <para>Windows Mobile for Pocket PC, Windows Mobile for Smartphone, Windows CE Platform Note: This property is read-only.</para>
         /// </remarks>
-        public DateTime LastWriteTime
-        {
-            get
-            {
-                return this.directoryInfo.LastWriteTime;
-            }
-        }
+        public DateTime LastWriteTime => this.directoryInfo.LastWriteTime;
         #endregion
 
         #region LastWriteTimeUtc
@@ -304,13 +256,7 @@ namespace Cadru.IO
         /// <para>This property value is a <see langword="null" /> if the file system containing the FileSystemInfo object does not support this information.</para>
         /// <para>Windows 95, Windows 98, Windows 98 Second Edition Platform Note: These operating systems do not support this property, and DirectoryInfo implementations of this property are not supported.</para>
         /// </remarks>
-        public DateTime LastWriteTimUtc
-        {
-            get
-            {
-                return this.directoryInfo.LastWriteTimeUtc;
-            }
-        }
+        public DateTime LastWriteTimUtc => this.directoryInfo.LastWriteTimeUtc;
         #endregion
 
         #region Name
@@ -322,13 +268,7 @@ namespace Cadru.IO
         /// <para>This Name property returns only the name of the directory, such as "Bin". To get the full path, such as "c:\public\Bin", use the FullName property.</para>
         /// <para>The Name property of a DirectoryInfo requires no permission (beyond the read permission to the directory necessary to construct the Exists) but can give out the directory name. If it is necessary to hand out a DirectoryInfo to a protected directory with a cryptographically secure name, create a dummy directory for the untrusted code’s use.</para>
         /// </remarsk>
-        public string Name
-        {
-            get
-            {
-                return this.directoryInfo.Name;
-            }
-        }
+        public string Name => this.directoryInfo.Name;
         #endregion
 
         #region Parent
@@ -337,13 +277,7 @@ namespace Cadru.IO
         /// </summary>
         /// <value>The parent directory, or a <see langword="null" /> if the path is null or if the file path denotes a root (such as "\", "C:", or * "\\server\share").</value>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
-        public DirectoryInfo Parent
-        {
-            get
-            {
-                return this.directoryInfo.Parent;
-            }
-        }
+        public DirectoryInfo Parent => this.directoryInfo.Parent;
         #endregion
 
         #region Root
@@ -352,13 +286,7 @@ namespace Cadru.IO
         /// </summary>
         /// <value>A DirectoryInfo object representing the root of a path.</value>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
-        public DirectoryInfo Root
-        {
-            get
-            {
-                return this.directoryInfo.Root;
-            }
-        }
+        public DirectoryInfo Root => this.directoryInfo.Root;
         #endregion
 
         #endregion
@@ -591,7 +519,7 @@ namespace Cadru.IO
         /// <exception cref="ArgumentNullException"><paramref name="searchPattern"/> is a <see langword="null"/>.</exception>
         /// <exception cref="DirectoryNotFoundException">The path encapsulated in the DirectoryInfo object is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
-        public DirectoryInfo[] GetDirectories(String searchPattern)
+        public DirectoryInfo[] GetDirectories(string searchPattern)
         {
             return this.directoryInfo.GetDirectories(searchPattern);
         }
@@ -611,7 +539,7 @@ namespace Cadru.IO
         /// <exception cref="ArgumentNullException"><paramref name="searchPattern"/> is a <see langword="null"/>.</exception>
         /// <exception cref="DirectoryNotFoundException">The path encapsulated in the DirectoryInfo object is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
-        public DirectoryInfo[] GetDirectories(String searchPattern, SearchOption searchOption)
+        public DirectoryInfo[] GetDirectories(string searchPattern, SearchOption searchOption)
         {
             return this.directoryInfo.GetDirectories(searchPattern, searchOption);
         }
@@ -666,7 +594,7 @@ namespace Cadru.IO
         /// <exception cref="ArgumentNullException"><paramref name="searchPattern"/> is a <see langword="null" />.</exception>
         /// <exception cref="DirectoryNotFoundException">The path is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
-        public FileInfo[] GetFiles(String searchPattern)
+        public FileInfo[] GetFiles(string searchPattern)
         {
             return this.directoryInfo.GetFiles(searchPattern);
         }
@@ -704,7 +632,7 @@ namespace Cadru.IO
         /// <exception cref="ArgumentNullException"><paramref name="searchPattern"/> is a <see langword="null" />.</exception>
         /// <exception cref="DirectoryNotFoundException">The path is invalid, such as being on an unmapped drive.</exception>
         /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
-        public FileInfo[] GetFiles(String searchPattern, SearchOption searchOption)
+        public FileInfo[] GetFiles(string searchPattern, SearchOption searchOption)
         {
             return this.directoryInfo.GetFiles(searchPattern, searchOption);
         }
@@ -743,7 +671,7 @@ namespace Cadru.IO
         /// </remarks>
         /// <exception cref="DirectoryNotFoundException">The path is invalid, such as being on an unmapped drive.</exception>
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Infos", Justification = "This is the spelling used in the underlying DirectoryInfo object and is preserved here for consistency.")]
-        public FileSystemInfo[] GetFileSystemInfos(String searchPattern)
+        public FileSystemInfo[] GetFileSystemInfos(string searchPattern)
         {
             return this.directoryInfo.GetFileSystemInfos(searchPattern);
         }

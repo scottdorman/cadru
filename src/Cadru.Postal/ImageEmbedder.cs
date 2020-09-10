@@ -1,4 +1,26 @@
-﻿using System;
+﻿//------------------------------------------------------------------------------
+// <copyright file="ImageEmbedder.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Net.Mail;
 using System.IO;
@@ -20,7 +42,7 @@ namespace Cadru.Postal
         /// </summary>
         public ImageEmbedder()
         {
-            createLinkedResource = CreateLinkedResource;
+            this.createLinkedResource = CreateLinkedResource;
         }
 
         /// <summary>
@@ -38,10 +60,7 @@ namespace Cadru.Postal
         /// <summary>
         /// Gets if any images have been referenced.
         /// </summary>
-        public bool HasImages
-        {
-            get { return images.Count > 0; }
-        }
+        public bool HasImages => this.images.Count > 0;
 
         /// <summary>
         /// Creates a <see cref="LinkedResource"/> from an image path or URL.
@@ -71,23 +90,23 @@ namespace Cadru.Postal
         public LinkedResource ReferenceImage(string imagePathOrUrl, string contentType = null)
         {
             LinkedResource resource;
-            if (images.TryGetValue(imagePathOrUrl, out resource)) return resource;
+            if (this.images.TryGetValue(imagePathOrUrl, out resource)) return resource;
 
-            resource = createLinkedResource(imagePathOrUrl);
+            resource = this.createLinkedResource(imagePathOrUrl);
 
-            contentType = contentType ?? DetermineContentType(imagePathOrUrl);
+            contentType = contentType ?? this.DetermineContentType(imagePathOrUrl);
             if (contentType != null)
             {
                 resource.ContentType = new ContentType(contentType);
             }
 
-            images[imagePathOrUrl] = resource;
+            this.images[imagePathOrUrl] = resource;
             return resource;
         }
 
         string DetermineContentType(string pathOrUrl)
         {
-            if (pathOrUrl == null) throw new ArgumentNullException("pathOrUrl");
+            if (pathOrUrl == null) throw new ArgumentNullException(nameof(pathOrUrl));
 
             var extension = Path.GetExtension(pathOrUrl).ToLowerInvariant();
             switch (extension)
@@ -109,7 +128,7 @@ namespace Cadru.Postal
         /// </summary>
         public void AddImagesToView(AlternateView view)
         {
-            foreach (var image in images)
+            foreach (var image in this.images)
             {
                 view.LinkedResources.Add(image.Value);
             }

@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// <copyright file="InternetInformationServicesVersion.cs" 
-//  company="Scott Dorman" 
+// <copyright file="InternetInformationServicesVersion.cs"
+//  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2013 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
-// 
+//
 // <license>
 //    Licensed under the Microsoft Public License (Ms-PL) (the "License");
 //    you may not use this file except in compliance with the License.
@@ -19,8 +19,6 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
-//
-// Based on http://support.microsoft.com/kb/224609
 
 namespace Cadru.Environment
 {

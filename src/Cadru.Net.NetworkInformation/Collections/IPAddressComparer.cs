@@ -2,7 +2,7 @@
 // <copyright file="IPAddressComparer.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -61,13 +61,7 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// </summary>
         /// <value>The default <see cref="IPAddressComparer"/></value>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
-        public static IComparer Default
-        {
-            get
-            {
-                return new IPAddressComparer();
-            }
-        }
+        public static IComparer Default => new IPAddressComparer();
         #endregion
 
         #endregion
@@ -171,11 +165,10 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// </list></returns>
         public int Compare(object x, object y)
         {
-            var result = 0;
-
             var left = x as string;
             var right = y as string;
 
+            int result;
             if (String.IsNullOrEmpty(left) && String.IsNullOrEmpty(right))
             {
                 result = 0;
@@ -241,12 +234,12 @@ namespace Cadru.Net.NetworkInformation.Collections
 
             if (!IPAddress.TryParse(x, out t1))
             {
-                throw new FormatException(Cadru.Net.NetworkInformation.Resources.Strings.Format_Dns_Bad_Ip_Address);
+                throw new FormatException(Resources.Strings.Format_Dns_Bad_Ip_Address);
             }
 
             if (!IPAddress.TryParse(y, out t2))
             {
-                throw new FormatException(Cadru.Net.NetworkInformation.Resources.Strings.Format_Dns_Bad_Ip_Address);
+                throw new FormatException(Resources.Strings.Format_Dns_Bad_Ip_Address);
             }
 
             return this.Compare(t1, t2);
@@ -442,7 +435,7 @@ namespace Cadru.Net.NetworkInformation.Collections
         #region IEqualityComparer.Equals(object x, object y)
         bool IEqualityComparer.Equals(object x, object y)
         {
-            return IPAddress.Equals(x, y);
+            return Equals(x, y);
         }
         #endregion
 

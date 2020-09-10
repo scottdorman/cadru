@@ -2,7 +2,7 @@
 // <copyright file="ExtendedNetworkInformation.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2013 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -96,7 +96,7 @@ namespace Cadru.Networking
             {
                 try
                 {
-                    var hostInfo = await Dns.GetHostEntryAsync(System.Environment.MachineName);
+                    var hostInfo = await Dns.GetHostEntryAsync(Environment.MachineName);
                     hostName = hostInfo.HostName;
                 }
                 catch (System.Net.Sockets.SocketException)
@@ -267,11 +267,10 @@ namespace Cadru.Networking
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
         private async static Task<IPAddress[]> GetIPAddressesFromDnsAsync()
         {
-            IPAddress[] ipAddress = null;
-
+            IPAddress[] ipAddress;
             try
             {
-                var hostInfo = await Dns.GetHostEntryAsync(await ExtendedNetworkInformation.GetHostNameAsync());
+                var hostInfo = await Dns.GetHostEntryAsync(await GetHostNameAsync());
                 ipAddress = hostInfo.AddressList;
             }
             catch (System.Net.Sockets.SocketException)

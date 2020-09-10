@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="WriteCodeFile.cs"
+// <copyright file="WriteThisAssemblyCodeFile.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2020 Scott Dorman.
@@ -48,6 +48,9 @@ namespace Cadru.Build.Tasks
     /// </comment>
     public class WriteThisAssemblyCodeFile : Task
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WriteThisAssemblyCodeFile"/> task.
+        /// </summary>
         public WriteThisAssemblyCodeFile() : base(Strings.ResourceManager)
         {
         }
@@ -61,6 +64,7 @@ namespace Cadru.Build.Tasks
         [Required]
         public string Language { get; set; }
 
+
         /// <summary>
         /// Description of attributes to write.
         /// Item include is the full type name of the attribute.
@@ -70,6 +74,7 @@ namespace Cadru.Build.Tasks
         /// To set those, use metadata names like "_Parameter1", "_Parameter2" etc.
         /// If a parameter index is skipped, it's an error.
         /// </summary>
+        [SuppressMessage("Performance", "CA1819:Properties should not return arrays", Justification = "<Pending>")]
         public ITaskItem[] AssemblyAttributes { get; set; }
 
         /// <summary>

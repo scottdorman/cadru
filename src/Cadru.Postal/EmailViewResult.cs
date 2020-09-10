@@ -1,4 +1,26 @@
-﻿using RazorEngine;
+﻿//------------------------------------------------------------------------------
+// <copyright file="EmailViewResult.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2020 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
+using RazorEngine;
 using RazorEngine.Templating;
 using System;
 using System.IO;
@@ -29,9 +51,9 @@ namespace Cadru.Postal
         /// </summary>
         public EmailViewResult(Email email, IRazorEngineService razorEngineService, IEmailParser parser)
         {
-            Email = email;
+            this.Email = email;
             this.razorEngineService = razorEngineService;
-            Parser = parser ?? new EmailParser(razorEngineService);
+            this.Parser = parser ?? new EmailParser(razorEngineService);
         }
 
         /// <summary>
@@ -50,7 +72,7 @@ namespace Cadru.Postal
             var httpContext = context.RequestContext.HttpContext;
             var query = httpContext.Request.QueryString;
             var format = query["format"];
-            var contentType = await ExecuteResultAsync(context.HttpContext.Response.Output, format);
+            var contentType = await this.ExecuteResultAsync(context.HttpContext.Response.Output, format);
             httpContext.Response.ContentType = contentType;
         }
 
@@ -60,8 +82,8 @@ namespace Cadru.Postal
         /// <returns>The content type for the HTTP response.</returns>
         public async Task<string> ExecuteResultAsync(TextWriter writer, string format = null)
         {
-            var result = this.razorEngineService.RunCompile(Email.ViewName, model: Email, viewBag: new DynamicViewBag(Email.ViewData));
-            var mailMessage = await Parser.ParseAsync(result, Email);
+            var result = this.razorEngineService.RunCompile(this.Email.ViewName, model: this.Email, viewBag: new DynamicViewBag(this.Email.ViewData));
+            var mailMessage = await this.Parser.ParseAsync(result, this.Email);
 
             // no special requests; render what's in the template
             if (String.IsNullOrEmpty(format))
@@ -141,9 +163,9 @@ namespace Cadru.Postal
             public void Write(TextWriter writer)
             {
                 writer.WriteLine("<!--");
-                writer.WriteLine(header);
+                writer.WriteLine(this.header);
                 writer.WriteLine("-->");
-                writer.WriteLine(body);
+                writer.WriteLine(this.body);
             }
         }
 

@@ -2,7 +2,7 @@
 // <copyright file="NetworkStatus.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -32,7 +32,7 @@ namespace Cadru.Net.NetworkInformation
     public sealed class NetworkStatus : IDisposable
     {
         #region fields
-        private static object syncRoot = new object();
+        private static readonly object syncRoot = new object();
         private ConnectionStatus connectionStatus;
         #endregion
 
@@ -56,7 +56,7 @@ namespace Cadru.Net.NetworkInformation
 #if NET40 || NET45
             NetworkChange.NetworkAvailabilityChanged += NetworkAvailabilityChanged;
 #else
-            NetworkChange.NetworkAddressChanged += NetworkAddressChanged;
+            NetworkChange.NetworkAddressChanged += this.NetworkAddressChanged;
 #endif
         }
 
@@ -80,13 +80,7 @@ namespace Cadru.Net.NetworkInformation
         /// Gets the current network connection status.
         /// </summary>
         /// <value>The current network connection status.</value>
-        public ConnectionStatus ConnectionStatus
-        {
-            get
-            {
-                return this.connectionStatus;
-            }
-        }
+        public ConnectionStatus ConnectionStatus => this.connectionStatus;
         #endregion
 
         #endregion
@@ -120,7 +114,7 @@ namespace Cadru.Net.NetworkInformation
         private void NetworkAddressChanged(object sender, EventArgs e)
         {
             var current = NetworkInterface.GetIsNetworkAvailable() ? ConnectionStatus.Connected : ConnectionStatus.Disconnected;
-            ChangeNetworkStatus(current);
+            this.ChangeNetworkStatus(current);
         }
 #endif
 

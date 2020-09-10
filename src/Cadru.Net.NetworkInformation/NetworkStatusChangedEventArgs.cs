@@ -2,7 +2,7 @@
 // <copyright file="NetworkStatusChangedEventArgs.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -30,7 +30,7 @@ namespace Cadru.Net.NetworkInformation
     public class NetworkStatusChangedEventArgs : EventArgs
     {
         #region fields
-        private ConnectionStatus connectionStatus;
+        private readonly ConnectionStatus connectionStatus;
         #endregion
 
         #region constructor
@@ -54,13 +54,7 @@ namespace Cadru.Net.NetworkInformation
         /// Gets the current network connection status.
         /// </summary>
         /// <value>The current network connection status.</value>
-        public ConnectionStatus ConnectionStatus
-        {
-            get
-            {
-                return this.connectionStatus;
-            }
-        }
+        public ConnectionStatus ConnectionStatus => this.connectionStatus;
         #endregion
 
         #endregion

@@ -2,7 +2,7 @@
 // <copyright file="SERVER_INFO_101.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -41,13 +41,13 @@ namespace Cadru.Net.NetworkInformation.Interop
         /// Specifies the information level to use for platform-specific information.
         /// </summary>
         [MarshalAs(UnmanagedType.U4)]
-        internal UInt32 sv101_platform_id;
+        internal uint sv101_platform_id;
 
         /// <summary>
         /// Pointer to a Unicode string specifying the name of a server.
         /// </summary>
         [MarshalAs(UnmanagedType.LPWStr)]
-        internal String sv101_name;
+        internal string sv101_name;
 
         /// <summary>
         /// Specifies, in the least significant 4 bits of the byte, the major
@@ -56,26 +56,26 @@ namespace Cadru.Net.NetworkInformation.Interop
         /// be used to ensure correct results.
         /// </summary>
         [MarshalAs(UnmanagedType.U4)]
-        internal UInt32 sv101_version_major;
+        internal uint sv101_version_major;
 
         /// <summary>
         /// Specifies the minor release version number of the operating system.
         /// </summary>
         [MarshalAs(UnmanagedType.U4)]
-        internal UInt32 sv101_version_minor;
+        internal uint sv101_version_minor;
 
         /// <summary>
         /// Specifies the type of software the computer is running.
         /// </summary>
         [MarshalAs(UnmanagedType.U4)]
-        internal UInt32 sv101_type;
+        internal uint sv101_type;
 
         /// <summary>
         /// Pointer to a Unicode string specifying a comment describing the server.
         /// The comment can be null.
         /// </summary>
         [MarshalAs(UnmanagedType.LPWStr)]
-        internal String sv101_comment;
+        internal string sv101_comment;
     }
 #endif
 }
