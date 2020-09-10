@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<!--
-Sample license text.
--->
 <doc>
     <assembly>
         <name>Cadru.AspNetCore</name>
@@ -124,7 +121,7 @@ Sample license text.
             <param name="loggerFactory">An <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory" /> instance used to create a logger.</param>
         </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingDelegatingHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware">
             <summary>
@@ -156,6 +153,7 @@ Sample license text.
         </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingMiddlewareExtensions.AddRequestResponseLogging(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
              <summary>
+            
              </summary>
              <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to add services to.</param>
              <param name="configuration">A set of key/value configuration properties.</param>
@@ -230,16 +228,16 @@ Sample license text.
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.SerializeRequest(Microsoft.AspNetCore.Http.HttpRequest)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.SerializeRequest(System.Net.Http.HttpRequestMessage)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.SerializeResponseAsync(Microsoft.AspNetCore.Http.HttpResponse,System.IO.MemoryStream)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.SerializeResponseAsync(System.Net.Http.HttpResponseMessage)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.GetRawTarget(Microsoft.AspNetCore.Http.HttpRequest)">
             <summary>
@@ -266,7 +264,7 @@ Sample license text.
             <exception cref="T:System.InvalidOperationException">The reader is currently in use by a previous read operation..</exception>
         </member>
         <member name="T:Cadru.AspNetCore.IMimeMappingProvider">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.AspNetCore.IMimeMappingProvider.Mappings">
             <summary>
@@ -299,9 +297,9 @@ Sample license text.
             <param name="mappings">The cross reference table of file extensions
             and content-types.</param>
             <remarks>
-            It is recommended that the <see cref="T:System.Collections.Generic.IDictionary`2" /> instance
+            It is recommended that the <see cref="T:System.Collections.Generic.IDictionary`2"/> instance
             use <see cref="P:System.StringComparer.OrdinalIgnoreCase" />. This <see
-            cref="T:System.Collections.Generic.IDictionary`2" /> instance replaces the default mappings.
+            cref="T:System.Collections.Generic.IDictionary`2"/> instance replaces the default mappings.
             </remarks>
         </member>
         <member name="M:Cadru.AspNetCore.MimeMappingProvider.#ctor(System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
@@ -313,13 +311,13 @@ Sample license text.
             table.</param>
         </member>
         <member name="P:Cadru.AspNetCore.MimeMappingProvider.Mappings">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.AspNetCore.MimeMappingProvider.GetContentType(System.String)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.AspNetCore.MimeMappingProvider.TryGetContentType(System.String,System.String@)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.AspNetCore.MimeTypes">
             <summary>

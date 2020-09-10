@@ -1059,181 +1059,188 @@
             </summary>
         </member>
         <member name="T:Cadru.Data.Csv.CsvReader.DataReaderValidations">
-            <param>
-            <param name="currentFieldIndex">The current field index.</param>
-            <param name="innerException">The exception that is the cause of the current exception.</param>
-        </member>
-        <member name="T:Cadru.Data.Csv.ParseErrorAction">
             <summary>
-            Specifies the action to take when a parsing error has occured.
+            Defines the data reader validations.
             </summary>
         </member>
-        <member name="F:Cadru.Data.Csv.ParseErrorAction.RaiseEvent">
+        <member name="F:Cadru.Data.Csv.CsvReader.DataReaderValidations.None">
             <summary>
-            Raises the <see cref="M:CsvReader.ParseError" /> event.
+            No validation.
             </summary>
         </member>
-        <member name="F:Cadru.Data.Csv.ParseErrorAction.AdvanceToNextLine">
+        <member name="F:Cadru.Data.Csv.CsvReader.DataReaderValidations.IsInitialized">
             <summary>
-            Tries to advance to next line.
+            Validate that the data reader is initialized.
             </summary>
         </member>
-        <member name="F:Cadru.Data.Csv.ParseErrorAction.ThrowException">
+        <member name="F:Cadru.Data.Csv.CsvReader.DataReaderValidations.IsNotClosed">
             <summary>
-            Throws an exception.
+            Validate that the data reader is not closed.
             </summary>
         </member>
-        <member name="T:Cadru.Data.Csv.ParseErrorEventArgs">
+        <member name="T:Cadru.Data.Csv.CsvReader.RecordEnumerator">
             <summary>
-            Provides data for the <see cref="M:CsvReader.ParseError" /> event.
+            Supports a simple iteration over the records of a <see cref="T:CsvReader" />.
             </summary>
         </member>
-        <member name="F:Cadru.Data.Csv.ParseErrorEventArgs._error">
+        <member name="F:Cadru.Data.Csv.CsvReader.RecordEnumerator._current">
             <summary>
-            Contains the error that occured.
+            Contains the current record.
             </summary>
         </member>
-        <member name="F:Cadru.Data.Csv.ParseErrorEventArgs._action">
+        <member name="F:Cadru.Data.Csv.CsvReader.RecordEnumerator._currentRecordIndex">
             <summary>
-            Contains the action to take.
+            Contains the current record index.
             </summary>
         </member>
-        <member name="M:Cadru.Data.Csv.ParseErrorEventArgs.#ctor(Cadru.Data.Csv.MalformedCsvException,Cadru.Data.Csv.ParseErrorAction)">
+        <member name="F:Cadru.Data.Csv.CsvReader.RecordEnumerator._reader">
             <summary>
-            Initializes a new instance of the ParseErrorEventArgs class.
-            </summary>
-            <param name="error">The error that occured.</param>
-            <param name="defaultAction">The default action to take.</param>
-        </member>
-        <member name="P:Cadru.Data.Csv.ParseErrorEventArgs.Action">
-            <summary>
-            Gets or sets the action to take.
-            </summary>
-            <value>The action to take.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.ParseErrorEventArgs.Error">
-            <summary>
-            Gets the error that occured.
-            </summary>
-            <value>The error that occured.</value>
-        </member>
-        <member name="T:Cadru.Data.Csv.ValueTrimmingOptions">
-            <summary>
-            Determines which values should be trimmed.
+            Contains the enumerated <see cref="T:CsvReader" />.
             </summary>
         </member>
-        <member name="F:Cadru.Data.Csv.ValueTrimmingOptions.None">
+        <member name="M:Cadru.Data.Csv.CsvReader.RecordEnumerator.#ctor(Cadru.Data.Csv.CsvReader)">
             <summary>
-            Don't do any trimming
+            Initializes a new instance of the <see cref="T:RecordEnumerator" /> class.
+            </summary>
+            <param name="reader">The <see cref="T:CsvReader" /> to iterate over.</param>
+            <exception cref="T:ArgumentNullException">
+                   <paramref name="reader" /> is a <see langword="null" />.
+            </exception>
+        </member>
+        <member name="P:Cadru.Data.Csv.CsvReader.RecordEnumerator.Current">
+            <summary>
+            Gets the current record.
             </summary>
         </member>
-        <member name="F:Cadru.Data.Csv.ValueTrimmingOptions.UnquotedOnly">
+        <member name="P:Cadru.Data.Csv.CsvReader.RecordEnumerator.System#Collections#IEnumerator#Current">
             <summary>
-            Only trim unquoted values
+            Gets the current record.
             </summary>
         </member>
-        <member name="F:Cadru.Data.Csv.ValueTrimmingOptions.QuotedOnly">
+        <member name="M:Cadru.Data.Csv.CsvReader.RecordEnumerator.Dispose">
             <summary>
-            Only trim quoted values
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
             </summary>
         </member>
-        <member name="F:Cadru.Data.Csv.ValueTrimmingOptions.All">
+        <member name="M:Cadru.Data.Csv.CsvReader.RecordEnumerator.MoveNext">
             <summary>
-            trim all values
+            Advances the enumerator to the next record of the CSV.
+            </summary>
+            <returns><see langword="true" /> if the enumerator was successfully advanced to the next record, <see langword="false" /> if the enumerator has passed the end of the CSV.</returns>
+        </member>
+        <member name="M:Cadru.Data.Csv.CsvReader.RecordEnumerator.Reset">
+            <summary>
+            Sets the enumerator to its initial position, which is before the first record in the CSV.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "T:Cadru.Data.Excel.ExcelDataReaderExtensions" -->
-        <member name="F:Cadru.Data.Excel.UnboxT`1.Unbox">
+        <member name="T:Cadru.Data.Csv.CsvRecordComparer">
             <summary>
-            Defines the Unbox = Create(typeof (T))
+            Represents a CSV record comparer.
             </summary>
         </member>
-        <member name="M:Cadru.Data.IO.NullRemovalStream.#ctor(System.IO.Stream,System.Boolean,System.Int32,System.Int32)">
+        <member name="M:Cadru.Data.Csv.CsvRecordComparer.#ctor(System.Int32,System.ComponentModel.ListSortDirection)">
             <summary>
-                A stream implmentation that removes consecutive null bytes above a threshold from source
+            Initializes a new instance of the CsvRecordComparer class.
             </summary>
-            <param name="source"> A <see cref="T:Stream" /> pointing to the source data</param>
-            <param name="addMark">
-                add a mark ([removed x null bytes]) to indicate removal if set to <see langword="true" />, remove silently if
-                <see langword="false" />
-            </param>
-            <param name="threshold"> only consecutive null bytes above this threshold will be removed or replaced by a mark</param>
-            <param name="bufferSize">Size of buffer</param>
+            <param name="field">The field index of the values to compare.</param>
+            <param name="direction">The sort direction.</param>
         </member>
-        <member name="T:Cadru.Data.Resources.Strings">
+        <member name="P:Cadru.Data.Csv.CsvRecordComparer.Field">
             <summary>
-              A strongly-typed resource class, for looking up localized strings, etc.
+            Contains the field index of the values to compare.
             </summary>
         </member>
-        <member name="P:Cadru.Data.Resources.Strings.ResourceManager">
+        <member name="P:Cadru.Data.Csv.CsvRecordComparer.Direction">
             <summary>
-              Returns the cached ResourceManager instance used by this class.
+            Contains the sort direction.
             </summary>
         </member>
-        <member name="P:Cadru.Data.Resources.Strings.Culture">
+        <member name="T:Cadru.Data.Csv.DuplicateHeaderEventArgs">
             <summary>
-              Overrides the current thread's CurrentUICulture property for all
-              resource lookups using this strongly typed resource class.
+            Provides data for the <see cref="M:CsvReader.OnDuplicateHeader" /> event.
             </summary>
         </member>
-        <member name="P:Cadru.Data.Resources.Strings.BufferSizeTooSmall">
+        <member name="M:Cadru.Data.Csv.DuplicateHeaderEventArgs.#ctor(System.String,System.Int32,System.Int32)">
             <summary>
-              Looks up a localized string similar to Buffer size must be 1 or more..
+            Initializes a new instance of the DuplicateHeaderEventArgs class.
+            </summary>
+            <param name="headerName">The name of the duplicate header.</param>
+            <param name="index">The index of the duplicate header being added.</param>
+            <param name="existingDuplicateIndex">The index of the duplicate header that is already in the Column collection.</param>
+        </member>
+        <member name="P:Cadru.Data.Csv.DuplicateHeaderEventArgs.ExistingDuplicateIndex">
+            <summary>
+            Index of the duplicate header that has already been added to the Column collection
+            </summary>
+            <value>The column index</value>
+        </member>
+        <member name="P:Cadru.Data.Csv.DuplicateHeaderEventArgs.HeaderName">
+            <summary>
+            Name of the header that is a duplicate.
+            </summary>
+            <value>The header name.</value>
+        </member>
+        <member name="P:Cadru.Data.Csv.DuplicateHeaderEventArgs.Index">
+            <summary>
+            Index of the duplicate header being added
+            </summary>
+            <value>The column index</value>
+        </member>
+        <member name="T:Cadru.Data.Csv.DuplicateHeaderException">
+            <summary>
+            Represents the exception that is thrown when a duplicate column header name encounter.
             </summary>
         </member>
-        <member name="P:Cadru.Data.Resources.Strings.CannotMovePreviousRecordInForwardOnly">
+        <member name="F:Cadru.Data.Csv.DuplicateHeaderException._columnIndex">
             <summary>
-              Looks up a localized string similar to Cannot move to a previous record in forward-only mode..
+            Contains the column index where the duplicate was found.
             </summary>
         </member>
-        <member name="P:Cadru.Data.Resources.Strings.CannotReadRecordAtIndex">
+        <member name="F:Cadru.Data.Csv.DuplicateHeaderException._headerName">
             <summary>
-              Looks up a localized string similar to Cannot read record at index &apos;{0}&apos;..
+            Contains the message that describes the error.
             </summary>
         </member>
-        <member name="P:Cadru.Data.Resources.Strings.EnumerationFinishedOrNotStarted">
+        <member name="M:Cadru.Data.Csv.DuplicateHeaderException.#ctor(System.String,System.Int32)">
             <summary>
-              Looks up a localized string similar to Enumeration has either not started or has already finished..
+            Initializes a new instance of the DuplicateHeaderException class.
             </summary>
         </member>
-        <member name="P:Cadru.Data.Resources.Strings.EnumerationVersionCheckFailed">
+        <member name="P:Cadru.Data.Csv.DuplicateHeaderException.ColumnIndex">
             <summary>
-              Looks up a localized string similar to Collection was modified; enumeration operation may not execute..
+            Gets the column index where the duplicate was found.
+            </summary>
+            <value>The index of the column.</value>
+        </member>
+        <member name="P:Cadru.Data.Csv.DuplicateHeaderException.HeaderName">
+            <summary>
+            Gets the HeaderName of the column with the duplicate.
+            </summary>
+            <value>The name of the column header.</value>
+        </member>
+        <member name="T:Cadru.Data.Csv.MalformedCsvException">
+            <summary>
+            Represents the exception that is thrown when a CSV file is malformed.
             </summary>
         </member>
-        <member name="P:Cadru.Data.Resources.Strings.FieldHeaderNotFound">
+        <member name="F:Cadru.Data.Csv.MalformedCsvException._currentFieldIndex">
             <summary>
-              Looks up a localized string similar to &apos;{0}&apos; field header not found..
+            Contains the current field index.
             </summary>
         </member>
-        <member name="P:Cadru.Data.Resources.Strings.FieldIndexOutOfRange">
+        <member name="F:Cadru.Data.Csv.MalformedCsvException._currentPosition">
             <summary>
-              Looks up a localized string similar to Field index must be included in [0, FieldCount[. Specified field index was : &apos;{0}&apos;..
+            Contains the current position in the raw data.
             </summary>
         </member>
-        <member name="P:Cadru.Data.Resources.Strings.MalformedCsvException">
+        <member name="F:Cadru.Data.Csv.MalformedCsvException._currentRecordIndex">
             <summary>
-              Looks up a localized string similar to The CSV appears to be corrupt near record &apos;{0}&apos; field &apos;{1} at position &apos;{2}&apos;. Current raw data : &apos;{3}&apos;..
+            Contains the current record index.
             </summary>
         </member>
-        <member name="P:Cadru.Data.Resources.Strings.MissingFieldActionNotSupported">
+        <member name="F:Cadru.Data.Csv.MalformedCsvException._message">
             <summary>
-              Looks up a localized string similar to &apos;{0}&apos; is not a supported missing field action..
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Resources.Strings.NoCurrentRecord">
-            <summary>
-              Looks up a localized string similar to No current record..
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Resources.Strings.NoHeaders">
-            <summary>
-              Looks up a localized string similar to The CSV does not have headers (CsvReader.HasHeaders property is false)..
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Resources.Strings.NotEnoughSpaceInArray">
-            <summary>
-              Looks up a localized string similar to The number of fields in the record is greater tains the message that describes the error.
+            Contains the message that describes the error.
             </summary>
         </member>
         <member name="F:Cadru.Data.Csv.MalformedCsvException._rawData">

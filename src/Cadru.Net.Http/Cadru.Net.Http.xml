@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<!--
-Sample license text.
--->
 <doc>
     <assembly>
         <name>Cadru.Net.Http</name>
@@ -32,10 +29,10 @@ Sample license text.
             <summary>
             Initializes a new instance of the <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary" />
             class that contains elements copied from the specified
-            <see cref="T:System.Collections.Generic.IDictionary`2" />.
+            <see cref="T:System.Collections.Generic.IDictionary`2"/>.
             </summary>
             <param name="dictionary">
-            The <see cref="T:System.Collections.Generic.IDictionary`2" />
+            The <see cref="T:System.Collections.Generic.IDictionary`2"/>
             whose elements are copied to the new
             <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary" />.
             </param>
@@ -369,10 +366,10 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Net.Http.HttpTransientErrorDetectionStrategy.IsDefaultStrategy">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Net.Http.HttpTransientErrorDetectionStrategy.ShouldHandle(System.Exception)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Net.Http.Resources.Strings">
             <summary>

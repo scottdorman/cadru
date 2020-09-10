@@ -1279,7 +1279,7 @@
             </summary>
             <param name="other">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo" /> instance to compare to this instance.</param>
             <returns><see langword="true" /> if the other parameter equals the value of this instance; otherwise, <see langword="false" />. </returns>
-            <remarks>This method implements the <see cref="T:System.IEquatable`1" /> interface and performs slightly
+            <remarks>This method implements the <see cref="T:System.IEquatable`1"/> interface and performs slightly
             better than the <see cref="M:Cadru.Net.NetworkInformation.ServerInfo.Equals(System.Object)"/> method because it does not have to convert
             the other parameter to an object.</remarks>
         </member>

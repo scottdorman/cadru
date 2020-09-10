@@ -249,7 +249,7 @@
         </member>
         <member name="T:Cadru.Postal.ImageEmbedder">
             <summary>
-            Used by the <see cref="M:Cadru.Postal.HtmlExtensions.EmbedImage(System.Web.Mvc.HtmlHelper,System.String,System.String)"/> helper method.
+            Used by the <see cref="M:Cadru.Postal.HtmlExtensions.EmbedImage(System.Web.Mvc.HtmlHelper,System.String,System.String)" /> helper method.
             It generates the <see cref="T:System.Net.Mail.LinkedResource" /> objects need to embed images into an email.
             </summary>
         </member>

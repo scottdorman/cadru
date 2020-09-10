@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<!--
-Sample license text.
--->
 <doc>
     <assembly>
         <name>Cadru.UnitTest.Framework</name>
@@ -557,7 +554,7 @@ Sample license text.
         </member>
         <member name="T:Cadru.UnitTest.Framework.ExceptionMessageComparison">
             <summary>
-            Options used by the <see cref="M:Cadru.UnitTest.Framework.ExceptionAssert.WithMessage``1(``0,System.String,Cadru.UnitTest.Framework.ExceptionMessageComparison)" />
+            Options used by the <see cref="M:Cadru.UnitTest.Framework.ExceptionAssert.WithMessage``1(``0,System.String,Cadru.UnitTest.Framework.ExceptionMessageComparison)"/>
             method to determine how to compare the exception message.
             </summary>
         </member>

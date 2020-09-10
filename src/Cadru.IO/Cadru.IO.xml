@@ -1225,7 +1225,7 @@
             <para>-or-</para>
             <para>The caller does not have the required permission.</para>
             </exception>
-            <remarks><para>Use the <see cref="M:Cadru.IO.ExtendedFileInfo.GetAccessControl" /> method to
+            <remarks><para>Use the <see cref="M:Cadru.IO.ExtendedFileInfo.GetAccessControl"/> method to
             retrieve the access control list (ACL) entries for the current
             file.</para>
             <para>An ACL describes individuals and/or groups who have, or do

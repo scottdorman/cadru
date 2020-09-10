@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<!--
-Sample license text.
--->
 <doc>
     <assembly>
         <name>Cadru.Scim</name>
@@ -18,16 +15,16 @@ Sample license text.
             </remarks>
         </member>
         <member name="P:Cadru.Scim.Filters.FilterExpression.Attribute">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Scim.Filters.FilterExpression.Operator">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Scim.Filters.FilterExpression.Value">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterExpression.ToFilterExpression(System.Boolean)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterExpression.ToString">
             <summary>
@@ -175,16 +172,16 @@ Sample license text.
             <returns>True if <paramref name="left" /> and <paramref name="right" /> are the same; otherwise, false.</returns>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.Equals(System.Object)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.Equals(Cadru.Scim.Filters.FilterExpressionOperator)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.GetHashCode">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterExpressionOperator.ToString">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Scim.Filters.FilterGroup">
             <summary>
@@ -192,16 +189,16 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Scim.Filters.FilterGroup.Filters">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Scim.Filters.FilterGroup.GroupingCharacter">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Scim.Filters.FilterGroup.LogicalOperator">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterGroup.ToFilterExpression(System.Boolean)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterGroup.ToString">
             <summary>
@@ -285,16 +282,16 @@ Sample license text.
             <returns>True if <paramref name="left" /> and <paramref name="right" /> are the same; otherwise, false.</returns>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.Equals(System.Object)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.Equals(Cadru.Scim.Filters.FilterLogicalOperator)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.GetHashCode">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterLogicalOperator.ToString">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Scim.Filters.GroupingCharacter">
             <summary>
@@ -397,16 +394,16 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Scim.Filters.NotFilterGroup.Filters">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Scim.Filters.NotFilterGroup.GroupingCharacter">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Scim.Filters.NotFilterGroup.LogicalOperator">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.NotFilterGroup.ToFilterExpression(System.Boolean)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.NotFilterGroup.ToString">
             <summary>

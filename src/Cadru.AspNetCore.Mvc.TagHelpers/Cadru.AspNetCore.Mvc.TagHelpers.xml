@@ -19,7 +19,7 @@
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.TagHelpers.BreadcrumbItemTagHelper.#ctor(Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator,System.Text.Encodings.Web.HtmlEncoder)">
             <summary>
-            Creates a new <see cref="T:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper" />.
+            Creates a new <see cref="T:Cadru.AspNetCore.Mvc.TagHelpers.BreadcrumbItemTagHelper" />.
             </summary>
             <param name="generator">The <see cref="T:Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator" />.</param>
             <param name="htmlEncoder">The HTML character encoding.</param>
@@ -31,7 +31,7 @@
         </member>
         <member name="P:Cadru.AspNetCore.Mvc.TagHelpers.BreadcrumbItemTagHelper.Generator">
             <summary>
-            Gets the <see cref="T:Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator" /> used to generate the <see cref="T:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper" />'s output.
+            Gets the <see cref="T:Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator"/> used to generate the <see cref="T:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper" />'s output.
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.TagHelpers.BreadcrumbItemTagHelper.Process(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext,Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)">

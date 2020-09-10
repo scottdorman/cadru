@@ -452,7 +452,7 @@
             <param name="value">The value of the model metadata.</param>
         </member>
         <member name="P:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.AdditionalMetadataAttribute.Key">
-            <inheritdoc />
+            <inheritdoc/>
             <remarks>This property is not used by the <see cref="T:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.AdditionalMetadataAttribute" />.</remarks>
         </member>
         <member name="P:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.AdditionalMetadataAttribute.Name">
@@ -466,7 +466,7 @@
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.AdditionalMetadataAttribute.OnMetadataCreated(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DisplayMetadataProviderContext)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.IMetadataAware">
             <summary>
@@ -493,7 +493,7 @@
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.MetadataAwareAttribute.OnMetadataCreated(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DisplayMetadataProviderContext)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.MetadataAwareProvider">
             <summary>
@@ -507,7 +507,7 @@
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.ModelBinding.Metadata.MetadataAwareProvider.CreateDisplayMetadata(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DisplayMetadataProviderContext)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.AspNetCore.Mvc.Razor.LayoutViewLocationExpander">
             <summary>
@@ -515,10 +515,10 @@
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Razor.LayoutViewLocationExpander.ExpandViewLocations(Microsoft.AspNetCore.Mvc.Razor.ViewLocationExpanderContext,System.Collections.Generic.IEnumerable{System.String})">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Razor.LayoutViewLocationExpander.PopulateValues(Microsoft.AspNetCore.Mvc.Razor.ViewLocationExpanderContext)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.AspNetCore.Mvc.Rendering.HtmlHelperExtensions">
             <summary>

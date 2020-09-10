@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<!--
-Sample license text.
--->
 <doc>
     <assembly>
         <name>Cadru.Data.Dapper</name>
@@ -13,10 +10,10 @@ Sample license text.
             </summary>
         </member>
         <member name="M:Cadru.Data.Dapper.CombTypeHandler.Parse(System.Object)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.CombTypeHandler.SetValue(System.Data.IDbDataParameter,Cadru.Comb)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Data.Dapper.CommandAdapter">
             <summary>
@@ -24,49 +21,49 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.CatalogSeparator">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.IdentifierPrefix">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.IdentifierSuffix">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.NameSeparator">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.ParameterNameMaxLength">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.ParameterNamePattern">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.ParameterPrefix">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.QuotePrefix">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.QuoteSuffix">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.CommandAdapter.SchemaSeparator">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.CommandAdapter.GetParameterName(System.String)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.CommandAdapter.IsValidIdentifier(System.String)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.CommandAdapter.QuoteIdentifier(System.String)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.CommandAdapter.QuoteStringLiteral(System.String)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.CommandAdapter.UnquoteIdentifier(System.String)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Data.Dapper.Configuration.DapperContextBuilder">
             <summary>
@@ -247,19 +244,19 @@ Sample license text.
             </summary>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperCommandBuilder.GetDeleteCommand(Cadru.Data.Dapper.Predicates.IPredicate,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType},Dapper.CommandFlags,System.Threading.CancellationToken)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperCommandBuilder.GetInsertCommand(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType},Dapper.CommandFlags,System.Threading.CancellationToken)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperCommandBuilder.GetSelectCommand(Cadru.Data.Dapper.Predicates.IPredicate,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType},Dapper.CommandFlags,System.Threading.CancellationToken)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperCommandBuilder.GetSelectTopCommand(System.Int32,Cadru.Data.Dapper.Predicates.IPredicate,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType},Dapper.CommandFlags,System.Threading.CancellationToken)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperCommandBuilder.GetUpdateCommand(System.Object,Cadru.Data.Dapper.Predicates.IPredicate,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType},Dapper.CommandFlags,System.Threading.CancellationToken)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperCommandBuilder.AppendWhere(System.Text.StringBuilder,Cadru.Data.Dapper.Predicates.IPredicate,Dapper.DynamicParameters)">
             <summary>
@@ -307,37 +304,37 @@ Sample license text.
             <param name="loggerFactory">An <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory" /> instance used to create a logger.</param>
         </member>
         <member name="P:Cadru.Data.Dapper.DapperContext.CommandAdapter">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.DapperContext.Connection">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.DapperContext.HasActiveTransaction">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.DapperContext.Logger">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.DapperContext.Mappings">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.DapperContext.Options">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.DapperContext.Transaction">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperContext.BeginTransaction(System.Boolean,System.Data.IsolationLevel)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperContext.BeginTransaction(System.Data.IsolationLevel)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperContext.CommitTransaction">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.DapperContext.RollbackTransaction">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Data.Dapper.DapperContextFactory">
             <summary>
@@ -420,7 +417,7 @@ Sample license text.
         </member>
         <member name="M:Cadru.Data.Dapper.DatabaseObject`1.#ctor(Cadru.Data.Dapper.IDapperContext,Cadru.Data.Dapper.DatabaseObjectType)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.DatabaseObject`1" /> class.
+            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.DatabaseObject`1"/> class.
             </summary>
             <param name="context">The context which contains this entity.</param>
             <param name="databaseObjectType">The database object type.</param>
@@ -431,7 +428,7 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.DatabaseObject`1.ObjectMap">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.DatabaseObject`1.CommandBuilder">
             <summary>
@@ -993,37 +990,37 @@ Sample license text.
         </member>
         <member name="M:Cadru.Data.Dapper.ObjectMap`1.#ctor(Cadru.Data.Dapper.ICommandAdapter,Cadru.Data.Dapper.DatabaseObjectType)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.ObjectMap`1" /> class.
+            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.ObjectMap`1"/> class.
             </summary>
             <param name="commandAdapter">The <see cref="T:Cadru.Data.Dapper.ICommandAdapter" /> used by this object to create SQL statements.</param>
             <param name="databaseObjectType">A value indicating if the database object is a View or a Table.</param>
         </member>
         <member name="P:Cadru.Data.Dapper.ObjectMap`1.AdditionalValues">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.ObjectMap`1.CommandAdapter">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.ObjectMap`1.EntityType">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.ObjectMap`1.FullyQualifiedObjectName">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.ObjectMap`1.ObjectName">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.ObjectMap`1.ObjectType">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.ObjectMap`1.Properties">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.ObjectMap`1.Schema">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.ObjectMap`1.Map">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Data.Dapper.Predicates.Internal.PredicateGroup">
             <summary>
@@ -1253,55 +1250,55 @@ Sample license text.
             entity model property that maps to the database column.</param>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.AllowEmptyStrings">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.Caption">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.ColumnName">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.DatabaseGeneratedOption">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.Description">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.Ignored">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.IsExportable">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.IsKey">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.IsReadOnly">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.IsRequired">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.IsUpdatable">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.Name">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.Order">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.Prompt">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.PropertyInfo">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.PropertyName">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.PropertyMap.StringHandlingOption">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Data.Dapper.Resources.Strings">
             <summary>
@@ -1335,10 +1332,10 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Data.Dapper.SqlCommandAdapter.IdentifierPrefix">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.SqlCommandAdapter.IdentifierSuffix">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Data.Dapper.Table`1">
             <summary>
@@ -1348,7 +1345,7 @@ Sample license text.
         </member>
         <member name="M:Cadru.Data.Dapper.Table`1.#ctor(Cadru.Data.Dapper.IDapperContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.Table`1" /> class.
+            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.Table`1"/> class.
             </summary>
             <param name="context">The context which contains this entity.</param>
         </member>
@@ -1439,16 +1436,16 @@ Sample license text.
             </summary>
         </member>
         <member name="E:Cadru.Data.Dapper.TrackedEntity.PropertyChanged">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="E:Cadru.Data.Dapper.TrackedEntity.PropertyChanging">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Data.Dapper.TrackedEntity.IsChanged">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.TrackedEntity.AcceptChanges">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Data.Dapper.TrackedEntity.OnPropertyChanged(System.String)">
             <summary>
@@ -1481,7 +1478,7 @@ Sample license text.
         </member>
         <member name="M:Cadru.Data.Dapper.View`1.#ctor(Cadru.Data.Dapper.IDapperContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.View`1" /> class.
+            Initializes a new instance of the <see cref="T:Cadru.Data.Dapper.View`1"/> class.
             </summary>
             <param name="context">The context which contains this entity.</param>
         </member>

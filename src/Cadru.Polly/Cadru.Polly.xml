@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<!--
-Sample license text.
--->
 <doc>
     <assembly>
         <name>Cadru.Polly</name>
@@ -61,7 +58,7 @@ Sample license text.
             </summary>
             <param name="context">The <see cref="T:Polly.Context" /> to add items
             to.</param>
-            <param name="contextData">The <see cref="T:System.Collections.Generic.IDictionary`2" /> whose elements are copied into the <paramref
+            <param name="contextData">The <see cref="T:System.Collections.Generic.IDictionary`2"/> whose elements are copied into the <paramref
             name="context" />.</param>
             <returns>The <see cref="T:Polly.Context" /> so that additional calls can be
             chained.</returns>
@@ -73,7 +70,7 @@ Sample license text.
             <param name="context">The <see cref="T:Polly.Context" /> to add items
             to.</param>
             <param name="contextData">The <see
-            cref="T:System.Collections.Generic.IEnumerable`1" /> whose elements are
+            cref="T:System.Collections.Generic.IEnumerable`1"/> whose elements are
             copied into the <paramref name="context" />.</param>
             <returns>The <see cref="T:Polly.Context" /> so that additional calls can be
             chained.</returns>
@@ -135,10 +132,10 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Polly.Data.SqlServer.NetworkConnectivityExceptionHandlingStrategy.IsDefaultStrategy">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.NetworkConnectivityExceptionHandlingStrategy.ShouldHandle(System.Exception)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Polly.Data.SqlServer.SqlServerTimeoutExceptionHandlingStrategy">
             <summary>
@@ -146,10 +143,10 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Polly.Data.SqlServer.SqlServerTimeoutExceptionHandlingStrategy.IsDefaultStrategy">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerTimeoutExceptionHandlingStrategy.ShouldHandle(System.Exception)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Polly.Data.SqlServer.SqlServerTransientExceptionHandlingStrategy">
             <summary>
@@ -157,10 +154,10 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Polly.Data.SqlServer.SqlServerTransientExceptionHandlingStrategy.IsDefaultStrategy">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerTransientExceptionHandlingStrategy.ShouldHandle(System.Exception)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Polly.Data.SqlServer.SqlServerTransientTransactionExceptionHandlingStrategy">
             <summary>
@@ -168,10 +165,10 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Polly.Data.SqlServer.SqlServerTransientTransactionExceptionHandlingStrategy.IsDefaultStrategy">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerTransientTransactionExceptionHandlingStrategy.ShouldHandle(System.Exception)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder">
             <summary>
@@ -190,7 +187,7 @@ Sample license text.
             a default configuration will be used.</param>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder.Validate">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyFactory">
             <summary>
@@ -204,7 +201,7 @@ Sample license text.
             </summary>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategyFactory.CreateStrategyBuilder(System.IServiceProvider,System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy})">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax">
             <summary>
@@ -266,8 +263,8 @@ Sample license text.
             <returns>The strategy instance.</returns>
             <remarks>
             This is equivalent to calling <see
-            cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)" />,
-            <see cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)" />.
+            cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>,
+            <see cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>.
             </remarks>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)">
@@ -282,8 +279,8 @@ Sample license text.
             <returns>The strategy instance.</returns>
             <remarks>
             This is equivalent to calling <see
-            cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)" />,
-            <see cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)" />.
+            cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>,
+            <see cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>.
             </remarks>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)">
@@ -298,8 +295,8 @@ Sample license text.
             <returns>The strategy instance.</returns>
             <remarks>
             This is equivalent to calling <see
-            cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)" />,
-            <see cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)" />.
+            cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithOverallTimeout(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>,
+            <see cref="M:Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.WithTimeoutPerRetry(Cadru.Polly.Data.SqlStrategyBuilder,Cadru.Polly.Data.SqlStrategyOptions)"/>.
             </remarks>
         </member>
         <member name="T:Cadru.Polly.Data.SqlServer.ThrottledResourceType">
@@ -528,10 +525,10 @@ Sample license text.
             </summary>
         </member>
         <member name="P:Cadru.Polly.Data.SqlStrategy.AsyncPolicy">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:Cadru.Polly.Data.SqlStrategy.SyncPolicy">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategy.NoOp">
             <summary>
@@ -642,7 +639,7 @@ Sample license text.
             </summary>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyFactory.Create(System.IServiceProvider,System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy})">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyFactory.CreateStrategyBuilder(System.IServiceProvider,System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy})">
             <summary>
@@ -818,7 +815,7 @@ Sample license text.
             </summary>
         </member>
         <member name="M:Cadru.Polly.Logging.AsyncLoggingPolicy.ImplementationAsync``1(System.Func{Polly.Context,System.Threading.CancellationToken,System.Threading.Tasks.Task{``0}},Polly.Context,System.Threading.CancellationToken,System.Boolean)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Polly.Logging.AsyncLoggingPolicy`1">
             <summary>
@@ -827,7 +824,7 @@ Sample license text.
             <typeparam name="TResult">The type of return values this policy will handle.</typeparam>
         </member>
         <member name="M:Cadru.Polly.Logging.AsyncLoggingPolicy`1.ImplementationAsync(System.Func{Polly.Context,System.Threading.CancellationToken,System.Threading.Tasks.Task{`0}},Polly.Context,System.Threading.CancellationToken,System.Boolean)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Polly.Logging.ILoggingPolicy">
             <summary>
@@ -845,7 +842,7 @@ Sample license text.
             </summary>
         </member>
         <member name="M:Cadru.Polly.Logging.LoggingPolicy.Implementation``1(System.Func{Polly.Context,System.Threading.CancellationToken,``0},Polly.Context,System.Threading.CancellationToken)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Polly.Logging.LoggingPolicy`1">
             <summary>
@@ -854,7 +851,7 @@ Sample license text.
             <typeparam name="TResult">The type of return values this policy will handle.</typeparam>
         </member>
         <member name="M:Cadru.Polly.Logging.LoggingPolicy`1.Implementation(System.Func{Polly.Context,System.Threading.CancellationToken,`0},Polly.Context,System.Threading.CancellationToken)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Polly.Logging.LoggingPolicySyntax">
             <summary>
@@ -876,7 +873,7 @@ Sample license text.
         <member name="M:Cadru.Polly.Logging.LoggingPolicySyntax.AsyncLog``1(Polly.PolicyBuilder{``0},System.Func{Polly.Context,Microsoft.Extensions.Logging.ILogger},System.Action{Microsoft.Extensions.Logging.ILogger,Polly.Context,Polly.DelegateResult{``0}})">
             <summary>
             Constructs a new instance of <see
-            cref="T:Cadru.Polly.Logging.AsyncLoggingPolicy`1" />, configured to handle the
+            cref="T:Cadru.Polly.Logging.AsyncLoggingPolicy`1"/>, configured to handle the
             exceptions and results specified in the <paramref
             name="policyBuilder" />.
             </summary>
@@ -886,7 +883,7 @@ Sample license text.
             <param name="loggerProvider">A func returning a logger to
             use.</param>
             <param name="logAction">A logging action.</param>
-            <returns><see cref="T:Cadru.Polly.Logging.AsyncLoggingPolicy`1" /></returns>
+            <returns><see cref="T:Cadru.Polly.Logging.AsyncLoggingPolicy`1"/></returns>
         </member>
         <member name="M:Cadru.Polly.Logging.LoggingPolicySyntax.Log(Polly.PolicyBuilder,System.Func{Polly.Context,Microsoft.Extensions.Logging.ILogger},System.Action{Microsoft.Extensions.Logging.ILogger,Polly.Context,System.Exception})">
             <summary>
@@ -902,7 +899,7 @@ Sample license text.
         </member>
         <member name="M:Cadru.Polly.Logging.LoggingPolicySyntax.Log``1(Polly.PolicyBuilder{``0},System.Func{Polly.Context,Microsoft.Extensions.Logging.ILogger},System.Action{Microsoft.Extensions.Logging.ILogger,Polly.Context,Polly.DelegateResult{``0}})">
             <summary>
-            Constructs a new instance of <see cref="T:Cadru.Polly.Logging.LoggingPolicy`1" />,
+            Constructs a new instance of <see cref="T:Cadru.Polly.Logging.LoggingPolicy`1"/>,
             configured to handle the exceptions and results specified in the
             <paramref name="policyBuilder" />.
             </summary>
@@ -912,7 +909,7 @@ Sample license text.
             <param name="loggerProvider">A func returning a logger to
             use.</param>
             <param name="logAction">A logging action.</param>
-            <returns><see cref="T:Cadru.Polly.Logging.LoggingPolicy`1" /></returns>
+            <returns><see cref="T:Cadru.Polly.Logging.LoggingPolicy`1"/></returns>
         </member>
         <member name="T:Cadru.Polly.PolicyContextItems">
             <summary>
@@ -926,7 +923,7 @@ Sample license text.
         </member>
         <member name="T:Cadru.Polly.PolicyRegistryExtensions">
             <summary>
-            Extension methods for working with a <see cref="T:Polly.Registry.IPolicyRegistry`1" />.
+            Extension methods for working with a <see cref="T:Polly.Registry.IPolicyRegistry`1"/>.
             </summary>
         </member>
         <member name="M:Cadru.Polly.PolicyRegistryExtensions.Add(Polly.Registry.IPolicyRegistry{System.String},Polly.IsPolicy)">

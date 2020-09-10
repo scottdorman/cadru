@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<!--
-Sample license text.
--->
 <doc>
     <assembly>
         <name>Cadru.Caching</name>
@@ -44,13 +41,13 @@ Sample license text.
             </summary>
         </member>
         <member name="M:Cadru.Caching.CacheKey.Equals(System.Object)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Caching.CacheKey.GetHashCode">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Caching.CacheKey.ToString">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Caching.CacheKeys">
             <summary>
@@ -122,7 +119,7 @@ Sample license text.
              Removes all cache keys that match the conditions defined by the
              specified predicate.
             </summary>
-            <param name="match">The <see cref="T:System.Predicate`1" /> delegate that
+            <param name="match">The <see cref="T:System.Predicate`1"/> delegate that
             defines the conditions of the cache keys to remove.</param>
             <returns>The number of cache keys that were removed.</returns>
             <exception cref="T:System.ArgumentNullException"><paramref name="match" /> is
