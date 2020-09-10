@@ -37,16 +37,6 @@ init:
 # scripts that run after cloning repository
 install:
 - ps: >-
-    (new-object net.webclient).DownloadFile('http://stylecop.codeplex.com/downloads/get/323236', 'stylecop.msi')
-
-    msiexec /i stylecop.msi /quiet /qn /norestart /log stylecop.log
-
-    $env:BUILD_DAYS = ((Get-Date) - (Get-Date "2000-01-01 00:00:00")).Days
-
-    $NUGET_PACKAGE_VERSION = "$($env:majorminor).$($env:BUILD_DAYS).$($env:APPVEYOR_BUILD_NUMBER)"
-
-    Write-Output ('NUGET_PACKAGE_VERSION set to ' + $NUGET_PACKAGE_VERSION)
-
     Write-Output 'Ensuring latest nuget.exe version'
 
     C:\Tools\nuget\nuget.exe update -self
@@ -107,6 +97,8 @@ test:
 
 artifacts:
 - path: '**\src\**\*.nupkg'
+  name: Nuget Packages
+- path: '**\src\**\*.snupkg'
   name: Nuget Packages
 - path: '**\*.chm'
   name: CHM Documentation

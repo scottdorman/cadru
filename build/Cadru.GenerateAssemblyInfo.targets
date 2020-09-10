@@ -5,7 +5,7 @@ WARNING: DO NOT MODIFY this file unless you are knowledgeable about MSBuild and 
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <BuildDir>$(SolutionDir)/build</BuildDir>
+    <BuildDir>$(SolutionDir)\build</BuildDir>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -15,7 +15,6 @@ WARNING: DO NOT MODIFY this file unless you are knowledgeable about MSBuild and 
 
   <UsingTask AssemblyFile="$(VersionUpdateTasksLib)" TaskName="Cadru.Build.Tasks.GetVersionProperties" />
   <UsingTask AssemblyFile="$(VersionUpdateTasksLib)" TaskName="Cadru.Build.Tasks.GetAssemblyVersion" />
-  <UsingTask AssemblyFile="$(VersionUpdateTasksLib)" TaskName="Cadru.Build.Tasks.AddReleaseNotesRootEntry" />
 
   <!-- Generates assembly info source to an intermediate directory. This is,
   for the most part, a copy of the Microsoft.NET.GenerateAssemblyInfo.targets

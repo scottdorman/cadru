@@ -1,0 +1,16 @@
+<!-- Modify this file to change assembly information.
+
+WARNING: DO NOT MODIFY this file unless you have created a backup copy.
+Incorrect changes to this file will make it impossible to load or build your
+projects from the command-line or the IDE. -->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(APPVEYOR_BUILD_NUMBER)' != ''">
+    <VersionRevision>$(APPVEYOR_BUILD_NUMBER)</VersionRevision>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(SourceLinkCreate)' == 'true' And '$(APPVEYOR_BUILD_NUMBER)' != ''">
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+</Project>

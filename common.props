@@ -22,6 +22,7 @@ projects from the command-line or the IDE. -->
     <PackageProjectUrl>https://github.com/scottdorman/cadru</PackageProjectUrl>
     <CommonPackageTags>cadru .NET Core .NETCore dotnet dotnetcore .NETStandard dotnetstandard</CommonPackageTags>
     <SourceLinkCreate>true</SourceLinkCreate>
+    <VersionRevision Condition="'$(APPVEYOR_BUILD_NUMBER)' != ''">$(APPVEYOR_BUILD_NUMBER)</VersionRevision>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -33,6 +34,11 @@ projects from the command-line or the IDE. -->
     <GenerateReleaseNotes Condition="'$(GenerateReleaseNotes)' == ''">false</GenerateReleaseNotes>
     <GenerateAssemblyBuildDateAttribute Condition="'$(GenerateAssemblyBuildDateAttribute)' == ''">true</GenerateAssemblyBuildDateAttribute>
     <VersionStrategy Condition="'$(VersionStrategy)' == ''">ShortDate</VersionStrategy>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <SourceLinkCreate>true</SourceLinkCreate>
+    <RepositoryUrl>https://github.com/scottdorman/cadru</RepositoryUrl>
   </PropertyGroup>
 
   <!-- The UpdateReleaseNotes target expects a single XML file as input and

@@ -10,8 +10,9 @@ IDE. -->
     <VersionProps>$(RepoRoot)version.props</VersionProps>
     <CommonProps>$(RepoRoot)common.props</CommonProps>
     <MiscProps>$(RepoRoot)misc.props</MiscProps>
-    <SourceLinkProps>$(BuildDir)sourcelink.props</SourceLinkProps>
+    <SourceLinkProps>$(BuildDir)Cadru.SourceLink.props</SourceLinkProps>
     <DebugTargetProps>$(RepoRoot)debugtarget.props</DebugTargetProps>
+    <ContinuousIntegrationProps>$(RepoRoot)ci.props</ContinuousIntegrationProps>
     <GenerateAssemblyInfoTargets>$(BuildDir)\Cadru.GenerateAssemblyInfo.targets</GenerateAssemblyInfoTargets>
     <ReleaseNotesTargets>$(BuildDir)\Cadru.ReleaseNotes.targets</ReleaseNotesTargets>
   </PropertyGroup>
@@ -21,6 +22,8 @@ IDE. -->
   <Import Project="$(VersionProps)" Condition="Exists('$(VersionProps)')"/>
   <Import Project="$(CommonProps)" Condition="Exists('$(CommonProps)')"/>
   <Import Project="$(MiscProps)" Condition="Exists('$(MiscProps)')"/>
+  <Import Project="$(SourceLinkProps)" Condition="Exists('$(SourceLinkProps)')"/>
+  <Import Project="$(ContinuousIntegrationProps)" Condition="Exists('$(ContinuousIntegrationProps)')"/>
 
   <PropertyGroup>
     <DebugType Condition="'$(SourceLinkCreate)' != 'true'">embedded</DebugType>
@@ -84,6 +87,4 @@ IDE. -->
       <_Parameter2>$(BuildDate)</_Parameter2>
     </AssemblyAttribute>
   </ItemGroup>
-
-  <Import Project="$(SourceLinkProps)" Condition="Exists('$(SourceLinkProps)')"/>
 </Project>

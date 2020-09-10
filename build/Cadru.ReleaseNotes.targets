@@ -19,20 +19,21 @@ IDE. -->
     <VersionUpdateTasksLib Condition="'$(OS)' != 'Windows_NT'">$(BuildDir)\Cadru.Build.Tasks.dll</VersionUpdateTasksLib>
   </PropertyGroup>
 
-  <UsingTask AssemblyFile="$(VersionUpdateTasksLib)" TaskName="Cadru.Build.Tasks.GetVersionProperties" />
+  <UsingTask AssemblyFile="$(VersionUpdateTasksLib)" TaskName="Cadru.Build.Tasks.AddReleaseNotesRootEntry" />
 
-  <!-- Sets the BuildDate, VersionPatch, and VersionRevision properties in the
-       $(VersionProps) file. -->
-  <Target Name="UpdateAssemblyVersionInfo"
-          Outputs="$(BuildProps);$(GeneratedAssemblyInfoFile)">
-    <GetVersionProperties PropertiesFile="$(BuildProps)" Strategy="$(VersionStrategy)">
-      <Output PropertyName="VersionBuild" TaskParameter="Build" />
-      <Output PropertyName="VersionRevision" TaskParameter="Revision" />
-      <Output PropertyName="VersionBuildDate" TaskParameter="BuildDate" />
-    </GetVersionProperties>
+  <!-- Updates the release notes XML file and copies it to the destination
+  folders. -->
+  <Target Name="UpdateReleaseNotes" BeforeTargets="BeforeBuild" Condition="'$(Configuration)' == 'Release' and '$(GenerateReleaseNotes)' == 'true'">
+    <AddReleaseNotesRootEntry AddIfNotFound="true" Version="$(Version)" BuildDate="$(BuildDate)" Milestone="$(Milestone)" File="%(ReleaseNotes.Identity)" />
+    <Copy SourceFiles="@(ReleaseNotes)" DestinationFolder="%(DestinationFolders.Identity)" />
+  </Target>
 
-    <Message Importance="high" Text="UpdateAssemblyVersionInfo: VersionBuild = $(VersionBuild)" />
-    <Message Importance="high" Text="UpdateAssemblyVersionInfo: VersionRevision = $(VersionRevision)" />
-    <Message Importance="high" Text="UpdateAssemblyVersionInfo: VersionBuildDate = $(VersionBuildDate)" />
+  <Target Name="_AddReleaseNotesContentItem" Inputs="%(ReleaseNotes.Identity)" DependsOnTargets="UpdateReleaseNotes">
+    <PropertyGroup>
+      <_ReleaseNotesFile>%(ReleaseNotes.Identity)</_ReleaseNotesFile>
+    </PropertyGroup>
+    <ItemGroup>
+      <Content Include="@(DestinationFolders->'%(Identity)@(ReleaseNotes)')"/>
+    </ItemGroup>
   </Target>
 </Project>

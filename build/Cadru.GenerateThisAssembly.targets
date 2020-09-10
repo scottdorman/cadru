@@ -1,0 +1,42 @@
+<Project>
+  <PropertyGroup>
+    <BuildDir>$([MSBuild]::EnsureTrailingSlash($(SolutionDir)build))</BuildDir>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <VersionUpdateTasksLib Condition="'$(OS)' == 'Windows_NT'">$([MSBUILD]::Unescape($(BuildDir)Cadru.Build.Tasks.dll))</VersionUpdateTasksLib>
+    <VersionUpdateTasksLib Condition="'$(OS)' != 'Windows_NT'">$(BuildDir)\Cadru.Build.Tasks.dll</VersionUpdateTasksLib>
+  </PropertyGroup>
+
+  <UsingTask AssemblyFile="$(VersionUpdateTasksLib)" TaskName="Cadru.Build.Tasks.WriteThisAssemblyCodeFile" />
+
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <GeneratedThisAssemblyFile Condition="'$(GeneratedThisAssemblyFile)' ==''">$(IntermediateOutputPath)$(MSBuildProjectName).ThisAssembly$(DefaultLanguageSourceExtension)</GeneratedThisAssemblyFile>
+    <GenerateThisAssembly Condition="'$(GenerateThisAssembly)' == ''">true</GenerateThisAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DebugMessageImportance Condition="'$(DebugMessageImportance)' == ''">high</DebugMessageImportance>
+  </PropertyGroup>
+
+  <Target Name="GenerateThisAssembly"
+          BeforeTargets="CoreCompile"
+          DependsOnTargets="PrepareForBuild;CoreGenerateAssemblyInfo;CoreGenerateThisAssembly" />
+
+  <Target Name="CoreGenerateThisAssembly"
+        Condition="'$(Language)'=='VB' or '$(Language)'=='C#'"
+        DependsOnTargets="CreateGeneratedAssemblyInfoInputsCacheFile"
+        Inputs="$(GeneratedAssemblyInfoInputsCacheFile)"
+        Outputs="$(GeneratedThisAssemblyFile)">
+    <ItemGroup>
+      <!-- Ensure the generated ThisAssembly file is not already part of the Compile sources, as a workaround for https://github.com/dotnet/sdk/issues/114 -->
+      <Compile Remove="$(GeneratedThisAssemblyFile)" />
+    </ItemGroup>
+
+    <WriteThisAssemblyCodeFile AssemblyAttributes="@(AssemblyAttribute)" Language="$(Language)" OutputFile="$(GeneratedThisAssemblyFile)">
+      <Output TaskParameter="OutputFile" ItemName="Compile" />
+      <Output TaskParameter="OutputFile" ItemName="FileWrites" />
+    </WriteThisAssemblyCodeFile>
+  </Target>
+</Project>
