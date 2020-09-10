@@ -99,7 +99,7 @@ artifacts:
 - path: '**\src\**\*.nupkg'
   name: Nuget Packages
 - path: '**\src\**\*.snupkg'
-  name: Nuget Packages
+  name: Nuget Symbol Packages
 - path: '**\*.chm'
   name: CHM Documentation
 
