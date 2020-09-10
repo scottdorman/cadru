@@ -611,23 +611,6 @@
              <typeparam name="TKey">The type of the key.</typeparam>
              <typeparam name="TValue">The type of the value.</typeparam>
         </member>
-        <member name="F:Cadru.Collections.MultiValueDictionary`2._dictionary">
-            <summary>
-            The private dictionary that this class effectively wraps around
-            </summary>
-        </member>
-        <member name="F:Cadru.Collections.MultiValueDictionary`2._version">
-            <summary>
-            The current version of this MultiValueDictionary used to determine MultiValueDictionary modification
-            during enumeration
-            </summary>
-        </member>
-        <member name="F:Cadru.Collections.MultiValueDictionary`2.NewCollectionFactory">
-            <summary>
-            The function to construct a new <see cref="T:System.Collections.Generic.ICollection`1"/>
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
@@ -778,7 +761,7 @@
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Create``1(System.Collections.Generic.IEqualityComparer{`0})">
             <summary>
-            Creates a new new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
+            Creates a new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
             class that is empty, has the default initial capacity, and uses the specified
             <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> for <typeparamref name="TKey"/>. The
             internal dictionary will use instances of the <typeparamref name="TValueCollection"/>
@@ -802,7 +785,7 @@
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Create``1(System.Int32,System.Collections.Generic.IEqualityComparer{`0})">
             <summary>
-            Creates a new new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
+            Creates a new instance of the <see cref="T:Cadru.Collections.MultiValueDictionary`2" />
             class that is empty, has the specified initial capacity, and uses the specified
             <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> for <typeparamref name="TKey"/>. The
             internal dictionary will use instances of the <typeparamref name="TValueCollection"/>
@@ -1147,13 +1130,6 @@
             </returns>
             <exception cref="T:System.ArgumentNullException"><paramref name="key"/> must be non-null</exception>
         </member>
-        <member name="T:Cadru.Collections.MultiValueDictionary`2.Enumerator">
-            <summary>
-            The Enumerator class for a <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>
-            that iterates over <typeparamref name="TKey"/>-<see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/>
-            pairs.
-            </summary>
-        </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.Enumerator.#ctor(Cadru.Collections.MultiValueDictionary{`0,`1})">
             <summary>
             Constructor for the enumerator
@@ -1179,11 +1155,6 @@
             Sets the enumerator to its initial position, which is before the first element in the collection.
             </summary>
             <exception cref="T:System.InvalidOperationException">The collection was modified after the enumerator was created. </exception>
-        </member>
-        <member name="T:Cadru.Collections.MultiValueDictionary`2.InnerCollectionView">
-            <summary>
-            An inner class that functions as a view of an ICollection within a MultiValueDictionary
-            </summary>
         </member>
         <member name="T:Cadru.Collections.NameValuePair`1">
             <summary>Defines a key/value pair that can be set or retrieved.</summary>
