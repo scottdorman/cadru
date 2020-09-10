@@ -2,7 +2,7 @@
 // <copyright file="ExportableAttribute.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,17 +20,31 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace Cadru.Data.Annotations
 {
-    using System;
-
     /// <summary>
     /// Denotes that a property should be excluded from being exported.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
     public sealed class ExportableAttribute : Attribute
     {
+        /// <summary>
+        /// The default export order
+        /// </summary>
         public const int DefaultOrder = 10000;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExportableAttribute"/> class.
+        /// </summary>
+        /// <param name="allowExport">
+        /// <see langword="true"/> to specify that the field is exportable; otherwise, <see langword="false"/>.
+        /// </param>
+        public ExportableAttribute(bool allowExport)
+        {
+            this.AllowExport = allowExport;
+        }
 
         /// <summary>
         /// Gets a value that indicates whether a field is exportable.
@@ -51,16 +65,5 @@ namespace Cadru.Data.Annotations
         /// value lets explicitly-ordered fields be displayed before and after
         /// the fields that do not have a specified order.</remarks>
         public int Order { get; set; } = DefaultOrder;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ExportableAttribute"/> class.
-        /// </summary>
-        /// <param name="allowExport">
-        /// <see langword="true"/> to specify that the field is exportable; otherwise, <see langword="false"/>.
-        /// </param>
-        public ExportableAttribute(bool allowExport)
-        {
-            this.AllowExport = allowExport;
-        }
     }
 }

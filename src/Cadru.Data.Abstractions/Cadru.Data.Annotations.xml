@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!--
+Sample license text.
+-->
+<doc>
+    <assembly>
+        <name>Cadru.Data.Annotations</name>
+    </assembly>
+    <members>
+        <member name="T:Cadru.Data.Annotations.ExportableAttribute">
+            <summary>
+            Denotes that a property should be excluded from being exported.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Annotations.ExportableAttribute.AllowExport">
+            <summary>
+            Gets a value that indicates whether a field is exportable.
+            </summary>
+            <value>
+            <see langword="true" /> if the field is exportable; otherwise, <see langword="false" />.
+            </value>
+        </member>
+        <member name="P:Cadru.Data.Annotations.ExportableAttribute.Order">
+            <summary>
+            Gets or sets the order weight of the column.
+            </summary>
+            <remarks>Columns are sorted in increasing order based on the order
+            value. Columns without this attribute have an order value of 0.
+            Negative values are valid and can be used to position a column
+            before all non-negative columns. If an order is not specified,
+            presentation layers should consider using the value 10000. This
+            value lets explicitly-ordered fields be displayed before and after
+            the fields that do not have a specified order.</remarks>
+        </member>
+        <member name="M:Cadru.Data.Annotations.ExportableAttribute.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Data.Annotations.ExportableAttribute" /> class.
+            </summary>
+            <param name="allowExport">
+            <see langword="true" /> to specify that the field is exportable; otherwise, <see langword="false" />.
+            </param>
+        </member>
+        <member name="T:Cadru.Data.Annotations.StringHandlingAttribute">
+            <summary>
+            Specifies how string values should be handled.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Annotations.StringHandlingAttribute.StringHandlingOption">
+            <summary>
+            Gets the option for handling string values.
+            </summary>
+            <value>The string handling option.</value>
+        </member>
+        <member name="M:Cadru.Data.Annotations.StringHandlingAttribute.#ctor(Cadru.Data.Annotations.StringHandlingOption)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Data.Annotations.StringHandlingAttribute" /> class.
+            </summary>
+            <param name="stringHandlingOption">
+            The string handling option.
+            </param>
+        </member>
+        <member name="T:Cadru.Data.Annotations.StringHandlingOption">
+            <summary>
+            Represents the string handling option.
+            </summary>
+        </member>
+        <member name="F:Cadru.Data.Annotations.StringHandlingOption.None">
+            <summary>
+            The string value should not be modified.
+            </summary>
+        </member>
+        <member name="F:Cadru.Data.Annotations.StringHandlingOption.Trim">
+            <summary>
+            The string value should be trimmed to remove leading and trailing spaces.
+            </summary>
+        </member>
+        <member name="F:Cadru.Data.Annotations.StringHandlingOption.Truncate">
+            <summary>
+            The string value should be truncated.
+            </summary>
+        </member>
+        <member name="T:Cadru.Data.Annotations.ViewAttribute">
+            <summary>
+                Specifies the database view that a class is mapped to.
+            </summary>
+        </member>
+        <member name="M:Cadru.Data.Annotations.ViewAttribute.#ctor(System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Cadru.Data.Annotations.ViewAttribute" /> class.
+            </summary>
+            <param name="name">The name of the view the class is mapped to.</param>
+        </member>
+        <member name="P:Cadru.Data.Annotations.ViewAttribute.Name">
+            <summary>
+                The name of the view the class is mapped to.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Annotations.ViewAttribute.Schema">
+            <summary>
+                The schema of the view the class is mapped to.
+            </summary>
+        </member>
+    </members>
+</doc>

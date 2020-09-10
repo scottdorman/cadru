@@ -2,7 +2,7 @@
 // <copyright file="ViewAttribute.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,37 +20,37 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
+using Cadru.Contracts;
+
 namespace Cadru.Data.Annotations
 {
-    using Contracts;
-    using System;
-
     /// <summary>
-    ///     Specifies the database view that a class is mapped to.
+    /// Specifies the database view that a class is mapped to.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-    public class ViewAttribute : Attribute
+    public sealed class ViewAttribute : Attribute
     {
-        private readonly string name;
         private string schema;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="ViewAttribute" /> class.
+        /// Initializes a new instance of the <see cref="ViewAttribute" /> class.
         /// </summary>
         /// <param name="name">The name of the view the class is mapped to.</param>
         public ViewAttribute(string name)
         {
             Requires.NotNullOrWhiteSpace(name, nameof(name));
-            this.name = name;
+            this.Name = name;
         }
 
         /// <summary>
-        ///     The name of the view the class is mapped to.
+        /// The name of the view the class is mapped to.
         /// </summary>
-        public string Name => this.name;
+        public string Name { get; }
 
         /// <summary>
-        ///     The schema of the view the class is mapped to.
+        /// The schema of the view the class is mapped to.
         /// </summary>
         public string Schema
         {

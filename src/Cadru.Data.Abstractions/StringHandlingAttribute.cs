@@ -2,7 +2,7 @@
 // <copyright file="StringHandlingAttribute.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -31,21 +31,19 @@ namespace Cadru.Data.Annotations
     public sealed class StringHandlingAttribute : Attribute
     {
         /// <summary>
-        /// Gets the option for handling string values.
+        /// Initializes a new instance of the <see
+        /// cref="StringHandlingAttribute"/> class.
         /// </summary>
-        /// <value>The string handling option.</value>
-        public StringHandlingOption StringHandlingOption { get; private set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StringHandlingAttribute"/> class.
-        /// </summary>
-        /// <param name="stringHandlingOption">
-        /// The string handling option.
-        /// </param>
+        /// <param name="stringHandlingOption">The string handling option.</param>
         public StringHandlingAttribute(StringHandlingOption stringHandlingOption)
         {
             this.StringHandlingOption = stringHandlingOption;
         }
-    }
 
+        /// <summary>
+        /// Gets the option for handling string values.
+        /// </summary>
+        /// <value>The string handling option.</value>
+        public StringHandlingOption StringHandlingOption { get; private set; }
+    }
 }

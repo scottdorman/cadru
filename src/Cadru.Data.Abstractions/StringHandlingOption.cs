@@ -2,7 +2,7 @@
 // <copyright file="StringHandlingOption.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -19,7 +19,6 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
-
 
 namespace Cadru.Data.Annotations
 {

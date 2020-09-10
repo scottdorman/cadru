@@ -2,7 +2,7 @@
 // <copyright file="ExtendedPropertyAttribute.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
-//    Copyright (C) 2001-2017 Scott Dorman.
+//    Copyright (C) 2001-2020 Scott Dorman.
 // </copyright>
 //
 // <license>
@@ -20,21 +20,35 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace Cadru.Data.Annotations
 {
-    using System;
-
+    /// <summary>
+    /// Specifies additional attributes about a class, as a name/value pair.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     public sealed class ExtendedPropertyAttribute : Attribute
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExtendedPropertyAttribute"/> class.
+        /// </summary>
+        /// <param name="name">The name of the extended property.</param>
+        /// <param name="value">The value of the extended property.</param>
         public ExtendedPropertyAttribute(string name, object value)
         {
             this.Name = name;
             this.Value = value;
         }
 
+        /// <summary>
+        /// The name of the extended property.
+        /// </summary>
         public string Name { get; private set; }
 
+        /// <summary>
+        /// The value of the extended property.
+        /// </summary>
         public object Value { get; private set; }
     }
 }
