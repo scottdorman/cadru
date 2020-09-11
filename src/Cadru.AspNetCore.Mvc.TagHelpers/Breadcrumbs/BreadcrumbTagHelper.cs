@@ -27,25 +27,38 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Cadru.AspNetCore.Mvc.TagHelpers
 {
+    /// <summary>
+    /// <see cref="ITagHelper"/> implementation creating a
+    /// <see href="https://getbootstrap.com/">Bootstrap</see><c>breadcrumb</c> component.
+    /// </summary>
     [HtmlTargetElement("cadru-breadcrumb")]
     [RestrictChildren("cadru-breadcrumb-item", "li")]
     [OutputElementHint("ol")]
     public partial class BreadcrumbTagHelper : TagHelper
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BreadcrumbTagHelper"/> class.
+        /// </summary>
+        /// <param name="generator">The <see cref="IHtmlGenerator"/></param>
         public BreadcrumbTagHelper(IHtmlGenerator generator) : base()
         {
             this.Generator = generator;
         }
 
+        /// <summary>
+        /// The <see cref="IHtmlGenerator"/>
+        /// </summary>
         [HtmlAttributeNotBound]
         protected IHtmlGenerator Generator { get; }
 
+        /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             output.TagName = "nav";
             output.Attributes.SetAttribute("aria-label", "breadcrumb");
         }
 
+        /// <inheritdoc/>
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             var itemsListTagBuilder = this.Generator.GenerateTag("ol");

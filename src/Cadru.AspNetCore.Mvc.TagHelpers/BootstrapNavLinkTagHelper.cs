@@ -20,31 +20,41 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Linq;
+
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Razor.TagHelpers;
+
 namespace Cadru.AspNetCore.Mvc.TagHelpers
 {
-    using System;
-    using System.Linq;
-
-    using Microsoft.AspNetCore.Mvc.Rendering;
-    using Microsoft.AspNetCore.Mvc.TagHelpers;
-    using Microsoft.AspNetCore.Mvc.ViewFeatures;
-    using Microsoft.AspNetCore.Razor.TagHelpers;
-
+    /// <summary>
+    /// <see cref="ITagHelper"/> implementation creating a
+    /// <see href="https://getbootstrap.com/">Bootstrap</see><c>navbar</c> link.
+    /// </summary>
     [OutputElementHint("li")]
     public class BootstrapNavLinkTagHelper : AnchorTagHelper
     {
         private const string IconAttributeName = "bootstrap-icon";
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="BootstrapNavLinkTagHelper"/> class.
+        /// </summary>
+        /// <param name="generator">The <see cref="IHtmlGenerator"/></param>
         public BootstrapNavLinkTagHelper(IHtmlGenerator generator) : base(generator)
         {
         }
 
         /// <summary>
-        /// An expression to be evaluated against the current model.
+        /// The CSS classes for the icon element.
         /// </summary>
         [HtmlAttributeName(IconAttributeName)]
         public string IconCss { get; set; }
 
+        /// <inheritdoc/>
         public async override void Process(TagHelperContext context, TagHelperOutput output)
         {
             base.Process(context, output);

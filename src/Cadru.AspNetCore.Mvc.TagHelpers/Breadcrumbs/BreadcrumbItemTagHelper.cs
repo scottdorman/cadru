@@ -30,6 +30,11 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Cadru.AspNetCore.Mvc.TagHelpers
 {
+    /// <summary>
+    /// <see cref="ITagHelper"/> implementation creating a
+    /// <see href="https://getbootstrap.com/">Bootstrap</see><c>breadcrumb-item</c> component.
+    /// </summary>
+
     [HtmlTargetElement("cadru-breadcrumb-item", ParentTag = "cadru-breadcrumb", TagStructure = TagStructure.NormalOrSelfClosing)]
     [HtmlTargetElement("cadru-breadcrumb-item", Attributes = ActiveAttributeName)]
     [OutputElementHint("li")]
@@ -49,6 +54,9 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
             this.Generator = generator;
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating if this is the active breadcrumb item.
+        /// </summary>
         [HtmlAttributeName(ActiveAttributeName)]
         public bool Active { get; set; }
 
@@ -79,9 +87,7 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
             }
         }
 
-        /// <summary>
-        /// The name of the action method.
-        /// </summary>
+        /// <inheritdoc/>
         public async override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             var childContent = await output.GetChildContentAsync();

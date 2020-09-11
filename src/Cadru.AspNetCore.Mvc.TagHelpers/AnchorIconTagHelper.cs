@@ -28,17 +28,25 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Cadru.AspNetCore.Mvc.TagHelpers
 {
+    /// <summary>
+    /// <see cref="ITagHelper"/> implementation targeting &lt;a&gt; elements,
+    /// adding support for including a CSS icon as part of the content.
+    /// </summary>
     [HtmlTargetElement("a", Attributes = IconAttributeName)]
     public class AnchorIconTagHelper : AnchorTagHelper
     {
         private const string IconAttributeName = "icon";
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AnchorIconTagHelper"/> class.
+        /// </summary>
+        /// <param name="generator">The <see cref="IHtmlGenerator"/></param>
         public AnchorIconTagHelper(IHtmlGenerator generator) : base(generator)
         {
         }
 
         /// <summary>
-        /// An expression to be evaluated against the current model.
+        /// The CSS classes for the icon element.
         /// </summary>
         [HtmlAttributeName(IconAttributeName)]
         public string IconCss { get; set; }

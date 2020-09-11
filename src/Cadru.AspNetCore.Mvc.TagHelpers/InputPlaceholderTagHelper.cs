@@ -20,19 +20,28 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
+using Microsoft.AspNetCore.Mvc.TagHelpers;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Razor.TagHelpers;
+
 namespace Cadru.AspNetCore.Mvc.TagHelpers
 {
-    using System;
-
-    using Microsoft.AspNetCore.Mvc.TagHelpers;
-    using Microsoft.AspNetCore.Mvc.ViewFeatures;
-    using Microsoft.AspNetCore.Razor.TagHelpers;
-
+    /// <summary>
+    /// <see cref="ITagHelper"/> implementation targeting &lt;input&gt; elements
+    /// with an <c>asp-placeholder-for</c> attribute.
+    /// </summary>
     [HtmlTargetElement("input", Attributes = PlaceholderAttributeName, TagStructure = TagStructure.WithoutEndTag)]
     public class InputPlaceholderTagHelper : InputTagHelper
     {
         private const string PlaceholderAttributeName = "asp-placeholder-for";
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="InputPlaceholderTagHelper"/> class.
+        /// </summary>
+        /// <param name="generator">The <see cref="IHtmlGenerator"/></param>
         public InputPlaceholderTagHelper(IHtmlGenerator generator) : base(generator)
         {
         }
@@ -43,6 +52,7 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
         [HtmlAttributeName(PlaceholderAttributeName)]
         public ModelExpression Placeholder { get; set; }
 
+        /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             base.Process(context, output);
