@@ -46,8 +46,13 @@ namespace Cadru.Data.Annotations.Tests
             ExceptionAssert.Throws<ArgumentNullException>(() => new ViewAttribute(null));
             ExceptionAssert.Throws<ArgumentException>(() => new ViewAttribute(String.Empty));
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => new ViewAttribute("test") { Schema = null });
-            ExceptionAssert.Throws<ArgumentException>(() => new ViewAttribute("test") { Schema = String.Empty });
+            attribute = new ViewAttribute("test") { Schema = null };
+            Assert.AreEqual("test", attribute.Name);
+            Assert.IsNull(attribute.Schema);
+
+            attribute = new ViewAttribute("test") { Schema = String.Empty };
+            Assert.AreEqual("test", attribute.Name);
+            Assert.AreEqual(String.Empty, attribute.Schema);
         }
     }
 }
