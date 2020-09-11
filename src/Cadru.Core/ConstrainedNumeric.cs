@@ -141,15 +141,11 @@ namespace Cadru
         /// <inheritdoc/>
         public bool Equals(T other) => this.Value.Equals(other);
 
+
         /// <inheritdoc/>
         public override int GetHashCode()
         {
             return this.value.GetHashCode();
-        }
-
-        private string GetDebuggerDisplay()
-        {
-            return this.ToString();
         }
     }
 }
