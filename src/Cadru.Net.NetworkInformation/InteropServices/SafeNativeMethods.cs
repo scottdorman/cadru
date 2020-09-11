@@ -20,11 +20,11 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Runtime.InteropServices;
+
 namespace Cadru.Net.NetworkInformation.Interop
 {
-    using System;
-    using System.Runtime.InteropServices;
-
     internal static class SafeNativeMethods
     {
         [DllImport("user32.dll", SetLastError = true)]
@@ -35,19 +35,19 @@ namespace Cadru.Net.NetworkInformation.Interop
 
         [DllImport("netapi32.dll", SetLastError = false)]
         internal static extern int NetServerEnum(
-            [MarshalAs(UnmanagedType.LPWStr)] string servername,
+            [MarshalAs(UnmanagedType.LPWStr)] string? servername,
             int level,
             out IntPtr bufptr,
             int prefmaxlen,
             ref int entriesread,
             ref int totalentries,
             [MarshalAs(UnmanagedType.U4)] uint servertype,
-            [MarshalAs(UnmanagedType.LPWStr)] string domain,
+            [MarshalAs(UnmanagedType.LPWStr)] string? domain,
             IntPtr resume_handle);
 
         [DllImport("netapi32.dll", SetLastError = false)]
         internal static extern int NetServerGetInfo(
-            [MarshalAs(UnmanagedType.LPWStr)] string servername,
+            [MarshalAs(UnmanagedType.LPWStr)] string? servername,
             int level,
             out IntPtr bufptr);
     }

@@ -22,8 +22,6 @@
 
 namespace Cadru.Net.NetworkInformation
 {
-#if !(WP80 || WPA81)
-
     /// <summary>
     /// Specifies the information level to use for platform-specific information.
     /// </summary>
@@ -62,6 +60,4 @@ namespace Cadru.Net.NetworkInformation
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "VMS", Justification = "Reviewed.")]
         VMS = 700
     }
-
-#endif
 }

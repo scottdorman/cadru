@@ -20,15 +20,13 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Net;
+
 namespace Cadru.Net.NetworkInformation.Collections
 {
-#if !DOTNET5_1
-
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Net;
-
     /// <summary>
     /// Compares two IP Addresses or string IP address representations for equivalence.
     /// </summary>
@@ -48,39 +46,13 @@ namespace Cadru.Net.NetworkInformation.Collections
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer Default => new IPAddressComparer();
 
-        /// <summary>
-        /// Performs a comparison of two <see cref="IPAddress"/> objects and
-        /// returns a value indicating whether one is less than, equal to or
-        /// greater than the other.
-        /// </summary>
-        /// <param name="x">The first <see cref="IPAddress"/> to compare.</param>
-        /// <param name="y">The second <see cref="IPAddress"/> to compare.</param>
-        /// <returns>
-        /// <list type="table">
-        /// <listheader>
-        /// <term>Value</term>
-        /// <term>Condition</term>
-        /// </listheader>
-        /// <item>
-        /// <term>Less than zero</term>
-        /// <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
-        /// </item>
-        /// <item>
-        /// <term>Zero</term>
-        /// <description><paramref name="x"/> equals <paramref name="y"/>.</description>
-        /// </item>
-        /// <item>
-        /// <term>Greater than zero</term>
-        /// <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
-        /// </item>
-        /// </list>
-        /// </returns>
+        /// <inheritdoc/>
         public int Compare(IPAddress x, IPAddress y)
         {
             Contracts.Requires.NotNull(x, "x");
             Contracts.Requires.NotNull(y, "y");
 
-            var result = 0;
+            int result;
 
             var u1 = Convert(x.GetAddressBytes());
             var u2 = Convert(y.GetAddressBytes());
@@ -93,7 +65,7 @@ namespace Cadru.Net.NetworkInformation.Collections
             {
                 result = 0;
             }
-            else if (u1 > u2)
+            else
             {
                 result = 1;
             }
@@ -101,99 +73,57 @@ namespace Cadru.Net.NetworkInformation.Collections
             return result;
         }
 
-        /// <summary>
-        /// Performs a comparison of two objects and returns a value indicating
-        /// whether one is less than, equal to or greater than the other.
-        /// </summary>
-        /// <param name="x">The first object to compare.</param>
-        /// <param name="y">The second object to compare.</param>
-        /// <returns>
-        /// <list type="table">
-        /// <listheader>
-        /// <term>Value</term>
-        /// <term>Condition</term>
-        /// </listheader>
-        /// <item>
-        /// <term>Less than zero</term>
-        /// <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
-        /// </item>
-        /// <item>
-        /// <term>Zero</term>
-        /// <description><paramref name="x"/> equals <paramref name="y"/>.</description>
-        /// </item>
-        /// <item>
-        /// <term>Greater than zero</term>
-        /// <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
-        /// </item>
-        /// </list>
-        /// </returns>
+        /// <inheritdoc/>
         public int Compare(object x, object y)
         {
-            var left = x as string;
-            var right = y as string;
-
             int result;
-            if (String.IsNullOrEmpty(left) && String.IsNullOrEmpty(right))
+
+            if (x is string left && y is string right)
             {
-                result = 0;
-            }
-            else if (String.IsNullOrEmpty(left))
-            {
-                result = -1;
-            }
-            else if (String.IsNullOrEmpty(right))
-            {
-                result = 1;
+                if (String.IsNullOrEmpty(left) && String.IsNullOrEmpty(right))
+                {
+                    result = 0;
+                }
+                else if (String.IsNullOrEmpty(left))
+                {
+                    result = -1;
+                }
+                else if (String.IsNullOrEmpty(right))
+                {
+                    result = 1;
+                }
+                else
+                {
+                    result = this.Compare(left, right);
+                }
             }
             else
             {
-                result = this.Compare(left, right);
+                result = x switch
+                {
+                    null when y is null => 0,
+                    null => -1,
+                    _ => 1
+                };
             }
 
             return result;
         }
 
-        /// <summary>
-        /// Performs a comparison of two string objects and returns a value
-        /// indicating whether one is less than, equal to or greater than the other.
-        /// </summary>
-        /// <param name="x">The first string to compare.</param>
-        /// <param name="y">The second string to compare.</param>
-        /// <returns>
-        /// <list type="table">
-        /// <listheader>
-        /// <term>Value</term>
-        /// <term>Condition</term>
-        /// </listheader>
-        /// <item>
-        /// <term>Less than zero</term>
-        /// <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
-        /// </item>
-        /// <item>
-        /// <term>Zero</term>
-        /// <description><paramref name="x"/> equals <paramref name="y"/>.</description>
-        /// </item>
-        /// <item>
-        /// <term>Greater than zero</term>
-        /// <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
-        /// </item>
-        /// </list>
-        /// </returns>
+        /// <inheritdoc/>
         /// <remarks>The strings should be a valid date time format.</remarks>
         public int Compare(string x, string y)
         {
             Contracts.Requires.NotNull(x, "x");
             Contracts.Requires.NotNull(y, "y");
 
-            IPAddress t1;
-            IPAddress t2;
 
-            if (!IPAddress.TryParse(x, out t1))
+            if (!IPAddress.TryParse(x, out var t1))
             {
                 throw new FormatException(Resources.Strings.Format_Dns_Bad_Ip_Address);
             }
 
-            if (!IPAddress.TryParse(y, out t2))
+            if (!IPAddress.TryParse(y, out var t2))
             {
                 throw new FormatException(Resources.Strings.Format_Dns_Bad_Ip_Address);
             }
@@ -201,16 +131,7 @@ namespace Cadru.Net.NetworkInformation.Collections
             return this.Compare(t1, t2);
         }
 
-        /// <summary>
-        /// Returns a value indicating whether two instances of
-        /// <see cref="IPAddress"/> are equal.
-        /// </summary>
-        /// <param name="x">The first <see cref="IPAddress"/> to compare.</param>
-        /// <param name="y">The second <see cref="IPAddress"/> to compare.</param>
-        /// <returns>
-        /// <see langword="true"/> if the two <see cref="IPAddress"/> values are
-        /// equal; otherwise, <see langword="false"/>.
-        /// </returns>
+        /// <inheritdoc/>
         public bool Equals(IPAddress x, IPAddress y)
         {
             if (x == null)
@@ -221,15 +142,7 @@ namespace Cadru.Net.NetworkInformation.Collections
             return x.Equals(y);
         }
 
-        /// <summary>
-        /// Returns a value indicating whether two instances of string are equal.
-        /// </summary>
-        /// <param name="x">The first string to compare.</param>
-        /// <param name="y">The second string to compare.</param>
-        /// <returns>
-        /// <see langword="true"/> if the two string values are equal;
-        /// otherwise, <see langword="false"/>.
-        /// </returns>
+        /// <inheritdoc/>
         public bool Equals(string x, string y)
         {
             if (x == null && y == null)
@@ -245,14 +158,11 @@ namespace Cadru.Net.NetworkInformation.Collections
                 var stringComparison = String.Equals(x, y, StringComparison.OrdinalIgnoreCase);
 
                 // First, test to see if the strings are equal.
-                if (stringComparison == true)
+                if (stringComparison)
                 {
                     // The strings are equal, so now we need to test to see if
                     // they are valid IP addresses and if they are equal.
-                    IPAddress t1;
-                    IPAddress t2;
-
-                    if (!IPAddress.TryParse(x, out t1) || !IPAddress.TryParse(y, out t2))
+                    if (!IPAddress.TryParse(x, out var t1) || !IPAddress.TryParse(y, out var t2))
                     {
                         // At least of the strings was not a valid IP address,
                         // so return the string comparison result.
@@ -273,17 +183,7 @@ namespace Cadru.Net.NetworkInformation.Collections
             }
         }
 
-        /// <summary>
-        /// Returns a hash code for the specified <see cref="IPAddress"/>.
-        /// </summary>
-        /// <param name="obj">
-        /// The <see cref="IPAddress"/> for which a hash code is to be returned.
-        /// </param>
-        /// <returns>A hash code for the specified <see cref="IPAddress"/>.</returns>
-        /// <exception cref="ArgumentNullException">
-        /// The type of <paramref name="obj"/> is a reference type and
-        /// <paramref name="obj"/> is a <see langword="null"/>.
-        /// </exception>
+        /// <inheritdoc/>
         public int GetHashCode(IPAddress obj)
         {
             Contracts.Requires.NotNull(obj, "obj");
@@ -291,40 +191,27 @@ namespace Cadru.Net.NetworkInformation.Collections
             return obj.GetHashCode();
         }
 
-        /// <summary>
-        /// Returns a hash code for the specified object.
-        /// </summary>
-        /// <param name="obj">The Object for which a hash code is to be returned.</param>
-        /// <returns>A hash code for the specified object.</returns>
-        /// <exception cref="ArgumentNullException">
-        /// The type of <paramref name="obj"/> is a reference type and
-        /// <paramref name="obj"/> is a <see langword="null"/>.
-        /// </exception>
+        /// <inheritdoc/>
         public int GetHashCode(object obj)
         {
             Contracts.Requires.NotNull(obj, "obj");
 
             int hashCode;
 
-            var ip1 = obj as IPAddress;
 
-            if (ip1 != null)
+            if (obj is IPAddress ip1)
             {
                 return ip1.GetHashCode();
             }
             else
             {
-                var s1 = obj as string;
-
-                if (s1 == null)
+                if (!(obj is string s1))
                 {
                     hashCode = obj.GetHashCode();
                 }
                 else
                 {
-                    IPAddress t1;
-
-                    if (IPAddress.TryParse(s1, out t1))
+                    if (IPAddress.TryParse(s1, out var t1))
                     {
                         hashCode = t1.GetHashCode();
                     }
@@ -338,15 +225,7 @@ namespace Cadru.Net.NetworkInformation.Collections
             return hashCode;
         }
 
-        /// <summary>
-        /// Returns a hash code for the specified string.
-        /// </summary>
-        /// <param name="obj">The string for which a hash code is to be returned.</param>
-        /// <returns>A hash code for the specified string.</returns>
-        /// <exception cref="ArgumentNullException">
-        /// The type of <paramref name="obj"/> is a reference type and
-        /// <paramref name="obj"/> is a <see langword="null"/>.
-        /// </exception>
+        /// <inheritdoc/>
         public int GetHashCode(string obj)
         {
             Contracts.Requires.NotNull(obj, "obj");
@@ -359,9 +238,7 @@ namespace Cadru.Net.NetworkInformation.Collections
             }
             else
             {
-                IPAddress t1;
-
-                if (IPAddress.TryParse(obj, out t1))
+                if (IPAddress.TryParse(obj, out var t1))
                 {
                     hashCode = t1.GetHashCode();
                 }
@@ -374,6 +251,7 @@ namespace Cadru.Net.NetworkInformation.Collections
             return hashCode;
         }
 
+        /// <inheritdoc/>
         bool IEqualityComparer.Equals(object x, object y)
         {
             return Equals(x, y);
@@ -384,11 +262,9 @@ namespace Cadru.Net.NetworkInformation.Collections
             var ip = (uint)bytes[0] << 24;
             ip += (uint)bytes[1] << 16;
             ip += (uint)bytes[2] << 8;
-            ip += (uint)bytes[3];
+            ip += bytes[3];
 
             return ip;
         }
     }
-
-#endif
 }

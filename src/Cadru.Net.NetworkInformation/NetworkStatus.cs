@@ -20,11 +20,11 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Net.NetworkInformation;
+
 namespace Cadru.Net.NetworkInformation
 {
-    using System;
-    using System.Net.NetworkInformation;
-
     /// <summary>
     /// Allows applications to receive notification when the network
     /// availability changes.
@@ -32,7 +32,6 @@ namespace Cadru.Net.NetworkInformation
     public sealed class NetworkStatus : IDisposable
     {
         private static readonly object syncRoot = new object();
-        private ConnectionStatus connectionStatus;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NetworkStatus"/> class.
@@ -44,61 +43,32 @@ namespace Cadru.Net.NetworkInformation
 
             lock (syncRoot)
             {
-                if (this.connectionStatus != current)
-                {
-                    this.connectionStatus = current;
-                }
+                this.ConnectionStatus = current;
             }
 
-#if NET40 || NET45
-            NetworkChange.NetworkAvailabilityChanged += NetworkAvailabilityChanged;
-#else
             NetworkChange.NetworkAddressChanged += this.NetworkAddressChanged;
-#endif
         }
 
         /// <summary>
         /// Represents the method that will handle the
         /// <see cref="NetworkStatus.NetworkStatusChanged"/> event.
         /// </summary>
-        public event EventHandler<NetworkStatusChangedEventArgs> NetworkStatusChanged;
+        public event EventHandler<NetworkStatusChangedEventArgs>? NetworkStatusChanged;
 
         /// <summary>
         /// Gets the current network connection status.
         /// </summary>
         /// <value>The current network connection status.</value>
-        public ConnectionStatus ConnectionStatus => this.connectionStatus;
+        public ConnectionStatus ConnectionStatus { get; private set; }
 
         /// <summary>
         /// Releases all resources used by the <see cref="NetworkStatus"/>.
         /// </summary>
         public void Dispose()
         {
-#if NET40 || NET45
-            NetworkChange.NetworkAvailabilityChanged -= this.NetworkAvailabilityChanged;
-#else
             NetworkChange.NetworkAddressChanged -= this.NetworkAddressChanged;
-#endif
             GC.SuppressFinalize(this);
         }
-
-#if NET40 || NET45
-
-        private void NetworkAvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
-        {
-            ConnectionStatus current = e.IsAvailable ? ConnectionStatus.Connected : ConnectionStatus.Disconnected;
-            ChangeNetworkStatus(current);
-        }
-
-#else
-
-        private void NetworkAddressChanged(object sender, EventArgs e)
-        {
-            var current = NetworkInterface.GetIsNetworkAvailable() ? ConnectionStatus.Connected : ConnectionStatus.Disconnected;
-            this.ChangeNetworkStatus(current);
-        }
-
-#endif
 
         private void ChangeNetworkStatus(ConnectionStatus current)
         {
@@ -106,21 +76,24 @@ namespace Cadru.Net.NetworkInformation
 
             lock (syncRoot)
             {
-                if (this.connectionStatus != current)
+                if (this.ConnectionStatus != current)
                 {
-                    this.connectionStatus = current;
+                    this.ConnectionStatus = current;
                     changed = true;
                 }
             }
 
-            if (this.NetworkStatusChanged != null)
+            if (this.NetworkStatusChanged != null && changed)
             {
-                if (changed)
-                {
-                    var networkStatusChangedEventArgs = new NetworkStatusChangedEventArgs(current);
-                    this.NetworkStatusChanged(this, networkStatusChangedEventArgs);
-                }
+                var networkStatusChangedEventArgs = new NetworkStatusChangedEventArgs(current);
+                this.NetworkStatusChanged(this, networkStatusChangedEventArgs);
             }
+        }
+
+        private void NetworkAddressChanged(object sender, EventArgs e)
+        {
+            var current = NetworkInterface.GetIsNetworkAvailable() ? ConnectionStatus.Connected : ConnectionStatus.Disconnected;
+            this.ChangeNetworkStatus(current);
         }
     }
 }

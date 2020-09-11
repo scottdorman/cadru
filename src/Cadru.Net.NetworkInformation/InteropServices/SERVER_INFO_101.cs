@@ -20,12 +20,10 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.Runtime.InteropServices;
+
 namespace Cadru.Net.NetworkInformation.Interop
 {
-#if !(WP80 || WPA81)
-
-    using System.Runtime.InteropServices;
-
     /// <summary>
     /// The SERVER_INFO_101 structure contains information about the specified
     /// server, including name, platform, type of server, and associated software.
@@ -75,6 +73,4 @@ namespace Cadru.Net.NetworkInformation.Interop
         [MarshalAs(UnmanagedType.LPWStr)]
         internal string sv101_comment;
     }
-
-#endif
 }

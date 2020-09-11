@@ -20,12 +20,10 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace Cadru.Net.NetworkInformation
 {
-#if !(WP80 || WPA81)
-
-    using System;
-
     /// <summary>
     /// Specifies the type of software the computer is running.
     /// </summary>
@@ -213,6 +211,4 @@ namespace Cadru.Net.NetworkInformation
         /// </summary>
         All = 0xFFFFFFFF
     }
-
-#endif
 }

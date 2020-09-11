@@ -21,148 +21,32 @@
             <value>The default <see cref="T:Cadru.Net.NetworkInformation.Collections.IPAddressComparer"/></value>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.Compare(System.Net.IPAddress,System.Net.IPAddress)">
-            <summary>
-            Performs a comparison of two <see cref="T:System.Net.IPAddress"/> objects and
-            returns a value indicating whether one is less than, equal to or
-            greater than the other.
-            </summary>
-            <param name="x">The first <see cref="T:System.Net.IPAddress"/> to compare.</param>
-            <param name="y">The second <see cref="T:System.Net.IPAddress"/> to compare.</param>
-            <returns>
-            <list type="table">
-            <listheader>
-            <term>Value</term>
-            <term>Condition</term>
-            </listheader>
-            <item>
-            <term>Less than zero</term>
-            <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
-            </item>
-            <item>
-            <term>Zero</term>
-            <description><paramref name="x"/> equals <paramref name="y"/>.</description>
-            </item>
-            <item>
-            <term>Greater than zero</term>
-            <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
-            </item>
-            </list>
-            </returns>
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.Compare(System.Object,System.Object)">
-            <summary>
-            Performs a comparison of two objects and returns a value indicating
-            whether one is less than, equal to or greater than the other.
-            </summary>
-            <param name="x">The first object to compare.</param>
-            <param name="y">The second object to compare.</param>
-            <returns>
-            <list type="table">
-            <listheader>
-            <term>Value</term>
-            <term>Condition</term>
-            </listheader>
-            <item>
-            <term>Less than zero</term>
-            <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
-            </item>
-            <item>
-            <term>Zero</term>
-            <description><paramref name="x"/> equals <paramref name="y"/>.</description>
-            </item>
-            <item>
-            <term>Greater than zero</term>
-            <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
-            </item>
-            </list>
-            </returns>
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.Compare(System.String,System.String)">
-            <summary>
-            Performs a comparison of two string objects and returns a value
-            indicating whether one is less than, equal to or greater than the other.
-            </summary>
-            <param name="x">The first string to compare.</param>
-            <param name="y">The second string to compare.</param>
-            <returns>
-            <list type="table">
-            <listheader>
-            <term>Value</term>
-            <term>Condition</term>
-            </listheader>
-            <item>
-            <term>Less than zero</term>
-            <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
-            </item>
-            <item>
-            <term>Zero</term>
-            <description><paramref name="x"/> equals <paramref name="y"/>.</description>
-            </item>
-            <item>
-            <term>Greater than zero</term>
-            <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
-            </item>
-            </list>
-            </returns>
+            <inheritdoc/>
             <remarks>The strings should be a valid date time format.</remarks>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.Equals(System.Net.IPAddress,System.Net.IPAddress)">
-            <summary>
-            Returns a value indicating whether two instances of
-            <see cref="T:System.Net.IPAddress"/> are equal.
-            </summary>
-            <param name="x">The first <see cref="T:System.Net.IPAddress"/> to compare.</param>
-            <param name="y">The second <see cref="T:System.Net.IPAddress"/> to compare.</param>
-            <returns>
-            <see langword="true"/> if the two <see cref="T:System.Net.IPAddress"/> values are
-            equal; otherwise, <see langword="false"/>.
-            </returns>
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.Equals(System.String,System.String)">
-            <summary>
-            Returns a value indicating whether two instances of string are equal.
-            </summary>
-            <param name="x">The first string to compare.</param>
-            <param name="y">The second string to compare.</param>
-            <returns>
-            <see langword="true"/> if the two string values are equal;
-            otherwise, <see langword="false"/>.
-            </returns>
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.GetHashCode(System.Net.IPAddress)">
-            <summary>
-            Returns a hash code for the specified <see cref="T:System.Net.IPAddress"/>.
-            </summary>
-            <param name="obj">
-            The <see cref="T:System.Net.IPAddress"/> for which a hash code is to be returned.
-            </param>
-            <returns>A hash code for the specified <see cref="T:System.Net.IPAddress"/>.</returns>
-            <exception cref="T:System.ArgumentNullException">
-            The type of <paramref name="obj"/> is a reference type and
-            <paramref name="obj"/> is a <see langword="null"/>.
-            </exception>
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.GetHashCode(System.Object)">
-            <summary>
-            Returns a hash code for the specified object.
-            </summary>
-            <param name="obj">The Object for which a hash code is to be returned.</param>
-            <returns>A hash code for the specified object.</returns>
-            <exception cref="T:System.ArgumentNullException">
-            The type of <paramref name="obj"/> is a reference type and
-            <paramref name="obj"/> is a <see langword="null"/>.
-            </exception>
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.GetHashCode(System.String)">
-            <summary>
-            Returns a hash code for the specified string.
-            </summary>
-            <param name="obj">The string for which a hash code is to be returned.</param>
-            <returns>A hash code for the specified string.</returns>
-            <exception cref="T:System.ArgumentNullException">
-            The type of <paramref name="obj"/> is a reference type and
-            <paramref name="obj"/> is a <see langword="null"/>.
-            </exception>
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Net.NetworkInformation.Collections.IPAddressComparer.System#Collections#IEqualityComparer#Equals(System.Object,System.Object)">
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Net.NetworkInformation.ConnectionStatus">
             <summary>
@@ -1229,83 +1113,25 @@
             </value>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.ServerInfo.op_Equality(Cadru.Net.NetworkInformation.ServerInfo,Cadru.Net.NetworkInformation.ServerInfo)">
-            <summary>
-            Determines whether two specified instances of
-            <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> are equal.
-            </summary>
-            <param name="left">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>.</param>
-            <param name="right">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>.</param>
-            <returns>
-            <see langword="true"/> if s1 and s2 represent the same server;
-            otherwise <see langword="false"/>.
-            </returns>
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.ServerInfo.op_Inequality(Cadru.Net.NetworkInformation.ServerInfo,Cadru.Net.NetworkInformation.ServerInfo)">
-            <summary>
-            Determines whether two specified instances of
-            <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> are not equal.
-            </summary>
-            <param name="left">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>.</param>
-            <param name="right">An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>.</param>
-            <returns>
-            <see langword="true"/> if s1 and s2 do note represent the same
-            server; otherwise <see langword="false"/>.
-            </returns>
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.ServerInfo.Equals(Cadru.Net.NetworkInformation.ServerInfo,Cadru.Net.NetworkInformation.ServerInfo)">
-            <summary>
-            Returns a value indicating whether two instances of
-            <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> are equal.
-            </summary>
-            <param name="left">The first <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>.</param>
-            <param name="right">The second <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/>.</param>
-            <returns>
-            <see langword="true"/> if the two <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> values
-            are equal; otherwise, <see langword="false"/>.
-            </returns>
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.ServerInfo.Equals(System.Object)">
-            <summary>
-            Returns a value indicating whether this instance is equal to a
-            specified object.
-            </summary>
-            <param name="obj">An object to compare to this instance.</param>
-            <returns>
-            <see langword="true"/> if value is an instance of
-            <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> equals the value of this instance;
-            otherwise, <see langword="false"/>.
-            </returns>
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.ServerInfo.Equals(Cadru.Net.NetworkInformation.ServerInfo)">
-            <summary>
-            Returns a value indicating whether this instance is equal to the
-            specified <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instance.
-            </summary>
-            <param name="other">
-            An <see cref="T:Cadru.Net.NetworkInformation.ServerInfo"/> instance to compare to this instance.
-            </param>
-            <returns>
-            <see langword="true"/> if the other parameter equals the value of
-            this instance; otherwise, <see langword="false"/>.
-            </returns>
-            <remarks>
-            This method implements the <see cref="T:System.IEquatable`1"/>
-            interface and performs slightly better than the
-            <see cref="M:Cadru.Net.NetworkInformation.ServerInfo.Equals(System.Object)"/> method because it does not
-            have to convert the other parameter to an object.
-            </remarks>
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.ServerInfo.GetHashCode">
-            <summary>
-            Returns the hash code for this instance.
-            </summary>
-            <returns>A 32-bit signed integer hash code.</returns>
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.ServerInfo.ToString">
-            <summary>
-            Converts the value of this instance to its equivalent string representation.
-            </summary>
-            <returns>The string representation of this instance.</returns>
+            <inheritdoc/>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.ServerInfo.ToString(System.IFormatProvider)">
             <summary>

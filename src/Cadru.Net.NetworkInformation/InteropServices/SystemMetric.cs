@@ -29,7 +29,7 @@ namespace Cadru.Net.NetworkInformation.Interop
     /// <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms724385(v=vs.85).aspx">GetSystemMetrics</see> function.
     /// </summary>
     [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
-    internal enum SystemMetric : int
+    internal enum SystemMetric
     {
         /// <summary>
         /// Width of the screen of the primary display monitor, in pixels. This

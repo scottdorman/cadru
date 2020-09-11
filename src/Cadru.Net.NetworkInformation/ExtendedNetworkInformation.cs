@@ -20,20 +20,21 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.ComponentModel;
+using System.Globalization;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
+using System.Runtime.InteropServices;
+using System.Security;
+using System.Threading.Tasks;
+
+using Cadru.Net.NetworkInformation;
+using Cadru.Net.NetworkInformation.Interop;
+
 namespace Cadru.Networking
 {
-    using System;
-    using System.ComponentModel;
-    using System.Globalization;
-    using System.Net;
-    using System.Net.NetworkInformation;
-    using System.Runtime.InteropServices;
-    using System.Security;
-    using System.Threading.Tasks;
-
-    using Cadru.Net.NetworkInformation;
-    using Cadru.Net.NetworkInformation.Interop;
-
     /// <summary>
     /// Provides information about a computer or computers on a domain.
     /// </summary>
@@ -60,9 +61,10 @@ namespace Cadru.Networking
         /// the local computer.
         /// </returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public async static Task<string> GetHostNameAsync()
         {
-            var hostName = Environment.MachineName;
+            string? hostName;
 
             try
             {
@@ -85,13 +87,13 @@ namespace Cadru.Networking
                     var hostInfo = await Dns.GetHostEntryAsync(Environment.MachineName);
                     hostName = hostInfo.HostName;
                 }
-                catch (System.Net.Sockets.SocketException)
+                catch (SocketException)
                 {
                     hostName = Environment.MachineName;
                 }
             }
 
-            return hostName;
+            return hostName ?? Environment.MachineName;
         }
 
         /// <summary>
@@ -102,14 +104,15 @@ namespace Cadru.Networking
         /// local computer.
         /// </returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public async static Task<IPAddress[]> GetIPAddressesAsync()
         {
-            IPAddress[] ipAddress = null;
+            var ipAddress = Array.Empty<IPAddress>();
 
             try
             {
                 var nics = NetworkInterface.GetAllNetworkInterfaces();
-                if (nics != null || nics.Length >= 1)
+                if (nics != null && nics.Length >= 1)
                 {
                     var adapter = nics[0];
                     var adapterProperties = adapter.GetIPProperties();
@@ -185,7 +188,7 @@ namespace Cadru.Networking
         /// </returns>
         [SecurityCritical]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
-        public static ServerInfo[] GetServerList(ServerTypes serverType, string domain)
+        public static ServerInfo[] GetServerList(ServerTypes serverType, string? domain)
         {
             ServerInfo[] serverList;
             var pBuf = IntPtr.Zero;
@@ -237,6 +240,7 @@ namespace Cadru.Networking
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         private async static Task<IPAddress[]> GetIPAddressesFromDnsAsync()
         {
             IPAddress[] ipAddress;
@@ -245,7 +249,7 @@ namespace Cadru.Networking
                 var hostInfo = await Dns.GetHostEntryAsync(await GetHostNameAsync());
                 ipAddress = hostInfo.AddressList;
             }
-            catch (System.Net.Sockets.SocketException)
+            catch (SocketException)
             {
                 ipAddress = new IPAddress[] { IPAddress.None };
             }
@@ -254,7 +258,7 @@ namespace Cadru.Networking
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
-        private static ServerInfo GetServerInfoInternal(string serverName)
+        private static ServerInfo GetServerInfoInternal(string? serverName)
         {
             ServerInfo server;
             var pBuf = IntPtr.Zero;

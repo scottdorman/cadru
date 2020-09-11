@@ -20,16 +20,14 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Globalization;
+using System.Runtime.InteropServices;
+
+using Cadru.Net.NetworkInformation.Interop;
+
 namespace Cadru.Net.NetworkInformation
 {
-#if !(WP80 || WPA81)
-
-    using System;
-    using System.Globalization;
-    using System.Runtime.InteropServices;
-
-    using Cadru.Net.NetworkInformation.Interop;
-
     /// <summary>
     /// The Server structure contains information about the specified server,
     /// including name, platform, type of server, and associated software.
@@ -37,34 +35,27 @@ namespace Cadru.Net.NetworkInformation
     [StructLayout(LayoutKind.Sequential)]
     public partial struct ServerInfo : IEquatable<ServerInfo>
     {
-        private readonly PlatformId platformId;
-        private readonly string name;
-        private readonly int majorVersion;
-        private readonly int minorVersion;
-        private readonly ServerTypes serverType;
-        private readonly string comment;
-
         internal ServerInfo(SERVER_INFO_101 info)
         {
-            this.platformId = (PlatformId)info.sv101_platform_id;
-            this.name = info.sv101_name;
-            this.majorVersion = (int)info.sv101_version_major;
-            this.minorVersion = (int)info.sv101_version_minor;
-            this.serverType = (ServerTypes)info.sv101_type;
-            this.comment = info.sv101_comment;
+            this.PlatformId = (PlatformId)info.sv101_platform_id;
+            this.Name = info.sv101_name;
+            this.MajorVersion = (int)info.sv101_version_major;
+            this.MinorVersion = (int)info.sv101_version_minor;
+            this.ServerType = (ServerTypes)info.sv101_type;
+            this.Comment = info.sv101_comment;
         }
 
         /// <summary>
         /// Gets the information level used for platform-specific information.
         /// </summary>
         /// <value>One of the <see cref="PlatformId"/> values.</value>
-        public PlatformId PlatformId => this.platformId;
+        public PlatformId PlatformId { get; }
 
         /// <summary>
         /// Gets the name of the computer.
         /// </summary>
         /// <value>A <see cref="String"/> that represents the name of the computer.</value>
-        public string Name => this.name;
+        public string Name { get; }
 
         /// <summary>
         /// Gets the Server comment.
@@ -73,7 +64,7 @@ namespace Cadru.Net.NetworkInformation
         /// A <see cref="String"/> that represents the comment associated with
         /// the server or an empty string if there is no comment.
         /// </value>
-        public string Comment => this.comment;
+        public string Comment { get; }
 
         /// <summary>
         /// Gets the operating system major version number.
@@ -82,7 +73,7 @@ namespace Cadru.Net.NetworkInformation
         /// An <see cref="Int32"></see> value representing the major version
         /// number of the operating system.
         /// </value>
-        public int MajorVersion => this.majorVersion;
+        public int MajorVersion { get; }
 
         /// <summary>
         /// Gets the operating system minor version number.
@@ -91,7 +82,7 @@ namespace Cadru.Net.NetworkInformation
         /// An <see cref="Int32"></see> value representing the minor version
         /// number of the operating system.
         /// </value>
-        public int MinorVersion => this.minorVersion;
+        public int MinorVersion { get; }
 
         /// <summary>
         /// Gets the operating system version number.
@@ -99,7 +90,7 @@ namespace Cadru.Net.NetworkInformation
         /// <value>
         /// A <see cref="Version"/> representing the operating system version.
         /// </value>
-        public Version Version => new Version(this.majorVersion, this.minorVersion);
+        public Version Version => new Version(this.MajorVersion, this.MinorVersion);
 
         /// <summary>
         /// Gets the type of software the computer is running.
@@ -108,159 +99,99 @@ namespace Cadru.Net.NetworkInformation
         /// A <see cref="ServerTypes"/> value that represents the operating
         /// system running on the computer.
         /// </value>
-        public ServerTypes ServerType => this.serverType;
+        public ServerTypes ServerType { get; }
 
-        /// <summary>
-        /// Determines whether two specified instances of
-        /// <see cref="ServerInfo"/> are equal.
-        /// </summary>
-        /// <param name="left">An <see cref="ServerInfo"/>.</param>
-        /// <param name="right">An <see cref="ServerInfo"/>.</param>
-        /// <returns>
-        /// <see langword="true"/> if s1 and s2 represent the same server;
-        /// otherwise <see langword="false"/>.
-        /// </returns>
+        /// <inheritdoc/>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
         public static bool operator ==(ServerInfo left, ServerInfo right)
         {
             return left.Equals(right);
         }
 
-        /// <summary>
-        /// Determines whether two specified instances of
-        /// <see cref="ServerInfo"/> are not equal.
-        /// </summary>
-        /// <param name="left">An <see cref="ServerInfo"/>.</param>
-        /// <param name="right">An <see cref="ServerInfo"/>.</param>
-        /// <returns>
-        /// <see langword="true"/> if s1 and s2 do note represent the same
-        /// server; otherwise <see langword="false"/>.
-        /// </returns>
+        /// <inheritdoc/>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
         public static bool operator !=(ServerInfo left, ServerInfo right)
         {
             return !left.Equals(right);
         }
 
-        /// <summary>
-        /// Returns a value indicating whether two instances of
-        /// <see cref="ServerInfo"/> are equal.
-        /// </summary>
-        /// <param name="left">The first <see cref="ServerInfo"/>.</param>
-        /// <param name="right">The second <see cref="ServerInfo"/>.</param>
-        /// <returns>
-        /// <see langword="true"/> if the two <see cref="ServerInfo"/> values
-        /// are equal; otherwise, <see langword="false"/>.
-        /// </returns>
+        /// <inheritdoc/>
         public static bool Equals(ServerInfo left, ServerInfo right)
         {
             return left == right;
         }
 
-        /// <summary>
-        /// Returns a value indicating whether this instance is equal to a
-        /// specified object.
-        /// </summary>
-        /// <param name="obj">An object to compare to this instance.</param>
-        /// <returns>
-        /// <see langword="true"/> if value is an instance of
-        /// <see cref="ServerInfo"/> equals the value of this instance;
-        /// otherwise, <see langword="false"/>.
-        /// </returns>
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            ServerInfo s;
+            if (obj is ServerInfo s)
+            {
+                if (s.PlatformId != this.PlatformId)
+                {
+                    return false;
+                }
 
-            // Check that o is a Server first
-            if (obj == null || !(obj is ServerInfo))
-            {
-                return false;
-            }
-            else
-            {
-                s = (ServerInfo)obj;
-            }
+                if (s.Name != this.Name)
+                {
+                    return false;
+                }
 
-            // Now compare each of the elements
-            if (s.platformId != this.platformId)
-            {
-                return false;
-            }
+                if (s.ServerType != this.ServerType)
+                {
+                    return false;
+                }
 
-            if (s.name != this.name)
-            {
-                return false;
-            }
+                if (s.MajorVersion != this.MajorVersion)
+                {
+                    return false;
+                }
 
-            if (s.serverType != this.serverType)
-            {
-                return false;
-            }
+                if (s.MinorVersion != this.MinorVersion)
+                {
+                    return false;
+                }
 
-            if (s.majorVersion != this.majorVersion)
-            {
-                return false;
-            }
+                if (s.Comment != this.Comment)
+                {
+                    return false;
+                }
 
-            if (s.minorVersion != this.minorVersion)
-            {
-                return false;
+                return true;
             }
 
-            if (s.comment != this.comment)
-            {
-                return false;
-            }
-
-            return true;
+            return false;
         }
 
-        /// <summary>
-        /// Returns a value indicating whether this instance is equal to the
-        /// specified <see cref="ServerInfo"/> instance.
-        /// </summary>
-        /// <param name="other">
-        /// An <see cref="ServerInfo"/> instance to compare to this instance.
-        /// </param>
-        /// <returns>
-        /// <see langword="true"/> if the other parameter equals the value of
-        /// this instance; otherwise, <see langword="false"/>.
-        /// </returns>
-        /// <remarks>
-        /// This method implements the <see cref="System.IEquatable{T}"/>
-        /// interface and performs slightly better than the
-        /// <see cref="ServerInfo.Equals(Object)"/> method because it does not
-        /// have to convert the other parameter to an object.
-        /// </remarks>
+        /// <inheritdoc/>
         public bool Equals(ServerInfo other)
         {
             // Now compare each of the elements
-            if (other.platformId != this.platformId)
+            if (other.PlatformId != this.PlatformId)
             {
                 return false;
             }
 
-            if (other.name != this.name)
+            if (other.Name != this.Name)
             {
                 return false;
             }
 
-            if (other.serverType != this.serverType)
+            if (other.ServerType != this.ServerType)
             {
                 return false;
             }
 
-            if (other.majorVersion != this.majorVersion)
+            if (other.MajorVersion != this.MajorVersion)
             {
                 return false;
             }
 
-            if (other.minorVersion != this.minorVersion)
+            if (other.MinorVersion != this.MinorVersion)
             {
                 return false;
             }
 
-            if (other.comment != this.comment)
+            if (other.Comment != this.Comment)
             {
                 return false;
             }
@@ -268,24 +199,18 @@ namespace Cadru.Net.NetworkInformation
             return true;
         }
 
-        /// <summary>
-        /// Returns the hash code for this instance.
-        /// </summary>
-        /// <returns>A 32-bit signed integer hash code.</returns>
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
-            return this.platformId.GetHashCode() ^
-                    this.serverType.GetHashCode() ^
-                    this.name.GetHashCode() ^
-                    this.majorVersion.GetHashCode() ^
-                    this.minorVersion.GetHashCode() ^
-                    this.comment.GetHashCode();
+            return this.PlatformId.GetHashCode() ^
+                    this.ServerType.GetHashCode() ^
+                    this.Name.GetHashCode() ^
+                    this.MajorVersion.GetHashCode() ^
+                    this.MinorVersion.GetHashCode() ^
+                    this.Comment.GetHashCode();
         }
 
-        /// <summary>
-        /// Converts the value of this instance to its equivalent string representation.
-        /// </summary>
-        /// <returns>The string representation of this instance.</returns>
+        /// <inheritdoc/>
         public override string ToString()
         {
             return this.ToString(CultureInfo.CurrentCulture);
@@ -303,9 +228,7 @@ namespace Cadru.Net.NetworkInformation
         /// </returns>
         public string ToString(IFormatProvider provider)
         {
-            return String.Format(provider, "{0}, {1}", this.name, this.serverType.ToString());
+            return String.Format(provider, "{0}, {1}", this.Name, this.ServerType.ToString());
         }
     }
-
-#endif
 }

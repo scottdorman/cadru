@@ -20,18 +20,16 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace Cadru.Net.NetworkInformation
 {
-    using System;
-
     /// <summary>
     /// Provides event data for the
     /// <see cref="NetworkStatus.NetworkStatusChanged"/> event.
     /// </summary>
     public class NetworkStatusChangedEventArgs : EventArgs
     {
-        private readonly ConnectionStatus connectionStatus;
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="NetworkStatusChangedEventArgs"/> class.
@@ -41,13 +39,13 @@ namespace Cadru.Net.NetworkInformation
         /// </param>
         public NetworkStatusChangedEventArgs(ConnectionStatus status)
         {
-            this.connectionStatus = status;
+            this.ConnectionStatus = status;
         }
 
         /// <summary>
         /// Gets the current network connection status.
         /// </summary>
         /// <value>The current network connection status.</value>
-        public ConnectionStatus ConnectionStatus => this.connectionStatus;
+        public ConnectionStatus ConnectionStatus { get; }
     }
 }
