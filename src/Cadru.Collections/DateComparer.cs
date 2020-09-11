@@ -125,64 +125,13 @@ namespace Cadru.Collections
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer DefaultInvariant => new DateComparer(CultureInfo.InvariantCulture);
 
-        /// <summary>
-        /// Performs a comparison of two <see cref="DateTime"/> objects and
-        /// returns a value indicating whether one is less than, equal to or
-        /// greater than the other.
-        /// </summary>
-        /// <param name="x">The first <see cref="DateTime"/> to compare.</param>
-        /// <param name="y">The second <see cref="DateTime"/> to compare.</param>
-        /// <returns>
-        /// <list type="table">
-        /// <listheader>
-        /// <term>Value</term>
-        /// <term>Condition</term>
-        /// </listheader>
-        /// <item>
-        /// <term>Less than zero</term>
-        /// <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
-        /// </item>
-        /// <item>
-        /// <term>Zero</term>
-        /// <description><paramref name="x"/> equals <paramref name="y"/>.</description>
-        /// </item>
-        /// <item>
-        /// <term>Greater than zero</term>
-        /// <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
-        /// </item>
-        /// </list>
-        /// </returns>
+        /// <inheritdoc/>
         public int Compare(DateTime x, DateTime y)
         {
             return DateTime.Compare(x, y);
         }
 
-        /// <summary>
-        /// Performs a comparison of two objects and returns a value indicating
-        /// whether one is less than, equal to or greater than the other.
-        /// </summary>
-        /// <param name="x">The first object to compare.</param>
-        /// <param name="y">The second object to compare.</param>
-        /// <returns>
-        /// <list type="table">
-        /// <listheader>
-        /// <term>Value</term>
-        /// <term>Condition</term>
-        /// </listheader>
-        /// <item>
-        /// <term>Less than zero</term>
-        /// <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
-        /// </item>
-        /// <item>
-        /// <term>Zero</term>
-        /// <description><paramref name="x"/> equals <paramref name="y"/>.</description>
-        /// </item>
-        /// <item>
-        /// <term>Greater than zero</term>
-        /// <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
-        /// </item>
-        /// </list>
-        /// </returns>
+        /// <inheritdoc/>
         public int Compare(object x, object y)
         {
             int result;
@@ -219,33 +168,7 @@ namespace Cadru.Collections
             return result;
         }
 
-        /// <summary>
-        /// Performs a comparison of two <see cref="String"/> objects and
-        /// returns a value indicating whether one is less than, equal to or
-        /// greater than the other.
-        /// </summary>
-        /// <param name="x">The first <see cref="String"/> to compare.</param>
-        /// <param name="y">The second <see cref="String"/> to compare.</param>
-        /// <returns>
-        /// <list type="table">
-        /// <listheader>
-        /// <term>Value</term>
-        /// <term>Condition</term>
-        /// </listheader>
-        /// <item>
-        /// <term>Less than zero</term>
-        /// <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
-        /// </item>
-        /// <item>
-        /// <term>Zero</term>
-        /// <description><paramref name="x"/> equals <paramref name="y"/>.</description>
-        /// </item>
-        /// <item>
-        /// <term>Greater than zero</term>
-        /// <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
-        /// </item>
-        /// </list>
-        /// </returns>
+        /// <inheritdoc/>
         /// <remarks>The strings should be a valid date time format.</remarks>
         public int Compare(string x, string y)
         {
@@ -262,31 +185,13 @@ namespace Cadru.Collections
             return this.Compare(t1, t2);
         }
 
-        /// <summary>
-        /// Returns a value indicating whether two instances of
-        /// <see cref="DateTime"/> are equal.
-        /// </summary>
-        /// <param name="x">The first <see cref="DateTime"/> to compare.</param>
-        /// <param name="y">The second <see cref="DateTime"/> to compare.</param>
-        /// <returns>
-        /// <see langword="true"/> if the two <see cref="DateTime"/> values are
-        /// equal; otherwise, <see langword="false"/>.
-        /// </returns>
+        /// <inheritdoc/>
         public bool Equals(DateTime x, DateTime y)
         {
             return x.Equals(y);
         }
 
-        /// <summary>
-        /// Returns a value indicating whether two instances of
-        /// <see cref="DateTime"/> are equal.
-        /// </summary>
-        /// <param name="x">The first <see cref="DateTime"/> to compare.</param>
-        /// <param name="y">The second <see cref="DateTime"/> to compare.</param>
-        /// <returns>
-        /// <see langword="true"/> if the two <see cref="DateTime"/> values are
-        /// equal; otherwise, <see langword="false"/>.
-        /// </returns>
+        /// <inheritdoc/>
         public bool Equals(string x, string y)
         {
             if (x.IsNull() && y.IsNull())
@@ -327,47 +232,19 @@ namespace Cadru.Collections
             }
         }
 
-        /// <summary>
-        /// Returns a value indicating whether two instances of objects are equal.
-        /// </summary>
-        /// <param name="x">The first <see cref="Object"/> to compare.</param>
-        /// <param name="y">The second <see cref="Object"/> to compare.</param>
-        /// <returns>
-        /// <see langword="true"/> if the two <see cref="Object"/> values are
-        /// equal; otherwise, <see langword="false"/>.
-        /// </returns>
+        /// <inheritdoc/>
         bool IEqualityComparer.Equals(object x, object y)
         {
             return Equals(x, y);
         }
 
-        /// <summary>
-        /// Returns a hash code for the specified <see cref="DateTime"/>.
-        /// </summary>
-        /// <param name="obj">
-        /// The <see cref="DateTime"/> for which a hash code is to be returned.
-        /// </param>
-        /// <returns>A hash code for the specified <see cref="DateTime"/>.</returns>
-        /// <exception cref="ArgumentNullException">
-        /// The type of <paramref name="obj"/> is a reference type and
-        /// <paramref name="obj"/> is a <see langword="null"/>.
-        /// </exception>
+        /// <inheritdoc/>
         public int GetHashCode(DateTime obj)
         {
             return obj.GetHashCode();
         }
 
-        /// <summary>
-        /// Returns a hash code for the specified object.
-        /// </summary>
-        /// <param name="obj">
-        /// The <see cref="Object"/> for which a hash code is to be returned.
-        /// </param>
-        /// <returns>A hash code for the specified <see cref="Object"/>.</returns>
-        /// <exception cref="ArgumentNullException">
-        /// The type of <paramref name="obj"/> is a reference type and
-        /// <paramref name="obj"/> is a <see langword="null"/>.
-        /// </exception>
+        /// <inheritdoc/>
         public int GetHashCode(object obj)
         {
             Contracts.Requires.NotNull(obj, nameof(obj));
@@ -402,15 +279,7 @@ namespace Cadru.Collections
             return hashCode;
         }
 
-        /// <summary>
-        /// Returns a hash code for the specified string.
-        /// </summary>
-        /// <param name="obj">The string for which a hash code is to be returned.</param>
-        /// <returns>A hash code for the specified string.</returns>
-        /// <exception cref="ArgumentNullException">
-        /// The type of <paramref name="obj"/> is a reference type and
-        /// <paramref name="obj"/> is a <see langword="null"/>.
-        /// </exception>
+        /// <inheritdoc/>
         public int GetHashCode(string obj)
         {
             Contracts.Requires.NotNull(obj, nameof(obj));

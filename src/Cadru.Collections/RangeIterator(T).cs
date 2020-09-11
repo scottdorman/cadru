@@ -20,14 +20,14 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+using Cadru.Contracts;
+
 namespace Cadru.Collections
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-
-    using Contracts;
-
     /// <summary>
     /// Supports iteration over a <see cref="Range{T}"/>.
     /// </summary>

@@ -149,40 +149,7 @@ namespace Cadru.Collections
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer DefaultInvariant => new LogicalStringComparer(CultureInfo.InvariantCulture);
 
-        /// <summary>
-        /// Performs a case-insensitive comparison of two string objects and
-        /// returns a value indicating whether one is less than, equal to or
-        /// greater than the other.
-        /// </summary>
-        /// <param name="x">The first object to compare.</param>
-        /// <param name="y">The second object to compare.</param>
-        /// <returns>
-        /// <list type="table">
-        /// <listheader>
-        /// <term>Value</term>
-        /// <term>Condition</term>
-        /// </listheader>
-        /// <item>
-        /// <term>Less than zero</term>
-        /// <description>
-        /// <paramref name="x"/> is less than <paramref name="y"/>, with casing ignored.
-        /// </description>
-        /// </item>
-        /// <item>
-        /// <term>Zero</term>
-        /// <description>
-        /// <paramref name="x"/> equals <paramref name="y"/>, with casing ignored.
-        /// </description>
-        /// </item>
-        /// <item>
-        /// <term>Greater than zero</term>
-        /// <description>
-        /// <paramref name="x"/> is greater than <paramref name="y"/>, with
-        /// casing ignored.
-        /// </description>
-        /// </item>
-        /// </list>
-        /// </returns>
+        /// <inheritdoc/>
         public int Compare(object x, object y)
         {
             int result;
@@ -219,40 +186,7 @@ namespace Cadru.Collections
             return result;
         }
 
-        /// <summary>
-        /// Performs a case-insensitive comparison of two strings and returns a
-        /// value indicating whether one is less than, equal to or greater than
-        /// the other.
-        /// </summary>
-        /// <param name="x">The first string to compare.</param>
-        /// <param name="y">The second string to compare.</param>
-        /// <returns>
-        /// <list type="table">
-        /// <listheader>
-        /// <term>Value</term>
-        /// <term>Condition</term>
-        /// </listheader>
-        /// <item>
-        /// <term>Less than zero</term>
-        /// <description>
-        /// <paramref name="x"/> is less than <paramref name="y"/>, with casing ignored.
-        /// </description>
-        /// </item>
-        /// <item>
-        /// <term>Zero</term>
-        /// <description>
-        /// <paramref name="x"/> equals <paramref name="y"/>, with casing ignored.
-        /// </description>
-        /// </item>
-        /// <item>
-        /// <term>Greater than zero</term>
-        /// <description>
-        /// <paramref name="x"/> is greater than <paramref name="y"/>, with
-        /// casing ignored.
-        /// </description>
-        /// </item>
-        /// </list>
-        /// </returns>
+        /// <inheritdoc/>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Reviewed.")]
         public int Compare(string x, string y)
         {
@@ -371,43 +305,19 @@ namespace Cadru.Collections
             }
         }
 
-        /// <summary>
-        /// Returns a value indicating whether two string instances are equal.
-        /// </summary>
-        /// <param name="x">The first string to compare.</param>
-        /// <param name="y">The second string to compare.</param>
-        /// <returns>
-        /// <see langword="true"/> if the two string values are equal;
-        /// otherwise, <see langword="false"/>.
-        /// </returns>
+        /// <inheritdoc/>
         bool IEqualityComparer.Equals(object x, object y)
         {
             return Equals(x, y);
         }
 
-        /// <summary>
-        /// Returns a value indicating whether two instances of string are equal.
-        /// </summary>
-        /// <param name="x">The first string to compare.</param>
-        /// <param name="y">The second string to compare.</param>
-        /// <returns>
-        /// <see langword="true"/> if the two string values are equal;
-        /// otherwise, <see langword="false"/>.
-        /// </returns>
+        /// <inheritdoc/>
         public bool Equals(string x, string y)
         {
             return String.Equals(x, y);
         }
 
-        /// <summary>
-        /// Returns a hash code for the specified object.
-        /// </summary>
-        /// <param name="obj">The Object for which a hash code is to be returned.</param>
-        /// <returns>A hash code for the specified object.</returns>
-        /// <exception cref="ArgumentNullException">
-        /// The type of <paramref name="obj"/> is a reference type and
-        /// <paramref name="obj"/> is a <see langword="null"/>.
-        /// </exception>
+        /// <inheritdoc/>
         public int GetHashCode(object obj)
         {
             Contracts.Requires.NotNull(obj, nameof(obj));
@@ -420,15 +330,7 @@ namespace Cadru.Collections
             throw ExceptionBuilder.CreateArgumentException(nameof(obj), Strings.Argument_MustBeString);
         }
 
-        /// <summary>
-        /// Returns a hash code for the specified string.
-        /// </summary>
-        /// <param name="obj">The string for which a hash code is to be returned.</param>
-        /// <returns>A hash code for the specified string.</returns>
-        /// <exception cref="ArgumentNullException">
-        /// The type of <paramref name="obj"/> is a reference type and
-        /// <paramref name="obj"/> is a <see langword="null"/>.
-        /// </exception>
+        /// <inheritdoc/>
         public int GetHashCode(string obj)
         {
             Contracts.Requires.NotNull(obj, nameof(obj));

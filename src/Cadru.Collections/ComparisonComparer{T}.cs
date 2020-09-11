@@ -62,35 +62,7 @@ namespace Cadru.Collections
             return new ComparisonComparer<T>(comparison);
         }
 
-        /// <summary>
-        /// Performs a comparison of two objects of the same type and returns a
-        /// value indicating whether one object is less than, equal to, or
-        /// greater than the other.
-        /// </summary>
-        /// <param name="x">The first object to compare.</param>
-        /// <param name="y">The second object to compare.</param>
-        /// <returns>
-        /// A signed integer that indicates the relative values of x and y, as
-        /// shown in the following table.
-        /// <list type="table">
-        /// <listheader>
-        /// <term>Value</term>
-        /// <term>Condition</term>
-        /// </listheader>
-        /// <item>
-        /// <term>Less than zero</term>
-        /// <description><paramref name="x"/> is less than <paramref name="y"/>.</description>
-        /// </item>
-        /// <item>
-        /// <term>Zero</term>
-        /// <description><paramref name="x"/> equals <paramref name="y"/>.</description>
-        /// </item>
-        /// <item>
-        /// <term>Greater than zero</term>
-        /// <description><paramref name="x"/> is greater than <paramref name="y"/>.</description>
-        /// </item>
-        /// </list>
-        /// </returns>
+        /// <inheritdoc/>
         public override int Compare(T x, T y)
         {
             return this.comparison(x, y);

@@ -20,13 +20,13 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.Collections.Generic;
+using System.Text;
+
+using Cadru.Extensions;
+
 namespace Cadru.Collections
 {
-    using System.Collections.Generic;
-    using System.Text;
-
-    using Cadru.Extensions;
-
     /// <summary>
     /// Defines a key/value pair that can be set or retrieved.
     /// </summary>
@@ -34,9 +34,6 @@ namespace Cadru.Collections
     /// <filterpriority>1</filterpriority>
     public struct NameValuePair<TValue>
     {
-        private readonly string key;
-        private readonly IList<TValue> value;
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="NameValuePair{TValue}"/> structure with the specified key.
@@ -44,21 +41,21 @@ namespace Cadru.Collections
         /// <param name="key">The object defined in each key/value pair.</param>
         public NameValuePair(string key)
         {
-            this.key = key;
-            this.value = new List<TValue>();
+            this.Key = key;
+            this.Value = new List<TValue>();
         }
 
         /// <summary>
         /// Gets the key in the key/value pair.
         /// </summary>
         /// <value>A <see cref="System.String"/> that is the key of the <see cref="NameValuePair{TValue}"/>.</value>
-        public string Key => this.key;
+        public string Key { get; }
 
         /// <summary>
         /// Gets the value in the key/value pair.
         /// </summary>
         /// <value>A <see cref="IList{TValue}"/> that is the value of the <see cref="NameValuePair{TValue}"/>.</value>
-        public IList<TValue> Value => this.value;
+        public IList<TValue> Value { get; }
 
         /// <summary>
         /// Determines whether two specified instances of
@@ -112,7 +109,7 @@ namespace Cadru.Collections
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0049:Use framework type", Justification = "<Pending>")]
         public bool Equals(NameValuePair<TValue> other)
         {
-            if (other.key != this.key)
+            if (other.Key != this.Key)
             {
                 return false;
             }
@@ -148,7 +145,7 @@ namespace Cadru.Collections
         /// <returns>A 32-bit signed integer hash code.</returns>
         public override int GetHashCode()
         {
-            return this.key.GetHashCode();
+            return this.Key.GetHashCode();
         }
 
         /// <summary>

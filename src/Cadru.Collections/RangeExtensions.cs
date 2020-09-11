@@ -20,10 +20,10 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace Cadru.Collections
 {
-    using System;
-
     /// <summary>
     /// Provides basic methods for setting a default iterator on a <see cref="Range{T}"/>.
     /// </summary>

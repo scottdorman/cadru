@@ -20,13 +20,13 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+
+using Cadru.Contracts;
+
 namespace Cadru.Collections
 {
-    using System;
-    using System.Collections.Generic;
-
-    using Contracts;
-
     /// <summary>
     /// Represents a <see cref="Comparer{T}"/> which uses a
     /// <see cref="Comparison{T}"/> as the basis for the comparison, but that
@@ -63,35 +63,8 @@ namespace Cadru.Collections
             return new ReverseComparisonComparer<T>(comparison);
         }
 
-        /// <summary>
-        /// Performs a comparison of two objects of the same type and returns a
-        /// value indicating whether one object is less than, equal to, or
-        /// greater than the other.
-        /// </summary>
-        /// <param name="x">The first object to compare.</param>
-        /// <param name="y">The second object to compare.</param>
-        /// <returns>
-        /// A signed integer that indicates the relative values of x and y, as
-        /// shown in the following table.
-        /// <list type="table">
-        /// <listheader>
-        /// <term>Value</term>
-        /// <term>Condition</term>
-        /// </listheader>
-        /// <item>
-        /// <term>Less than zero</term>
-        /// <description><paramref name="y"/> is less than <paramref name="x"/>.</description>
-        /// </item>
-        /// <item>
-        /// <term>Zero</term>
-        /// <description><paramref name="y"/> equals <paramref name="x"/>.</description>
-        /// </item>
-        /// <item>
-        /// <term>Greater than zero</term>
-        /// <description><paramref name="y"/> is greater than <paramref name="x"/>.</description>
-        /// </item>
-        /// </list>
-        /// </returns>
+        /// <inheritdoc/>
+        /// <remarks>This compare operation reverses the comparison.</remarks>
         public override int Compare(T x, T y)
         {
             // This intentionally reverses the order of the comparison parameters.
