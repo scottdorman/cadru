@@ -1,6 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
     <Description>Provides transient error detection strategies for adding retry logic into your HttpClient calls, a UrlBuilder to help simplify building complex URLs, and additional extensions for working with HttpClient.</Description>
     <PackageTags>$(CommonPackageTags) http retry retries transient fault exception handling failure httpclient uri url</PackageTags>
     <LangVersion>latest</LangVersion>
