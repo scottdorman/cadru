@@ -163,10 +163,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if value was converted successfully;
         /// otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool TryParseAsBoolean(this string value, out bool result)
+        public static bool TryParseAsBoolean(this string? value, out bool result)
         {
             result = false;
-            if (value.IsNotNull())
+            if (value != null)
             {
                 if (FalseLiterals.Any(s => s.Equals(value, StringComparison.OrdinalIgnoreCase)))
                 {
