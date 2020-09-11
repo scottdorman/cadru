@@ -20,12 +20,12 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.IO;
+using System.Runtime.InteropServices;
+
 namespace Cadru.IO.Interop
 {
-    using System;
-    using System.IO;
-    using System.Runtime.InteropServices;
-
     internal static class SafeNativeMethods
     {
         [DllImport("netapi32.dll", SetLastError = true)]

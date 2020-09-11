@@ -36,7 +36,7 @@ namespace Cadru.Postal
     /// </summary>
     public class ImageEmbedder
     {
-        internal static string ViewDataKey = "Cadru.Postal.ImageEmbedder";
+        internal const string ViewDataKey = "Cadru.Postal.ImageEmbedder";
 
         private readonly Func<string, LinkedResource> createLinkedResource;
 
@@ -76,9 +76,11 @@ namespace Cadru.Postal
         {
             if (Uri.IsWellFormedUriString(imagePathOrUrl, UriKind.Absolute))
             {
-                var client = new WebClient();
-                var bytes = client.DownloadData(imagePathOrUrl);
-                return new LinkedResource(new MemoryStream(bytes));
+                using (var client = new WebClient())
+                {
+                    var bytes = client.DownloadData(imagePathOrUrl);
+                    return new LinkedResource(new MemoryStream(bytes));
+                }
             }
             else
             {
@@ -111,12 +113,11 @@ namespace Cadru.Postal
         /// </returns>
         public LinkedResource ReferenceImage(string imagePathOrUrl, string contentType = null)
         {
-            LinkedResource resource;
-            if (this.images.TryGetValue(imagePathOrUrl, out resource)) return resource;
+            if (this.images.TryGetValue(imagePathOrUrl, out var resource)) return resource;
 
             resource = this.createLinkedResource(imagePathOrUrl);
 
-            contentType = contentType ?? this.DetermineContentType(imagePathOrUrl);
+            contentType = contentType ?? DetermineContentType(imagePathOrUrl);
             if (contentType != null)
             {
                 resource.ContentType = new ContentType(contentType);
@@ -126,7 +127,7 @@ namespace Cadru.Postal
             return resource;
         }
 
-        private string DetermineContentType(string pathOrUrl)
+        private static string DetermineContentType(string pathOrUrl)
         {
             if (pathOrUrl == null) throw new ArgumentNullException(nameof(pathOrUrl));
 

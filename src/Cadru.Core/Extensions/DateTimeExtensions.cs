@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 
@@ -311,7 +312,7 @@ namespace Cadru.Extensions
         /// <returns>
         /// A list that contains the culture-specific abbreviated names of the months.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "This is an extension method.")]
+        [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "This is an extension method.")]
         public static IList<string> GetAbbreviatedMonthNames()
         {
             return CultureInfo.CurrentCulture.DateTimeFormat.AbbreviatedMonthNames.Where(m => !String.IsNullOrEmpty(m)).ToList();
@@ -376,7 +377,7 @@ namespace Cadru.Extensions
         /// <returns>
         /// A list that contains the culture-specific names of the months.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "This is an extension method.")]
+        [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "This is an extension method.")]
         public static IList<string> GetMonthNames()
         {
             return CultureInfo.CurrentCulture.DateTimeFormat.MonthNames.Where(m => !String.IsNullOrEmpty(m)).ToList();
@@ -855,7 +856,7 @@ namespace Cadru.Extensions
         /// the base date, and a half day displacement from midnight is noon.
         /// </para>
         /// </remarks>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
+        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static bool TryParseFromSerialDate(this double d, out DateTime result)
         {
             var num = (long)((d * 86400000.0) + ((d >= 0.0) ? 0.5 : -0.5));

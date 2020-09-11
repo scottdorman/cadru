@@ -20,13 +20,15 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace Cadru.IO.Interop
 {
     /// <summary>
     /// An internal class that defines the p/invoke constants required by the
     /// Win32 API calls that are used inside the library.
     /// </summary>
-    [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1310:FieldNamesMustNotContainUnderscore", Justification = "Reviewed.")]
+    [type: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1310:FieldNamesMustNotContainUnderscore", Justification = "Reviewed.")]
     internal static class Constants
     {
         internal const int ERROR_ACCESS_DENIED = 5;

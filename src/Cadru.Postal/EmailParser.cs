@@ -113,9 +113,9 @@ namespace Cadru.Postal
         private void AssignCommonHeader<T>(IEmail email, string header, Action<T> assign)
             where T : class
         {
-            if (email.ViewData.TryGetValue(header, out var value))
+            if (email.ViewData.TryGetValue(header, out var value) && value is T typedValue)
             {
-                if (value is T typedValue) assign(typedValue);
+                assign(typedValue);
             }
         }
 
@@ -129,7 +129,7 @@ namespace Cadru.Postal
 
             if (message.From == null)
             {
-                this.AssignCommonHeader<string>(email, "from", from => message.From = this.GetValidEmailAddressOrDefault(from));
+                this.AssignCommonHeader<string>(email, "from", from => message.From = GetValidEmailAddressOrDefault(from));
                 this.AssignCommonHeader<MailAddress>(email, "from", from => message.From = from);
             }
             if (message.CC.Count == 0)
@@ -149,7 +149,7 @@ namespace Cadru.Postal
             }
             if (message.Sender == null)
             {
-                this.AssignCommonHeader<string>(email, "sender", sender => message.Sender = this.GetValidEmailAddressOrDefault(sender));
+                this.AssignCommonHeader<string>(email, "sender", sender => message.Sender = GetValidEmailAddressOrDefault(sender));
                 this.AssignCommonHeader<MailAddress>(email, "sender", sender => message.Sender = sender);
             }
             if (String.IsNullOrEmpty(message.Subject))
@@ -167,7 +167,7 @@ namespace Cadru.Postal
                     break;
 
                 case "from":
-                    message.From = this.GetValidEmailAddressOrDefault(value);
+                    message.From = GetValidEmailAddressOrDefault(value);
                     break;
 
                 case "subject":
@@ -187,7 +187,7 @@ namespace Cadru.Postal
                     break;
 
                 case "sender":
-                    message.Sender = this.GetValidEmailAddressOrDefault(value);
+                    message.Sender = GetValidEmailAddressOrDefault(value);
                     break;
 
                 case "priority":
@@ -225,7 +225,7 @@ namespace Cadru.Postal
             string body;
             using (var reader = new StringReader(output))
             {
-                contentType = await this.ParseHeadersForContentType(reader);
+                contentType = await ParseHeadersForContentType(reader);
                 body = reader.ReadToEnd();
             }
 
@@ -245,7 +245,7 @@ namespace Cadru.Postal
                 }
             }
 
-            var stream = this.CreateStreamOfBody(body);
+            var stream = CreateStreamOfBody(body);
             var alternativeView = new AlternateView(stream, contentType);
             if (alternativeView.ContentType.CharSet == null)
             {
@@ -259,7 +259,7 @@ namespace Cadru.Postal
             return alternativeView;
         }
 
-        private MemoryStream CreateStreamOfBody(string body)
+        private static MemoryStream CreateStreamOfBody(string body)
         {
             var stream = new MemoryStream();
             var writer = new StreamWriter(stream);
@@ -269,14 +269,15 @@ namespace Cadru.Postal
             return stream;
         }
 
-        private MailAddress GetValidEmailAddressOrDefault(string value)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
+        private static MailAddress GetValidEmailAddressOrDefault(string value)
         {
             MailAddress mailAddress;
             try
             {
                 mailAddress = new MailAddress(value);
             }
-            catch (Exception e)
+            catch
             {
                 mailAddress = new MailAddress("");
             }
@@ -284,12 +285,12 @@ namespace Cadru.Postal
             return mailAddress;
         }
 
-        private bool IsAlternativeViewsHeader(string headerName)
+        private static bool IsAlternativeViewsHeader(string headerName)
         {
             return headerName.Equals("views", StringComparison.OrdinalIgnoreCase);
         }
 
-        private async Task<string> ParseHeadersForContentType(StringReader reader)
+        private static async Task<string> ParseHeadersForContentType(StringReader reader)
         {
             string contentType = null;
             await ParserUtils.ParseHeadersAsync(reader, (key, value) =>
@@ -305,7 +306,7 @@ namespace Cadru.Postal
 
         private async Task ProcessHeaderAsync(string key, string value, MailMessage message, IEmail email)
         {
-            if (this.IsAlternativeViewsHeader(key))
+            if (IsAlternativeViewsHeader(key))
             {
                 var viewNames = value.Split(new[] { ',', ' ', ';' }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (var viewName in viewNames)

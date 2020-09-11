@@ -22,6 +22,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Reflection;
 
@@ -41,7 +42,7 @@ namespace Cadru.Contracts
         /// <exception cref="AssumptionException">An assumption failed.</exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void Fail(string message)
+        public static void Fail(string? message)
         {
             FailFast(message);
         }
@@ -114,7 +115,7 @@ namespace Cadru.Contracts
         /// <exception cref="AssumptionException">The condition is <see langword="false"/>.</exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void IsFalse(bool condition, string message)
+        public static void IsFalse(bool condition, string? message)
         {
             if (condition)
             {
@@ -152,7 +153,7 @@ namespace Cadru.Contracts
         /// <exception cref="AssumptionException">The condition is <see langword="false"/>.</exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void IsTrue(bool condition, string message)
+        public static void IsTrue(bool condition, string? message)
         {
             if (!condition)
             {
@@ -193,7 +194,7 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException">
         /// <paramref name="value"/> is not an enumerated type.
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
         public static void IsType<T>([ValidatedNotNull] object value, string parameterName)
@@ -229,8 +230,8 @@ namespace Cadru.Contracts
         /// <para>-or-</para>
         /// <para><paramref name="value2"/> is <see langword="null"/>.</para>
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "1", Justification = "This is the clearest name.")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "2", Justification = "This is the clearest name.")]
+        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "1", Justification = "This is the clearest name.")]
+        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "2", Justification = "This is the clearest name.")]
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
         public static void NotNull<T1, T2>(T1 value1, T2 value2)
@@ -256,9 +257,9 @@ namespace Cadru.Contracts
         /// <para>-or-</para>
         /// <para><paramref name="value3"/> is <see langword="null"/>.</para>
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "1", Justification = "This is the clearest name.")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "2", Justification = "This is the clearest name.")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "3", Justification = "This is the clearest name.")]
+        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "1", Justification = "This is the clearest name.")]
+        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "2", Justification = "This is the clearest name.")]
+        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "3", Justification = "This is the clearest name.")]
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
         public static void NotNull<T1, T2, T3>(T1 value1, T2 value2, T3 value3)
@@ -289,10 +290,10 @@ namespace Cadru.Contracts
         /// <para>-or-</para>
         /// <para><paramref name="value4"/> is <see langword="null"/>.</para>
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "1", Justification = "This is the clearest name.")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "2", Justification = "This is the clearest name.")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "3", Justification = "This is the clearest name.")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "4", Justification = "This is the clearest name.")]
+        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "1", Justification = "This is the clearest name.")]
+        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "2", Justification = "This is the clearest name.")]
+        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "3", Justification = "This is the clearest name.")]
+        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "4", Justification = "This is the clearest name.")]
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
         public static void NotNull<T1, T2, T3, T4>(T1 value1, T2 value2, T3 value3, T4 value4)
@@ -311,7 +312,7 @@ namespace Cadru.Contracts
         /// <exception cref="AssumptionException">
         /// <paramref name="value"/> is <see langword="null"/> or zero-length.
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
         public static void NotNullOrEmpty([ValidatedNotNull] string value)
@@ -340,7 +341,7 @@ namespace Cadru.Contracts
         /// </summary>
         /// <param name="message">The message of the resulting AssumptionException.</param>
         /// <exception cref="AssumptionException">An assumption failed.</exception>
-        private static void FailFast(string message)
+        private static void FailFast(string? message)
         {
             if (String.IsNullOrEmpty(message))
             {

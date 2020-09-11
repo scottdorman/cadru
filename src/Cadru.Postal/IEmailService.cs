@@ -30,13 +30,6 @@ namespace Cadru.Postal
     /// </summary>
     public interface IEmailService
     {
-        ///// <summary>
-        ///// Saves the email to the specified directory.
-        ///// </summary>
-        ///// <param name="email">The email to save.</param>
-        ///// <param name="path">The directory where the email should be saved.</param>
-        //void SaveToFile(Email email, string path);
-
         /// <summary>
         /// Renders the email view and builds a <see cref="MailMessage"/>.
         /// </summary>
@@ -63,12 +56,6 @@ namespace Cadru.Postal
         /// <param name="email">The email to save.</param>
         /// <param name="path">The directory where the email should be saved.</param>
         Task SaveToFileAsync(IEmail email, string path);
-
-        ///// <summary>
-        ///// Sends an email to an SMTP client for delivery.
-        ///// </summary>
-        ///// <param name="email">The email to send.</param>
-        //void Send(Email email);
 
         /// <summary>
         /// Sends an email to an SMTP client for delivery as an asynchronous operation.

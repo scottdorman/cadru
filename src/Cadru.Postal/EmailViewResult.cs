@@ -40,7 +40,6 @@ namespace Cadru.Postal
         private const string HtmlContentType = "text/html";
         private const string TextContentType = "text/plain";
 
-        //IEmailViewRenderer Renderer { get; set; }
         private readonly IRazorEngineService razorEngineService;
 
         /// <summary>
@@ -189,30 +188,6 @@ namespace Cadru.Postal
                     if (String.IsNullOrEmpty(line))
                     {
                         return new TemplateParts(headerBuilder.ToString(), reader.ReadToEnd());
-                    }
-
-                    headerBuilder.AppendLine(line);
-                    line = reader.ReadLine();
-                }
-            }
-
-            return null;
-        }
-
-        private static TemplateParts Extract(string template, MailMessage mailMessage)
-        {
-            var headerBuilder = new StringBuilder();
-
-            using (var reader = new StringReader(template))
-            {
-                // try to read until we passed headers
-                var line = reader.ReadLine();
-
-                while (line != null)
-                {
-                    if (String.IsNullOrEmpty(line))
-                    {
-                        return new TemplateParts(headerBuilder.ToString(), mailMessage.Body);
                     }
 
                     headerBuilder.AppendLine(line);

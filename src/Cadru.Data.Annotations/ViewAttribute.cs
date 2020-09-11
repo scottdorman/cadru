@@ -32,7 +32,6 @@ namespace Cadru.Data.Annotations
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public sealed class ViewAttribute : Attribute
     {
-        private string schema;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewAttribute"/> class.
@@ -42,6 +41,7 @@ namespace Cadru.Data.Annotations
         {
             Requires.NotNullOrWhiteSpace(name, nameof(name));
             this.Name = name;
+            this.Schema = String.Empty;
         }
 
         /// <summary>
@@ -52,14 +52,6 @@ namespace Cadru.Data.Annotations
         /// <summary>
         /// The schema of the view the class is mapped to.
         /// </summary>
-        public string Schema
-        {
-            get => this.schema;
-            set
-            {
-                Requires.NotNullOrWhiteSpace(value, nameof(value));
-                this.schema = value;
-            }
-        }
+        public string Schema { get; set; }
     }
 }

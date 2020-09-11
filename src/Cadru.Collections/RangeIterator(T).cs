@@ -23,6 +23,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 using Cadru.Contracts;
 
@@ -31,7 +32,7 @@ namespace Cadru.Collections
     /// <summary>
     /// Supports iteration over a <see cref="Range{T}"/>.
     /// </summary>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix", Justification = "Reviewed. Ending in Collection does not make semantic sense in this case.")]
+    [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix", Justification = "Reviewed. Ending in Collection does not make semantic sense in this case.")]
     public class RangeIterator<T> : IEnumerable<T> where T : notnull
     {
         private readonly Range<T> range;

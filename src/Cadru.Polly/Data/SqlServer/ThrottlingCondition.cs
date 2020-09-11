@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -53,14 +54,14 @@ namespace Cadru.Polly.Data.SqlServer
         /// Corresponds to the "Transaction Log Write IO Delay" resource, which
         /// may be subject to throttling.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Io", Justification = "As designed")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Io", Justification = "As designed")]
         LogWriteIoDelay = 2,
 
         /// <summary>
         /// Corresponds to the "Database Read IO Delay" resource, which may be
         /// subject to throttling.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Io", Justification = "As designed")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Io", Justification = "As designed")]
         DataReadIoDelay = 3,
 
         /// <summary>
@@ -254,7 +255,7 @@ namespace Cadru.Polly.Data.SqlServer
         /// Gets a list of the resources in the SQL Database that were subject
         /// to throttling conditions.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures", Justification = "As designed")]
+        [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures", Justification = "As designed")]
         public IEnumerable<Tuple<ThrottledResourceType, ThrottlingType>> ThrottledResources => this.throttledResources;
 
         /// <summary>

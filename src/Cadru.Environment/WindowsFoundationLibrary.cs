@@ -20,6 +20,8 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace Cadru.Environment
 {
     /// <summary>
@@ -30,13 +32,13 @@ namespace Cadru.Environment
         /// <summary>
         /// Windows Communication Foundation.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "WCF", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "WCF", Justification = "Reviewed.")]
         WCF,
 
         /// <summary>
         /// Windows Presentation Foundation.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "WPF", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "WPF", Justification = "Reviewed.")]
         WPF,
 
         /// <summary>

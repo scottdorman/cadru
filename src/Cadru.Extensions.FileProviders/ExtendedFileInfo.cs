@@ -22,6 +22,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Security;
 using System.Security.AccessControl;
@@ -38,9 +39,9 @@ namespace Cadru.Extensions.FileProviders
     /// <remarks>This wraps an <see cref="FileInfo"/> and <see cref="FileVersionInfo"/>.</remarks>
     public sealed partial class ExtendedFileInfo
     {
-        private FileInfo fileInfo;
-        private FileVersionInfo fileVersionInfo;
-        private string originalFileName;
+        private readonly FileInfo fileInfo;
+        private readonly FileVersionInfo? fileVersionInfo;
+        private readonly string originalFileName;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ExtendedFileInfo"/>
@@ -77,22 +78,29 @@ namespace Cadru.Extensions.FileProviders
         /// </remarks>
         public ExtendedFileInfo(IFileInfo fileInfo)
         {
-            this.Initialize(fileInfo.PhysicalPath);
+            var fileName = fileInfo.PhysicalPath;
+            this.originalFileName = fileName;
+            this.fileInfo = new FileInfo(fileName);
+            if (this.fileInfo.Exists)
+            {
+                this.fileVersionInfo = FileVersionInfo.GetVersionInfo(fileName);
+                var fs = new FileSecurity(this.originalFileName, AccessControlSections.Owner);
+                this.FileOwner = fs.GetOwner(typeof(NTAccount)).ToString();
+            }
         }
 
         /// <inheritdoc cref="FileSystemInfo.Attributes"/>
         public FileAttributes Attributes
         {
             get => this.fileInfo.Attributes;
-
             set => this.fileInfo.Attributes = value;
         }
 
         /// <inheritdoc cref="FileVersionInfo.Comments"/>
-        public string Comments => this.fileVersionInfo.Comments;
+        public string? Comments => this.fileVersionInfo?.Comments;
 
         /// <inheritdoc cref="FileVersionInfo.CompanyName"/>
-        public string CompanyName => this.fileVersionInfo.CompanyName;
+        public string? CompanyName => this.fileVersionInfo?.CompanyName;
 
         /// <inheritdoc cref="FileSystemInfo.CreationTimeUtc"/>
         public DateTime CreateTimeUtc => this.fileInfo.CreationTimeUtc;
@@ -101,7 +109,6 @@ namespace Cadru.Extensions.FileProviders
         public DateTime CreationTime
         {
             get => this.fileInfo.CreationTime;
-
             set => this.fileInfo.CreationTime = value;
         }
 
@@ -118,19 +125,19 @@ namespace Cadru.Extensions.FileProviders
         public string Extension => this.fileInfo.Extension;
 
         /// <inheritdoc cref="FileVersionInfo.FileBuildPart"/>
-        public int FileBuildPart => this.fileVersionInfo.FileBuildPart;
+        public int? FileBuildPart => this.fileVersionInfo?.FileBuildPart;
 
         /// <inheritdoc cref="FileVersionInfo.FileDescription"/>
-        public string FileDescription => this.fileVersionInfo.FileDescription;
+        public string? FileDescription => this.fileVersionInfo?.FileDescription;
 
         /// <inheritdoc cref="FileVersionInfo.FileMajorPart"/>
-        public int FileMajorPart => this.fileVersionInfo.FileMajorPart;
+        public int? FileMajorPart => this.fileVersionInfo?.FileMajorPart;
 
         /// <inheritdoc cref="FileVersionInfo.FileMinorPart"/>
-        public int FileMinorPart => this.fileVersionInfo.FileMinorPart;
+        public int? FileMinorPart => this.fileVersionInfo?.FileMinorPart;
 
         /// <inheritdoc cref="FileVersionInfo.FileName"/>
-        public string FileName => this.fileVersionInfo.FileName;
+        public string? FileName => this.fileVersionInfo?.FileName;
 
         /// <summary>
         /// Gets the Windows owner associated with the file.
@@ -139,32 +146,32 @@ namespace Cadru.Extensions.FileProviders
         /// A string representing the owner of the file or
         /// <see langword="null"/> if the owner cannot be determined.
         /// </value>
-        public string FileOwner { get; private set; }
+        public string? FileOwner { get; private set; }
 
         /// <inheritdoc cref="FileVersionInfo.FilePrivatePart"/>
-        public int FilePrivatePart => this.fileVersionInfo.FilePrivatePart;
+        public int? FilePrivatePart => this.fileVersionInfo?.FilePrivatePart;
 
         /// <inheritdoc cref="FileVersionInfo.FileVersion"/>
-        public string FileVersion => this.fileVersionInfo.FileVersion;
+        public string? FileVersion => this.fileVersionInfo?.FileVersion;
 
         /// <inheritdoc cref="FileSystemInfo.FullName"/>
-        public string FullName => this.fileInfo.FullName;
+        public string? FullName => this.fileInfo?.FullName;
 
         /// <inheritdoc cref="FileVersionInfo.InternalName"/>
-        public string InternalName => this.fileVersionInfo.InternalName;
+        public string? InternalName => this.fileVersionInfo?.InternalName;
 
         /// <inheritdoc cref="FileVersionInfo.IsDebug"/>
-        public bool IsDebug => this.fileVersionInfo.IsDebug;
+        public bool? IsDebug => this.fileVersionInfo?.IsDebug;
 
         /// <inheritdoc cref="FileVersionInfo.IsPatched"/>
-        public bool IsPatched => this.fileVersionInfo.IsPatched;
+        public bool? IsPatched => this.fileVersionInfo?.IsPatched;
 
         /// <inheritdoc cref="FileVersionInfo.IsPreRelease"/>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "PreRelease", Justification = "This property follows the same naming convention as the underlying property in the FileVersionInfo class.")]
-        public bool IsPreRelease => this.fileVersionInfo.IsPreRelease;
+        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "PreRelease", Justification = "This property follows the same naming convention as the underlying property in the FileVersionInfo class.")]
+        public bool? IsPreRelease => this.fileVersionInfo?.IsPreRelease;
 
         /// <inheritdoc cref="FileVersionInfo.IsPrivateBuild"/>
-        public bool IsPrivateBuild => this.fileVersionInfo.IsPrivateBuild;
+        public bool? IsPrivateBuild => this.fileVersionInfo?.IsPrivateBuild;
 
         /// <inheritdoc cref="FileInfo.IsReadOnly"/>
 
@@ -175,10 +182,10 @@ namespace Cadru.Extensions.FileProviders
         }
 
         /// <inheritdoc cref="FileVersionInfo.IsSpecialBuild"/>
-        public bool IsSpecialBuild => this.fileVersionInfo.IsSpecialBuild;
+        public bool? IsSpecialBuild => this.fileVersionInfo?.IsSpecialBuild;
 
         /// <inheritdoc cref="FileVersionInfo.Language"/>
-        public string Language => this.fileVersionInfo.Language;
+        public string? Language => this.fileVersionInfo?.Language;
 
         /// <inheritdoc cref="FileSystemInfo.LastAccessTime"/>
         public DateTime LastAccessTime => this.fileInfo.LastAccessTime;
@@ -193,10 +200,10 @@ namespace Cadru.Extensions.FileProviders
         public DateTime LastWriteTimUtc => this.fileInfo.LastWriteTimeUtc;
 
         /// <inheritdoc cref="FileVersionInfo.LegalCopyright"/>
-        public string LegalCopyright => this.fileVersionInfo.LegalCopyright;
+        public string? LegalCopyright => this.fileVersionInfo?.LegalCopyright;
 
         /// <inheritdoc cref="FileVersionInfo.LegalTrademarks"/>
-        public string LegalTrademarks => this.fileVersionInfo.LegalTrademarks;
+        public string? LegalTrademarks => this.fileVersionInfo?.LegalTrademarks;
 
         /// <inheritdoc cref="FileInfo.Length"/>
         public long Length => this.fileInfo.Length;
@@ -205,32 +212,32 @@ namespace Cadru.Extensions.FileProviders
         public string Name => this.fileInfo.Name;
 
         /// <inheritdoc cref="FileVersionInfo.OriginalFilename"/>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "Filename", Justification = "This property follows the same naming convention as the underlying property in the FileVersionInfo class.")]
-        public string OriginalFilename => this.fileVersionInfo.OriginalFilename;
+        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "Filename", Justification = "This property follows the same naming convention as the underlying property in the FileVersionInfo class.")]
+        public string? OriginalFilename => this.fileVersionInfo?.OriginalFilename;
 
         /// <inheritdoc cref="FileVersionInfo.PrivateBuild"/>
-        public string PrivateBuild => this.fileVersionInfo.PrivateBuild;
+        public string? PrivateBuild => this.fileVersionInfo?.PrivateBuild;
 
         /// <inheritdoc cref="FileVersionInfo.ProductBuildPart"/>
-        public int ProductBuildPart => this.fileVersionInfo.ProductBuildPart;
+        public int? ProductBuildPart => this.fileVersionInfo?.ProductBuildPart;
 
         /// <inheritdoc cref="FileVersionInfo.ProductMajorPart"/>
-        public int ProductMajorPart => this.fileVersionInfo.ProductMajorPart;
+        public int? ProductMajorPart => this.fileVersionInfo?.ProductMajorPart;
 
         /// <inheritdoc cref="FileVersionInfo.ProductMinorPart"/>
-        public int ProductMinorPart => this.fileVersionInfo.ProductMinorPart;
+        public int? ProductMinorPart => this.fileVersionInfo?.ProductMinorPart;
 
         /// <inheritdoc cref="FileVersionInfo.PrivateBuild"/>
-        public string ProductName => this.fileVersionInfo.ProductName;
+        public string? ProductName => this.fileVersionInfo?.ProductName;
 
         /// <inheritdoc cref="FileVersionInfo.ProductPrivatePart"/>
-        public int ProductPrivatePart => this.fileVersionInfo.ProductPrivatePart;
+        public int? ProductPrivatePart => this.fileVersionInfo?.ProductPrivatePart;
 
         /// <inheritdoc cref="FileVersionInfo.ProductVersion"/>
-        public string ProductVersion => this.fileVersionInfo.ProductVersion;
+        public string? ProductVersion => this.fileVersionInfo?.ProductVersion;
 
         /// <inheritdoc cref="FileVersionInfo.SpecialBuild"/>
-        public string SpecialBuild => this.fileVersionInfo.SpecialBuild;
+        public string? SpecialBuild => this.fileVersionInfo?.SpecialBuild;
 
         /// <inheritdoc cref="FileInfo.AppendText"/>
         public StreamWriter AppendText()
@@ -494,27 +501,6 @@ namespace Cadru.Extensions.FileProviders
         public override string ToString()
         {
             return this.fileInfo.ToString();
-        }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
-        private void Initialize(string fileName)
-        {
-            Contracts.Requires.NotNull(fileName, "fileName");
-
-            this.originalFileName = fileName;
-            this.fileInfo = new FileInfo(fileName);
-
-            string owner = null;
-
-            if (this.fileInfo.Exists)
-            {
-                this.fileVersionInfo = FileVersionInfo.GetVersionInfo(fileName);
-
-                var fs = new FileSecurity(this.originalFileName, AccessControlSections.Owner);
-                owner = fs.GetOwner(typeof(NTAccount)).ToString();
-            }
-
-            this.FileOwner = owner;
         }
     }
 }

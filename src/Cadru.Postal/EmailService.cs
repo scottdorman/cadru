@@ -134,7 +134,6 @@ namespace Cadru.Postal
                 client.DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory;
                 client.PickupDirectoryLocation = path;
                 await client.SendMailAsync(mailMessage);
-                client.Dispose();
             }
         }
 

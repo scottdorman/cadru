@@ -37,15 +37,26 @@ namespace Cadru.AspNetCore.Mvc.Rendering
     /// </summary>
     public static class HtmlHelperExtensions
     {
-        /// <inheritdoc/>
+        /// <summary>
+        /// Returns a select list for the given type.
+        /// </summary>
+        /// <typeparam name="TEnum">The enumeration type.</typeparam>
+        /// <param name="htmlHelper">An <see cref="IHtmlHelper"/> instance.</param>
+        /// <param name="uiHint">The value of a <see cref="UIHintAttribute"/> used to filter the enumeration.</param>
+        /// <returns></returns>
         public static IEnumerable<SelectListItem> GetEnumSelectList<TEnum>(this IHtmlHelper htmlHelper, string uiHint) where TEnum : struct
         {
             return GetEnumSelectList(htmlHelper, typeof(TEnum), uiHint);
         }
 
-        /// <inheritdoc/>
 #pragma warning disable IDE0060 // Remove unused parameter
-
+        /// <summary>
+        /// Returns a select list for the given type.
+        /// </summary>
+        /// <param name="enumType">The enumeration type.</param>
+        /// <param name="htmlHelper">An <see cref="IHtmlHelper"/> instance.</param>
+        /// <param name="uiHint">The value of a <see cref="UIHintAttribute"/> used to filter the enumeration.</param>
+        /// <returns></returns>
         public static IEnumerable<SelectListItem> GetEnumSelectList(this IHtmlHelper htmlHelper, Type enumType, string uiHint)
 #pragma warning restore IDE0060 // Remove unused parameter
         {

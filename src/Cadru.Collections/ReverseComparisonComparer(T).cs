@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 using Cadru.Contracts;
 
@@ -55,7 +56,7 @@ namespace Cadru.Collections
         /// <exception cref="ArgumentNullException">
         /// <paramref name="comparison"/> is <see langword="null"/>.
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "The type must be generic but the Create method shouldn't be.")]
+        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "The type must be generic but the Create method shouldn't be.")]
         public new static Comparer<T> Create(Comparison<T> comparison)
         {
             Requires.NotNull(comparison, nameof(comparison));

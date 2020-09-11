@@ -24,6 +24,7 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 
@@ -115,7 +116,7 @@ namespace Cadru.Extensions
         /// <exception cref="System.TypeLoadException">
         /// A custom attribute type cannot be loaded.
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
         public static bool HasCustomAttribute<T>(this Type element, bool inherit = false) where T : Attribute
         {
             Requires.NotNull(element, nameof(element));
@@ -164,7 +165,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the specified type implements the
         /// interface; otherwise, <see langword="false"/>.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
         public static bool HasInterface<TInterface>(this Type element)
         {
             Requires.NotNull(element, nameof(element));
@@ -369,7 +370,7 @@ namespace Cadru.Extensions
         /// <returns>
         /// <see langword="true"/> if the specified type is nullable; otherwise, <see langword="false"/>.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         public static bool IsNullable(this Type element)
         {
             Requires.NotNull(element, nameof(element));

@@ -20,10 +20,10 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.Runtime.InteropServices;
+
 namespace Cadru.Environment.InteropServices
 {
-    using System.Runtime.InteropServices;
-
     internal static class SafeNativeMethods
     {
         [DllImport("user32.dll", SetLastError = true)]

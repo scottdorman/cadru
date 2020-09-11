@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1</TargetFrameworks>
-    <Description>Provides a common database context and predicates for use with Dapper.</Description>
-    <PackageTags>$(CommonPackageTags) polly database sqlserver logging exception handling resilience transient fault policy circuit breaker circuitbreaker retry wait cache cache-aside bulkhead fallback timeout throttle parallelization</PackageTags>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+    <Description>Provides a common database context and predicates for use with Dapper.</Description>
+    <PackageTags>$(CommonPackageTags) polly database sqlserver logging exception handling resilience transient fault policy circuit breaker circuitbreaker retry wait cache cache-aside bulkhead fallback timeout throttle parallelization</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

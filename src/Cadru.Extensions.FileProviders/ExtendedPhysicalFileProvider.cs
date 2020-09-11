@@ -21,6 +21,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 
 using Cadru.Extensions.FileProviders.Internal;
@@ -87,7 +88,7 @@ namespace Cadru.Extensions.FileProviders
         /// </returns>
         public IFileInfo CreateDirectory(string subpath)
         {
-            PhysicalDirectoryInfo physicalDirectoryInfo = null;
+            PhysicalDirectoryInfo? physicalDirectoryInfo = null;
             var fileInfo = this.GetDirectoryInfo(subpath);
             if (!(fileInfo is NotFoundFileInfo))
             {
@@ -98,10 +99,10 @@ namespace Cadru.Extensions.FileProviders
                     fileSystemInfo.Refresh();
                 }
 
-                physicalDirectoryInfo = fileSystemInfo.Exists ? new PhysicalDirectoryInfo(fileSystemInfo) : null;
+                physicalDirectoryInfo = new PhysicalDirectoryInfo(fileSystemInfo);
             }
 
-            return physicalDirectoryInfo;
+            return physicalDirectoryInfo ?? fileInfo;
         }
 
         /// <summary>
@@ -114,7 +115,7 @@ namespace Cadru.Extensions.FileProviders
         /// </returns>
         public IFileInfo CreateFile(string subpath)
         {
-            PhysicalFileInfo physicalFileInfo = null;
+            PhysicalFileInfo? physicalFileInfo = null;
             var fileInfo = this.GetFileInfo(subpath);
             if (!(fileInfo is NotFoundFileInfo))
             {
@@ -125,10 +126,10 @@ namespace Cadru.Extensions.FileProviders
                     fileSystemInfo.Refresh();
                 }
 
-                physicalFileInfo = fileSystemInfo.Exists ? new PhysicalFileInfo(fileSystemInfo) : null;
+                physicalFileInfo = new PhysicalFileInfo(fileSystemInfo);
             }
 
-            return physicalFileInfo;
+            return physicalFileInfo ?? fileInfo;
         }
 
         /// <summary>
@@ -172,8 +173,8 @@ namespace Cadru.Extensions.FileProviders
             return new PhysicalDirectoryInfo(directoryInfo);
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
-        private string GetFullPath(string path)
+        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
+        private string? GetFullPath(string path)
         {
             if (PathUtils.PathNavigatesAboveRoot(path))
             {

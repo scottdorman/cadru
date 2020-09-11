@@ -20,14 +20,16 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace Cadru.Environment
 {
     /// <summary>
     /// Specifies the Internet Information Services (IIS) features.
     /// </summary>
     /// <remarks>Features only apply to IIS versions 7 and later.</remarks>
-    [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1628:DocumentationTextMustBeginWithACapitalLetter", Justification = "Reviewed.")]
-    [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1630:DocumentationTextMustContainWhitespace", Justification = "Reviewed.")]
+    [type: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1628:DocumentationTextMustBeginWithACapitalLetter", Justification = "Reviewed.")]
+    [type: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1630:DocumentationTextMustContainWhitespace", Justification = "Reviewed.")]
     public enum InternetInformationServicesFeature
     {
         /// <summary>
@@ -38,7 +40,7 @@ namespace Cadru.Environment
         /// <summary>
         /// File Transfer Protocol (FTP) Service.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "FTP", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "FTP", Justification = "Reviewed.")]
         FTP,
 
         /// <summary>
@@ -49,7 +51,7 @@ namespace Cadru.Environment
         /// <summary>
         /// ASP.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ASP", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ASP", Justification = "Reviewed.")]
         ASP,
 
         /// <summary>
@@ -65,19 +67,19 @@ namespace Cadru.Environment
         /// <summary>
         /// CGI.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "CGI", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "CGI", Justification = "Reviewed.")]
         CGI,
 
         /// <summary>
         /// ISAPI Extensions.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ISAPI", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ISAPI", Justification = "Reviewed.")]
         ISAPIExtensions,
 
         /// <summary>
         /// ISAPI Filters.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ISAPI", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ISAPI", Justification = "Reviewed.")]
         ISAPIFilters,
 
         /// <summary>
@@ -128,7 +130,7 @@ namespace Cadru.Environment
         /// <summary>
         /// Web Distributed Authoring and Versioning (WebDAV) publishing.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DAV", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DAV", Justification = "Reviewed.")]
         WebDAV,
 
         /// <summary>
@@ -149,7 +151,7 @@ namespace Cadru.Environment
         /// <summary>
         /// ODBC Logging.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ODBC", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ODBC", Justification = "Reviewed.")]
         ODBCLogging,
 
         /// <summary>
@@ -185,7 +187,7 @@ namespace Cadru.Environment
         /// <summary>
         /// Centralized SSL Certificate Support.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "SSL", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "SSL", Justification = "Reviewed.")]
         CentralizedSSLCertificateSupport,
 
         /// <summary>
@@ -201,7 +203,7 @@ namespace Cadru.Environment
         /// <summary>
         /// IIS Client Certificate Mapping Authentication.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "IIS", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "IIS", Justification = "Reviewed.")]
         IISCertificateMappingAuthentication,
 
         /// <summary>
@@ -242,25 +244,25 @@ namespace Cadru.Environment
         /// <summary>
         /// IIS 6 Management Console.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Snapin", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Snapin", Justification = "Reviewed.")]
         LegacySnapin,
 
         /// <summary>
         /// IIS <c>Metabase</c> and IIS 6 configuration compatibility.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Metabase", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Metabase", Justification = "Reviewed.")]
         MetabaseCompatibility,
 
         /// <summary>
         /// IIS 6 WMI Compatibility.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "WMI", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "WMI", Justification = "Reviewed.")]
         WMICompatibility,
 
         /// <summary>
         /// FTP Extensibility.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "FTP", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "FTP", Justification = "Reviewed.")]
         FTPExtensibility,
     }
 }

@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Text;
 
@@ -292,7 +293,7 @@ namespace Cadru.Extensions
         /// <para>-or-</para>
         /// <para><paramref name="value"/> is <see langword="null"/>.</para>
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.IndexOfOccurrence(System.String,System.String,System.Int32,System.Int32)", Justification = "This ultimately calls an overload which provides the comparison.")]
+        [SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.IndexOfOccurrence(System.String,System.String,System.Int32,System.Int32)", Justification = "This ultimately calls an overload which provides the comparison.")]
         public static int IndexOfOccurrence(this string source, string value, int occurrence)
         {
             Contracts.Requires.NotNull(source, nameof(source));
@@ -443,7 +444,7 @@ namespace Cadru.Extensions
         /// <para>-or-</para>
         /// <para><paramref name="value"/> is <see langword="null"/>.</para>
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.IndexOfOccurrence(System.String,System.String,System.Int32,System.Int32,System.Int32)", Justification = "This ultimately calls an overload which provides the comparison.")]
+        [SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.IndexOfOccurrence(System.String,System.String,System.Int32,System.Int32,System.Int32)", Justification = "This ultimately calls an overload which provides the comparison.")]
         public static int IndexOfOccurrence(this string source, string value, int startIndex, int count, int occurrence)
         {
             Contracts.Requires.NotNull(source, nameof(source));
@@ -746,7 +747,7 @@ namespace Cadru.Extensions
         /// <paramref name="source"/>, or the entire string if
         /// <paramref name="value"/> is not found in the string.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.LeftSubstring(System.String,System.String,System.Int32)", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.LeftSubstring(System.String,System.String,System.Int32)", Justification = "Reviewed.")]
         public static string LeftSubstring(this string source, string value) => LeftSubstring(source, value, 1);
 
         /// <summary>
@@ -1518,7 +1519,7 @@ namespace Cadru.Extensions
         /// <paramref name="source"/>, or the entire string if
         /// <paramref name="value"/> is not found in the string.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.RightSubstring(System.String,System.String,System.Int32)", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.RightSubstring(System.String,System.String,System.Int32)", Justification = "Reviewed.")]
         public static string RightSubstring(this string source, string value) => RightSubstring(source, value, 1);
 
         /// <summary>

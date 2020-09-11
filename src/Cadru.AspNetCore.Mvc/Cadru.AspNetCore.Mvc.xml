@@ -516,10 +516,22 @@
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Rendering.HtmlHelperExtensions.GetEnumSelectList``1(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.String)">
-            <inheritdoc/>
+            <summary>
+            Returns a select list for the given type.
+            </summary>
+            <typeparam name="TEnum">The enumeration type.</typeparam>
+            <param name="htmlHelper">An <see cref="T:Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper"/> instance.</param>
+            <param name="uiHint">The value of a <see cref="T:System.ComponentModel.DataAnnotations.UIHintAttribute"/> used to filter the enumeration.</param>
+            <returns></returns>
         </member>
         <member name="M:Cadru.AspNetCore.Mvc.Rendering.HtmlHelperExtensions.GetEnumSelectList(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.Type,System.String)">
-            <inheritdoc/>
+            <summary>
+            Returns a select list for the given type.
+            </summary>
+            <param name="enumType">The enumeration type.</param>
+            <param name="htmlHelper">An <see cref="T:Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper"/> instance.</param>
+            <param name="uiHint">The value of a <see cref="T:System.ComponentModel.DataAnnotations.UIHintAttribute"/> used to filter the enumeration.</param>
+            <returns></returns>
         </member>
     </members>
 </doc>

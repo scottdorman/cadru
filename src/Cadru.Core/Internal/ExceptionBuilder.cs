@@ -21,6 +21,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 using Cadru.Contracts;
@@ -44,7 +45,7 @@ namespace Cadru.Internal
         /// The error message that explains the reason for the exception.
         /// </param>
         /// <returns>A new <see cref="ArgumentException"/>.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public static ArgumentException CreateArgumentException(string parameterName, string message)
         {
             Assumes.NotNull(parameterName);
@@ -63,7 +64,7 @@ namespace Cadru.Internal
         /// The error message that explains the reason for the exception.
         /// </param>
         /// <returns>A new <see cref="ArgumentNullException"/>.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public static ArgumentNullException CreateArgumentNullException(string parameterName, string? message = null)
         {
             Assumes.NotNull(parameterName);
@@ -86,7 +87,7 @@ namespace Cadru.Internal
         /// The error message that explains the reason for the exception.
         /// </param>
         /// <returns>A new <see cref="ArgumentOutOfRangeException"/>.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public static ArgumentOutOfRangeException CreateArgumentOutOfRangeException(string parameterName, string message)
         {
             Assumes.NotNull(parameterName);
@@ -107,7 +108,7 @@ namespace Cadru.Internal
         /// The name of the parameter that caused the exception.
         /// </param>
         /// <returns>A new <see cref="ArgumentException"/>.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public static ArgumentException CreateContainsNullElement(string parameterName)
         {
             Assumes.NotNull(parameterName);
@@ -124,7 +125,7 @@ namespace Cadru.Internal
         /// The error message that explains the reason for the exception.
         /// </param>
         /// <returns>A new <see cref="FormatException"/>.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public static FormatException CreateFormatException(string message)
         {
             Assumes.NotNull(message);
@@ -144,7 +145,7 @@ namespace Cadru.Internal
         /// The error message that explains the reason for the exception.
         /// </param>
         /// <returns>A new <see cref="InvalidOperationException"/>.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public static InvalidOperationException CreateInvalidOperation(string message)
         {
             return new InvalidOperationException(message);
@@ -157,7 +158,7 @@ namespace Cadru.Internal
         /// A string containing the name of the disposed object.
         /// </param>
         /// <returns>A new <see cref="ObjectDisposedException"/>.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public static ObjectDisposedException CreateObjectDisposed(string objectName)
         {
             Assumes.NotNullOrEmpty(objectName);
@@ -178,7 +179,7 @@ namespace Cadru.Internal
         /// A copy of format in which the format items have been replaced by the
         /// corresponding instances of <see cref="String"/> in args.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         internal static string Format(string format, params object[] arguments)
         {
             return String.Format(CultureInfo.CurrentCulture, format, arguments);

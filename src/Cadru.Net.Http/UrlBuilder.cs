@@ -21,6 +21,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using Cadru.Contracts;
 using Cadru.Net.Http.Collections;
@@ -67,8 +68,8 @@ namespace Cadru.Net.Http
         /// <para>-or-</para>
         /// <para>paramref name="uri"/&gt; is not a valid URI.</para>
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2234:PassSystemUriObjectsInsteadOfStrings", Justification = "Reviewed.")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1057:StringUriOverloadsCallSystemUriOverloads", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Usage", "CA2234:PassSystemUriObjectsInsteadOfStrings", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Design", "CA1057:StringUriOverloadsCallSystemUriOverloads", Justification = "Reviewed.")]
         public UrlBuilder(string uri)
         {
             this.builder = new UriBuilder(uri);
@@ -98,8 +99,8 @@ namespace Cadru.Net.Http
         /// <para>-or-</para>
         /// <para>paramref name="uri"/&gt; is not a valid URI.</para>
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2234:PassSystemUriObjectsInsteadOfStrings", Justification = "Reviewed.")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1057:StringUriOverloadsCallSystemUriOverloads", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Usage", "CA2234:PassSystemUriObjectsInsteadOfStrings", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Design", "CA1057:StringUriOverloadsCallSystemUriOverloads", Justification = "Reviewed.")]
         public UrlBuilder(string uri, string path)
         {
             this.builder = new UriBuilder(uri);

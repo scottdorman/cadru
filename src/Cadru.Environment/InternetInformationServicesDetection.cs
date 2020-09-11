@@ -20,16 +20,16 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Linq;
+using System.Security.AccessControl;
+
+using Microsoft.Win32;
+
 namespace Cadru.Environment
 {
-    using System;
-    using System.Globalization;
-    using System.IO;
-    using System.Linq;
-    using System.Security.AccessControl;
-
-    using Microsoft.Win32;
-
     /// <summary>
     /// Provides support for determining if a specific version of the .NET
     /// Framework runtime is installed and the service pack level for the
@@ -264,7 +264,7 @@ namespace Cadru.Environment
         /// Services feature is installed; otherwise <see langword="false"/>.
         /// </returns>
         /// <remarks>Features only apply to IIS versions 7 and later.</remarks>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity",
+        [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity",
             Justification = "This method appears to be complex because of it's length, but it's almost all just a switch statement which then calls out to other methods to do the work.")]
         public static bool IsInstalled(InternetInformationServicesFeature feature)
         {
@@ -467,11 +467,10 @@ namespace Cadru.Environment
         {
             var version = EmptyVersion;
 
-            int majorVersion;
-            if (GetRegistryValue(RegistryHive.LocalMachine, IISRegKeyName, IISRegKeyValue, RegistryValueKind.DWord, out majorVersion))
+            if (GetRegistryValue(RegistryHive.LocalMachine, IISRegKeyName, IISRegKeyValue, RegistryValueKind.DWord, out
+            int majorVersion))
             {
-                int minorVersion;
-                GetRegistryValue(RegistryHive.LocalMachine, IISRegKeyName, IISRegKeyMinorVersionValue, RegistryValueKind.DWord, out minorVersion);
+                GetRegistryValue(RegistryHive.LocalMachine, IISRegKeyName, IISRegKeyMinorVersionValue, RegistryValueKind.DWord, out int minorVersion);
                 version = new Version(majorVersion, minorVersion);
             }
 
@@ -492,41 +491,37 @@ namespace Cadru.Environment
         /// <returns>
         /// <see langword="true"/> if the registry value was found; otherwise, <see langword="false"/>.
         /// </returns>
+        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         private static bool GetRegistryValue<T>(RegistryHive hive, string key, string value, RegistryValueKind kind, out T data)
         {
             var success = false;
-            data = default(T);
+            data = default!;
 
-            using (var baseKey = RegistryKey.OpenBaseKey(hive, RegistryView.Default))
+            using (var registryKey = RegistryKey.OpenBaseKey(hive, RegistryView.Registry32)?.OpenSubKey(key, RegistryRights.ReadKey))
             {
-                if (baseKey != null)
+                if (registryKey != null)
                 {
-                    using (var registryKey = baseKey.OpenSubKey(key, RegistryRights.ReadKey))
+                    try
                     {
-                        if (registryKey != null)
+                        // If the key was opened, try to retrieve the value.
+                        var kindFound = registryKey.GetValueKind(value);
+                        if (kindFound == kind)
                         {
-                            try
+                            var regValue = registryKey.GetValue(value, null);
+                            if (regValue != null)
                             {
-                                // If the key was opened, try to retrieve the value.
-                                var kindFound = registryKey.GetValueKind(value);
-                                if (kindFound == kind)
-                                {
-                                    var regValue = registryKey.GetValue(value, null);
-                                    if (regValue != null)
-                                    {
-                                        data = (T)Convert.ChangeType(regValue, typeof(T), CultureInfo.InvariantCulture);
-                                        success = true;
-                                    }
-                                }
-                            }
-                            catch (IOException)
-                            {
-                                // The registry value doesn't exist. Since the
-                                // value doesn't exist we have to assume that
-                                // the component isn't installed and return
-                                // false and leave the data param as the default value.
+                                data = (T)regValue;
+                                success = true;
                             }
                         }
+                    }
+                    catch (IOException)
+                    {
+                        // We can get here if the registry key doesn't exist. In
+                        // that case, we don't actually want to throw an
+                        // exception and instead return false. The upstream
+                        // callers of this method will handle this appropriately
+                        // and return a valid response.
                     }
                 }
             }
@@ -534,17 +529,14 @@ namespace Cadru.Environment
             return success;
         }
 
+        // TODO: Determine how to detect ASP.NET 1.0
         /// <summary>
         /// Detects if ASP.NET 1.0 is registered with IIS.
         /// </summary>
         /// <returns>
         /// <see langword="true"/> if ASP.NET 1.0 is registered; otherwise <see langword="false"/>.
         /// </returns>
-        private static bool IsAspNet10Registered()
-        {
-            // TODO: Determine how to detect ASP.NET 1.0
-            return false;
-        }
+        private static bool IsAspNet10Registered() => false;
 
         /// <summary>
         /// Detects if ASP.NET 1.1 is registered with IIS.
@@ -554,8 +546,7 @@ namespace Cadru.Environment
         /// </returns>
         private static bool IsAspNet11Registered()
         {
-            string regValue;
-            return GetRegistryValue(RegistryHive.LocalMachine, Netfx11RegKeyName, NetRegKeyValue, RegistryValueKind.String, out regValue);
+            return GetRegistryValue(RegistryHive.LocalMachine, Netfx11RegKeyName, NetRegKeyValue, RegistryValueKind.String, out string _);
         }
 
         /// <summary>
@@ -566,8 +557,7 @@ namespace Cadru.Environment
         /// </returns>
         private static bool IsAspNet20Registered()
         {
-            string regValue;
-            return GetRegistryValue(RegistryHive.LocalMachine, Netfx20RegKeyName, NetRegKeyValue, RegistryValueKind.String, out regValue);
+            return GetRegistryValue(RegistryHive.LocalMachine, Netfx20RegKeyName, NetRegKeyValue, RegistryValueKind.String, out string _);
         }
 
         /// <summary>
@@ -578,8 +568,7 @@ namespace Cadru.Environment
         /// </returns>
         private static bool IsAspNet40Registered()
         {
-            string regValue;
-            return GetRegistryValue(RegistryHive.LocalMachine, Netfx40RegKeyName, NetRegKeyValue, RegistryValueKind.String, out regValue);
+            return GetRegistryValue(RegistryHive.LocalMachine, Netfx40RegKeyName, NetRegKeyValue, RegistryValueKind.String, out string _);
         }
 
         /// <summary>
@@ -594,8 +583,7 @@ namespace Cadru.Environment
         private static bool IsFeatureInstalled(string featureKey)
         {
             var found = false;
-            int regValue;
-            if (GetRegistryValue(RegistryHive.LocalMachine, IISComponentRegKeyName, featureKey, RegistryValueKind.DWord, out regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, IISComponentRegKeyName, featureKey, RegistryValueKind.DWord, out int regValue))
             {
                 found = regValue == 1;
             }
@@ -631,7 +619,7 @@ namespace Cadru.Environment
                 found[1] = regValue == 1;
             }
 
-            return found.All(v => v == true);
+            return found.All(v => v);
         }
 
         /// <summary>
@@ -656,7 +644,7 @@ namespace Cadru.Environment
                 }
             }
 
-            return found.All(v => v == true);
+            return found.All(v => v);
         }
 
         /// <summary>
@@ -671,13 +659,9 @@ namespace Cadru.Environment
         private static bool IsSubcomponentInstalled(string subcomponent)
         {
             var found = false;
-            int regValue;
-            if (GetRegistryValue(RegistryHive.LocalMachine, IISLegacyComponentRegKeyName, subcomponent, RegistryValueKind.DWord, out regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, IISLegacyComponentRegKeyName, subcomponent, RegistryValueKind.DWord, out int regValue) && regValue == 1)
             {
-                if (regValue == 1)
-                {
-                    found = true;
-                }
+                found = true;
             }
 
             return found;

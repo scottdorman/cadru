@@ -21,6 +21,7 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 using Microsoft.AspNetCore.Html;
@@ -43,7 +44,7 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
         /// <returns>
         /// A new <see cref="TagBuilder"/> representing the HTML tag.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required for the extension method.")]
+        [SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required for the extension method.")]
         public static TagBuilder GenerateTag(this IHtmlGenerator generator, string tagName)
         {
             var tagBuilder = new TagBuilder(tagName);
@@ -61,7 +62,7 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
         /// <returns>
         /// A new <see cref="TagBuilder"/> representing the HTML tag.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required for the extension method.")]
+        [SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required for the extension method.")]
         public static TagBuilder GenerateTag(this IHtmlGenerator generator, string tagName, IDictionary<string, object> htmlAttributes)
         {
             var tagBuilder = new TagBuilder(tagName);
@@ -83,7 +84,7 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
         /// <returns>
         /// A new <see cref="TagBuilder"/> representing the HTML tag.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required for the extension method.")]
+        [SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required for the extension method.")]
         public static TagBuilder GenerateTag(this IHtmlGenerator generator, string tagName, object htmlAttributes)
         {
             return GenerateTag(generator, tagName, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
@@ -106,7 +107,7 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
         /// <returns>
         /// A new <see cref="TagBuilder"/> representing the HTML tag.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required for the extension method.")]
+        [SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required for the extension method.")]
         public static TagBuilder GenerateTag(this IHtmlGenerator generator, string tagName, object htmlAttributes, params IHtmlContent[] innerContents)
         {
             var tagBuilder = new TagBuilder(tagName);
@@ -134,7 +135,7 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
         /// <returns>
         /// A new <see cref="TagBuilder"/> representing the HTML tag.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required for the extension method.")]
+        [SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required for the extension method.")]
         public static TagBuilder GenerateTag(this IHtmlGenerator generator, string tagName, object htmlAttributes, string innerContent)
         {
             var tagBuilder = new TagBuilder(tagName);
@@ -154,7 +155,7 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
         /// <returns>
         /// A new <see cref="TagBuilder"/> representing the HTML tag.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required for the extension method.")]
+        [SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required for the extension method.")]
         public static TagBuilder GenerateTag(this IHtmlGenerator generator, string tagName, params IHtmlContent[] innerContents)
         {
             var tagBuilder = new TagBuilder(tagName);

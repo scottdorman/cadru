@@ -19,16 +19,15 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
+using System.Diagnostics.CodeAnalysis;
 
 namespace Cadru.Net.NetworkInformation.Interop
 {
-#if !(WP80 || WPA81)
-
     /// <summary>
     /// Flags used with the
     /// <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms724385(v=vs.85).aspx">GetSystemMetrics</see> function.
     /// </summary>
-    [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
+    [type: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
     internal enum SystemMetric
     {
         /// <summary>
@@ -596,6 +595,4 @@ namespace Cadru.Net.NetworkInformation.Interop
         /// </summary>
         SM_REMOTECONTROL = 0x2001,
     }
-
-#endif
 }

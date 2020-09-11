@@ -21,6 +21,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 
 using Cadru.Polly.Resources;
@@ -49,7 +50,7 @@ namespace Cadru.Polly.Data
             }
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required to match delegate call site.")]
+        [SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required to match delegate call site.")]
         internal static void OnRetry(Exception exception, TimeSpan timeSpan, int retries, Context context)
         {
             if (context.TryGetLogger(out var logger))
@@ -58,7 +59,7 @@ namespace Cadru.Polly.Data
             }
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required to match delegate call site.")]
+        [SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required to match delegate call site.")]
         internal static Task OnRetryAsync(Exception exception, TimeSpan timeSpan, int retries, Context context)
         {
             if (context.TryGetLogger(out var logger))
@@ -69,7 +70,7 @@ namespace Cadru.Polly.Data
             return Task.CompletedTask;
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required to match delegate call site.")]
+        [SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required to match delegate call site.")]
         internal static void OnTimeout(Context context, TimeSpan timeSpan, Task task, Exception exception)
         {
             if (context.TryGetLogger(out var logger))
@@ -78,7 +79,7 @@ namespace Cadru.Polly.Data
             }
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required to match delegate call site.")]
+        [SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Required to match delegate call site.")]
         internal static Task OnTimeoutAsync(Context context, TimeSpan timeSpan, Task task, Exception exception)
         {
             if (context.TryGetLogger(out var logger))

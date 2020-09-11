@@ -24,6 +24,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Reflection;
@@ -87,7 +88,7 @@ namespace Cadru.Contracts
         /// <exception cref="InvalidOperationException">
         /// The condition is <see langword="true"/>.
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
         public static void IsFalse(bool condition)
@@ -107,10 +108,10 @@ namespace Cadru.Contracts
         /// <exception cref="InvalidOperationException">
         /// The condition is <see langword="true"/>.
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void IsFalse(bool condition, string message)
+        public static void IsFalse(bool condition, string? message)
         {
             if (condition)
             {
@@ -130,10 +131,10 @@ namespace Cadru.Contracts
         /// <param name="parameterName">The name of the parameter being tested.</param>
         /// <param name="message">A message to be used in the resulting exception.</param>
         /// <exception cref="ArgumentException">The condition is <see langword="true"/>.</exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void IsFalse(bool condition, string parameterName, string message)
+        public static void IsFalse(bool condition, string parameterName, string? message)
         {
             if (condition)
             {
@@ -153,7 +154,7 @@ namespace Cadru.Contracts
         /// <exception cref="InvalidOperationException">
         /// The condition is <see langword="false"/>.
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
         public static void IsTrue(bool condition)
@@ -173,10 +174,10 @@ namespace Cadru.Contracts
         /// <exception cref="InvalidOperationException">
         /// The condition is <see langword="false"/>.
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void IsTrue(bool condition, string message)
+        public static void IsTrue(bool condition, string? message)
         {
             if (!condition)
             {
@@ -196,10 +197,10 @@ namespace Cadru.Contracts
         /// <param name="parameterName">The name of the parameter being tested.</param>
         /// <param name="message">A message to be used in the resulting exception.</param>
         /// <exception cref="ArgumentException">The condition is <see langword="false"/>.</exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void IsTrue(bool condition, string parameterName, string message)
+        public static void IsTrue(bool condition, string parameterName, string? message)
         {
             if (!condition)
             {
@@ -243,7 +244,7 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException">
         /// <paramref name="value"/> is not an enumerated type.
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidator]
         public static void IsType<T>([ValidatedNotNull] object value, string parameterName)
@@ -281,7 +282,7 @@ namespace Cadru.Contracts
         /// </exception>
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNull<T>([ValidatedNotNull] T value, string parameterName, string message) where T : class
+        public static void NotNull<T>([ValidatedNotNull] T value, string parameterName, string? message) where T : class
         {
             if (value == null)
             {
@@ -331,7 +332,7 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException">
         /// <paramref name="value"/> is a zero-length string.
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
         public static void NotNullOrEmpty([ValidatedNotNull] string value, string parameterName)
@@ -353,10 +354,10 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException">
         /// <paramref name="value"/> is a zero-length string.
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNullOrEmpty([ValidatedNotNull] string value, string parameterName, string message)
+        public static void NotNullOrEmpty([ValidatedNotNull] string value, string parameterName, string? message)
         {
             NotNull(value, parameterName);
             if (value.Length == 0)
@@ -379,7 +380,7 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException">
         /// <paramref name="values"/> is empty.
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
         public static void NotNullOrEmpty([ValidatedNotNull] IEnumerable values, string parameterName)
@@ -410,10 +411,10 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException">
         /// <paramref name="values"/> is empty.
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNullOrEmpty([ValidatedNotNull] IEnumerable values, string parameterName, string message)
+        public static void NotNullOrEmpty([ValidatedNotNull] IEnumerable values, string parameterName, string? message)
         {
             if (values == null)
             {
@@ -440,7 +441,7 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException">
         /// <paramref name="value"/> is a zero-length string.
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
         public static void NotNullOrWhiteSpace([ValidatedNotNull] string value, string parameterName)
@@ -462,10 +463,10 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentException">
         /// <paramref name="value"/> is a zero-length string.
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNullOrWhiteSpace([ValidatedNotNull] string value, string parameterName, string message)
+        public static void NotNullOrWhiteSpace([ValidatedNotNull] string value, string parameterName, string? message)
         {
             NotNull(value, parameterName);
             if (String.IsNullOrWhiteSpace(value))
@@ -494,7 +495,7 @@ namespace Cadru.Contracts
         /// </exception>
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void ValidElements<T>([ValidatedNotNull] IEnumerable<T> values, Predicate<T> match, string parameterName, string message)
+        public static void ValidElements<T>([ValidatedNotNull] IEnumerable<T> values, Predicate<T> match, string parameterName, string? message)
         {
             NotNull(values, "values");
             if (values.Any(x => !match(x)))
@@ -516,7 +517,7 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentOutOfRangeException">
         /// The condition is <see langword="true"/>.
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
         public static void ValidRange(bool condition, string parameterName)
@@ -537,10 +538,10 @@ namespace Cadru.Contracts
         /// <exception cref="ArgumentOutOfRangeException">
         /// The condition is <see langword="true"/>.
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void ValidRange(bool condition, string parameterName, string message)
+        public static void ValidRange(bool condition, string parameterName, string? message)
         {
             Assumes.NotNullOrEmpty(parameterName);
 

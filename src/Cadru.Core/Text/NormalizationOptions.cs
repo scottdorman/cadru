@@ -21,6 +21,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using Cadru.Extensions;
 
@@ -48,7 +49,7 @@ namespace Cadru.Text
         /// string and collapse all internal white space characters to a single
         /// white space character.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "Whitespace", Justification = "Both case forms (Whitespace or WhiteSpace) generate this error, so we are choosing one and ignoring the error.")]
+        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "Whitespace", Justification = "Both case forms (Whitespace or WhiteSpace) generate this error, so we are choosing one and ignoring the error.")]
         Whitespace = 0x004,
 
         /// <summary>

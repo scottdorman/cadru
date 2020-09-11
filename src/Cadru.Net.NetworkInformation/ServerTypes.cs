@@ -21,15 +21,16 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Cadru.Net.NetworkInformation
 {
     /// <summary>
     /// Specifies the type of software the computer is running.
     /// </summary>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1028:EnumStorageShouldBeInt32", Justification = "The values in this enum are actually uint (UInt32) values. In order to be CLS compliant, the datatype must be Int64 (long).")]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2217:DoNotMarkEnumsWithFlags", Justification = "The values in this enum map to values defined by the Windows API, which treats these values as flags.")]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1008:EnumsShouldHaveZeroValue", Justification = "The values in this enum map to values defined by the Windows API, which provides a cosntant 'Unknown' that maps to zero.")]
+    [SuppressMessage("Microsoft.Design", "CA1028:EnumStorageShouldBeInt32", Justification = "The values in this enum are actually uint (UInt32) values. In order to be CLS compliant, the datatype must be Int64 (long).")]
+    [SuppressMessage("Microsoft.Usage", "CA2217:DoNotMarkEnumsWithFlags", Justification = "The values in this enum map to values defined by the Windows API, which treats these values as flags.")]
+    [SuppressMessage("Microsoft.Design", "CA1008:EnumsShouldHaveZeroValue", Justification = "The values in this enum map to values defined by the Windows API, which provides a cosntant 'Unknown' that maps to zero.")]
     [Flags]
     public enum ServerTypes : long
     {
@@ -66,7 +67,7 @@ namespace Cadru.Net.NetworkInformation
         /// <summary>
         /// Server running the Timesource service.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         TimeSource = 0x00000020,
 
         /// <summary>
@@ -97,8 +98,8 @@ namespace Cadru.Net.NetworkInformation
         /// <summary>
         /// Xenix server.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Xenix", Justification = "Reviewed.")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Xenix", Justification = "Reviewed.")]
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         Xenix = 0x00000800,
 
         /// <summary>
@@ -149,13 +150,13 @@ namespace Cadru.Net.NetworkInformation
         /// <summary>
         /// OSF server.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "OSF", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "OSF", Justification = "Reviewed.")]
         OSF = 0x00100000,
 
         /// <summary>
         /// VAX VMS server.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "VMS", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "VMS", Justification = "Reviewed.")]
         VMS = 0x00200000,
 
         /// <summary>
@@ -166,7 +167,7 @@ namespace Cadru.Net.NetworkInformation
         /// <summary>
         /// Root of a DFS tree.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DFS", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DFS", Justification = "Reviewed.")]
         DFS = 0x00800000,
 
         /// <summary>
@@ -188,7 +189,7 @@ namespace Cadru.Net.NetworkInformation
         /// <summary>
         /// IBM DSS (Directory and Security Services) or equivalent.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DSS", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DSS", Justification = "Reviewed.")]
         DSS = 0x10000000,
 
         /// <summary>

@@ -20,12 +20,14 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace Cadru.IO
 {
     /// <summary>
     /// Specifies the executable file type.
     /// </summary>
-    public enum ExecutableType : int
+    public enum ExecutableType
     {
         /// <summary>
         /// The file executable type is not able to be determined.
@@ -35,7 +37,7 @@ namespace Cadru.IO
         /// <summary>
         /// The file is an MS-DOS .exe, .com, or .bat file.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DOS", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DOS", Justification = "Reviewed.")]
         DOS,
 
         /// <summary>

@@ -20,12 +20,14 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace Cadru.Environment
 {
     /// <summary>
     /// Specifies the .NET Framework versions.
     /// </summary>
-    [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1628:DocumentationTextMustBeginWithACapitalLetter", Justification = "Reviewed.")]
+    [type: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1628:DocumentationTextMustBeginWithACapitalLetter", Justification = "Reviewed.")]
     public enum FrameworkVersion
     {
         /// <summary>

@@ -20,20 +20,21 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.IO;
+using System.Security.AccessControl;
+
+using Cadru.Environment.InteropServices;
+using Cadru.Environment.Resources;
+
+using Microsoft.Win32;
+
 namespace Cadru.Environment
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Globalization;
-    using System.IO;
-    using System.Security.AccessControl;
-
-    using Cadru.Environment.InteropServices;
-    using Cadru.Environment.Resources;
-
-    using Microsoft.Win32;
-
     /// <summary>
     /// Provides support for determining if a specific version of the .NET
     /// Framework runtime is installed and the service pack level for the
@@ -81,8 +82,6 @@ namespace Cadru.Environment
 
         private const string Netfx35ClientProfileRegKeyName = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\NET Framework Setup\\DotNetClient\\v3.5";
 
-        private const string Netfx35PlusBuildRegValueName = "Build";
-
         private const string Netfx35RegKeyName = NetfxRegKeyRoot + "\\NDP\\v3.5";
 
         // At this point, I don't know the correct registry key for the server
@@ -108,8 +107,6 @@ namespace Cadru.Environment
         private const string NetFxInstallRootRegValueName = "InstallRoot";
 
         private const string NetfxMscorlib = "mscorlib.dll";
-
-        private const string NetfxMscorwks = "mscorwks.dll";
 
         // Constants representing registry key names and value names
         private const string NetfxRegKeyRoot = "Software\\Microsoft\\NET Framework Setup\\NDP";
@@ -203,16 +200,6 @@ namespace Cadru.Environment
             return version;
         }
 
-        // } if (name != "") { continue; } foreach (string subKeyName in
-        // versionKey.GetSubKeyNames()) { RegistryKey subKey =
-        // versionKey.OpenSubKey(subKeyName); name =
-        // (string)subKey.GetValue("Version", ""); if (name != "") sp =
-        // subKey.GetValue("SP", "").ToString(); install =
-        // subKey.GetValue("Install", "").ToString(); if (install == "") //no
-        // install info, must be later. Console.WriteLine(versionKeyName + " " +
-        // name); else { if (sp != "" && install == "1") { Console.WriteLine(" "
-        // + subKeyName + " " + name + " SP" + sp); } else if (install == "1") {
-        // Console.WriteLine(" " + subKeyName + " " + name); } } } } } }
         /// <summary>
         /// Retrieves the exact version number for the specified .NET Framework
         /// Foundation Library.
@@ -252,13 +239,6 @@ namespace Cadru.Environment
             return version;
         }
 
-        // RegistryKey versionKey = ndpKey.OpenSubKey(versionKeyName); string
-        // name = (string)versionKey.GetValue("Version", ""); string sp =
-        // versionKey.GetValue("SP", "").ToString(); string install =
-        // versionKey.GetValue("Install", "").ToString(); if (install == "")
-        // //no install info, must be later. Console.WriteLine(versionKeyName +
-        // " " + name); else { if (sp != "" && install == "1") {
-        // Console.WriteLine(versionKeyName + " " + name + " SP" + sp); }
         /// <overloads>
         /// Retrieves the service pack level for the specified .NET Framework or
         /// Foundation Library.
@@ -324,21 +304,6 @@ namespace Cadru.Environment
             return servicePackLevel;
         }
 
-        //private static void GetVersionFromRegistry()
-        //{
-        //    // Opens the registry key for the .NET Framework entry.
-        //    using (RegistryKey ndpKey =
-        //        RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, "").
-        //        OpenSubKey(@"SOFTWARE\Microsoft\NET Framework Setup\NDP\"))
-        //    {
-        //        // As an alternative, if you know the computers you will query are running .NET Framework 4.5
-        //        // or later, you can use:
-        //        // using (RegistryKey ndpKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine,
-        //        // RegistryView.Registry32).OpenSubKey(@"SOFTWARE\Microsoft\NET Framework Setup\NDP\"))
-        //        foreach (string versionKeyName in ndpKey.GetSubKeyNames())
-        //        {
-        //            if (versionKeyName.StartsWith("v"))
-        //            {
         /// <summary>
         /// Retrieves the service pack level for the specified .NET Framework
         /// Foundation Library.
@@ -570,7 +535,7 @@ namespace Cadru.Environment
         /// <returns>
         /// <see langword="true"/> if the version could be determined; otherwise <see langword="false"/>.
         /// </returns>
-        private static bool GetCoreFrameworkVersion(FrameworkVersion frameworkVersion, out Version version)
+        private static bool GetCoreFrameworkVersion(FrameworkVersion frameworkVersion, out Version? version)
         {
             var valid = false;
             var installPath = GetCorePath(frameworkVersion);
@@ -639,8 +604,7 @@ namespace Cadru.Environment
         /// </returns>
         private static string GetInstallRoot()
         {
-            string installRoot;
-            if (!GetRegistryValue(RegistryHive.LocalMachine, NetfxInstallRootRegKeyName, NetFxInstallRootRegValueName, RegistryValueKind.String, out installRoot))
+            if (!GetRegistryValue(RegistryHive.LocalMachine, NetfxInstallRootRegKeyName, NetFxInstallRootRegValueName, RegistryValueKind.String, out string installRoot))
             {
                 throw new DirectoryNotFoundException(Strings.ApplicationExcpetion_UnableToDetermineInstallRoot);
             }
@@ -703,7 +667,7 @@ namespace Cadru.Environment
         /// determine what service pack for the .NET Framework 1.0 is installed
         /// on the machine.
         /// </devdoc>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults",
+        [SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults",
             MessageId = "System.Int32.TryParse(System.String,System.Int32@)",
             Justification = "In this case, we're already defaulting the out parameter but want to make sure the Parse isn't going to throw an exception.")]
         private static int GetNetfx10SPLevel()
@@ -750,17 +714,14 @@ namespace Cadru.Environment
             // there was some kind of error retrieving the data from the registry
             var version = new Version(0, 0, 0, 0);
 
-            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx11RegKeyName, NetfxStandardRegValueName, RegistryValueKind.DWord, out int regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx11RegKeyName, NetfxStandardRegValueName, RegistryValueKind.DWord, out int regValue) && regValue == 1)
             {
-                if (regValue == 1)
+                // In the strict sense, we are cheating here, but the registry
+                // key name itself contains the version number.
+                var tokens = Netfx11RegKeyName.Split(new string[] { "NDP\\v" }, StringSplitOptions.None);
+                if (tokens.Length == 2)
                 {
-                    // In the strict sense, we are cheating here, but the
-                    // registry key name itself contains the version number.
-                    var tokens = Netfx11RegKeyName.Split(new string[] { "NDP\\v" }, StringSplitOptions.None);
-                    if (tokens.Length == 2)
-                    {
-                        version = new Version(tokens[1]);
-                    }
+                    version = new Version(tokens[1]);
                 }
             }
 
@@ -776,11 +737,14 @@ namespace Cadru.Environment
         /// returned that represents a 0.0.0.0 version number if the .NET
         /// Framework 2.0 is not found.
         /// </returns>
+        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         private static Version GetNetfx20ExactVersion()
         {
+            var emptyVersion = new Version(0, 0, 0, 0);
+
             // We can only get -1 if the .NET Framework is not installed or
             // there was some kind of error retrieving the data from the registry
-            var version = new Version(0, 0, 0, 0);
+            Version? version = null;
 
             // If we have a Version registry value, use that.
             try
@@ -789,28 +753,31 @@ namespace Cadru.Environment
             }
             catch (IOException)
             {
-                string regValue;
                 // If we hit an exception here, the Version registry key
                 // probably doesn't exist so try to get the version based on the
                 // registry key name itself.
-                if (GetRegistryValue(RegistryHive.LocalMachine, Netfx20RegKeyName, Netfx20PlusBuildRegValueName, RegistryValueKind.String, out regValue))
+                if (GetRegistryValue(RegistryHive.LocalMachine, Netfx20RegKeyName, Netfx20PlusBuildRegValueName, RegistryValueKind.String, out string regValue))
                 {
-                    if (!String.IsNullOrEmpty(regValue))
+                    if (String.IsNullOrEmpty(regValue))
                     {
-                        var versionTokens = Netfx20RegKeyName.Split(new string[] { "NDP\\v" }, StringSplitOptions.None);
-                        if (versionTokens.Length == 2)
+                        return emptyVersion;
+                    }
+
+                    var versionTokens = Netfx20RegKeyName.Split(new string[] { "NDP\\v" }, StringSplitOptions.None);
+                    if (versionTokens.Length == 2)
+                    {
+                        var tokens = versionTokens[1].Split('.');
+                        if (tokens.Length == 3)
                         {
-                            var tokens = versionTokens[1].Split('.');
-                            if (tokens.Length == 3)
-                            {
-                                version = new Version(Convert.ToInt32(tokens[0], NumberFormatInfo.InvariantInfo), Convert.ToInt32(tokens[1], NumberFormatInfo.InvariantInfo), Convert.ToInt32(tokens[2], NumberFormatInfo.InvariantInfo), Convert.ToInt32(regValue, NumberFormatInfo.InvariantInfo));
-                            }
+                            version = new Version(Convert.ToInt32(tokens[0], NumberFormatInfo.InvariantInfo), Convert.ToInt32(tokens[1], NumberFormatInfo.InvariantInfo), Convert.ToInt32(tokens[2], NumberFormatInfo.InvariantInfo), Convert.ToInt32(regValue, NumberFormatInfo.InvariantInfo));
                         }
                     }
+
+                    return version ?? emptyVersion;
                 }
             }
 
-            return version;
+            return version ?? emptyVersion;
         }
 
         /// <summary>
@@ -829,15 +796,11 @@ namespace Cadru.Environment
             // from the registry
             var version = new Version(0, 0, 0, 0);
 
-            string regValue;
-            if (GetRegistryValue(RegistryHive.LocalMachine, CardSpaceServicesRegKeyName, CardSpaceServicesPlusImagePathRegName, RegistryValueKind.ExpandString, out regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, CardSpaceServicesRegKeyName, CardSpaceServicesPlusImagePathRegName, RegistryValueKind.ExpandString, out string regValue) && !String.IsNullOrEmpty(regValue))
             {
-                if (!String.IsNullOrEmpty(regValue))
-                {
-                    var fileVersionInfo = FileVersionInfo.GetVersionInfo(regValue.Trim('"'));
-                    var index = fileVersionInfo.FileVersion.IndexOf(' ');
-                    version = new Version(fileVersionInfo.FileVersion.Substring(0, index));
-                }
+                var fileVersionInfo = FileVersionInfo.GetVersionInfo(regValue.Trim('"'));
+                var index = fileVersionInfo.FileVersion.IndexOf(' ');
+                version = new Version(fileVersionInfo.FileVersion.Substring(0, index));
             }
 
             return version;
@@ -876,13 +839,9 @@ namespace Cadru.Environment
             // from the registry
             var version = EmptyVersion;
 
-            string regValue;
-            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWCFRegKeyName, NetfxStandardVersionRegValueName, RegistryValueKind.String, out regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWCFRegKeyName, NetfxStandardVersionRegValueName, RegistryValueKind.String, out string regValue) && !String.IsNullOrEmpty(regValue))
             {
-                if (!String.IsNullOrEmpty(regValue))
-                {
-                    version = new Version(regValue);
-                }
+                version = new Version(regValue);
             }
 
             return version;
@@ -921,13 +880,9 @@ namespace Cadru.Environment
             // from the registry
             var version = new Version(0, 0, 0, 0);
 
-            string regValue;
-            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWFRegKeyName, Netfx30PlusWFPlusVersionRegValueName, RegistryValueKind.String, out regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWFRegKeyName, Netfx30PlusWFPlusVersionRegValueName, RegistryValueKind.String, out string regValue) && !String.IsNullOrEmpty(regValue))
             {
-                if (!String.IsNullOrEmpty(regValue))
-                {
-                    version = new Version(regValue);
-                }
+                version = new Version(regValue);
             }
 
             return version;
@@ -966,13 +921,9 @@ namespace Cadru.Environment
             // from the registry
             var version = new Version(0, 0, 0, 0);
 
-            string regValue;
-            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWPFRegKeyName, NetfxStandardVersionRegValueName, RegistryValueKind.String, out regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWPFRegKeyName, NetfxStandardVersionRegValueName, RegistryValueKind.String, out string regValue) && !String.IsNullOrEmpty(regValue))
             {
-                if (!String.IsNullOrEmpty(regValue))
-                {
-                    version = new Version(regValue);
-                }
+                version = new Version(regValue);
             }
 
             return version;
@@ -1012,13 +963,9 @@ namespace Cadru.Environment
             // from the registry
             var version = new Version(0, 0, 0, 0);
 
-            string regValue;
-            if (GetRegistryValue(RegistryHive.LocalMachine, key, value, RegistryValueKind.String, out regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, key, value, RegistryValueKind.String, out string regValue) && !String.IsNullOrEmpty(regValue))
             {
-                if (!String.IsNullOrEmpty(regValue))
-                {
-                    version = new Version(regValue);
-                }
+                version = new Version(regValue);
             }
 
             return version;
@@ -1125,10 +1072,11 @@ namespace Cadru.Environment
         /// <returns>
         /// <see langword="true"/> if the registry value was found; otherwise, <see langword="false"/>.
         /// </returns>
+        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         private static bool GetRegistryValue<T>(RegistryHive hive, string key, string value, RegistryValueKind kind, out T data)
         {
             var success = false;
-            data = default(T);
+            data = default!;
 
             using (var registryKey = RegistryKey.OpenBaseKey(hive, RegistryView.Registry32)?.OpenSubKey(key, RegistryRights.ReadKey))
             {
@@ -1143,7 +1091,7 @@ namespace Cadru.Environment
                             var regValue = registryKey.GetValue(value, null);
                             if (regValue != null)
                             {
-                                data = (T)regValue;//(T)Convert.ChangeType(regValue, typeof(T), CultureInfo.InvariantCulture);
+                                data = (T)regValue;
                                 success = true;
                             }
                         }
@@ -1162,10 +1110,6 @@ namespace Cadru.Environment
             return success;
         }
 
-        private static void GetVersionFromRegistry()
-        {
-        }
-
         /// <summary>
         /// Detects if the .NET Framework 1.0 is installed.
         /// </summary>
@@ -1175,7 +1119,7 @@ namespace Cadru.Environment
         /// </returns>
         private static bool IsNetfx10Installed()
         {
-            var found = GetRegistryValue(RegistryHive.LocalMachine, GetRegistryKey(FrameworkVersion.Fx10), Netfx10RegKeyValue, RegistryValueKind.String, out string regValue);
+            var found = GetRegistryValue(RegistryHive.LocalMachine, GetRegistryKey(FrameworkVersion.Fx10), Netfx10RegKeyValue, RegistryValueKind.String, out string _);
             return found && CheckFxVersion(FrameworkVersion.Fx10);
         }
 
@@ -1190,12 +1134,9 @@ namespace Cadru.Environment
         {
             var found = false;
 
-            if (GetRegistryValue(RegistryHive.LocalMachine, GetRegistryKey(FrameworkVersion.Fx11), NetfxStandardRegValueName, RegistryValueKind.DWord, out int regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, GetRegistryKey(FrameworkVersion.Fx11), NetfxStandardRegValueName, RegistryValueKind.DWord, out int regValue) && regValue == 1)
             {
-                if (regValue == 1)
-                {
-                    found = true;
-                }
+                found = true;
             }
 
             return found && CheckFxVersion(FrameworkVersion.Fx11);
@@ -1212,12 +1153,9 @@ namespace Cadru.Environment
         {
             var found = false;
 
-            if (GetRegistryValue(RegistryHive.LocalMachine, GetRegistryKey(FrameworkVersion.Fx20), NetfxStandardRegValueName, RegistryValueKind.DWord, out int regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, GetRegistryKey(FrameworkVersion.Fx20), NetfxStandardRegValueName, RegistryValueKind.DWord, out int regValue) && regValue == 1)
             {
-                if (regValue == 1)
-                {
-                    found = true;
-                }
+                found = true;
             }
 
             return found && CheckFxVersion(FrameworkVersion.Fx20);
@@ -1233,13 +1171,9 @@ namespace Cadru.Environment
         private static bool IsNetfx30CardSpaceInstalled()
         {
             var found = false;
-            string regValue;
-            if (GetRegistryValue(RegistryHive.LocalMachine, CardSpaceServicesRegKeyName, CardSpaceServicesPlusImagePathRegName, RegistryValueKind.ExpandString, out regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, CardSpaceServicesRegKeyName, CardSpaceServicesPlusImagePathRegName, RegistryValueKind.ExpandString, out string regValue) && !String.IsNullOrEmpty(regValue))
             {
-                if (!String.IsNullOrEmpty(regValue))
-                {
-                    found = true;
-                }
+                found = true;
             }
 
             return found;
@@ -1257,18 +1191,12 @@ namespace Cadru.Environment
             var found = false;
 
             // The .NET Framework 3.0 is an add-in that installs on top of the
-            // .NET Framework 2.0, so validate that both 2.0 and 3.0 are installed.
-            if (IsNetfx20Installed())
+            // .NET Framework 2.0, so validate that both 2.0 and 3.0 are
+            // installed. Check that the InstallSuccess registry value exists
+            // and equals 1.
+            if (IsNetfx20Installed() && GetRegistryValue(RegistryHive.LocalMachine, GetRegistryKey(FrameworkVersion.Fx30), Netfx30RegValueName, RegistryValueKind.DWord, out int regValue) && regValue == 1)
             {
-                // Check that the InstallSuccess registry value exists and
-                // equals 1.
-                if (GetRegistryValue(RegistryHive.LocalMachine, GetRegistryKey(FrameworkVersion.Fx30), Netfx30RegValueName, RegistryValueKind.DWord, out int regValue))
-                {
-                    if (regValue == 1)
-                    {
-                        found = true;
-                    }
-                }
+                found = true;
             }
 
             // A system with a pre-release version of the .NET Framework 3.0 can
@@ -1288,12 +1216,9 @@ namespace Cadru.Environment
         {
             var found = false;
 
-            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWCFRegKeyName, Netfx30RegValueName, RegistryValueKind.DWord, out int regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWCFRegKeyName, Netfx30RegValueName, RegistryValueKind.DWord, out int regValue) && regValue == 1)
             {
-                if (regValue == 1)
-                {
-                    found = true;
-                }
+                found = true;
             }
 
             return found;
@@ -1310,12 +1235,9 @@ namespace Cadru.Environment
         {
             var found = false;
 
-            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWFRegKeyName, Netfx30RegValueName, RegistryValueKind.DWord, out int regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWFRegKeyName, Netfx30RegValueName, RegistryValueKind.DWord, out int regValue) && regValue == 1)
             {
-                if (regValue == 1)
-                {
-                    found = true;
-                }
+                found = true;
             }
 
             return found;
@@ -1332,12 +1254,9 @@ namespace Cadru.Environment
         {
             var found = false;
 
-            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWPFRegKeyName, Netfx30RegValueName, RegistryValueKind.DWord, out int regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, Netfx30PlusWPFRegKeyName, Netfx30RegValueName, RegistryValueKind.DWord, out int regValue) && regValue == 1)
             {
-                if (regValue == 1)
-                {
-                    found = true;
-                }
+                found = true;
             }
 
             return found;
@@ -1357,17 +1276,11 @@ namespace Cadru.Environment
 
             // The .NET Framework 3.0 is an add-in that installs on top of the
             // .NET Framework 2.0 and 3.0, so validate that 2.0, 3.0, and 3.5
-            // are installed.
-            if (IsNetfx20Installed() && IsNetfx30Installed())
+            // are installed. Check that the Install registry value exists and
+            // equals 1.
+            if (IsNetfx20Installed() && IsNetfx30Installed() && GetRegistryValue(RegistryHive.LocalMachine, GetRegistryKey(frameworkVersion), NetfxStandardRegValueName, RegistryValueKind.DWord, out int regValue) && regValue == 1)
             {
-                // Check that the Install registry value exists and equals 1.
-                if (GetRegistryValue(RegistryHive.LocalMachine, GetRegistryKey(frameworkVersion), NetfxStandardRegValueName, RegistryValueKind.DWord, out int regValue))
-                {
-                    if (regValue == 1)
-                    {
-                        found = true;
-                    }
-                }
+                found = true;
             }
 
             // A system with a pre-release version of the .NET Framework 3.5 can
@@ -1391,12 +1304,9 @@ namespace Cadru.Environment
             // The .NET Framework 4.0 introduced a new CLR version, so it isn't
             // dependent on other .NET Framework versions being installed. Check
             // that the Install registry value exists and equals 1.
-            if (GetRegistryValue(RegistryHive.LocalMachine, GetRegistryKey(frameworkVersion), NetfxStandardRegValueName, RegistryValueKind.DWord, out int regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, GetRegistryKey(frameworkVersion), NetfxStandardRegValueName, RegistryValueKind.DWord, out int regValue) && regValue == 1)
             {
-                if (regValue == 1)
-                {
-                    found = true;
-                }
+                found = true;
             }
 
             // A system with a pre-release version of the .NET Framework 4 can
@@ -1415,12 +1325,9 @@ namespace Cadru.Environment
         private static bool IsNetfx45OrLaterInstalled(FrameworkVersion frameworkVersion)
         {
             var found = false;
-            if (GetRegistryValue(RegistryHive.LocalMachine, GetRegistryKey(frameworkVersion), Netfx45RegValueName, RegistryValueKind.DWord, out int regValue))
+            if (GetRegistryValue(RegistryHive.LocalMachine, GetRegistryKey(frameworkVersion), Netfx45RegValueName, RegistryValueKind.DWord, out int regValue) && NetfxReleaseVersion[frameworkVersion] >= regValue)
             {
-                if (NetfxReleaseVersion[frameworkVersion] >= regValue)
-                {
-                    found = true;
-                }
+                found = true;
             }
 
             return found && CheckFxVersion(frameworkVersion);

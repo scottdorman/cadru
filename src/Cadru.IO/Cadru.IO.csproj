@@ -1,6 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
     <Description>Provides additional input and output (I/O) types.</Description>
     <PackageTags>$(CommonPackageTags) io directoryinfo directory info fileinfo file info</PackageTags>
   </PropertyGroup>

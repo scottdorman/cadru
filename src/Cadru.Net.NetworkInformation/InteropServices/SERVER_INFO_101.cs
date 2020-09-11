@@ -20,6 +20,7 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 namespace Cadru.Net.NetworkInformation.Interop
@@ -28,8 +29,8 @@ namespace Cadru.Net.NetworkInformation.Interop
     /// The SERVER_INFO_101 structure contains information about the specified
     /// server, including name, platform, type of server, and associated software.
     /// </summary>
-    [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1307:AccessibleFieldsMustBeginWithUpperCaseLetter", Justification = "Reviewed.")]
-    [type: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1310:FieldNamesMustNotContainUnderscore", Justification = "Reviewed.")]
+    [type: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1307:AccessibleFieldsMustBeginWithUpperCaseLetter", Justification = "Reviewed.")]
+    [type: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1310:FieldNamesMustNotContainUnderscore", Justification = "Reviewed.")]
     [StructLayout(LayoutKind.Sequential)]
     internal struct SERVER_INFO_101
     {

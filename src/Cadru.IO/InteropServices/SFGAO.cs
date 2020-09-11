@@ -20,12 +20,10 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace Cadru.IO.Interop
 {
-#if !(WP80 || WP81)
-
-    using System;
-
     /// <summary>
     /// The attributes that the caller is requesting, when calling IShellFolder::GetAttributesOf.
     /// </summary>
@@ -66,6 +64,4 @@ namespace Cadru.IO.Interop
         STREAM = 0x400000,
         VALIDATE = 0x1000000
     }
-
-#endif
 }

@@ -21,6 +21,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using Cadru.UnitTest.Framework.Resources;
 
@@ -82,7 +83,7 @@ namespace Cadru.UnitTest.Framework
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
+        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static Exception Catch(Type expectedExceptionType, Action code, string message, params object[] parameters)
         {
             Exception caughtException = null;
@@ -179,7 +180,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
+        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static void DoesNotThrow(Action code, string message, params object[] parameters)
         {
             Exception caughtException = null;
@@ -261,7 +262,7 @@ namespace Cadru.UnitTest.Framework
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
+        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static Exception Throws(Type expectedExceptionType, Action code, string message, params object[] parameters)
         {
             Exception caughtException = null;

@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 using Cadru.Contracts;
 
@@ -42,7 +43,7 @@ namespace Cadru.Collections
         /// <typeparam name="TKey">The type of the key returned by <paramref name="keySelector"/>.</typeparam>
         /// <param name="keySelector">A function to extract a key from an element.</param>
         /// <returns>An instance of an <see cref="EqualityComparer{T}"/>.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static IEqualityComparer<TSource> CreateComparer<TKey>(Func<TSource, TKey> keySelector)
         {
             return CreateComparer(keySelector, null);
@@ -59,7 +60,7 @@ namespace Cadru.Collections
         /// An <see cref="IComparer{T}"/> to compare keys.
         /// </param>
         /// <returns>An instance of an <see cref="EqualityComparer{T}"/>.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static IEqualityComparer<TSource> CreateComparer<TKey>(Func<TSource, TKey> keySelector, IEqualityComparer<TKey>? comparer)
         {
             return new KeyEqualityComparer<TKey>(keySelector, comparer);

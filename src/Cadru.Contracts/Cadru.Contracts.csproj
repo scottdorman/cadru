@@ -1,6 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
     <Description>Provides static classes for representing program contracts as preconditions in a way that's compatible with System.Diagnostics.Contracts.</Description>
     <PackageTags>$(CommonPackageTags) code contracts requires assumes preconditions argument args arg validation</PackageTags>
     <DebugMessages>true</DebugMessages>

@@ -21,6 +21,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net.Http;
 using System.Text;
@@ -45,7 +46,7 @@ namespace Cadru.AspNetCore.Http
         protected const string Location = "Location";
 
         /// <inheritdoc/>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
+        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public virtual string SerializeRequest(HttpRequest request)
         {
             string result;
@@ -64,7 +65,7 @@ namespace Cadru.AspNetCore.Http
         }
 
         /// <inheritdoc/>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
+        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public virtual string SerializeRequest(HttpRequestMessage request)
         {
             string result;
@@ -87,7 +88,7 @@ namespace Cadru.AspNetCore.Http
         }
 
         /// <inheritdoc/>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
+        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public virtual async Task<string> SerializeResponseAsync(HttpResponse? response, MemoryStream responseStream)
         {
             string? result = null;
@@ -123,7 +124,7 @@ namespace Cadru.AspNetCore.Http
         }
 
         /// <inheritdoc/>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
+        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public virtual async Task<string> SerializeResponseAsync(HttpResponseMessage? response)
         {
             string? result = null;
@@ -194,7 +195,7 @@ namespace Cadru.AspNetCore.Http
         /// <exception cref="InvalidOperationException">
         /// The reader is currently in use by a previous read operation..
         /// </exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>")]
+        [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>")]
         protected async Task<string> ReadToEndAsync(MemoryStream stream)
         {
             stream.Seek(0, SeekOrigin.Begin);

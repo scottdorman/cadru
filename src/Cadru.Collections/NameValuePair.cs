@@ -21,6 +21,7 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 using Cadru.Extensions;
@@ -67,7 +68,7 @@ namespace Cadru.Collections
         /// <see langword="true"/> if left and right do note represent the same
         /// server; otherwise <see langword="false"/>.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
         public static bool operator !=(NameValuePair<TValue> left, NameValuePair<TValue> right)
         {
             return !left.Equals(right);
@@ -83,7 +84,7 @@ namespace Cadru.Collections
         /// <see langword="true"/> if left and right represent the same server;
         /// otherwise <see langword="false"/>.
         /// </returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
         public static bool operator ==(NameValuePair<TValue> left, NameValuePair<TValue> right)
         {
             return left.Equals(right);
@@ -106,7 +107,7 @@ namespace Cadru.Collections
         /// <see cref="NameValuePair{TValue}.Equals(object)"/> method because it
         /// does not have to convert the other parameter to an object.
         /// </remarks>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0049:Use framework type", Justification = "<Pending>")]
+        [SuppressMessage("Style", "IDE0049:Use framework type", Justification = "<Pending>")]
         public bool Equals(NameValuePair<TValue> other)
         {
             if (other.Key != this.Key)

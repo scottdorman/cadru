@@ -23,6 +23,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Net;
 
 namespace Cadru.Net.NetworkInformation.Collections
@@ -43,7 +44,7 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// Represents an instance of <see cref="IPAddressComparer"/>.
         /// </summary>
         /// <value>The default <see cref="IPAddressComparer"/></value>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer Default => new IPAddressComparer();
 
         /// <inheritdoc/>

@@ -20,6 +20,7 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 
@@ -59,7 +60,7 @@ namespace Cadru.Extensions.FileProviders.Internal
             return path.IndexOfAny(_invalidFileNameChars) != -1;
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Minor Code Smell", "S3626:Jump statements should not be redundant", Justification = "This is identical to the implementation in https://github.com/dotnet/runtime/tree/master/src/libraries/Microsoft.Extensions.FileProviders.Physical/src/Internal")]
+        [SuppressMessage("Minor Code Smell", "S3626:Jump statements should not be redundant", Justification = "This is identical to the implementation in https://github.com/dotnet/runtime/tree/master/src/libraries/Microsoft.Extensions.FileProviders.Physical/src/Internal")]
         internal static bool PathNavigatesAboveRoot(string path)
         {
             var tokenizer = new StringTokenizer(path, _pathSeparators);
