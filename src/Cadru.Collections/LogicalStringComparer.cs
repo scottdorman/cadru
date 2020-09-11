@@ -26,7 +26,6 @@ using System.Collections.Generic;
 using System.Globalization;
 
 using Cadru.Collections.Resources;
-using Cadru.Extensions;
 using Cadru.Internal;
 
 namespace Cadru.Collections
@@ -60,7 +59,6 @@ namespace Cadru.Collections
     [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
     public sealed class LogicalStringComparer : IComparer, IEqualityComparer, IComparer<string>, IEqualityComparer<string>
     {
-        private static LogicalStringComparer defaultInvariant;
         private readonly CultureInfo cultureInfo;
 
         /// <summary>
@@ -149,18 +147,7 @@ namespace Cadru.Collections
         /// and Localization</see>.
         /// </remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
-        public static IComparer DefaultInvariant
-        {
-            get
-            {
-                if (defaultInvariant.IsNull())
-                {
-                    defaultInvariant = new LogicalStringComparer(CultureInfo.InvariantCulture);
-                }
-
-                return defaultInvariant;
-            }
-        }
+        public static IComparer DefaultInvariant => new LogicalStringComparer(CultureInfo.InvariantCulture);
 
         /// <summary>
         /// Performs a case-insensitive comparison of two string objects and
@@ -198,25 +185,35 @@ namespace Cadru.Collections
         /// </returns>
         public int Compare(object x, object y)
         {
-            var left = x as string;
-            var right = y as string;
-
             int result;
-            if (String.IsNullOrEmpty(left) && String.IsNullOrEmpty(right))
+
+            if (x is string left && y is string right)
             {
-                return 0;
-            }
-            else if (String.IsNullOrEmpty(left))
-            {
-                return -1;
-            }
-            else if (String.IsNullOrEmpty(right))
-            {
-                return 1;
+                if (String.IsNullOrEmpty(left) && String.IsNullOrEmpty(right))
+                {
+                    result = 0;
+                }
+                else if (String.IsNullOrEmpty(left))
+                {
+                    result = -1;
+                }
+                else if (String.IsNullOrEmpty(right))
+                {
+                    result = 1;
+                }
+                else
+                {
+                    result = this.Compare(left, right);
+                }
             }
             else
             {
-                result = this.Compare(left, right);
+                result = x switch
+                {
+                    null when y is null => 0,
+                    null => -1,
+                    _ => 1
+                };
             }
 
             return result;
@@ -415,19 +412,12 @@ namespace Cadru.Collections
         {
             Contracts.Requires.NotNull(obj, nameof(obj));
 
-            int hashCode;
-            var s1 = obj as string;
-
-            if (s1.IsNull())
+            if (obj is string s1)
             {
-                throw ExceptionBuilder.CreateArgumentException("obj", Strings.Argument_MustBeString);
-            }
-            else
-            {
-                hashCode = s1.GetHashCode();
+                return s1.GetHashCode();
             }
 
-            return hashCode;
+            throw ExceptionBuilder.CreateArgumentException(nameof(obj), Strings.Argument_MustBeString);
         }
 
         /// <summary>

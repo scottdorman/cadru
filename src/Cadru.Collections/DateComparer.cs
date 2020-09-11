@@ -37,7 +37,6 @@ namespace Cadru.Collections
     /// </summary>
     public sealed class DateComparer : IComparer, IEqualityComparer, IComparer<DateTime>, IEqualityComparer<DateTime>, IComparer<string>, IEqualityComparer<string>
     {
-        private static DateComparer defaultInvariant;
         private readonly CultureInfo cultureInfo;
 
         /// <summary>
@@ -124,18 +123,7 @@ namespace Cadru.Collections
         /// and Localization</see>.
         /// </remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
-        public static IComparer DefaultInvariant
-        {
-            get
-            {
-                if (defaultInvariant.IsNull())
-                {
-                    defaultInvariant = new DateComparer(CultureInfo.InvariantCulture);
-                }
-
-                return defaultInvariant;
-            }
-        }
+        public static IComparer DefaultInvariant => new DateComparer(CultureInfo.InvariantCulture);
 
         /// <summary>
         /// Performs a comparison of two <see cref="DateTime"/> objects and
@@ -197,25 +185,35 @@ namespace Cadru.Collections
         /// </returns>
         public int Compare(object x, object y)
         {
-            var left = x as string;
-            var right = y as string;
-
             int result;
-            if (String.IsNullOrEmpty(left) && String.IsNullOrEmpty(right))
+
+            if (x is string left && y is string right)
             {
-                result = 0;
-            }
-            else if (String.IsNullOrEmpty(left))
-            {
-                result = -1;
-            }
-            else if (String.IsNullOrEmpty(right))
-            {
-                result = 1;
+                if (String.IsNullOrEmpty(left) && String.IsNullOrEmpty(right))
+                {
+                    result = 0;
+                }
+                else if (String.IsNullOrEmpty(left))
+                {
+                    result = -1;
+                }
+                else if (String.IsNullOrEmpty(right))
+                {
+                    result = 1;
+                }
+                else
+                {
+                    result = this.Compare(left, right);
+                }
             }
             else
             {
-                result = this.Compare(left, right);
+                result = x switch
+                {
+                    null when y is null => 0,
+                    null => -1,
+                    _ => 1
+                };
             }
 
             return result;
@@ -251,9 +249,6 @@ namespace Cadru.Collections
         /// <remarks>The strings should be a valid date time format.</remarks>
         public int Compare(string x, string y)
         {
-            Contracts.Requires.NotNull(x, nameof(x));
-            Contracts.Requires.NotNull(y, nameof(y));
-
             if (!DateTime.TryParse(x, this.cultureInfo, DateTimeStyles.None, out var t1))
             {
                 throw ExceptionBuilder.CreateFormatException(Strings.Format_BadDateTime);

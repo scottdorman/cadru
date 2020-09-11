@@ -94,6 +94,7 @@ namespace Cadru.Collections
         /// </returns>
         public override int Compare(T x, T y)
         {
+            // This intentionally reverses the order of the comparison parameters.
             return this.comparison(y, x);
         }
     }

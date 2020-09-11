@@ -48,7 +48,7 @@ namespace Cadru.Collections
     /// </summary>
     /// <typeparam name="TKey">The type of the key.</typeparam>
     /// <typeparam name="TValue">The type of the value.</typeparam>
-    public class MultiValueDictionary<TKey, TValue> :
+    public partial class MultiValueDictionary<TKey, TValue> :
         IReadOnlyDictionary<TKey, IReadOnlyCollection<TValue>>
     {
         private readonly Dictionary<TKey, InnerCollectionView> _dictionary;
@@ -169,7 +169,7 @@ namespace Cadru.Collections
         /// If <paramref name="comparer"/> is set to null, then the default
         /// <see cref="IEqualityComparer"/> for <typeparamref name="TKey"/> is used.
         /// </remarks>
-        public MultiValueDictionary(IEnumerable<KeyValuePair<TKey, IReadOnlyCollection<TValue>>> enumerable, IEqualityComparer<TKey> comparer)
+        public MultiValueDictionary(IEnumerable<KeyValuePair<TKey, IReadOnlyCollection<TValue>>> enumerable, IEqualityComparer<TKey>? comparer)
         {
             Requires.NotNull(enumerable, nameof(enumerable));
 
@@ -1213,154 +1213,6 @@ namespace Cadru.Collections
             var success = this._dictionary.TryGetValue(key, out var collection);
             value = collection;
             return success;
-        }
-
-        private class Enumerator :
-            IEnumerator<KeyValuePair<TKey, IReadOnlyCollection<TValue>>>
-        {
-            private readonly MultiValueDictionary<TKey, TValue> _multiValueDictionary;
-            private readonly int _version;
-            private Dictionary<TKey, InnerCollectionView>.Enumerator _enumerator;
-            private EnumerationState _state;
-
-            /// <summary>
-            /// Constructor for the enumerator
-            /// </summary>
-            /// <param name="multiValueDictionary">
-            /// A MultiValueDictionary to iterate over
-            /// </param>
-            internal Enumerator(MultiValueDictionary<TKey, TValue> multiValueDictionary)
-            {
-                this._multiValueDictionary = multiValueDictionary;
-                this._version = multiValueDictionary._version;
-                this._enumerator = multiValueDictionary._dictionary.GetEnumerator();
-                this._state = EnumerationState.BeforeFirst;
-                this.Current = default;
-            }
-
-            private enum EnumerationState
-            {
-                BeforeFirst,
-                During,
-                AfterLast
-            }
-
-            public KeyValuePair<TKey, IReadOnlyCollection<TValue>> Current { get; private set; }
-
-            object IEnumerator.Current
-            {
-                get
-                {
-                    switch (this._state)
-                    {
-                        case EnumerationState.BeforeFirst:
-                            throw new InvalidOperationException((Strings.InvalidOperation_EnumNotStarted));
-                        case EnumerationState.AfterLast:
-                            throw new InvalidOperationException((Strings.InvalidOperation_EnumEnded));
-                        default:
-                            return this.Current;
-                    }
-                }
-            }
-
-            /// <summary>
-            /// Frees resources associated with this Enumerator
-            /// </summary>
-            public void Dispose() => this._enumerator.Dispose();
-
-            /// <summary>
-            /// Advances the enumerator to the next element of the collection.
-            /// </summary>
-            /// <returns>
-            /// true if the enumerator was successfully advanced to the next
-            /// element; false if the enumerator has passed the end of the collection.
-            /// </returns>
-            /// <exception cref="T:System.InvalidOperationException">
-            /// The collection was modified after the enumerator was created.
-            /// </exception>
-            public bool MoveNext()
-            {
-                if (this._version != this._multiValueDictionary._version)
-                {
-                    throw new InvalidOperationException(Strings.InvalidOperation_EnumFailedVersion);
-                }
-
-                if (this._enumerator.MoveNext())
-                {
-                    this.Current = new KeyValuePair<TKey, IReadOnlyCollection<TValue>>(this._enumerator.Current.Key, this._enumerator.Current.Value);
-                    this._state = EnumerationState.During;
-                    return true;
-                }
-
-                this.Current = default;
-                this._state = EnumerationState.AfterLast;
-                return false;
-            }
-
-            /// <summary>
-            /// Sets the enumerator to its initial position, which is before the
-            /// first element in the collection.
-            /// </summary>
-            /// <exception cref="T:System.InvalidOperationException">
-            /// The collection was modified after the enumerator was created.
-            /// </exception>
-            public void Reset()
-            {
-                if (this._version != this._multiValueDictionary._version)
-                {
-                    throw new InvalidOperationException(Strings.InvalidOperation_EnumFailedVersion);
-                }
-
-                this._enumerator.Dispose();
-                this._enumerator = this._multiValueDictionary._dictionary.GetEnumerator();
-                this.Current = default;
-                this._state = EnumerationState.BeforeFirst;
-            }
-        }
-
-        private class InnerCollectionView :
-            ICollection<TValue>,
-            IReadOnlyCollection<TValue>
-        {
-            private readonly ICollection<TValue> _collection;
-
-            public InnerCollectionView(TKey key, ICollection<TValue> collection)
-            {
-                this.Key = key;
-                this._collection = collection;
-            }
-
-            public int Count => this._collection.Count;
-
-            public bool IsReadOnly => true;
-
-            public TKey Key { get; }
-
-            void ICollection<TValue>.Add(TValue item) => throw new NotSupportedException(Strings.ReadOnly_Modification);
-
-            public void AddValue(TValue item) => this._collection.Add(item);
-
-            void ICollection<TValue>.Clear() => throw new NotSupportedException(Strings.ReadOnly_Modification);
-
-            public bool Contains(TValue item) => this._collection.Contains(item);
-
-            public void CopyTo(TValue[] array, int arrayIndex)
-            {
-                Requires.NotNull(array, nameof(array));
-                Requires.IsTrue(arrayIndex >= 0, nameof(arrayIndex), Strings.ArgumentOutOfRange_NeedNonNegNum);
-                Requires.IsTrue(arrayIndex <= array.Length, nameof(arrayIndex), Strings.ArgumentOutOfRange_Index);
-                Requires.IsTrue(array.Length - arrayIndex >= this._collection.Count, nameof(arrayIndex), Strings.CopyTo_ArgumentsTooSmall);
-
-                this._collection.CopyTo(array, arrayIndex);
-            }
-
-            public IEnumerator<TValue> GetEnumerator() => this._collection.GetEnumerator();
-
-            IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
-
-            bool ICollection<TValue>.Remove(TValue item) => throw new NotSupportedException(Strings.ReadOnly_Modification);
-
-            public bool RemoveValue(TValue item) => this._collection.Remove(item);
         }
     }
 }

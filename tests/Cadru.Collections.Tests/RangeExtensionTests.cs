@@ -46,6 +46,15 @@ namespace Cadru.Collections.Tests
             Assert.IsTrue(new ulong[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }.SequenceEqual(new Range<ulong>(0, 9).SetDefaultEnumerator()));
             Assert.IsTrue(new DateTime[] { new DateTime(2015, 11, 7), new DateTime(2015, 11, 8), new DateTime(2015, 11, 9), new DateTime(2015, 11, 10), new DateTime(2015, 11, 11) }.SequenceEqual(new Range<DateTime>(new DateTime(2015, 11, 7), new DateTime(2015, 11, 11)).SetDefaultEnumerator()));
             Assert.IsTrue(new DateTimeOffset[] { new DateTime(2015, 11, 7), new DateTime(2015, 11, 8), new DateTime(2015, 11, 9), new DateTime(2015, 11, 10), new DateTime(2015, 11, 11) }.SequenceEqual(new Range<DateTimeOffset>(new DateTime(2015, 11, 7), new DateTime(2015, 11, 11)).SetDefaultEnumerator()));
+
+
+            Assert.AreEqual(5, new Range<char>('a', 'e').SetDefaultEnumerator().Count());
+            Assert.AreNotEqual(4, new Range<char>('a', 'e').SetDefaultEnumerator().Count());
+            Assert.AreNotEqual(6, new Range<char>('a', 'e').SetDefaultEnumerator().Count());
+
+            Assert.AreEqual(10, new Range<int>(0, 9).SetDefaultEnumerator().Count());
+            Assert.AreNotEqual(11, new Range<int>(0, 9).SetDefaultEnumerator().Count());
+            Assert.AreNotEqual(9, new Range<int>(0, 9).SetDefaultEnumerator().Count());
         }
 
         [TestMethod]

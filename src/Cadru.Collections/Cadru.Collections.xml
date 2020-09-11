@@ -1498,40 +1498,6 @@
             <paramref name="key"/> must be non-null
             </exception>
         </member>
-        <member name="M:Cadru.Collections.MultiValueDictionary`2.Enumerator.#ctor(Cadru.Collections.MultiValueDictionary{`0,`1})">
-            <summary>
-            Constructor for the enumerator
-            </summary>
-            <param name="multiValueDictionary">
-            A MultiValueDictionary to iterate over
-            </param>
-        </member>
-        <member name="M:Cadru.Collections.MultiValueDictionary`2.Enumerator.Dispose">
-            <summary>
-            Frees resources associated with this Enumerator
-            </summary>
-        </member>
-        <member name="M:Cadru.Collections.MultiValueDictionary`2.Enumerator.MoveNext">
-            <summary>
-            Advances the enumerator to the next element of the collection.
-            </summary>
-            <returns>
-            true if the enumerator was successfully advanced to the next
-            element; false if the enumerator has passed the end of the collection.
-            </returns>
-            <exception cref="T:System.InvalidOperationException">
-            The collection was modified after the enumerator was created.
-            </exception>
-        </member>
-        <member name="M:Cadru.Collections.MultiValueDictionary`2.Enumerator.Reset">
-            <summary>
-            Sets the enumerator to its initial position, which is before the
-            first element in the collection.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">
-            The collection was modified after the enumerator was created.
-            </exception>
-        </member>
         <member name="T:Cadru.Collections.NameValuePair`1">
             <summary>
             Defines a key/value pair that can be set or retrieved.

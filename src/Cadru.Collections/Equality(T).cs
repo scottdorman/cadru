@@ -60,7 +60,7 @@ namespace Cadru.Collections
         /// </param>
         /// <returns>An instance of an <see cref="EqualityComparer{T}"/>.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
-        public static IEqualityComparer<TSource> CreateComparer<TKey>(Func<TSource, TKey> keySelector, IEqualityComparer<TKey> comparer)
+        public static IEqualityComparer<TSource> CreateComparer<TKey>(Func<TSource, TKey> keySelector, IEqualityComparer<TKey>? comparer)
         {
             return new KeyEqualityComparer<TKey>(keySelector, comparer);
         }
@@ -70,7 +70,7 @@ namespace Cadru.Collections
             private readonly IEqualityComparer<V> comparer;
             private readonly Func<TSource, V> keySelector;
 
-            public KeyEqualityComparer(Func<TSource, V> keySelector, IEqualityComparer<V> comparer)
+            public KeyEqualityComparer(Func<TSource, V> keySelector, IEqualityComparer<V>? comparer)
             {
                 Requires.NotNull(keySelector, nameof(keySelector));
 

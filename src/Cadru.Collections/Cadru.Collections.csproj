@@ -1,6 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
     <Description>Provides additional collection classes and extensions.</Description>
     <PackageTags>$(CommonPackageTags) collections logical natural string comparison date comparison comparer</PackageTags>
   </PropertyGroup>

@@ -93,8 +93,8 @@ namespace Cadru.Collections.Tests
             ExceptionAssert.Throws<FormatException>(() => comparer.Compare("abc123", "10/31/2006"));
             ExceptionAssert.Throws<FormatException>(() => comparer.Compare("10/31/2006", String.Empty));
             ExceptionAssert.Throws<FormatException>(() => comparer.Compare(String.Empty, "10/31/2006"));
-            ExceptionAssert.Throws<ArgumentNullException>(() => comparer.Compare("10/31/2006", null));
-            ExceptionAssert.Throws<ArgumentNullException>(() => comparer.Compare(null, "10/31/2006"));
+            ExceptionAssert.Throws<FormatException>(() => comparer.Compare("10/31/2006", null));
+            ExceptionAssert.Throws<FormatException>(() => comparer.Compare(null, "10/31/2006"));
         }
 
         [TestMethod]
@@ -150,8 +150,8 @@ namespace Cadru.Collections.Tests
             ExceptionAssert.Throws<FormatException>(() => comparer.Compare("abc123", "10/31/2006"));
             ExceptionAssert.Throws<FormatException>(() => comparer.Compare("10/31/2006", String.Empty));
             ExceptionAssert.Throws<FormatException>(() => comparer.Compare(String.Empty, "10/31/2006"));
-            ExceptionAssert.Throws<ArgumentNullException>(() => comparer.Compare("10/31/2006", null)).WithParameter("y");
-            ExceptionAssert.Throws<ArgumentNullException>(() => comparer.Compare(null, "10/31/2006")).WithParameter("x");
+            ExceptionAssert.Throws<FormatException>(() => comparer.Compare("10/31/2006", null));
+            ExceptionAssert.Throws<FormatException>(() => comparer.Compare(null, "10/31/2006"));
 
             ExceptionAssert.Throws<ArgumentNullException>(() => new DateComparer(null));
         }
