@@ -30,16 +30,22 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Cadru.Core.Extensions.Tests
 {
     [TestClass, ExcludeFromCodeCoverage]
-    public class Tests
+    public class NumericExtensionsTests
     {
         [TestMethod]
         public void Between()
         {
-            Assert.IsTrue(((byte)5).Between((byte)5, (byte)10));
-            Assert.IsTrue(((byte)10).Between((byte)5, (byte)10));
+            Assert.IsFalse(((byte)5).Between((byte)5, (byte)10));
+            Assert.IsFalse(((byte)10).Between((byte)5, (byte)10));
             Assert.IsTrue(((byte)6).Between((byte)5, (byte)10));
             Assert.IsFalse(((byte)4).Between((byte)5, (byte)10));
             Assert.IsFalse(((byte)11).Between((byte)5, (byte)10));
+
+            Assert.IsTrue(((byte)5).Between((byte)5, (byte)10, NumericComparisonOptions.IncludeBoth));
+            Assert.IsTrue(((byte)10).Between((byte)5, (byte)10, NumericComparisonOptions.IncludeBoth));
+            Assert.IsTrue(((byte)6).Between((byte)5, (byte)10, NumericComparisonOptions.IncludeBoth));
+            Assert.IsFalse(((byte)4).Between((byte)5, (byte)10, NumericComparisonOptions.IncludeBoth));
+            Assert.IsFalse(((byte)11).Between((byte)5, (byte)10, NumericComparisonOptions.IncludeBoth));
 
             Assert.IsFalse(((byte)5).Between((byte)5, (byte)10, NumericComparisonOptions.IncludeMaximum));
             Assert.IsTrue(((byte)10).Between((byte)5, (byte)10, NumericComparisonOptions.IncludeMaximum));
@@ -59,11 +65,17 @@ namespace Cadru.Core.Extensions.Tests
             Assert.IsFalse(((byte)4).Between((byte)5, (byte)10, NumericComparisonOptions.None));
             Assert.IsFalse(((byte)11).Between((byte)5, (byte)10, NumericComparisonOptions.None));
 
-            Assert.IsTrue(5m.Between(5m, 10m));
-            Assert.IsTrue(10m.Between(5m, 10m));
+            Assert.IsFalse(5m.Between(5m, 10m));
+            Assert.IsFalse(10m.Between(5m, 10m));
             Assert.IsTrue(6m.Between(5m, 10m));
             Assert.IsFalse(4m.Between(5m, 10m));
             Assert.IsFalse(11m.Between(5m, 10m));
+
+            Assert.IsTrue(5m.Between(5m, 10m, NumericComparisonOptions.IncludeBoth));
+            Assert.IsTrue(10m.Between(5m, 10m, NumericComparisonOptions.IncludeBoth));
+            Assert.IsTrue(6m.Between(5m, 10m, NumericComparisonOptions.IncludeBoth));
+            Assert.IsFalse(4m.Between(5m, 10m, NumericComparisonOptions.IncludeBoth));
+            Assert.IsFalse(11m.Between(5m, 10m, NumericComparisonOptions.IncludeBoth));
 
             Assert.IsFalse(5m.Between(5m, 10m, NumericComparisonOptions.IncludeMaximum));
             Assert.IsTrue(10m.Between(5m, 10m, NumericComparisonOptions.IncludeMaximum));
@@ -83,11 +95,17 @@ namespace Cadru.Core.Extensions.Tests
             Assert.IsFalse(4m.Between(5m, 10m, NumericComparisonOptions.None));
             Assert.IsFalse(11m.Between(5m, 10m, NumericComparisonOptions.None));
 
-            Assert.IsTrue(5d.Between(5d, 10d));
-            Assert.IsTrue(10d.Between(5d, 10d));
+            Assert.IsFalse(5d.Between(5d, 10d));
+            Assert.IsFalse(10d.Between(5d, 10d));
             Assert.IsTrue(6d.Between(5d, 10d));
             Assert.IsFalse(4d.Between(5d, 10d));
             Assert.IsFalse(11d.Between(5d, 10d));
+
+            Assert.IsTrue(5d.Between(5d, 10d, NumericComparisonOptions.IncludeBoth));
+            Assert.IsTrue(10d.Between(5d, 10d, NumericComparisonOptions.IncludeBoth));
+            Assert.IsTrue(6d.Between(5d, 10d, NumericComparisonOptions.IncludeBoth));
+            Assert.IsFalse(4d.Between(5d, 10d, NumericComparisonOptions.IncludeBoth));
+            Assert.IsFalse(11d.Between(5d, 10d, NumericComparisonOptions.IncludeBoth));
 
             Assert.IsFalse(5d.Between(5d, 10d, NumericComparisonOptions.IncludeMaximum));
             Assert.IsTrue(10d.Between(5d, 10d, NumericComparisonOptions.IncludeMaximum));
@@ -107,11 +125,17 @@ namespace Cadru.Core.Extensions.Tests
             Assert.IsFalse(4d.Between(5d, 10d, NumericComparisonOptions.None));
             Assert.IsFalse(11d.Between(5d, 10d, NumericComparisonOptions.None));
 
-            Assert.IsTrue(5f.Between(5f, 10f));
-            Assert.IsTrue(10f.Between(5f, 10f));
+            Assert.IsFalse(5f.Between(5f, 10f));
+            Assert.IsFalse(10f.Between(5f, 10f));
             Assert.IsTrue(6f.Between(5f, 10f));
             Assert.IsFalse(4f.Between(5f, 10f));
             Assert.IsFalse(11f.Between(5f, 10f));
+
+            Assert.IsTrue(5f.Between(5f, 10f, NumericComparisonOptions.IncludeBoth));
+            Assert.IsTrue(10f.Between(5f, 10f, NumericComparisonOptions.IncludeBoth));
+            Assert.IsTrue(6f.Between(5f, 10f, NumericComparisonOptions.IncludeBoth));
+            Assert.IsFalse(4f.Between(5f, 10f, NumericComparisonOptions.IncludeBoth));
+            Assert.IsFalse(11f.Between(5f, 10f, NumericComparisonOptions.IncludeBoth));
 
             Assert.IsFalse(5f.Between(5f, 10f, NumericComparisonOptions.IncludeMaximum));
             Assert.IsTrue(10f.Between(5f, 10f, NumericComparisonOptions.IncludeMaximum));
@@ -131,11 +155,17 @@ namespace Cadru.Core.Extensions.Tests
             Assert.IsFalse(4f.Between(5f, 10f, NumericComparisonOptions.None));
             Assert.IsFalse(11f.Between(5f, 10f, NumericComparisonOptions.None));
 
-            Assert.IsTrue(5.Between(5, 10));
-            Assert.IsTrue(10.Between(5, 10));
+            Assert.IsFalse(5.Between(5, 10));
+            Assert.IsFalse(10.Between(5, 10));
             Assert.IsTrue(6.Between(5, 10));
             Assert.IsFalse(4.Between(5, 10));
             Assert.IsFalse(11.Between(5, 10));
+
+            Assert.IsTrue(5.Between(5, 10, NumericComparisonOptions.IncludeBoth));
+            Assert.IsTrue(10.Between(5, 10, NumericComparisonOptions.IncludeBoth));
+            Assert.IsTrue(6.Between(5, 10, NumericComparisonOptions.IncludeBoth));
+            Assert.IsFalse(4.Between(5, 10, NumericComparisonOptions.IncludeBoth));
+            Assert.IsFalse(11.Between(5, 10, NumericComparisonOptions.IncludeBoth));
 
             Assert.IsFalse(5.Between(5, 10, NumericComparisonOptions.IncludeMaximum));
             Assert.IsTrue(10.Between(5, 10, NumericComparisonOptions.IncludeMaximum));
@@ -155,11 +185,17 @@ namespace Cadru.Core.Extensions.Tests
             Assert.IsFalse(4.Between(5, 10, NumericComparisonOptions.None));
             Assert.IsFalse(11.Between(5, 10, NumericComparisonOptions.None));
 
-            Assert.IsTrue(5L.Between(5L, 10L));
-            Assert.IsTrue(10L.Between(5L, 10L));
+            Assert.IsFalse(5L.Between(5L, 10L));
+            Assert.IsFalse(10L.Between(5L, 10L));
             Assert.IsTrue(6L.Between(5L, 10L));
             Assert.IsFalse(4L.Between(5L, 10L));
             Assert.IsFalse(11L.Between(5L, 10L));
+
+            Assert.IsTrue(5L.Between(5L, 10L, NumericComparisonOptions.IncludeBoth));
+            Assert.IsTrue(10L.Between(5L, 10L, NumericComparisonOptions.IncludeBoth));
+            Assert.IsTrue(6L.Between(5L, 10L, NumericComparisonOptions.IncludeBoth));
+            Assert.IsFalse(4L.Between(5L, 10L, NumericComparisonOptions.IncludeBoth));
+            Assert.IsFalse(11L.Between(5L, 10L, NumericComparisonOptions.IncludeBoth));
 
             Assert.IsFalse(5L.Between(5L, 10L, NumericComparisonOptions.IncludeMaximum));
             Assert.IsTrue(10L.Between(5L, 10L, NumericComparisonOptions.IncludeMaximum));
@@ -179,11 +215,17 @@ namespace Cadru.Core.Extensions.Tests
             Assert.IsFalse(4L.Between(5L, 10L, NumericComparisonOptions.None));
             Assert.IsFalse(11L.Between(5L, 10L, NumericComparisonOptions.None));
 
-            Assert.IsTrue(((short)5).Between((short)5, (short)10));
-            Assert.IsTrue(((short)10).Between((short)5, (short)10));
+            Assert.IsFalse(((short)5).Between((short)5, (short)10));
+            Assert.IsFalse(((short)10).Between((short)5, (short)10));
             Assert.IsTrue(((short)6).Between((short)5, (short)10));
             Assert.IsFalse(((short)4).Between((short)5, (short)10));
             Assert.IsFalse(((short)11).Between((short)5, (short)10));
+
+            Assert.IsTrue(((short)5).Between((short)5, (short)10, NumericComparisonOptions.IncludeBoth));
+            Assert.IsTrue(((short)10).Between((short)5, (short)10, NumericComparisonOptions.IncludeBoth));
+            Assert.IsTrue(((short)6).Between((short)5, (short)10, NumericComparisonOptions.IncludeBoth));
+            Assert.IsFalse(((short)4).Between((short)5, (short)10, NumericComparisonOptions.IncludeBoth));
+            Assert.IsFalse(((short)11).Between((short)5, (short)10, NumericComparisonOptions.IncludeBoth));
 
             Assert.IsFalse(((short)5).Between((short)5, (short)10, NumericComparisonOptions.IncludeMaximum));
             Assert.IsTrue(((short)10).Between((short)5, (short)10, NumericComparisonOptions.IncludeMaximum));

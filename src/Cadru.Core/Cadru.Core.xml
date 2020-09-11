@@ -1145,6 +1145,80 @@
             </summary>
             <returns>A 16-element byte array.</returns>
         </member>
+        <member name="T:Cadru.ConstrainedNumeric`1">
+            <summary>
+            Represents a type whose value is constrained to be within an upper and lower bound.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cadru.ConstrainedNumeric`1.#ctor(`0,`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.ConstrainedNumeric`1"/> structure.
+            </summary>
+            <param name="lowerBound">The lower bound of the constraint.</param>
+            <param name="upperBound">The upper bound of the constraint. </param>
+        </member>
+        <member name="P:Cadru.ConstrainedNumeric`1.LowerBound">
+            <summary>
+            Gets the lower bound of the constraint.
+            </summary>
+        </member>
+        <member name="P:Cadru.ConstrainedNumeric`1.UpperBound">
+            <summary>
+            Gets the upper bound of the constraint.
+            </summary>
+        </member>
+        <member name="P:Cadru.ConstrainedNumeric`1.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+        </member>
+        <member name="M:Cadru.ConstrainedNumeric`1.op_Implicit(Cadru.ConstrainedNumeric{`0})~`0">
+            <summary>
+            Defines an implicit conversion from <see cref="T:Cadru.ConstrainedNumeric`1"/> to <typeparamref name="T"/>.
+            </summary>
+            <param name="constrainedNumeric">The object to convert.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="M:Cadru.ConstrainedNumeric`1.op_Inequality(Cadru.ConstrainedNumeric{`0},Cadru.ConstrainedNumeric{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.ConstrainedNumeric`1.op_LessThan(Cadru.ConstrainedNumeric{`0},Cadru.ConstrainedNumeric{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.ConstrainedNumeric`1.op_LessThanOrEqual(Cadru.ConstrainedNumeric{`0},Cadru.ConstrainedNumeric{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.ConstrainedNumeric`1.op_Equality(Cadru.ConstrainedNumeric{`0},Cadru.ConstrainedNumeric{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.ConstrainedNumeric`1.op_GreaterThan(Cadru.ConstrainedNumeric{`0},Cadru.ConstrainedNumeric{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.ConstrainedNumeric`1.op_GreaterThanOrEqual(Cadru.ConstrainedNumeric{`0},Cadru.ConstrainedNumeric{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.ConstrainedNumeric`1.CompareTo(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.ConstrainedNumeric`1.CompareTo(Cadru.ConstrainedNumeric{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.ConstrainedNumeric`1.CompareTo(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.ConstrainedNumeric`1.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.ConstrainedNumeric`1.Equals(Cadru.ConstrainedNumeric{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.ConstrainedNumeric`1.Equals(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.ConstrainedNumeric`1.GetHashCode">
+            <inheritdoc/>
+        </member>
         <member name="T:Cadru.Diagnostics.Extensions">
             <summary>
             Provides extension methods to simplify diagnostics.
@@ -3854,6 +3928,171 @@
             Between returns <see langword="true"/> if
             <paramref name="expression"/> is greater than the minimum value but
             less than the maximum value; otherwise it returns <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="M:Cadru.Extensions.NumericExtensions.Clamp(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+            </summary>
+            <param name="value">The value to be clamped.</param>
+            <param name="min">The lower bound of the result.</param>
+            <param name="max">The upper bound of the result.</param>
+            <returns>
+            <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+            <para>-or-</para>
+            <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+            <para>-or-</para>
+            <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+            </returns>
+        </member>
+        <member name="M:Cadru.Extensions.NumericExtensions.Clamp(System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+            </summary>
+            <param name="value">The value to be clamped.</param>
+            <param name="min">The lower bound of the result.</param>
+            <param name="max">The upper bound of the result.</param>
+            <returns>
+            <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+            <para>-or-</para>
+            <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+            <para>-or-</para>
+            <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+            </returns>
+        </member>
+        <member name="M:Cadru.Extensions.NumericExtensions.Clamp(System.Double,System.Double,System.Double)">
+            <summary>
+            Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+            </summary>
+            <param name="value">The value to be clamped.</param>
+            <param name="min">The lower bound of the result.</param>
+            <param name="max">The upper bound of the result.</param>
+            <returns>
+            <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+            <para>-or-</para>
+            <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+            <para>-or-</para>
+            <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+            </returns>
+        </member>
+        <member name="M:Cadru.Extensions.NumericExtensions.Clamp(System.Int16,System.Int16,System.Int16)">
+            <summary>
+            Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+            </summary>
+            <param name="value">The value to be clamped.</param>
+            <param name="min">The lower bound of the result.</param>
+            <param name="max">The upper bound of the result.</param>
+            <returns>
+            <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+            <para>-or-</para>
+            <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+            <para>-or-</para>
+            <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+            </returns>
+        </member>
+        <member name="M:Cadru.Extensions.NumericExtensions.Clamp(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+            </summary>
+            <param name="value">The value to be clamped.</param>
+            <param name="min">The lower bound of the result.</param>
+            <param name="max">The upper bound of the result.</param>
+            <returns>
+            <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+            <para>-or-</para>
+            <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+            <para>-or-</para>
+            <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+            </returns>
+        </member>
+        <member name="M:Cadru.Extensions.NumericExtensions.Clamp(System.Int64,System.Int64,System.Int64)">
+            <summary>
+            Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+            </summary>
+            <param name="value">The value to be clamped.</param>
+            <param name="min">The lower bound of the result.</param>
+            <param name="max">The upper bound of the result.</param>
+            <returns>
+            <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+            <para>-or-</para>
+            <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+            <para>-or-</para>
+            <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+            </returns>
+        </member>
+        <member name="M:Cadru.Extensions.NumericExtensions.Clamp(System.SByte,System.SByte,System.SByte)">
+            <summary>
+            Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+            </summary>
+            <param name="value">The value to be clamped.</param>
+            <param name="min">The lower bound of the result.</param>
+            <param name="max">The upper bound of the result.</param>
+            <returns>
+            <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+            <para>-or-</para>
+            <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+            <para>-or-</para>
+            <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+            </returns>
+        </member>
+        <member name="M:Cadru.Extensions.NumericExtensions.Clamp(System.Single,System.Single,System.Single)">
+            <summary>
+            Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+            </summary>
+            <param name="value">The value to be clamped.</param>
+            <param name="min">The lower bound of the result.</param>
+            <param name="max">The upper bound of the result.</param>
+            <returns>
+            <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+            <para>-or-</para>
+            <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+            <para>-or-</para>
+            <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+            </returns>
+        </member>
+        <member name="M:Cadru.Extensions.NumericExtensions.Clamp(System.UInt16,System.UInt16,System.UInt16)">
+            <summary>
+            Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+            </summary>
+            <param name="value">The value to be clamped.</param>
+            <param name="min">The lower bound of the result.</param>
+            <param name="max">The upper bound of the result.</param>
+            <returns>
+            <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+            <para>-or-</para>
+            <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+            <para>-or-</para>
+            <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+            </returns>
+        </member>
+        <member name="M:Cadru.Extensions.NumericExtensions.Clamp(System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+            </summary>
+            <param name="value">The value to be clamped.</param>
+            <param name="min">The lower bound of the result.</param>
+            <param name="max">The upper bound of the result.</param>
+            <returns>
+            <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+            <para>-or-</para>
+            <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+            <para>-or-</para>
+            <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+            </returns>
+        </member>
+        <member name="M:Cadru.Extensions.NumericExtensions.Clamp(System.UInt64,System.UInt64,System.UInt64)">
+            <summary>
+            Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+            </summary>
+            <param name="value">The value to be clamped.</param>
+            <param name="min">The lower bound of the result.</param>
+            <param name="max">The upper bound of the result.</param>
+            <returns>
+            <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+            <para>-or-</para>
+            <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+            <para>-or-</para>
+            <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
             </returns>
         </member>
         <member name="M:Cadru.Extensions.NumericExtensions.GreaterThan(System.Byte,System.Byte)">
@@ -7935,6 +8174,11 @@
               Looks up a localized string similar to Byte array for GUID must be exactly {0} bytes long..
             </summary>
         </member>
+        <member name="P:Cadru.Resources.Strings.Arg_MustBeConstrainedNumeric">
+            <summary>
+              Looks up a localized string similar to Object must be of type ConstrainedNumeric&lt;T&gt;..
+            </summary>
+        </member>
         <member name="P:Cadru.Resources.Strings.Arg_MustBeSequentialGuid">
             <summary>
               Looks up a localized string similar to Object must be of type SequentialGuid..
@@ -7968,6 +8212,11 @@
         <member name="P:Cadru.Resources.Strings.Argument_InvalidIndexValuesString">
             <summary>
               Looks up a localized string similar to The starting index and ending index refer to the same location in the string..
+            </summary>
+        </member>
+        <member name="P:Cadru.Resources.Strings.Argument_MinMaxValue">
+            <summary>
+              Looks up a localized string similar to {0} cannot be greater than {1}..
             </summary>
         </member>
         <member name="P:Cadru.Resources.Strings.Argument_MustBeAttribute">

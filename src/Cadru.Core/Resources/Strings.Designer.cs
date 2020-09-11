@@ -89,6 +89,15 @@ namespace Cadru.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Object must be of type ConstrainedNumeric&lt;T&gt;..
+        /// </summary>
+        internal static string Arg_MustBeConstrainedNumeric {
+            get {
+                return ResourceManager.GetString("Arg_MustBeConstrainedNumeric", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Object must be of type SequentialGuid..
         /// </summary>
         internal static string Arg_MustBeSequentialGuid {
@@ -148,6 +157,15 @@ namespace Cadru.Resources {
         internal static string Argument_InvalidIndexValuesString {
             get {
                 return ResourceManager.GetString("Argument_InvalidIndexValuesString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} cannot be greater than {1}..
+        /// </summary>
+        internal static string Argument_MinMaxValue {
+            get {
+                return ResourceManager.GetString("Argument_MinMaxValue", resourceCulture);
             }
         }
         

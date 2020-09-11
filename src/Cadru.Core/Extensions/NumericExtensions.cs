@@ -21,8 +21,9 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
+using Cadru.Resources;
 using Cadru.Text;
 
 namespace Cadru.Extensions
@@ -44,9 +45,10 @@ namespace Cadru.Extensions
         /// <paramref name="expression"/> is greater than the minimum value but
         /// less than the maximum value; otherwise it returns <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Between(this byte expression, byte min, byte max)
         {
-            return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
+            return expression > min && expression < max;
         }
 
         /// <summary>
@@ -65,9 +67,16 @@ namespace Cadru.Extensions
         /// <paramref name="expression"/> is greater than the minimum value but
         /// less than the maximum value; otherwise it returns <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Between(this byte expression, byte min, byte max, NumericComparisonOptions options)
         {
-            return Between(expression, min, max, options, Comparer<byte>.Default);
+            return options switch
+            {
+                NumericComparisonOptions.IncludeBoth => expression >= min && expression <= max,
+                NumericComparisonOptions.IncludeMinimum => expression >= min && expression < max,
+                NumericComparisonOptions.IncludeMaximum => expression > min && expression <= max,
+                _ => expression > min && expression < max,
+            };
         }
 
         /// <summary>
@@ -82,9 +91,10 @@ namespace Cadru.Extensions
         /// <paramref name="expression"/> is greater than the minimum value but
         /// less than the maximum value; otherwise it returns <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Between(this decimal expression, decimal min, decimal max)
         {
-            return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
+            return expression > min && expression < max;
         }
 
         /// <summary>
@@ -103,9 +113,16 @@ namespace Cadru.Extensions
         /// <paramref name="expression"/> is greater than the minimum value but
         /// less than the maximum value; otherwise it returns <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Between(this decimal expression, decimal min, decimal max, NumericComparisonOptions options)
         {
-            return Between(expression, min, max, options, Comparer<decimal>.Default);
+            return options switch
+            {
+                NumericComparisonOptions.IncludeBoth => expression >= min && expression <= max,
+                NumericComparisonOptions.IncludeMinimum => expression >= min && expression < max,
+                NumericComparisonOptions.IncludeMaximum => expression > min && expression <= max,
+                _ => expression > min && expression < max,
+            };
         }
 
         /// <summary>
@@ -120,9 +137,10 @@ namespace Cadru.Extensions
         /// <paramref name="expression"/> is greater than the minimum value but
         /// less than the maximum value; otherwise it returns <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Between(this double expression, double min, double max)
         {
-            return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
+            return expression > min && expression < max;
         }
 
         /// <summary>
@@ -141,9 +159,16 @@ namespace Cadru.Extensions
         /// <paramref name="expression"/> is greater than the minimum value but
         /// less than the maximum value; otherwise it returns <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Between(this double expression, double min, double max, NumericComparisonOptions options)
         {
-            return Between(expression, min, max, options, Comparer<double>.Default);
+            return options switch
+            {
+                NumericComparisonOptions.IncludeBoth => expression >= min && expression <= max,
+                NumericComparisonOptions.IncludeMinimum => expression >= min && expression < max,
+                NumericComparisonOptions.IncludeMaximum => expression > min && expression <= max,
+                _ => expression > min && expression < max,
+            };
         }
 
         /// <summary>
@@ -158,9 +183,10 @@ namespace Cadru.Extensions
         /// <paramref name="expression"/> is greater than the minimum value but
         /// less than the maximum value; otherwise it returns <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Between(this short expression, short min, short max)
         {
-            return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
+            return expression > min && expression < max;
         }
 
         /// <summary>
@@ -179,9 +205,16 @@ namespace Cadru.Extensions
         /// <paramref name="expression"/> is greater than the minimum value but
         /// less than the maximum value; otherwise it returns <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Between(this short expression, short min, short max, NumericComparisonOptions options)
         {
-            return Between(expression, min, max, options, Comparer<short>.Default);
+            return options switch
+            {
+                NumericComparisonOptions.IncludeBoth => expression >= min && expression <= max,
+                NumericComparisonOptions.IncludeMinimum => expression >= min && expression < max,
+                NumericComparisonOptions.IncludeMaximum => expression > min && expression <= max,
+                _ => expression > min && expression < max,
+            };
         }
 
         /// <summary>
@@ -196,9 +229,10 @@ namespace Cadru.Extensions
         /// <paramref name="expression"/> is greater than the minimum value but
         /// less than the maximum value; otherwise it returns <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Between(this int expression, int min, int max)
         {
-            return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
+            return expression > min && expression < max;
         }
 
         /// <summary>
@@ -217,9 +251,16 @@ namespace Cadru.Extensions
         /// <paramref name="expression"/> is greater than the minimum value but
         /// less than the maximum value; otherwise it returns <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Between(this int expression, int min, int max, NumericComparisonOptions options)
         {
-            return Between(expression, min, max, options, Comparer<int>.Default);
+            return options switch
+            {
+                NumericComparisonOptions.IncludeBoth => expression >= min && expression <= max,
+                NumericComparisonOptions.IncludeMinimum => expression >= min && expression < max,
+                NumericComparisonOptions.IncludeMaximum => expression > min && expression <= max,
+                _ => expression > min && expression < max,
+            };
         }
 
         /// <summary>
@@ -234,9 +275,10 @@ namespace Cadru.Extensions
         /// <paramref name="expression"/> is greater than the minimum value but
         /// less than the maximum value; otherwise it returns <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Between(this long expression, long min, long max)
         {
-            return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
+            return expression > min && expression < max;
         }
 
         /// <summary>
@@ -255,9 +297,16 @@ namespace Cadru.Extensions
         /// <paramref name="expression"/> is greater than the minimum value but
         /// less than the maximum value; otherwise it returns <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Between(this long expression, long min, long max, NumericComparisonOptions options)
         {
-            return Between(expression, min, max, options, Comparer<long>.Default);
+            return options switch
+            {
+                NumericComparisonOptions.IncludeBoth => expression >= min && expression <= max,
+                NumericComparisonOptions.IncludeMinimum => expression >= min && expression < max,
+                NumericComparisonOptions.IncludeMaximum => expression > min && expression <= max,
+                _ => expression > min && expression < max,
+            };
         }
 
         /// <summary>
@@ -272,9 +321,10 @@ namespace Cadru.Extensions
         /// <paramref name="expression"/> is greater than the minimum value but
         /// less than the maximum value; otherwise it returns <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Between(this float expression, float min, float max)
         {
-            return Between(expression, min, max, NumericComparisonOptions.IncludeBoth);
+            return expression > min && expression < max;
         }
 
         /// <summary>
@@ -293,9 +343,379 @@ namespace Cadru.Extensions
         /// <paramref name="expression"/> is greater than the minimum value but
         /// less than the maximum value; otherwise it returns <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Between(this float expression, float min, float max, NumericComparisonOptions options)
         {
-            return Between(expression, min, max, options, Comparer<float>.Default);
+            return options switch
+            {
+                NumericComparisonOptions.IncludeBoth => expression >= min && expression <= max,
+                NumericComparisonOptions.IncludeMinimum => expression >= min && expression < max,
+                NumericComparisonOptions.IncludeMaximum => expression > min && expression <= max,
+                _ => expression > min && expression < max,
+            };
+        }
+
+        /// <summary>
+        /// Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+        /// </summary>
+        /// <param name="value">The value to be clamped.</param>
+        /// <param name="min">The lower bound of the result.</param>
+        /// <param name="max">The upper bound of the result.</param>
+        /// <returns>
+        /// <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+        /// <para>-or-</para>
+        /// <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+        /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static byte Clamp(this byte value, byte min, byte max)
+        {
+            if (min > max)
+            {
+                ThrowMinMaxException(min, max);
+            }
+
+            if (value < min)
+            {
+                return min;
+            }
+            else if (value > max)
+            {
+                return max;
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+        /// </summary>
+        /// <param name="value">The value to be clamped.</param>
+        /// <param name="min">The lower bound of the result.</param>
+        /// <param name="max">The upper bound of the result.</param>
+        /// <returns>
+        /// <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+        /// <para>-or-</para>
+        /// <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+        /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static decimal Clamp(this decimal value, decimal min, decimal max)
+        {
+            if (min > max)
+            {
+                ThrowMinMaxException(min, max);
+            }
+
+            if (value < min)
+            {
+                return min;
+            }
+            else if (value > max)
+            {
+                return max;
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+        /// </summary>
+        /// <param name="value">The value to be clamped.</param>
+        /// <param name="min">The lower bound of the result.</param>
+        /// <param name="max">The upper bound of the result.</param>
+        /// <returns>
+        /// <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+        /// <para>-or-</para>
+        /// <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+        /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double Clamp(this double value, double min, double max)
+        {
+            if (min > max)
+            {
+                ThrowMinMaxException(min, max);
+            }
+
+            if (value < min)
+            {
+                return min;
+            }
+            else if (value > max)
+            {
+                return max;
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+        /// </summary>
+        /// <param name="value">The value to be clamped.</param>
+        /// <param name="min">The lower bound of the result.</param>
+        /// <param name="max">The upper bound of the result.</param>
+        /// <returns>
+        /// <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+        /// <para>-or-</para>
+        /// <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+        /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static short Clamp(this short value, short min, short max)
+        {
+            if (min > max)
+            {
+                ThrowMinMaxException(min, max);
+            }
+
+            if (value < min)
+            {
+                return min;
+            }
+            else if (value > max)
+            {
+                return max;
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+        /// </summary>
+        /// <param name="value">The value to be clamped.</param>
+        /// <param name="min">The lower bound of the result.</param>
+        /// <param name="max">The upper bound of the result.</param>
+        /// <returns>
+        /// <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+        /// <para>-or-</para>
+        /// <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+        /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int Clamp(this int value, int min, int max)
+        {
+            if (min > max)
+            {
+                ThrowMinMaxException(min, max);
+            }
+
+            if (value < min)
+            {
+                return min;
+            }
+            else if (value > max)
+            {
+                return max;
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+        /// </summary>
+        /// <param name="value">The value to be clamped.</param>
+        /// <param name="min">The lower bound of the result.</param>
+        /// <param name="max">The upper bound of the result.</param>
+        /// <returns>
+        /// <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+        /// <para>-or-</para>
+        /// <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+        /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static long Clamp(this long value, long min, long max)
+        {
+            if (min > max)
+            {
+                ThrowMinMaxException(min, max);
+            }
+
+            if (value < min)
+            {
+                return min;
+            }
+            else if (value > max)
+            {
+                return max;
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+        /// </summary>
+        /// <param name="value">The value to be clamped.</param>
+        /// <param name="min">The lower bound of the result.</param>
+        /// <param name="max">The upper bound of the result.</param>
+        /// <returns>
+        /// <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+        /// <para>-or-</para>
+        /// <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+        /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static sbyte Clamp(this sbyte value, sbyte min, sbyte max)
+        {
+            if (min > max)
+            {
+                ThrowMinMaxException(min, max);
+            }
+
+            if (value < min)
+            {
+                return min;
+            }
+            else if (value > max)
+            {
+                return max;
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+        /// </summary>
+        /// <param name="value">The value to be clamped.</param>
+        /// <param name="min">The lower bound of the result.</param>
+        /// <param name="max">The upper bound of the result.</param>
+        /// <returns>
+        /// <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+        /// <para>-or-</para>
+        /// <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+        /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float Clamp(this float value, float min, float max)
+        {
+            if (min > max)
+            {
+                ThrowMinMaxException(min, max);
+            }
+
+            if (value < min)
+            {
+                return min;
+            }
+            else if (value > max)
+            {
+                return max;
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+        /// </summary>
+        /// <param name="value">The value to be clamped.</param>
+        /// <param name="min">The lower bound of the result.</param>
+        /// <param name="max">The upper bound of the result.</param>
+        /// <returns>
+        /// <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+        /// <para>-or-</para>
+        /// <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+        /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ushort Clamp(this ushort value, ushort min, ushort max)
+        {
+            if (min > max)
+            {
+                ThrowMinMaxException(min, max);
+            }
+
+            if (value < min)
+            {
+                return min;
+            }
+            else if (value > max)
+            {
+                return max;
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+        /// </summary>
+        /// <param name="value">The value to be clamped.</param>
+        /// <param name="min">The lower bound of the result.</param>
+        /// <param name="max">The upper bound of the result.</param>
+        /// <returns>
+        /// <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+        /// <para>-or-</para>
+        /// <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+        /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint Clamp(this uint value, uint min, uint max)
+        {
+            if (min > max)
+            {
+                ThrowMinMaxException(min, max);
+            }
+
+            if (value < min)
+            {
+                return min;
+            }
+            else if (value > max)
+            {
+                return max;
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// Returns <paramref name="value"/> clamped to the inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+        /// </summary>
+        /// <param name="value">The value to be clamped.</param>
+        /// <param name="min">The lower bound of the result.</param>
+        /// <param name="max">The upper bound of the result.</param>
+        /// <returns>
+        /// <para><paramref name="value"/> if <paramref name="min"/> &#x2264; value &#x2265; max.</para>
+        /// <para>-or-</para>
+        /// <para><paramref name="min"/> if <paramref name="value"/> &lt; <paramref name="min"/></para>
+        /// <para>-or-</para>
+        /// <para><paramref name="max"/> if <paramref name="max"/> &lt; <paramref name="value"/>.</para>
+        /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ulong Clamp(this ulong value, ulong min, ulong max)
+        {
+            if (min > max)
+            {
+                ThrowMinMaxException(min, max);
+            }
+
+            if (value < min)
+            {
+                return min;
+            }
+            else if (value > max)
+            {
+                return max;
+            }
+
+            return value;
         }
 
         /// <overloads>
@@ -314,9 +734,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is greater
         /// than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool GreaterThan(this byte expression, byte min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<byte>.Default);
+            return expression > min;
         }
 
         /// <summary>
@@ -329,9 +750,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is greater
         /// than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool GreaterThan(this decimal expression, decimal min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<decimal>.Default);
+            return expression > min;
         }
 
         /// <summary>
@@ -344,9 +766,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is greater
         /// than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool GreaterThan(this double expression, double min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<double>.Default);
+            return expression > min;
         }
 
         /// <summary>
@@ -359,9 +782,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is greater
         /// than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool GreaterThan(this short expression, short min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<short>.Default);
+            return expression > min;
         }
 
         /// <summary>
@@ -374,9 +798,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is greater
         /// than the minimum indicated; otherwise <see clangwordref="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool GreaterThan(this int expression, int min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<int>.Default);
+            return expression > min;
         }
 
         /// <summary>
@@ -389,9 +814,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is greater
         /// than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool GreaterThan(this long expression, long min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<long>.Default);
+            return expression > min;
         }
 
         /// <summary>
@@ -404,9 +830,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is greater
         /// than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool GreaterThan(this float expression, float min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.None, Comparer<float>.Default);
+            return expression > min;
         }
 
         /// <overloads>
@@ -427,9 +854,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is greater
         /// than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool GreaterThanOrEqualTo(this byte expression, byte min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<byte>.Default);
+            return expression >= min;
         }
 
         /// <summary>
@@ -443,9 +871,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is greater
         /// than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool GreaterThanOrEqualTo(this decimal expression, decimal min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<decimal>.Default);
+            return expression >= min;
         }
 
         /// <summary>
@@ -459,9 +888,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is greater
         /// than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool GreaterThanOrEqualTo(this double expression, double min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<double>.Default);
+            return expression >= min;
         }
 
         /// <summary>
@@ -475,9 +905,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is greater
         /// than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool GreaterThanOrEqualTo(this short expression, short min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<short>.Default);
+            return expression >= min;
         }
 
         /// <summary>
@@ -491,9 +922,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is greater
         /// than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool GreaterThanOrEqualTo(this int expression, int min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<int>.Default);
+            return expression >= min;
         }
 
         /// <summary>
@@ -507,9 +939,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is greater
         /// than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool GreaterThanOrEqualTo(this long expression, long min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<long>.Default);
+            return expression >= min;
         }
 
         /// <summary>
@@ -523,9 +956,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is greater
         /// than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool GreaterThanOrEqualTo(this float expression, float min)
         {
-            return GreaterThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<float>.Default);
+            return expression >= min;
         }
 
         /// <overloads>
@@ -543,6 +977,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is an even
         /// number; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsEven(this int expression)
         {
             return (expression % 2) == 0;
@@ -557,6 +992,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is an even
         /// number; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsEven(this short expression)
         {
             return (expression % 2) == 0;
@@ -571,6 +1007,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is an even
         /// number; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsEven(this long expression)
         {
             return (expression % 2) == 0;
@@ -585,6 +1022,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is an even
         /// number; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsEven(this decimal expression)
         {
             return (expression % 2) == 0;
@@ -599,6 +1037,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is an even
         /// number; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsEven(this double expression)
         {
             return (expression % 2) == 0;
@@ -613,6 +1052,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is an even
         /// number; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsEven(this float expression)
         {
             return (expression % 2) == 0;
@@ -633,6 +1073,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is an odd
         /// number; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsOdd(this int expression)
         {
             return (expression % 2) != 0;
@@ -647,6 +1088,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is an odd
         /// number; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsOdd(this short expression)
         {
             return (expression % 2) != 0;
@@ -661,6 +1103,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is an odd
         /// number; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsOdd(this long expression)
         {
             return (expression % 2) != 0;
@@ -675,6 +1118,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is an odd
         /// number; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsOdd(this decimal expression)
         {
             return (expression % 2) != 0;
@@ -689,6 +1133,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is an odd
         /// number; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsOdd(this double expression)
         {
             return (expression % 2) != 0;
@@ -703,6 +1148,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is an odd
         /// number; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsOdd(this float expression)
         {
             return (expression % 2) != 0;
@@ -724,9 +1170,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is less than
         /// the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool LessThan(this byte expression, byte min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<byte>.Default);
+            return expression < min;
         }
 
         /// <summary>
@@ -739,9 +1186,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is less than
         /// the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool LessThan(this decimal expression, decimal min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<decimal>.Default);
+            return expression < min;
         }
 
         /// <summary>
@@ -754,9 +1202,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is less than
         /// the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool LessThan(this double expression, double min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<double>.Default);
+            return expression < min;
         }
 
         /// <summary>
@@ -769,9 +1218,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is less than
         /// the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool LessThan(this short expression, short min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<short>.Default);
+            return expression < min;
         }
 
         /// <summary>
@@ -784,9 +1234,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is less than
         /// the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool LessThan(this int expression, int min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<int>.Default);
+            return expression < min;
         }
 
         /// <summary>
@@ -799,9 +1250,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is less than
         /// the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool LessThan(this long expression, long min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<long>.Default);
+            return expression < min;
         }
 
         /// <summary>
@@ -814,9 +1266,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is less than
         /// the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool LessThan(this float expression, float min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.None, Comparer<float>.Default);
+            return expression < min;
         }
 
         /// <overloads>
@@ -835,9 +1288,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is less than
         /// or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool LessThanOrEqualTo(this byte expression, byte min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<byte>.Default);
+            return expression <= min;
         }
 
         /// <summary>
@@ -850,9 +1304,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is less than
         /// or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool LessThanOrEqualTo(this decimal expression, decimal min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<decimal>.Default);
+            return expression <= min;
         }
 
         /// <summary>
@@ -865,9 +1320,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is less than
         /// or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool LessThanOrEqualTo(this double expression, double min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<double>.Default);
+            return expression <= min;
         }
 
         /// <summary>
@@ -880,9 +1336,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is less than
         /// or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool LessThanOrEqualTo(this short expression, short min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<short>.Default);
+            return expression <= min;
         }
 
         /// <summary>
@@ -895,9 +1352,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is less than
         /// or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool LessThanOrEqualTo(this int expression, int min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<int>.Default);
+            return expression <= min;
         }
 
         /// <summary>
@@ -910,9 +1368,10 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is less than
         /// or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool LessThanOrEqualTo(this long expression, long min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<long>.Default);
+            return expression <= min;
         }
 
         /// <summary>
@@ -925,57 +1384,34 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="expression"/> is less than
         /// or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool LessThanOrEqualTo(this float expression, float min)
         {
-            return LessThan(expression, min, NumericComparisonOptions.IncludeBoth, Comparer<float>.Default);
+            return expression <= min;
         }
 
-        private static bool Between<T>(T expression, T minimum, T maximum, NumericComparisonOptions options, IComparer<T> comparer) where T : IComparable
+        internal static T Clamp<T>(this T value, T min, T max) where T : unmanaged, IComparable<T>
         {
-            var success = options switch
+            if (min.CompareTo(max) > 0)
             {
-                NumericComparisonOptions.IncludeBoth => (comparer.Compare(expression, minimum) >= 0) && (comparer.Compare(expression, maximum) <= 0),
-                NumericComparisonOptions.IncludeMinimum => (comparer.Compare(expression, minimum) >= 0) && (comparer.Compare(expression, maximum) < 0),
-                NumericComparisonOptions.IncludeMaximum => (comparer.Compare(expression, minimum) > 0) && (comparer.Compare(expression, maximum) <= 0),
-                _ => (comparer.Compare(expression, minimum) > 0) && (comparer.Compare(expression, maximum) < 0),
-            };
-            return success;
-        }
-
-        private static bool GreaterThan<T>(T expression, T minimum, NumericComparisonOptions options, IComparer<T> comparer) where T : IComparable
-        {
-            bool success;
-            switch (options)
-            {
-                case NumericComparisonOptions.IncludeBoth:
-                case NumericComparisonOptions.IncludeMinimum:
-                    success = comparer.Compare(expression, minimum) >= 0;
-                    break;
-
-                default:
-                    success = comparer.Compare(expression, minimum) > 0;
-                    break;
+                ThrowMinMaxException(min, max);
             }
 
-            return success;
-        }
-
-        private static bool LessThan<T>(T expression, T maximum, NumericComparisonOptions options, IComparer<T> comparer) where T : IComparable
-        {
-            bool success;
-            switch (options)
+            if (value.CompareTo(min) < 0)
             {
-                case NumericComparisonOptions.IncludeBoth:
-                case NumericComparisonOptions.IncludeMaximum:
-                    success = comparer.Compare(expression, maximum) <= 0;
-                    break;
-
-                default:
-                    success = comparer.Compare(expression, maximum) < 0;
-                    break;
+                return min;
+            }
+            else if (value.CompareTo(max) > 0)
+            {
+                return max;
             }
 
-            return success;
+            return value;
+        }
+
+        private static void ThrowMinMaxException<T>(T min, T max)
+        {
+            throw new ArgumentException(String.Format(Strings.Argument_MinMaxValue, min, max));
         }
     }
 }
