@@ -841,6 +841,13 @@
             An array of parameters to use when formatting <paramref name="message"/>.
             </param>
         </member>
+        <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsType``1(System.Object)">
+            <summary>
+            Asserts that an object is of the given <see cref="T:System.Type"/>.
+            </summary>
+            <typeparam name="T">The expected <see cref="T:System.Type"/>.</typeparam>
+            <param name="value">The value to be tested.</param>
+        </member>
         <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsType(System.Object,System.Type)">
             <summary>
             Asserts that an object is of the given <see cref="T:System.Type"/>.
