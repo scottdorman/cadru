@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="IDataReaderExtensions.cs"
+// <copyright file="DataReaderExtensions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2020 Scott Dorman.
