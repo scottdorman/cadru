@@ -29,10 +29,17 @@ using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace Cadru.Data.Excel
 {
+    /// <summary>
+    /// Represents a writer for Excel data
+    /// </summary>
     public class ExcelDataWriter
     {
         private readonly SpreadsheetDocument document;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExcelDataWriter"/> class.
+        /// </summary>
+        /// <param name="path"></param>
         public ExcelDataWriter(string path)
         {
             this.document = SpreadsheetDocument.Create(path, SpreadsheetDocumentType.Workbook);
@@ -40,6 +47,13 @@ namespace Cadru.Data.Excel
             this.document.WorkbookPart.Workbook = new Workbook();
         }
 
+        /// <summary>
+        /// Adds a new worksheet to the spreadsheet.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="name"></param>
+        /// <param name="headers"></param>
+        /// <param name="data"></param>
         public void AddWorksheet<T>(string name, IEnumerable<string> headers, IEnumerable<T> data)
         {
             var sheet = this.AddWorksheet(name);

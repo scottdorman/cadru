@@ -8,11 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Cadru.Data.Resources
-{
-    using System.Reflection;
-
-
+namespace Cadru.Data.Resources {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -20,228 +19,350 @@ namespace Cadru.Data.Resources
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Strings
-    {
-
+    internal class Strings {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Strings()
-        {
+        internal Strings() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if (object.ReferenceEquals(resourceMan, null))
-                {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Cadru.Data.Resources.Strings", typeof(Strings).GetTypeInfo().Assembly);
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Cadru.Data.Resources.Strings", typeof(Strings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specified argument was out of the range of valid values..
+        /// </summary>
+        internal static string Arg_ArgumentOutOfRangeException {
+            get {
+                return ResourceManager.GetString("Arg_ArgumentOutOfRangeException", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Buffer size must be 1 or more..
         /// </summary>
-        internal static string BufferSizeTooSmall
-        {
-            get
-            {
+        internal static string BufferSizeTooSmall {
+            get {
                 return ResourceManager.GetString("BufferSizeTooSmall", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Cannot move to a previous record in forward-only mode..
         /// </summary>
-        internal static string CannotMovePreviousRecordInForwardOnly
-        {
-            get
-            {
+        internal static string CannotMovePreviousRecordInForwardOnly {
+            get {
                 return ResourceManager.GetString("CannotMovePreviousRecordInForwardOnly", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Cannot read record at index &apos;{0}&apos;..
         /// </summary>
-        internal static string CannotReadRecordAtIndex
-        {
-            get
-            {
+        internal static string CannotReadRecordAtIndex {
+            get {
                 return ResourceManager.GetString("CannotReadRecordAtIndex", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Enumeration has either not started or has already finished..
         /// </summary>
-        internal static string EnumerationFinishedOrNotStarted
-        {
-            get
-            {
+        internal static string EnumerationFinishedOrNotStarted {
+            get {
                 return ResourceManager.GetString("EnumerationFinishedOrNotStarted", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Collection was modified; enumeration operation may not execute..
         /// </summary>
-        internal static string EnumerationVersionCheckFailed
-        {
-            get
-            {
+        internal static string EnumerationVersionCheckFailed {
+            get {
                 return ResourceManager.GetString("EnumerationVersionCheckFailed", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to &apos;{0}&apos; field header not found..
         /// </summary>
-        internal static string FieldHeaderNotFound
-        {
-            get
-            {
+        internal static string FieldHeaderNotFound {
+            get {
                 return ResourceManager.GetString("FieldHeaderNotFound", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Field index must be included in [0, FieldCount[. Specified field index was : &apos;{0}&apos;..
         /// </summary>
-        internal static string FieldIndexOutOfRange
-        {
-            get
-            {
+        internal static string FieldIndexOutOfRange {
+            get {
                 return ResourceManager.GetString("FieldIndexOutOfRange", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not find file &apos;{0}&apos;..
+        /// </summary>
+        internal static string IO_FileNotFound_Path {
+            get {
+                return ResourceManager.GetString("IO_FileNotFound_Path", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The given file path ends with a directory separator character..
+        /// </summary>
+        internal static string IO_FilePathException {
+            get {
+                return ResourceManager.GetString("IO_FilePathException", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to The CSV appears to be corrupt near record &apos;{0}&apos; field &apos;{1} at position &apos;{2}&apos;. Current raw data : &apos;{3}&apos;..
         /// </summary>
-        internal static string MalformedCsvException
-        {
-            get
-            {
+        internal static string MalformedCsvException {
+            get {
                 return ResourceManager.GetString("MalformedCsvException", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to &apos;{0}&apos; is not a supported missing field action..
         /// </summary>
-        internal static string MissingFieldActionNotSupported
-        {
-            get
-            {
+        internal static string MissingFieldActionNotSupported {
+            get {
                 return ResourceManager.GetString("MissingFieldActionNotSupported", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to No current record..
         /// </summary>
-        internal static string NoCurrentRecord
-        {
-            get
-            {
+        internal static string NoCurrentRecord {
+            get {
                 return ResourceManager.GetString("NoCurrentRecord", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to The CSV does not have headers (CsvReader.HasHeaders property is false)..
         /// </summary>
-        internal static string NoHeaders
-        {
-            get
-            {
+        internal static string NoHeaders {
+            get {
                 return ResourceManager.GetString("NoHeaders", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to The number of fields in the record is greater than the available space from index to the end of the destination array..
         /// </summary>
-        internal static string NotEnoughSpaceInArray
-        {
-            get
-            {
+        internal static string NotEnoughSpaceInArray {
+            get {
                 return ResourceManager.GetString("NotEnoughSpaceInArray", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to &apos;{0}&apos; is not a valid ParseErrorAction while inside a ParseError event..
         /// </summary>
-        internal static string ParseErrorActionInvalidInsideParseErrorEvent
-        {
-            get
-            {
+        internal static string ParseErrorActionInvalidInsideParseErrorEvent {
+            get {
                 return ResourceManager.GetString("ParseErrorActionInvalidInsideParseErrorEvent", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to &apos;{0}&apos; is not a supported ParseErrorAction..
         /// </summary>
-        internal static string ParseErrorActionNotSupported
-        {
-            get
-            {
+        internal static string ParseErrorActionNotSupported {
+            get {
                 return ResourceManager.GetString("ParseErrorActionNotSupported", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to This operation is invalid when the reader is closed..
         /// </summary>
-        internal static string ReaderClosed
-        {
-            get
-            {
+        internal static string ReaderClosed {
+            get {
                 return ResourceManager.GetString("ReaderClosed", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Record index must be 0 or more..
         /// </summary>
-        internal static string RecordIndexLessThanZero
-        {
-            get
-            {
+        internal static string RecordIndexLessThanZero {
+            get {
                 return ResourceManager.GetString("RecordIndexLessThanZero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TextFieldParser is unable to complete the read operation because maximum buffer size has been exceeded..
+        /// </summary>
+        internal static string TextFieldParser_BufferExceededMaxSize {
+            get {
+                return ResourceManager.GetString("TextFieldParser_BufferExceededMaxSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A delimiter cannot be Nothing or an empty String..
+        /// </summary>
+        internal static string TextFieldParser_DelimiterNothing {
+            get {
+                return ResourceManager.GetString("TextFieldParser_DelimiterNothing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to read delimited fields because Delimiters is Nothing or empty..
+        /// </summary>
+        internal static string TextFieldParser_DelimitersNothing {
+            get {
+                return ResourceManager.GetString("TextFieldParser_DelimitersNothing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TextFieldParser does not support delimiters that contain end-of-line characters..
+        /// </summary>
+        internal static string TextFieldParser_EndCharsInDelimiter {
+            get {
+                return ResourceManager.GetString("TextFieldParser_EndCharsInDelimiter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All field widths, except the last element, must be greater than zero. A field width less than or equal to zero in the last element indicates the last field is of variable length..
+        /// </summary>
+        internal static string TextFieldParser_FieldWidthsMustPositive {
+            get {
+                return ResourceManager.GetString("TextFieldParser_FieldWidthsMustPositive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to read fixed width fields because FieldWidths is Nothing or empty..
+        /// </summary>
+        internal static string TextFieldParser_FieldWidthsNothing {
+            get {
+                return ResourceManager.GetString("TextFieldParser_FieldWidthsNothing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to read delimited fields because a double quote is not a legal delimiter when HasFieldsEnclosedInQuotes is set to True..
+        /// </summary>
+        internal static string TextFieldParser_IllegalDelimiter {
+            get {
+                return ResourceManager.GetString("TextFieldParser_IllegalDelimiter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A double quote is not a valid comment token for delimited fields where HasFieldsEnclosedInQuotes is set to True..
+        /// </summary>
+        internal static string TextFieldParser_InvalidComment {
+            get {
+                return ResourceManager.GetString("TextFieldParser_InvalidComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Line {0} cannot be parsed using the current Delimiters..
+        /// </summary>
+        internal static string TextFieldParser_MalFormedDelimitedLine {
+            get {
+                return ResourceManager.GetString("TextFieldParser_MalFormedDelimitedLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Line Number:{0}.
+        /// </summary>
+        internal static string TextFieldParser_MalformedExtraData {
+            get {
+                return ResourceManager.GetString("TextFieldParser_MalformedExtraData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Line {0} cannot be parsed using the current FieldWidths..
+        /// </summary>
+        internal static string TextFieldParser_MalFormedFixedWidthLine {
+            get {
+                return ResourceManager.GetString("TextFieldParser_MalFormedFixedWidthLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Line {0} cannot be read because it exceeds the maximum line size..
+        /// </summary>
+        internal static string TextFieldParser_MaxLineSizeExceeded {
+            get {
+                return ResourceManager.GetString("TextFieldParser_MaxLineSizeExceeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} must be greater than zero..
+        /// </summary>
+        internal static string TextFieldParser_NumberOfCharsMustBePositive {
+            get {
+                return ResourceManager.GetString("TextFieldParser_NumberOfCharsMustBePositive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The stream passed to TextFieldParser cannot be read..
+        /// </summary>
+        internal static string TextFieldParser_StreamNotReadable {
+            get {
+                return ResourceManager.GetString("TextFieldParser_StreamNotReadable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TextFieldParser does not support comment tokens that contain white space..
+        /// </summary>
+        internal static string TextFieldParser_WhitespaceInToken {
+            get {
+                return ResourceManager.GetString("TextFieldParser_WhitespaceInToken", resourceCulture);
             }
         }
     }

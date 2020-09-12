@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -164,5 +164,59 @@
   </data>
   <data name="RecordIndexLessThanZero" xml:space="preserve">
     <value>Record index must be 0 or more.</value>
+  </data>
+  <data name="TextFieldParser_NumberOfCharsMustBePositive" xml:space="preserve">
+    <value>{0} must be greater than zero.</value>
+  </data>
+  <data name="TextFieldParser_StreamNotReadable" xml:space="preserve">
+    <value>The stream passed to TextFieldParser cannot be read.</value>
+  </data>
+  <data name="TextFieldParser_BufferExceededMaxSize" xml:space="preserve">
+    <value>TextFieldParser is unable to complete the read operation because maximum buffer size has been exceeded.</value>
+  </data>
+  <data name="TextFieldParser_MalFormedDelimitedLine" xml:space="preserve">
+    <value>Line {0} cannot be parsed using the current Delimiters.</value>
+  </data>
+  <data name="TextFieldParser_MalFormedFixedWidthLine" xml:space="preserve">
+    <value>Line {0} cannot be parsed using the current FieldWidths.</value>
+  </data>
+  <data name="TextFieldParser_MaxLineSizeExceeded" xml:space="preserve">
+    <value>Line {0} cannot be read because it exceeds the maximum line size.</value>
+  </data>
+  <data name="TextFieldParser_FieldWidthsNothing" xml:space="preserve">
+    <value>Unable to read fixed width fields because FieldWidths is Nothing or empty.</value>
+  </data>
+  <data name="TextFieldParser_DelimitersNothing" xml:space="preserve">
+    <value>Unable to read delimited fields because Delimiters is Nothing or empty.</value>
+  </data>
+  <data name="TextFieldParser_FieldWidthsMustPositive" xml:space="preserve">
+    <value>All field widths, except the last element, must be greater than zero. A field width less than or equal to zero in the last element indicates the last field is of variable length.</value>
+  </data>
+  <data name="TextFieldParser_IllegalDelimiter" xml:space="preserve">
+    <value>Unable to read delimited fields because a double quote is not a legal delimiter when HasFieldsEnclosedInQuotes is set to True.</value>
+  </data>
+  <data name="TextFieldParser_DelimiterNothing" xml:space="preserve">
+    <value>A delimiter cannot be Nothing or an empty String.</value>
+  </data>
+  <data name="TextFieldParser_InvalidComment" xml:space="preserve">
+    <value>A double quote is not a valid comment token for delimited fields where HasFieldsEnclosedInQuotes is set to True.</value>
+  </data>
+  <data name="TextFieldParser_MalformedExtraData" xml:space="preserve">
+    <value>Line Number:{0}</value>
+  </data>
+  <data name="TextFieldParser_WhitespaceInToken" xml:space="preserve">
+    <value>TextFieldParser does not support comment tokens that contain white space.</value>
+  </data>
+  <data name="TextFieldParser_EndCharsInDelimiter" xml:space="preserve">
+    <value>TextFieldParser does not support delimiters that contain end-of-line characters.</value>
+  </data>
+  <data name="IO_FileNotFound_Path" xml:space="preserve">
+    <value>Could not find file '{0}'.</value>
+  </data>
+  <data name="Arg_ArgumentOutOfRangeException" xml:space="preserve">
+    <value>Specified argument was out of the range of valid values.</value>
+  </data>
+  <data name="IO_FilePathException" xml:space="preserve">
+    <value>The given file path ends with a directory separator character.</value>
   </data>
 </root>

@@ -4,1939 +4,1287 @@
         <name>Cadru.Data</name>
     </assembly>
     <members>
-        <member name="T:Cadru.Data.Csv.CachedCsvReader">
+        <member name="T:Cadru.Data.DataReaderExtensions">
             <summary>
-            Represents a reader that provides fast, cached, dynamic access to CSV data.
-            </summary>
-            <remarks>
-            The number of records is limited to <see cref="F:System.Int32.MaxValue"/>
-            - 1.
-            </remarks>
-        </member>
-        <member name="F:Cadru.Data.Csv.CachedCsvReader._readingStream">
-            <summary>
-            Indicates if a new record is being read from the CSV stream.
+            Extension methods for working with an <see cref="T:System.Data.IDataReader"/>.
             </summary>
         </member>
-        <member name="F:Cadru.Data.Csv.CachedCsvReader._bindingList">
+        <member name="M:Cadru.Data.DataReaderExtensions.Field``1(System.Data.IDataReader,System.Int32)">
             <summary>
-            Contains the binding list linked to this reader.
+            Provides strongly-typed access to each of the column values in the <see cref="T:System.Data.IDataReader"/>.
             </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.CachedCsvReader.#ctor(System.IO.TextReader,System.Boolean)">
-            <summary>
-            Initializes a new instance of the CsvReader class.
-            </summary>
+            <typeparam name="T">The return type of the column.</typeparam>
             <param name="reader">
-            A <see cref="T:TextReader"/> pointing to the CSV file.
+            The input <see cref="T:System.Data.IDataReader"/>, which acts as the this
+            instance for the extension method.
             </param>
-            <param name="hasHeaders">
-            <see langword="true"/> if field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="reader"/> is a <see langword="null"/>.
-            </exception>
-            <exception cref="T:ArgumentException">Cannot read from <paramref name="reader"/>.</exception>
-        </member>
-        <member name="P:Cadru.Data.Csv.CachedCsvReader.Records">
-            <summary>
-            Contains the cached records.
-            </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.CachedCsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Int32)">
-            <summary>
-            Initializes a new instance of the CsvReader class.
-            </summary>
-            <param name="reader">
-            A <see cref="T:TextReader"/> pointing to the CSV file.
-            </param>
-            <param name="hasHeaders">
-            <see langword="true"/> if field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </param>
-            <param name="bufferSize">The buffer size in bytes.</param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="reader"/> is a <see langword="null"/>.
-            </exception>
-            <exception cref="T:ArgumentException">Cannot read from <paramref name="reader"/>.</exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CachedCsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Char)">
-            <summary>
-            Initializes a new instance of the CsvReader class.
-            </summary>
-            <param name="reader">
-            A <see cref="T:TextReader"/> pointing to the CSV file.
-            </param>
-            <param name="hasHeaders">
-            <see langword="true"/> if field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </param>
-            <param name="delimiter">
-            The delimiter character separating each field (default is ',').
-            </param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="reader"/> is a <see langword="null"/>.
-            </exception>
-            <exception cref="T:ArgumentException">Cannot read from <paramref name="reader"/>.</exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CachedCsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Char,System.Int32)">
-            <summary>
-            Initializes a new instance of the CsvReader class.
-            </summary>
-            <param name="reader">
-            A <see cref="T:TextReader"/> pointing to the CSV file.
-            </param>
-            <param name="hasHeaders">
-            <see langword="true"/> if field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </param>
-            <param name="delimiter">
-            The delimiter character separating each field (default is ',').
-            </param>
-            <param name="bufferSize">The buffer size in bytes.</param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="reader"/> is a <see langword="null"/>.
-            </exception>
-            <exception cref="T:ArgumentException">Cannot read from <paramref name="reader"/>.</exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CachedCsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Char,System.Char,System.Char,System.Char,Cadru.Data.Csv.ValueTrimmingOptions,System.String)">
-            <summary>
-            Initializes a new instance of the CsvReader class.
-            </summary>
-            <param name="reader">
-            A <see cref="T:TextReader"/> pointing to the CSV file.
-            </param>
-            <param name="hasHeaders">
-            <see langword="true"/> if field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </param>
-            <param name="delimiter">
-            The delimiter character separating each field (default is ',').
-            </param>
-            <param name="quote">
-            The quotation character wrapping every field (default is ''').
-            </param>
-            <param name="escape">
-            The escape character letting insert quotation characters inside a
-            quoted field (default is '\'). If no escape character, set to '\0'
-            to gain some performance.
-            </param>
-            <param name="comment">
-            The comment character indicating that a line is commented out
-            (default is '#').
-            </param>
-            <param name="trimmingOptions">Determines how values should be trimmed.</param>
-            <param name="nullValue">The value which denotes a DbNull-value.</param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="reader"/> is a <see langword="null"/>.
-            </exception>
-            <exception cref="T:ArgumentException">Cannot read from <paramref name="reader"/>.</exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CachedCsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Char,System.Char,System.Char,System.Char,Cadru.Data.Csv.ValueTrimmingOptions,System.Int32,System.String)">
-            <summary>
-            Initializes a new instance of the CsvReader class.
-            </summary>
-            <param name="reader">
-            A <see cref="T:TextReader"/> pointing to the CSV file.
-            </param>
-            <param name="hasHeaders">
-            <see langword="true"/> if field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </param>
-            <param name="delimiter">
-            The delimiter character separating each field (default is ',').
-            </param>
-            <param name="quote">
-            The quotation character wrapping every field (default is ''').
-            </param>
-            <param name="escape">
-            The escape character letting insert quotation characters inside a
-            quoted field (default is '\'). If no escape character, set to '\0'
-            to gain some performance.
-            </param>
-            <param name="comment">
-            The comment character indicating that a line is commented out
-            (default is '#').
-            </param>
-            <param name="trimmingOptions">Determines how values should be trimmed.</param>
-            <param name="bufferSize">The buffer size in bytes.</param>
-            <param name="nullValue">The value which denotes a DbNull-value.</param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="reader"/> is a <see langword="null"/>.
-            </exception>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            <paramref name="bufferSize"/> must be 1 or more.
-            </exception>
-        </member>
-        <member name="P:Cadru.Data.Csv.CachedCsvReader.CurrentRecordIndex">
-            <summary>
-            Gets the current record index in the CSV file.
-            </summary>
-            <value>The current record index in the CSV file.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.CachedCsvReader.CacheRecordIndex">
-            <summary>
-            Contains the current record index (inside the cached records array).
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Csv.CachedCsvReader.EndOfStream">
-            <summary>
-            Gets a value that indicates whether the current stream position is
-            at the end of the stream.
-            </summary>
-            <value>
-            <see langword="true"/> if the current stream position is at the end
-            of the stream; otherwise <see langword="false"/>.
-            </value>
-        </member>
-        <member name="P:Cadru.Data.Csv.CachedCsvReader.Item(System.Int32)">
-            <summary>
-            Gets the field at the specified index.
-            </summary>
-            <value>The field at the specified index.</value>
-            <exception cref="T:ArgumentOutOfRangeException">
-            <paramref name="field"/> must be included in [0, <see cref="M:FieldCount"/>[.
-            </exception>
-            <exception cref="T:InvalidOperationException">
-            No record read yet. Call ReadLine() first.
-            </exception>
-            <exception cref="T:Cadru.Data.Csv.MissingFieldCsvException">
-            The CSV data appears to be missing a field.
-            </exception>
-            <exception cref="T:MalformedCsvException">
-            The CSV appears to be corrupt at the current position.
-            </exception>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CachedCsvReader.ReadToEnd">
-            <summary>
-            Reads the CSV stream from the current position to the end of the stream.
-            </summary>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CachedCsvReader.ReadNextRecord(System.Boolean,System.Boolean)">
-            <summary>
-            Reads the next record.
-            </summary>
-            <param name="onlyReadHeaders">
-            Indicates if the reader will proceed to the next record after having
-            read headers. <see langword="true"/> if it stops after having read
-            headers; otherwise, <see langword="false"/>.
-            </param>
-            <param name="skipToNextLine">
-            Indicates if the reader will skip directly to the next line without
-            parsing the current one. To be used when an error occurs.
-            </param>
+            <param name="columnIndex">The column index.</param>
             <returns>
-            <see langword="true"/> if a record has been successfully reads;
+            The value, of type <typeparamref name="T"/>, of the column specified
+            by <paramref name="columnIndex"/>.
+            </returns>
+        </member>
+        <member name="M:Cadru.Data.DataReaderExtensions.Field``1(System.Data.IDataReader,System.String)">
+            <summary>
+            Provides strongly-typed access to each of the column values in the <see cref="T:System.Data.IDataReader"/>.
+            </summary>
+            <typeparam name="T">The return type of the column.</typeparam>
+            <param name="reader">
+            The input <see cref="T:System.Data.IDataReader"/>, which acts as the this
+            instance for the extension method.
+            </param>
+            <param name="columnName">The column name.</param>
+            <returns>
+            The value, of type <typeparamref name="T"/>, of the column specified
+            by <paramref name="columnName"/>.
+            </returns>
+        </member>
+        <member name="M:Cadru.Data.DataReaderExtensions.FieldOrDefault``1(System.Data.IDataReader,System.Int32)">
+            <summary>
+            Provides strongly-typed access to each of the column values in the <see cref="T:System.Data.IDataReader"/>.
+            </summary>
+            <typeparam name="T">The return type of the column.</typeparam>
+            <param name="reader">
+            The input <see cref="T:System.Data.IDataReader"/>, which acts as the this
+            instance for the extension method.
+            </param>
+            <param name="columnIndex">The column index.</param>
+            <returns>
+            The value, of type <typeparamref name="T"/>, of the column specified
+            by <paramref name="columnIndex"/> or the default for
+            <typeparamref name="T"/> if the field is not found.
+            </returns>
+        </member>
+        <member name="M:Cadru.Data.DataReaderExtensions.FieldOrDefault``1(System.Data.IDataReader,System.Int32,``0)">
+            <summary>
+            Provides strongly-typed access to each of the column values in the <see cref="T:System.Data.IDataReader"/>.
+            </summary>
+            <typeparam name="T">The return type of the column.</typeparam>
+            <param name="reader">
+            The input <see cref="T:System.Data.IDataReader"/>, which acts as the this
+            instance for the extension method.
+            </param>
+            <param name="columnIndex">The column index.</param>
+            <param name="nullValue">The value to use as the default.</param>
+            <returns>
+            The value, of type <typeparamref name="T"/>, of the column specified
+            by <paramref name="columnIndex"/> or <paramref name="nullValue"/> if
+            the field is not found.
+            </returns>
+        </member>
+        <member name="M:Cadru.Data.DataReaderExtensions.IsNull(System.Data.IDataReader,System.Int32)">
+            <summary>
+            Indicates if the value of the specified column in the
+            <see cref="T:System.Data.IDataReader"/> is <see langword="null"/>.
+            </summary>
+            <param name="reader">
+            The input <see cref="T:System.Data.IDataReader"/>, which acts as the this
+            instance for the extension method.
+            </param>
+            <param name="columnIndex">The column index.</param>
+            <returns>
+            <see langword="true"/> if the value is <see langword="null"/>;
             otherwise, <see langword="false"/>.
             </returns>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
         </member>
-        <member name="M:Cadru.Data.Csv.CachedCsvReader.MoveToStart">
+        <member name="M:Cadru.Data.DataReaderExtensions.IsNullOrWhiteSpace(System.Data.IDataReader,System.Int32)">
             <summary>
-            Moves before the first record.
+            Indicates if the value of the specified column in the
+            <see cref="T:System.Data.IDataReader"/> is <see langword="null"/> or <see cref="F:System.String.Empty"/>.
             </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.CachedCsvReader.MoveToLastCachedRecord">
-            <summary>
-            Moves to the last record read so far.
-            </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.CachedCsvReader.MoveTo(System.Int64)">
-            <summary>
-            Moves to the specified record index.
-            </summary>
-            <param name="record">The record index.</param>
+            <param name="reader">
+            The input <see cref="T:System.Data.IDataReader"/>, which acts as the this
+            instance for the extension method.
+            </param>
+            <param name="columnIndex">The column index.</param>
             <returns>
-            <c>true</c> if the operation was successful; otherwise, <c>false</c>.
+            <see langword="true"/> if the value is <see langword="null"/> or
+            <see cref="F:System.String.Empty"/>; otherwise, <see langword="false"/>.
             </returns>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
         </member>
-        <member name="T:Cadru.Data.Csv.Column">
-            <summary>
-            Metadata about a CSV column.
-            </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.Column.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Data.Csv.Column"/> class.
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Csv.Column.DefaultValue">
-            <summary>
-            Get or set the default value of the column.
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Csv.Column.Name">
-            <summary>
-            Get or set the name.
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Csv.Column.OverrideValue">
-            <summary>
-            Get or set the override value of the column.
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Csv.Column.Type">
-            <summary>
-            Get or set the type.
-            </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.Column.Convert(System.String)">
-            <summary>
-            Converts the value into the column type.
-            </summary>
-            <param name="value">Value to use</param>
-            <returns>Converted value.</returns>
-        </member>
-        <member name="M:Cadru.Data.Csv.Column.TryConvert(System.String,System.Object@)">
-            <summary>
-            Converts the value into the column type.
-            </summary>
-            <param name="value">Value to use</param>
-            <param name="result">Object to hold the converted value.</param>
-            <returns>true if the conversion was successful, otherwise false.</returns>
-        </member>
-        <member name="T:Cadru.Data.Csv.CsvBindingList">
-            <summary>
-            Represents a binding list wrapper for a CSV reader.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvBindingList._csv">
-            <summary>
-            Contains the linked CSV reader.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvBindingList._count">
-            <summary>
-            Contains the cached record count.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvBindingList._properties">
-            <summary>
-            Contains the cached property descriptors.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvBindingList._sort">
-            <summary>
-            Contains the current sort property.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvBindingList._direction">
-            <summary>
-            Contains the current sort direction.
-            </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvBindingList.#ctor(Cadru.Data.Csv.CachedCsvReader)">
-            <summary>
-            Initializes a new instance of the CsvBindingList class.
-            </summary>
-            <param name="csv"></param>
-        </member>
-        <member name="T:Cadru.Data.Csv.CsvPropertyDescriptor">
-            <summary>
-            Represents a CSV field property descriptor.
-            </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvPropertyDescriptor.#ctor(System.String,System.Int32)">
-            <summary>
-            Initializes a new instance of the CsvPropertyDescriptor class.
-            </summary>
-            <param name="fieldName">The field name.</param>
-            <param name="index">The field index.</param>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvPropertyDescriptor.Index">
-            <summary>
-            Gets the field index.
-            </summary>
-            <value>The field index.</value>
-        </member>
-        <member name="T:Cadru.Data.Csv.CsvReader">
+        <member name="T:Cadru.Data.Excel.ExcelDataReader">
             <summary>
             Represents a reader that provides fast, non-cached, forward-only access
-            to CSV data.
+            to data contained in an Excel spreadsheet (.xlsx) file.
             </summary>
         </member>
-        <member name="F:Cadru.Data.Csv.CsvReader.DefaultBufferSize">
-            <summary>
-            Defines the default buffer size.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader.DefaultDelimiter">
-            <summary>
-            Defines the default delimiter character separating each field.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader.DefaultQuote">
-            <summary>
-            Defines the default quote character wrapping every field.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader.DefaultEscape">
-            <summary>
-            Defines the default escape character letting insert quotation
-            characters inside a quoted field.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader.DefaultComment">
-            <summary>
-            Defines the default comment character indicating that a line is
-            commented out.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader.DefaultAddMark">
-            <summary>
-            Defines the default value for AddMark indicating should the
-            CsvReader add null bytes removal mark ([removed x null bytes])
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader.DefaultThreshold">
-            <summary>
-            Defines the default value for Threshold indicating when the
-            CsvReader should replace/remove consecutive null bytes
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader._reader">
-            <summary>
-            Contains the <see cref="T:TextReader"/> pointing to the CSV file.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader._initialized">
-            <summary>
-            Indicates if the class is initialized.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader._fieldHeaderIndexes">
-            <summary>
-            Contains the dictionary of field indexes by header. The key is the
-            field name and the value is its index.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader._nextFieldStart">
-            <summary>
-            Contains the starting position of the next unread field.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader._nextFieldIndex">
-            <summary>
-            Contains the index of the next unread field.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader._fields">
-            <summary>
-            Contains the array of the field values for the current record. A
-            null value indicates that the field have not been parsed.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader._fieldCount">
-            <summary>
-            Contains the maximum number of fields to retrieve for each record.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader._buffer">
-            <summary>
-            Contains the read buffer.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader._bufferLength">
-            <summary>
-            Contains the current read buffer length.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader._eof">
-            <summary>
-            Indicates if the end of the reader has been reached.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader._eol">
-            <summary>
-            Indicates if the last read operation reached an EOL character.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader._firstRecordInCache">
-            <summary>
-            Indicates if the first record is in cache. This can happen when
-            initializing a reader with no headers because one record must be
-            read to get the field count automatically
-            </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.#ctor(System.IO.Stream,System.Boolean,System.Text.Encoding,System.Boolean,System.Int32)">
-            <summary>
-            Like CsvReader(TextReader reader, bool hasHeaders) but removes
-            consecutive null bytes above a threshold from source stream.
-            </summary>
-            <param name="stream">
-            A <see cref="T:Stream"/> pointing to the CSV file.
-            </param>
-            <param name="hasHeaders">
-            <see langword="true"/> if field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </param>
-            <param name="encoding">
-            specifies the encoding of the underlying stream.
-            </param>
-            <param name="addMark">
-            <see langword="true"/> if want to add a mark ([removed x null
-            bytes]) to indicate removal, remove silently if <see langword="false"/>.
-            </param>
-            <param name="threshold">
-            only consecutive null bytes above this threshold will be removed or
-            replaced by a mark.
-            </param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="stream"/> is a <see langword="null"/>.
-            </exception>
-            <exception cref="T:ArgumentException">Cannot read from <paramref name="stream"/>.</exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.#ctor(System.IO.Stream,System.Boolean,System.Text.Encoding,System.Int32,System.Boolean,System.Int32)">
-            <summary>
-            Like CsvReader(TextReader reader, bool hasHeaders, int bufferSize)
-            but removes consecutive null bytes above a threshold from source stream.
-            </summary>
-            <param name="stream">
-            A <see cref="T:Stream"/> pointing to the CSV file.
-            </param>
-            <param name="hasHeaders">
-            <see langword="true"/> if field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </param>
-            <param name="encoding">
-            specifies the encoding of the underlying stream.
-            </param>
-            <param name="bufferSize">The buffer size in bytes.</param>
-            <param name="addMark">
-            <see langword="true"/> if want to add a mark ([removed x null
-            bytes]) to indicate removal, remove silently if <see langword="false"/>.
-            </param>
-            <param name="threshold">
-            only consecutive null bytes above this threshold will be removed or
-            replaced by a mark.
-            </param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="stream"/> is a <see langword="null"/>.
-            </exception>
-            <exception cref="T:ArgumentException">Cannot read from <paramref name="stream"/>.</exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.#ctor(System.IO.Stream,System.Boolean,System.Text.Encoding,System.Char,System.Boolean,System.Int32)">
-            <summary>
-            Like CsvReader(TextReader reader, bool hasHeaders, char delimiter)
-            but removes consecutive null bytes above a threshold from source stream.
-            </summary>
-            <param name="stream">
-            A <see cref="T:Stream"/> pointing to the CSV file.
-            </param>
-            <param name="hasHeaders">
-            <see langword="true"/> if field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </param>
-            <param name="encoding">
-            specifies the encoding of the underlying stream.
-            </param>
-            <param name="delimiter">
-            The delimiter character separating each field (default is ',').
-            </param>
-            <param name="addMark">
-            <see langword="true"/> if want to add a mark ([removed x null
-            bytes]) to indicate removal, remove silently if <see langword="false"/>.
-            </param>
-            <param name="threshold">
-            only consecutive null bytes above this threshold will be removed or
-            replaced by a mark.
-            </param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="stream"/> is a <see langword="null"/>.
-            </exception>
-            <exception cref="T:ArgumentException">Cannot read from <paramref name="stream"/>.</exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.#ctor(System.IO.Stream,System.Boolean,System.Text.Encoding,System.Char,System.Int32,System.Boolean,System.Int32)">
-            <summary>
-            Like CsvReader(TextReader reader, bool hasHeaders, char delimiter,
-            int bufferSize) but removes consecutive null bytes above a threshold
-            from source stream.
-            </summary>
-            <param name="stream">
-            A <see cref="T:Stream"/> pointing to the CSV file.
-            </param>
-            <param name="hasHeaders">
-            <see langword="true"/> if field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </param>
-            <param name="encoding">
-            specifies the encoding of the underlying stream.
-            </param>
-            <param name="delimiter">
-            The delimiter character separating each field (default is ',').
-            </param>
-            <param name="bufferSize">The buffer size in bytes.</param>
-            <param name="addMark">
-            <see langword="true"/> if want to add a mark ([removed x null
-            bytes]) to indicate removal, remove silently if <see langword="false"/>.
-            </param>
-            <param name="threshold">
-            only consecutive null bytes above this threshold will be removed or
-            replaced by a mark.
-            </param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="stream"/> is a <see langword="null"/>.
-            </exception>
-            <exception cref="T:ArgumentException">Cannot read from <paramref name="stream"/>.</exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.#ctor(System.IO.Stream,System.Boolean,System.Text.Encoding,System.Char,System.Char,System.Char,System.Char,Cadru.Data.Csv.ValueTrimmingOptions,System.String,System.Boolean,System.Int32)">
-            <summary>
-            Like CsvReader(TextReader reader, bool hasHeaders, char delimiter,
-            char quote, char escape, char comment, ValueTrimmingOptions
-            trimmingOptions, string nullValue) but removes consecutive null
-            bytes above a threshold from source stream.
-            </summary>
-            <param name="stream">
-            A <see cref="T:Stream"/> pointing to the CSV file.
-            </param>
-            <param name="hasHeaders">
-            <see langword="true"/> if field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </param>
-            <param name="encoding">
-            specifies the encoding of the underlying stream.
-            </param>
-            <param name="delimiter">
-            The delimiter character separating each field (default is ',').
-            </param>
-            <param name="quote">
-            The quotation character wrapping every field (default is ''').
-            </param>
-            <param name="escape">
-            The escape character letting insert quotation characters inside a
-            quoted field (default is '\'). If no escape character, set to '\0'
-            to gain some performance.
-            </param>
-            <param name="comment">
-            The comment character indicating that a line is commented out
-            (default is '#').
-            </param>
-            <param name="trimmingOptions">
-            Determines which values should be trimmed.
-            </param>
-            <param name="nullValue">The value which denotes a DbNull-value.</param>
-            <param name="addMark">
-            <see langword="true"/> if want to add a mark ([removed x null
-            bytes]) to indicate removal, remove silently if <see langword="false"/>.
-            </param>
-            <param name="threshold">
-            only consecutive null bytes above this threshold will be removed or
-            replaced by a mark.
-            </param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="stream"/> is a <see langword="null"/>.
-            </exception>
-            <exception cref="T:ArgumentException">Cannot read from <paramref name="stream"/>.</exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.#ctor(System.IO.Stream,System.Boolean,System.Text.Encoding,System.Char,System.Char,System.Char,System.Char,Cadru.Data.Csv.ValueTrimmingOptions,System.Int32,System.String,System.Boolean,System.Int32)">
-            <summary>
-            Like CsvReader(TextReader reader, bool hasHeaders, char delimiter,
-            char quote, char escape, char comment, ValueTrimmingOptions
-            trimmingOptions, int bufferSize, string nullValue) but removes
-            consecutive null bytes above a threshold from source stream.
-            </summary>
-            <param name="stream">
-            A <see cref="T:Stream"/> pointing to the CSV file.
-            </param>
-            <param name="hasHeaders">
-            <see langword="true"/> if field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </param>
-            <param name="encoding">
-            specifies the encoding of the underlying stream.
-            </param>
-            <param name="delimiter">
-            The delimiter character separating each field (default is ',').
-            </param>
-            <param name="quote">
-            The quotation character wrapping every field (default is ''').
-            </param>
-            <param name="escape">
-            The escape character letting insert quotation characters inside a
-            quoted field (default is '\'). If no escape character, set to '\0'
-            to gain some performance.
-            </param>
-            <param name="comment">
-            The comment character indicating that a line is commented out
-            (default is '#').
-            </param>
-            <param name="trimmingOptions">
-            Determines which values should be trimmed.
-            </param>
-            <param name="bufferSize">The buffer size in bytes.</param>
-            <param name="nullValue">The value which denotes a DbNull-value.</param>
-            <param name="addMark">
-            <see langword="true"/> if want to add a mark ([removed x null
-            bytes]) to indicate removal, remove silently if <see langword="false"/>.
-            </param>
-            <param name="threshold">
-            only consecutive null bytes above this threshold will be removed or
-            replace by a mark.
-            </param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="stream"/> is a <see langword="null"/>.
-            </exception>
-            <exception cref="T:ArgumentException">Cannot read from <paramref name="stream"/>.</exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.#ctor(System.IO.TextReader,System.Boolean)">
-            <summary>
-            Initializes a new instance of the CsvReader class.
-            </summary>
-            <param name="reader">
-            A <see cref="T:TextReader"/> pointing to the CSV file.
-            </param>
-            <param name="hasHeaders">
-            <see langword="true"/> If field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="reader"/> is a <see langword="null"/>.
-            </exception>
-            <exception cref="T:ArgumentException">Cannot read from <paramref name="reader"/>.</exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Int32)">
-            <summary>
-            Initializes a new instance of the CsvReader class.
-            </summary>
-            <param name="reader">
-            A <see cref="T:TextReader"/> pointing to the CSV file.
-            </param>
-            <param name="hasHeaders">
-            <see langword="true"/> if field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </param>
-            <param name="bufferSize">The buffer size in bytes.</param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="reader"/> is a <see langword="null"/>.
-            </exception>
-            <exception cref="T:ArgumentException">Cannot read from <paramref name="reader"/>.</exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Char)">
-            <summary>
-            Initializes a new instance of the CsvReader class.
-            </summary>
-            <param name="reader">
-            A <see cref="T:TextReader"/> pointing to the CSV file.
-            </param>
-            <param name="hasHeaders">
-            <see langword="true"/> if field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </param>
-            <param name="delimiter">
-            The delimiter character separating each field (default is ',').
-            </param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="reader"/> is a <see langword="null"/>.
-            </exception>
-            <exception cref="T:ArgumentException">Cannot read from <paramref name="reader"/>.</exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Char,System.Int32)">
-            <summary>
-            Initializes a new instance of the CsvReader class.
-            </summary>
-            <param name="reader">
-            A <see cref="T:TextReader"/> pointing to the CSV file.
-            </param>
-            <param name="hasHeaders">
-            <see langword="true"/> if field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </param>
-            <param name="delimiter">
-            The delimiter character separating each field (default is ',').
-            </param>
-            <param name="bufferSize">The buffer size in bytes.</param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="reader"/> is a <see langword="null"/>.
-            </exception>
-            <exception cref="T:ArgumentException">Cannot read from <paramref name="reader"/>.</exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Char,System.Char,System.Char,System.Char,Cadru.Data.Csv.ValueTrimmingOptions,System.Int32,System.String)">
-            <summary>
-            Initializes a new instance of the CsvReader class.
-            </summary>
-            <param name="reader">
-            A <see cref="T:TextReader"/> pointing to the CSV file.
-            </param>
-            <param name="hasHeaders">
-            <see langword="true"/> if field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </param>
-            <param name="delimiter">
-            The delimiter character separating each field (default is ',').
-            </param>
-            <param name="quote">
-            The quotation character wrapping every field (default is ''').
-            </param>
-            <param name="escape">
-            The escape character letting insert quotation characters inside a
-            quoted field (default is '\'). If no escape character, set to '\0'
-            to gain some performance.
-            </param>
-            <param name="comment">
-            The comment character indicating that a line is commented out
-            (default is '#').
-            </param>
-            <param name="trimmingOptions">
-            Determines which values should be trimmed.
-            </param>
-            <param name="bufferSize">The buffer size in bytes.</param>
-            <param name="nullValue">The value which denotes a DbNull-value.</param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="reader"/> is a <see langword="null"/>.
-            </exception>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            <paramref name="bufferSize"/> must be 1 or more.
-            </exception>
-        </member>
-        <member name="E:Cadru.Data.Csv.CsvReader.ParseError">
-            <summary>
-            Occurs when there is an error while parsing the CSV stream.
-            </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.OnParseError(Cadru.Data.Csv.ParseErrorEventArgs)">
-            <summary>
-            Raises the <see cref="M:ParseError"/> event.
-            </summary>
-            <param name="e">
-            The <see cref="T:Cadru.Data.Csv.ParseErrorEventArgs"/> that contains the event data.
-            </param>
-        </member>
-        <member name="E:Cadru.Data.Csv.CsvReader.DuplicateHeaderEncountered">
-            <summary>
-            Occurs when HasHeaders is true and a duplicate Column Header Name is
-            encountered. Setting the HeaderName property on this column will
-            prevent the library from throwing a duplicate key exception
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.Comment">
-            <summary>
-            Gets the comment character indicating that a line is commented out.
-            </summary>
-            <value>
-            The comment character indicating that a line is commented out.
-            </value>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.Escape">
-            <summary>
-            Gets the escape character letting insert quotation characters inside
-            a quoted field.
-            </summary>
-            <value>
-            The escape character letting insert quotation characters inside a
-            quoted field.
-            </value>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.Delimiter">
-            <summary>
-            Gets the delimiter character separating each field.
-            </summary>
-            <value>The delimiter character separating each field.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.Quote">
-            <summary>
-            Gets the quotation character wrapping every field.
-            </summary>
-            <value>The quotation character wrapping every field.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.HasHeaders">
-            <summary>
-            Indicates if field names are located on the first non commented line.
-            </summary>
-            <value>
-            <see langword="true"/> if field names are located on the first non
-            commented line, otherwise, <see langword="false"/>.
-            </value>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.TrimmingOption">
-            <summary>
-            Indicates if spaces at the start and end of a field are trimmed.
-            </summary>
-            <value>
-            <see langword="true"/> if spaces at the start and end of a field are
-            trimmed, otherwise, <see langword="false"/>.
-            </value>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.NullValue">
-            <summary>
-            Contains the value which denotes a DbNull-value.
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.BufferSize">
-            <summary>
-            Gets the buffer size.
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.DefaultParseErrorAction">
-            <summary>
-            Gets or sets the default action to take when a parsing error has occured.
-            </summary>
-            <value>The default action to take when a parsing error has occured.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.MissingFieldAction">
-            <summary>
-            Gets or sets the action to take when a field is missing.
-            </summary>
-            <value>The action to take when a field is missing.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.SupportsMultiline">
-            <summary>
-            Gets or sets a value indicating if the reader supports multiline fields.
-            </summary>
-            <value>A value indicating if the reader supports multiline field.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.MaxQuotedFieldLength">
-            <summary>
-            Gets or sets a value giving a maxmimum length (in bytes) for any
-            quoted field.
-            </summary>
-            <value>The maximum length (in bytes) of a CSV field.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.SkipEmptyLines">
-            <summary>
-            Gets or sets a value indicating if the reader will skip empty lines.
-            </summary>
-            <value>A value indicating if the reader will skip empty lines.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.DefaultHeaderName">
-            <summary>
-            Gets or sets the default header name when it is an empty string or
-            only whitespaces. The header index will be appended to the specified name.
-            </summary>
-            <value>
-            The default header name when it is an empty string or only whitespaces.
-            </value>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.Columns">
-            <summary>
-            Gets or sets column information for the CSV.
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.UseColumnDefaults">
-            <summary>
-            Gets or sets whether we should use the column default values if the
-            field is not in the record.
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.FieldCount">
-            <summary>
-            Gets the maximum number of fields to retrieve for each record.
-            </summary>
-            <value>The maximum number of fields to retrieve for each record.</value>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.EndOfStream">
-            <summary>
-            Gets a value that indicates whether the current stream position is
-            at the end of the stream.
-            </summary>
-            <value>
-            <see langword="true"/> if the current stream position is at the end
-            of the stream; otherwise <see langword="false"/>.
-            </value>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.GetFieldHeaders">
-            <summary>
-            Gets the field headers.
-            </summary>
-            <returns>
-            The field headers or an empty array if headers are not supported.
-            </returns>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.FileRecordIndex">
-            <summary>
-            Gets the current record index in the CSV file.
-            <para>
-            A value of <see cref="M:Int32.MinValue"/> means that the reader has
-            not been initialized yet. Otherwise, a negative value means that no
-            record has been read yet.
-            </para>
-            </summary>
-            <value>The current record index in the CSV file.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.CurrentRecordIndex">
-            <summary>
-            Gets the current record index in the CSV file.
-            <para>
-            A value of <see cref="M:Int32.MinValue"/> means that the reader has
-            not been initialized yet. Otherwise, a negative value means that no
-            record has been read yet.
-            </para>
-            </summary>
-            <value>The current record index in the CSV file.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.MissingFieldFlag">
-            <summary>
-            Indicates if one or more field are missing for the current record.
-            Resets after each successful record read.
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.ParseErrorFlag">
-            <summary>
-            Indicates if a parse error occured for the current record. Resets
-            after each successful record read.
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.Item(System.Int32,System.String)">
-            <summary>
-            Gets the field with the specified name and record position.
-            <see cref="M:hasHeaders"/> must be <see langword="true"/>.
-            </summary>
-            <value>The field with the specified name and record position.</value>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="field"/> is <see langword="null"/> or an empty string.
-            </exception>
-            <exception cref="T:InvalidOperationException">
-            The CSV does not have headers ( <see cref="M:HasHeaders"/> property
-            is <see langword="false"/>).
-            </exception>
-            <exception cref="T:ArgumentException">
-            <paramref name="field"/> not found.
-            </exception>
-            <exception cref="T:ArgumentOutOfRangeException">
-            Record index must be &gt; 0.
-            </exception>
-            <exception cref="T:InvalidOperationException">
-            Cannot move to a previous record in forward-only mode.
-            </exception>
-            <exception cref="T:EndOfStreamException">
-            Cannot read record at <paramref name="record"/>.
-            </exception>
-            <exception cref="T:MalformedCsvException">
-            The CSV appears to be corrupt at the current position.
-            </exception>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.Item(System.Int32,System.Int32)">
-            <summary>
-            Gets the field at the specified index and record position.
-            </summary>
-            <value>
-            The field at the specified index and record position. A
-            <see langword="null"/> is returned if the field cannot be found for
-            the record.
-            </value>
-            <exception cref="T:ArgumentOutOfRangeException">
-            <paramref name="field"/> must be included in [0, <see cref="M:FieldCount"/>[.
-            </exception>
-            <exception cref="T:ArgumentOutOfRangeException">
-            Record index must be &gt; 0.
-            </exception>
-            <exception cref="T:InvalidOperationException">
-            Cannot move to a previous record in forward-only mode.
-            </exception>
-            <exception cref="T:EndOfStreamException">
-            Cannot read record at <paramref name="record"/>.
-            </exception>
-            <exception cref="T:MalformedCsvException">
-            The CSV appears to be corrupt at the current position.
-            </exception>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.Item(System.String)">
-            <summary>
-            Gets the field with the specified name. <see cref="M:hasHeaders"/>
-            must be <see langword="true"/>.
-            </summary>
-            <value>The field with the specified name.</value>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="field"/> is <see langword="null"/> or an empty string.
-            </exception>
-            <exception cref="T:InvalidOperationException">
-            The CSV does not have headers ( <see cref="M:HasHeaders"/> property
-            is <see langword="false"/>).
-            </exception>
-            <exception cref="T:ArgumentException">
-            <paramref name="field"/> not found.
-            </exception>
-            <exception cref="T:MalformedCsvException">
-            The CSV appears to be corrupt at the current position.
-            </exception>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.Item(System.Int32)">
-            <summary>
-            Gets the field at the specified index.
-            </summary>
-            <value>The field at the specified index.</value>
-            <exception cref="T:ArgumentOutOfRangeException">
-            <paramref name="field"/> must be included in [0, <see cref="M:FieldCount"/>[.
-            </exception>
-            <exception cref="T:InvalidOperationException">
-            No record read yet. Call ReadLine() first.
-            </exception>
-            <exception cref="T:MalformedCsvException">
-            The CSV appears to be corrupt at the current position.
-            </exception>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.EnsureInitialize">
-            <summary>
-            Ensures that the reader is initialized.
-            </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.GetFieldIndex(System.String)">
-            <summary>
-            Gets the field index for the provided header.
-            </summary>
-            <param name="header">The header to look for.</param>
-            <returns>The field index for the provided header. -1 if not found.</returns>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.HasHeader(System.String)">
-            <summary>
-            Checks if a header exists in the current fieldHedaerIndexes
-            </summary>
-            <param name="header">The header to look for.</param>
-            <returns>A flag indicating if the header exists</returns>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.CopyCurrentRecordTo(System.String[],System.Int32)">
-            <summary>
-            Copies the field array of the current record to a one-dimensional
-            array, starting at the beginning of the target array.
-            </summary>
-            <param name="array">
-            The one-dimensional <see cref="T:Array"/> that is the destination of
-            the fields of the current record.
-            </param>
-            <param name="index">
-            The zero-based index in <paramref name="array"/> at which copying begins.
-            </param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="array"/> is <see langword="null"/>.
-            </exception>
-            <exception cref="T:ArgumentOutOfRangeException">
-            <paramref name="index"/> is les than zero or is equal to or greater
-            than the length <paramref name="array"/>.
-            </exception>
-            <exception cref="T:System.InvalidOperationException">No current record.</exception>
-            <exception cref="T:System.ArgumentException">
-            The number of fields in the record is greater than the available
-            space from <paramref name="index"/> to the end of <paramref name="array"/>.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.GetCurrentRawData">
-            <summary>
-            Gets the current raw CSV data.
-            </summary>
-            <remarks>Used for exception handling purpose.</remarks>
-            <returns>The current raw CSV data.</returns>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.IsWhiteSpace(System.Char)">
-            <summary>
-            Indicates whether the specified Unicode character is categorized as
-            white space.
-            </summary>
-            <param name="c">A Unicode character.</param>
-            <returns>
-            <see langword="true"/> if <paramref name="c"/> is white space;
-            otherwise, <see langword="false"/>.
-            </returns>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.MoveTo(System.Int64)">
-            <summary>
-            Moves to the specified record index.
-            </summary>
-            <param name="record">The record index.</param>
-            <returns>
-            <c>true</c> if the operation was successful; otherwise, <c>false</c>.
-            </returns>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.ParseNewLine(System.Int32@)">
-            <summary>
-            Parses a new line delimiter.
-            </summary>
-            <param name="pos">
-            The starting position of the parsing. Will contain the resulting end position.
-            </param>
-            <returns>
-            <see langword="true"/> if a new line delimiter was found; otherwise, <see langword="false"/>.
-            </returns>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.IsNewLine(System.Int32)">
-            <summary>
-            Determines whether the character at the specified position is a new
-            line delimiter.
-            </summary>
-            <param name="pos">The position of the character to verify.</param>
-            <returns>
-            <see langword="true"/> if the character at the specified position is
-            a new line delimiter; otherwise, <see langword="false"/>.
-            </returns>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.ReadBuffer">
-            <summary>
-            Fills the buffer with data from the reader.
-            </summary>
-            <returns>
-            <see langword="true"/> if data was successfully read; otherwise, <see langword="false"/>.
-            </returns>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.ReadField(System.Int32,System.Boolean,System.Boolean)">
-            <summary>
-            Reads the field at the specified index. Any unread fields with an
-            inferior index will also be read as part of the required parsing.
-            </summary>
-            <param name="field">The field index.</param>
-            <param name="initializing">
-            Indicates if the reader is currently initializing.
-            </param>
-            <param name="discardValue">Indicates if the value(s) are discarded.</param>
-            <returns>
-            The field at the specified index. A <see langword="null"/> indicates
-            that an error occured or that the last field has been reached during initialization.
-            </returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            <paramref name="field"/> is out of range.
-            </exception>
-            <exception cref="T:System.InvalidOperationException">
-            There is no current record.
-            </exception>
-            <exception cref="T:Cadru.Data.Csv.MissingFieldCsvException">
-            The CSV data appears to be missing a field.
-            </exception>
-            <exception cref="T:Cadru.Data.Csv.MalformedCsvException">
-            The CSV data appears to be malformed.
-            </exception>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.ReadNextRecord">
-            <summary>
-            Reads the next record.
-            </summary>
-            <returns>
-            <see langword="true"/> if a record has been successfully reads;
-            otherwise, <see langword="false"/>.
-            </returns>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.ReadNextRecord(System.Boolean,System.Boolean)">
-            <summary>
-            Reads the next record.
-            </summary>
-            <param name="onlyReadHeaders">
-            Indicates if the reader will proceed to the next record after having
-            read headers. <see langword="true"/> if it stops after having read
-            headers; otherwise, <see langword="false"/>.
-            </param>
-            <param name="skipToNextLine">
-            Indicates if the reader will skip directly to the next line without
-            parsing the current one. To be used when an error occurs.
-            </param>
-            <returns>
-            <see langword="true"/> if a record has been successfully reads;
-            otherwise, <see langword="false"/>.
-            </returns>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.SkipEmptyAndCommentedLines(System.Int32@)">
-            <summary>
-            Skips empty and commented lines. If the end of the buffer is
-            reached, its content be discarded and filled again from the reader.
-            </summary>
-            <param name="pos">
-            The position in the buffer where to start parsing. Will contains the
-            resulting position after the operation.
-            </param>
-            <returns>
-            <see langword="true"/> if the end of the reader has not been
-            reached; otherwise, <see langword="false"/>.
-            </returns>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.DoSkipEmptyAndCommentedLines(System.Int32@)">
-            <summary>
-            <para>Worker method.</para>
-            <para>Skips empty and commented lines.</para>
-            </summary>
-            <param name="pos">
-            The position in the buffer where to start parsing. Will contains the
-            resulting position after the operation.
-            </param>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.SkipWhiteSpaces(System.Int32@)">
-            <summary>
-            Skips whitespace characters.
-            </summary>
-            <param name="pos">
-            The starting position of the parsing. Will contain the resulting end position.
-            </param>
-            <returns>
-            <see langword="true"/> if the end of the reader has not been
-            reached; otherwise, <see langword="false"/>.
-            </returns>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.SkipToNewLine(System.Int32@)">
-            <summary>
-            Skips ahead to the next NewLine character. If the end of the buffer
-            is reached, its content be discarded and filled again from the reader.
-            </summary>
-            <param name="pos">
-            The position in the buffer where to start parsing. Will contains the
-            resulting position after the operation.
-            </param>
-            <returns>
-            <see langword="true"/> if the end of the reader has not been
-            reached; otherwise, <see langword="false"/>.
-            </returns>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.HandleParseError(Cadru.Data.Csv.MalformedCsvException,System.Int32@)">
-            <summary>
-            Handles a parsing error.
-            </summary>
-            <param name="error">The parsing error that occured.</param>
-            <param name="pos">The current position in the buffer.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="error"/> is <see langword="null"/>.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.HandleMissingField(System.String,System.Int32,System.Int32@)">
-            <summary>
-            Handles a missing field error.
-            </summary>
-            <param name="value">The partially parsed value, if available.</param>
-            <param name="fieldIndex">The missing field index.</param>
-            <param name="currentPosition">The current position in the raw data.</param>
-            <returns>
-            The resulting value according to <see cref="M:MissingFieldAction"/>.
-            If the action is set to
-            <see cref="T:MissingFieldAction.TreatAsParseError"/>, then the parse
-            error will be handled according to <see cref="P:Cadru.Data.Csv.CsvReader.DefaultParseErrorAction"/>.
-            </returns>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.ValidateDataReader(Cadru.Data.Csv.CsvReader.DataReaderValidations)">
-            <summary>
-            Validates the state of the data reader.
-            </summary>
-            <param name="validations">The validations to accomplish.</param>
-            <exception cref="T:System.InvalidOperationException">No current record.</exception>
-            <exception cref="T:System.InvalidOperationException">
-            This operation is invalid when the reader is closed.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.CopyFieldToArray(System.Int32,System.Int64,System.Array,System.Int32,System.Int32)">
-            <summary>
-            Copy the value of the specified field to an array.
-            </summary>
-            <param name="field">The index of the field.</param>
-            <param name="fieldOffset">The offset in the field value.</param>
-            <param name="destinationArray">
-            The destination array where the field value will be copied.
-            </param>
-            <param name="destinationOffset">The destination array offset.</param>
-            <param name="length">
-            The number of characters to copy from the field value.
-            </param>
-            <returns></returns>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.GetEnumerator">
-            <summary>
-            Returns an <see cref="T:RecordEnumerator"/> that can iterate through
-            CSV records.
-            </summary>
-            <returns>
-            An <see cref="T:RecordEnumerator"/> that can iterate through CSV records.
-            </returns>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.System#Collections#Generic#IEnumerable{System#String[]}#GetEnumerator">
-            <summary>
-            Returns an <see cref="T:System.Collections.Generics.IEnumerator"/>
-            that can iterate through CSV records.
-            </summary>
-            <returns>
-            An <see cref="T:System.Collections.Generics.IEnumerator"/> that can
-            iterate through CSV records.
-            </returns>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.System#Collections#IEnumerable#GetEnumerator">
-            <summary>
-            Returns an <see cref="T:System.Collections.IEnumerator"/> that can
-            iterate through CSV records.
-            </summary>
-            <returns>
-            An <see cref="T:System.Collections.IEnumerator"/> that can iterate
-            through CSV records.
-            </returns>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader._allocStack">
-            <summary>
-            Contains the stack when the object was allocated.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader._isDisposed">
-            <summary>
-            Contains the disposed status flag.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader._lock">
-            <summary>
-            Contains the locking object for multi-threading purpose.
-            </summary>
-        </member>
-        <member name="E:Cadru.Data.Csv.CsvReader.Disposed">
-            <summary>
-            Occurs when the instance is disposed of.
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.IsDisposed">
-            <summary>
-            Gets a value indicating whether the instance has been disposed of.
-            </summary>
-            <value>
-            <see langword="true"/> if the instance has been disposed of;
-            otherwise, <see langword="false"/>.
-            </value>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.OnDisposed(System.EventArgs)">
-            <summary>
-            Raises the <see cref="M:Disposed"/> event.
-            </summary>
-            <param name="e">
-            A <see cref="T:System.EventArgs"/> that contains the event data.
-            </param>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.CheckDisposed">
-            <summary>
-            Checks if the instance has been disposed of, and if it has, throws
-            an <see cref="T:System.ComponentModel.ObjectDisposedException"/>;
-            otherwise, does nothing.
-            </summary>
-            <exception cref="T:System.ComponentModel.ObjectDisposedException">
-            The instance has been disposed of.
-            </exception>
-            <remarks>
-            Derived classes should call this method at the start of all methods
-            and properties that should not be accessed after a call to <see cref="M:Dispose()"/>.
-            </remarks>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.Dispose">
-            <summary>
-            Releases all resources used by the instance.
-            </summary>
-            <remarks>
-            Calls <see cref="M:Dispose(Boolean)"/> with the disposing parameter
-            set to <see langword="true"/> to free unmanaged and managed resources.
-            </remarks>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.Dispose(System.Boolean)">
-            <summary>
-            Releases the unmanaged resources used by this instance and
-            optionally releases the managed resources.
-            </summary>
-            <param name="disposing">
-            <see langword="true"/> to release both managed and unmanaged
-            resources; <see langword="false"/> to release only unmanaged resources.
-            </param>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.Finalize">
-            <summary>
-            Releases unmanaged resources and performs other cleanup operations
-            before the instance is reclaimed by garbage collection.
-            </summary>
-        </member>
-        <member name="T:Cadru.Data.Csv.CsvReader.DataReaderValidations">
-            <summary>
-            Defines the data reader validations.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader.DataReaderValidations.None">
-            <summary>
-            No validation.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader.DataReaderValidations.IsInitialized">
-            <summary>
-            Validate that the data reader is initialized.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader.DataReaderValidations.IsNotClosed">
-            <summary>
-            Validate that the data reader is not closed.
-            </summary>
-        </member>
-        <member name="T:Cadru.Data.Csv.CsvReader.RecordEnumerator">
-            <summary>
-            Supports a simple iteration over the records of a <see cref="T:CsvReader"/>.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader.RecordEnumerator._current">
-            <summary>
-            Contains the current record.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader.RecordEnumerator._currentRecordIndex">
-            <summary>
-            Contains the current record index.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.CsvReader.RecordEnumerator._reader">
-            <summary>
-            Contains the enumerated <see cref="T:CsvReader"/>.
-            </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.RecordEnumerator.#ctor(Cadru.Data.Csv.CsvReader)">
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.#ctor(System.String)">
             <summary>
             Initializes a new instance of the
-            <see cref="T:RecordEnumerator"/> class.
+            <see cref="T:Cadru.Data.Excel.DataReaderExtensions"/> class.
             </summary>
-            <param name="reader">
-            The <see cref="T:CsvReader"/> to iterate over.
+            <param name="path">The path to the Excel spreadsheet file.</param>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Cadru.Data.Excel.DataReaderExtensions"/> class.
+            </summary>
+            <param name="stream">
+            An unopened stream to the Excel spreadsheet file.
             </param>
-            <exception cref="T:ArgumentNullException">
-            <paramref name="reader"/> is a <see langword="null"/>.
-            </exception>
         </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.RecordEnumerator.Current">
+        <member name="P:Cadru.Data.Excel.ExcelDataReader.CurrentRowIndex">
             <summary>
-            Gets the current record.
+            Gets the index of the current row in the spreadsheet.
             </summary>
         </member>
-        <member name="P:Cadru.Data.Csv.CsvReader.RecordEnumerator.System#Collections#IEnumerator#Current">
+        <member name="P:Cadru.Data.Excel.ExcelDataReader.CurrentSheetId">
             <summary>
-            Gets the current record.
+            Gets the current sheet Id.
             </summary>
         </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.RecordEnumerator.Dispose">
+        <member name="P:Cadru.Data.Excel.ExcelDataReader.CurrentSheetIndex">
             <summary>
-            Performs application-defined tasks associated with freeing,
-            releasing, or resetting unmanaged resources.
+            Gets the index of the current sheet in the spreadsheet.
             </summary>
         </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.RecordEnumerator.MoveNext">
+        <member name="P:Cadru.Data.Excel.ExcelDataReader.CurrentSheetName">
             <summary>
-            Advances the enumerator to the next record of the CSV.
+            Gets the current sheet name.
             </summary>
+        </member>
+        <member name="P:Cadru.Data.Excel.ExcelDataReader.FieldNames">
+            <summary>
+            Gets the column header names.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Excel.ExcelDataReader.FirstRowAsHeader">
+            <summary>
+            Gets or sets a value indicating whether or not the first row
+            contains column header names.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Excel.ExcelDataReader.IsClosed">
+            <summary>
+            Gets a value indicating if the reader is closed.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Excel.ExcelDataReader.ResultsCount">
+            <summary>
+            Gets a value indicating the number of sheets read.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Excel.ExcelDataReader.SheetNames">
+            <summary>
+            Gets the sheet names.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Excel.ExcelDataReader.Item(System.String)">
+            <summary>
+            Gets a value from the current sheet by name.
+            </summary>
+            <param name="name">The column header name of the value to get.</param>
+            <returns>The value associated with the column header.</returns>
+        </member>
+        <member name="P:Cadru.Data.Excel.ExcelDataReader.Item(System.Int32)">
+            <summary>
+            Gets a value from the current sheet by index.
+            </summary>
+            <param name="i">The column index of the value to get.</param>
+            <returns>The value at the column index.</returns>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.NextResult(System.String,System.Boolean)">
+            <summary>
+            Advances the reader to the named sheet.
+            </summary>
+            <param name="sheetName">The name of the sheet to advance to.</param>
+            <param name="firstRowAsHeader">
+            Indicates whether or not the first row contains column header names.
+            </param>
             <returns>
-            <see langword="true"/> if the enumerator was successfully
-            advanced to the next record, <see langword="false"/> if the
-            enumerator has passed the end of the CSV.
+            <see langword="true"/> if the reader was able to advance; otherwise, <see langword="false"/>.
             </returns>
         </member>
-        <member name="M:Cadru.Data.Csv.CsvReader.RecordEnumerator.Reset">
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.NextResult(System.String)">
             <summary>
-            Sets the enumerator to its initial position, which is before the
-            first record in the CSV.
+            Advances the reader to the named sheet.
+            </summary>
+            <param name="sheetName">The name of the sheet to advance to.</param>
+            <returns>
+            <see langword="true"/> if the reader was able to advance; otherwise, <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="P:Cadru.Data.Excel.ExcelDataReader.Depth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cadru.Data.Excel.ExcelDataReader.RecordsAffected">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetColumnIndexByName(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.Close">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetSchemaTable">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.IsCurrentRowEmpty">
+            <summary>
+            Gets a value indicating if the current row is empty.
+            </summary>
+            <returns><see langword="true"/> if the current row is empty; otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.NextResult">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.Read">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cadru.Data.Excel.ExcelDataReader.FieldCount">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetBoolean(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetByte(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetBytes(System.Int32,System.Int64,System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetChar(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetChars(System.Int32,System.Int64,System.Char[],System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetData(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetDataTypeName(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetDateTime(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetDecimal(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetDouble(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetFieldType(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetFloat(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetGuid(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetInt16(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetInt32(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetInt64(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetName(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetOrdinal(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetString(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetValue(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.GetValues(System.Object[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataReader.IsDBNull(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.Data.Excel.DataReaderExtensions">
+            <summary>
+            Extension methods for working with an <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>.
             </summary>
         </member>
-        <member name="T:Cadru.Data.Csv.CsvRecordComparer">
+        <member name="M:Cadru.Data.Excel.DataReaderExtensions.Field``1(Cadru.Data.Excel.ExcelDataReader,System.Int32)">
             <summary>
-            Represents a CSV record comparer.
+            Provides strongly-typed access to each of the column values in the <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>.
             </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.CsvRecordComparer.#ctor(System.Int32,System.ComponentModel.ListSortDirection)">
-            <summary>
-            Initializes a new instance of the CsvRecordComparer class.
-            </summary>
-            <param name="field">The field index of the values to compare.</param>
-            <param name="direction">The sort direction.</param>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvRecordComparer.Field">
-            <summary>
-            Contains the field index of the values to compare.
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Csv.CsvRecordComparer.Direction">
-            <summary>
-            Contains the sort direction.
-            </summary>
-        </member>
-        <member name="T:Cadru.Data.Csv.DuplicateHeaderEventArgs">
-            <summary>
-            Provides data for the <see cref="M:CsvReader.OnDuplicateHeader"/> event.
-            </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.DuplicateHeaderEventArgs.#ctor(System.String,System.Int32,System.Int32)">
-            <summary>
-            Initializes a new instance of the DuplicateHeaderEventArgs class.
-            </summary>
-            <param name="headerName">The name of the duplicate header.</param>
-            <param name="index">The index of the duplicate header being added.</param>
-            <param name="existingDuplicateIndex">
-            The index of the duplicate header that is already in the Column collection.
+            <typeparam name="T">The return type of the column.</typeparam>
+            <param name="reader">
+            The input <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>, which acts as the this
+            instance for the extension method.
             </param>
+            <param name="columnIndex">The column index.</param>
+            <returns>
+            The value, of type <typeparamref name="T"/>, of the column specified
+            by <paramref name="columnIndex"/>.
+            </returns>
         </member>
-        <member name="P:Cadru.Data.Csv.DuplicateHeaderEventArgs.ExistingDuplicateIndex">
+        <member name="M:Cadru.Data.Excel.DataReaderExtensions.Field``1(Cadru.Data.Excel.ExcelDataReader,System.String)">
             <summary>
-            Index of the duplicate header that has already been added to the
-            Column collection
+            Provides strongly-typed access to each of the column values in the <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>.
             </summary>
-            <value>The column index</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.DuplicateHeaderEventArgs.HeaderName">
-            <summary>
-            Name of the header that is a duplicate.
-            </summary>
-            <value>The header name.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.DuplicateHeaderEventArgs.Index">
-            <summary>
-            Index of the duplicate header being added
-            </summary>
-            <value>The column index</value>
-        </member>
-        <member name="T:Cadru.Data.Csv.DuplicateHeaderException">
-            <summary>
-            Represents the exception that is thrown when a duplicate column header
-            name encounter.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.DuplicateHeaderException._columnIndex">
-            <summary>
-            Contains the column index where the duplicate was found.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.DuplicateHeaderException._headerName">
-            <summary>
-            Contains the message that describes the error.
-            </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.DuplicateHeaderException.#ctor(System.String,System.Int32)">
-            <summary>
-            Initializes a new instance of the DuplicateHeaderException class.
-            </summary>
-        </member>
-        <member name="P:Cadru.Data.Csv.DuplicateHeaderException.ColumnIndex">
-            <summary>
-            Gets the column index where the duplicate was found.
-            </summary>
-            <value>The index of the column.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.DuplicateHeaderException.HeaderName">
-            <summary>
-            Gets the HeaderName of the column with the duplicate.
-            </summary>
-            <value>The name of the column header.</value>
-        </member>
-        <member name="T:Cadru.Data.Csv.MalformedCsvException">
-            <summary>
-            Represents the exception that is thrown when a CSV file is malformed.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.MalformedCsvException._currentFieldIndex">
-            <summary>
-            Contains the current field index.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.MalformedCsvException._currentPosition">
-            <summary>
-            Contains the current position in the raw data.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.MalformedCsvException._currentRecordIndex">
-            <summary>
-            Contains the current record index.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.MalformedCsvException._message">
-            <summary>
-            Contains the message that describes the error.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.MalformedCsvException._rawData">
-            <summary>
-            Contains the raw data when the error occured.
-            </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.MalformedCsvException.#ctor">
-            <summary>
-            Initializes a new instance of the MalformedCsvException class.
-            </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.MalformedCsvException.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the MalformedCsvException class.
-            </summary>
-            <param name="message">The message that describes the error.</param>
-        </member>
-        <member name="M:Cadru.Data.Csv.MalformedCsvException.#ctor(System.String,System.Exception)">
-            <summary>
-            Initializes a new instance of the MalformedCsvException class.
-            </summary>
-            <param name="message">The message that describes the error.</param>
-            <param name="innerException">
-            The exception that is the cause of the current exception.
+            <typeparam name="T">The return type of the column.</typeparam>
+            <param name="reader">
+            The input <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>, which acts as the this
+            instance for the extension method.
             </param>
+            <param name="columnName">The column name.</param>
+            <returns>
+            The value, of type <typeparamref name="T"/>, of the column specified
+            by <paramref name="columnName"/>.
+            </returns>
         </member>
-        <member name="M:Cadru.Data.Csv.MalformedCsvException.#ctor(System.String,System.Int32,System.Int64,System.Int32)">
+        <member name="M:Cadru.Data.Excel.DataReaderExtensions.FieldOrDefault``1(Cadru.Data.Excel.ExcelDataReader,System.Int32)">
             <summary>
-            Initializes a new instance of the MalformedCsvException class.
+            Provides strongly-typed access to each of the column values in the <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>.
             </summary>
-            <param name="rawData">The raw data when the error occured.</param>
-            <param name="currentPosition">The current position in the raw data.</param>
-            <param name="currentRecordIndex">The current record index.</param>
-            <param name="currentFieldIndex">The current field index.</param>
-        </member>
-        <member name="M:Cadru.Data.Csv.MalformedCsvException.#ctor(System.String,System.Int32,System.Int64,System.Int32,System.Exception)">
-            <summary>
-            Initializes a new instance of the MalformedCsvException class.
-            </summary>
-            <param name="rawData">The raw data when the error occured.</param>
-            <param name="currentPosition">The current position in the raw data.</param>
-            <param name="currentRecordIndex">The current record index.</param>
-            <param name="currentFieldIndex">The current field index.</param>
-            <param name="innerException">
-            The exception that is the cause of the current exception.
+            <typeparam name="T">The return type of the column.</typeparam>
+            <param name="reader">
+            The input <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>, which acts as the this
+            instance for the extension method.
             </param>
+            <param name="columnIndex">The column index.</param>
+            <returns>
+            The value, of type <typeparamref name="T"/>, of the column specified
+            by <paramref name="columnIndex"/> or the default for
+            <typeparamref name="T"/> if the field is not found.
+            </returns>
         </member>
-        <member name="P:Cadru.Data.Csv.MalformedCsvException.CurrentFieldIndex">
+        <member name="M:Cadru.Data.Excel.DataReaderExtensions.FieldOrDefault``1(Cadru.Data.Excel.ExcelDataReader,System.String)">
             <summary>
-            Gets the current field index.
+            Provides strongly-typed access to each of the column values in the <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>.
             </summary>
-            <value>The current record index.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.MalformedCsvException.CurrentPosition">
-            <summary>
-            Gets the current position in the raw data.
-            </summary>
-            <value>The current position in the raw data.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.MalformedCsvException.CurrentRecordIndex">
-            <summary>
-            Gets the current record index.
-            </summary>
-            <value>The current record index.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.MalformedCsvException.Message">
-            <summary>
-            Gets a message that describes the current exception.
-            </summary>
-            <value>A message that describes the current exception.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.MalformedCsvException.RawData">
-            <summary>
-            Gets the raw data when the error occured.
-            </summary>
-            <value>The raw data when the error occured.</value>
-        </member>
-        <member name="T:Cadru.Data.Csv.MissingFieldAction">
-            <summary>
-            Specifies the action to take when a field is missing.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.MissingFieldAction.ParseError">
-            <summary>
-            Treat as a parsing error.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.MissingFieldAction.ReplaceByEmpty">
-            <summary>
-            Replaces by an empty value.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.MissingFieldAction.ReplaceByNull">
-            <summary>
-            Replaces by a null value ( <see langword="null"/>).
-            </summary>
-        </member>
-        <member name="T:Cadru.Data.Csv.MissingFieldCsvException">
-            <summary>
-            Represents the exception that is thrown when a there is a missing field
-            in a record of the CSV file.
-            </summary>
-            <remarks>
-            MissingFieldException would have been a better name, but there is
-            already a <see cref="T:System.MissingFieldException"/>.
-            </remarks>
-        </member>
-        <member name="M:Cadru.Data.Csv.MissingFieldCsvException.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the MissingFieldCsvException class.
-            </summary>
-            <param name="message">The message that describes the error.</param>
-        </member>
-        <member name="M:Cadru.Data.Csv.MissingFieldCsvException.#ctor(System.String,System.Exception)">
-            <summary>
-            Initializes a new instance of the MissingFieldCsvException class.
-            </summary>
-            <param name="message">The message that describes the error.</param>
-            <param name="innerException">
-            The exception that is the cause of the current exception.
+            <typeparam name="T">The return type of the column.</typeparam>
+            <param name="reader">
+            The input <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>, which acts as the this
+            instance for the extension method.
             </param>
+            <param name="columnName">The column name.</param>
+            <returns>
+            The value, of type <typeparamref name="T"/>, of the column specified
+            by <paramref name="columnName"/> or the default for
+            <typeparamref name="T"/> if the field is not found.
+            </returns>
         </member>
-        <member name="M:Cadru.Data.Csv.MissingFieldCsvException.#ctor(System.String,System.Int32,System.Int64,System.Int32)">
+        <member name="M:Cadru.Data.Excel.DataReaderExtensions.FieldOrDefault``1(Cadru.Data.Excel.ExcelDataReader,System.Int32,``0)">
             <summary>
-            Initializes a new instance of the MissingFieldCsvException class.
+            Provides strongly-typed access to each of the column values in the <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>.
             </summary>
-            <param name="rawData">The raw data when the error occured.</param>
-            <param name="currentPosition">The current position in the raw data.</param>
-            <param name="currentRecordIndex">The current record index.</param>
-            <param name="currentFieldIndex">The current field index.</param>
-        </member>
-        <member name="M:Cadru.Data.Csv.MissingFieldCsvException.#ctor(System.String,System.Int32,System.Int64,System.Int32,System.Exception)">
-            <summary>
-            Initializes a new instance of the MissingFieldCsvException class.
-            </summary>
-            <param name="rawData">The raw data when the error occured.</param>
-            <param name="currentPosition">The current position in the raw data.</param>
-            <param name="currentRecordIndex">The current record index.</param>
-            <param name="currentFieldIndex">The current field index.</param>
-            <param name="innerException">
-            The exception that is the cause of the current exception.
+            <typeparam name="T">The return type of the column.</typeparam>
+            <param name="reader">
+            The input <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>, which acts as the this
+            instance for the extension method.
             </param>
+            <param name="columnIndex">The column index.</param>
+            <param name="nullValue">The value to use as the default.</param>
+            <returns>
+            The value, of type <typeparamref name="T"/>, of the column specified
+            by <paramref name="columnIndex"/> or <paramref name="nullValue"/> if
+            the field is not found.
+            </returns>
         </member>
-        <member name="T:Cadru.Data.Csv.ParseErrorAction">
+        <member name="M:Cadru.Data.Excel.DataReaderExtensions.FieldOrDefault``1(Cadru.Data.Excel.ExcelDataReader,System.String,``0)">
             <summary>
-            Specifies the action to take when a parsing error has occured.
+            Provides strongly-typed access to each of the column values in the <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>.
+            </summary>
+            <typeparam name="T">The return type of the column.</typeparam>
+            <param name="reader">
+            The input <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>, which acts as the this
+            instance for the extension method.
+            </param>
+            <param name="columnName">The column name.</param>
+            <param name="nullValue">The value to use as the default.</param>
+            <returns>
+            The value, of type <typeparamref name="T"/>, of the column specified
+            by <paramref name="columnName"/> or <paramref name="nullValue"/> if
+            the field is not found.
+            </returns>
+        </member>
+        <member name="M:Cadru.Data.Excel.DataReaderExtensions.IsNull(Cadru.Data.Excel.ExcelDataReader,System.Int32)">
+            <summary>
+            Indicates if the value of the specified column in the
+            <see cref="T:Cadru.Data.Excel.ExcelDataReader"/> is <see langword="null"/>.
+            </summary>
+            <param name="reader">
+            The input <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>, which acts as the this
+            instance for the extension method.
+            </param>
+            <param name="columnIndex">The column index.</param>
+            <returns>
+            <see langword="true"/> if the value is <see langword="null"/>;
+            otherwise, <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="M:Cadru.Data.Excel.DataReaderExtensions.IsNull(Cadru.Data.Excel.ExcelDataReader,System.String)">
+            <summary>
+            Indicates if the value of the specified column in the
+            <see cref="T:Cadru.Data.Excel.ExcelDataReader"/> is <see langword="null"/>.
+            </summary>
+            <param name="reader">
+            The input <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>, which acts as the this
+            instance for the extension method.
+            </param>
+            <param name="columnName">The column name.</param>
+            <returns>
+            <see langword="true"/> if the value is <see langword="null"/>;
+            otherwise, <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="M:Cadru.Data.Excel.DataReaderExtensions.IsNullOrWhiteSpace(Cadru.Data.Excel.ExcelDataReader,System.Int32)">
+            <summary>
+            Indicates if the value of the specified column in the
+            <see cref="T:Cadru.Data.Excel.ExcelDataReader"/> is <see langword="null"/> or <see cref="F:System.String.Empty"/>.
+            </summary>
+            <param name="reader">
+            The input <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>, which acts as the this
+            instance for the extension method.
+            </param>
+            <param name="columnIndex">The column index.</param>
+            <returns>
+            <see langword="true"/> if the value is <see langword="null"/> or
+            <see cref="F:System.String.Empty"/>; otherwise, <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="M:Cadru.Data.Excel.DataReaderExtensions.IsNullOrWhiteSpace(Cadru.Data.Excel.ExcelDataReader,System.String)">
+            <summary>
+            Indicates if the value of the specified column in the
+            <see cref="T:Cadru.Data.Excel.ExcelDataReader"/> is <see langword="null"/> or <see cref="F:System.String.Empty"/>.
+            </summary>
+            <param name="reader">
+            The input <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>, which acts as the this
+            instance for the extension method.
+            </param>
+            <param name="columnName">The column name.</param>
+            <returns>
+            <see langword="true"/> if the value is <see langword="null"/> or
+            <see cref="F:System.String.Empty"/>; otherwise, <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="M:Cadru.Data.Excel.DataReaderExtensions.ToDelimitedString(Cadru.Data.Excel.ExcelDataReader)">
+            <summary>
+            Formats the values of the current row in the
+            <see cref="T:Cadru.Data.Excel.ExcelDataReader"/> as a comma delimited string.
+            </summary>
+            <param name="reader">
+            The input <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>, which acts as the this
+            instance for the extension method.
+            </param>
+            <returns>
+            The values of the current row in the <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>
+            as a comma delimited string.
+            </returns>
+        </member>
+        <member name="M:Cadru.Data.Excel.DataReaderExtensions.ToDelimitedString(Cadru.Data.Excel.ExcelDataReader,System.Boolean)">
+            <summary>
+            Formats the values of the current row in the
+            <see cref="T:Cadru.Data.Excel.ExcelDataReader"/> as a comma delimited string.
+            </summary>
+            <param name="reader">
+            The input <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>, which acts as the this
+            instance for the extension method.
+            </param>
+            <param name="includeHeaders">
+            Indicates if the colunn headers should be included in the output.
+            </param>
+            <returns>
+            The values of the current row in the <see cref="T:Cadru.Data.Excel.ExcelDataReader"/>
+            as a comma delimited string.
+            </returns>
+        </member>
+        <member name="T:Cadru.Data.Excel.ExcelDataWriter">
+            <summary>
+            Represents a writer for Excel data
             </summary>
         </member>
-        <member name="F:Cadru.Data.Csv.ParseErrorAction.RaiseEvent">
+        <member name="M:Cadru.Data.Excel.ExcelDataWriter.#ctor(System.String)">
             <summary>
-            Raises the <see cref="M:CsvReader.ParseError"/> event.
+            Initializes a new instance of the <see cref="T:Cadru.Data.Excel.ExcelDataWriter"/> class.
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:Cadru.Data.Excel.ExcelDataWriter.AddWorksheet``1(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Adds a new worksheet to the spreadsheet.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="name"></param>
+            <param name="headers"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:Cadru.Data.FileSystem.OpenTextFieldParser(System.String)">
+            <summary>
+            Return an instance of a TextFieldParser for the given file.
+            </summary>
+            <param name="file">The path to the file to parse.</param>
+            <returns>An instance of a TextFieldParser.</returns>
+        </member>
+        <member name="M:Cadru.Data.FileSystem.OpenTextFieldParser(System.String,System.String[])">
+            <summary>
+            Return an instance of a TextFieldParser for the given file using the given delimiters.
+            </summary>
+            <param name="file">The path to the file to parse.</param>
+            <param name="delimiters">A list of delimiters.</param>
+            <returns>An instance of a TextFieldParser</returns>
+        </member>
+        <member name="M:Cadru.Data.FileSystem.OpenTextFieldParser(System.String,System.Int32[])">
+            <summary>
+            Return an instance of a TextFieldParser for the given file using the given field widths.
+            </summary>
+            <param name="file">The path to the file to parse.</param>
+            <param name="fieldWidths">A list of field widths.</param>
+            <returns>An instance of a TextFieldParser</returns>
+        </member>
+        <member name="M:Cadru.Data.FileSystem.NormalizeFilePath(System.String,System.String)">
+            <summary>
+            Normalize the path, but throw exception if the path ends with separator.
+            </summary>
+            <param name="path">The input path.</param>
+            <param name="paramName">The parameter name to include in the exception if one is raised.</param>
+            <returns>The normalized path.</returns>
+        </member>
+        <member name="M:Cadru.Data.FileSystem.NormalizePath(System.String)">
+            <summary>
+            Get full path, get long format, and remove any pending separator.
+            </summary>
+            <param name="path">The path to be normalized.</param>
+            <returns>The normalized path.</returns>
+            <remarks>Keep this function since we might change the implementation / behavior later.</remarks>
+        </member>
+        <member name="M:Cadru.Data.FileSystem.CheckFilePathTrailingSeparator(System.String,System.String)">
+            <summary>
+            Throw ArgumentException if the file path ends with a separator.
+            </summary>
+            <param name="path">The file path.</param>
+            <param name="paramName">The parameter name to include in ArgumentException.</param>
+        </member>
+        <member name="M:Cadru.Data.FileSystem.RemoveEndingSeparator(System.String)">
+            <summary>
+            Removes all directory separators at the end of a path.
+            </summary>
+            <param name="path">a full or relative path.</param>
+            <returns>If Path is a root path, the same value. Otherwise, removes any directory separators at the end.</returns>
+            <remarks>We decided not to return path with separators at the end.</remarks>
+        </member>
+        <member name="T:Cadru.Data.IO.FieldType">
+            <summary>
+            Indicate the kind of file being read, either delimited or fixed length
             </summary>
         </member>
-        <member name="F:Cadru.Data.Csv.ParseErrorAction.AdvanceToNextLine">
+        <member name="F:Cadru.Data.IO.FieldType.Delimited">
             <summary>
-            Tries to advance to next line.
+            The file being read has delimited records.
             </summary>
         </member>
-        <member name="F:Cadru.Data.Csv.ParseErrorAction.ThrowException">
+        <member name="F:Cadru.Data.IO.FieldType.FixedWidth">
             <summary>
-            Throws an exception.
+            The file being read has fixed length records.
             </summary>
         </member>
-        <member name="T:Cadru.Data.Csv.ParseErrorEventArgs">
+        <member name="T:Cadru.Data.IO.NullRemovalStream">
             <summary>
-            Provides data for the <see cref="M:CsvReader.ParseError"/> event.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.ParseErrorEventArgs._error">
-            <summary>
-            Contains the error that occured.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.ParseErrorEventArgs._action">
-            <summary>
-            Contains the action to take.
-            </summary>
-        </member>
-        <member name="M:Cadru.Data.Csv.ParseErrorEventArgs.#ctor(Cadru.Data.Csv.MalformedCsvException,Cadru.Data.Csv.ParseErrorAction)">
-            <summary>
-            Initializes a new instance of the ParseErrorEventArgs class.
-            </summary>
-            <param name="error">The error that occured.</param>
-            <param name="defaultAction">The default action to take.</param>
-        </member>
-        <member name="P:Cadru.Data.Csv.ParseErrorEventArgs.Action">
-            <summary>
-            Gets or sets the action to take.
-            </summary>
-            <value>The action to take.</value>
-        </member>
-        <member name="P:Cadru.Data.Csv.ParseErrorEventArgs.Error">
-            <summary>
-            Gets the error that occured.
-            </summary>
-            <value>The error that occured.</value>
-        </member>
-        <member name="T:Cadru.Data.Csv.ValueTrimmingOptions">
-            <summary>
-            Determines which values should be trimmed.
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.ValueTrimmingOptions.None">
-            <summary>
-            Don't do any trimming
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.ValueTrimmingOptions.UnquotedOnly">
-            <summary>
-            Only trim unquoted values
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.ValueTrimmingOptions.QuotedOnly">
-            <summary>
-            Only trim quoted values
-            </summary>
-        </member>
-        <member name="F:Cadru.Data.Csv.ValueTrimmingOptions.All">
-            <summary>
-            trim all values
-            </summary>
-        </member>
-        <!-- Badly formed XML comment ignored for member "T:Cadru.Data.Excel.ExcelDataReaderExtensions" -->
-        <member name="F:Cadru.Data.Excel.UnboxT`1.Unbox">
-            <summary>
-            Defines the Unbox = Create(typeof (T))
+            A stream implementation that removes consecutive null bytes above a
+            threshold from source
             </summary>
         </member>
         <member name="M:Cadru.Data.IO.NullRemovalStream.#ctor(System.IO.Stream,System.Boolean,System.Int32,System.Int32)">
             <summary>
-            A stream implmentation that removes consecutive null bytes above a
-            threshold from source
+            Initializes a new instance of the <see cref="T:Cadru.Data.IO.NullRemovalStream"/> class.
             </summary>
             <param name="source">
             A <see cref="T:Stream"/> pointing to the source data
             </param>
             <param name="addMark">
-            add a mark ([removed x null bytes]) to indicate removal if set to
-            <see langword="true"/>, remove silently if <see langword="false"/>
+            Indicates if a mark ([removed x null bytes]) should be added to
+            indicate removal
             </param>
             <param name="threshold">
-            only consecutive null bytes above this threshold will be removed or
-            replaced by a mark
+            The number above which any consecutive null bytes above this
+            threshold will be removed or replaced by a mark.
             </param>
             <param name="bufferSize">Size of buffer</param>
+        </member>
+        <member name="P:Cadru.Data.IO.NullRemovalStream.CanRead">
+            <inheritdoc cref="P:System.IO.Stream.CanRead"/>
+        </member>
+        <member name="P:Cadru.Data.IO.NullRemovalStream.CanSeek">
+            <inheritdoc cref="P:System.IO.Stream.CanSeek"/>
+        </member>
+        <member name="P:Cadru.Data.IO.NullRemovalStream.CanWrite">
+            <inheritdoc cref="P:System.IO.Stream.CanWrite"/>
+        </member>
+        <member name="P:Cadru.Data.IO.NullRemovalStream.Length">
+            <inheritdoc cref="P:System.IO.Stream.Length"/>
+        </member>
+        <member name="P:Cadru.Data.IO.NullRemovalStream.Position">
+            <inheritdoc cref="P:System.IO.Stream.Position"/>
+        </member>
+        <member name="M:Cadru.Data.IO.NullRemovalStream.Close">
+            <inheritdoc cref="M:System.IO.Stream.Close"/>
+        </member>
+        <member name="M:Cadru.Data.IO.NullRemovalStream.Flush">
+            <inheritdoc cref="M:System.IO.Stream.Flush"/>
+        </member>
+        <member name="M:Cadru.Data.IO.NullRemovalStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc cref="M:System.IO.Stream.Read(System.Byte[],System.Int32,System.Int32)"/>
+        </member>
+        <member name="M:Cadru.Data.IO.NullRemovalStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <inheritdoc cref="M:System.IO.Stream.Seek(System.Int64,System.IO.SeekOrigin)"/>
+        </member>
+        <member name="M:Cadru.Data.IO.NullRemovalStream.SetLength(System.Int64)">
+            <inheritdoc cref="M:System.IO.Stream.SetLength(System.Int64)"/>
+        </member>
+        <member name="M:Cadru.Data.IO.NullRemovalStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc cref="M:System.IO.Stream.Write(System.Byte[],System.Int32,System.Int32)"/>
+        </member>
+        <member name="T:Cadru.Data.IO.NullRemovalStreamReader">
+            <summary>
+            Implements a <see cref="T:System.IO.TextReader"/> that reads characters from a byte
+            stream in a particular encoding.
+            </summary>
+        </member>
+        <member name="M:Cadru.Data.IO.NullRemovalStreamReader.#ctor(System.IO.Stream,System.Boolean,System.Int32,System.Text.Encoding,System.Int32,System.Boolean)">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Cadru.Data.IO.NullRemovalStreamReader"/> class for the specified stream
+            based on the specified character encoding, byte order mark detection
+            option, and buffer size, and optionally leaves the stream open.
+            </summary>
+            <param name="stream">The stream to read.</param>
+            <param name="addMark">
+            Indicates if a mark ([removed x null bytes]) should be added to
+            indicate removal
+            </param>
+            <param name="threshold">
+            The number above which any consecutive null bytes above this
+            threshold will be removed or replaced by a mark.
+            </param>
+            <param name="encoding">The character encoding to use.</param>
+            <param name="bufferSize">The minimum buffer size.</param>
+            <param name="detectEncoding">
+            <see langword="true"/> to look for byte order marks at the beginning
+            of the file; otherwise, <see langword="false"/>.
+            </param>
+        </member>
+        <member name="T:Cadru.Data.IO.QuoteDelimitedFieldBuilder">
+            <summary>
+            Helper class that when passed a line and an index to a quote delimited
+            field will build the field and handle escaped quotes
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.QuoteDelimitedFieldBuilder.#ctor(System.Text.RegularExpressions.Regex,System.String)">
+            <summary>
+            Creates an instance of the class and sets some properties
+            </summary>
+            <param name="delimiterRegex">
+            The regex used to find any of the delimiters
+            </param>
+            <param name="spaceChars">
+            Characters treated as space (usually space and tab)
+            </param>
+            <remarks></remarks>
+        </member>
+        <member name="P:Cadru.Data.IO.QuoteDelimitedFieldBuilder.DelimiterLength">
+            <summary>
+            The length of the closing delimiter if one was found
+            </summary>
+            <value>The length of the delimiter</value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Cadru.Data.IO.QuoteDelimitedFieldBuilder.Field">
+            <summary>
+            The field being built
+            </summary>
+            <value>The field</value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Cadru.Data.IO.QuoteDelimitedFieldBuilder.FieldFinished">
+            <summary>
+            Indicates whether or not the field has been built.
+            </summary>
+            <value>True if the field has been built, otherwise False</value>
+            <remarks>
+            If the Field has been built, the Field property will return the
+            entire field
+            </remarks>
+        </member>
+        <member name="P:Cadru.Data.IO.QuoteDelimitedFieldBuilder.Index">
+            <summary>
+            The current index on the line. Used to indicate how much of the line
+            was used to build the field
+            </summary>
+            <value>The current position on the line</value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Cadru.Data.IO.QuoteDelimitedFieldBuilder.MalformedLine">
+            <summary>
+            Indicates that the current field breaks the subset of csv rules we enforce
+            </summary>
+            <value>True if the line is malformed, otherwise False</value>
+            <remarks>
+            The rules we enforce are: Embedded quotes must be escaped Only space
+            characters can occur between a delimiter and a quote
+            </remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.QuoteDelimitedFieldBuilder.BuildField(System.String,System.Int32)">
+            <summary>
+            Builds a field by walking through the passed in line starting at StartAt
+            </summary>
+            <param name="line">The line containing the data</param>
+            <param name="startAt">
+            The index at which we start building the field
+            </param>
+            <remarks></remarks>
+        </member>
+        <member name="T:Cadru.Data.IO.TextFieldParser">
+            <summary>
+            Enables parsing very large delimited or fixed width field files
+            </summary>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.#ctor(System.String)">
+            <summary>
+            Creates a new TextFieldParser to parse the passed in file
+            </summary>
+            <param name="path">The path of the file to be parsed</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.#ctor(System.String,System.Text.Encoding)">
+            <summary>
+            Creates a new TextFieldParser to parse the passed in file
+            </summary>
+            <param name="path">The path of the file to be parsed</param>
+            <param name="defaultEncoding">
+            The decoding to default to if encoding isn't determined from file
+            </param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.#ctor(System.String,System.Text.Encoding,System.Boolean)">
+            <summary>
+            Creates a new TextFieldParser to parse the passed in file
+            </summary>
+            <param name="path">The path of the file to be parsed</param>
+            <param name="defaultEncoding">
+            The decoding to default to if encoding isn't determined from file
+            </param>
+            <param name="detectEncoding">
+            Indicates whether or not to try to detect the encoding from the BOM
+            </param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.#ctor(System.IO.Stream)">
+            <summary>
+            Creates a new TextFieldParser to parse a file represented by the
+            passed in stream
+            </summary>
+            <param name="stream"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.#ctor(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            Creates a new TextFieldParser to parse a file represented by the
+            passed in stream
+            </summary>
+            <param name="stream"></param>
+            <param name="defaultEncoding">
+            The decoding to default to if encoding isn't determined from file
+            </param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.#ctor(System.IO.Stream,System.Text.Encoding,System.Boolean)">
+            <summary>
+            Creates a new TextFieldParser to parse a file represented by the
+            passed in stream
+            </summary>
+            <param name="stream"></param>
+            <param name="defaultEncoding">
+            The decoding to default to if encoding isn't determined from file
+            </param>
+            <param name="detectEncoding">
+            Indicates whether or not to try to detect the encoding from the BOM
+            </param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.#ctor(System.IO.Stream,System.Text.Encoding,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a new TextFieldParser to parse a file represented by the
+            passed in stream
+            </summary>
+            <param name="stream"></param>
+            <param name="defaultEncoding">
+            The decoding to default to if encoding isn't determined from file
+            </param>
+            <param name="detectEncoding">
+            Indicates whether or not to try to detect the encoding from the BOM
+            </param>
+            <param name="leaveOpen">
+            Indicates whether or not to leave the passed in stream open
+            </param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.#ctor(System.IO.TextReader)">
+            <summary>
+            Creates a new TextFieldParser to parse a stream or file represented
+            by the passed in TextReader
+            </summary>
+            <param name="reader">The TextReader that does the reading</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.Finalize">
+            <summary>
+            Clean up following dispose pattern
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Cadru.Data.IO.TextFieldParser.ChangeBufferFunction">
+            <summary>
+            Function to call when we're at the end of the buffer. We either re
+            fill the buffer or change the size of the buffer
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Cadru.Data.IO.TextFieldParser.CommentTokens">
+            <summary>
+            Gets the strings that indicate a line is a comment
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.IO.TextFieldParser.Delimiters">
+            <summary>
+            Gets the delimiters used in a file
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.IO.TextFieldParser.EndOfData">
+            <summary>
+            Gets a value indicating whether or not there is any data (non
+            ignorable lines) left to read in the file
+            </summary>
+            <value>
+            <see langword="true"/> if there is more data to read; otherwise <see langword="false"/>
+            </value>
+            <remarks>This ignores comments and blank lines.</remarks>
+        </member>
+        <member name="P:Cadru.Data.IO.TextFieldParser.ErrorLine">
+            <summary>
+            Returns the last malformed line if there is one.
+            </summary>
+            <value>The last malformed line</value>
+        </member>
+        <member name="P:Cadru.Data.IO.TextFieldParser.ErrorLineNumber">
+            <summary>
+            Returns the line number of last malformed line if there is one.
+            </summary>
+            <value>The last malformed line number</value>
+        </member>
+        <member name="P:Cadru.Data.IO.TextFieldParser.FieldWidths">
+            <summary>
+            Gets or sets the widths of the fields for reading a fixed width file
+            </summary>
+            <value>An array of the widths</value>
+        </member>
+        <member name="P:Cadru.Data.IO.TextFieldParser.HasFieldsEnclosedInQuotes">
+            <summary>
+            Indicates whether or not to handle quotes in a csv friendly way
+            </summary>
+            <value>True if we escape quotes otherwise false</value>
+        </member>
+        <member name="P:Cadru.Data.IO.TextFieldParser.LineNumber">
+            <summary>
+            The line to the right of the cursor.
+            </summary>
+            <value>The number of the line</value>
+            <remarks>
+            LineNumber returns the location in the file and has nothing to do
+            with rows or fields
+            </remarks>
+        </member>
+        <member name="P:Cadru.Data.IO.TextFieldParser.TextFieldType">
+            <summary>
+            Gets or sets a value indicating the type of file being read, either
+            fixed width or delimited
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.IO.TextFieldParser.TrimWhiteSpace">
+            <summary>
+            Indicates whether or not leading and trailing white space should be
+            removed when returning a field
+            </summary>
+            <value><see langword="true"/> if white space should be removed; otherwise <see langword="true"/></value>
+        </member>
+        <member name="P:Cadru.Data.IO.TextFieldParser.EndQuotePattern">
+            <summary>
+            Gets the appropriate expression for finding ending quote of a field
+            </summary>
+            <value>The expression</value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.Close">
+            <summary>
+            Closes the StreamReader
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.Dispose">
+            <summary>
+            Closes the StreamReader
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.PeekChars(System.Int32)">
+            <summary>
+            Enables looking at the passed in number of characters of the next
+            data line without reading the line
+            </summary>
+            <param name="numberOfChars"></param>
+            <returns>
+            A string consisting of the first <paramref name="numberOfChars"/>
+            characters of the next line
+            </returns>
+            <remarks>
+            If <paramref name="numberOfChars"/> is greater than the next line,
+            only the next line is returned
+            </remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.ReadFields">
+            <summary>
+            Reads a non ignorable line and parses it into fields
+            </summary>
+            <returns>The line parsed into fields</returns>
+            <remarks>
+            This is a data aware method. Comments and blank lines are ignored.
+            </remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.ReadLine">
+            <summary>
+            Reads and returns the next line from the file
+            </summary>
+            <returns>
+            The line read or <see langword="null"/> if at the end of the file
+            </returns>
+            <remarks>
+            This is data unaware method. It simply reads the next line in the file.
+            </remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.ReadToEnd">
+            <summary>
+            Reads the file starting at the current position and moving to the
+            end of the file
+            </summary>
+            <returns>
+            The contents of the file from the current position to the end of the file
+            </returns>
+            <remarks>
+            This is not a data aware method. Everything in the file from the
+            current position to the end is read
+            </remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.SetCommentTokens(System.String[])">
+            <summary>
+            Set the comment tokens
+            </summary>
+            <param name="tokens">A list of the comment tokens</param>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.SetDelimiters(System.String[])">
+            <summary>
+            Set the delimiters
+            </summary>
+            <param name="delimiters">A list of the delimiters</param>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.SetFieldWidths(System.Int32[])">
+            <summary>
+            Set the field widths
+            </summary>
+            <param name="fieldWidths">A list of field widths</param>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.Dispose(System.Boolean)">
+            <summary>
+            Standard implementation of IDisposable.Dispose for non sealed
+            classes. Classes derived from TextFieldParser should override this
+            method. After doing their own cleanup, they should call this method (MyBase.Dispose(disposing))
+            </summary>
+            <param name="disposing">
+            Indicates we are called by Dispose and not GC
+            </param>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.CharacterIsInDelimiter(System.Char)">
+            <summary>
+            Checks to see if the passed in character is in any of the delimiters
+            </summary>
+            <param name="testCharacter">The character to look for</param>
+            <returns>
+            <see langword="true"/> if the character is found in a delimiter; otherwise <see langword="false"/>
+            </returns>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.CloseReader">
+            <summary>
+            Closes the StreamReader
+            </summary>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.FinishReading">
+            <summary>
+            Cleans up managed resources except the StreamReader and indicates
+            reading is finished
+            </summary>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.GetBeginQuotesRegex">
+            <summary>
+            Gets the appropriate regex for finding a field beginning with quotes
+            </summary>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.GetEndOfLineIndex(System.String)">
+            <summary>
+            Gets the index of the first end of line character
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+            <remarks>
+            When there are no end of line characters, the index is the length
+            (one past the end)
+            </remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.GetFixedWidthField(System.Globalization.StringInfo,System.Int32,System.Int32)">
+            <summary>
+            Returns the field at the passed in index
+            </summary>
+            <param name="line">The string containing the fields</param>
+            <param name="index">The start of the field</param>
+            <param name="fieldLength">The length of the field</param>
+            <returns>The field</returns>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.GetWhitespacePattern">
+            <summary>
+            Gets the character set of white-spaces to be used in a regex pattern
+            </summary>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.IgnoreLine(System.String)">
+            <summary>
+            Indicates whether or not the passed in line should be ignored
+            </summary>
+            <param name="line">The line to be tested</param>
+            <returns><see langword="true"/> if the line should be ignored; otherwise <see langword="false"/></returns>
+            <remarks>Lines to ignore are blank lines and comments</remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.IncreaseBufferSize">
+            <summary>
+            Increases the size of the buffer. Used when we are at the end of the
+            buffer, we need to read more data from the file, and we can't
+            discard what we've already read.
+            </summary>
+            <returns>The number of characters read to fill the new buffer</returns>
+            <remarks>This is needed for PeekChars and EndOfData</remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.InitializeFromPath(System.String,System.Text.Encoding,System.Boolean)">
+            <summary>
+            Creates a StreamReader for the passed in Path
+            </summary>
+            <param name="path">The passed in path</param>
+            <param name="defaultEncoding">
+            The encoding to default to if encoding can't be detected
+            </param>
+            <param name="detectEncoding">
+            Indicates whether or not to detect encoding from the BOM
+            </param>
+            <remarks>
+            We validate the arguments here for the three Public constructors
+            that take a Path
+            </remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.InitializeFromStream(System.IO.Stream,System.Text.Encoding,System.Boolean)">
+            <summary>
+            Creates a StreamReader for a passed in stream
+            </summary>
+            <param name="stream">The passed in stream</param>
+            <param name="defaultEncoding">
+            The encoding to default to if encoding can't be detected
+            </param>
+            <param name="detectEncoding">
+            Indicates whether or not to detect encoding from the BOM
+            </param>
+            <remarks>
+            We validate the arguments here for the three Public constructors
+            that take a Stream
+            </remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.ParseDelimitedLine">
+            <summary>
+            Gets the next data line and parses it with the delimiters
+            </summary>
+            <returns>An array of the fields in the line</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.ParseFixedWidthLine">
+            <summary>
+            Gets the next data line and parses into fixed width fields
+            </summary>
+            <returns>An array of the fields in the line</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.PeekNextDataLine(System.String@)">
+            <summary>
+            Returns the next data line but doesn't move the cursor
+            </summary>
+            <returns>
+            The next data line, or <see langword="null"/> if there's no more data
+            </returns>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.ReadNextDataLine(System.String@)">
+            <summary>
+            Returns the next line of data or nothing if there's no more data to
+            be read
+            </summary>
+            <returns>The next line of data</returns>
+            <remarks>Moves the cursor past the line read</remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.ReadNextLine(System.Int32@,Cadru.Data.IO.TextFieldParser.ChangeBufferFunction)">
+            <summary>
+            Gets the next line from the file and moves the passed in cursor past
+            the line
+            </summary>
+            <param name="cursor">Indicates the current position in the buffer</param>
+            <param name="changeBuffer">
+            Function to call when we've reached the end of the buffer
+            </param>
+            <returns>The next line in the file</returns>
+            <remarks>Returns Nothing if we are at the end of the file</remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.ReadToBuffer">
+            <summary>
+            Reads characters from the file into the buffer
+            </summary>
+            <returns>
+            The number of Chars read. If no Chars are read, we're at the end of
+            the file
+            </returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.SlideCursorToStartOfBuffer">
+            <summary>
+            Moves the cursor and all the data to the right of the cursor to the
+            front of the buffer. It then fills the remainder of the buffer from
+            the file
+            </summary>
+            <returns>
+            The number of Chars read in filling the remainder of the buffer
+            </returns>
+            <remarks>
+            This should be called when we want to make maximum use of the space
+            in the buffer. Characters to the left of the cursor have already
+            been read and can be discarded.
+            </remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.ValidateAndEscapeDelimiters">
+            <summary>
+            Validates the delimiters and creates the Regex objects for finding
+            delimiters or quotes followed by delimiters
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.ValidateFieldWidths">
+            <summary>
+            Determines whether or not the field widths are valid, and sets the
+            size of a line
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.ValidateFixedWidthLine(System.Globalization.StringInfo,System.Int64)">
+            <summary>
+            Indicates whether or not a line is valid
+            </summary>
+            <param name="line">The line to be tested</param>
+            <param name="lineNumber">The line number, used for exception</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.ValidatePath(System.String)">
+            <summary>
+            Gets full name and path from passed in path.
+            </summary>
+            <param name="path">The path to be validated</param>
+            <returns>The full name and path</returns>
+            <remarks>Throws if the file doesn't exist or if the path is malformed</remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.TextFieldParser.ValidateReadyToRead">
+            <summary>
+            Checks property settings to ensure we're able to read fields.
+            </summary>
+            <remarks>
+            Throws if we're not able to read fields with current property settings
+            </remarks>
+        </member>
+        <member name="T:Cadru.Data.MalformedLineException">
+            <summary>
+            Indicates a line cannot be parsed into fields
+            </summary>
+        </member>
+        <member name="M:Cadru.Data.MalformedLineException.#ctor">
+            <summary>
+            Creates a new exception with no properties set
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.MalformedLineException.#ctor(System.String,System.Int64)">
+            <summary>
+            Creates a new exception, setting Message and LineNumber
+            </summary>
+            <param name="message">The message for the exception</param>
+            <param name="lineNumber">The number of the line that is malformed</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.MalformedLineException.#ctor(System.String)">
+            <summary>
+            Creates a new exception, setting Message
+            </summary>
+            <param name="message">The message for the exception</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.MalformedLineException.#ctor(System.String,System.Int64,System.Exception)">
+            <summary>
+            Creates a new exception, setting Message, LineNumber, and InnerException
+            </summary>
+            <param name="message">The message for the exception</param>
+            <param name="lineNumber">The number of the line that is malformed</param>
+            <param name="innerException">The inner exception for the exception</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.MalformedLineException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates a new exception, setting Message and InnerException
+            </summary>
+            <param name="message">The message for the exception</param>
+            <param name="innerException">The inner exception for the exception</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.MalformedLineException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor used for serialization
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="P:Cadru.Data.MalformedLineException.LineNumber">
+            <summary>
+            The number of the offending line
+            </summary>
+            <value>The line number</value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.MalformedLineException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Supports serialization
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.MalformedLineException.ToString">
+            <summary>
+            Appends extra data to string so that it's available when the exception is caught as an Exception
+            </summary>
+            <returns>The base ToString plus the Line Number</returns>
+            <remarks></remarks>
         </member>
         <member name="T:Cadru.Data.Resources.Strings">
             <summary>
@@ -1952,6 +1300,11 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.Arg_ArgumentOutOfRangeException">
+            <summary>
+              Looks up a localized string similar to Specified argument was out of the range of valid values..
             </summary>
         </member>
         <member name="P:Cadru.Data.Resources.Strings.BufferSizeTooSmall">
@@ -1987,6 +1340,16 @@
         <member name="P:Cadru.Data.Resources.Strings.FieldIndexOutOfRange">
             <summary>
               Looks up a localized string similar to Field index must be included in [0, FieldCount[. Specified field index was : &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.IO_FileNotFound_Path">
+            <summary>
+              Looks up a localized string similar to Could not find file &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.IO_FilePathException">
+            <summary>
+              Looks up a localized string similar to The given file path ends with a directory separator character..
             </summary>
         </member>
         <member name="P:Cadru.Data.Resources.Strings.MalformedCsvException">
@@ -2032,6 +1395,81 @@
         <member name="P:Cadru.Data.Resources.Strings.RecordIndexLessThanZero">
             <summary>
               Looks up a localized string similar to Record index must be 0 or more..
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.TextFieldParser_BufferExceededMaxSize">
+            <summary>
+              Looks up a localized string similar to TextFieldParser is unable to complete the read operation because maximum buffer size has been exceeded..
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.TextFieldParser_DelimiterNothing">
+            <summary>
+              Looks up a localized string similar to A delimiter cannot be Nothing or an empty String..
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.TextFieldParser_DelimitersNothing">
+            <summary>
+              Looks up a localized string similar to Unable to read delimited fields because Delimiters is Nothing or empty..
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.TextFieldParser_EndCharsInDelimiter">
+            <summary>
+              Looks up a localized string similar to TextFieldParser does not support delimiters that contain end-of-line characters..
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.TextFieldParser_FieldWidthsMustPositive">
+            <summary>
+              Looks up a localized string similar to All field widths, except the last element, must be greater than zero. A field width less than or equal to zero in the last element indicates the last field is of variable length..
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.TextFieldParser_FieldWidthsNothing">
+            <summary>
+              Looks up a localized string similar to Unable to read fixed width fields because FieldWidths is Nothing or empty..
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.TextFieldParser_IllegalDelimiter">
+            <summary>
+              Looks up a localized string similar to Unable to read delimited fields because a double quote is not a legal delimiter when HasFieldsEnclosedInQuotes is set to True..
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.TextFieldParser_InvalidComment">
+            <summary>
+              Looks up a localized string similar to A double quote is not a valid comment token for delimited fields where HasFieldsEnclosedInQuotes is set to True..
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.TextFieldParser_MalFormedDelimitedLine">
+            <summary>
+              Looks up a localized string similar to Line {0} cannot be parsed using the current Delimiters..
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.TextFieldParser_MalformedExtraData">
+            <summary>
+              Looks up a localized string similar to Line Number:{0}.
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.TextFieldParser_MalFormedFixedWidthLine">
+            <summary>
+              Looks up a localized string similar to Line {0} cannot be parsed using the current FieldWidths..
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.TextFieldParser_MaxLineSizeExceeded">
+            <summary>
+              Looks up a localized string similar to Line {0} cannot be read because it exceeds the maximum line size..
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.TextFieldParser_NumberOfCharsMustBePositive">
+            <summary>
+              Looks up a localized string similar to {0} must be greater than zero..
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.TextFieldParser_StreamNotReadable">
+            <summary>
+              Looks up a localized string similar to The stream passed to TextFieldParser cannot be read..
+            </summary>
+        </member>
+        <member name="P:Cadru.Data.Resources.Strings.TextFieldParser_WhitespaceInToken">
+            <summary>
+              Looks up a localized string similar to TextFieldParser does not support comment tokens that contain white space..
             </summary>
         </member>
     </members>

@@ -26,138 +26,116 @@ namespace Cadru.Data.Excel
     using System.Data;
     using System.Linq;
 
-    public partial class ExcelDataReader
+    public partial class ExcelDataReader : IDataRecord
     {
-        public int FieldCount => this.headers?.Count() ?? -1;
+        /// <inheritdoc/>
+        public int FieldCount => this.FieldNames?.Count ?? -1;
 
+        /// <inheritdoc/>
         public bool GetBoolean(int i)
         {
             return this.Field<bool>(i);
-            //return SafeConverter.Convert<bool>(GetValue(i));
         }
 
+        /// <inheritdoc/>
         public byte GetByte(int i)
         {
             return this.Field<byte>(i);
-            //return SafeConverter.Convert<byte>(GetValue(i));
         }
 
+        /// <inheritdoc/>
         public long GetBytes(int i, long fieldOffset, byte[] buffer, int bufferoffset, int length)
         {
             throw new NotImplementedException();
         }
 
+        /// <inheritdoc/>
         public char GetChar(int i)
         {
             return this.Field<char>(i);
-            //return SafeConverter.Convert<char>(GetValue(i));
         }
 
+        /// <inheritdoc/>
         public long GetChars(int i, long fieldoffset, char[] buffer, int bufferoffset, int length)
         {
             throw new NotImplementedException();
         }
 
-        public IDataReader GetData(int i)
+        /// <inheritdoc/>
+        public IDataReader? GetData(int i)
         {
             return null;
         }
 
+        /// <inheritdoc/>
         public string GetDataTypeName(int i)
         {
             return typeof(string).Name;
         }
 
+        /// <inheritdoc/>
         public DateTime GetDateTime(int i)
         {
             return this.Field<DateTime>(i);
-            //return DateTime.FromBinary(GetInt64(i));
         }
 
+        /// <inheritdoc/>
         public decimal GetDecimal(int i)
         {
             return this.Field<decimal>(i);
-
-            //var value = GetValue(i);
-            //if (value != null)
-            //{
-            //    if (Decimal.TryParse(value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture.NumberFormat, out decimal num))
-            //    {
-            //        return num;
-            //    }
-            //}
-
-            //return SafeConverter.Convert<decimal>(value);
         }
 
+        /// <inheritdoc/>
         public double GetDouble(int i)
         {
             return this.Field<double>(i);
-
-            //var value = GetValue(i);
-            //if (value != null)
-            //{
-            //    if (Double.TryParse(value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture.NumberFormat, out double num))
-            //    {
-            //        return num;
-            //    }
-            //}
-
-            //return SafeConverter.Convert<double>(value);
         }
 
+        /// <inheritdoc/>
         public Type GetFieldType(int i) => throw new NotSupportedException();
 
+        /// <inheritdoc/>
         public float GetFloat(int i)
         {
             return this.Field<float>(i);
-
-            //var value = GetValue(i);
-            //if (value != null)
-            //{
-            //    if (Single.TryParse(value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture.NumberFormat, out float num))
-            //    {
-            //        return num;
-            //    }
-            //}
-
-            //return SafeConverter.Convert<float>(value);
         }
 
+        /// <inheritdoc/>
         public Guid GetGuid(int i)
         {
             return this.Field<Guid>(i);
-            //return SafeConverter.Convert<Guid>(GetValue(i));
         }
 
+        /// <inheritdoc/>
         public short GetInt16(int i)
         {
             return this.Field<short>(i);
-            //return SafeConverter.Convert<short>(GetValue(i));
         }
 
+        /// <inheritdoc/>
         public int GetInt32(int i)
         {
             return this.Field<int>(i);
-            //return SafeConverter.Convert<int>(GetValue(i));
         }
 
+        /// <inheritdoc/>
         public long GetInt64(int i)
         {
             return this.Field<long>(i);
-            //return SafeConverter.Convert<long>(GetValue(i));
         }
 
+        /// <inheritdoc/>
         public string GetName(int i)
         {
-            return this.headers[i];
+            return this.FieldNames[i] ?? String.Empty;
         }
 
+        /// <inheritdoc/>
         public int GetOrdinal(string name)
         {
-            for (var i = 0; i < this.headers.Count; i++)
+            for (var i = 0; i < this.FieldNames.Count; i++)
             {
-                if (String.Equals(this.headers[i], name, StringComparison.OrdinalIgnoreCase))
+                if (String.Equals(this.FieldNames[i], name, StringComparison.OrdinalIgnoreCase))
                 {
                     return i;
                 }
@@ -165,21 +143,23 @@ namespace Cadru.Data.Excel
             return -1;
         }
 
+        /// <inheritdoc/>
         public string GetString(int i)
         {
             return this.Field<string>(i);
-            //return SafeConverter.Convert<string>(GetValue(i));
         }
 
+        /// <inheritdoc/>
         public object GetValue(int i)
         {
             var cell = this.currentRowData.ElementAtOrDefault(i);
             return this.GetCellValue(cell);
         }
 
+        /// <inheritdoc/>
         public int GetValues(object[] values)
         {
-            var num = values.Length < this.headers.Count ? values.Length : this.headers.Count;
+            var num = values.Length < this.FieldNames.Count ? values.Length : this.FieldNames.Count;
             if (this.currentRowData == null)
             {
                 values = new object[num];
@@ -200,6 +180,7 @@ namespace Cadru.Data.Excel
             return num;
         }
 
+        /// <inheritdoc/>
         public bool IsDBNull(int i)
         {
             return DBNull.Value == this.GetValue(i);

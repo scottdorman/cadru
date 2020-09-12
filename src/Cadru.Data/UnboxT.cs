@@ -20,21 +20,17 @@
 // </license>
 //------------------------------------------------------------------------------
 
-namespace Cadru.Data.Excel
+using System;
+using System.Linq;
+using System.Reflection;
+
+using Cadru.Extensions;
+
+namespace Cadru.Data
 {
-    using System;
-    using System.Linq;
-    using System.Reflection;
-
-    using Cadru.Extensions;
-
     internal static class UnboxT<T>
     {
         internal static readonly DateTime baseDate = new DateTime(1899, 12, 30);
-
-        /// <summary>
-        /// Defines the Unbox = Create(typeof (T))
-        /// </summary>
         internal static readonly Func<object, T> Unbox = Create(typeof(T));
 
         private static T BooleanField(object value)
@@ -45,7 +41,7 @@ namespace Cadru.Data.Excel
             }
 
             object result = false;
-            if ((value?.ToString()).TryParseAsBoolean(out var temp))
+            if (BooleanExtensions.TryParseAsBoolean(value?.ToString(), out var temp))
             {
                 result = temp;
             }
@@ -86,7 +82,7 @@ namespace Cadru.Data.Excel
                 throw new InvalidCastException();
             }
 
-            object result = null;
+            object? result;
             if (Double.TryParse(value.ToString(), out var serialDateValue))
             {
                 try
@@ -100,10 +96,8 @@ namespace Cadru.Data.Excel
             }
             else
             {
-                if (DateTime.TryParse(value.ToString(), out var parsedResult))
-                {
-                    result = parsedResult;
-                }
+                DateTime.TryParse(value.ToString(), out var parsedResult);
+                result = parsedResult;
             }
 
             return (T)result;
@@ -128,7 +122,7 @@ namespace Cadru.Data.Excel
 
         private static T ReferenceField(object value)
         {
-            return ((DBNull.Value == value) ? default(T) : (T)Convert.ChangeType(value, typeof(T)));
+            return (DBNull.Value == value) ? default! : (T)Convert.ChangeType(value, typeof(T));
         }
 
         private static T ValueField(object value)

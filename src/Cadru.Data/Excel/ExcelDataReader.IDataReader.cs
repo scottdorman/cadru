@@ -26,6 +26,9 @@ namespace Cadru.Data.Excel
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
+    using System.Text;
+
+    using Cadru.Extensions;
 
     using DocumentFormat.OpenXml;
     using DocumentFormat.OpenXml.Packaging;
@@ -33,10 +36,13 @@ namespace Cadru.Data.Excel
 
     public partial class ExcelDataReader : IDataReader
     {
+        /// <inheritdoc/>
         public int Depth => 0;
 
+        /// <inheritdoc/>
         public int RecordsAffected => -1;
 
+        /// <inheritdoc/>
         public static int GetColumnIndexByName(string colName)
         {
             var name = GetStartingLettersOnly(colName);
@@ -50,13 +56,15 @@ namespace Cadru.Data.Excel
             return number - 1;
         }
 
+        /// <inheritdoc/>
         public void Close() => this.Dispose();
 
+        /// <inheritdoc/>
         public void Dispose()
         {
-            if (this.reader != null)
+            if (this.openXmlReader != null)
             {
-                this.reader.Dispose();
+                this.openXmlReader.Dispose();
             }
 
             if (this.document != null)
@@ -65,39 +73,46 @@ namespace Cadru.Data.Excel
             }
         }
 
+        /// <inheritdoc/>
         public DataTable GetSchemaTable() => throw new NotSupportedException();
 
+        /// <summary>
+        /// Gets a value indicating if the current row is empty.
+        /// </summary>
+        /// <returns><see langword="true"/> if the current row is empty; otherwise, <see langword="false"/>.</returns>
         public bool IsCurrentRowEmpty()
         {
             return this.currentRowData == null || !this.currentRowData.Any();
         }
 
+        /// <inheritdoc/>
         public bool NextResult()
         {
-            if (this.currentIndex >= this.ResultsCount - 1)
+            if (this.CurrentSheetIndex >= this.ResultsCount - 1)
             {
                 return false;
             }
 
             this.Reset();
-            this.currentIndex++;
+            this.CurrentSheetIndex++;
             return true;
         }
 
+        /// <inheritdoc/>
         public bool Read()
         {
             this.FirstRead();
 
-            OpenXmlElement currentRow = null;
+            OpenXmlElement? currentRow = null;
 
-            while (this.reader.Read())
+            while (this.openXmlReader!.Read())
             {
-                if (this.reader.ElementType == typeof(Row))
+                if (this.openXmlReader.ElementType == typeof(Row))
                 {
-                    currentRow = this.reader.LoadCurrentElement();
+                    currentRow = this.openXmlReader.LoadCurrentElement();
                     if (Int32.TryParse(currentRow.GetAttribute("r", String.Empty).Value, out var rowIndex))
                     {
-                        this.currentRowIndex = rowIndex;
+                        this.CurrentRowIndex = rowIndex;
                     }
 
                     if (this.IsRowEmpty(currentRow))
@@ -105,12 +120,12 @@ namespace Cadru.Data.Excel
                         continue;
                     }
 
-                    this.currentRowData = AdjustRow(currentRow, this.headers.Count);
+                    this.currentRowData = AdjustRow(currentRow, this.FieldNames.Count);
                     break;
                 }
             }
 
-            return currentRow != null && !this.reader.EOF;
+            return currentRow != null && !this.openXmlReader.EOF;
         }
 
         private static IEnumerable<Cell> AdjustRow(OpenXmlElement row, int capacity)
@@ -155,12 +170,12 @@ namespace Cadru.Data.Excel
 
         private static string GetStartingLettersOnly(string colName)
         {
-            var result = String.Empty;
+            var result = new StringBuilder();
             foreach (var ch in colName)
             {
                 if (Char.IsLetter(ch))
                 {
-                    result += ch;
+                    result.Append(ch);
                 }
                 else
                 {
@@ -168,38 +183,33 @@ namespace Cadru.Data.Excel
                 }
             }
 
-            return result;
+            return result.ToString();
         }
 
         private void FirstRead()
         {
             if (this.firstRead)
             {
-                this.currentSheet = this.GetSheetByIndex(this.currentIndex);
+                this.currentSheet = this.GetSheetByIndex(this.CurrentSheetIndex);
                 var currentWorksheetPart = this.document.WorkbookPart.GetPartById(this.CurrentSheetId);
-                this.reader = OpenXmlReader.Create(currentWorksheetPart);
+                this.openXmlReader = OpenXmlReader.Create(currentWorksheetPart);
                 this.SkipRows(this.GetEmptyRowsCount(currentWorksheetPart));
-                this.headers = this.FirstRowAsHeader ? this.GetFirstRowAsHeaders(currentWorksheetPart) : GetRangeHeaders(currentWorksheetPart);
+                this.FieldNames.AddRange(this.FirstRowAsHeader ? this.GetFirstRowAsHeaders(currentWorksheetPart) : GetRangeHeaders(currentWorksheetPart));
                 this.firstRead = false;
             }
         }
 
         private string GetCellValue(CellType cell)
         {
-            if (cell == null || cell.CellValue == null)
-            {
-                return null;
-            }
-
-            var value = cell.CellValue.InnerXml;
+            var value = cell?.CellValue?.InnerXml;
             if (value == null)
             {
-                return null;
+                return String.Empty;
             }
 
-            if (Int32.TryParse(value, out var index) && cell.DataType != null && cell.DataType.Value == CellValues.SharedString)
+            if (Int32.TryParse(value, out var index) && cell?.DataType != null && cell.DataType.Value == CellValues.SharedString)
             {
-                return this.sharedStrings[index];
+                return this.sharedStrings?[index] ?? String.Empty;
             }
 
             return value;
@@ -271,21 +281,21 @@ namespace Cadru.Data.Excel
         {
             if (resetCurrentIndex)
             {
-                this.currentIndex = 0;
+                this.CurrentSheetIndex = 0;
             }
 
-            this.currentRowIndex = null;
+            this.CurrentRowIndex = null;
             this.currentRowData = null;
             this.currentSheet = null;
-            this.headers?.Clear();
+            this.FieldNames.Clear();
             this.firstRead = true;
         }
 
         private void SkipRow()
         {
-            while (this.reader.Read())
+            while (this.openXmlReader!.Read())
             {
-                if (this.reader.ElementType == typeof(Row) && this.reader.IsEndElement)
+                if (this.openXmlReader.ElementType == typeof(Row) && this.openXmlReader.IsEndElement)
                 {
                     break;
                 }

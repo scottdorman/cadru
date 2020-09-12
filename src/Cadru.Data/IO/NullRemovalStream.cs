@@ -27,32 +27,35 @@ using Cadru.Data.Resources;
 
 namespace Cadru.Data.IO
 {
+    /// <summary>
+    /// A stream implementation that removes consecutive null bytes above a
+    /// threshold from source
+    /// </summary>
     public class NullRemovalStream : Stream
     {
         private readonly bool _addMark;
         private readonly byte[] _buffer;
+        private readonly Stream _source;
+        private readonly byte[] _storage;
+        private readonly int _threshold;
         private int _bufferIndex;
         private int _bufferSize;
-        private readonly byte[] _storage;
         private int _storageIndex;
         private int _storageSize;
-        private readonly Stream _source;
-        private readonly int _threshold;
 
         /// <summary>
-        /// A stream implmentation that removes consecutive null bytes above a
-        /// threshold from source
+        /// Initializes a new instance of the <see cref="NullRemovalStream"/> class.
         /// </summary>
         /// <param name="source">
         /// A <see cref="T:Stream"/> pointing to the source data
         /// </param>
         /// <param name="addMark">
-        /// add a mark ([removed x null bytes]) to indicate removal if set to
-        /// <see langword="true"/>, remove silently if <see langword="false"/>
+        /// Indicates if a mark ([removed x null bytes]) should be added to
+        /// indicate removal
         /// </param>
         /// <param name="threshold">
-        /// only consecutive null bytes above this threshold will be removed or
-        /// replaced by a mark
+        /// The number above which any consecutive null bytes above this
+        /// threshold will be removed or replaced by a mark.
         /// </param>
         /// <param name="bufferSize">Size of buffer</param>
         public NullRemovalStream(Stream source, bool addMark = true, int threshold = 60, int bufferSize = 4096)
@@ -73,37 +76,35 @@ namespace Cadru.Data.IO
             this._storageSize = 0;
         }
 
+        /// <inheritdoc cref="Stream.CanRead"/>
         public override bool CanRead => this._source.CanRead;
 
+        /// <inheritdoc cref="Stream.CanSeek"/>
         public override bool CanSeek => this._source.CanSeek;
 
+        /// <inheritdoc cref="Stream.CanWrite"/>
         public override bool CanWrite => this._source.CanWrite;
 
+        /// <inheritdoc cref="Stream.Length"/>
         public override long Length => this._source.Length;
 
+        /// <inheritdoc cref="Stream.Position"/>
         public override long Position
         {
             get => this._source.Position;
             set => this._source.Position = value;
         }
 
-#if !NETSTANDARD1_3
-
+        /// <inheritdoc cref="Stream.Close"/>
         public override void Close() => this._source.Close();
 
-#endif
-
+        /// <inheritdoc cref="Stream.Flush"/>
         public override void Flush() => this._source.Flush();
 
-        public override long Seek(long offset, SeekOrigin origin) => this._source.Seek(offset, origin);
-
-        public override void SetLength(long value) => this._source.SetLength(value);
-
-        public override void Write(byte[] buffer, int offset, int count) => this._source.Write(buffer, offset, count);
-
-        public override int Read(byte[] target, int offset, int count)
+        /// <inheritdoc cref="Stream.Read(Byte[], Int32, Int32)"/>
+        public override int Read(byte[] buffer, int offset, int count)
         {
-            if (count > target.Length - offset)
+            if (count > buffer.Length - offset)
             {
                 return 0;
             }
@@ -168,14 +169,14 @@ namespace Cadru.Data.IO
                     if (lastIsNull)
                     {
                         // first non null byte
-                        newTargetIndex = this.Process(target, targetIndex, nullCount);
-                        if (newTargetIndex == target.Length)
+                        newTargetIndex = this.Process(buffer, targetIndex, nullCount);
+                        if (newTargetIndex == buffer.Length)
                         {
                             return dataRead + newTargetIndex - targetIndex;
                         }
                         nullCount = 0;
                     }
-                    target[newTargetIndex] = current;
+                    buffer[newTargetIndex] = current;
                     dataRead += newTargetIndex - targetIndex + 1;
                     targetIndex = newTargetIndex + 1;
                 }
@@ -188,9 +189,24 @@ namespace Cadru.Data.IO
             {
                 // the end of the source stream is a null byte so couldn't enter
                 // the else block in the while loop above, do the needful
-                return this.Process(target, targetIndex, nullCount);
+                return this.Process(buffer, targetIndex, nullCount);
             }
             return dataRead;
+        }
+
+        /// <inheritdoc cref="Stream.Seek(Int64, SeekOrigin)"/>
+        public override long Seek(long offset, SeekOrigin origin) => this._source.Seek(offset, origin);
+
+        /// <inheritdoc cref="Stream.SetLength(Int64)"/>
+        public override void SetLength(long value) => this._source.SetLength(value);
+
+        /// <inheritdoc cref="Stream.Write(Byte[], Int32, Int32)"/>
+        public override void Write(byte[] buffer, int offset, int count) => this._source.Write(buffer, offset, count);
+
+        private void PopulateBuffer()
+        {
+            this._bufferSize = this._source.Read(this._buffer, 0, this._buffer.Length);
+            this._bufferIndex = 0;
         }
 
         private int Process(byte[] target, int targetIndex, int nullCount)
@@ -231,12 +247,6 @@ namespace Cadru.Data.IO
                 }
             }
             return targetIndex;
-        }
-
-        private void PopulateBuffer()
-        {
-            this._bufferSize = this._source.Read(this._buffer, 0, this._buffer.Length);
-            this._bufferIndex = 0;
         }
     }
 }
