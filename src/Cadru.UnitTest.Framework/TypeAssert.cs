@@ -133,6 +133,18 @@ namespace Cadru.UnitTest.Framework
         /// <summary>
         /// Asserts that an object is of the given <see cref="Type"/>.
         /// </summary>
+        /// <typeparam name="T">The expected <see cref="Type"/>.</typeparam>
+        /// <param name="assert">The <see cref="Assert"/> instance to extend.</param>
+        /// <param name="value">The value to be tested.</param>
+        public static Assert IsType<T>(this Assert assert, object value)
+        {
+            IsType(value, typeof(T));
+            return assert;
+        }
+
+        /// <summary>
+        /// Asserts that an object is of the given <see cref="Type"/>.
+        /// </summary>
         /// <param name="value">The value to be tested.</param>
         /// <param name="expectedType">The expected <see cref="Type"/>.</param>
         public static void IsType(object value, Type expectedType)

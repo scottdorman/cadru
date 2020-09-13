@@ -848,6 +848,14 @@
             <typeparam name="T">The expected <see cref="T:System.Type"/>.</typeparam>
             <param name="value">The value to be tested.</param>
         </member>
+        <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsType``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Object)">
+            <summary>
+            Asserts that an object is of the given <see cref="T:System.Type"/>.
+            </summary>
+            <typeparam name="T">The expected <see cref="T:System.Type"/>.</typeparam>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to be tested.</param>
+        </member>
         <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsType(System.Object,System.Type)">
             <summary>
             Asserts that an object is of the given <see cref="T:System.Type"/>.

@@ -44,7 +44,7 @@ namespace Cadru.Polly
         /// <returns>
         /// The <see cref="IServiceCollection"/> so that additional calls can be chained.
         /// </returns>
-        public static IPolicyRegistry<string> AddPollyRegistry(this IServiceCollection services)
+        public static IPolicyRegistry<string> AddPolicyRegistry(this IServiceCollection services)
         {
             Requires.NotNull(services, nameof(services));
 

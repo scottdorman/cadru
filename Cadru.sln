@@ -76,7 +76,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Polly", "src\Cadru.Po
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.AspNetCore.Mvc.TagHelpers", "src\Cadru.AspNetCore.Mvc.TagHelpers\Cadru.AspNetCore.Mvc.TagHelpers.csproj", "{FD88B091-9CC4-4B63-A04A-4E47ECEB6B31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadru.Extensions.FileProviders.Tests", "tests\Cadru.Extensions.FileProviders.Tests\Cadru.Extensions.FileProviders.Tests.csproj", "{75623B4F-F838-41E5-8A5C-21FCBA9503DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Extensions.FileProviders.Tests", "tests\Cadru.Extensions.FileProviders.Tests\Cadru.Extensions.FileProviders.Tests.csproj", "{75623B4F-F838-41E5-8A5C-21FCBA9503DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadru.Polly.Tests", "tests\Cadru.Polly.Tests\Cadru.Polly.Tests.csproj", "{7E85B419-460B-45AA-8E8D-DEC960EBBC4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -212,6 +214,10 @@ Global
 		{75623B4F-F838-41E5-8A5C-21FCBA9503DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75623B4F-F838-41E5-8A5C-21FCBA9503DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75623B4F-F838-41E5-8A5C-21FCBA9503DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E85B419-460B-45AA-8E8D-DEC960EBBC4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E85B419-460B-45AA-8E8D-DEC960EBBC4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E85B419-460B-45AA-8E8D-DEC960EBBC4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E85B419-460B-45AA-8E8D-DEC960EBBC4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -229,6 +235,7 @@ Global
 		{FC656CF9-8A47-441B-9E78-873F52010B2C} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
 		{D39723A8-967F-4526-BFA8-8BDBA9E1E03B} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
 		{75623B4F-F838-41E5-8A5C-21FCBA9503DE} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
+		{7E85B419-460B-45AA-8E8D-DEC960EBBC4C} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {446E584A-949E-4799-BFC3-DBB40E1BE1CF}

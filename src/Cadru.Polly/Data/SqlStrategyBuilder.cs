@@ -45,21 +45,27 @@ namespace Cadru.Polly.Data
         /// The collection of <see cref="IExceptionHandlingStrategy"/>
         /// strategies to use.
         /// </param>
-        /// <param name="strategyOptionsAccessor">An optional strategy configuration.</param>
-        protected SqlStrategyBuilder(IEnumerable<IExceptionHandlingStrategy> exceptionHandlingStrategies, IOptions<SqlStrategyOptions>? strategyOptionsAccessor)
+        /// <param name="strategyOptions">An optional strategy configuration.</param>
+        protected SqlStrategyBuilder(IEnumerable<IExceptionHandlingStrategy> exceptionHandlingStrategies, SqlStrategyOptions? strategyOptions)
         {
             Requires.NotNullOrEmpty(exceptionHandlingStrategies, nameof(exceptionHandlingStrategies));
-            Requires.IsTrue(exceptionHandlingStrategies.Count(e => e.IsDefaultStrategy) == 1);
 
             this.ExceptionHandlingStrategies = exceptionHandlingStrategies;
-            this.StrategyOptions = strategyOptionsAccessor?.Value ?? SqlStrategyOptions.Defaults;
-            this.DefaultStrategy = exceptionHandlingStrategies.Single(e => e.IsDefaultStrategy);
+            this.StrategyOptions = strategyOptions ?? SqlStrategyOptions.Defaults;
         }
 
         /// <summary>
-        /// Gets the default <see cref="IExceptionHandlingStrategy"/>.
+        /// Initializes a new instance of the <see cref="SqlStrategyBuilder"/> class.
         /// </summary>
-        public IExceptionHandlingStrategy DefaultStrategy { get; }
+        /// <param name="exceptionHandlingStrategies">
+        /// The collection of <see cref="IExceptionHandlingStrategy"/>
+        /// strategies to use.
+        /// </param>
+        /// <param name="strategyOptionsAccessor">An optional strategy configuration.</param>
+        protected SqlStrategyBuilder(IEnumerable<IExceptionHandlingStrategy> exceptionHandlingStrategies, IOptions<SqlStrategyOptions>? strategyOptionsAccessor)
+            : this(exceptionHandlingStrategies, strategyOptionsAccessor?.Value)
+        {
+        }
 
         /// <summary>
         /// Gets the <see cref="IExceptionHandlingStrategy">exception handling
@@ -123,7 +129,7 @@ namespace Cadru.Polly.Data
         /// <returns>A <see cref="PolicyBuilder"/> instance.</returns>
         public PolicyBuilder GetDefaultPolicyBuilder()
         {
-            return Policy.Handle<Exception>(this.DefaultStrategy.ShouldHandle);
+            return Policy.Handle<Exception>(this.ExceptionHandlingStrategies.First().ShouldHandle);
         }
 
         /// <summary>
@@ -134,7 +140,7 @@ namespace Cadru.Polly.Data
         public PolicyBuilder GetPolicyBuilder()
         {
             var policyBuilder = this.GetDefaultPolicyBuilder();
-            foreach (var strategy in this.ExceptionHandlingStrategies.Where(e => !e.IsDefaultStrategy))
+            foreach (var strategy in this.ExceptionHandlingStrategies.Skip(1))
             {
                 policyBuilder = policyBuilder.Or<Exception>(strategy.ShouldHandle);
             }

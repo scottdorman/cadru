@@ -36,9 +36,6 @@ namespace Cadru.Polly.Data.SqlServer
     public class NetworkConnectivityExceptionHandlingStrategy : IExceptionHandlingStrategy
     {
         /// <inheritdoc/>
-        public bool IsDefaultStrategy => false;
-
-        /// <inheritdoc/>
         public bool ShouldHandle([NotNull] Exception exception)
         {
             if (exception is SqlException sqlException)
@@ -67,9 +64,6 @@ namespace Cadru.Polly.Data.SqlServer
     public class SqlServerTimeoutExceptionHandlingStrategy : IExceptionHandlingStrategy
     {
         /// <inheritdoc/>
-        public bool IsDefaultStrategy => false;
-
-        /// <inheritdoc/>
         public bool ShouldHandle([NotNull] Exception exception)
         {
             if (exception is SqlException sqlException)
@@ -94,9 +88,6 @@ namespace Cadru.Polly.Data.SqlServer
     /// </summary>
     public class SqlServerTransientExceptionHandlingStrategy : IExceptionHandlingStrategy
     {
-        /// <inheritdoc/>
-        public bool IsDefaultStrategy => true;
-
         /// <inheritdoc/>
         public bool ShouldHandle([NotNull] Exception exception)
         {
@@ -266,9 +257,6 @@ namespace Cadru.Polly.Data.SqlServer
     /// </summary>
     public class SqlServerTransientTransactionExceptionHandlingStrategy : IExceptionHandlingStrategy
     {
-        /// <inheritdoc/>
-        public bool IsDefaultStrategy => false;
-
         /// <inheritdoc/>
         public bool ShouldHandle([NotNull] Exception exception)
         {

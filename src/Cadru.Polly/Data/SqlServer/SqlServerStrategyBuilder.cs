@@ -24,7 +24,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using Cadru.Contracts;
 using Cadru.Extensions;
 using Cadru.Polly.Resources;
 
@@ -40,6 +39,58 @@ namespace Cadru.Polly.Data.SqlServer
     public class SqlServerStrategyBuilder : SqlStrategyBuilder
     {
         /// <summary>
+        /// Creates a <see cref="SqlServerStrategyBuilder"/> with default policies already included.
+        /// </summary>
+        public static SqlServerStrategyBuilder Default
+        {
+            get
+            {
+                var exceptionHandlingStrategies = new IExceptionHandlingStrategy[]
+                {
+                    new SqlServerTransientExceptionHandlingStrategy(),
+                    new NetworkConnectivityExceptionHandlingStrategy(),
+                    new SqlServerTransientTransactionExceptionHandlingStrategy(),
+                    new SqlServerTimeoutExceptionHandlingStrategy()
+                };
+
+                var strategy = new SqlServerStrategyBuilder(exceptionHandlingStrategies, SqlStrategyOptions.Defaults);
+                return strategy;
+            }
+        }
+
+        /// <summary>
+        /// Creates a <see cref="SqlServerStrategyBuilder"/> with no policies.
+        /// </summary>
+        public static SqlServerStrategyBuilder Empty
+        {
+            get
+            {
+                var exceptionHandlingStrategies = new IExceptionHandlingStrategy[]
+                {
+                    new SqlServerTransientExceptionHandlingStrategy(),
+                    new NetworkConnectivityExceptionHandlingStrategy(),
+                    new SqlServerTransientTransactionExceptionHandlingStrategy(),
+                    new SqlServerTimeoutExceptionHandlingStrategy()
+                };
+
+                var strategy = new SqlServerStrategyBuilder(exceptionHandlingStrategies, SqlStrategyOptions.Defaults);
+                strategy.Policies.Clear();
+                return strategy;
+            }
+        }
+
+        private SqlServerStrategyBuilder(IEnumerable<IExceptionHandlingStrategy> exceptionHandlingStrategies, SqlStrategyOptions? strategyOptions)
+                   : base(exceptionHandlingStrategies, strategyOptions)
+        {
+            var backoff = this.StrategyOptions.ExponentialBackoff();
+            var defaultPolicyHandler = this.GetDefaultPolicyBuilder();
+            this.Policies.Add(defaultPolicyHandler.WaitAndRetry(backoff, SqlStrategyLoggingDelegates.OnRetry).WithPolicyKey(SqlServerPolicyKeys.CommonTransientErrorsPolicy));
+            this.Policies.Add(defaultPolicyHandler.WaitAndRetryAsync(backoff, SqlStrategyLoggingDelegates.OnRetryAsync).WithPolicyKey(SqlServerPolicyKeys.CommonTransientErrorsPolicyAsync));
+            this.WithOverallTimeout(this.StrategyOptions);
+            this.WithCircuitBreakers(this.StrategyOptions);
+        }
+
+        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="SqlServerStrategyBuilder"/> class.
         /// </summary>
@@ -53,17 +104,8 @@ namespace Cadru.Polly.Data.SqlServer
         /// <see langword="null"/>, a default configuration will be used.
         /// </param>
         public SqlServerStrategyBuilder(IEnumerable<IExceptionHandlingStrategy> exceptionHandlingStrategies, IOptions<SqlStrategyOptions>? strategyOptionsAccessor)
-            : base(exceptionHandlingStrategies, strategyOptionsAccessor)
+            : this(exceptionHandlingStrategies, strategyOptionsAccessor?.Value)
         {
-            Requires.NotNullOrEmpty(exceptionHandlingStrategies, nameof(exceptionHandlingStrategies));
-            Requires.IsTrue(exceptionHandlingStrategies.Count(e => e.IsDefaultStrategy) == 1);
-
-            var backoff = this.StrategyOptions.ExponentialBackoff();
-            var defaultPolicyHandler = this.GetDefaultPolicyBuilder();
-            this.Policies.Add(defaultPolicyHandler.WaitAndRetry(backoff, SqlStrategyLoggingDelegates.OnRetry).WithPolicyKey(SqlServerPolicyKeys.CommonTransientErrorsPolicy));
-            this.Policies.Add(defaultPolicyHandler.WaitAndRetryAsync(backoff, SqlStrategyLoggingDelegates.OnRetryAsync).WithPolicyKey(SqlServerPolicyKeys.CommonTransientErrorsPolicyAsync));
-            this.WithOverallTimeout(this.StrategyOptions);
-            this.WithOverallTimeout(this.StrategyOptions);
         }
 
         /// <inheritdoc/>

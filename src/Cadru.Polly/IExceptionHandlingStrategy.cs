@@ -32,12 +32,6 @@ namespace Cadru.Polly
     public interface IExceptionHandlingStrategy
     {
         /// <summary>
-        /// Gets a value indicating whether or not this is the default exception
-        /// handling strategy.
-        /// </summary>
-        bool IsDefaultStrategy { get; }
-
-        /// <summary>
         /// Determines whether the specified exception represents a transient
         /// failure that can be compensated by a retry.
         /// </summary>

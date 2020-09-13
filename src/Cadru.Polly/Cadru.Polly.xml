@@ -143,9 +143,6 @@
             connectivity errors.
             </summary>
         </member>
-        <member name="P:Cadru.Polly.Data.SqlServer.NetworkConnectivityExceptionHandlingStrategy.IsDefaultStrategy">
-            <inheritdoc/>
-        </member>
         <member name="M:Cadru.Polly.Data.SqlServer.NetworkConnectivityExceptionHandlingStrategy.ShouldHandle(System.Exception)">
             <inheritdoc/>
         </member>
@@ -153,9 +150,6 @@
             <summary>
             Defines a strategy for determining SQL Server timeout errors.
             </summary>
-        </member>
-        <member name="P:Cadru.Polly.Data.SqlServer.SqlServerTimeoutExceptionHandlingStrategy.IsDefaultStrategy">
-            <inheritdoc/>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerTimeoutExceptionHandlingStrategy.ShouldHandle(System.Exception)">
             <inheritdoc/>
@@ -165,9 +159,6 @@
             Defines a strategy for determining transient SQL Server errors.
             </summary>
         </member>
-        <member name="P:Cadru.Polly.Data.SqlServer.SqlServerTransientExceptionHandlingStrategy.IsDefaultStrategy">
-            <inheritdoc/>
-        </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerTransientExceptionHandlingStrategy.ShouldHandle(System.Exception)">
             <inheritdoc/>
         </member>
@@ -176,15 +167,22 @@
             Defines a strategy for determining transient SQL Server transaction errors.
             </summary>
         </member>
-        <member name="P:Cadru.Polly.Data.SqlServer.SqlServerTransientTransactionExceptionHandlingStrategy.IsDefaultStrategy">
-            <inheritdoc/>
-        </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerTransientTransactionExceptionHandlingStrategy.ShouldHandle(System.Exception)">
             <inheritdoc/>
         </member>
         <member name="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder">
             <summary>
             Represents the policies used for performing SQL Server database operations.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder.Default">
+            <summary>
+            Creates a <see cref="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder"/> with default policies already included.
+            </summary>
+        </member>
+        <member name="P:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder.Empty">
+            <summary>
+            Creates a <see cref="T:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder"/> with no policies.
             </summary>
         </member>
         <member name="M:Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder.#ctor(System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy},Microsoft.Extensions.Options.IOptions{Cadru.Polly.Data.SqlStrategyOptions})">
@@ -615,6 +613,16 @@
             Builder class that holds the list of current exception predicates
             </summary>
         </member>
+        <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.#ctor(System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy},Cadru.Polly.Data.SqlStrategyOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.Polly.Data.SqlStrategyBuilder"/> class.
+            </summary>
+            <param name="exceptionHandlingStrategies">
+            The collection of <see cref="T:Cadru.Polly.IExceptionHandlingStrategy"/>
+            strategies to use.
+            </param>
+            <param name="strategyOptions">An optional strategy configuration.</param>
+        </member>
         <member name="M:Cadru.Polly.Data.SqlStrategyBuilder.#ctor(System.Collections.Generic.IEnumerable{Cadru.Polly.IExceptionHandlingStrategy},Microsoft.Extensions.Options.IOptions{Cadru.Polly.Data.SqlStrategyOptions})">
             <summary>
             Initializes a new instance of the <see cref="T:Cadru.Polly.Data.SqlStrategyBuilder"/> class.
@@ -624,11 +632,6 @@
             strategies to use.
             </param>
             <param name="strategyOptionsAccessor">An optional strategy configuration.</param>
-        </member>
-        <member name="P:Cadru.Polly.Data.SqlStrategyBuilder.DefaultStrategy">
-            <summary>
-            Gets the default <see cref="T:Cadru.Polly.IExceptionHandlingStrategy"/>.
-            </summary>
         </member>
         <member name="P:Cadru.Polly.Data.SqlStrategyBuilder.ExceptionHandlingStrategies">
             <summary>
@@ -899,12 +902,6 @@
             responsible for detecting specific transient conditions.
             </summary>
         </member>
-        <member name="P:Cadru.Polly.IExceptionHandlingStrategy.IsDefaultStrategy">
-            <summary>
-            Gets a value indicating whether or not this is the default exception
-            handling strategy.
-            </summary>
-        </member>
         <member name="M:Cadru.Polly.IExceptionHandlingStrategy.ShouldHandle(System.Exception)">
             <summary>
             Determines whether the specified exception represents a transient
@@ -1112,7 +1109,7 @@
             an <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
             </summary>
         </member>
-        <member name="M:Cadru.Polly.ServiceCollectionExtensions.AddPollyRegistry(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Cadru.Polly.ServiceCollectionExtensions.AddPolicyRegistry(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Adds a <see cref="T:Polly.Registry.PolicyRegistry"/> instance to the specified <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
             </summary>
