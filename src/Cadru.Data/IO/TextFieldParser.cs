@@ -756,7 +756,7 @@ namespace Cadru.Data.IO
             }
 
             var tempArray = new char[bufferSize];
-            Array.Copy(this.buffer, tempArray, this.buffer.Length);
+            Buffer.BlockCopy(this.buffer, 0, tempArray, 0, this.buffer.Length * sizeof(char));
 
             var r = this.reader.Read(tempArray, this.buffer.Length, DefaultBufferLength);
             this.buffer = tempArray;
@@ -1109,9 +1109,9 @@ namespace Cadru.Data.IO
             if (bufferLength > DefaultBufferLength)
             {
                 bufferLength = DefaultBufferLength;
-                this.buffer = new char[bufferLength];
             }
 
+            this.buffer = new char[bufferLength];
             this.charsRead = this.reader.Read(this.buffer, 0, bufferLength);
             return this.charsRead;
         }
@@ -1141,7 +1141,7 @@ namespace Cadru.Data.IO
                 var bufferLength = this.buffer.Length;
                 var tempArray = new char[bufferLength];
 
-                Array.Copy(this.buffer, this.position, tempArray, 0, bufferLength - this.position);
+                Buffer.BlockCopy(this.buffer, sizeof(char) * this.position, tempArray, 0, (bufferLength - this.position) * sizeof(char));
 
                 // Fill the rest of the buffer
                 var internalCharsRead = this.reader.Read(tempArray, bufferLength - this.position, this.position);

@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<!--
-Sample license text.
--->
 <doc>
     <assembly>
         <name>Cadru.Data</name>
@@ -587,6 +584,78 @@ Sample license text.
             <summary>
             The file being read has fixed length records.
             </summary>
+        </member>
+        <member name="T:Cadru.Data.IO.MalformedLineException">
+            <summary>
+            Indicates a line cannot be parsed into fields
+            </summary>
+        </member>
+        <member name="M:Cadru.Data.IO.MalformedLineException.#ctor">
+            <summary>
+            Creates a new exception with no properties set
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.MalformedLineException.#ctor(System.String,System.Int64)">
+            <summary>
+            Creates a new exception, setting Message and LineNumber
+            </summary>
+            <param name="message">The message for the exception</param>
+            <param name="lineNumber">The number of the line that is malformed</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.MalformedLineException.#ctor(System.String)">
+            <summary>
+            Creates a new exception, setting Message
+            </summary>
+            <param name="message">The message for the exception</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.MalformedLineException.#ctor(System.String,System.Int64,System.Exception)">
+            <summary>
+            Creates a new exception, setting Message, LineNumber, and InnerException
+            </summary>
+            <param name="message">The message for the exception</param>
+            <param name="lineNumber">The number of the line that is malformed</param>
+            <param name="innerException">The inner exception for the exception</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.MalformedLineException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates a new exception, setting Message and InnerException
+            </summary>
+            <param name="message">The message for the exception</param>
+            <param name="innerException">The inner exception for the exception</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.MalformedLineException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor used for serialization
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="P:Cadru.Data.IO.MalformedLineException.LineNumber">
+            <summary>
+            The number of the offending line
+            </summary>
+            <value>The line number</value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.MalformedLineException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Supports serialization
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cadru.Data.IO.MalformedLineException.ToString">
+            <summary>
+            Appends extra data to string so that it's available when the exception is caught as an Exception
+            </summary>
+            <returns>The base ToString plus the Line Number</returns>
+            <remarks></remarks>
         </member>
         <member name="T:Cadru.Data.IO.NullRemovalStream">
             <summary>
@@ -1216,78 +1285,6 @@ Sample license text.
             <remarks>
             Throws if we're not able to read fields with current property settings
             </remarks>
-        </member>
-        <member name="T:Cadru.Data.MalformedLineException">
-            <summary>
-            Indicates a line cannot be parsed into fields
-            </summary>
-        </member>
-        <member name="M:Cadru.Data.MalformedLineException.#ctor">
-            <summary>
-            Creates a new exception with no properties set
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Cadru.Data.MalformedLineException.#ctor(System.String,System.Int64)">
-            <summary>
-            Creates a new exception, setting Message and LineNumber
-            </summary>
-            <param name="message">The message for the exception</param>
-            <param name="lineNumber">The number of the line that is malformed</param>
-            <remarks></remarks>
-        </member>
-        <member name="M:Cadru.Data.MalformedLineException.#ctor(System.String)">
-            <summary>
-            Creates a new exception, setting Message
-            </summary>
-            <param name="message">The message for the exception</param>
-            <remarks></remarks>
-        </member>
-        <member name="M:Cadru.Data.MalformedLineException.#ctor(System.String,System.Int64,System.Exception)">
-            <summary>
-            Creates a new exception, setting Message, LineNumber, and InnerException
-            </summary>
-            <param name="message">The message for the exception</param>
-            <param name="lineNumber">The number of the line that is malformed</param>
-            <param name="innerException">The inner exception for the exception</param>
-            <remarks></remarks>
-        </member>
-        <member name="M:Cadru.Data.MalformedLineException.#ctor(System.String,System.Exception)">
-            <summary>
-            Creates a new exception, setting Message and InnerException
-            </summary>
-            <param name="message">The message for the exception</param>
-            <param name="innerException">The inner exception for the exception</param>
-            <remarks></remarks>
-        </member>
-        <member name="M:Cadru.Data.MalformedLineException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Constructor used for serialization
-            </summary>
-            <param name="info"></param>
-            <param name="context"></param>
-        </member>
-        <member name="P:Cadru.Data.MalformedLineException.LineNumber">
-            <summary>
-            The number of the offending line
-            </summary>
-            <value>The line number</value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Cadru.Data.MalformedLineException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Supports serialization
-            </summary>
-            <param name="info"></param>
-            <param name="context"></param>
-            <remarks></remarks>
-        </member>
-        <member name="M:Cadru.Data.MalformedLineException.ToString">
-            <summary>
-            Appends extra data to string so that it's available when the exception is caught as an Exception
-            </summary>
-            <returns>The base ToString plus the Line Number</returns>
-            <remarks></remarks>
         </member>
         <member name="T:Cadru.Data.Resources.Strings">
             <summary>
