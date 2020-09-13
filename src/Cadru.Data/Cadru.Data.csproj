@@ -3,8 +3,8 @@
     <TargetFrameworks>netstandard2.1</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
-    <Description>Provides a standard way to read Excel data and CSV formatted files.</Description>
-    <PackageTags>$(CommonPackageTags) excel csv reader datareader</PackageTags>
+    <Description>Provides a standard way to read Excel data and fixed width files.</Description>
+    <PackageTags>$(CommonPackageTags) excel reader datareader textfieldparser fixed width</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
