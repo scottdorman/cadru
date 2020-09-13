@@ -86,7 +86,6 @@ namespace Cadru
         private readonly byte i;
         private readonly byte j;
         private readonly byte k;
-        private DateTimeOffset dateTime;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Comb"/> structure using
@@ -113,7 +112,7 @@ namespace Cadru
             this.i = array[13];
             this.j = array[14];
             this.k = array[15];
-            this.dateTime = this.GetDateTimeOffset();
+            this.DateTime = this.GetDateTimeOffset();
         }
 
         /// <summary>
@@ -146,7 +145,7 @@ namespace Cadru
             this.i = d[5];
             this.j = d[6];
             this.k = d[7];
-            this.dateTime = this.GetDateTimeOffset();
+            this.DateTime = this.GetDateTimeOffset();
         }
 
         /// <summary>
@@ -190,7 +189,7 @@ namespace Cadru
             this.i = i;
             this.j = j;
             this.k = k;
-            this.dateTime = this.GetDateTimeOffset();
+            this.DateTime = this.GetDateTimeOffset();
         }
 
         /// <summary>
@@ -237,7 +236,7 @@ namespace Cadru
         /// A <see cref="DateTimeOffset"/> containing the data and time
         /// represented by the current instance.
         /// </value>
-        public DateTimeOffset DateTime => this.dateTime;
+        public DateTimeOffset DateTime { get; }
 
         /// <summary>
         /// Determines whether two specified <see cref="Comb"/> objects are equal.
@@ -885,7 +884,7 @@ namespace Cadru
         /// separated by hyphens. An example of a return value is
         /// "382c74c3-721d-4f34-80e5-57657b6cbc27". To convert the hexadecimal
         /// digits from a through f to uppercase, call the
-        /// <see cref="String.ToUpper"/> method on the returned string.
+        /// <see cref="String.ToUpper()"/> method on the returned string.
         /// </para>
         /// </returns>
         [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
@@ -963,7 +962,7 @@ namespace Cadru
         /// <para>
         /// The hexadecimal digits a through f are lowercase in the returned
         /// string. To convert them to uppercase, call the
-        /// <see cref="String.ToUpper"/> method on the returned string.
+        /// <see cref="String.ToUpper()"/> method on the returned string.
         /// </para>
         /// </remarks>
         public string ToString(string format)
@@ -1149,7 +1148,7 @@ namespace Cadru
         /// <para>
         /// The hexadecimal digits a through f are lowercase in the returned
         /// string. To convert them to uppercase, call the
-        /// <see cref="String.ToUpper"/> method on the returned string.
+        /// <see cref="String.ToUpper()"/> method on the returned string.
         /// </para>
         /// <para>
         /// Because the <paramref name="formatProvider"/> parameter is ignored,

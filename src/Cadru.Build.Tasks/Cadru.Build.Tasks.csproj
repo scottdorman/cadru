@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Description>Provides additional collection classes and extensions.</Description>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Description>Provides additional MSBuild tasks.</Description>
     <PackageTags>$(CommonPackageTags) collections logical natural string comparison date comparison comparer</PackageTags>
   </PropertyGroup>
   <ItemGroup>

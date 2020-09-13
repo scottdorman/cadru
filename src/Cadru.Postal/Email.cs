@@ -27,8 +27,6 @@ using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-using Cadru.Contracts;
-
 namespace Cadru.Postal
 {
     /// <summary>
@@ -45,7 +43,15 @@ namespace Cadru.Postal
         /// <param name="viewName">The name of the view to render</param>
         public Email(string viewName)
         {
-            Requires.NotNullOrWhiteSpace(viewName, nameof(viewName));
+            if (viewName == null)
+            {
+                throw new ArgumentNullException(nameof(viewName));
+            }
+
+            if (String.IsNullOrWhiteSpace(viewName))
+            {
+                throw new ArgumentException("viewName cannot be an empty string.", nameof(viewName));
+            }
 
             this.ViewName = viewName;
             this.Attachments = new List<Attachment>();

@@ -3,7 +3,7 @@
     <TargetFrameworks>netstandard2.1</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
-    <Description>Provides a common database context and predicates for use with Dapper.</Description>
+    <Description>Provides support for working with Polly policies, including a strategy for resilient database queries.</Description>
     <PackageTags>$(CommonPackageTags) polly database sqlserver logging exception handling resilience transient fault policy circuit breaker circuitbreaker retry wait cache cache-aside bulkhead fallback timeout throttle parallelization</PackageTags>
   </PropertyGroup>
 

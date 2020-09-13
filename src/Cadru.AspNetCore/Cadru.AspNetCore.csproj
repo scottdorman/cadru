@@ -3,7 +3,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
-    <Description>Provides ASP.NET Core middleware and other extensionsfor request and/response logging .</Description>
+    <Description>Provides ASP.NET Core middleware and other extensions for request and/response logging.</Description>
     <PackageTags>$(CommonPackageTags) aspnetcore middlweware response request logging mime mappping</PackageTags>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
