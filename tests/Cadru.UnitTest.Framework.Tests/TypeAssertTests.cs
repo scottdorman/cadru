@@ -35,9 +35,9 @@ namespace Cadru.UnitTest.Framework.Tests
             var array10 = new int[10];
             var array2 = new int[2];
 
-            TypeAssert.IsAssignableFrom(array10, array2.GetType());
-            TypeAssert.IsAssignableFrom(array10, array2.GetType(), "Type Failure Message");
-            TypeAssert.IsAssignableFrom(array10, array2.GetType(), "Type Failure Message", null);
+            Assert.That.IsAssignableFrom<int[]>(array10);
+            Assert.That.IsAssignableFrom<int[]>(array10, "Type Failure Message");
+            Assert.That.IsAssignableFrom<int[]>(array10, "Type Failure Message", null);
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
@@ -46,7 +46,7 @@ namespace Cadru.UnitTest.Framework.Tests
             var array10 = new int[10];
             var array2 = new int[2, 2];
 
-            TypeAssert.IsAssignableFrom(array10, array2.GetType());
+            Assert.That.IsAssignableFrom<int[,]>(array10);
         }
 
         [TestMethod]
@@ -55,9 +55,9 @@ namespace Cadru.UnitTest.Framework.Tests
             var array10 = new int[10];
             var array2 = new int[2, 2];
 
-            TypeAssert.IsNotAssignableFrom(array10, array2.GetType());
-            TypeAssert.IsNotAssignableFrom(array10, array2.GetType(), "Type Failure Message");
-            TypeAssert.IsNotAssignableFrom(array10, array2.GetType(), "Type Failure Message", null);
+            Assert.That.IsNotAssignableFrom<int[,]>(array10);
+            Assert.That.IsNotAssignableFrom<int[,]>(array10, "Type Failure Message");
+            Assert.That.IsNotAssignableFrom<int[,]>(array10, "Type Failure Message", null);
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
@@ -66,7 +66,7 @@ namespace Cadru.UnitTest.Framework.Tests
             var array10 = new int[10];
             var array2 = new int[2];
 
-            TypeAssert.IsNotAssignableFrom(array10, array2.GetType());
+            Assert.That.IsNotAssignableFrom<int[]>(array10);
         }
     }
 }

@@ -32,14 +32,14 @@ namespace Cadru.UnitTest.Framework.Tests
         [TestMethod]
         public void IsNaN()
         {
-            ConditionAssert.IsNaN(System.Double.NaN);
+            Assert.That.IsNaN(System.Double.NaN);
         }
 
         [TestMethod]
         [ExpectedException(typeof(AssertFailedException))]
         public void IsNaNFails()
         {
-            ConditionAssert.IsNaN(10.0);
+            Assert.That.IsNaN(10.0);
         }
     }
 }

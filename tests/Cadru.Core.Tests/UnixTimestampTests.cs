@@ -119,8 +119,8 @@ namespace Cadru.Core.Tests
             ExceptionAssert.Throws<ArgumentException>(() => timestamp.CompareTo("test"));
             Assert.AreEqual(0, timestamp.CompareTo((object)timestamp2));
             Assert.AreEqual(0, timestamp.CompareTo(timestamp2));
-            ConditionAssert.Greater(0, timestamp.CompareTo(timestamp3));
-            ConditionAssert.Less(0, timestamp.CompareTo(timestamp4));
+           Assert.That.IsGreater(0, timestamp.CompareTo(timestamp3));
+            Assert.That.IsLess(0, timestamp.CompareTo(timestamp4));
         }
 
         [TestMethod]
@@ -192,13 +192,13 @@ namespace Cadru.Core.Tests
         [TestMethod]
         public void Operators()
         {
-            ConditionAssert.IsTrue(UnixTimestamp.MaxValue > UnixTimestamp.MinValue);
-            ConditionAssert.IsFalse(UnixTimestamp.MinValue >= UnixTimestamp.MaxValue);
-            ConditionAssert.IsFalse(UnixTimestamp.MaxValue <= UnixTimestamp.MinValue);
-            ConditionAssert.IsTrue(UnixTimestamp.MinValue < UnixTimestamp.MaxValue);
-            ConditionAssert.IsTrue(UnixTimestamp.MinValue != UnixTimestamp.MaxValue);
-            ConditionAssert.IsTrue(((UnixTimestamp)1395176400L) == ((UnixTimestamp)1395176400L));
-            ConditionAssert.IsFalse(((UnixTimestamp)1395176401L) == ((UnixTimestamp)1395176400L));
+            Assert.IsTrue(UnixTimestamp.MaxValue > UnixTimestamp.MinValue);
+            Assert.IsFalse(UnixTimestamp.MinValue >= UnixTimestamp.MaxValue);
+            Assert.IsFalse(UnixTimestamp.MaxValue <= UnixTimestamp.MinValue);
+            Assert.IsTrue(UnixTimestamp.MinValue < UnixTimestamp.MaxValue);
+            Assert.IsTrue(UnixTimestamp.MinValue != UnixTimestamp.MaxValue);
+            Assert.IsTrue(((UnixTimestamp)1395176400L) == ((UnixTimestamp)1395176400L));
+            Assert.IsFalse(((UnixTimestamp)1395176401L) == ((UnixTimestamp)1395176400L));
         }
 
         [TestMethod]

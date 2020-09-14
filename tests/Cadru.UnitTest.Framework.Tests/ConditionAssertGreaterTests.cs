@@ -47,42 +47,42 @@ namespace Cadru.UnitTest.Framework.Tests
 
             try
             {
-                ConditionAssert.Greater(7, 99);
+                Assert.That.IsGreater(7, 99);
             }
             catch (AssertFailedException ex)
             {
                 msg = ex.Message;
             }
 
-            StringAssert.Contains("Assert.Fail failed. 99 is less than or equal to 7.", msg);
+            StringAssert.Contains(msg, "Assert.IsGreater failed");
         }
 
         [TestMethod]
         public void Greater()
         {
-            ConditionAssert.Greater(this.i1, this.i2);
-            ConditionAssert.Greater(this.u1, this.u2);
-            ConditionAssert.Greater(this.d1, this.d2, "double");
-            ConditionAssert.Greater(this.de1, this.de2, "{0}", "decimal");
-            ConditionAssert.Greater(this.f1, this.f2, "float");
+            Assert.That.IsGreater(this.i1, this.i2);
+            Assert.That.IsGreater(this.u1, this.u2);
+            Assert.That.IsGreater(this.d1, this.d2, "double");
+            Assert.That.IsGreater(this.de1, this.de2, "{0}", "decimal");
+            Assert.That.IsGreater(this.f1, this.f2, "float");
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void NotGreater()
         {
-            ConditionAssert.Greater(this.i2, this.i1);
+            Assert.That.IsGreater(this.i2, this.i1);
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void NotGreaterIComparable()
         {
-            ConditionAssert.Greater(System.Net.DecompressionMethods.GZip, System.Net.DecompressionMethods.Deflate);
+            Assert.That.IsGreater(System.Net.DecompressionMethods.GZip, System.Net.DecompressionMethods.Deflate);
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void NotGreaterWhenEqual()
         {
-            ConditionAssert.Greater(this.i1, this.i1);
+            Assert.That.IsGreater(this.i1, this.i1);
         }
     }
 }
