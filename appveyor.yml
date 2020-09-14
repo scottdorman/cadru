@@ -9,7 +9,7 @@
 
 #environment variables
 environment:
-   majorminor: 4.0
+   majorminor: 4.5
    #APPVEYOR_BLOCK_DOTNETCORE_TESTS_AUTORUN: true
 
 # version format
