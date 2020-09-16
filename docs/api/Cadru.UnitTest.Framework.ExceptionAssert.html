@@ -1,0 +1,1786 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ExceptionAssert
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ExceptionAssert
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.UnitTest.Framework.ExceptionAssert">
+  
+  
+  <h1 id="Cadru_UnitTest_Framework_ExceptionAssert" data-uid="Cadru.UnitTest.Framework.ExceptionAssert" class="text-break">Class ExceptionAssert
+  </h1>
+  <div class="markdown level0 summary"><p>Contains assertion types that are not provided with the standard MSTest assertions.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ExceptionAssert</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.UnitTest.Framework.html">Cadru.UnitTest.Framework</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.UnitTest.Framework.dll</h6>
+  <h5 id="Cadru_UnitTest_Framework_ExceptionAssert_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ExceptionAssert : object</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Catch_Action_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Catch(Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L72">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Catch_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Catch_Action_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch(Action)">Catch(Action)</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws an exception when
+called and returns it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception Catch(Action code)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Exception</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Catch_Action_System_String_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Catch(Action%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L60">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Catch_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Catch_Action_System_String_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch(Action,System.String)">Catch(Action, String)</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws an exception when
+called and returns it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception Catch(Action code, string message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Exception</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Catch_Action_System_String_System_Object___.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Catch(Action%2CSystem.String%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L47">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Catch_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Catch_Action_System_String_System_Object___" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch(Action,System.String,System.Object[])">Catch(Action, String, Object[])</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws an exception when
+called and returns it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception Catch(Action code, string message, params object[] parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td><p>An array of parameters to use when formatting <code data-dev-comment-type="paramref" class="paramref">message</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Exception</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Catch_Type_Action_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Catch(Type%2CAction)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L128">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Catch_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Catch_Type_Action_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch(Type,Action)">Catch(Type, Action)</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws an exception of a
+certain Type or one derived from it when called and returns it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception Catch(Type expectedExceptionType, Action code)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">expectedExceptionType</span></td>
+        <td><p>The expected exception type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Exception</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Catch_Type_Action_System_String_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Catch(Type%2CAction%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L115">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Catch_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Catch_Type_Action_System_String_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch(Type,Action,System.String)">Catch(Type, Action, String)</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws an exception of a
+certain Type or one derived from it when called and returns it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception Catch(Type expectedExceptionType, Action code, string message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">expectedExceptionType</span></td>
+        <td><p>The expected exception type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Exception</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Catch_Type_Action_System_String_System_Object___.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Catch(Type%2CAction%2CSystem.String%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L89">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Catch_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Catch_Type_Action_System_String_System_Object___" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch(Type,Action,System.String,System.Object[])">Catch(Type, Action, String, Object[])</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws an exception of a
+certain Type or one derived from it when called and returns it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception Catch(Type expectedExceptionType, Action code, string message, params object[] parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">expectedExceptionType</span></td>
+        <td><p>The expected exception type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td><p>An array of parameters to use when formatting <code data-dev-comment-type="paramref" class="paramref">message</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Exception</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Catch__1_Action_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Catch%60%601(Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L172">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Catch_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Catch__1_Action_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch``1(Action)">Catch&lt;T&gt;(Action)</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws an exception of a
+certain Type or one derived from it when called and returns it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Catch&lt;T&gt;(Action code)
+    where T : System.Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The expected exception type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Catch__1_Action_System_String_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Catch%60%601(Action%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L159">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Catch_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Catch__1_Action_System_String_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch``1(Action,System.String)">Catch&lt;T&gt;(Action, String)</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws an exception of a
+certain Type or one derived from it when called and returns it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Catch&lt;T&gt;(Action code, string message)
+    where T : Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The expected exception type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Catch__1_Action_System_String_System_Object___.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Catch%60%601(Action%2CSystem.String%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L145">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Catch_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Catch__1_Action_System_String_System_Object___" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Catch``1(Action,System.String,System.Object[])">Catch&lt;T&gt;(Action, String, Object[])</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws an exception of a
+certain Type or one derived from it when called and returns it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Catch&lt;T&gt;(Action code, string message, params object[] parameters)
+    where T : Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td><p>An array of parameters to use when formatting <code data-dev-comment-type="paramref" class="paramref">message</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The expected exception type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_DoesNotThrow_Action_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.DoesNotThrow(Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L219">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_DoesNotThrow_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.DoesNotThrow*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_DoesNotThrow_Action_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.DoesNotThrow(Action)">DoesNotThrow(Action)</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> does not throw an exception.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DoesNotThrow(Action code)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_DoesNotThrow_Action_System_String_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.DoesNotThrow(Action%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L209">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_DoesNotThrow_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.DoesNotThrow*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_DoesNotThrow_Action_System_String_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.DoesNotThrow(Action,System.String)">DoesNotThrow(Action, String)</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> does not throw an exception.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DoesNotThrow(Action code, string message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_DoesNotThrow_Action_System_String_System_Object___.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.DoesNotThrow(Action%2CSystem.String%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L186">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_DoesNotThrow_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.DoesNotThrow*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_DoesNotThrow_Action_System_String_System_Object___" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.DoesNotThrow(Action,System.String,System.Object[])">DoesNotThrow(Action, String, Object[])</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> does not throw an exception.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DoesNotThrow(Action code, string message, params object[] parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td><p>An array of parameters to use when formatting <code data-dev-comment-type="paramref" class="paramref">message</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Throws_Action_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Throws(Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L257">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Throws_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Throws_Action_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws(Action)">Throws(Action)</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws an exception when called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception Throws(Action code)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Exception</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Throws_Action_System_String_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Throws(Action%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L246">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Throws_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Throws_Action_System_String_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws(Action,System.String)">Throws(Action, String)</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws an exception when called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception Throws(Action code, string message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Exception</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Throws_Action_System_String_System_Object___.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Throws(Action%2CSystem.String%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L234">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Throws_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Throws_Action_System_String_System_Object___" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws(Action,System.String,System.Object[])">Throws(Action, String, Object[])</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws an exception when called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception Throws(Action code, string message, params object[] parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td><p>An array of parameters to use when formatting <code data-dev-comment-type="paramref" class="paramref">message</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Exception</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Throws_Type_Action_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Throws(Type%2CAction)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L313">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Throws_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Throws_Type_Action_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws(Type,Action)">Throws(Type, Action)</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws a particular exception
+when called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception Throws(Type expectedExceptionType, Action code)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">expectedExceptionType</span></td>
+        <td><p>The exception Type expected.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Exception</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Throws_Type_Action_System_String_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Throws(Type%2CAction%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L300">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Throws_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Throws_Type_Action_System_String_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws(Type,Action,System.String)">Throws(Type, Action, String)</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws a particular exception
+when called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception Throws(Type expectedExceptionType, Action code, string message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">expectedExceptionType</span></td>
+        <td><p>The exception Type expected.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Exception</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Throws_Type_Action_System_String_System_Object___.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Throws(Type%2CAction%2CSystem.String%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L274">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Throws_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Throws_Type_Action_System_String_System_Object___" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws(Type,Action,System.String,System.Object[])">Throws(Type, Action, String, Object[])</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws a particular exception
+when called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception Throws(Type expectedExceptionType, Action code, string message, params object[] parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">expectedExceptionType</span></td>
+        <td><p>The exception Type expected.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td><p>An array of parameters to use when formatting <code data-dev-comment-type="paramref" class="paramref">message</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Exception</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Throws__1_Action_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Throws%60%601(Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L357">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Throws_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Throws__1_Action_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws``1(Action)">Throws&lt;T&gt;(Action)</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws a particular exception
+when called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Throws&lt;T&gt;(Action code)
+    where T : Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Type of the expected exception.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Throws__1_Action_System_String_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Throws%60%601(Action%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L344">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Throws_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Throws__1_Action_System_String_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws``1(Action,System.String)">Throws&lt;T&gt;(Action, String)</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws a particular exception
+when called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Throws&lt;T&gt;(Action code, string message)
+    where T : Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Type of the expected exception.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_Throws__1_Action_System_String_System_Object___.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.Throws%60%601(Action%2CSystem.String%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L330">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_Throws_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_Throws__1_Action_System_String_System_Object___" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.Throws``1(Action,System.String,System.Object[])">Throws&lt;T&gt;(Action, String, Object[])</h4>
+  <div class="markdown level1 summary"><p>Verifies that <code data-dev-comment-type="paramref" class="paramref">code</code> throws a particular exception
+when called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Throws&lt;T&gt;(Action code, string message, params object[] parameters)
+    where T : Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The code to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td><p>An array of parameters to use when formatting <code data-dev-comment-type="paramref" class="paramref">message</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The <see cref="!:Exception"></see> thrown by <code data-dev-comment-type="paramref" class="paramref">code</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Type of the expected exception.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_WithInnerException__1___0_Type_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.WithInnerException%60%601(%60%600%2CType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L373">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_WithInnerException_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.WithInnerException*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_WithInnerException__1___0_Type_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.WithInnerException``1(``0,Type)">WithInnerException&lt;T&gt;(T, Type)</h4>
+  <div class="markdown level1 summary"><p>Verifies that <see cref="!:Exception.InnerException"></see>
+is of the specified type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T WithInnerException&lt;T&gt;(this T exception, Type innerException)
+    where T : Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">exception</span></td>
+        <td><p>The exception whose <see cref="!:Exception.InnerException"></see> will be tested.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">innerException</span></td>
+        <td><p>The expected type of the inner exception.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The original <see cref="!:Exception"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The source exception type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_WithInnerException__1_Exception_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.WithInnerException%60%601(Exception)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L389">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_WithInnerException_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.WithInnerException*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_WithInnerException__1_Exception_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.WithInnerException``1(Exception)">WithInnerException&lt;T&gt;(Exception)</h4>
+  <div class="markdown level1 summary"><p>Verifies that <see cref="!:Exception.InnerException"></see>
+is of the specified type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception WithInnerException&lt;T&gt;(this Exception exception)
+    where T : Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Exception</span></td>
+        <td><span class="parametername">exception</span></td>
+        <td><p>The exception whose <see cref="!:Exception.InnerException"></see> will be tested.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Exception</span></td>
+        <td><p>The original <see cref="!:Exception"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The inner exception type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_WithMessage__1___0_System_String_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.WithMessage%60%601(%60%600%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L445">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_WithMessage_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.WithMessage*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_WithMessage__1___0_System_String_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.WithMessage``1(``0,System.String)">WithMessage&lt;T&gt;(T, String)</h4>
+  <div class="markdown level1 summary"><p>Verifies that the exception <see cref="!:Exception.Message"></see> is equal
+to the given text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T WithMessage&lt;T&gt;(this T exception, string message)
+    where T : Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">exception</span></td>
+        <td><p>The exception whose <see cref="!:Exception.Message"></see> will be compared.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The text to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The original <see cref="!:Exception"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The exception type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_WithMessage__1___0_System_String_Cadru_UnitTest_Framework_ExceptionMessageComparison_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.WithMessage%60%601(%60%600%2CSystem.String%2CCadru.UnitTest.Framework.ExceptionMessageComparison)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L409">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_WithMessage_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.WithMessage*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_WithMessage__1___0_System_String_Cadru_UnitTest_Framework_ExceptionMessageComparison_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.WithMessage``1(``0,System.String,Cadru.UnitTest.Framework.ExceptionMessageComparison)">WithMessage&lt;T&gt;(T, String, ExceptionMessageComparison)</h4>
+  <div class="markdown level1 summary"><p>Verifies that the exception <see cref="!:Exception.Message"></see> contains
+the given text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T WithMessage&lt;T&gt;(this T exception, string message, ExceptionMessageComparison comparison)
+    where T : Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">exception</span></td>
+        <td><p>The exception whose <see cref="!:Exception.Message"></see> will be searched.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The text to search for in the exception <see cref="!:Exception.Message"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.UnitTest.Framework.ExceptionMessageComparison.html">ExceptionMessageComparison</a></td>
+        <td><span class="parametername">comparison</span></td>
+        <td><p>One of the <a class="xref" href="Cadru.UnitTest.Framework.ExceptionMessageComparison.html">ExceptionMessageComparison</a> values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The original <see cref="!:Exception"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The exception type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert_WithParameter__1___0_System_String_.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert.WithParameter%60%601(%60%600%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L462">View Source</a>
+  </span>
+  <a id="Cadru_UnitTest_Framework_ExceptionAssert_WithParameter_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.WithParameter*"></a>
+  <h4 id="Cadru_UnitTest_Framework_ExceptionAssert_WithParameter__1___0_System_String_" data-uid="Cadru.UnitTest.Framework.ExceptionAssert.WithParameter``1(``0,System.String)">WithParameter&lt;T&gt;(T, String)</h4>
+  <div class="markdown level1 summary"><p>Verifies that the exception
+<see cref="!:ArgumentException.ParamName"></see> property is equal to the
+given text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T WithParameter&lt;T&gt;(this T exception, string parameterName)
+    where T : ArgumentException</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">exception</span></td>
+        <td><p>The exception whose <see cref="!:ArgumentException.ParamName"></see>
+property will be compared.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">parameterName</span></td>
+        <td><p>The text to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The original <see cref="!:Exception"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The exception type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnitTest_Framework_ExceptionAssert.md&amp;value=---%0Auid%3A%20Cadru.UnitTest.Framework.ExceptionAssert%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.UnitTest.Framework/ExceptionAssert.cs/#L35" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

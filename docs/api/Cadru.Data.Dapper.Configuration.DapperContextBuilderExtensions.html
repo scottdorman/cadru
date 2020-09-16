@@ -1,0 +1,513 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DapperContextBuilderExtensions
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DapperContextBuilderExtensions
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions">
+  
+  
+  <h1 id="Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions" data-uid="Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions" class="text-break">Class DapperContextBuilderExtensions
+  </h1>
+  <div class="markdown level0 summary"><p>Provides a simple API surface for configuring <a class="xref" href="Cadru.Data.Dapper.DapperContext.html">DapperContext</a>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">DapperContextBuilderExtensions</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.Data.Dapper.Configuration.html">Cadru.Data.Dapper.Configuration</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.Data.Dapper.dll</h6>
+  <h5 id="Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class DapperContextBuilderExtensions : object</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_AddTypeHandler_Cadru_Data_Dapper_Configuration_DapperContextBuilder_Type_SqlMapper_ITypeHandler_.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.AddTypeHandler(Cadru.Data.Dapper.Configuration.DapperContextBuilder%2CType%2CSqlMapper.ITypeHandler)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/Configuration/DapperContextBuilderExtensions.cs/#L72">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_AddTypeHandler_" data-uid="Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.AddTypeHandler*"></a>
+  <h4 id="Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_AddTypeHandler_Cadru_Data_Dapper_Configuration_DapperContextBuilder_Type_SqlMapper_ITypeHandler_" data-uid="Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.AddTypeHandler(Cadru.Data.Dapper.Configuration.DapperContextBuilder,Type,SqlMapper.ITypeHandler)">AddTypeHandler(DapperContextBuilder, Type, SqlMapper.ITypeHandler)</h4>
+  <div class="markdown level1 summary"><p>Configure the specified type to be processed by a custom
+<a href="https://stackexchange.github.io/Dapper/">Dapper</a> handler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DapperContextBuilder AddTypeHandler(this DapperContextBuilder contextBuilder, Type type, SqlMapper.ITypeHandler handler)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Data.Dapper.Configuration.DapperContextBuilder.html">DapperContextBuilder</a></td>
+        <td><span class="parametername">contextBuilder</span></td>
+        <td><p>The builder being used to configure the context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>The type to handle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">SqlMapper.ITypeHandler</span></td>
+        <td><span class="parametername">handler</span></td>
+        <td><p>The handler for the type <code data-dev-comment-type="paramref" class="paramref">type</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Data.Dapper.Configuration.DapperContextBuilder.html">DapperContextBuilder</a></td>
+        <td><p>The context builder so that further configuration can be chained.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_AddTypeHandler__1_Cadru_Data_Dapper_Configuration_DapperContextBuilder_SqlMapper_TypeHandler___0__.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.AddTypeHandler%60%601(Cadru.Data.Dapper.Configuration.DapperContextBuilder%2CSqlMapper.TypeHandler%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/Configuration/DapperContextBuilderExtensions.cs/#L54">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_AddTypeHandler_" data-uid="Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.AddTypeHandler*"></a>
+  <h4 id="Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_AddTypeHandler__1_Cadru_Data_Dapper_Configuration_DapperContextBuilder_SqlMapper_TypeHandler___0__" data-uid="Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.AddTypeHandler``1(Cadru.Data.Dapper.Configuration.DapperContextBuilder,SqlMapper.TypeHandler{``0})">AddTypeHandler&lt;T&gt;(DapperContextBuilder, SqlMapper.TypeHandler&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Configure the specified type to be processed by a custom
+<a href="https://stackexchange.github.io/Dapper/">Dapper</a> handler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DapperContextBuilder AddTypeHandler&lt;T&gt;(this DapperContextBuilder contextBuilder, SqlMapper.TypeHandler&lt;T&gt; handler)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Data.Dapper.Configuration.DapperContextBuilder.html">DapperContextBuilder</a></td>
+        <td><span class="parametername">contextBuilder</span></td>
+        <td><p>The builder being used to configure the context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">SqlMapper.TypeHandler</span>&lt;T&gt;</td>
+        <td><span class="parametername">handler</span></td>
+        <td><p>The handler for the type <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Data.Dapper.Configuration.DapperContextBuilder.html">DapperContextBuilder</a></td>
+        <td><p>The context builder so that further configuration can be chained.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type to handle.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_AddTypeHandlerImpl_Cadru_Data_Dapper_Configuration_DapperContextBuilder_Type_SqlMapper_ITypeHandler_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.AddTypeHandlerImpl(Cadru.Data.Dapper.Configuration.DapperContextBuilder%2CType%2CSqlMapper.ITypeHandler%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/Configuration/DapperContextBuilderExtensions.cs/#L91">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_AddTypeHandlerImpl_" data-uid="Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.AddTypeHandlerImpl*"></a>
+  <h4 id="Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_AddTypeHandlerImpl_Cadru_Data_Dapper_Configuration_DapperContextBuilder_Type_SqlMapper_ITypeHandler_System_Boolean_" data-uid="Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.AddTypeHandlerImpl(Cadru.Data.Dapper.Configuration.DapperContextBuilder,Type,SqlMapper.ITypeHandler,System.Boolean)">AddTypeHandlerImpl(DapperContextBuilder, Type, SqlMapper.ITypeHandler, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Configure the specified type to be processed by a custom
+<a href="https://stackexchange.github.io/Dapper/">Dapper</a> handler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DapperContextBuilder AddTypeHandlerImpl(this DapperContextBuilder contextBuilder, Type type, SqlMapper.ITypeHandler handler, bool clone)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Data.Dapper.Configuration.DapperContextBuilder.html">DapperContextBuilder</a></td>
+        <td><span class="parametername">contextBuilder</span></td>
+        <td><p>The builder being used to configure the context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>The type to handle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">SqlMapper.ITypeHandler</span></td>
+        <td><span class="parametername">handler</span></td>
+        <td><p>The handler for the type <code data-dev-comment-type="paramref" class="paramref">type</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">clone</span></td>
+        <td><p>Whether to clone the current type handler map.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Data.Dapper.Configuration.DapperContextBuilder.html">DapperContextBuilder</a></td>
+        <td><p>The context builder so that further configuration can be chained.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_AddTypeMap_Cadru_Data_Dapper_Configuration_DapperContextBuilder_Type_DbType_.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.AddTypeMap(Cadru.Data.Dapper.Configuration.DapperContextBuilder%2CType%2CDbType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/Configuration/DapperContextBuilderExtensions.cs/#L108">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_AddTypeMap_" data-uid="Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.AddTypeMap*"></a>
+  <h4 id="Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_AddTypeMap_Cadru_Data_Dapper_Configuration_DapperContextBuilder_Type_DbType_" data-uid="Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.AddTypeMap(Cadru.Data.Dapper.Configuration.DapperContextBuilder,Type,DbType)">AddTypeMap(DapperContextBuilder, Type, DbType)</h4>
+  <div class="markdown level1 summary"><p>Configures the specified type to be mapped to a given db-type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DapperContextBuilder AddTypeMap(this DapperContextBuilder contextBuilder, Type type, DbType dbType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Data.Dapper.Configuration.DapperContextBuilder.html">DapperContextBuilder</a></td>
+        <td><span class="parametername">contextBuilder</span></td>
+        <td><p>The builder being used to configure the context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>The type to map from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DbType</span></td>
+        <td><span class="parametername">dbType</span></td>
+        <td><p>The database type to map to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Data.Dapper.Configuration.DapperContextBuilder.html">DapperContextBuilder</a></td>
+        <td><p>The context builder so that further configuration can be chained.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_EnableRetryOnFailure_Cadru_Data_Dapper_Configuration_DapperContextBuilder_System_Nullable_IEnumerable_Cadru_Polly_IExceptionHandlingStrategy___.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.EnableRetryOnFailure(Cadru.Data.Dapper.Configuration.DapperContextBuilder%2CSystem.Nullable%7BIEnumerable%7BCadru.Polly.IExceptionHandlingStrategy%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/Configuration/DapperContextBuilderExtensions.cs/#L127">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_EnableRetryOnFailure_" data-uid="Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.EnableRetryOnFailure*"></a>
+  <h4 id="Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_EnableRetryOnFailure_Cadru_Data_Dapper_Configuration_DapperContextBuilder_System_Nullable_IEnumerable_Cadru_Polly_IExceptionHandlingStrategy___" data-uid="Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.EnableRetryOnFailure(Cadru.Data.Dapper.Configuration.DapperContextBuilder,System.Nullable{IEnumerable{Cadru.Polly.IExceptionHandlingStrategy}})">EnableRetryOnFailure(DapperContextBuilder, Nullable&lt;IEnumerable&lt;IExceptionHandlingStrategy&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Configures the context to enable retries on transient failures.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DapperContextBuilder EnableRetryOnFailure(this DapperContextBuilder contextBuilder, IEnumerable&lt;IExceptionHandlingStrategy&gt;? exceptionHandlingStrategies)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Data.Dapper.Configuration.DapperContextBuilder.html">DapperContextBuilder</a></td>
+        <td><span class="parametername">contextBuilder</span></td>
+        <td><p>The builder being used to configure the context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="Cadru.Polly.IExceptionHandlingStrategy.html">IExceptionHandlingStrategy</a>&gt;&gt;</td>
+        <td><span class="parametername">exceptionHandlingStrategies</span></td>
+        <td><p>The collection of exception handling strategies used to determine if
+an error is transient.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Data.Dapper.Configuration.DapperContextBuilder.html">DapperContextBuilder</a></td>
+        <td><p>The context builder so that further configuration can be chained.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_UseSqlServer_Cadru_Data_Dapper_Configuration_DapperContextBuilder_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.UseSqlServer(Cadru.Data.Dapper.Configuration.DapperContextBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/Configuration/DapperContextBuilderExtensions.cs/#L150">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_UseSqlServer_" data-uid="Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.UseSqlServer*"></a>
+  <h4 id="Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions_UseSqlServer_Cadru_Data_Dapper_Configuration_DapperContextBuilder_System_String_" data-uid="Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.UseSqlServer(Cadru.Data.Dapper.Configuration.DapperContextBuilder,System.String)">UseSqlServer(DapperContextBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Configures the context to connect to a Microsoft SQL Server database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DapperContextBuilder UseSqlServer(this DapperContextBuilder contextBuilder, string connectionString)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Data.Dapper.Configuration.DapperContextBuilder.html">DapperContextBuilder</a></td>
+        <td><span class="parametername">contextBuilder</span></td>
+        <td><p>The builder being used to configure the context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">connectionString</span></td>
+        <td><p>The connection string of the database to connect to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Data.Dapper.Configuration.DapperContextBuilder.html">DapperContextBuilder</a></td>
+        <td><p>The context builder so that further configuration can be chained.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_Configuration_DapperContextBuilderExtensions.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/Configuration/DapperContextBuilderExtensions.cs/#L40" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

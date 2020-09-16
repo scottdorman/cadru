@@ -1,0 +1,775 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class CommandAdapter
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class CommandAdapter
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.Data.Dapper.CommandAdapter">
+  
+  
+  <h1 id="Cadru_Data_Dapper_CommandAdapter" data-uid="Cadru.Data.Dapper.CommandAdapter" class="text-break">Class CommandAdapter
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a way to create provider specific SQL statements.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">CommandAdapter</span></div>
+      <div class="level2"><a class="xref" href="Cadru.Data.Dapper.SqlCommandAdapter.html">SqlCommandAdapter</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Cadru.Data.Dapper.ICommandAdapter.html">ICommandAdapter</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.Data.Dapper.html">Cadru.Data.Dapper</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.Data.Dapper.dll</h6>
+  <h5 id="Cadru_Data_Dapper_CommandAdapter_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CommandAdapter : object, ICommandAdapter</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_CommandAdapter_CatalogSeparator.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.CommandAdapter.CatalogSeparator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/CommandAdapter.cs/#L67">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_CommandAdapter_CatalogSeparator_" data-uid="Cadru.Data.Dapper.CommandAdapter.CatalogSeparator*"></a>
+  <h4 id="Cadru_Data_Dapper_CommandAdapter_CatalogSeparator" data-uid="Cadru.Data.Dapper.CommandAdapter.CatalogSeparator">CatalogSeparator</h4>
+  <div class="markdown level1 summary"><p>Gets a string used as the catalog separator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string CatalogSeparator { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_CommandAdapter_IdentifierPrefix.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.CommandAdapter.IdentifierPrefix%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/CommandAdapter.cs/#L70">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_CommandAdapter_IdentifierPrefix_" data-uid="Cadru.Data.Dapper.CommandAdapter.IdentifierPrefix*"></a>
+  <h4 id="Cadru_Data_Dapper_CommandAdapter_IdentifierPrefix" data-uid="Cadru.Data.Dapper.CommandAdapter.IdentifierPrefix">IdentifierPrefix</h4>
+  <div class="markdown level1 summary"><p>Gets the starting character or characters to use when specifying SQL
+Server database objects, such as tables or columns, whose names
+contain characters such as spaces or reserved tokens.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string IdentifierPrefix { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_CommandAdapter_IdentifierSuffix.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.CommandAdapter.IdentifierSuffix%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/CommandAdapter.cs/#L73">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_CommandAdapter_IdentifierSuffix_" data-uid="Cadru.Data.Dapper.CommandAdapter.IdentifierSuffix*"></a>
+  <h4 id="Cadru_Data_Dapper_CommandAdapter_IdentifierSuffix" data-uid="Cadru.Data.Dapper.CommandAdapter.IdentifierSuffix">IdentifierSuffix</h4>
+  <div class="markdown level1 summary"><p>Gets the ending character or characters to use when specifying SQL
+Server database objects, such as tables or columns, whose names
+contain characters such as spaces or reserved tokens.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string IdentifierSuffix { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_CommandAdapter_NameSeparator.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.CommandAdapter.NameSeparator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/CommandAdapter.cs/#L76">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_CommandAdapter_NameSeparator_" data-uid="Cadru.Data.Dapper.CommandAdapter.NameSeparator*"></a>
+  <h4 id="Cadru_Data_Dapper_CommandAdapter_NameSeparator" data-uid="Cadru.Data.Dapper.CommandAdapter.NameSeparator">NameSeparator</h4>
+  <div class="markdown level1 summary"><p>Gets a string used as the name separator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string NameSeparator { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_CommandAdapter_ParameterNameMaxLength.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.CommandAdapter.ParameterNameMaxLength%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/CommandAdapter.cs/#L79">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_CommandAdapter_ParameterNameMaxLength_" data-uid="Cadru.Data.Dapper.CommandAdapter.ParameterNameMaxLength*"></a>
+  <h4 id="Cadru_Data_Dapper_CommandAdapter_ParameterNameMaxLength" data-uid="Cadru.Data.Dapper.CommandAdapter.ParameterNameMaxLength">ParameterNameMaxLength</h4>
+  <div class="markdown level1 summary"><p>Gets the maximum parameter name length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int ParameterNameMaxLength { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_CommandAdapter_ParameterNamePattern.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.CommandAdapter.ParameterNamePattern%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/CommandAdapter.cs/#L82">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_CommandAdapter_ParameterNamePattern_" data-uid="Cadru.Data.Dapper.CommandAdapter.ParameterNamePattern*"></a>
+  <h4 id="Cadru_Data_Dapper_CommandAdapter_ParameterNamePattern" data-uid="Cadru.Data.Dapper.CommandAdapter.ParameterNamePattern">ParameterNamePattern</h4>
+  <div class="markdown level1 summary"><p>Gets the pattern used to create parameter names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string ParameterNamePattern { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_CommandAdapter_ParameterPrefix.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.CommandAdapter.ParameterPrefix%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/CommandAdapter.cs/#L85">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_CommandAdapter_ParameterPrefix_" data-uid="Cadru.Data.Dapper.CommandAdapter.ParameterPrefix*"></a>
+  <h4 id="Cadru_Data_Dapper_CommandAdapter_ParameterPrefix" data-uid="Cadru.Data.Dapper.CommandAdapter.ParameterPrefix">ParameterPrefix</h4>
+  <div class="markdown level1 summary"><p>Gets a string used as the parameter prefix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string ParameterPrefix { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_CommandAdapter_QuotePrefix.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.CommandAdapter.QuotePrefix%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/CommandAdapter.cs/#L88">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_CommandAdapter_QuotePrefix_" data-uid="Cadru.Data.Dapper.CommandAdapter.QuotePrefix*"></a>
+  <h4 id="Cadru_Data_Dapper_CommandAdapter_QuotePrefix" data-uid="Cadru.Data.Dapper.CommandAdapter.QuotePrefix">QuotePrefix</h4>
+  <div class="markdown level1 summary"><p>Gets the starting character or characters to use when specifying SQL
+Server database objects, such as tables or columns, whose names
+contain characters such as spaces or reserved tokens.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string QuotePrefix { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_CommandAdapter_QuoteSuffix.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.CommandAdapter.QuoteSuffix%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/CommandAdapter.cs/#L91">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_CommandAdapter_QuoteSuffix_" data-uid="Cadru.Data.Dapper.CommandAdapter.QuoteSuffix*"></a>
+  <h4 id="Cadru_Data_Dapper_CommandAdapter_QuoteSuffix" data-uid="Cadru.Data.Dapper.CommandAdapter.QuoteSuffix">QuoteSuffix</h4>
+  <div class="markdown level1 summary"><p>Gets the ending character or characters to use when specifying SQL
+Server database objects, such as tables or columns, whose names
+contain characters such as spaces or reserved tokens.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string QuoteSuffix { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_CommandAdapter_SchemaSeparator.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.CommandAdapter.SchemaSeparator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/CommandAdapter.cs/#L94">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_CommandAdapter_SchemaSeparator_" data-uid="Cadru.Data.Dapper.CommandAdapter.SchemaSeparator*"></a>
+  <h4 id="Cadru_Data_Dapper_CommandAdapter_SchemaSeparator" data-uid="Cadru.Data.Dapper.CommandAdapter.SchemaSeparator">SchemaSeparator</h4>
+  <div class="markdown level1 summary"><p>Gets the character to be used for the separator between the schema
+identifier and any other identifiers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string SchemaSeparator { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_CommandAdapter_GetParameterName_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.CommandAdapter.GetParameterName(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/CommandAdapter.cs/#L97">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_CommandAdapter_GetParameterName_" data-uid="Cadru.Data.Dapper.CommandAdapter.GetParameterName*"></a>
+  <h4 id="Cadru_Data_Dapper_CommandAdapter_GetParameterName_System_String_" data-uid="Cadru.Data.Dapper.CommandAdapter.GetParameterName(System.String)">GetParameterName(String)</h4>
+  <div class="markdown level1 summary"><p>Returns the full parameter name, given the partial parameter name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string GetParameterName(string parameterName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">parameterName</span></td>
+        <td><p>The partial name of the parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The full parameter name corresponding to the partial parameter name requested.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_CommandAdapter_IsValidIdentifier_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.CommandAdapter.IsValidIdentifier(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/CommandAdapter.cs/#L108">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_CommandAdapter_IsValidIdentifier_" data-uid="Cadru.Data.Dapper.CommandAdapter.IsValidIdentifier*"></a>
+  <h4 id="Cadru_Data_Dapper_CommandAdapter_IsValidIdentifier_System_String_" data-uid="Cadru.Data.Dapper.CommandAdapter.IsValidIdentifier(System.String)">IsValidIdentifier(String)</h4>
+  <div class="markdown level1 summary"><p>Checks whether the specified identifier is valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsValidIdentifier(string identifier)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">identifier</span></td>
+        <td><p>The identifier to check.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if <code data-dev-comment-type="paramref" class="paramref">identifier</code> represents a
+valid SQL identifier; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Data_Dapper_CommandAdapter_IsValidIdentifier_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><ol><li>The first character must be one of the following:
+<ul><li>
+A letter as defined by the Unicode Standard 3.2. The Unicode
+definition of letters includes Latin characters from a through z,
+from A through Z, and also letter characters from other languages.
+</li><li>
+<p>The underscore (_), at sign (@), or number sign (#).</p>
+<p>
+Certain symbols at the beginning of an identifier have special
+meaning in SQL Server. A regular identifier that starts with the at
+sign always denotes a local variable or parameter and cannot be used
+as the name of any other type of object. An identifier that starts
+with a number sign denotes a temporary table or procedure. An
+identifier that starts with double number signs (##) denotes a
+global temporary object. Although the number sign or double number
+sign characters can be used to begin the names of other types of
+objects, we do not recommend this practice.
+</p>
+<p>
+Some Transact-SQL functions have names that start with double at
+signs (@@). To avoid confusion with these functions, you should not
+use names that start with @@.
+</p>
+</li></ul>
+</li><li>Subsequent characters can include the following:
+<ul><li>Letters as defined in the Unicode Standard 3.2.</li><li>
+Decimal numbers from either Basic Latin or other national scripts.
+</li><li>
+The at sign, dollar sign ($), number sign, or underscore.
+</li></ul>
+</li><li>
+Embedded spaces or special characters are not allowed.
+</li><li>Supplementary characters are not allowed.</li></ol>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_CommandAdapter_QuoteIdentifier_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.CommandAdapter.QuoteIdentifier(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/CommandAdapter.cs/#L114">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_CommandAdapter_QuoteIdentifier_" data-uid="Cadru.Data.Dapper.CommandAdapter.QuoteIdentifier*"></a>
+  <h4 id="Cadru_Data_Dapper_CommandAdapter_QuoteIdentifier_System_String_" data-uid="Cadru.Data.Dapper.CommandAdapter.QuoteIdentifier(System.String)">QuoteIdentifier(String)</h4>
+  <div class="markdown level1 summary"><p>Given an unquoted identifier in the correct catalog case, returns
+the correct quoted form of that identifier, including properly
+escaping any embedded quotes in the identifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string QuoteIdentifier(string identifier)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">identifier</span></td>
+        <td><p>The original unquoted identifier.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The quoted version of the identifier. Embedded quotes within the
+identifier are properly escaped.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Data_Dapper_CommandAdapter_QuoteIdentifier_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This uses the <a class="xref" href="Cadru.Data.Dapper.ICommandAdapter.html#Cadru_Data_Dapper_ICommandAdapter_IdentifierPrefix">IdentifierPrefix</a> and
+<a class="xref" href="Cadru.Data.Dapper.ICommandAdapter.html#Cadru_Data_Dapper_ICommandAdapter_IdentifierSuffix">IdentifierSuffix</a> values.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_CommandAdapter_QuoteStringLiteral_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.CommandAdapter.QuoteStringLiteral(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/CommandAdapter.cs/#L124">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_CommandAdapter_QuoteStringLiteral_" data-uid="Cadru.Data.Dapper.CommandAdapter.QuoteStringLiteral*"></a>
+  <h4 id="Cadru_Data_Dapper_CommandAdapter_QuoteStringLiteral_System_String_" data-uid="Cadru.Data.Dapper.CommandAdapter.QuoteStringLiteral(System.String)">QuoteStringLiteral(String)</h4>
+  <div class="markdown level1 summary"><p>Returns the correct quoted form of the value, including properly
+escaping any embedded quotes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string QuoteStringLiteral(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The original value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The quoted version of the value. Embedded quotes within the value
+are properly escaped.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Data_Dapper_CommandAdapter_QuoteStringLiteral_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This uses the <a class="xref" href="Cadru.Data.Dapper.ICommandAdapter.html#Cadru_Data_Dapper_ICommandAdapter_QuotePrefix">QuotePrefix</a> and
+<a class="xref" href="Cadru.Data.Dapper.ICommandAdapter.html#Cadru_Data_Dapper_ICommandAdapter_QuoteSuffix">QuoteSuffix</a> values.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_CommandAdapter_UnquoteIdentifier_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.CommandAdapter.UnquoteIdentifier(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/CommandAdapter.cs/#L132">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_CommandAdapter_UnquoteIdentifier_" data-uid="Cadru.Data.Dapper.CommandAdapter.UnquoteIdentifier*"></a>
+  <h4 id="Cadru_Data_Dapper_CommandAdapter_UnquoteIdentifier_System_String_" data-uid="Cadru.Data.Dapper.CommandAdapter.UnquoteIdentifier(System.String)">UnquoteIdentifier(String)</h4>
+  <div class="markdown level1 summary"><p>Given a quoted identifier, returns the correct unquoted form of that
+identifier, including properly un-escaping any embedded quotes in
+the identifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string UnquoteIdentifier(string identifier)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">identifier</span></td>
+        <td><p>The identifier that will have its embedded quotes removed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The unquoted identifier, with embedded quotes properly un-escaped.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Data_Dapper_CommandAdapter_UnquoteIdentifier_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This uses the <a class="xref" href="Cadru.Data.Dapper.ICommandAdapter.html#Cadru_Data_Dapper_ICommandAdapter_IdentifierPrefix">IdentifierPrefix</a> and
+<a class="xref" href="Cadru.Data.Dapper.ICommandAdapter.html#Cadru_Data_Dapper_ICommandAdapter_IdentifierSuffix">IdentifierSuffix</a> values.</p>
+</div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Cadru.Data.Dapper.ICommandAdapter.html">ICommandAdapter</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNotNull__1___0_">NullExtensions.IsNotNull&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNull__1___0_">NullExtensions.IsNull&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_CommandAdapter.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.CommandAdapter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/CommandAdapter.cs/#L32" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

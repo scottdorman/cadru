@@ -1,0 +1,1316 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ExtendedDirectoryInfo
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ExtendedDirectoryInfo
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.IO.ExtendedDirectoryInfo">
+  
+  
+  <h1 id="Cadru_IO_ExtendedDirectoryInfo" data-uid="Cadru.IO.ExtendedDirectoryInfo" class="text-break">Class ExtendedDirectoryInfo
+  </h1>
+  <div class="markdown level0 summary"><p>Provides an encapsulated implementation of the standard .NET
+<see cref="!:DirectoryInfo"></see> and the
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb762179(v=vs.85).aspx">SHGetFileInfo</a>
+API method.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ExtendedDirectoryInfo</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.IO.html">Cadru.IO</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.IO.dll</h6>
+  <h5 id="Cadru_IO_ExtendedDirectoryInfo_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ExtendedDirectoryInfo : object</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo__ctor_System_String_.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L75">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo__ctor_" data-uid="Cadru.IO.ExtendedDirectoryInfo.#ctor*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo__ctor_System_String_" data-uid="Cadru.IO.ExtendedDirectoryInfo.#ctor(System.String)">ExtendedDirectoryInfo(String)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the
+<a class="xref" href="Cadru.IO.ExtendedDirectoryInfo.html">ExtendedDirectoryInfo</a> class, which acts as a wrapper
+for a file path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExtendedDirectoryInfo(string path)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">path</span></td>
+        <td><p>The fully qualified name of the new file, or the relative file name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_IO_ExtendedDirectoryInfo__ctor_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>You can specify either the fully qualified or the relative file
+name, but the security check gets the fully qualified name.</p>
+</div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_Attributes.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.Attributes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L87">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_Attributes_" data-uid="Cadru.IO.ExtendedDirectoryInfo.Attributes*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_Attributes" data-uid="Cadru.IO.ExtendedDirectoryInfo.Attributes">Attributes</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileAttributes Attributes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileAttributes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_CreateTimeUtc.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.CreateTimeUtc%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L94">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_CreateTimeUtc_" data-uid="Cadru.IO.ExtendedDirectoryInfo.CreateTimeUtc*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_CreateTimeUtc" data-uid="Cadru.IO.ExtendedDirectoryInfo.CreateTimeUtc">CreateTimeUtc</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime CreateTimeUtc { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_CreationTime.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.CreationTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L97">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_CreationTime_" data-uid="Cadru.IO.ExtendedDirectoryInfo.CreationTime*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_CreationTime" data-uid="Cadru.IO.ExtendedDirectoryInfo.CreationTime">CreationTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime CreationTime { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_DirectoryOwner.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.DirectoryOwner%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L111">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_DirectoryOwner_" data-uid="Cadru.IO.ExtendedDirectoryInfo.DirectoryOwner*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_DirectoryOwner" data-uid="Cadru.IO.ExtendedDirectoryInfo.DirectoryOwner">DirectoryOwner</h4>
+  <div class="markdown level1 summary"><p>Gets the Windows owner associated with the directory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? DirectoryOwner { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>A string representing the owner of the directory or
+<span class="xref">null</span> if the owner cannot be determined.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_Exists.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.Exists%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L114">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_Exists_" data-uid="Cadru.IO.ExtendedDirectoryInfo.Exists*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_Exists" data-uid="Cadru.IO.ExtendedDirectoryInfo.Exists">Exists</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Exists { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_Extension.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.Extension%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L117">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_Extension_" data-uid="Cadru.IO.ExtendedDirectoryInfo.Extension*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_Extension" data-uid="Cadru.IO.ExtendedDirectoryInfo.Extension">Extension</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Extension { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_FullName.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.FullName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L120">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_FullName_" data-uid="Cadru.IO.ExtendedDirectoryInfo.FullName*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_FullName" data-uid="Cadru.IO.ExtendedDirectoryInfo.FullName">FullName</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string FullName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_LastAccessTime.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.LastAccessTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L123">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_LastAccessTime_" data-uid="Cadru.IO.ExtendedDirectoryInfo.LastAccessTime*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_LastAccessTime" data-uid="Cadru.IO.ExtendedDirectoryInfo.LastAccessTime">LastAccessTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime LastAccessTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_LastAccessTimeUtc.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.LastAccessTimeUtc%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L126">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_LastAccessTimeUtc_" data-uid="Cadru.IO.ExtendedDirectoryInfo.LastAccessTimeUtc*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_LastAccessTimeUtc" data-uid="Cadru.IO.ExtendedDirectoryInfo.LastAccessTimeUtc">LastAccessTimeUtc</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime LastAccessTimeUtc { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_LastWriteTime.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.LastWriteTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L129">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_LastWriteTime_" data-uid="Cadru.IO.ExtendedDirectoryInfo.LastWriteTime*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_LastWriteTime" data-uid="Cadru.IO.ExtendedDirectoryInfo.LastWriteTime">LastWriteTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime LastWriteTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_LastWriteTimUtc.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.LastWriteTimUtc%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L132">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_LastWriteTimUtc_" data-uid="Cadru.IO.ExtendedDirectoryInfo.LastWriteTimUtc*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_LastWriteTimUtc" data-uid="Cadru.IO.ExtendedDirectoryInfo.LastWriteTimUtc">LastWriteTimUtc</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime LastWriteTimUtc { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_Name.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L135">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_Name_" data-uid="Cadru.IO.ExtendedDirectoryInfo.Name*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_Name" data-uid="Cadru.IO.ExtendedDirectoryInfo.Name">Name</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_Parent.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.Parent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L138">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_Parent_" data-uid="Cadru.IO.ExtendedDirectoryInfo.Parent*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_Parent" data-uid="Cadru.IO.ExtendedDirectoryInfo.Parent">Parent</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DirectoryInfo Parent { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DirectoryInfo</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_Root.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.Root%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L141">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_Root_" data-uid="Cadru.IO.ExtendedDirectoryInfo.Root*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_Root" data-uid="Cadru.IO.ExtendedDirectoryInfo.Root">Root</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DirectoryInfo Root { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DirectoryInfo</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_Create.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.Create%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L144">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_Create_" data-uid="Cadru.IO.ExtendedDirectoryInfo.Create*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_Create" data-uid="Cadru.IO.ExtendedDirectoryInfo.Create">Create()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Create()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_CreateSubdirectory_System_String_.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.CreateSubdirectory(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L150">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_CreateSubdirectory_" data-uid="Cadru.IO.ExtendedDirectoryInfo.CreateSubdirectory*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_CreateSubdirectory_System_String_" data-uid="Cadru.IO.ExtendedDirectoryInfo.CreateSubdirectory(System.String)">CreateSubdirectory(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DirectoryInfo CreateSubdirectory(string path)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">path</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DirectoryInfo</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_Delete.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.Delete%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L156">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_Delete_" data-uid="Cadru.IO.ExtendedDirectoryInfo.Delete*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_Delete" data-uid="Cadru.IO.ExtendedDirectoryInfo.Delete">Delete()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Delete()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_Delete_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.Delete(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L162">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_Delete_" data-uid="Cadru.IO.ExtendedDirectoryInfo.Delete*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_Delete_System_Boolean_" data-uid="Cadru.IO.ExtendedDirectoryInfo.Delete(System.Boolean)">Delete(Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Delete(bool recursive)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">recursive</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_GetAccessControl.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.GetAccessControl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L214">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_GetAccessControl_" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetAccessControl*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_GetAccessControl" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetAccessControl">GetAccessControl()</h4>
+  <div class="markdown level1 summary"><p>Gets a DirectorySecurity object that encapsulates the access control
+list (ACL) entries for the directory described by the current
+DirectoryInfo object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DirectorySecurity GetAccessControl()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DirectorySecurity</span></td>
+        <td><p>A DirectorySecurity object that encapsulates the access control
+rules for the directory.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_IO_ExtendedDirectoryInfo_GetAccessControl_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Calling this method overload is equivalent to calling the
+GetAccessControl method overload and specifying the access control
+sections AccessControlSections.Access | AccessControlSections.Owner
+| AccessControlSections.Group
+(AccessControlSections.AccessOrAccessControlSections.OwnerOrAccessControlSections.Group
+in Visual Basic).
+</p>
+<p>
+Use the GetAccessControl method to retrieve the access control list
+(ACL) entries for the current file.
+</p>
+<p>
+An ACL describes individuals and/or groups who have, or do not have,
+rights to specific actions on the given file or directory. For more
+information, see ACL Technology Overview and How to: Add or Remove
+Access Control List Entries.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_GetAccessControl_AccessControlSections_.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.GetAccessControl(AccessControlSections)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L257">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_GetAccessControl_" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetAccessControl*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_GetAccessControl_AccessControlSections_" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetAccessControl(AccessControlSections)">GetAccessControl(AccessControlSections)</h4>
+  <div class="markdown level1 summary"><p>Gets a DirectorySecurity object that encapsulates the specified type
+of access control list (ACL) entries for the directory described by
+the current DirectoryInfo object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DirectorySecurity GetAccessControl(AccessControlSections includeSections)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AccessControlSections</span></td>
+        <td><span class="parametername">includeSections</span></td>
+        <td><p>One of the <see cref="!:AccessControlSections"></see> values that specifies
+which group of access control entries to retrieve.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DirectorySecurity</span></td>
+        <td><p>A DirectorySecurity object that encapsulates the access control
+rules for the file described by the path parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_IO_ExtendedDirectoryInfo_GetAccessControl_AccessControlSections__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Use the GetAccessControl method to retrieve the access control list
+(ACL) entries for the current file.
+</p>
+<p>
+An ACL describes individuals and/or groups who have, or do not have,
+rights to specific actions on the given file.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_GetDirectories.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.GetDirectories%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L263">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_GetDirectories_" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetDirectories*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_GetDirectories" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetDirectories">GetDirectories()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DirectoryInfo[] GetDirectories()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DirectoryInfo</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_GetDirectories_System_String_.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.GetDirectories(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L269">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_GetDirectories_" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetDirectories*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_GetDirectories_System_String_" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetDirectories(System.String)">GetDirectories(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DirectoryInfo[] GetDirectories(string searchPattern)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">searchPattern</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DirectoryInfo</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_GetDirectories_System_String_SearchOption_.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.GetDirectories(System.String%2CSearchOption)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L275">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_GetDirectories_" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetDirectories*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_GetDirectories_System_String_SearchOption_" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetDirectories(System.String,SearchOption)">GetDirectories(String, SearchOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DirectoryInfo[] GetDirectories(string searchPattern, SearchOption searchOption)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">searchPattern</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">SearchOption</span></td>
+        <td><span class="parametername">searchOption</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DirectoryInfo</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_GetFiles.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.GetFiles%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L281">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_GetFiles_" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetFiles*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_GetFiles" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetFiles">GetFiles()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileInfo[] GetFiles()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileInfo</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_GetFiles_System_String_.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.GetFiles(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L287">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_GetFiles_" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetFiles*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_GetFiles_System_String_" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetFiles(System.String)">GetFiles(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileInfo[] GetFiles(string searchPattern)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">searchPattern</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileInfo</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_GetFiles_System_String_SearchOption_.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.GetFiles(System.String%2CSearchOption)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L293">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_GetFiles_" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetFiles*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_GetFiles_System_String_SearchOption_" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetFiles(System.String,SearchOption)">GetFiles(String, SearchOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileInfo[] GetFiles(string searchPattern, SearchOption searchOption)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">searchPattern</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">SearchOption</span></td>
+        <td><span class="parametername">searchOption</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileInfo</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_GetFileSystemInfos.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.GetFileSystemInfos%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L299">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_GetFileSystemInfos_" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetFileSystemInfos*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_GetFileSystemInfos" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetFileSystemInfos">GetFileSystemInfos()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileSystemInfo[] GetFileSystemInfos()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileSystemInfo</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_GetFileSystemInfos_System_String_.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.GetFileSystemInfos(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L306">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_GetFileSystemInfos_" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetFileSystemInfos*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_GetFileSystemInfos_System_String_" data-uid="Cadru.IO.ExtendedDirectoryInfo.GetFileSystemInfos(System.String)">GetFileSystemInfos(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileSystemInfo[] GetFileSystemInfos(string searchPattern)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">searchPattern</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileSystemInfo</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_MoveTo_System_String_.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.MoveTo(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L313">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_MoveTo_" data-uid="Cadru.IO.ExtendedDirectoryInfo.MoveTo*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_MoveTo_System_String_" data-uid="Cadru.IO.ExtendedDirectoryInfo.MoveTo(System.String)">MoveTo(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveTo(string destinationDirectoryName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">destinationDirectoryName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_Refresh.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.Refresh%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L319">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_Refresh_" data-uid="Cadru.IO.ExtendedDirectoryInfo.Refresh*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_Refresh" data-uid="Cadru.IO.ExtendedDirectoryInfo.Refresh">Refresh()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Refresh()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_SetAccessControl_DirectorySecurity_.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.SetAccessControl(DirectorySecurity)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L397">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_SetAccessControl_" data-uid="Cadru.IO.ExtendedDirectoryInfo.SetAccessControl*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_SetAccessControl_DirectorySecurity_" data-uid="Cadru.IO.ExtendedDirectoryInfo.SetAccessControl(DirectorySecurity)">SetAccessControl(DirectorySecurity)</h4>
+  <div class="markdown level1 summary"><p>Applies access control list (ACL) entries described by a
+DirectorySecurity object to the directory described by the current
+DirectoryInfo object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetAccessControl(DirectorySecurity directorySecurity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DirectorySecurity</span></td>
+        <td><span class="parametername">directorySecurity</span></td>
+        <td><p>A DirectorySecurity object that describes an ACL entry to apply to
+the directory described by the path parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_IO_ExtendedDirectoryInfo_SetAccessControl_DirectorySecurity__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The SetAccessControl method applies access control list (ACL)
+entries to the current file that represents the noninherited ACL list.
+</p>
+<p>
+Use the SetAccessControl method whenever you need to add or remove
+ACL entries from a file.
+</p>
+<p>
+The ACL specified for the directorySecurity parameter replaces the
+existing ACL for the file. To add permissions for a new user, use
+the GetAccessControl method to obtain the existing ACL, modify it,
+and then use SetAccessControl to apply it back to the file.
+</p>
+<p>
+An ACL describes individuals and/or groups who have, or do not have,
+rights to specific actions on the given file.
+</p>
+<p>
+The SetAccessControl method persists only DirectorySecurity objects
+that have been modified after object creation. If a
+DirectorySecurity object has not been modified, it will not be
+persisted to a file. Therefore, it is not possible to retrieve a
+DirectorySecurity object from one file and reapply the same object
+to another file.
+</p>
+<p>To copy ACL information from one file to another:</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo_ToString.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L403">View Source</a>
+  </span>
+  <a id="Cadru_IO_ExtendedDirectoryInfo_ToString_" data-uid="Cadru.IO.ExtendedDirectoryInfo.ToString*"></a>
+  <h4 id="Cadru_IO_ExtendedDirectoryInfo_ToString" data-uid="Cadru.IO.ExtendedDirectoryInfo.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNotNull__1___0_">NullExtensions.IsNotNull&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNull__1___0_">NullExtensions.IsNull&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_IO_ExtendedDirectoryInfo.md&amp;value=---%0Auid%3A%20Cadru.IO.ExtendedDirectoryInfo%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.IO/ExtendedDirectoryInfo.cs/#L38" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

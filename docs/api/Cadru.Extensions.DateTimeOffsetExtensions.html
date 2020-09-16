@@ -1,0 +1,2507 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DateTimeOffsetExtensions
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DateTimeOffsetExtensions
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.Extensions.DateTimeOffsetExtensions">
+  
+  
+  <h1 id="Cadru_Extensions_DateTimeOffsetExtensions" data-uid="Cadru.Extensions.DateTimeOffsetExtensions" class="text-break">Class DateTimeOffsetExtensions
+  </h1>
+  <div class="markdown level0 summary"><p>Provides basic routines for common DateTimeOffset manipulation.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">DateTimeOffsetExtensions</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.Extensions.html">Cadru.Extensions</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.Core.dll</h6>
+  <h5 id="Cadru_Extensions_DateTimeOffsetExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class DateTimeOffsetExtensions : object</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_AddQuarters_DateTimeOffset_System_Double_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.AddQuarters(DateTimeOffset%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L60">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_AddQuarters_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.AddQuarters*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_AddQuarters_DateTimeOffset_System_Double_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.AddQuarters(DateTimeOffset,System.Double)">AddQuarters(DateTimeOffset, Double)</h4>
+  <div class="markdown level1 summary"><p>Returns a new <see cref="!:DateTimeOffset"></see> that adds the specified
+number of quarters to the value of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset AddQuarters(this DateTimeOffset date, double value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A number of whole and fractional quarters. The
+<code data-dev-comment-type="paramref" class="paramref">value</code> parameter can be negative or positive.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> whose value is the sum of the date
+and time represented by this instance and the number of quarters
+represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_AddWeekdays_DateTimeOffset_System_Double_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.AddWeekdays(DateTimeOffset%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L83">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_AddWeekdays_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.AddWeekdays*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_AddWeekdays_DateTimeOffset_System_Double_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.AddWeekdays(DateTimeOffset,System.Double)">AddWeekdays(DateTimeOffset, Double)</h4>
+  <div class="markdown level1 summary"><p>Returns a new <see cref="!:DateTimeOffset"></see> that adds the specified
+number of weekdays to the value of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset AddWeekdays(this DateTimeOffset date, double value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A number of whole and fractional weekdays. The
+<code data-dev-comment-type="paramref" class="paramref">value</code> parameter can be negative or positive.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> whose value is the sum of the date
+and time represented by this instance and the number of weekdays
+represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_AddWeeks_DateTimeOffset_System_Double_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.AddWeeks(DateTimeOffset%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L117">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_AddWeeks_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.AddWeeks*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_AddWeeks_DateTimeOffset_System_Double_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.AddWeeks(DateTimeOffset,System.Double)">AddWeeks(DateTimeOffset, Double)</h4>
+  <div class="markdown level1 summary"><p>Returns a new <see cref="!:DateTimeOffset"></see> that adds the specified
+number of weeks to the value of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset AddWeeks(this DateTimeOffset date, double value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A number of whole and fractional weeks. The <code data-dev-comment-type="paramref" class="paramref">value</code>
+parameter can be negative or positive.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> whose value is the sum of the date
+and time represented by this instance and the number of weeks
+represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_Between_DateTimeOffset_DateTimeOffset_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.Between(DateTimeOffset%2CDateTimeOffset%2CDateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L134">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_Between_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Between*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_Between_DateTimeOffset_DateTimeOffset_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Between(DateTimeOffset,DateTimeOffset,DateTimeOffset)">Between(DateTimeOffset, DateTimeOffset, DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:Boolean"></see> expression indicating whether the
+current <see cref="!:DateTimeOffset"></see> instance is between the start
+and end indicated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Between(this DateTimeOffset date, DateTimeOffset start, DateTimeOffset end)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>The starting <see cref="!:DateTimeOffset"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">end</span></td>
+        <td><p>The ending <see cref="!:DateTimeOffset"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the current instance is between
+<code data-dev-comment-type="paramref" class="paramref">start</code> and <code data-dev-comment-type="paramref" class="paramref">end</code>; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_Between_DateTimeOffset_DateTimeOffset_DateTimeOffset_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.Between(DateTimeOffset%2CDateTimeOffset%2CDateTimeOffset%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L155">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_Between_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Between*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_Between_DateTimeOffset_DateTimeOffset_DateTimeOffset_System_Boolean_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Between(DateTimeOffset,DateTimeOffset,DateTimeOffset,System.Boolean)">Between(DateTimeOffset, DateTimeOffset, DateTimeOffset, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:Boolean"></see> expression indicating whether the
+current <see cref="!:DateTimeOffset"></see> instance is between the start
+and end indicated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Between(this DateTimeOffset date, DateTimeOffset start, DateTimeOffset end, bool includeTime)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>The starting <see cref="!:DateTimeOffset"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">end</span></td>
+        <td><p>The ending <see cref="!:DateTimeOffset"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includeTime</span></td>
+        <td><p><span class="xref">true</span> to compare the time portion of the date;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the current instance is between
+<code data-dev-comment-type="paramref" class="paramref">start</code> and <code data-dev-comment-type="paramref" class="paramref">end</code>; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_DaysInMonth_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.DaysInMonth(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L170">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_DaysInMonth_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.DaysInMonth*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_DaysInMonth_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.DaysInMonth(DateTimeOffset)">DaysInMonth(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns the number of days in the month for the date represented by
+this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int DaysInMonth(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The number of days in the month for the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_Elapsed_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.Elapsed(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L184">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_Elapsed_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Elapsed*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_Elapsed_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Elapsed(DateTimeOffset)">Elapsed(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns the elapsed time between the date represented by this
+instance and the current date and time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TimeSpan Elapsed(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><p>A <see cref="!:TimeSpan"></see> representing the elapsed time between the
+date represented by this instance and the current date and time.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_Elapsed_DateTimeOffset_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.Elapsed(DateTimeOffset%2CDateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L199">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_Elapsed_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Elapsed*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_Elapsed_DateTimeOffset_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Elapsed(DateTimeOffset,DateTimeOffset)">Elapsed(DateTimeOffset, DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns the elapsed time between the date represented by this
+instance and the given date and time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TimeSpan Elapsed(this DateTimeOffset date, DateTimeOffset startDate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">startDate</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><p>A <see cref="!:TimeSpan"></see> representing the elapsed time between the
+date represented by this instance and the current date and time.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfMonth_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfMonth(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L213">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfMonth_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfMonth*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfMonth_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfMonth(DateTimeOffset)">FirstDayOfMonth(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTimeOffset"></see> representing the first day of
+the month for the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset FirstDayOfMonth(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> representing the first day of the
+month for the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfNextQuarter_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfNextQuarter(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L228">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfNextQuarter_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfNextQuarter*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfNextQuarter_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfNextQuarter(DateTimeOffset)">FirstDayOfNextQuarter(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTimeOffset"></see> which represents the first
+day of the next quarter of the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset FirstDayOfNextQuarter(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> which represents the first day of the
+next quarter of the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfQuarter_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfQuarter(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L242">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfQuarter_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfQuarter*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfQuarter_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfQuarter(DateTimeOffset)">FirstDayOfQuarter(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTimeOffset"></see> which represents the first
+day of the quarter of the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset FirstDayOfQuarter(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> which represents the first day of the
+quarter of the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfWeek_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfWeek(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L256">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfWeek_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfWeek*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfWeek_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfWeek(DateTimeOffset)">FirstDayOfWeek(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTimeOffset"></see> which represents the first
+day of the week of the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset FirstDayOfWeek(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> which represents the first day of the
+week of the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfWeek_DateTimeOffset_DayOfWeek_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfWeek(DateTimeOffset%2CDayOfWeek)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L273">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfWeek_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfWeek*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfWeek_DateTimeOffset_DayOfWeek_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfWeek(DateTimeOffset,DayOfWeek)">FirstDayOfWeek(DateTimeOffset, DayOfWeek)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTimeOffset"></see> which represents the first
+day of the week of the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset FirstDayOfWeek(this DateTimeOffset date, DayOfWeek startOfWeek)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DayOfWeek</span></td>
+        <td><span class="parametername">startOfWeek</span></td>
+        <td><p>An enumeration value that represents the first day of the week.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> which represents the first day of the
+week of the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfYear_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfYear(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L293">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfYear_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfYear*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_FirstDayOfYear_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.FirstDayOfYear(DateTimeOffset)">FirstDayOfYear(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTimeOffset"></see> representing the first day of
+the year for the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset FirstDayOfYear(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> representing the first day of the
+year for the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_GetAbbreviatedMonthName_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.GetAbbreviatedMonthName(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L307">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_GetAbbreviatedMonthName_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetAbbreviatedMonthName*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_GetAbbreviatedMonthName_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetAbbreviatedMonthName(DateTimeOffset)">GetAbbreviatedMonthName(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns the culture-specific abbreviated name of the month
+represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetAbbreviatedMonthName(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The culture-specific abbreviated name of the month represented by
+this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_GetAbbreviatedMonthNames.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.GetAbbreviatedMonthNames%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L318">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_GetAbbreviatedMonthNames_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetAbbreviatedMonthNames*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_GetAbbreviatedMonthNames" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetAbbreviatedMonthNames">GetAbbreviatedMonthNames()</h4>
+  <div class="markdown level1 summary"><p>Returns the culture-specific abbreviated names of the months.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IList&lt;string&gt; GetAbbreviatedMonthNames()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>A list that contains the culture-specific abbreviated names of the months.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_GetDayOfWeek_DateTimeOffset_DayOfWeek_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.GetDayOfWeek(DateTimeOffset%2CDayOfWeek)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L337">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_GetDayOfWeek_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetDayOfWeek*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_GetDayOfWeek_DateTimeOffset_DayOfWeek_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetDayOfWeek(DateTimeOffset,DayOfWeek)">GetDayOfWeek(DateTimeOffset, DayOfWeek)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTimeOffset"></see> representing the day of the
+week from the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset GetDayOfWeek(this DateTimeOffset date, DayOfWeek day)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DayOfWeek</span></td>
+        <td><span class="parametername">day</span></td>
+        <td><p>An enumeration value that represents the day of the week for which
+the date is to be calculated.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> representing the day of the week from
+the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_GetDayOfWeek_DateTimeOffset_DayOfWeek_DayOfWeek_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.GetDayOfWeek(DateTimeOffset%2CDayOfWeek%2CDayOfWeek)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L358">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_GetDayOfWeek_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetDayOfWeek*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_GetDayOfWeek_DateTimeOffset_DayOfWeek_DayOfWeek_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetDayOfWeek(DateTimeOffset,DayOfWeek,DayOfWeek)">GetDayOfWeek(DateTimeOffset, DayOfWeek, DayOfWeek)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTimeOffset"></see> representing the day of the
+week from the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset GetDayOfWeek(this DateTimeOffset date, DayOfWeek day, DayOfWeek startOfWeek)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DayOfWeek</span></td>
+        <td><span class="parametername">day</span></td>
+        <td><p>An enumeration value that represents the day of the week for which
+the date is to be calculated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DayOfWeek</span></td>
+        <td><span class="parametername">startOfWeek</span></td>
+        <td><p>An enumeration value that represents the first day of the week.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> representing the day of the week from
+the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_GetMonthName_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.GetMonthName(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L372">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_GetMonthName_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetMonthName*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_GetMonthName_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetMonthName(DateTimeOffset)">GetMonthName(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns the culture-specific name of the month represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetMonthName(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The culture-specific name of the month represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_GetMonthNames.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.GetMonthNames%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L383">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_GetMonthNames_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetMonthNames*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_GetMonthNames" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetMonthNames">GetMonthNames()</h4>
+  <div class="markdown level1 summary"><p>Returns the culture-specific names of the months.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IList&lt;string&gt; GetMonthNames()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>A list that contains the culture-specific names of the months.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_GetMonthNumber_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.GetMonthNumber(System.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L397">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_GetMonthNumber_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetMonthNumber*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_GetMonthNumber_System_String_System_Boolean_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetMonthNumber(System.String,System.Boolean)">GetMonthNumber(String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Returns the month number for the given month name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetMonthNumber(string name, bool abbreviated)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The month name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">abbreviated</span></td>
+        <td><p><span class="xref">true</span> if the name is abbreviated; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The month number for the given month name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_GetWeekOfYear_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.GetWeekOfYear(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L412">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_GetWeekOfYear_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetWeekOfYear*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_GetWeekOfYear_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetWeekOfYear(DateTimeOffset)">GetWeekOfYear(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns the week of the year that includes the date in the specified
+DateTimeOffset value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetWeekOfYear(this DateTimeOffset time)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">time</span></td>
+        <td><p>A date and time value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>A positive integer that represents the week of the year that
+includes the date in the <code data-dev-comment-type="paramref" class="paramref">time</code> parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_GetWeekOfYear_DateTimeOffset_CalendarWeekRule_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.GetWeekOfYear(DateTimeOffset%2CCalendarWeekRule)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L429">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_GetWeekOfYear_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetWeekOfYear*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_GetWeekOfYear_DateTimeOffset_CalendarWeekRule_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetWeekOfYear(DateTimeOffset,CalendarWeekRule)">GetWeekOfYear(DateTimeOffset, CalendarWeekRule)</h4>
+  <div class="markdown level1 summary"><p>Returns the week of the year that includes the date in the specified
+DateTimeOffset value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetWeekOfYear(this DateTimeOffset time, CalendarWeekRule rule)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">time</span></td>
+        <td><p>A date and time value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CalendarWeekRule</span></td>
+        <td><span class="parametername">rule</span></td>
+        <td><p>An enumeration value that defines a calendar week.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>A positive integer that represents the week of the year that
+includes the date in the <code data-dev-comment-type="paramref" class="paramref">time</code> parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_GetWeekOfYear_DateTimeOffset_CalendarWeekRule_DayOfWeek_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.GetWeekOfYear(DateTimeOffset%2CCalendarWeekRule%2CDayOfWeek)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L449">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_GetWeekOfYear_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetWeekOfYear*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_GetWeekOfYear_DateTimeOffset_CalendarWeekRule_DayOfWeek_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.GetWeekOfYear(DateTimeOffset,CalendarWeekRule,DayOfWeek)">GetWeekOfYear(DateTimeOffset, CalendarWeekRule, DayOfWeek)</h4>
+  <div class="markdown level1 summary"><p>Returns the week of the year that includes the date in the specified
+DateTimeOffset value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetWeekOfYear(this DateTimeOffset time, CalendarWeekRule rule, DayOfWeek firstDayOfWeek)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">time</span></td>
+        <td><p>A date and time value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CalendarWeekRule</span></td>
+        <td><span class="parametername">rule</span></td>
+        <td><p>An enumeration value that defines a calendar week.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DayOfWeek</span></td>
+        <td><span class="parametername">firstDayOfWeek</span></td>
+        <td><p>An enumeration value that represents the first day of the week.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>A positive integer that represents the week of the year that
+includes the date in the <code data-dev-comment-type="paramref" class="paramref">time</code> parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_IsLeapDay_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.IsLeapDay(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L462">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_IsLeapDay_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.IsLeapDay*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_IsLeapDay_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.IsLeapDay(DateTimeOffset)">IsLeapDay(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified date is a leap day.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsLeapDay(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified date is a leap day;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_IsLeapMonth_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.IsLeapMonth(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L475">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_IsLeapMonth_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.IsLeapMonth*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_IsLeapMonth_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.IsLeapMonth(DateTimeOffset)">IsLeapMonth(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified date is a leap month.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsLeapMonth(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified date is a leap month;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_IsLeapYear_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.IsLeapYear(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L488">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_IsLeapYear_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.IsLeapYear*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_IsLeapYear_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.IsLeapYear(DateTimeOffset)">IsLeapYear(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified date is a leap year.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsLeapYear(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified date is a leap year;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_IsUtcDateTime_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.IsUtcDateTime(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L501">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_IsUtcDateTime_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.IsUtcDateTime*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_IsUtcDateTime_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.IsUtcDateTime(DateTimeOffset)">IsUtcDateTime(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Determines whether he specified date is a UTC date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsUtcDateTime(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified date is a UTC date;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_IsWeekday_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.IsWeekday(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L514">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_IsWeekday_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.IsWeekday*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_IsWeekday_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.IsWeekday(DateTimeOffset)">IsWeekday(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified date is a week day.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsWeekday(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified date is a week day;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_IsWeekend_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.IsWeekend(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L527">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_IsWeekend_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.IsWeekend*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_IsWeekend_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.IsWeekend(DateTimeOffset)">IsWeekend(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified date is a weekend.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsWeekend(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified date is a weekend;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_Last_DateTimeOffset_DayOfWeek_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.Last(DateTimeOffset%2CDayOfWeek)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L544">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_Last_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Last*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_Last_DateTimeOffset_DayOfWeek_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Last(DateTimeOffset,DayOfWeek)">Last(DateTimeOffset, DayOfWeek)</h4>
+  <div class="markdown level1 summary"><p>Return a <see cref="!:DateTimeOffset"></see> representing the previous day
+of the week.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset Last(this DateTimeOffset date, DayOfWeek day)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DayOfWeek</span></td>
+        <td><span class="parametername">day</span></td>
+        <td><p>The <see cref="!:DayOfWeek"></see> whose <see cref="!:DateTime"></see>
+representation should be returned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> representing the previous day of the week.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_LastDayOfMonth_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.LastDayOfMonth(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L560">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_LastDayOfMonth_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.LastDayOfMonth*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_LastDayOfMonth_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.LastDayOfMonth(DateTimeOffset)">LastDayOfMonth(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTimeOffset"></see> representing the last day of
+the month for the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset LastDayOfMonth(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> representing the last day of the
+month for the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_LastDayOfQuarter_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.LastDayOfQuarter(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L574">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_LastDayOfQuarter_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.LastDayOfQuarter*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_LastDayOfQuarter_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.LastDayOfQuarter(DateTimeOffset)">LastDayOfQuarter(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTimeOffset"></see> which represents the last day
+of the quarter of the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset LastDayOfQuarter(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> which represents the last day of the
+quarter of the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_LastDayOfWeek_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.LastDayOfWeek(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L588">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_LastDayOfWeek_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.LastDayOfWeek*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_LastDayOfWeek_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.LastDayOfWeek(DateTimeOffset)">LastDayOfWeek(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTimeOffset"></see> which represents the last day
+of the week of the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset LastDayOfWeek(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> which represents the last day of the
+week of the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_LastDayOfWeek_DateTimeOffset_DayOfWeek_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.LastDayOfWeek(DateTimeOffset%2CDayOfWeek)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L605">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_LastDayOfWeek_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.LastDayOfWeek*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_LastDayOfWeek_DateTimeOffset_DayOfWeek_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.LastDayOfWeek(DateTimeOffset,DayOfWeek)">LastDayOfWeek(DateTimeOffset, DayOfWeek)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTimeOffset"></see> which represents the last day
+of the week of the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset LastDayOfWeek(this DateTimeOffset date, DayOfWeek firstDayOfWeek)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DayOfWeek</span></td>
+        <td><span class="parametername">firstDayOfWeek</span></td>
+        <td><p>An enumeration value that represents the first day of the week.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> which represents the last day of the
+week of the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_LastDayOfYear_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.LastDayOfYear(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L619">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_LastDayOfYear_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.LastDayOfYear*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_LastDayOfYear_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.LastDayOfYear(DateTimeOffset)">LastDayOfYear(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTimeOffset"></see> representing the last day of
+the year for the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset LastDayOfYear(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> representing the last day of the year
+for the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_Next_DateTimeOffset_DayOfWeek_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.Next(DateTimeOffset%2CDayOfWeek)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L636">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_Next_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Next*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_Next_DateTimeOffset_DayOfWeek_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Next(DateTimeOffset,DayOfWeek)">Next(DateTimeOffset, DayOfWeek)</h4>
+  <div class="markdown level1 summary"><p>Return a <see cref="!:DateTimeOffset"></see> representing the next day of
+the week.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset Next(this DateTimeOffset date, DayOfWeek day)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DayOfWeek</span></td>
+        <td><span class="parametername">day</span></td>
+        <td><p>The <see cref="!:DayOfWeek"></see> whose <see cref="!:DateTime"></see>
+representation should be returned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> representing the next day of the week.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_Quarter_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.Quarter(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L650">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_Quarter_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Quarter*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_Quarter_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Quarter(DateTimeOffset)">Quarter(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns the quarter component of the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int Quarter(this DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The quarter component of the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_Tomorrow_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.Tomorrow(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L664">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_Tomorrow_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Tomorrow*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_Tomorrow_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Tomorrow(DateTimeOffset)">Tomorrow(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTimeOffset"></see> representing the day after
+the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset Tomorrow(this DateTimeOffset value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> representing the day after the date
+represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_ToRelativeDateString_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.ToRelativeDateString(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L677">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_ToRelativeDateString_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.ToRelativeDateString*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_ToRelativeDateString_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.ToRelativeDateString(DateTimeOffset)">ToRelativeDateString(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Convert a <see cref="!:DateTimeOffset"></see> object to a relative date
+(e.g., Today, tomorrow, yesterday) string format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToRelativeDateString(this DateTimeOffset value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <see cref="!:DateTimeOffset"></see> object to convert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A relative date/time formatted string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_ToRelativeDateString_DateTimeOffset_Cadru_Text_RelativeDateFormatting_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.ToRelativeDateString(DateTimeOffset%2CCadru.Text.RelativeDateFormatting)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L693">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_ToRelativeDateString_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.ToRelativeDateString*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_ToRelativeDateString_DateTimeOffset_Cadru_Text_RelativeDateFormatting_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.ToRelativeDateString(DateTimeOffset,Cadru.Text.RelativeDateFormatting)">ToRelativeDateString(DateTimeOffset, RelativeDateFormatting)</h4>
+  <div class="markdown level1 summary"><p>Convert a <see cref="!:DateTimeOffset"></see> object to a relative date
+(e.g., Today, tomorrow, yesterday) string format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToRelativeDateString(this DateTimeOffset value, RelativeDateFormatting options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <see cref="!:DateTimeOffset"></see> object to convert.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.Text.RelativeDateFormatting.html">RelativeDateFormatting</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>One of the <a class="xref" href="Cadru.Text.RelativeDateFormatting.html">RelativeDateFormatting</a> values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A relative date/time formatted string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_ToRelativeTimeString_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.ToRelativeTimeString(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L743">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_ToRelativeTimeString_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.ToRelativeTimeString*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_ToRelativeTimeString_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.ToRelativeTimeString(DateTimeOffset)">ToRelativeTimeString(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Convert a <see cref="!:DateTimeOffset"></see> object to a relative time
+(e.g., now, 2 days ago, 3 days from now) string format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToRelativeTimeString(this DateTimeOffset value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <see cref="!:DateTimeOffset"></see> object to convert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A relative date/time formatted string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_ToRelativeTimeString_DateTimeOffset_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.ToRelativeTimeString(DateTimeOffset%2CDateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L759">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_ToRelativeTimeString_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.ToRelativeTimeString*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_ToRelativeTimeString_DateTimeOffset_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.ToRelativeTimeString(DateTimeOffset,DateTimeOffset)">ToRelativeTimeString(DateTimeOffset, DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Convert a <see cref="!:DateTimeOffset"></see> object to a relative time
+(e.g., now, 2 days ago, 3 days from now) string format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToRelativeTimeString(this DateTimeOffset value, DateTimeOffset baseDate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <see cref="!:DateTimeOffset"></see> object to convert.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">baseDate</span></td>
+        <td><p>The <see cref="!:DateTimeOffset"></see> object to use as the relative date.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A relative date/time formatted string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions_Yesterday_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions.Yesterday(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L827">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeOffsetExtensions_Yesterday_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Yesterday*"></a>
+  <h4 id="Cadru_Extensions_DateTimeOffsetExtensions_Yesterday_DateTimeOffset_" data-uid="Cadru.Extensions.DateTimeOffsetExtensions.Yesterday(DateTimeOffset)">Yesterday(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTimeOffset"></see> representing the day before
+the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTimeOffset Yesterday(this DateTimeOffset value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A valid <see cref="!:DateTimeOffset"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> representing the day before the date
+represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeOffsetExtensions.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeOffsetExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeOffsetExtensions.cs/#L38" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

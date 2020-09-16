@@ -1,0 +1,2108 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ExcelDataReader
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ExcelDataReader
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.Data.Excel.ExcelDataReader">
+  
+  
+  <h1 id="Cadru_Data_Excel_ExcelDataReader" data-uid="Cadru.Data.Excel.ExcelDataReader" class="text-break">Class ExcelDataReader
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a reader that provides fast, non-cached, forward-only access
+to data contained in an Excel spreadsheet (.xlsx) file.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ExcelDataReader</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">IDataReader</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.Data.Excel.html">Cadru.Data.Excel</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.Data.dll</h6>
+  <h5 id="Cadru_Data_Excel_ExcelDataReader_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ExcelDataReader : IDataRecord, IDataReader</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader__ctor_Stream_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.%23ctor(Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.cs/#L64">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader__ctor_" data-uid="Cadru.Data.Excel.ExcelDataReader.#ctor*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader__ctor_Stream_" data-uid="Cadru.Data.Excel.ExcelDataReader.#ctor(Stream)">ExcelDataReader(Stream)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the
+<a class="xref" href="Cadru.Data.Excel.DataReaderExtensions.html">DataReaderExtensions</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExcelDataReader(Stream stream)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td><p>An unopened stream to the Excel spreadsheet file.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader__ctor_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.cs/#L53">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader__ctor_" data-uid="Cadru.Data.Excel.ExcelDataReader.#ctor*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader__ctor_System_String_" data-uid="Cadru.Data.Excel.ExcelDataReader.#ctor(System.String)">ExcelDataReader(String)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the
+<a class="xref" href="Cadru.Data.Excel.DataReaderExtensions.html">DataReaderExtensions</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExcelDataReader(string path)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">path</span></td>
+        <td><p>The path to the Excel spreadsheet file.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_CurrentRowIndex.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.CurrentRowIndex%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.cs/#L79">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_CurrentRowIndex_" data-uid="Cadru.Data.Excel.ExcelDataReader.CurrentRowIndex*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_CurrentRowIndex" data-uid="Cadru.Data.Excel.ExcelDataReader.CurrentRowIndex">CurrentRowIndex</h4>
+  <div class="markdown level1 summary"><p>Gets the index of the current row in the spreadsheet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? CurrentRowIndex { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_CurrentSheetId.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.CurrentSheetId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.cs/#L84">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_CurrentSheetId_" data-uid="Cadru.Data.Excel.ExcelDataReader.CurrentSheetId*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_CurrentSheetId" data-uid="Cadru.Data.Excel.ExcelDataReader.CurrentSheetId">CurrentSheetId</h4>
+  <div class="markdown level1 summary"><p>Gets the current sheet Id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CurrentSheetId { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_CurrentSheetIndex.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.CurrentSheetIndex%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.cs/#L89">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_CurrentSheetIndex_" data-uid="Cadru.Data.Excel.ExcelDataReader.CurrentSheetIndex*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_CurrentSheetIndex" data-uid="Cadru.Data.Excel.ExcelDataReader.CurrentSheetIndex">CurrentSheetIndex</h4>
+  <div class="markdown level1 summary"><p>Gets the index of the current sheet in the spreadsheet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CurrentSheetIndex { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_CurrentSheetName.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.CurrentSheetName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.cs/#L94">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_CurrentSheetName_" data-uid="Cadru.Data.Excel.ExcelDataReader.CurrentSheetName*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_CurrentSheetName" data-uid="Cadru.Data.Excel.ExcelDataReader.CurrentSheetName">CurrentSheetName</h4>
+  <div class="markdown level1 summary"><p>Gets the current sheet name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CurrentSheetName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_Depth.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.Depth%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataReader.cs/#L40">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_Depth_" data-uid="Cadru.Data.Excel.ExcelDataReader.Depth*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_Depth" data-uid="Cadru.Data.Excel.ExcelDataReader.Depth">Depth</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Depth { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_FieldCount.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.FieldCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L32">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_FieldCount_" data-uid="Cadru.Data.Excel.ExcelDataReader.FieldCount*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_FieldCount" data-uid="Cadru.Data.Excel.ExcelDataReader.FieldCount">FieldCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int FieldCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_FieldNames.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.FieldNames%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.cs/#L99">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_FieldNames_" data-uid="Cadru.Data.Excel.ExcelDataReader.FieldNames*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_FieldNames" data-uid="Cadru.Data.Excel.ExcelDataReader.FieldNames">FieldNames</h4>
+  <div class="markdown level1 summary"><p>Gets the column header names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IList&lt;string&gt; FieldNames { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_FirstRowAsHeader.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.FirstRowAsHeader%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.cs/#L105">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_FirstRowAsHeader_" data-uid="Cadru.Data.Excel.ExcelDataReader.FirstRowAsHeader*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_FirstRowAsHeader" data-uid="Cadru.Data.Excel.ExcelDataReader.FirstRowAsHeader">FirstRowAsHeader</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether or not the first row
+contains column header names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FirstRowAsHeader { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_IsClosed.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.IsClosed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.cs/#L114">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_IsClosed_" data-uid="Cadru.Data.Excel.ExcelDataReader.IsClosed*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_IsClosed" data-uid="Cadru.Data.Excel.ExcelDataReader.IsClosed">IsClosed</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating if the reader is closed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsClosed { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_Item_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.Item(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.cs/#L138">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_Item_" data-uid="Cadru.Data.Excel.ExcelDataReader.Item*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_Item_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Gets a value from the current sheet by index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object this[int i] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td><p>The column index of the value to get.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><p>The value at the column index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_Item_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.Item(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.cs/#L131">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_Item_" data-uid="Cadru.Data.Excel.ExcelDataReader.Item*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_Item_System_String_" data-uid="Cadru.Data.Excel.ExcelDataReader.Item(System.String)">Item[String]</h4>
+  <div class="markdown level1 summary"><p>Gets a value from the current sheet by name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object this[string name] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The column header name of the value to get.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><p>The value associated with the column header.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_RecordsAffected.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.RecordsAffected%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataReader.cs/#L43">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_RecordsAffected_" data-uid="Cadru.Data.Excel.ExcelDataReader.RecordsAffected*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_RecordsAffected" data-uid="Cadru.Data.Excel.ExcelDataReader.RecordsAffected">RecordsAffected</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int RecordsAffected { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_ResultsCount.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.ResultsCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.cs/#L119">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_ResultsCount_" data-uid="Cadru.Data.Excel.ExcelDataReader.ResultsCount*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_ResultsCount" data-uid="Cadru.Data.Excel.ExcelDataReader.ResultsCount">ResultsCount</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating the number of sheets read.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ResultsCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_SheetNames.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.SheetNames%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.cs/#L124">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_SheetNames_" data-uid="Cadru.Data.Excel.ExcelDataReader.SheetNames*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_SheetNames" data-uid="Cadru.Data.Excel.ExcelDataReader.SheetNames">SheetNames</h4>
+  <div class="markdown level1 summary"><p>Gets the sheet names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt; SheetNames { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_Close.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.Close%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataReader.cs/#L60">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_Close_" data-uid="Cadru.Data.Excel.ExcelDataReader.Close*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_Close" data-uid="Cadru.Data.Excel.ExcelDataReader.Close">Close()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Close()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_Dispose.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataReader.cs/#L63">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_Dispose_" data-uid="Cadru.Data.Excel.ExcelDataReader.Dispose*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_Dispose" data-uid="Cadru.Data.Excel.ExcelDataReader.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetBoolean_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetBoolean(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L35">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetBoolean_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetBoolean*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetBoolean_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetBoolean(System.Int32)">GetBoolean(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetBoolean(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetByte_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetByte(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L41">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetByte_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetByte*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetByte_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetByte(System.Int32)">GetByte(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte GetByte(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetBytes_System_Int32_System_Int64_System_Byte___System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetBytes(System.Int32%2CSystem.Int64%2CSystem.Byte%5B%5D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L47">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetBytes_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetBytes*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetBytes_System_Int32_System_Int64_System_Byte___System_Int32_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetBytes(System.Int32,System.Int64,System.Byte[],System.Int32,System.Int32)">GetBytes(Int32, Int64, Byte[], Int32, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long GetBytes(int i, long fieldOffset, byte[] buffer, int bufferoffset, int length)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">fieldOffset</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">buffer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">bufferoffset</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">length</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetChar_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetChar(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L53">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetChar_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetChar*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetChar_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetChar(System.Int32)">GetChar(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public char GetChar(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Char</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetChars_System_Int32_System_Int64_System_Char___System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetChars(System.Int32%2CSystem.Int64%2CSystem.Char%5B%5D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L59">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetChars_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetChars*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetChars_System_Int32_System_Int64_System_Char___System_Int32_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetChars(System.Int32,System.Int64,System.Char[],System.Int32,System.Int32)">GetChars(Int32, Int64, Char[], Int32, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long GetChars(int i, long fieldoffset, char[] buffer, int bufferoffset, int length)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">fieldoffset</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Char</span>[]</td>
+        <td><span class="parametername">buffer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">bufferoffset</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">length</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetColumnIndexByName_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetColumnIndexByName(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataReader.cs/#L46">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetColumnIndexByName_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetColumnIndexByName*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetColumnIndexByName_System_String_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetColumnIndexByName(System.String)">GetColumnIndexByName(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetColumnIndexByName(string colName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">colName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetData_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetData(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L65">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetData_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetData*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetData_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetData(System.Int32)">GetData(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDataReader? GetData(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IDataReader</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetDataTypeName_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetDataTypeName(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L71">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetDataTypeName_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetDataTypeName*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetDataTypeName_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetDataTypeName(System.Int32)">GetDataTypeName(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetDataTypeName(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetDateTime_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetDateTime(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L77">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetDateTime_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetDateTime*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetDateTime_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetDateTime(System.Int32)">GetDateTime(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime GetDateTime(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetDecimal_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetDecimal(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L83">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetDecimal_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetDecimal*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetDecimal_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetDecimal(System.Int32)">GetDecimal(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal GetDecimal(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetDouble_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetDouble(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L89">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetDouble_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetDouble*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetDouble_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetDouble(System.Int32)">GetDouble(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double GetDouble(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetFieldType_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetFieldType(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L95">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetFieldType_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetFieldType*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetFieldType_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetFieldType(System.Int32)">GetFieldType(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type GetFieldType(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetFloat_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetFloat(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L98">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetFloat_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetFloat*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetFloat_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetFloat(System.Int32)">GetFloat(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetFloat(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetGuid_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetGuid(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L104">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetGuid_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetGuid*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetGuid_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetGuid(System.Int32)">GetGuid(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Guid GetGuid(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Guid</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetInt16_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetInt16(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L110">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetInt16_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetInt16*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetInt16_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetInt16(System.Int32)">GetInt16(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public short GetInt16(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetInt32_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetInt32(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L116">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetInt32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetInt32*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetInt32_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetInt32(System.Int32)">GetInt32(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetInt32(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetInt64_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetInt64(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L122">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetInt64_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetInt64*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetInt64_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetInt64(System.Int32)">GetInt64(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long GetInt64(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetName_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetName(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L128">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetName_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetName*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetName_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetName(System.Int32)">GetName(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetName(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetOrdinal_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetOrdinal(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L134">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetOrdinal_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetOrdinal*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetOrdinal_System_String_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetOrdinal(System.String)">GetOrdinal(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetOrdinal(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetSchemaTable.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetSchemaTable%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataReader.cs/#L77">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetSchemaTable_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetSchemaTable*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetSchemaTable" data-uid="Cadru.Data.Excel.ExcelDataReader.GetSchemaTable">GetSchemaTable()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTable GetSchemaTable()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DataTable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetString_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetString(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L147">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetString_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetString*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetString_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetString(System.Int32)">GetString(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetString(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetValue_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetValue(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L153">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetValue_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetValue*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetValue_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetValue(System.Int32)">GetValue(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object GetValue(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_GetValues_System_Object___.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.GetValues(System.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L160">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_GetValues_" data-uid="Cadru.Data.Excel.ExcelDataReader.GetValues*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_GetValues_System_Object___" data-uid="Cadru.Data.Excel.ExcelDataReader.GetValues(System.Object[])">GetValues(Object[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetValues(object[] values)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">values</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_IsCurrentRowEmpty.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.IsCurrentRowEmpty%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataReader.cs/#L83">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_IsCurrentRowEmpty_" data-uid="Cadru.Data.Excel.ExcelDataReader.IsCurrentRowEmpty*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_IsCurrentRowEmpty" data-uid="Cadru.Data.Excel.ExcelDataReader.IsCurrentRowEmpty">IsCurrentRowEmpty()</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating if the current row is empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsCurrentRowEmpty()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the current row is empty; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_IsDBNull_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.IsDBNull(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L184">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_IsDBNull_" data-uid="Cadru.Data.Excel.ExcelDataReader.IsDBNull*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_IsDBNull_System_Int32_" data-uid="Cadru.Data.Excel.ExcelDataReader.IsDBNull(System.Int32)">IsDBNull(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDBNull(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_NextResult.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.NextResult%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataReader.cs/#L89">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_NextResult_" data-uid="Cadru.Data.Excel.ExcelDataReader.NextResult*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_NextResult" data-uid="Cadru.Data.Excel.ExcelDataReader.NextResult">NextResult()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool NextResult()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_NextResult_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.NextResult(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.cs/#L173">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_NextResult_" data-uid="Cadru.Data.Excel.ExcelDataReader.NextResult*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_NextResult_System_String_" data-uid="Cadru.Data.Excel.ExcelDataReader.NextResult(System.String)">NextResult(String)</h4>
+  <div class="markdown level1 summary"><p>Advances the reader to the named sheet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool NextResult(string sheetName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sheetName</span></td>
+        <td><p>The name of the sheet to advance to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the reader was able to advance; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_NextResult_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.NextResult(System.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.cs/#L150">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_NextResult_" data-uid="Cadru.Data.Excel.ExcelDataReader.NextResult*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_NextResult_System_String_System_Boolean_" data-uid="Cadru.Data.Excel.ExcelDataReader.NextResult(System.String,System.Boolean)">NextResult(String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Advances the reader to the named sheet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool NextResult(string sheetName, bool firstRowAsHeader)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sheetName</span></td>
+        <td><p>The name of the sheet to advance to.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">firstRowAsHeader</span></td>
+        <td><p>Indicates whether or not the first row contains column header names.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the reader was able to advance; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader_Read.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader.Read%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataReader.cs/#L102">View Source</a>
+  </span>
+  <a id="Cadru_Data_Excel_ExcelDataReader_Read_" data-uid="Cadru.Data.Excel.ExcelDataReader.Read*"></a>
+  <h4 id="Cadru_Data_Excel_ExcelDataReader_Read" data-uid="Cadru.Data.Excel.ExcelDataReader.Read">Read()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Read()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">IDataReader</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNotNull__1___0_">NullExtensions.IsNotNull&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNull__1___0_">NullExtensions.IsNull&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Data.Excel.DataReaderExtensions.html#Cadru_Data_Excel_DataReaderExtensions_Field__1_Cadru_Data_Excel_ExcelDataReader_System_Int32_">DataReaderExtensions.Field&lt;T&gt;(ExcelDataReader, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Data.Excel.DataReaderExtensions.html#Cadru_Data_Excel_DataReaderExtensions_Field__1_Cadru_Data_Excel_ExcelDataReader_System_String_">DataReaderExtensions.Field&lt;T&gt;(ExcelDataReader, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Data.Excel.DataReaderExtensions.html#Cadru_Data_Excel_DataReaderExtensions_FieldOrDefault__1_Cadru_Data_Excel_ExcelDataReader_System_Int32_">DataReaderExtensions.FieldOrDefault&lt;T&gt;(ExcelDataReader, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Data.Excel.DataReaderExtensions.html#Cadru_Data_Excel_DataReaderExtensions_FieldOrDefault__1_Cadru_Data_Excel_ExcelDataReader_System_String_">DataReaderExtensions.FieldOrDefault&lt;T&gt;(ExcelDataReader, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Data.Excel.DataReaderExtensions.html#Cadru_Data_Excel_DataReaderExtensions_FieldOrDefault__1_Cadru_Data_Excel_ExcelDataReader_System_Int32___0_">DataReaderExtensions.FieldOrDefault&lt;T&gt;(ExcelDataReader, Int32, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Data.Excel.DataReaderExtensions.html#Cadru_Data_Excel_DataReaderExtensions_FieldOrDefault__1_Cadru_Data_Excel_ExcelDataReader_System_String___0_">DataReaderExtensions.FieldOrDefault&lt;T&gt;(ExcelDataReader, String, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Data.Excel.DataReaderExtensions.html#Cadru_Data_Excel_DataReaderExtensions_IsNull_Cadru_Data_Excel_ExcelDataReader_System_Int32_">DataReaderExtensions.IsNull(ExcelDataReader, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Data.Excel.DataReaderExtensions.html#Cadru_Data_Excel_DataReaderExtensions_IsNull_Cadru_Data_Excel_ExcelDataReader_System_String_">DataReaderExtensions.IsNull(ExcelDataReader, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Data.Excel.DataReaderExtensions.html#Cadru_Data_Excel_DataReaderExtensions_IsNullOrWhiteSpace_Cadru_Data_Excel_ExcelDataReader_System_Int32_">DataReaderExtensions.IsNullOrWhiteSpace(ExcelDataReader, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Data.Excel.DataReaderExtensions.html#Cadru_Data_Excel_DataReaderExtensions_IsNullOrWhiteSpace_Cadru_Data_Excel_ExcelDataReader_System_String_">DataReaderExtensions.IsNullOrWhiteSpace(ExcelDataReader, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Data.Excel.DataReaderExtensions.html#Cadru_Data_Excel_DataReaderExtensions_ToDelimitedString_Cadru_Data_Excel_ExcelDataReader_">DataReaderExtensions.ToDelimitedString(ExcelDataReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Data.Excel.DataReaderExtensions.html#Cadru_Data_Excel_DataReaderExtensions_ToDelimitedString_Cadru_Data_Excel_ExcelDataReader_System_Boolean_">DataReaderExtensions.ToDelimitedString(ExcelDataReader, Boolean)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Excel_ExcelDataReader.md&amp;value=---%0Auid%3A%20Cadru.Data.Excel.ExcelDataReader%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/Excel/ExcelDataReader.IDataRecord.cs/#L29" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

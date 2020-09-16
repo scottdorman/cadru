@@ -1,0 +1,453 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IDapperContext
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IDapperContext
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.Data.Dapper.IDapperContext">
+  
+  
+  <h1 id="Cadru_Data_Dapper_IDapperContext" data-uid="Cadru.Data.Dapper.IDapperContext" class="text-break">Interface IDapperContext
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a session with the database and can be used to query and save
+instances of your entities.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.Data.Dapper.html">Cadru.Data.Dapper</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.Data.Dapper.dll</h6>
+  <h5 id="Cadru_Data_Dapper_IDapperContext_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IDapperContext</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_IDapperContext_CommandAdapter.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.IDapperContext.CommandAdapter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/IDapperContext.cs/#L41">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_IDapperContext_CommandAdapter_" data-uid="Cadru.Data.Dapper.IDapperContext.CommandAdapter*"></a>
+  <h4 id="Cadru_Data_Dapper_IDapperContext_CommandAdapter" data-uid="Cadru.Data.Dapper.IDapperContext.CommandAdapter">CommandAdapter</h4>
+  <div class="markdown level1 summary"><p>Gets the <a class="xref" href="Cadru.Data.Dapper.ICommandAdapter.html">ICommandAdapter</a> used by the context to create
+SQL statements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICommandAdapter CommandAdapter { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Data.Dapper.ICommandAdapter.html">ICommandAdapter</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_IDapperContext_Connection.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.IDapperContext.Connection%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/IDapperContext.cs/#L46">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_IDapperContext_Connection_" data-uid="Cadru.Data.Dapper.IDapperContext.Connection*"></a>
+  <h4 id="Cadru_Data_Dapper_IDapperContext_Connection" data-uid="Cadru.Data.Dapper.IDapperContext.Connection">Connection</h4>
+  <div class="markdown level1 summary"><p>Gets the <see cref="!:IDbConnection"></see> for the context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IDbConnection? Connection { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IDbConnection</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_IDapperContext_HasActiveTransaction.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.IDapperContext.HasActiveTransaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/IDapperContext.cs/#L51">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_IDapperContext_HasActiveTransaction_" data-uid="Cadru.Data.Dapper.IDapperContext.HasActiveTransaction*"></a>
+  <h4 id="Cadru_Data_Dapper_IDapperContext_HasActiveTransaction" data-uid="Cadru.Data.Dapper.IDapperContext.HasActiveTransaction">HasActiveTransaction</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating if the current operation as an active transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool HasActiveTransaction { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_IDapperContext_Logger.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.IDapperContext.Logger%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/IDapperContext.cs/#L56">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_IDapperContext_Logger_" data-uid="Cadru.Data.Dapper.IDapperContext.Logger*"></a>
+  <h4 id="Cadru_Data_Dapper_IDapperContext_Logger" data-uid="Cadru.Data.Dapper.IDapperContext.Logger">Logger</h4>
+  <div class="markdown level1 summary"><p>Gets the instance of the <see cref="!:ILogger"></see> used by the context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ILogger&lt;IDapperContext&gt; Logger { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ILogger</span>&lt;<a class="xref" href="Cadru.Data.Dapper.IDapperContext.html">IDapperContext</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_IDapperContext_Mappings.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.IDapperContext.Mappings%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/IDapperContext.cs/#L62">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_IDapperContext_Mappings_" data-uid="Cadru.Data.Dapper.IDapperContext.Mappings*"></a>
+  <h4 id="Cadru_Data_Dapper_IDapperContext_Mappings" data-uid="Cadru.Data.Dapper.IDapperContext.Mappings">Mappings</h4>
+  <div class="markdown level1 summary"><p>Gets the <a class="xref" href="Cadru.Data.Dapper.ObjectMappingDictionary.html">ObjectMappingDictionary</a> for all database
+objects contained in the context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ObjectMappingDictionary Mappings { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Data.Dapper.ObjectMappingDictionary.html">ObjectMappingDictionary</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_IDapperContext_Options.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.IDapperContext.Options%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/IDapperContext.cs/#L67">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_IDapperContext_Options_" data-uid="Cadru.Data.Dapper.IDapperContext.Options*"></a>
+  <h4 id="Cadru_Data_Dapper_IDapperContext_Options" data-uid="Cadru.Data.Dapper.IDapperContext.Options">Options</h4>
+  <div class="markdown level1 summary"><p>Gets the context configuration options.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DapperContextOptions Options { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Data.Dapper.Configuration.DapperContextOptions.html">DapperContextOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_IDapperContext_BeginTransaction_IsolationLevel_.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.IDapperContext.BeginTransaction(IsolationLevel)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/IDapperContext.cs/#L95">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_IDapperContext_BeginTransaction_" data-uid="Cadru.Data.Dapper.IDapperContext.BeginTransaction*"></a>
+  <h4 id="Cadru_Data_Dapper_IDapperContext_BeginTransaction_IsolationLevel_" data-uid="Cadru.Data.Dapper.IDapperContext.BeginTransaction(IsolationLevel)">BeginTransaction(IsolationLevel)</h4>
+  <div class="markdown level1 summary"><p>Starts a database transaction with the specified isolation level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void BeginTransaction(IsolationLevel isolationLevel = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IsolationLevel</span></td>
+        <td><span class="parametername">isolationLevel</span></td>
+        <td><p>An optional isolation level under which the transaction should run.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Data_Dapper_IDapperContext_BeginTransaction_IsolationLevel__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If you do not specify an isolation level, the isolation level for
+<see cref="!:IsolationLevel.ReadCommitted"></see> is used.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_IDapperContext_BeginTransaction_System_Boolean_IsolationLevel_.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.IDapperContext.BeginTransaction(System.Boolean%2CIsolationLevel)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/IDapperContext.cs/#L83">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_IDapperContext_BeginTransaction_" data-uid="Cadru.Data.Dapper.IDapperContext.BeginTransaction*"></a>
+  <h4 id="Cadru_Data_Dapper_IDapperContext_BeginTransaction_System_Boolean_IsolationLevel_" data-uid="Cadru.Data.Dapper.IDapperContext.BeginTransaction(System.Boolean,IsolationLevel)">BeginTransaction(Boolean, IsolationLevel)</h4>
+  <div class="markdown level1 summary"><p>Starts a database transaction with the specified isolation level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void BeginTransaction(bool ensureOpenConnection, IsolationLevel isolationLevel = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">ensureOpenConnection</span></td>
+        <td><p>Indicates whether the connection should be opened before starting
+the transaction.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IsolationLevel</span></td>
+        <td><span class="parametername">isolationLevel</span></td>
+        <td><p>An optional isolation level under which the transaction should run.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Data_Dapper_IDapperContext_BeginTransaction_System_Boolean_IsolationLevel__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If you do not specify an isolation level, the isolation level for
+<see cref="!:IsolationLevel.ReadCommitted"></see> is used.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_IDapperContext_CommitTransaction.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.IDapperContext.CommitTransaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/IDapperContext.cs/#L100">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_IDapperContext_CommitTransaction_" data-uid="Cadru.Data.Dapper.IDapperContext.CommitTransaction*"></a>
+  <h4 id="Cadru_Data_Dapper_IDapperContext_CommitTransaction" data-uid="Cadru.Data.Dapper.IDapperContext.CommitTransaction">CommitTransaction()</h4>
+  <div class="markdown level1 summary"><p>Commits the database transaction, if active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void CommitTransaction()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_IDapperContext_RollbackTransaction.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.IDapperContext.RollbackTransaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/IDapperContext.cs/#L105">View Source</a>
+  </span>
+  <a id="Cadru_Data_Dapper_IDapperContext_RollbackTransaction_" data-uid="Cadru.Data.Dapper.IDapperContext.RollbackTransaction*"></a>
+  <h4 id="Cadru_Data_Dapper_IDapperContext_RollbackTransaction" data-uid="Cadru.Data.Dapper.IDapperContext.RollbackTransaction">RollbackTransaction()</h4>
+  <div class="markdown level1 summary"><p>Rolls back a transaction from a pending state, if active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void RollbackTransaction()</code></pre>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNotNull__1___0_">NullExtensions.IsNotNull&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNull__1___0_">NullExtensions.IsNull&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Data.Dapper.DapperPollyContextExtensions.html#Cadru_Data_Dapper_DapperPollyContextExtensions_GetAsyncExecutionEnvironment_Cadru_Data_Dapper_IDapperContext_">DapperPollyContextExtensions.GetAsyncExecutionEnvironment(IDapperContext)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Data.Dapper.DapperPollyContextExtensions.html#Cadru_Data_Dapper_DapperPollyContextExtensions_GetAsyncExecutionEnvironment_Cadru_Data_Dapper_IDapperContext_ILogger_">DapperPollyContextExtensions.GetAsyncExecutionEnvironment(IDapperContext, ILogger)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Data.Dapper.DapperPollyContextExtensions.html#Cadru_Data_Dapper_DapperPollyContextExtensions_GetSyncExecutionEnvironment_Cadru_Data_Dapper_IDapperContext_">DapperPollyContextExtensions.GetSyncExecutionEnvironment(IDapperContext)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Data.Dapper.DapperPollyContextExtensions.html#Cadru_Data_Dapper_DapperPollyContextExtensions_GetSyncExecutionEnvironment_Cadru_Data_Dapper_IDapperContext_ILogger_">DapperPollyContextExtensions.GetSyncExecutionEnvironment(IDapperContext, ILogger)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_Dapper_IDapperContext.md&amp;value=---%0Auid%3A%20Cadru.Data.Dapper.IDapperContext%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data.Dapper/IDapperContext.cs/#L35" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,2634 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DateTimeExtensions
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DateTimeExtensions
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.Extensions.DateTimeExtensions">
+  
+  
+  <h1 id="Cadru_Extensions_DateTimeExtensions" data-uid="Cadru.Extensions.DateTimeExtensions" class="text-break">Class DateTimeExtensions
+  </h1>
+  <div class="markdown level0 summary"><p>Provides basic routines for common DateTime manipulation.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">DateTimeExtensions</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.Extensions.html">Cadru.Extensions</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.Core.dll</h6>
+  <h5 id="Cadru_Extensions_DateTimeExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class DateTimeExtensions : object</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_AddQuarters_DateTime_System_Double_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.AddQuarters(DateTime%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L60">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_AddQuarters_" data-uid="Cadru.Extensions.DateTimeExtensions.AddQuarters*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_AddQuarters_DateTime_System_Double_" data-uid="Cadru.Extensions.DateTimeExtensions.AddQuarters(DateTime,System.Double)">AddQuarters(DateTime, Double)</h4>
+  <div class="markdown level1 summary"><p>Returns a new <see cref="!:DateTime"></see> that adds the specified number
+of quarters to the value of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime AddQuarters(this DateTime date, double value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A number of whole and fractional quarters. The
+<code data-dev-comment-type="paramref" class="paramref">value</code> parameter can be negative or positive.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> whose value is the sum of the date and time
+represented by this instance and the number of quarters represented
+by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_AddWeekdays_DateTime_System_Double_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.AddWeekdays(DateTime%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L83">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_AddWeekdays_" data-uid="Cadru.Extensions.DateTimeExtensions.AddWeekdays*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_AddWeekdays_DateTime_System_Double_" data-uid="Cadru.Extensions.DateTimeExtensions.AddWeekdays(DateTime,System.Double)">AddWeekdays(DateTime, Double)</h4>
+  <div class="markdown level1 summary"><p>Returns a new <see cref="!:DateTime"></see> that adds the specified number
+of weekdays to the value of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime AddWeekdays(this DateTime date, double value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A number of whole and fractional weekdays. The
+<code data-dev-comment-type="paramref" class="paramref">value</code> parameter can be negative or positive.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> whose value is the sum of the date and time
+represented by this instance and the number of weekdays represented
+by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_AddWeeks_DateTime_System_Double_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.AddWeeks(DateTime%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L116">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_AddWeeks_" data-uid="Cadru.Extensions.DateTimeExtensions.AddWeeks*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_AddWeeks_DateTime_System_Double_" data-uid="Cadru.Extensions.DateTimeExtensions.AddWeeks(DateTime,System.Double)">AddWeeks(DateTime, Double)</h4>
+  <div class="markdown level1 summary"><p>Returns a new <see cref="!:DateTime"></see> that adds the specified number
+of weeks to the value of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime AddWeeks(this DateTime date, double value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A number of whole and fractional weeks. The <code data-dev-comment-type="paramref" class="paramref">value</code>
+parameter can be negative or positive.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> whose value is the sum of the date and time
+represented by this instance and the number of weeks represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_Between_DateTime_DateTime_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.Between(DateTime%2CDateTime%2CDateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L132">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_Between_" data-uid="Cadru.Extensions.DateTimeExtensions.Between*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_Between_DateTime_DateTime_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.Between(DateTime,DateTime,DateTime)">Between(DateTime, DateTime, DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:Boolean"></see> expression indicating whether the
+current <see cref="!:DateTime"></see> instance is between the start and end indicated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Between(this DateTime date, DateTime start, DateTime end)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>The starting <see cref="!:DateTime"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">end</span></td>
+        <td><p>The ending <see cref="!:DateTime"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the current instance is between
+<code data-dev-comment-type="paramref" class="paramref">start</code> and <code data-dev-comment-type="paramref" class="paramref">end</code>; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_Between_DateTime_DateTime_DateTime_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.Between(DateTime%2CDateTime%2CDateTime%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L152">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_Between_" data-uid="Cadru.Extensions.DateTimeExtensions.Between*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_Between_DateTime_DateTime_DateTime_System_Boolean_" data-uid="Cadru.Extensions.DateTimeExtensions.Between(DateTime,DateTime,DateTime,System.Boolean)">Between(DateTime, DateTime, DateTime, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:Boolean"></see> expression indicating whether the
+current <see cref="!:DateTime"></see> instance is between the start and end indicated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Between(this DateTime date, DateTime start, DateTime end, bool includeTime)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>The starting <see cref="!:DateTime"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">end</span></td>
+        <td><p>The ending <see cref="!:DateTime"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includeTime</span></td>
+        <td><p><span class="xref">true</span> to compare the time portion of the date;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the current instance is between
+<code data-dev-comment-type="paramref" class="paramref">start</code> and <code data-dev-comment-type="paramref" class="paramref">end</code>; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_DaysInMonth_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.DaysInMonth(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L167">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_DaysInMonth_" data-uid="Cadru.Extensions.DateTimeExtensions.DaysInMonth*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_DaysInMonth_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.DaysInMonth(DateTime)">DaysInMonth(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns the number of days in the month for the date represented by
+this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int DaysInMonth(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The number of days in the month for the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_Elapsed_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.Elapsed(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L181">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_Elapsed_" data-uid="Cadru.Extensions.DateTimeExtensions.Elapsed*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_Elapsed_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.Elapsed(DateTime)">Elapsed(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns the elapsed time between the date represented by this
+instance and the current date and time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TimeSpan Elapsed(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><p>A <see cref="!:TimeSpan"></see> representing the elapsed time between the
+date represented by this instance and the current date and time.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_Elapsed_DateTime_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.Elapsed(DateTime%2CDateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L196">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_Elapsed_" data-uid="Cadru.Extensions.DateTimeExtensions.Elapsed*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_Elapsed_DateTime_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.Elapsed(DateTime,DateTime)">Elapsed(DateTime, DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns the elapsed time between the date represented by this
+instance and the given date and time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TimeSpan Elapsed(this DateTime date, DateTime startDate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">startDate</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><p>A <see cref="!:TimeSpan"></see> representing the elapsed time between the
+date represented by this instance and the current date and time.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_FirstDayOfMonth_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.FirstDayOfMonth(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L210">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_FirstDayOfMonth_" data-uid="Cadru.Extensions.DateTimeExtensions.FirstDayOfMonth*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_FirstDayOfMonth_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.FirstDayOfMonth(DateTime)">FirstDayOfMonth(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTime"></see> representing the first day of the
+month for the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime FirstDayOfMonth(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> representing the first day of the month for
+the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_FirstDayOfNextQuarter_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.FirstDayOfNextQuarter(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L225">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_FirstDayOfNextQuarter_" data-uid="Cadru.Extensions.DateTimeExtensions.FirstDayOfNextQuarter*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_FirstDayOfNextQuarter_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.FirstDayOfNextQuarter(DateTime)">FirstDayOfNextQuarter(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTime"></see> which represents the first day of
+the next quarter of the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime FirstDayOfNextQuarter(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> which represents the first day of the next
+quarter of the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_FirstDayOfQuarter_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.FirstDayOfQuarter(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L239">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_FirstDayOfQuarter_" data-uid="Cadru.Extensions.DateTimeExtensions.FirstDayOfQuarter*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_FirstDayOfQuarter_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.FirstDayOfQuarter(DateTime)">FirstDayOfQuarter(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTime"></see> which represents the first day of
+the quarter of the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime FirstDayOfQuarter(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> which represents the first day of the
+quarter of the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_FirstDayOfWeek_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.FirstDayOfWeek(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L253">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_FirstDayOfWeek_" data-uid="Cadru.Extensions.DateTimeExtensions.FirstDayOfWeek*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_FirstDayOfWeek_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.FirstDayOfWeek(DateTime)">FirstDayOfWeek(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTime"></see> which represents the first day of
+the week of the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime FirstDayOfWeek(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> which represents the first day of the week
+of the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_FirstDayOfWeek_DateTime_DayOfWeek_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.FirstDayOfWeek(DateTime%2CDayOfWeek)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L270">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_FirstDayOfWeek_" data-uid="Cadru.Extensions.DateTimeExtensions.FirstDayOfWeek*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_FirstDayOfWeek_DateTime_DayOfWeek_" data-uid="Cadru.Extensions.DateTimeExtensions.FirstDayOfWeek(DateTime,DayOfWeek)">FirstDayOfWeek(DateTime, DayOfWeek)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTime"></see> which represents the first day of
+the week of the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime FirstDayOfWeek(this DateTime date, DayOfWeek startOfWeek)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DayOfWeek</span></td>
+        <td><span class="parametername">startOfWeek</span></td>
+        <td><p>An enumeration value that represents the first day of the week.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> which represents the first day of the week
+of the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_FirstDayOfYear_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.FirstDayOfYear(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L290">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_FirstDayOfYear_" data-uid="Cadru.Extensions.DateTimeExtensions.FirstDayOfYear*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_FirstDayOfYear_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.FirstDayOfYear(DateTime)">FirstDayOfYear(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTime"></see> representing the first day of the
+year for the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime FirstDayOfYear(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> representing the first day of the year for
+the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_GetAbbreviatedMonthName_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.GetAbbreviatedMonthName(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L304">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_GetAbbreviatedMonthName_" data-uid="Cadru.Extensions.DateTimeExtensions.GetAbbreviatedMonthName*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_GetAbbreviatedMonthName_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.GetAbbreviatedMonthName(DateTime)">GetAbbreviatedMonthName(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns the culture-specific abbreviated name of the month
+represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetAbbreviatedMonthName(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The culture-specific abbreviated name of the month represented by
+this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_GetAbbreviatedMonthNames.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.GetAbbreviatedMonthNames%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L315">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_GetAbbreviatedMonthNames_" data-uid="Cadru.Extensions.DateTimeExtensions.GetAbbreviatedMonthNames*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_GetAbbreviatedMonthNames" data-uid="Cadru.Extensions.DateTimeExtensions.GetAbbreviatedMonthNames">GetAbbreviatedMonthNames()</h4>
+  <div class="markdown level1 summary"><p>Returns the culture-specific abbreviated names of the months.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IList&lt;string&gt; GetAbbreviatedMonthNames()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>A list that contains the culture-specific abbreviated names of the months.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_GetDayOfWeek_DateTime_DayOfWeek_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.GetDayOfWeek(DateTime%2CDayOfWeek)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L334">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_GetDayOfWeek_" data-uid="Cadru.Extensions.DateTimeExtensions.GetDayOfWeek*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_GetDayOfWeek_DateTime_DayOfWeek_" data-uid="Cadru.Extensions.DateTimeExtensions.GetDayOfWeek(DateTime,DayOfWeek)">GetDayOfWeek(DateTime, DayOfWeek)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTime"></see> representing the day of the week
+from the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime GetDayOfWeek(this DateTime date, DayOfWeek day)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DayOfWeek</span></td>
+        <td><span class="parametername">day</span></td>
+        <td><p>An enumeration value that represents the day of the week for which
+the date is to be calculated.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> representing the day of the week from the
+date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_GetDayOfWeek_DateTime_DayOfWeek_DayOfWeek_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.GetDayOfWeek(DateTime%2CDayOfWeek%2CDayOfWeek)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L355">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_GetDayOfWeek_" data-uid="Cadru.Extensions.DateTimeExtensions.GetDayOfWeek*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_GetDayOfWeek_DateTime_DayOfWeek_DayOfWeek_" data-uid="Cadru.Extensions.DateTimeExtensions.GetDayOfWeek(DateTime,DayOfWeek,DayOfWeek)">GetDayOfWeek(DateTime, DayOfWeek, DayOfWeek)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTime"></see> representing the day of the week
+from the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime GetDayOfWeek(this DateTime date, DayOfWeek day, DayOfWeek startOfWeek)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DayOfWeek</span></td>
+        <td><span class="parametername">day</span></td>
+        <td><p>An enumeration value that represents the day of the week for which
+the date is to be calculated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DayOfWeek</span></td>
+        <td><span class="parametername">startOfWeek</span></td>
+        <td><p>An enumeration value that represents the first day of the week.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> representing the day of the week from the
+date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_GetMonthName_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.GetMonthName(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L369">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_GetMonthName_" data-uid="Cadru.Extensions.DateTimeExtensions.GetMonthName*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_GetMonthName_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.GetMonthName(DateTime)">GetMonthName(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns the culture-specific name of the month represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetMonthName(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The culture-specific name of the month represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_GetMonthNames.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.GetMonthNames%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L380">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_GetMonthNames_" data-uid="Cadru.Extensions.DateTimeExtensions.GetMonthNames*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_GetMonthNames" data-uid="Cadru.Extensions.DateTimeExtensions.GetMonthNames">GetMonthNames()</h4>
+  <div class="markdown level1 summary"><p>Returns the culture-specific names of the months.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IList&lt;string&gt; GetMonthNames()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>A list that contains the culture-specific names of the months.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_GetMonthNumber_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.GetMonthNumber(System.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L394">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_GetMonthNumber_" data-uid="Cadru.Extensions.DateTimeExtensions.GetMonthNumber*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_GetMonthNumber_System_String_System_Boolean_" data-uid="Cadru.Extensions.DateTimeExtensions.GetMonthNumber(System.String,System.Boolean)">GetMonthNumber(String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Returns the month number for the given month name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetMonthNumber(string name, bool abbreviated)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The month name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">abbreviated</span></td>
+        <td><p><span class="xref">true</span> if the name is abbreviated; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The month number for the given month name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_GetWeekOfYear_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.GetWeekOfYear(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L409">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_GetWeekOfYear_" data-uid="Cadru.Extensions.DateTimeExtensions.GetWeekOfYear*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_GetWeekOfYear_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.GetWeekOfYear(DateTime)">GetWeekOfYear(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns the week of the year that includes the date in the specified
+DateTime value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetWeekOfYear(this DateTime time)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">time</span></td>
+        <td><p>A date and time value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>A positive integer that represents the week of the year that
+includes the date in the <code data-dev-comment-type="paramref" class="paramref">time</code> parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_GetWeekOfYear_DateTime_CalendarWeekRule_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.GetWeekOfYear(DateTime%2CCalendarWeekRule)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L426">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_GetWeekOfYear_" data-uid="Cadru.Extensions.DateTimeExtensions.GetWeekOfYear*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_GetWeekOfYear_DateTime_CalendarWeekRule_" data-uid="Cadru.Extensions.DateTimeExtensions.GetWeekOfYear(DateTime,CalendarWeekRule)">GetWeekOfYear(DateTime, CalendarWeekRule)</h4>
+  <div class="markdown level1 summary"><p>Returns the week of the year that includes the date in the specified
+DateTime value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetWeekOfYear(this DateTime time, CalendarWeekRule rule)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">time</span></td>
+        <td><p>A date and time value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CalendarWeekRule</span></td>
+        <td><span class="parametername">rule</span></td>
+        <td><p>An enumeration value that defines a calendar week.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>A positive integer that represents the week of the year that
+includes the date in the <code data-dev-comment-type="paramref" class="paramref">time</code> parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_GetWeekOfYear_DateTime_CalendarWeekRule_DayOfWeek_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.GetWeekOfYear(DateTime%2CCalendarWeekRule%2CDayOfWeek)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L446">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_GetWeekOfYear_" data-uid="Cadru.Extensions.DateTimeExtensions.GetWeekOfYear*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_GetWeekOfYear_DateTime_CalendarWeekRule_DayOfWeek_" data-uid="Cadru.Extensions.DateTimeExtensions.GetWeekOfYear(DateTime,CalendarWeekRule,DayOfWeek)">GetWeekOfYear(DateTime, CalendarWeekRule, DayOfWeek)</h4>
+  <div class="markdown level1 summary"><p>Returns the week of the year that includes the date in the specified
+DateTime value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetWeekOfYear(this DateTime time, CalendarWeekRule rule, DayOfWeek firstDayOfWeek)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">time</span></td>
+        <td><p>A date and time value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CalendarWeekRule</span></td>
+        <td><span class="parametername">rule</span></td>
+        <td><p>An enumeration value that defines a calendar week.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DayOfWeek</span></td>
+        <td><span class="parametername">firstDayOfWeek</span></td>
+        <td><p>An enumeration value that represents the first day of the week.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>A positive integer that represents the week of the year that
+includes the date in the <code data-dev-comment-type="paramref" class="paramref">time</code> parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_IsLeapDay_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.IsLeapDay(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L459">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_IsLeapDay_" data-uid="Cadru.Extensions.DateTimeExtensions.IsLeapDay*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_IsLeapDay_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.IsLeapDay(DateTime)">IsLeapDay(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified date is a leap day.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsLeapDay(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified date is a leap day;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_IsLeapMonth_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.IsLeapMonth(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L472">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_IsLeapMonth_" data-uid="Cadru.Extensions.DateTimeExtensions.IsLeapMonth*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_IsLeapMonth_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.IsLeapMonth(DateTime)">IsLeapMonth(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified date is a leap month.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsLeapMonth(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified date is a leap month;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_IsLeapYear_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.IsLeapYear(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L485">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_IsLeapYear_" data-uid="Cadru.Extensions.DateTimeExtensions.IsLeapYear*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_IsLeapYear_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.IsLeapYear(DateTime)">IsLeapYear(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified date is a leap year.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsLeapYear(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified date is a leap year;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_IsUtcDateTime_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.IsUtcDateTime(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L498">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_IsUtcDateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.IsUtcDateTime*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_IsUtcDateTime_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.IsUtcDateTime(DateTime)">IsUtcDateTime(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Determines whether he specified date is a UTC date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsUtcDateTime(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified date is a UTC date;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_IsWeekday_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.IsWeekday(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L511">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_IsWeekday_" data-uid="Cadru.Extensions.DateTimeExtensions.IsWeekday*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_IsWeekday_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.IsWeekday(DateTime)">IsWeekday(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified date is a week day.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsWeekday(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified date is a week day;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_IsWeekend_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.IsWeekend(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L524">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_IsWeekend_" data-uid="Cadru.Extensions.DateTimeExtensions.IsWeekend*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_IsWeekend_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.IsWeekend(DateTime)">IsWeekend(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified date is a weekend.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsWeekend(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified date is a weekend;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_Last_DateTime_DayOfWeek_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.Last(DateTime%2CDayOfWeek)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L540">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_Last_" data-uid="Cadru.Extensions.DateTimeExtensions.Last*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_Last_DateTime_DayOfWeek_" data-uid="Cadru.Extensions.DateTimeExtensions.Last(DateTime,DayOfWeek)">Last(DateTime, DayOfWeek)</h4>
+  <div class="markdown level1 summary"><p>Return a <see cref="!:DateTime"></see> representing the previous day of the week.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime Last(this DateTime date, DayOfWeek day)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DayOfWeek</span></td>
+        <td><span class="parametername">day</span></td>
+        <td><p>The <see cref="!:DayOfWeek"></see> whose <see cref="!:DateTime"></see>
+representation should be returned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> representing the previous day of the week.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_LastDayOfMonth_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.LastDayOfMonth(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L556">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_LastDayOfMonth_" data-uid="Cadru.Extensions.DateTimeExtensions.LastDayOfMonth*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_LastDayOfMonth_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.LastDayOfMonth(DateTime)">LastDayOfMonth(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTime"></see> representing the last day of the
+month for the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime LastDayOfMonth(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> representing the last day of the month for
+the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_LastDayOfQuarter_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.LastDayOfQuarter(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L570">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_LastDayOfQuarter_" data-uid="Cadru.Extensions.DateTimeExtensions.LastDayOfQuarter*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_LastDayOfQuarter_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.LastDayOfQuarter(DateTime)">LastDayOfQuarter(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTime"></see> which represents the last day of
+the quarter of the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime LastDayOfQuarter(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> which represents the last day of the
+quarter of the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_LastDayOfWeek_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.LastDayOfWeek(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L584">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_LastDayOfWeek_" data-uid="Cadru.Extensions.DateTimeExtensions.LastDayOfWeek*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_LastDayOfWeek_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.LastDayOfWeek(DateTime)">LastDayOfWeek(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTime"></see> which represents the last day of
+the week of the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime LastDayOfWeek(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> which represents the last day of the week
+of the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_LastDayOfWeek_DateTime_DayOfWeek_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.LastDayOfWeek(DateTime%2CDayOfWeek)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L601">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_LastDayOfWeek_" data-uid="Cadru.Extensions.DateTimeExtensions.LastDayOfWeek*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_LastDayOfWeek_DateTime_DayOfWeek_" data-uid="Cadru.Extensions.DateTimeExtensions.LastDayOfWeek(DateTime,DayOfWeek)">LastDayOfWeek(DateTime, DayOfWeek)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTime"></see> which represents the last day of
+the week of the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime LastDayOfWeek(this DateTime date, DayOfWeek firstDayOfWeek)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DayOfWeek</span></td>
+        <td><span class="parametername">firstDayOfWeek</span></td>
+        <td><p>An enumeration value that represents the first day of the week.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> which represents the last day of the week
+of the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_LastDayOfYear_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.LastDayOfYear(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L615">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_LastDayOfYear_" data-uid="Cadru.Extensions.DateTimeExtensions.LastDayOfYear*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_LastDayOfYear_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.LastDayOfYear(DateTime)">LastDayOfYear(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTime"></see> representing the last day of the
+year for the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime LastDayOfYear(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> representing the last day of the year for
+the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_Next_DateTime_DayOfWeek_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.Next(DateTime%2CDayOfWeek)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L631">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_Next_" data-uid="Cadru.Extensions.DateTimeExtensions.Next*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_Next_DateTime_DayOfWeek_" data-uid="Cadru.Extensions.DateTimeExtensions.Next(DateTime,DayOfWeek)">Next(DateTime, DayOfWeek)</h4>
+  <div class="markdown level1 summary"><p>Return a <see cref="!:DateTime"></see> representing the next day of the week.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime Next(this DateTime date, DayOfWeek day)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DayOfWeek</span></td>
+        <td><span class="parametername">day</span></td>
+        <td><p>The <see cref="!:DayOfWeek"></see> whose <see cref="!:DateTime"></see>
+representation should be returned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> representing the next day of the week.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_Quarter_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.Quarter(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L645">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_Quarter_" data-uid="Cadru.Extensions.DateTimeExtensions.Quarter*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_Quarter_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.Quarter(DateTime)">Quarter(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns the quarter component of the date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int Quarter(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The quarter component of the date represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_ToDateTime_System_Double_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.ToDateTime(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L657">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_ToDateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.ToDateTime*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_ToDateTime_System_Double_" data-uid="Cadru.Extensions.DateTimeExtensions.ToDateTime(System.Double)">ToDateTime(Double)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTime"></see> equivalent to the specified serial date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime ToDateTime(this double serialDateValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">serialDateValue</span></td>
+        <td><p>A serial date value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> representing the same date and time as <code data-dev-comment-type="paramref" class="paramref">serialDateValue</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_Tomorrow_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.Tomorrow(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L676">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_Tomorrow_" data-uid="Cadru.Extensions.DateTimeExtensions.Tomorrow*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_Tomorrow_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.Tomorrow(DateTime)">Tomorrow(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTime"></see> representing the day after the date
+represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime Tomorrow(this DateTime value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> representing the day after the date
+represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_ToRelativeDateString_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.ToRelativeDateString(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L687">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_ToRelativeDateString_" data-uid="Cadru.Extensions.DateTimeExtensions.ToRelativeDateString*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_ToRelativeDateString_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.ToRelativeDateString(DateTime)">ToRelativeDateString(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Convert a <see cref="!:DateTime"></see> object to a relative date (e.g.,
+Today, tomorrow, yesterday) string format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToRelativeDateString(this DateTime value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <see cref="!:DateTime"></see> object to convert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A relative date/time formatted string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_ToRelativeDateString_DateTime_Cadru_Text_RelativeDateFormatting_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.ToRelativeDateString(DateTime%2CCadru.Text.RelativeDateFormatting)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L701">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_ToRelativeDateString_" data-uid="Cadru.Extensions.DateTimeExtensions.ToRelativeDateString*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_ToRelativeDateString_DateTime_Cadru_Text_RelativeDateFormatting_" data-uid="Cadru.Extensions.DateTimeExtensions.ToRelativeDateString(DateTime,Cadru.Text.RelativeDateFormatting)">ToRelativeDateString(DateTime, RelativeDateFormatting)</h4>
+  <div class="markdown level1 summary"><p>Convert a <see cref="!:DateTime"></see> object to a relative date (e.g.,
+Today, tomorrow, yesterday) string format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToRelativeDateString(this DateTime value, RelativeDateFormatting options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <see cref="!:DateTime"></see> object to convert.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.Text.RelativeDateFormatting.html">RelativeDateFormatting</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>One of the <a class="xref" href="Cadru.Text.RelativeDateFormatting.html">RelativeDateFormatting</a> values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A relative date/time formatted string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_ToRelativeTimeString_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.ToRelativeTimeString(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L749">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_ToRelativeTimeString_" data-uid="Cadru.Extensions.DateTimeExtensions.ToRelativeTimeString*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_ToRelativeTimeString_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.ToRelativeTimeString(DateTime)">ToRelativeTimeString(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Convert a <see cref="!:DateTime"></see> object to a relative time (e.g.,
+now, 2 days ago, 3 days from now) string format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToRelativeTimeString(this DateTime value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <see cref="!:DateTime"></see> object to convert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A relative date/time formatted string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_ToRelativeTimeString_DateTime_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.ToRelativeTimeString(DateTime%2CDateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L763">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_ToRelativeTimeString_" data-uid="Cadru.Extensions.DateTimeExtensions.ToRelativeTimeString*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_ToRelativeTimeString_DateTime_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.ToRelativeTimeString(DateTime,DateTime)">ToRelativeTimeString(DateTime, DateTime)</h4>
+  <div class="markdown level1 summary"><p>Convert a <see cref="!:DateTime"></see> object to a relative time (e.g.,
+now, 2 days ago, 3 days from now) string format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToRelativeTimeString(this DateTime value, DateTime baseDate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <see cref="!:DateTime"></see> object to convert.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">baseDate</span></td>
+        <td><p>The <see cref="!:DateTime"></see> object to use as the relative date.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A relative date/time formatted string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_TryParseFromSerialDate_System_Double_DateTime__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.TryParseFromSerialDate(System.Double%2CDateTime%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L859">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_TryParseFromSerialDate_" data-uid="Cadru.Extensions.DateTimeExtensions.TryParseFromSerialDate*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_TryParseFromSerialDate_System_Double_DateTime__" data-uid="Cadru.Extensions.DateTimeExtensions.TryParseFromSerialDate(System.Double,DateTime@)">TryParseFromSerialDate(Double, out DateTime)</h4>
+  <div class="markdown level1 summary"><p>Converts the specified floating-point number into its
+<see cref="!:DateTime"></see> equivalent and returns a value that indicates
+whether the conversion succeeded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParseFromSerialDate(this double d, out DateTime result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">d</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>When this method returns, contains the <see cref="!:DateTime"></see> value
+equivalent to the date and time contained in <code data-dev-comment-type="paramref" class="paramref">d</code>,
+if the conversion succeeded, or <see cref="!:DateTime.MinValue"></see> if
+the conversion failed. The conversion fails if does not contain a
+valid floating-point representation of a date and time. This
+parameter is passed uninitialized.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the s parameter was converted
+successfully; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Extensions_DateTimeExtensions_TryParseFromSerialDate_System_Double_DateTime___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The d parameter is a double-precision floating-point number that
+represents a date as the number of days before or after the base
+date, midnight, 30 December 1899. The sign and integral part of d
+encode the date as a positive or negative day displacement from 30
+December 1899, and the absolute value of the fractional part of d
+encodes the time of day as a fraction of a day displacement from
+midnight. d must be a value between negative 657435.0 through
+positive 2958465.99999999.
+</p>
+<p>
+Note that because of the way dates are encoded, there are two ways
+of representing any time of day on 30 December 1899. For example,
+-0.5 and 0.5 both mean noon on 30 December 1899 because a day
+displacement of plus or minus zero days from the base date is still
+the base date, and a half day displacement from midnight is noon.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions_Yesterday_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions.Yesterday(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L891">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DateTimeExtensions_Yesterday_" data-uid="Cadru.Extensions.DateTimeExtensions.Yesterday*"></a>
+  <h4 id="Cadru_Extensions_DateTimeExtensions_Yesterday_DateTime_" data-uid="Cadru.Extensions.DateTimeExtensions.Yesterday(DateTime)">Yesterday(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Returns a <see cref="!:DateTime"></see> representing the day before the
+date represented by this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime Yesterday(this DateTime value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A valid <see cref="!:DateTime"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <see cref="!:DateTime"></see> representing the day before the date
+represented by this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DateTimeExtensions.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DateTimeExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DateTimeExtensions.cs/#L38" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

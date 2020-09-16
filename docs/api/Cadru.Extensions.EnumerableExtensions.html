@@ -1,0 +1,1772 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class EnumerableExtensions
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class EnumerableExtensions
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.Extensions.EnumerableExtensions">
+  
+  
+  <h1 id="Cadru_Extensions_EnumerableExtensions" data-uid="Cadru.Extensions.EnumerableExtensions" class="text-break">Class EnumerableExtensions
+  </h1>
+  <div class="markdown level0 summary"><p>Provides basic routines for common sequence and collection manipulation.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">EnumerableExtensions</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.Extensions.html">Cadru.Extensions</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.Core.dll</h6>
+  <h5 id="Cadru_Extensions_EnumerableExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class EnumerableExtensions : object</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_FindIndex_IEnumerable_Func_System_Object_System_Boolean__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.FindIndex(IEnumerable%2CFunc%7BSystem.Object%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L44">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_FindIndex_" data-uid="Cadru.Extensions.EnumerableExtensions.FindIndex*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_FindIndex_IEnumerable_Func_System_Object_System_Boolean__" data-uid="Cadru.Extensions.EnumerableExtensions.FindIndex(IEnumerable,Func{System.Object,System.Boolean})">FindIndex(IEnumerable, Func&lt;Object, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Finds the index of the first item matching an expression in an enumerable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int FindIndex(this IEnumerable items, Func&lt;object, bool&gt; predicate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span></td>
+        <td><span class="parametername">items</span></td>
+        <td><p>The enumerable to search.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">System.Object</span>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>The expression to test the items against.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The index of the first matching item, or -1 if no items match.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_FindIndex_IEnumerable_System_String__System_String_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.FindIndex(IEnumerable%7BSystem.String%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L82">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_FindIndex_" data-uid="Cadru.Extensions.EnumerableExtensions.FindIndex*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_FindIndex_IEnumerable_System_String__System_String_" data-uid="Cadru.Extensions.EnumerableExtensions.FindIndex(IEnumerable{System.String},System.String)">FindIndex(IEnumerable&lt;String&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Finds the index of the first matching string in an enumerable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int FindIndex(this IEnumerable&lt;string&gt; items, string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">items</span></td>
+        <td><p>The enumerable to search.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The string to search for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The index of the first matching item, or -1 if no items match.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_FindIndex__1_IEnumerable___0__Func___0_System_Boolean__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.FindIndex%60%601(IEnumerable%7B%60%600%7D%2CFunc%7B%60%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L63">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_FindIndex_" data-uid="Cadru.Extensions.EnumerableExtensions.FindIndex*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_FindIndex__1_IEnumerable___0__Func___0_System_Boolean__" data-uid="Cadru.Extensions.EnumerableExtensions.FindIndex``1(IEnumerable{``0},Func{``0,System.Boolean})">FindIndex&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Finds the index of the first item matching an expression in an enumerable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int FindIndex&lt;T&gt;(this IEnumerable&lt;T&gt; items, Func&lt;T, bool&gt; predicate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">items</span></td>
+        <td><p>The enumerable to search.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>The expression to test the items against.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The index of the first matching item, or -1 if no items match.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_ForEach__1_IEnumerable___0__Action___0_System_Int32__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.ForEach%60%601(IEnumerable%7B%60%600%7D%2CAction%7B%60%600%2CSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L97">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_ForEach_" data-uid="Cadru.Extensions.EnumerableExtensions.ForEach*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_ForEach__1_IEnumerable___0__Action___0_System_Int32__" data-uid="Cadru.Extensions.EnumerableExtensions.ForEach``1(IEnumerable{``0},Action{``0,System.Int32})">ForEach&lt;T&gt;(IEnumerable&lt;T&gt;, Action&lt;T, Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Performs the specified action on each element of the <see cref="!:IEnumerable&lt;T>"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForEach&lt;T&gt;(this IEnumerable&lt;T&gt; source, Action&lt;T, int&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:IEnumerable&lt;T>"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Action</span>&lt;T, <span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td><p>The <see cref="!:Action&lt;T1, T2>"></see> delegate to perform on each element
+of the <see cref="!:IEnumerable&lt;T>"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the values in the collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Extensions_EnumerableExtensions_ForEach__1_IEnumerable___0__Action___0_System_Int32___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The <see cref="!:Action&lt;T1, T2>"></see> delegate receives the item and the
+index of the item.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_ForEach__1_IEnumerable___0__Action___0__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.ForEach%60%601(IEnumerable%7B%60%600%7D%2CAction%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L115">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_ForEach_" data-uid="Cadru.Extensions.EnumerableExtensions.ForEach*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_ForEach__1_IEnumerable___0__Action___0__" data-uid="Cadru.Extensions.EnumerableExtensions.ForEach``1(IEnumerable{``0},Action{``0})">ForEach&lt;T&gt;(IEnumerable&lt;T&gt;, Action&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Performs the specified action on each element of the <see cref="!:IEnumerable&lt;T>"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForEach&lt;T&gt;(this IEnumerable&lt;T&gt; source, Action&lt;T&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:IEnumerable&lt;T>"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Action</span>&lt;T&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td><p>The <see cref="!:Action&lt;T>"></see> delegate to perform on each element of
+the <see cref="!:IEnumerable&lt;T>"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the values in the collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_IndexOf_IEnumerable_Func_System_Object_System_Boolean__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.IndexOf(IEnumerable%2CFunc%7BSystem.Object%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L146">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_IndexOf_" data-uid="Cadru.Extensions.EnumerableExtensions.IndexOf*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_IndexOf_IEnumerable_Func_System_Object_System_Boolean__" data-uid="Cadru.Extensions.EnumerableExtensions.IndexOf(IEnumerable,Func{System.Object,System.Boolean})">IndexOf(IEnumerable, Func&lt;Object, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Searches for the specified object and returns the zero-based index
+of the first occurrence within the range of elements in the <see cref="!:IEnumerable&lt;T>"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int IndexOf(this IEnumerable source, Func&lt;object, bool&gt; predicate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:IEnumerable&lt;T>"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">System.Object</span>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>The expression to test the items against.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The zero-based index of the first occurrence of item within the range of elements in the <see cref="!:IEnumerable&lt;T>"></see>, if found; otherwise, -1.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_IndexOf_IEnumerable_System_Object_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.IndexOf(IEnumerable%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L137">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_IndexOf_" data-uid="Cadru.Extensions.EnumerableExtensions.IndexOf*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_IndexOf_IEnumerable_System_Object_" data-uid="Cadru.Extensions.EnumerableExtensions.IndexOf(IEnumerable,System.Object)">IndexOf(IEnumerable, Object)</h4>
+  <div class="markdown level1 summary"><p>Searches for the specified object and returns the zero-based index
+of the first occurrence within the range of elements in the <see cref="!:IEnumerable&lt;T>"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int IndexOf(this IEnumerable source, object item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:IEnumerable&lt;T>"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>The object to locate. The value can be <span class="xref">null</span> for
+reference types.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The zero-based index of the first occurrence of item within the
+range of elements in the <see cref="!:IEnumerable&lt;T>"></see>, if found;
+otherwise, -1.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_IndexOf_IEnumerable_System_String__System_String_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.IndexOf(IEnumerable%7BSystem.String%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L184">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_IndexOf_" data-uid="Cadru.Extensions.EnumerableExtensions.IndexOf*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_IndexOf_IEnumerable_System_String__System_String_" data-uid="Cadru.Extensions.EnumerableExtensions.IndexOf(IEnumerable{System.String},System.String)">IndexOf(IEnumerable&lt;String&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Searches for the specified string and returns the zero-based index
+of the first occurrence within the range of elements in the <see cref="!:IEnumerable&lt;T>"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int IndexOf(this IEnumerable&lt;string&gt; source, string item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:IEnumerable&lt;T>"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>The object to locate. The value can be <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The zero-based index of the first occurrence of item within the
+range of elements in the <see cref="!:IEnumerable&lt;T>"></see>, if found;
+otherwise, -1.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_IndexOf__1_IEnumerable___0____0_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.IndexOf%60%601(IEnumerable%7B%60%600%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L162">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_IndexOf_" data-uid="Cadru.Extensions.EnumerableExtensions.IndexOf*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_IndexOf__1_IEnumerable___0____0_" data-uid="Cadru.Extensions.EnumerableExtensions.IndexOf``1(IEnumerable{``0},``0)">IndexOf&lt;T&gt;(IEnumerable&lt;T&gt;, T)</h4>
+  <div class="markdown level1 summary"><p>Searches for the specified object and returns the zero-based index
+of the first occurrence within the range of elements in the <see cref="!:IEnumerable&lt;T>"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int IndexOf&lt;T&gt;(this IEnumerable&lt;T&gt; source, T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:IEnumerable&lt;T>"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>The object to locate. The value can be <span class="xref">null</span> for
+reference types.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The zero-based index of the first occurrence of item within the
+range of elements in the <see cref="!:IEnumerable&lt;T>"></see>, if found;
+otherwise, -1.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_IndexOf__1_IEnumerable___0__Func___0_System_Boolean__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.IndexOf%60%601(IEnumerable%7B%60%600%7D%2CFunc%7B%60%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L171">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_IndexOf_" data-uid="Cadru.Extensions.EnumerableExtensions.IndexOf*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_IndexOf__1_IEnumerable___0__Func___0_System_Boolean__" data-uid="Cadru.Extensions.EnumerableExtensions.IndexOf``1(IEnumerable{``0},Func{``0,System.Boolean})">IndexOf&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Searches for the specified object and returns the zero-based index
+of the first occurrence within the range of elements in the <see cref="!:IEnumerable&lt;T>"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int IndexOf&lt;T&gt;(this IEnumerable&lt;T&gt; source, Func&lt;T, bool&gt; predicate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:IEnumerable&lt;T>"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>The expression to test the items against.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The zero-based index of the first occurrence of item within the range of elements in the <see cref="!:IEnumerable&lt;T>"></see>, if found; otherwise, -1.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_IsEmpty_IEnumerable_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.IsEmpty(IEnumerable)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L194">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_IsEmpty_" data-uid="Cadru.Extensions.EnumerableExtensions.IsEmpty*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_IsEmpty_IEnumerable_" data-uid="Cadru.Extensions.EnumerableExtensions.IsEmpty(IEnumerable)">IsEmpty(IEnumerable)</h4>
+  <div class="markdown level1 summary"><p>Determines if the collection contains values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsEmpty(this IEnumerable source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The collection to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the collection does not contain values;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_IsNull_IEnumerable_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.IsNull(IEnumerable)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L224">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_IsNull_" data-uid="Cadru.Extensions.EnumerableExtensions.IsNull*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_IsNull_IEnumerable_" data-uid="Cadru.Extensions.EnumerableExtensions.IsNull(IEnumerable)">IsNull(IEnumerable)</h4>
+  <div class="markdown level1 summary"><p>Determines if the collection is <span class="xref">null</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsNull(this IEnumerable source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The collection to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the collection is <span class="xref">null</span>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_IsNullOrEmpty_IEnumerable_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.IsNullOrEmpty(IEnumerable)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L237">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_IsNullOrEmpty_" data-uid="Cadru.Extensions.EnumerableExtensions.IsNullOrEmpty*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_IsNullOrEmpty_IEnumerable_" data-uid="Cadru.Extensions.EnumerableExtensions.IsNullOrEmpty(IEnumerable)">IsNullOrEmpty(IEnumerable)</h4>
+  <div class="markdown level1 summary"><p>Determines if the collection is <span class="xref">null</span> or contains values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsNullOrEmpty(this IEnumerable source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The collection to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the collection is <span class="xref">null</span>
+or does not contain values; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_Join_IEnumerable_System_String__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.Join(IEnumerable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L351">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_Join_" data-uid="Cadru.Extensions.EnumerableExtensions.Join*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_Join_IEnumerable_System_String__" data-uid="Cadru.Extensions.EnumerableExtensions.Join(IEnumerable{System.String})">Join(IEnumerable&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"><p>Concatenates the members of a collection, using a comma (,)
+separator between each member.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Join(this IEnumerable&lt;string&gt; values)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">values</span></td>
+        <td><p>A collection that contains the strings to concatenate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A string that consists of the members of values delimited by a comma
+(,). If <code data-dev-comment-type="paramref" class="paramref">values</code> has no members, the method returns <see cref="!:System.String.Empty"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_Join_IEnumerable_System_String__System_String_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.Join(IEnumerable%7BSystem.String%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L376">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_Join_" data-uid="Cadru.Extensions.EnumerableExtensions.Join*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_Join_IEnumerable_System_String__System_String_" data-uid="Cadru.Extensions.EnumerableExtensions.Join(IEnumerable{System.String},System.String)">Join(IEnumerable&lt;String&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Concatenates the members of a collection, using the specified
+separator between each member.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Join(this IEnumerable&lt;string&gt; values, string separator)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">values</span></td>
+        <td><p>A collection that contains the strings to concatenate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">separator</span></td>
+        <td><p>The string to use as a separator. <code data-dev-comment-type="paramref" class="paramref">separator</code> is
+included in the returned string only if <code data-dev-comment-type="paramref" class="paramref">values</code>
+has more than one element.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A string that consists of the members of values delimited by the
+separator string. If <code data-dev-comment-type="paramref" class="paramref">values</code> has no members, the
+method returns <see cref="!:System.String.Empty"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_Join_IList_System_String__System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.Join(IList%7BSystem.String%7D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L332">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_Join_" data-uid="Cadru.Extensions.EnumerableExtensions.Join*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_Join_IList_System_String__System_Int32_System_Int32_" data-uid="Cadru.Extensions.EnumerableExtensions.Join(IList{System.String},System.Int32,System.Int32)">Join(IList&lt;String&gt;, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Concatenates the members of a collection, using a comma (,) between
+each member.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Join(this IList&lt;string&gt; values, int startIndex, int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">values</span></td>
+        <td><p>A collection that contains the strings to concatenate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">startIndex</span></td>
+        <td><p>The first element in <code data-dev-comment-type="paramref" class="paramref">values</code> to use.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td><p>The number of elements of <code data-dev-comment-type="paramref" class="paramref">values</code> to use.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>
+A string that consists of the members of values delimited by a comma (,).
+</p>
+<p>-or-</p>
+<p>
+<see cref="!:System.String.Empty"></see> if <code data-dev-comment-type="paramref" class="paramref">count</code> is
+zero, <code data-dev-comment-type="paramref" class="paramref">values</code> has no elements, or all of the
+elements of <code data-dev-comment-type="paramref" class="paramref">values</code> are <see cref="!:System.String.Empty"></see>.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_Join_IList_System_String__System_String_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.Join(IList%7BSystem.String%7D%2CSystem.String%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L288">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_Join_" data-uid="Cadru.Extensions.EnumerableExtensions.Join*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_Join_IList_System_String__System_String_System_Int32_System_Int32_" data-uid="Cadru.Extensions.EnumerableExtensions.Join(IList{System.String},System.String,System.Int32,System.Int32)">Join(IList&lt;String&gt;, String, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Concatenates the members of a collection, using the specified
+separator between each member.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Join(this IList&lt;string&gt; values, string separator, int startIndex, int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">values</span></td>
+        <td><p>A collection that contains the strings to concatenate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">separator</span></td>
+        <td><p>The string to use as a separator. <code data-dev-comment-type="paramref" class="paramref">separator</code> is
+included in the returned string only if <code data-dev-comment-type="paramref" class="paramref">values</code>
+has more than one element.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">startIndex</span></td>
+        <td><p>The first element in <code data-dev-comment-type="paramref" class="paramref">values</code> to use.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td><p>The number of elements of <code data-dev-comment-type="paramref" class="paramref">values</code> to use.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>
+A string that consists of the members of values delimited by the
+separator string.
+</p>
+<p>-or-</p>
+<p>
+<see cref="!:System.String.Empty"></see> if <code data-dev-comment-type="paramref" class="paramref">count</code> is
+zero, <code data-dev-comment-type="paramref" class="paramref">values</code> has no elements, or
+<code data-dev-comment-type="paramref" class="paramref">separator</code> and all of the elements of
+<code data-dev-comment-type="paramref" class="paramref">values</code> are <see cref="!:System.String.Empty"></see>.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_Join__1_IEnumerable___0__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.Join%60%601(IEnumerable%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L396">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_Join_" data-uid="Cadru.Extensions.EnumerableExtensions.Join*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_Join__1_IEnumerable___0__" data-uid="Cadru.Extensions.EnumerableExtensions.Join``1(IEnumerable{``0})">Join&lt;T&gt;(IEnumerable&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Concatenates the members of a collection, using a comma (,)
+separator between each member.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Join&lt;T&gt;(this IEnumerable&lt;T&gt; values)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">values</span></td>
+        <td><p>A collection that contains the objects to concatenate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A string that consists of the members of values delimited by a comma
+(,). If <code data-dev-comment-type="paramref" class="paramref">values</code> has no members, the method returns <see cref="!:System.String.Empty"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the members of <code data-dev-comment-type="paramref" class="paramref">values</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_Join__1_IEnumerable___0__System_String_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.Join%60%601(IEnumerable%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L422">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_Join_" data-uid="Cadru.Extensions.EnumerableExtensions.Join*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_Join__1_IEnumerable___0__System_String_" data-uid="Cadru.Extensions.EnumerableExtensions.Join``1(IEnumerable{``0},System.String)">Join&lt;T&gt;(IEnumerable&lt;T&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Concatenates the members of a collection, using the specified
+separator between each member.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Join&lt;T&gt;(this IEnumerable&lt;T&gt; values, string separator)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">values</span></td>
+        <td><p>A collection that contains the objects to concatenate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">separator</span></td>
+        <td><p>The string to use as a separator. <code data-dev-comment-type="paramref" class="paramref">separator</code> is
+included in the returned string only if <code data-dev-comment-type="paramref" class="paramref">values</code>
+has more than one element.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A string that consists of the members of values delimited by the
+separator string. If <code data-dev-comment-type="paramref" class="paramref">values</code> has no members, the
+method returns <see cref="!:System.String.Empty"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the members of <code data-dev-comment-type="paramref" class="paramref">values</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_Partition__1_IEnumerable___0__System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.Partition%60%601(IEnumerable%7B%60%600%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L439">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_Partition_" data-uid="Cadru.Extensions.EnumerableExtensions.Partition*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_Partition__1_IEnumerable___0__System_Int32_" data-uid="Cadru.Extensions.EnumerableExtensions.Partition``1(IEnumerable{``0},System.Int32)">Partition&lt;T&gt;(IEnumerable&lt;T&gt;, Int32)</h4>
+  <div class="markdown level1 summary"><p>Partitions the specified collection into a collection of smaller collections.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IEnumerable&lt;T&gt;&gt; Partition&lt;T&gt;(this IEnumerable&lt;T&gt; source, int size)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>A collection that contains the objects to partition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">size</span></td>
+        <td><p>The size of each partition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">IEnumerable</span>&lt;T&gt;&gt;</td>
+        <td><p>A new <see cref="!:IEnumerable&lt;T>"></see> containing one or more
+<see cref="!:IEnumerable&lt;T>"></see> collections.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the members of <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_RandomElement__1_IEnumerable___0__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.RandomElement%60%601(IEnumerable%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L478">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_RandomElement_" data-uid="Cadru.Extensions.EnumerableExtensions.RandomElement*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_RandomElement__1_IEnumerable___0__" data-uid="Cadru.Extensions.EnumerableExtensions.RandomElement``1(IEnumerable{``0})">RandomElement&lt;T&gt;(IEnumerable&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a pseudo-random element from the specified collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T RandomElement&lt;T&gt;(this IEnumerable&lt;T&gt; source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>A collection that contains the objects to segment.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>A pseudo-random element from the specified collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the members of <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_RandomElement__1_IEnumerable___0__Random_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.RandomElement%60%601(IEnumerable%7B%60%600%7D%2CRandom)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L492">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_RandomElement_" data-uid="Cadru.Extensions.EnumerableExtensions.RandomElement*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_RandomElement__1_IEnumerable___0__Random_" data-uid="Cadru.Extensions.EnumerableExtensions.RandomElement``1(IEnumerable{``0},Random)">RandomElement&lt;T&gt;(IEnumerable&lt;T&gt;, Random)</h4>
+  <div class="markdown level1 summary"><p>Returns a pseudo-random element from the specified collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T RandomElement&lt;T&gt;(this IEnumerable&lt;T&gt; source, Random random)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>A collection that contains the objects to segment.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Random</span></td>
+        <td><span class="parametername">random</span></td>
+        <td><p>A pseudo-random number generator.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>A pseudo-random element from the specified collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the members of <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_Slice__1_IEnumerable___0__System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.Slice%60%601(IEnumerable%7B%60%600%7D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L524">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_Slice_" data-uid="Cadru.Extensions.EnumerableExtensions.Slice*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_Slice__1_IEnumerable___0__System_Int32_System_Int32_" data-uid="Cadru.Extensions.EnumerableExtensions.Slice``1(IEnumerable{``0},System.Int32,System.Int32)">Slice&lt;T&gt;(IEnumerable&lt;T&gt;, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns a segment of the specified collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; Slice&lt;T&gt;(this IEnumerable&lt;T&gt; source, int startIndex, int endIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>A collection that contains the objects to segment.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">startIndex</span></td>
+        <td><p>The starting index of the collection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">endIndex</span></td>
+        <td><p>The ending index of the collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><p>A new <see cref="!:IEnumerable&lt;T>"></see> containing the segment of the
+specified collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the members of <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_WhereIf__1_IEnumerable___0__System_Boolean_Func___0_System_Boolean__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.WhereIf%60%601(IEnumerable%7B%60%600%7D%2CSystem.Boolean%2CFunc%7B%60%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L564">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_WhereIf_" data-uid="Cadru.Extensions.EnumerableExtensions.WhereIf*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_WhereIf__1_IEnumerable___0__System_Boolean_Func___0_System_Boolean__" data-uid="Cadru.Extensions.EnumerableExtensions.WhereIf``1(IEnumerable{``0},System.Boolean,Func{``0,System.Boolean})">WhereIf&lt;T&gt;(IEnumerable&lt;T&gt;, Boolean, Func&lt;T, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Filters a sequence of values based on a predicate. Each element's
+index is used in the logic of the predicate function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; WhereIf&lt;T&gt;(this IEnumerable&lt;T&gt; source, bool condition, Func&lt;T, bool&gt; predicate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>An <see cref="!:IEnumerable&lt;T>"></see> to filter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p>The condition used to determine if the sequence should be filtered.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>A function to test each source element for a condition; the second
+parameter of the function represents the index of the source element.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>, an
+<see cref="!:IEnumerable&lt;T>"></see> that contains elements from the input
+sequence that satisfy the condition; otherwise, the original input sequence.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the elements of <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions_WhereIf__1_IEnumerable___0__System_Boolean_Func___0_System_Int32_System_Boolean__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions.WhereIf%60%601(IEnumerable%7B%60%600%7D%2CSystem.Boolean%2CFunc%7B%60%600%2CSystem.Int32%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L588">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_EnumerableExtensions_WhereIf_" data-uid="Cadru.Extensions.EnumerableExtensions.WhereIf*"></a>
+  <h4 id="Cadru_Extensions_EnumerableExtensions_WhereIf__1_IEnumerable___0__System_Boolean_Func___0_System_Int32_System_Boolean__" data-uid="Cadru.Extensions.EnumerableExtensions.WhereIf``1(IEnumerable{``0},System.Boolean,Func{``0,System.Int32,System.Boolean})">WhereIf&lt;T&gt;(IEnumerable&lt;T&gt;, Boolean, Func&lt;T, Int32, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Filters a sequence of values based on a predicate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; WhereIf&lt;T&gt;(this IEnumerable&lt;T&gt; source, bool condition, Func&lt;T, int, bool&gt; predicate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>An <see cref="!:IEnumerable&lt;T>"></see> to filter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p>The condition used to determine if the sequence should be filtered.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T, <span class="xref">System.Int32</span>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>A function to test each source element for a condition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>, an
+<see cref="!:IEnumerable&lt;T>"></see> that contains elements from the input
+sequence that satisfy the condition; otherwise, the original input sequence.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the elements of <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_EnumerableExtensions.md&amp;value=---%0Auid%3A%20Cadru.Extensions.EnumerableExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/EnumerableExtensions.cs/#L38" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

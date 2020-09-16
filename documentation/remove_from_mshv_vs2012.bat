@@ -1,1 +1,0 @@
- "%ProgramFiles(x86)%\Microsoft Help Viewer\v2.0\hlpctntmgr" /silent /operation uninstall /catalogName "VisualStudio11" /locale en-US /vendor "Innovasys" /productName "RssReader Sample" /sourceUri "%CD%\helpcontentsetup.msha"

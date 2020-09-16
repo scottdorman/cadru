@@ -1,0 +1,586 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class SqlStrategyBuilder
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class SqlStrategyBuilder
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.Polly.Data.SqlStrategyBuilder">
+  
+  
+  <h1 id="Cadru_Polly_Data_SqlStrategyBuilder" data-uid="Cadru.Polly.Data.SqlStrategyBuilder" class="text-break">Class SqlStrategyBuilder
+  </h1>
+  <div class="markdown level0 summary"><p>Builder class that holds the list of current exception predicates</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">SqlStrategyBuilder</span></div>
+      <div class="level2"><a class="xref" href="Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder.html">SqlServerStrategyBuilder</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.Polly.Data.html">Cadru.Polly.Data</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.Polly.dll</h6>
+  <h5 id="Cadru_Polly_Data_SqlStrategyBuilder_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class SqlStrategyBuilder : object</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Polly_Data_SqlStrategyBuilder__ctor_IEnumerable_Cadru_Polly_IExceptionHandlingStrategy__Cadru_Polly_Data_SqlStrategyOptions_.md&amp;value=---%0Auid%3A%20Cadru.Polly.Data.SqlStrategyBuilder.%23ctor(IEnumerable%7BCadru.Polly.IExceptionHandlingStrategy%7D%2CCadru.Polly.Data.SqlStrategyOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Polly/Data/SqlStrategyBuilder.cs/#L49">View Source</a>
+  </span>
+  <a id="Cadru_Polly_Data_SqlStrategyBuilder__ctor_" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.#ctor*"></a>
+  <h4 id="Cadru_Polly_Data_SqlStrategyBuilder__ctor_IEnumerable_Cadru_Polly_IExceptionHandlingStrategy__Cadru_Polly_Data_SqlStrategyOptions_" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.#ctor(IEnumerable{Cadru.Polly.IExceptionHandlingStrategy},Cadru.Polly.Data.SqlStrategyOptions)">SqlStrategyBuilder(IEnumerable&lt;IExceptionHandlingStrategy&gt;, SqlStrategyOptions)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.Polly.Data.SqlStrategyBuilder.html">SqlStrategyBuilder</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SqlStrategyBuilder(IEnumerable&lt;IExceptionHandlingStrategy&gt; exceptionHandlingStrategies, SqlStrategyOptions strategyOptions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Cadru.Polly.IExceptionHandlingStrategy.html">IExceptionHandlingStrategy</a>&gt;</td>
+        <td><span class="parametername">exceptionHandlingStrategies</span></td>
+        <td><p>The collection of <a class="xref" href="Cadru.Polly.IExceptionHandlingStrategy.html">IExceptionHandlingStrategy</a>
+strategies to use.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.Polly.Data.SqlStrategyOptions.html">SqlStrategyOptions</a></td>
+        <td><span class="parametername">strategyOptions</span></td>
+        <td><p>An optional strategy configuration.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Polly_Data_SqlStrategyBuilder__ctor_IEnumerable_Cadru_Polly_IExceptionHandlingStrategy__System_Nullable_IOptions_Cadru_Polly_Data_SqlStrategyOptions___.md&amp;value=---%0Auid%3A%20Cadru.Polly.Data.SqlStrategyBuilder.%23ctor(IEnumerable%7BCadru.Polly.IExceptionHandlingStrategy%7D%2CSystem.Nullable%7BIOptions%7BCadru.Polly.Data.SqlStrategyOptions%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Polly/Data/SqlStrategyBuilder.cs/#L65">View Source</a>
+  </span>
+  <a id="Cadru_Polly_Data_SqlStrategyBuilder__ctor_" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.#ctor*"></a>
+  <h4 id="Cadru_Polly_Data_SqlStrategyBuilder__ctor_IEnumerable_Cadru_Polly_IExceptionHandlingStrategy__System_Nullable_IOptions_Cadru_Polly_Data_SqlStrategyOptions___" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.#ctor(IEnumerable{Cadru.Polly.IExceptionHandlingStrategy},System.Nullable{IOptions{Cadru.Polly.Data.SqlStrategyOptions}})">SqlStrategyBuilder(IEnumerable&lt;IExceptionHandlingStrategy&gt;, Nullable&lt;IOptions&lt;SqlStrategyOptions&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.Polly.Data.SqlStrategyBuilder.html">SqlStrategyBuilder</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SqlStrategyBuilder(IEnumerable&lt;IExceptionHandlingStrategy&gt; exceptionHandlingStrategies, IOptions&lt;SqlStrategyOptions&gt;? strategyOptionsAccessor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Cadru.Polly.IExceptionHandlingStrategy.html">IExceptionHandlingStrategy</a>&gt;</td>
+        <td><span class="parametername">exceptionHandlingStrategies</span></td>
+        <td><p>The collection of <a class="xref" href="Cadru.Polly.IExceptionHandlingStrategy.html">IExceptionHandlingStrategy</a>
+strategies to use.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IOptions</span>&lt;<a class="xref" href="Cadru.Polly.Data.SqlStrategyOptions.html">SqlStrategyOptions</a>&gt;&gt;</td>
+        <td><span class="parametername">strategyOptionsAccessor</span></td>
+        <td><p>An optional strategy configuration.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Polly_Data_SqlStrategyBuilder_ExceptionHandlingStrategies.md&amp;value=---%0Auid%3A%20Cadru.Polly.Data.SqlStrategyBuilder.ExceptionHandlingStrategies%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Polly/Data/SqlStrategyBuilder.cs/#L74">View Source</a>
+  </span>
+  <a id="Cadru_Polly_Data_SqlStrategyBuilder_ExceptionHandlingStrategies_" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.ExceptionHandlingStrategies*"></a>
+  <h4 id="Cadru_Polly_Data_SqlStrategyBuilder_ExceptionHandlingStrategies" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.ExceptionHandlingStrategies">ExceptionHandlingStrategies</h4>
+  <div class="markdown level1 summary"><p>Gets the <a class="xref" href="Cadru.Polly.IExceptionHandlingStrategy.html">IExceptionHandlingStrategy</a> used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IExceptionHandlingStrategy&gt; ExceptionHandlingStrategies { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Cadru.Polly.IExceptionHandlingStrategy.html">IExceptionHandlingStrategy</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Polly_Data_SqlStrategyBuilder_Policies.md&amp;value=---%0Auid%3A%20Cadru.Polly.Data.SqlStrategyBuilder.Policies%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Polly/Data/SqlStrategyBuilder.cs/#L79">View Source</a>
+  </span>
+  <a id="Cadru_Polly_Data_SqlStrategyBuilder_Policies_" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.Policies*"></a>
+  <h4 id="Cadru_Polly_Data_SqlStrategyBuilder_Policies" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.Policies">Policies</h4>
+  <div class="markdown level1 summary"><p>Gets the list of policies which make up the strategy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IList&lt;IsPolicy&gt; Policies { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IList</span>&lt;<span class="xref">IsPolicy</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Polly_Data_SqlStrategyBuilder_StrategyOptions.md&amp;value=---%0Auid%3A%20Cadru.Polly.Data.SqlStrategyBuilder.StrategyOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Polly/Data/SqlStrategyBuilder.cs/#L84">View Source</a>
+  </span>
+  <a id="Cadru_Polly_Data_SqlStrategyBuilder_StrategyOptions_" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.StrategyOptions*"></a>
+  <h4 id="Cadru_Polly_Data_SqlStrategyBuilder_StrategyOptions" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.StrategyOptions">StrategyOptions</h4>
+  <div class="markdown level1 summary"><p>Gets the <a class="xref" href="Cadru.Polly.Data.SqlStrategyOptions.html">SqlStrategyOptions</a> used to configure the policies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SqlStrategyOptions StrategyOptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Polly.Data.SqlStrategyOptions.html">SqlStrategyOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Polly_Data_SqlStrategyBuilder_Build.md&amp;value=---%0Auid%3A%20Cadru.Polly.Data.SqlStrategyBuilder.Build%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Polly/Data/SqlStrategyBuilder.cs/#L104">View Source</a>
+  </span>
+  <a id="Cadru_Polly_Data_SqlStrategyBuilder_Build_" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.Build*"></a>
+  <h4 id="Cadru_Polly_Data_SqlStrategyBuilder_Build" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.Build">Build()</h4>
+  <div class="markdown level1 summary"><p>Builds a <a class="xref" href="Cadru.Polly.Data.ISqlStrategy.html">ISqlStrategy</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISqlStrategy Build()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Polly.Data.ISqlStrategy.html">ISqlStrategy</a></td>
+        <td><p>The SQL strategy instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Polly_Data_SqlStrategyBuilder_GetAsyncPolicies.md&amp;value=---%0Auid%3A%20Cadru.Polly.Data.SqlStrategyBuilder.GetAsyncPolicies%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Polly/Data/SqlStrategyBuilder.cs/#L155">View Source</a>
+  </span>
+  <a id="Cadru_Polly_Data_SqlStrategyBuilder_GetAsyncPolicies_" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.GetAsyncPolicies*"></a>
+  <h4 id="Cadru_Polly_Data_SqlStrategyBuilder_GetAsyncPolicies" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.GetAsyncPolicies">GetAsyncPolicies()</h4>
+  <div class="markdown level1 summary"><p>Gets the ordered set of asynchronous policies to build.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual IAsyncPolicy GetAsyncPolicies()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IAsyncPolicy</span></td>
+        <td><p>An ordered set of asynchronous policies.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Polly_Data_SqlStrategyBuilder_GetDefaultPolicyBuilder.md&amp;value=---%0Auid%3A%20Cadru.Polly.Data.SqlStrategyBuilder.GetDefaultPolicyBuilder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Polly/Data/SqlStrategyBuilder.cs/#L130">View Source</a>
+  </span>
+  <a id="Cadru_Polly_Data_SqlStrategyBuilder_GetDefaultPolicyBuilder_" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.GetDefaultPolicyBuilder*"></a>
+  <h4 id="Cadru_Polly_Data_SqlStrategyBuilder_GetDefaultPolicyBuilder" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.GetDefaultPolicyBuilder">GetDefaultPolicyBuilder()</h4>
+  <div class="markdown level1 summary"><p>Gets a <see cref="!:PolicyBuilder"></see> which handles the exceptions in
+the default <a class="xref" href="Cadru.Polly.IExceptionHandlingStrategy.html">IExceptionHandlingStrategy</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PolicyBuilder GetDefaultPolicyBuilder()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">PolicyBuilder</span></td>
+        <td><p>A <see cref="!:PolicyBuilder"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Polly_Data_SqlStrategyBuilder_GetPolicyBuilder.md&amp;value=---%0Auid%3A%20Cadru.Polly.Data.SqlStrategyBuilder.GetPolicyBuilder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Polly/Data/SqlStrategyBuilder.cs/#L140">View Source</a>
+  </span>
+  <a id="Cadru_Polly_Data_SqlStrategyBuilder_GetPolicyBuilder_" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.GetPolicyBuilder*"></a>
+  <h4 id="Cadru_Polly_Data_SqlStrategyBuilder_GetPolicyBuilder" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.GetPolicyBuilder">GetPolicyBuilder()</h4>
+  <div class="markdown level1 summary"><p>Gets a <see cref="!:PolicyBuilder"></see> which handles all of the
+exceptions in <a class="xref" href="Cadru.Polly.Data.SqlStrategyBuilder.html#Cadru_Polly_Data_SqlStrategyBuilder_ExceptionHandlingStrategies">ExceptionHandlingStrategies</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PolicyBuilder GetPolicyBuilder()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">PolicyBuilder</span></td>
+        <td><p>A <see cref="!:PolicyBuilder"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Polly_Data_SqlStrategyBuilder_GetSyncPolicies.md&amp;value=---%0Auid%3A%20Cadru.Polly.Data.SqlStrategyBuilder.GetSyncPolicies%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Polly/Data/SqlStrategyBuilder.cs/#L172">View Source</a>
+  </span>
+  <a id="Cadru_Polly_Data_SqlStrategyBuilder_GetSyncPolicies_" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.GetSyncPolicies*"></a>
+  <h4 id="Cadru_Polly_Data_SqlStrategyBuilder_GetSyncPolicies" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.GetSyncPolicies">GetSyncPolicies()</h4>
+  <div class="markdown level1 summary"><p>Gets the ordered set of synchronous policies to build.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual ISyncPolicy GetSyncPolicies()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ISyncPolicy</span></td>
+        <td><p>An ordered set of synchronous policies.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Polly_Data_SqlStrategyBuilder_NoOp.md&amp;value=---%0Auid%3A%20Cadru.Polly.Data.SqlStrategyBuilder.NoOp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Polly/Data/SqlStrategyBuilder.cs/#L91">View Source</a>
+  </span>
+  <a id="Cadru_Polly_Data_SqlStrategyBuilder_NoOp_" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.NoOp*"></a>
+  <h4 id="Cadru_Polly_Data_SqlStrategyBuilder_NoOp" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.NoOp">NoOp()</h4>
+  <div class="markdown level1 summary"><p>Builds a NoOp <see cref="!:Policy"></see> that will execute without any
+custom behavior.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ISyncPolicy NoOp()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ISyncPolicy</span></td>
+        <td><p>The policy instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Polly_Data_SqlStrategyBuilder_NoOpAsync.md&amp;value=---%0Auid%3A%20Cadru.Polly.Data.SqlStrategyBuilder.NoOpAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Polly/Data/SqlStrategyBuilder.cs/#L98">View Source</a>
+  </span>
+  <a id="Cadru_Polly_Data_SqlStrategyBuilder_NoOpAsync_" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.NoOpAsync*"></a>
+  <h4 id="Cadru_Polly_Data_SqlStrategyBuilder_NoOpAsync" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.NoOpAsync">NoOpAsync()</h4>
+  <div class="markdown level1 summary"><p>Builds a NoOp <see cref="!:AsyncPolicy"></see> that will execute without
+any custom behavior.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IAsyncPolicy NoOpAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IAsyncPolicy</span></td>
+        <td><p>The policy instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Polly_Data_SqlStrategyBuilder_Validate.md&amp;value=---%0Auid%3A%20Cadru.Polly.Data.SqlStrategyBuilder.Validate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Polly/Data/SqlStrategyBuilder.cs/#L189">View Source</a>
+  </span>
+  <a id="Cadru_Polly_Data_SqlStrategyBuilder_Validate_" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.Validate*"></a>
+  <h4 id="Cadru_Polly_Data_SqlStrategyBuilder_Validate" data-uid="Cadru.Polly.Data.SqlStrategyBuilder.Validate">Validate()</h4>
+  <div class="markdown level1 summary"><p>When overridden in a derived class, provides additional validation
+for the policies before building them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Validate()</code></pre>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNotNull__1___0_">NullExtensions.IsNotNull&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNull__1___0_">NullExtensions.IsNull&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.html#Cadru_Polly_Data_SqlServer_SqlServerStrategySyntax_Retry_Cadru_Polly_Data_SqlStrategyBuilder_Cadru_Polly_IExceptionHandlingStrategy_Cadru_Polly_Data_SqlStrategyOptions_">SqlServerStrategySyntax.Retry(SqlStrategyBuilder, IExceptionHandlingStrategy, SqlStrategyOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.html#Cadru_Polly_Data_SqlServer_SqlServerStrategySyntax_WithCircuitBreakers_Cadru_Polly_Data_SqlStrategyBuilder_Cadru_Polly_Data_SqlStrategyOptions_">SqlServerStrategySyntax.WithCircuitBreakers(SqlStrategyBuilder, SqlStrategyOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.html#Cadru_Polly_Data_SqlServer_SqlServerStrategySyntax_WithFallback__1_Cadru_Polly_Data_SqlStrategyBuilder_Func_Task___0___">SqlServerStrategySyntax.WithFallback&lt;T&gt;(SqlStrategyBuilder, Func&lt;Task&lt;T&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.html#Cadru_Polly_Data_SqlServer_SqlServerStrategySyntax_WithFallback_Cadru_Polly_Data_SqlStrategyBuilder_Func_Task__">SqlServerStrategySyntax.WithFallback(SqlStrategyBuilder, Func&lt;Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.html#Cadru_Polly_Data_SqlServer_SqlServerStrategySyntax_WithOverallAndTimeoutPerRetry_Cadru_Polly_Data_SqlStrategyBuilder_Cadru_Polly_Data_SqlStrategyOptions_">SqlServerStrategySyntax.WithOverallAndTimeoutPerRetry(SqlStrategyBuilder, SqlStrategyOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.html#Cadru_Polly_Data_SqlServer_SqlServerStrategySyntax_WithOverallTimeout_Cadru_Polly_Data_SqlStrategyBuilder_Cadru_Polly_Data_SqlStrategyOptions_">SqlServerStrategySyntax.WithOverallTimeout(SqlStrategyBuilder, SqlStrategyOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.html#Cadru_Polly_Data_SqlServer_SqlServerStrategySyntax_WithTimeoutPerRetry_Cadru_Polly_Data_SqlStrategyBuilder_Cadru_Polly_Data_SqlStrategyOptions_">SqlServerStrategySyntax.WithTimeoutPerRetry(SqlStrategyBuilder, SqlStrategyOptions)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Polly_Data_SqlStrategyBuilder.md&amp;value=---%0Auid%3A%20Cadru.Polly.Data.SqlStrategyBuilder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Polly/Data/SqlStrategyBuilder.cs/#L39" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

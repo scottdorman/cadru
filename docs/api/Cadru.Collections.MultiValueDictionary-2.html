@@ -1,0 +1,2090 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class MultiValueDictionary&lt;TKey, TValue&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class MultiValueDictionary&lt;TKey, TValue&gt;
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.Collections.MultiValueDictionary`2">
+  
+  
+  <h1 id="Cadru_Collections_MultiValueDictionary_2" data-uid="Cadru.Collections.MultiValueDictionary`2" class="text-break">Class MultiValueDictionary&lt;TKey, TValue&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>A MultiValueDictionary can be viewed as a <see cref="!:IDictionary"></see> that
+allows multiple values for any given unique key. While the
+MultiValueDictionary API is mostly the same as that of a regular
+<see cref="!:IDictionary"></see>, there is a distinction in that getting the
+value for a key returns a <see cref="!:IReadOnlyCollection&lt;TValue>"></see> of
+values rather than a single value associated with that key.
+Additionally, there is functionality to allow adding or removing more
+than a single value at once.</p>
+<p>The MultiValueDictionary can also be viewed as a
+IReadOnlyDictionary&lt;TKey,IReadOnlyCollection&lt;TValue&gt;t&gt; where
+the <see cref="!:IReadOnlyCollection&lt;TValue>"></see> is abstracted from the
+view of the programmer.</p>
+<p>For a read-only MultiValueDictionary, see <see cref="!:System.Linq.ILookup&lt;TKey, TValue>"></see>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">MultiValueDictionary&lt;TKey, TValue&gt;</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.Collections.html">Cadru.Collections</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.Collections.dll</h6>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class MultiValueDictionary&lt;TKey, TValue&gt; : IReadOnlyDictionary&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>The type of the key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2__ctor.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L64">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2__ctor_" data-uid="Cadru.Collections.MultiValueDictionary`2.#ctor*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2__ctor" data-uid="Cadru.Collections.MultiValueDictionary`2.#ctor">MultiValueDictionary()</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that is
+empty, has the default initial capacity, and uses the default
+<see cref="!:IEqualityComparer&lt;TKey>"></see> for <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiValueDictionary()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2__ctor_IEnumerable_KeyValuePair__0_IReadOnlyCollection__1____.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.%23ctor(IEnumerable%7BKeyValuePair%7B%600%2CIReadOnlyCollection%7B%601%7D%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L147">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2__ctor_" data-uid="Cadru.Collections.MultiValueDictionary`2.#ctor*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2__ctor_IEnumerable_KeyValuePair__0_IReadOnlyCollection__1____" data-uid="Cadru.Collections.MultiValueDictionary`2.#ctor(IEnumerable{KeyValuePair{`0,IReadOnlyCollection{`1}}})">MultiValueDictionary(IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that contains
+elements copied from the specified
+IEnumerable&lt;KeyValuePair&lt;TKey,
+IReadOnlyCollection&lt;TValue&gt;&gt;&gt; and uses the default
+<see cref="!:IEqualityComparer&lt;TKey>"></see> for the
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiValueDictionary(IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt; enumerable)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;TKey, <span class="xref">IReadOnlyCollection</span>&lt;TValue&gt;&gt;&gt;</td>
+        <td><span class="parametername">enumerable</span></td>
+        <td><p>IEnumerable to copy elements into this from</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2__ctor_IEnumerable_KeyValuePair__0_IReadOnlyCollection__1____System_Nullable_IEqualityComparer__0___.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.%23ctor(IEnumerable%7BKeyValuePair%7B%600%2CIReadOnlyCollection%7B%601%7D%7D%7D%2CSystem.Nullable%7BIEqualityComparer%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L172">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2__ctor_" data-uid="Cadru.Collections.MultiValueDictionary`2.#ctor*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2__ctor_IEnumerable_KeyValuePair__0_IReadOnlyCollection__1____System_Nullable_IEqualityComparer__0___" data-uid="Cadru.Collections.MultiValueDictionary`2.#ctor(IEnumerable{KeyValuePair{`0,IReadOnlyCollection{`1}}},System.Nullable{IEqualityComparer{`0}})">MultiValueDictionary(IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt;, Nullable&lt;IEqualityComparer&lt;TKey&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that contains
+elements copied from the specified
+IEnumerable&lt;KeyValuePair&lt;TKey,
+IReadOnlyCollection&lt;TValue&gt;&gt;&gt; and uses the specified <see cref="!:IEqualityComparer&lt;TKey>"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiValueDictionary(IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt; enumerable, IEqualityComparer&lt;TKey&gt;? comparer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;TKey, <span class="xref">IReadOnlyCollection</span>&lt;TValue&gt;&gt;&gt;</td>
+        <td><span class="parametername">enumerable</span></td>
+        <td><p>IEnumerable to copy elements into this from</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEqualityComparer</span>&lt;TKey&gt;&gt;</td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>Specified comparer to use for the <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> s</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2__ctor_IEnumerable_KeyValuePair__0_IReadOnlyCollection__1____System_Nullable_IEqualityComparer__0____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If <code data-dev-comment-type="paramref" class="paramref">comparer</code> is set to null, then the default
+<see cref="!:IEqualityComparer"></see> for <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> is used.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2__ctor_IEqualityComparer__0__.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.%23ctor(IEqualityComparer%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L101">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2__ctor_" data-uid="Cadru.Collections.MultiValueDictionary`2.#ctor*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2__ctor_IEqualityComparer__0__" data-uid="Cadru.Collections.MultiValueDictionary`2.#ctor(IEqualityComparer{`0})">MultiValueDictionary(IEqualityComparer&lt;TKey&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that is
+empty, has the default initial capacity, and uses the specified <see cref="!:IEqualityComparer&lt;TKey>"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiValueDictionary(IEqualityComparer&lt;TKey&gt; comparer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEqualityComparer</span>&lt;TKey&gt;</td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>Specified comparer to use for the <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> s</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2__ctor_IEqualityComparer__0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If <code data-dev-comment-type="paramref" class="paramref">comparer</code> is set to null, then the default
+<see cref="!:IEqualityComparer"></see> for <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> is used.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2__ctor_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.%23ctor(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L82">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2__ctor_" data-uid="Cadru.Collections.MultiValueDictionary`2.#ctor*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2__ctor_System_Int32_" data-uid="Cadru.Collections.MultiValueDictionary`2.#ctor(System.Int32)">MultiValueDictionary(Int32)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that is
+empty, has the specified initial capacity, and uses the default
+<see cref="!:IEqualityComparer&lt;TKey>"></see> for <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiValueDictionary(int capacity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">capacity</span></td>
+        <td><p>Initial number of keys that the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will allocate space for</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2__ctor_System_Int32_IEqualityComparer__0__.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.%23ctor(System.Int32%2CIEqualityComparer%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L125">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2__ctor_" data-uid="Cadru.Collections.MultiValueDictionary`2.#ctor*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2__ctor_System_Int32_IEqualityComparer__0__" data-uid="Cadru.Collections.MultiValueDictionary`2.#ctor(System.Int32,IEqualityComparer{`0})">MultiValueDictionary(Int32, IEqualityComparer&lt;TKey&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that is
+empty, has the specified initial capacity, and uses the specified <see cref="!:IEqualityComparer&lt;TKey>"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiValueDictionary(int capacity, IEqualityComparer&lt;TKey&gt; comparer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">capacity</span></td>
+        <td><p>Initial number of keys that the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will allocate space for</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEqualityComparer</span>&lt;TKey&gt;</td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>Specified comparer to use for the <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> s</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2__ctor_System_Int32_IEqualityComparer__0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If <code data-dev-comment-type="paramref" class="paramref">comparer</code> is set to null, then the default
+<see cref="!:IEqualityComparer"></see> for <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> is used.</p>
+</div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Count.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Count%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L188">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Count_" data-uid="Cadru.Collections.MultiValueDictionary`2.Count*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Count" data-uid="Cadru.Collections.MultiValueDictionary`2.Count">Count</h4>
+  <div class="markdown level1 summary"><p>Returns the number of <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> s with one or more
+associated <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> in this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The number of <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> s in this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Item__0_.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Item(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L240">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Item_" data-uid="Cadru.Collections.MultiValueDictionary`2.Item*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Item__0_" data-uid="Cadru.Collections.MultiValueDictionary`2.Item(`0)">Item[TKey]</h4>
+  <div class="markdown level1 summary"><p>Get every <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> associated with the given
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>. If <code data-dev-comment-type="paramref" class="paramref">key</code> is not found
+in this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>, will throw
+a <see cref="!:KeyNotFoundException"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyCollection&lt;TValue&gt; this[TKey key] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> of the elements to retrieve.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IReadOnlyCollection</span>&lt;TValue&gt;</td>
+        <td><p>An <see cref="!:IReadOnlyCollection&lt;TValue>"></see> containing every
+<code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> associated with <code data-dev-comment-type="paramref" class="paramref">key</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2_Item__0__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Note that the <see cref="!:IReadOnlyCollection&lt;TValue>"></see> returned
+will change alongside any changes to the <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a></p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Keys.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Keys%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L201">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Keys_" data-uid="Cadru.Collections.MultiValueDictionary`2.Keys*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Keys" data-uid="Cadru.Collections.MultiValueDictionary`2.Keys">Keys</h4>
+  <div class="markdown level1 summary"><p>Gets each <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> in this
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> that has one or more
+associated <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;TKey&gt; Keys { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;TKey&gt;</td>
+        <td><p>An <see cref="!:IEnumerable&lt;TKey>"></see> containing each
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> in this
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> that has one or more
+associated <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Values.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Values%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L214">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Values_" data-uid="Cadru.Collections.MultiValueDictionary`2.Values*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Values" data-uid="Cadru.Collections.MultiValueDictionary`2.Values">Values</h4>
+  <div class="markdown level1 summary"><p>Gets an enumerable of <see cref="!:IReadOnlyCollection&lt;TValue>"></see> from
+this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>, where each
+<see cref="!:IReadOnlyCollection&lt;TValue>"></see> is the collection of every
+<code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> associated with a
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> present in the <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IReadOnlyCollection&lt;TValue&gt;&gt; Values { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">IReadOnlyCollection</span>&lt;TValue&gt;&gt;</td>
+        <td><p>An IEnumerable of each <see cref="!:IReadOnlyCollection&lt;TValue>"></see> in
+this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Add__0__1_.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Add(%600%2C%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L958">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Add_" data-uid="Cadru.Collections.MultiValueDictionary`2.Add*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Add__0__1_" data-uid="Cadru.Collections.MultiValueDictionary`2.Add(`0,`1)">Add(TKey, TValue)</h4>
+  <div class="markdown level1 summary"><p>Adds the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> and
+<code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> to the <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(TKey key, TValue value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> of the element to add.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> of the element to add.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2_Add__0__1__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Unlike the Add for <see cref="!:IDictionary"></see>, the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> Add will not throw
+any exceptions. If the given <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> is already
+in the <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>, then
+<code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> will be added to
+<see cref="!:IReadOnlyCollection&lt;TValue>"></see> associated with <code data-dev-comment-type="paramref" class="paramref">key</code></p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_AddRange__0_IEnumerable__1__.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.AddRange(%600%2CIEnumerable%7B%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L995">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_AddRange_" data-uid="Cadru.Collections.MultiValueDictionary`2.AddRange*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_AddRange__0_IEnumerable__1__" data-uid="Cadru.Collections.MultiValueDictionary`2.AddRange(`0,IEnumerable{`1})">AddRange(TKey, IEnumerable&lt;TValue&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a number of key-value pairs to this
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>, where the key for
+each value is <code data-dev-comment-type="paramref" class="paramref">key</code>, and the value for a pair is an
+element from <code data-dev-comment-type="paramref" class="paramref">values</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddRange(TKey key, IEnumerable&lt;TValue&gt; values)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> of all entries to add</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;TValue&gt;</td>
+        <td><span class="parametername">values</span></td>
+        <td><p>An <see cref="!:IEnumerable&lt;TValue>"></see> of values to add</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2_AddRange__0_IEnumerable__1___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>A call to this AddRange method will always invalidate any currently
+running enumeration regardless of whether the AddRange method
+actually modified the <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Clear.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Clear%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L1022">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Clear_" data-uid="Cadru.Collections.MultiValueDictionary`2.Clear*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Clear" data-uid="Cadru.Collections.MultiValueDictionary`2.Clear">Clear()</h4>
+  <div class="markdown level1 summary"><p>Removes every <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> and
+<code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> from this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Contains__0__1_.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Contains(%600%2C%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L1038">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Contains_" data-uid="Cadru.Collections.MultiValueDictionary`2.Contains*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Contains__0__1_" data-uid="Cadru.Collections.MultiValueDictionary`2.Contains(`0,`1)">Contains(TKey, TValue)</h4>
+  <div class="markdown level1 summary"><p>Determines if the given <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>-
+<code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> pair exists within this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(TKey key, TValue value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> of the element.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> of the element.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if found; otherwise <code>false</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_ContainsKey__0_.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.ContainsKey(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L1064">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_ContainsKey_" data-uid="Cadru.Collections.MultiValueDictionary`2.ContainsKey*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_ContainsKey__0_" data-uid="Cadru.Collections.MultiValueDictionary`2.ContainsKey(`0)">ContainsKey(TKey)</h4>
+  <div class="markdown level1 summary"><p>Determines if the given <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> exists within
+this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> and has at
+least one <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> associated with it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ContainsKey(TKey key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> to search the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> for</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>
+contains the requested <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>; otherwise <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_ContainsValue__1_.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.ContainsValue(%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L1091">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_ContainsValue_" data-uid="Cadru.Collections.MultiValueDictionary`2.ContainsValue*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_ContainsValue__1_" data-uid="Cadru.Collections.MultiValueDictionary`2.ContainsValue(`1)">ContainsValue(TValue)</h4>
+  <div class="markdown level1 summary"><p>Determines if the given <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> exists within
+this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ContainsValue(TValue value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> to search the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> for</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>
+contains the <code data-dev-comment-type="paramref" class="paramref">value</code>; otherwise <code>false</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Create__1.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Create%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L286">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Create_" data-uid="Cadru.Collections.MultiValueDictionary`2.Create*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Create__1" data-uid="Cadru.Collections.MultiValueDictionary`2.Create``1">Create&lt;TValueCollection&gt;()</h4>
+  <div class="markdown level1 summary"><p>Creates a new new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that is
+empty, has the default initial capacity, and uses the default
+<see cref="!:IEqualityComparer&lt;TKey>"></see> for
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>. The internal dictionary will use
+instances of the <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> class as
+its collection type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MultiValueDictionary&lt;TKey, TValue&gt; Create&lt;TValueCollection&gt;()
+    where TValueCollection : ICollection&lt;TValue&gt;, new()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary</a>&lt;TKey, TValue&gt;</td>
+        <td><p>A new <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> with the
+specified parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValueCollection</span></td>
+        <td><p>The collection type that this
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will contain in its
+internal dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2_Create__1_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Note that <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> must implement
+<see cref="!:ICollection&lt;TValue>"></see> in addition to being constructable
+through new(). The collection returned from the constructor must
+also not have IsReadOnly set to True by default.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Create__1_Func___0__.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Create%60%601(Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L615">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Create_" data-uid="Cadru.Collections.MultiValueDictionary`2.Create*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Create__1_Func___0__" data-uid="Cadru.Collections.MultiValueDictionary`2.Create``1(Func{``0})">Create&lt;TValueCollection&gt;(Func&lt;TValueCollection&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a new new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that is
+empty, has the default initial capacity, and uses the default
+<see cref="!:IEqualityComparer&lt;TKey>"></see> for
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>. The internal dictionary will use
+instances of the <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> class as
+its collection type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MultiValueDictionary&lt;TKey, TValue&gt; Create&lt;TValueCollection&gt;(Func&lt;TValueCollection&gt; collectionFactory)
+    where TValueCollection : ICollection&lt;TValue&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TValueCollection&gt;</td>
+        <td><span class="parametername">collectionFactory</span></td>
+        <td><p>A function to create a new <see cref="!:ICollection&lt;TValue>"></see> to use
+in the internal dictionary store of this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary</a>&lt;TKey, TValue&gt;</td>
+        <td><p>A new <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> with the
+specified parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValueCollection</span></td>
+        <td><p>The collection type that this
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will contain in its
+internal dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2_Create__1_Func___0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Note that <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> must implement
+<see cref="!:ICollection&lt;TValue>"></see> in addition to being constructable
+through new(). The collection returned from the constructor must
+also not have IsReadOnly set to True by default.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Create__1_IEnumerable_KeyValuePair__0_IReadOnlyCollection__1____.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Create%60%601(IEnumerable%7BKeyValuePair%7B%600%2CIReadOnlyCollection%7B%601%7D%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L494">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Create_" data-uid="Cadru.Collections.MultiValueDictionary`2.Create*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Create__1_IEnumerable_KeyValuePair__0_IReadOnlyCollection__1____" data-uid="Cadru.Collections.MultiValueDictionary`2.Create``1(IEnumerable{KeyValuePair{`0,IReadOnlyCollection{`1}}})">Create&lt;TValueCollection&gt;(IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that contains
+elements copied from the specified
+IEnumerable&lt;KeyValuePair&lt;TKey,
+IReadOnlyCollection&lt;TValue&gt;&gt;&gt; and uses the default
+<see cref="!:IEqualityComparer&lt;TKey>"></see> for the
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> type. The internal dictionary will use
+instances of the <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> class as
+its collection type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MultiValueDictionary&lt;TKey, TValue&gt; Create&lt;TValueCollection&gt;(IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt; enumerable)
+    where TValueCollection : ICollection&lt;TValue&gt;, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;TKey, <span class="xref">IReadOnlyCollection</span>&lt;TValue&gt;&gt;&gt;</td>
+        <td><span class="parametername">enumerable</span></td>
+        <td><p>IEnumerable to copy elements into this from</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary</a>&lt;TKey, TValue&gt;</td>
+        <td><p>A new <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> with the
+specified parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValueCollection</span></td>
+        <td><p>The collection type that this
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will contain in its
+internal dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2_Create__1_IEnumerable_KeyValuePair__0_IReadOnlyCollection__1_____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Note that <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> must implement
+<see cref="!:ICollection&lt;TValue>"></see> in addition to being constructable
+through new(). The collection returned from the constructor must
+also not have IsReadOnly set to True by default.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Create__1_IEnumerable_KeyValuePair__0_IReadOnlyCollection__1____Func___0__.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Create%60%601(IEnumerable%7BKeyValuePair%7B%600%2CIReadOnlyCollection%7B%601%7D%7D%7D%2CFunc%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L839">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Create_" data-uid="Cadru.Collections.MultiValueDictionary`2.Create*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Create__1_IEnumerable_KeyValuePair__0_IReadOnlyCollection__1____Func___0__" data-uid="Cadru.Collections.MultiValueDictionary`2.Create``1(IEnumerable{KeyValuePair{`0,IReadOnlyCollection{`1}}},Func{``0})">Create&lt;TValueCollection&gt;(IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt;, Func&lt;TValueCollection&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that contains
+elements copied from the specified
+IEnumerable&lt;KeyValuePair&lt;TKey,
+IReadOnlyCollection&lt;TValue&gt;&gt;&gt; and uses the default
+<see cref="!:IEqualityComparer&lt;TKey>"></see> for the
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> type. The internal dictionary will use
+instances of the <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> class as
+its collection type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MultiValueDictionary&lt;TKey, TValue&gt; Create&lt;TValueCollection&gt;(IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt; enumerable, Func&lt;TValueCollection&gt; collectionFactory)
+    where TValueCollection : ICollection&lt;TValue&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;TKey, <span class="xref">IReadOnlyCollection</span>&lt;TValue&gt;&gt;&gt;</td>
+        <td><span class="parametername">enumerable</span></td>
+        <td><p>IEnumerable to copy elements into this from</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TValueCollection&gt;</td>
+        <td><span class="parametername">collectionFactory</span></td>
+        <td><p>A function to create a new <see cref="!:ICollection&lt;TValue>"></see> to use
+in the internal dictionary store of this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary</a>&lt;TKey, TValue&gt;</td>
+        <td><p>A new <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> with the
+specified parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValueCollection</span></td>
+        <td><p>The collection type that this
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will contain in its
+internal dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2_Create__1_IEnumerable_KeyValuePair__0_IReadOnlyCollection__1____Func___0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Note that <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> must implement
+<see cref="!:ICollection&lt;TValue>"></see> in addition to being constructable
+through new(). The collection returned from the constructor must
+also not have IsReadOnly set to True by default.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Create__1_IEnumerable_KeyValuePair__0_IReadOnlyCollection__1____IEqualityComparer__0__.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Create%60%601(IEnumerable%7BKeyValuePair%7B%600%2CIReadOnlyCollection%7B%601%7D%7D%7D%2CIEqualityComparer%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L560">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Create_" data-uid="Cadru.Collections.MultiValueDictionary`2.Create*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Create__1_IEnumerable_KeyValuePair__0_IReadOnlyCollection__1____IEqualityComparer__0__" data-uid="Cadru.Collections.MultiValueDictionary`2.Create``1(IEnumerable{KeyValuePair{`0,IReadOnlyCollection{`1}}},IEqualityComparer{`0})">Create&lt;TValueCollection&gt;(IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt;, IEqualityComparer&lt;TKey&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that contains
+elements copied from the specified
+IEnumerable&lt;KeyValuePair&lt;TKey,
+IReadOnlyCollection&lt;TValue&gt;&gt;&gt; and uses the specified
+<see cref="!:IEqualityComparer&lt;TKey>"></see> for the
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> type. The internal dictionary will use
+instances of the <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> class as
+its collection type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MultiValueDictionary&lt;TKey, TValue&gt; Create&lt;TValueCollection&gt;(IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt; enumerable, IEqualityComparer&lt;TKey&gt; comparer)
+    where TValueCollection : ICollection&lt;TValue&gt;, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;TKey, <span class="xref">IReadOnlyCollection</span>&lt;TValue&gt;&gt;&gt;</td>
+        <td><span class="parametername">enumerable</span></td>
+        <td><p>IEnumerable to copy elements into this from</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEqualityComparer</span>&lt;TKey&gt;</td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>Specified comparer to use for the <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> s</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary</a>&lt;TKey, TValue&gt;</td>
+        <td><p>A new <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> with the
+specified parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValueCollection</span></td>
+        <td><p>The collection type that this
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will contain in its
+internal dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2_Create__1_IEnumerable_KeyValuePair__0_IReadOnlyCollection__1____IEqualityComparer__0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If <code data-dev-comment-type="paramref" class="paramref">comparer</code> is set to null, then the default
+<see cref="!:IEqualityComparer"></see> for <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> is used.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Create__1_IEnumerable_KeyValuePair__0_IReadOnlyCollection__1____IEqualityComparer__0__Func___0__.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Create%60%601(IEnumerable%7BKeyValuePair%7B%600%2CIReadOnlyCollection%7B%601%7D%7D%7D%2CIEqualityComparer%7B%600%7D%2CFunc%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L909">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Create_" data-uid="Cadru.Collections.MultiValueDictionary`2.Create*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Create__1_IEnumerable_KeyValuePair__0_IReadOnlyCollection__1____IEqualityComparer__0__Func___0__" data-uid="Cadru.Collections.MultiValueDictionary`2.Create``1(IEnumerable{KeyValuePair{`0,IReadOnlyCollection{`1}}},IEqualityComparer{`0},Func{``0})">Create&lt;TValueCollection&gt;(IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt;, IEqualityComparer&lt;TKey&gt;, Func&lt;TValueCollection&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that contains
+elements copied from the specified
+IEnumerable&lt;KeyValuePair&lt;TKey,
+IReadOnlyCollection&lt;TValue&gt;&gt;&gt; and uses the specified
+<see cref="!:IEqualityComparer&lt;TKey>"></see> for the
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> type. The internal dictionary will use
+instances of the <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> class as
+its collection type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MultiValueDictionary&lt;TKey, TValue&gt; Create&lt;TValueCollection&gt;(IEnumerable&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt; enumerable, IEqualityComparer&lt;TKey&gt; comparer, Func&lt;TValueCollection&gt; collectionFactory)
+    where TValueCollection : ICollection&lt;TValue&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;TKey, <span class="xref">IReadOnlyCollection</span>&lt;TValue&gt;&gt;&gt;</td>
+        <td><span class="parametername">enumerable</span></td>
+        <td><p>IEnumerable to copy elements into this from</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEqualityComparer</span>&lt;TKey&gt;</td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>Specified comparer to use for the <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> s</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TValueCollection&gt;</td>
+        <td><span class="parametername">collectionFactory</span></td>
+        <td><p>A function to create a new <see cref="!:ICollection&lt;TValue>"></see> to use
+in the internal dictionary store of this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary</a>&lt;TKey, TValue&gt;</td>
+        <td><p>A new <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> with the
+specified parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValueCollection</span></td>
+        <td><p>The collection type that this
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will contain in its
+internal dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2_Create__1_IEnumerable_KeyValuePair__0_IReadOnlyCollection__1____IEqualityComparer__0__Func___0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If <code data-dev-comment-type="paramref" class="paramref">comparer</code> is set to null, then the default
+<see cref="!:IEqualityComparer"></see> for <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> is used.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Create__1_IEqualityComparer__0__.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Create%60%601(IEqualityComparer%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L386">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Create_" data-uid="Cadru.Collections.MultiValueDictionary`2.Create*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Create__1_IEqualityComparer__0__" data-uid="Cadru.Collections.MultiValueDictionary`2.Create``1(IEqualityComparer{`0})">Create&lt;TValueCollection&gt;(IEqualityComparer&lt;TKey&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that is
+empty, has the default initial capacity, and uses the specified
+<see cref="!:IEqualityComparer&lt;TKey>"></see> for
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>. The internal dictionary will use
+instances of the <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> class as
+its collection type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MultiValueDictionary&lt;TKey, TValue&gt; Create&lt;TValueCollection&gt;(IEqualityComparer&lt;TKey&gt; comparer)
+    where TValueCollection : ICollection&lt;TValue&gt;, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEqualityComparer</span>&lt;TKey&gt;</td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>Specified comparer to use for the <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> s</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary</a>&lt;TKey, TValue&gt;</td>
+        <td><p>A new <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> with the
+specified parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValueCollection</span></td>
+        <td><p>The collection type that this
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will contain in its
+internal dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2_Create__1_IEqualityComparer__0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If <code data-dev-comment-type="paramref" class="paramref">comparer</code> is set to null, then the default
+<see cref="!:IEqualityComparer"></see> for <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> is used.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Create__1_IEqualityComparer__0__Func___0__.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Create%60%601(IEqualityComparer%7B%600%7D%2CFunc%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L723">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Create_" data-uid="Cadru.Collections.MultiValueDictionary`2.Create*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Create__1_IEqualityComparer__0__Func___0__" data-uid="Cadru.Collections.MultiValueDictionary`2.Create``1(IEqualityComparer{`0},Func{``0})">Create&lt;TValueCollection&gt;(IEqualityComparer&lt;TKey&gt;, Func&lt;TValueCollection&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a new new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that is
+empty, has the default initial capacity, and uses the specified
+<see cref="!:IEqualityComparer&lt;TKey>"></see> for
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>. The internal dictionary will use
+instances of the <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> class as
+its collection type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MultiValueDictionary&lt;TKey, TValue&gt; Create&lt;TValueCollection&gt;(IEqualityComparer&lt;TKey&gt; comparer, Func&lt;TValueCollection&gt; collectionFactory)
+    where TValueCollection : ICollection&lt;TValue&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEqualityComparer</span>&lt;TKey&gt;</td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>Specified comparer to use for the <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> s</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TValueCollection&gt;</td>
+        <td><span class="parametername">collectionFactory</span></td>
+        <td><p>A function to create a new <see cref="!:ICollection&lt;TValue>"></see> to use
+in the internal dictionary store of this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary</a>&lt;TKey, TValue&gt;</td>
+        <td><p>A new <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> with the
+specified parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValueCollection</span></td>
+        <td><p>The collection type that this
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will contain in its
+internal dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2_Create__1_IEqualityComparer__0__Func___0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If <code data-dev-comment-type="paramref" class="paramref">comparer</code> is set to null, then the default
+<see cref="!:IEqualityComparer"></see> for <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> is used.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Create__1_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Create%60%601(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L335">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Create_" data-uid="Cadru.Collections.MultiValueDictionary`2.Create*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Create__1_System_Int32_" data-uid="Cadru.Collections.MultiValueDictionary`2.Create``1(System.Int32)">Create&lt;TValueCollection&gt;(Int32)</h4>
+  <div class="markdown level1 summary"><p>Creates a new new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that is
+empty, has the specified initial capacity, and uses the default
+<see cref="!:IEqualityComparer&lt;TKey>"></see> for
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>. The internal dictionary will use
+instances of the <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> class as
+its collection type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MultiValueDictionary&lt;TKey, TValue&gt; Create&lt;TValueCollection&gt;(int capacity)
+    where TValueCollection : ICollection&lt;TValue&gt;, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">capacity</span></td>
+        <td><p>Initial number of keys that the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will allocate space for</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary</a>&lt;TKey, TValue&gt;</td>
+        <td><p>A new <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> with the
+specified parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValueCollection</span></td>
+        <td><p>The collection type that this
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will contain in its
+internal dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2_Create__1_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Note that <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> must implement
+<see cref="!:ICollection&lt;TValue>"></see> in addition to being constructable
+through new(). The collection returned from the constructor must
+also not have IsReadOnly set to True by default.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Create__1_System_Int32_Func___0__.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Create%60%601(System.Int32%2CFunc%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L668">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Create_" data-uid="Cadru.Collections.MultiValueDictionary`2.Create*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Create__1_System_Int32_Func___0__" data-uid="Cadru.Collections.MultiValueDictionary`2.Create``1(System.Int32,Func{``0})">Create&lt;TValueCollection&gt;(Int32, Func&lt;TValueCollection&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a new new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that is
+empty, has the specified initial capacity, and uses the default
+<see cref="!:IEqualityComparer&lt;TKey>"></see> for
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>. The internal dictionary will use
+instances of the <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> class as
+its collection type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MultiValueDictionary&lt;TKey, TValue&gt; Create&lt;TValueCollection&gt;(int capacity, Func&lt;TValueCollection&gt; collectionFactory)
+    where TValueCollection : ICollection&lt;TValue&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">capacity</span></td>
+        <td><p>Initial number of keys that the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will allocate space for</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TValueCollection&gt;</td>
+        <td><span class="parametername">collectionFactory</span></td>
+        <td><p>A function to create a new <see cref="!:ICollection&lt;TValue>"></see> to use
+in the internal dictionary store of this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary</a>&lt;TKey, TValue&gt;</td>
+        <td><p>A new <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> with the
+specified parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValueCollection</span></td>
+        <td><p>The collection type that this
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will contain in its
+internal dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2_Create__1_System_Int32_Func___0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Note that <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> must implement
+<see cref="!:ICollection&lt;TValue>"></see> in addition to being constructable
+through new(). The collection returned from the constructor must
+also not have IsReadOnly set to True by default.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Create__1_System_Int32_IEqualityComparer__0__.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Create%60%601(System.Int32%2CIEqualityComparer%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L442">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Create_" data-uid="Cadru.Collections.MultiValueDictionary`2.Create*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Create__1_System_Int32_IEqualityComparer__0__" data-uid="Cadru.Collections.MultiValueDictionary`2.Create``1(System.Int32,IEqualityComparer{`0})">Create&lt;TValueCollection&gt;(Int32, IEqualityComparer&lt;TKey&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that is
+empty, has the specified initial capacity, and uses the specified
+<see cref="!:IEqualityComparer&lt;TKey>"></see> for
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>. The internal dictionary will use
+instances of the <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> class as
+its collection type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MultiValueDictionary&lt;TKey, TValue&gt; Create&lt;TValueCollection&gt;(int capacity, IEqualityComparer&lt;TKey&gt; comparer)
+    where TValueCollection : ICollection&lt;TValue&gt;, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">capacity</span></td>
+        <td><p>Initial number of keys that the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will allocate space for</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEqualityComparer</span>&lt;TKey&gt;</td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>Specified comparer to use for the <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> s</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary</a>&lt;TKey, TValue&gt;</td>
+        <td><p>A new <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> with the
+specified parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValueCollection</span></td>
+        <td><p>The collection type that this
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will contain in its
+internal dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2_Create__1_System_Int32_IEqualityComparer__0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If <code data-dev-comment-type="paramref" class="paramref">comparer</code> is set to null, then the default
+<see cref="!:IEqualityComparer"></see> for <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> is used.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Create__1_System_Int32_IEqualityComparer__0__Func___0__.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Create%60%601(System.Int32%2CIEqualityComparer%7B%600%7D%2CFunc%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L783">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Create_" data-uid="Cadru.Collections.MultiValueDictionary`2.Create*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Create__1_System_Int32_IEqualityComparer__0__Func___0__" data-uid="Cadru.Collections.MultiValueDictionary`2.Create``1(System.Int32,IEqualityComparer{`0},Func{``0})">Create&lt;TValueCollection&gt;(Int32, IEqualityComparer&lt;TKey&gt;, Func&lt;TValueCollection&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a new new instance of the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> class that is
+empty, has the specified initial capacity, and uses the specified
+<see cref="!:IEqualityComparer&lt;TKey>"></see> for
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>. The internal dictionary will use
+instances of the <code data-dev-comment-type="typeparamref" class="typeparamref">TValueCollection</code> class as
+its collection type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MultiValueDictionary&lt;TKey, TValue&gt; Create&lt;TValueCollection&gt;(int capacity, IEqualityComparer&lt;TKey&gt; comparer, Func&lt;TValueCollection&gt; collectionFactory)
+    where TValueCollection : ICollection&lt;TValue&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">capacity</span></td>
+        <td><p>Initial number of keys that the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will allocate space for</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEqualityComparer</span>&lt;TKey&gt;</td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>Specified comparer to use for the <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> s</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TValueCollection&gt;</td>
+        <td><span class="parametername">collectionFactory</span></td>
+        <td><p>A function to create a new <see cref="!:ICollection&lt;TValue>"></see> to use
+in the internal dictionary store of this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary</a>&lt;TKey, TValue&gt;</td>
+        <td><p>A new <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> with the
+specified parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValueCollection</span></td>
+        <td><p>The collection type that this
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> will contain in its
+internal dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2_Create__1_System_Int32_IEqualityComparer__0__Func___0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If <code data-dev-comment-type="paramref" class="paramref">comparer</code> is set to null, then the default
+<see cref="!:IEqualityComparer"></see> for <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> is used.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_GetEnumerator.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L1112">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_GetEnumerator_" data-uid="Cadru.Collections.MultiValueDictionary`2.GetEnumerator*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_GetEnumerator" data-uid="Cadru.Collections.MultiValueDictionary`2.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"><p>Get an Enumerator over the <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>-
+<see cref="!:IReadOnlyCollection&lt;TValue>"></see> pairs in this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;KeyValuePair&lt;TKey, IReadOnlyCollection&lt;TValue&gt;&gt;&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerator</span>&lt;<span class="xref">KeyValuePair</span>&lt;TKey, <span class="xref">IReadOnlyCollection</span>&lt;TValue&gt;&gt;&gt;</td>
+        <td><p>an Enumerator over the <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>-
+<see cref="!:IReadOnlyCollection&lt;TValue>"></see> pairs in this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Remove__0_.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Remove(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L1129">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Remove_" data-uid="Cadru.Collections.MultiValueDictionary`2.Remove*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Remove__0_" data-uid="Cadru.Collections.MultiValueDictionary`2.Remove(`0)">Remove(TKey)</h4>
+  <div class="markdown level1 summary"><p>Removes every <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> associated with the
+given <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> from the <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Remove(TKey key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> of the elements to remove</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the removal was successful; otherwise <code>false</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_Remove__0__1_.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.Remove(%600%2C%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L1169">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_Remove_" data-uid="Cadru.Collections.MultiValueDictionary`2.Remove*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_Remove__0__1_" data-uid="Cadru.Collections.MultiValueDictionary`2.Remove(`0,`1)">Remove(TKey, TValue)</h4>
+  <div class="markdown level1 summary"><p>Removes the first instance (if any) of the given
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>- <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> pair from
+this <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Remove(TKey key, TValue value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> of the element to remove</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> of the element to remove</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the removal was successful; otherwise <code>false</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_MultiValueDictionary_2_Remove__0__1__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If the <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> being removed is the last one
+associated with its <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>, then that
+<code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> will be removed from the
+<a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a> and its associated
+<see cref="!:IReadOnlyCollection&lt;TValue>"></see> will be freed as if a call
+to <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html#Cadru_Collections_MultiValueDictionary_2_Remove__0_">Remove(TKey)</a> had been made.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2_TryGetValue__0_IReadOnlyCollection__1___.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602.TryGetValue(%600%2CIReadOnlyCollection%7B%601%7D%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.cs/#L1206">View Source</a>
+  </span>
+  <a id="Cadru_Collections_MultiValueDictionary_2_TryGetValue_" data-uid="Cadru.Collections.MultiValueDictionary`2.TryGetValue*"></a>
+  <h4 id="Cadru_Collections_MultiValueDictionary_2_TryGetValue__0_IReadOnlyCollection__1___" data-uid="Cadru.Collections.MultiValueDictionary`2.TryGetValue(`0,IReadOnlyCollection{`1}@)">TryGetValue(TKey, out IReadOnlyCollection&lt;TValue&gt;)</h4>
+  <div class="markdown level1 summary"><p>Attempts to get the <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code> associated with
+the given <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> and place it into <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetValue(TKey key, out IReadOnlyCollection&lt;TValue&gt; value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> of the element to retrieve</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IReadOnlyCollection</span>&lt;TValue&gt;</td>
+        <td><span class="parametername">value</span></td>
+        <td><p>When this method returns, contains the <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code>
+associated with the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> if it is
+found; otherwise contains the default value of <code data-dev-comment-type="typeparamref" class="typeparamref">TValue</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the <a class="xref" href="Cadru.Collections.MultiValueDictionary-2.html">MultiValueDictionary&lt;TKey, TValue&gt;</a>
+contains an element with the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code>;
+otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNotNull__1___0_">NullExtensions.IsNotNull&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNull__1___0_">NullExtensions.IsNull&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_MultiValueDictionary_2.md&amp;value=---%0Auid%3A%20Cadru.Collections.MultiValueDictionary%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/MultiValueDictionary.InnerCollectionView.cs/#L32" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

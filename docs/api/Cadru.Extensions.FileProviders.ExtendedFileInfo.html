@@ -1,0 +1,2289 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ExtendedFileInfo
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ExtendedFileInfo
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo">
+  
+  
+  <h1 id="Cadru_Extensions_FileProviders_ExtendedFileInfo" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo" class="text-break">Class ExtendedFileInfo
+  </h1>
+  <div class="markdown level0 summary"><p>Provides properties and instance methods for working with files. This
+class cannot be inherited.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ExtendedFileInfo</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.Extensions.FileProviders.html">Cadru.Extensions.FileProviders</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.Extensions.FileProviders.dll</h6>
+  <h5 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ExtendedFileInfo : object</code></pre>
+  </div>
+  <h5 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>This wraps an <see cref="!:FileInfo"></see> and <see cref="!:FileVersionInfo"></see>.</p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo__ctor_IFileInfo_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.%23ctor(IFileInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L79">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo__ctor_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.#ctor*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo__ctor_IFileInfo_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.#ctor(IFileInfo)">ExtendedFileInfo(IFileInfo)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.Extensions.FileProviders.ExtendedFileInfo.html">ExtendedFileInfo</a>
+class that wraps an instance of <see cref="!:IFileInfo"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExtendedFileInfo(IFileInfo fileInfo)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IFileInfo</span></td>
+        <td><span class="parametername">fileInfo</span></td>
+        <td><p>The <see cref="!:IFileInfo"></see> representing the file.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Extensions_FileProviders_ExtendedFileInfo__ctor_IFileInfo__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>You can specify either the fully qualified or the relative file
+name, but the security check gets the fully qualified name.</p>
+</div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Attributes.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Attributes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L93">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Attributes_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Attributes*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Attributes" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Attributes">Attributes</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileAttributes Attributes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileAttributes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Comments.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Comments%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L100">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Comments_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Comments*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Comments" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Comments">Comments</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Comments { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_CompanyName.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.CompanyName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L103">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_CompanyName_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.CompanyName*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_CompanyName" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.CompanyName">CompanyName</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? CompanyName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_CreateTimeUtc.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.CreateTimeUtc%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L106">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_CreateTimeUtc_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.CreateTimeUtc*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_CreateTimeUtc" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.CreateTimeUtc">CreateTimeUtc</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime CreateTimeUtc { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_CreationTime.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.CreationTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L109">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_CreationTime_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.CreationTime*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_CreationTime" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.CreationTime">CreationTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime CreationTime { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Directory.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Directory%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L116">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Directory_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Directory*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Directory" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Directory">Directory</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DirectoryInfo Directory { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DirectoryInfo</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_DirectoryName.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.DirectoryName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L119">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_DirectoryName_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.DirectoryName*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_DirectoryName" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.DirectoryName">DirectoryName</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DirectoryName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Exists.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Exists%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L122">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Exists_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Exists*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Exists" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Exists">Exists</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Exists { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Extension.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Extension%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L125">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Extension_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Extension*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Extension" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Extension">Extension</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Extension { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_FileBuildPart.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.FileBuildPart%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L128">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FileBuildPart_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FileBuildPart*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FileBuildPart" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FileBuildPart">FileBuildPart</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? FileBuildPart { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_FileDescription.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.FileDescription%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L131">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FileDescription_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FileDescription*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FileDescription" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FileDescription">FileDescription</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? FileDescription { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_FileMajorPart.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.FileMajorPart%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L134">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FileMajorPart_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FileMajorPart*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FileMajorPart" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FileMajorPart">FileMajorPart</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? FileMajorPart { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_FileMinorPart.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.FileMinorPart%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L137">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FileMinorPart_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FileMinorPart*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FileMinorPart" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FileMinorPart">FileMinorPart</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? FileMinorPart { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_FileName.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.FileName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L140">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FileName_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FileName*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FileName" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FileName">FileName</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? FileName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_FileOwner.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.FileOwner%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L149">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FileOwner_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FileOwner*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FileOwner" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FileOwner">FileOwner</h4>
+  <div class="markdown level1 summary"><p>Gets the Windows owner associated with the file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? FileOwner { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>A string representing the owner of the file or
+<span class="xref">null</span> if the owner cannot be determined.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_FilePrivatePart.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.FilePrivatePart%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L152">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FilePrivatePart_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FilePrivatePart*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FilePrivatePart" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FilePrivatePart">FilePrivatePart</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? FilePrivatePart { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_FileVersion.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.FileVersion%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L155">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FileVersion_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FileVersion*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FileVersion" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FileVersion">FileVersion</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? FileVersion { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_FullName.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.FullName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L158">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FullName_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FullName*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_FullName" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.FullName">FullName</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? FullName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_InternalName.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.InternalName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L161">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_InternalName_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.InternalName*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_InternalName" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.InternalName">InternalName</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? InternalName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_IsDebug.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.IsDebug%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L164">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_IsDebug_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.IsDebug*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_IsDebug" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.IsDebug">IsDebug</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? IsDebug { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_IsPatched.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.IsPatched%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L167">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_IsPatched_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.IsPatched*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_IsPatched" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.IsPatched">IsPatched</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? IsPatched { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_IsPreRelease.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.IsPreRelease%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L170">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_IsPreRelease_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.IsPreRelease*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_IsPreRelease" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.IsPreRelease">IsPreRelease</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? IsPreRelease { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_IsPrivateBuild.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.IsPrivateBuild%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L174">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_IsPrivateBuild_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.IsPrivateBuild*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_IsPrivateBuild" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.IsPrivateBuild">IsPrivateBuild</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? IsPrivateBuild { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_IsReadOnly.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.IsReadOnly%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L178">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_IsReadOnly_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.IsReadOnly*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_IsReadOnly" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.IsReadOnly">IsReadOnly</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsReadOnly { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_IsSpecialBuild.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.IsSpecialBuild%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L185">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_IsSpecialBuild_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.IsSpecialBuild*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_IsSpecialBuild" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.IsSpecialBuild">IsSpecialBuild</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? IsSpecialBuild { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Language.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Language%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L188">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Language_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Language*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Language" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Language">Language</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Language { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_LastAccessTime.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.LastAccessTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L191">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_LastAccessTime_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.LastAccessTime*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_LastAccessTime" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.LastAccessTime">LastAccessTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime LastAccessTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_LastAccessTimeUtc.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.LastAccessTimeUtc%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L194">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_LastAccessTimeUtc_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.LastAccessTimeUtc*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_LastAccessTimeUtc" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.LastAccessTimeUtc">LastAccessTimeUtc</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime LastAccessTimeUtc { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_LastWriteTime.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.LastWriteTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L197">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_LastWriteTime_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.LastWriteTime*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_LastWriteTime" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.LastWriteTime">LastWriteTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime LastWriteTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_LastWriteTimUtc.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.LastWriteTimUtc%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L200">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_LastWriteTimUtc_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.LastWriteTimUtc*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_LastWriteTimUtc" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.LastWriteTimUtc">LastWriteTimUtc</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime LastWriteTimUtc { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_LegalCopyright.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.LegalCopyright%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L203">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_LegalCopyright_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.LegalCopyright*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_LegalCopyright" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.LegalCopyright">LegalCopyright</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? LegalCopyright { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_LegalTrademarks.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.LegalTrademarks%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L206">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_LegalTrademarks_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.LegalTrademarks*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_LegalTrademarks" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.LegalTrademarks">LegalTrademarks</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? LegalTrademarks { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Length.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Length%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L209">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Length_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Length*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Length" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Length">Length</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long Length { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Name.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L212">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Name_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Name*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Name" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Name">Name</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_OriginalFilename.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.OriginalFilename%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L215">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_OriginalFilename_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.OriginalFilename*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_OriginalFilename" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.OriginalFilename">OriginalFilename</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? OriginalFilename { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_PrivateBuild.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.PrivateBuild%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L219">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_PrivateBuild_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.PrivateBuild*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_PrivateBuild" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.PrivateBuild">PrivateBuild</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? PrivateBuild { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductBuildPart.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductBuildPart%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L222">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductBuildPart_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductBuildPart*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductBuildPart" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductBuildPart">ProductBuildPart</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? ProductBuildPart { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductMajorPart.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductMajorPart%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L225">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductMajorPart_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductMajorPart*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductMajorPart" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductMajorPart">ProductMajorPart</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? ProductMajorPart { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductMinorPart.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductMinorPart%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L228">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductMinorPart_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductMinorPart*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductMinorPart" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductMinorPart">ProductMinorPart</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? ProductMinorPart { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductName.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L231">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductName_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductName*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductName" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductName">ProductName</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ProductName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductPrivatePart.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductPrivatePart%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L234">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductPrivatePart_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductPrivatePart*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductPrivatePart" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductPrivatePart">ProductPrivatePart</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? ProductPrivatePart { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductVersion.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductVersion%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L237">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductVersion_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductVersion*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_ProductVersion" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.ProductVersion">ProductVersion</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ProductVersion { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_SpecialBuild.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.SpecialBuild%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L240">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_SpecialBuild_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.SpecialBuild*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_SpecialBuild" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.SpecialBuild">SpecialBuild</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? SpecialBuild { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_AppendText.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.AppendText%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L243">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_AppendText_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.AppendText*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_AppendText" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.AppendText">AppendText()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StreamWriter AppendText()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StreamWriter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_CopyTo_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.CopyTo(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L249">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_CopyTo_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.CopyTo*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_CopyTo_System_String_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.CopyTo(System.String)">CopyTo(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileInfo CopyTo(string destinationFileName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">destinationFileName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileInfo</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_CopyTo_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.CopyTo(System.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L255">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_CopyTo_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.CopyTo*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_CopyTo_System_String_System_Boolean_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.CopyTo(System.String,System.Boolean)">CopyTo(String, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileInfo CopyTo(string destinationFileName, bool overwrite)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">destinationFileName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">overwrite</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileInfo</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Create.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Create%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L261">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Create_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Create*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Create" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Create">Create()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileStream Create()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileStream</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Decrypt.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Decrypt%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L267">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Decrypt_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Decrypt*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Decrypt" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Decrypt">Decrypt()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Decrypt()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Delete.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Delete%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L273">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Delete_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Delete*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Delete" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Delete">Delete()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Delete()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Encrypt.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Encrypt%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L279">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Encrypt_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Encrypt*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Encrypt" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Encrypt">Encrypt()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Encrypt()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_GetAccessControl.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.GetAccessControl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L318">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_GetAccessControl_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.GetAccessControl*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_GetAccessControl" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.GetAccessControl">GetAccessControl()</h4>
+  <div class="markdown level1 summary"><p>Gets a <see cref="!:FileSecurity"></see> object that encapsulates the
+access control list (ACL) entries for the file described by the
+current <a class="xref" href="Cadru.Extensions.FileProviders.ExtendedFileInfo.html">ExtendedFileInfo</a> object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileSecurity GetAccessControl()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileSecurity</span></td>
+        <td><p>A <see cref="!:FileSecurity"></see> object that encapsulates the access
+control rules for the current file.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_GetAccessControl_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Use the <a class="xref" href="Cadru.Extensions.FileProviders.ExtendedFileInfo.html#Cadru_Extensions_FileProviders_ExtendedFileInfo_GetAccessControl">GetAccessControl()</a> method to retrieve the
+access control list (ACL) entries for the current file.
+</p>
+<p>
+An ACL describes individuals and/or groups who have, or do not have,
+rights to specific actions on the given file.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_GetAccessControl_AccessControlSections_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.GetAccessControl(AccessControlSections)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L361">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_GetAccessControl_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.GetAccessControl*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_GetAccessControl_AccessControlSections_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.GetAccessControl(AccessControlSections)">GetAccessControl(AccessControlSections)</h4>
+  <div class="markdown level1 summary"><p>Gets a <see cref="!:FileSecurity"></see> object that encapsulates the
+access control list (ACL) entries for the file described by the
+current <a class="xref" href="Cadru.Extensions.FileProviders.ExtendedFileInfo.html">ExtendedFileInfo</a> object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileSecurity GetAccessControl(AccessControlSections includeSections)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AccessControlSections</span></td>
+        <td><span class="parametername">includeSections</span></td>
+        <td><p>One of the <see cref="!:AccessControlSections"></see> values that specifies
+which group of access control entries to retrieve.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileSecurity</span></td>
+        <td><p>A <see cref="!:FileSecurity"></see> object that encapsulates the access
+control rules for the current file.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_GetAccessControl_AccessControlSections__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Use the <a class="xref" href="Cadru.Extensions.FileProviders.ExtendedFileInfo.html#Cadru_Extensions_FileProviders_ExtendedFileInfo_GetAccessControl_AccessControlSections_">GetAccessControl(AccessControlSections)</a> method
+to retrieve the access control list (ACL) entries for the current file.
+</p>
+<p>
+An ACL describes individuals and/or groups who have, or do not have,
+rights to specific actions on the given file.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_MoveTo_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.MoveTo(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L367">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_MoveTo_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.MoveTo*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_MoveTo_System_String_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.MoveTo(System.String)">MoveTo(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveTo(string destinationFileName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">destinationFileName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Open_FileMode_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Open(FileMode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L373">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Open_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Open*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Open_FileMode_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Open(FileMode)">Open(FileMode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileStream Open(FileMode mode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileMode</span></td>
+        <td><span class="parametername">mode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileStream</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Open_FileMode_FileAccess_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Open(FileMode%2CFileAccess)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L379">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Open_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Open*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Open_FileMode_FileAccess_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Open(FileMode,FileAccess)">Open(FileMode, FileAccess)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileStream Open(FileMode mode, FileAccess access)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileMode</span></td>
+        <td><span class="parametername">mode</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">FileAccess</span></td>
+        <td><span class="parametername">access</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileStream</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Open_FileMode_FileAccess_FileShare_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Open(FileMode%2CFileAccess%2CFileShare)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L385">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Open_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Open*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Open_FileMode_FileAccess_FileShare_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Open(FileMode,FileAccess,FileShare)">Open(FileMode, FileAccess, FileShare)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileStream Open(FileMode mode, FileAccess access, FileShare share)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileMode</span></td>
+        <td><span class="parametername">mode</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">FileAccess</span></td>
+        <td><span class="parametername">access</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">FileShare</span></td>
+        <td><span class="parametername">share</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileStream</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_OpenRead.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.OpenRead%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L391">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_OpenRead_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.OpenRead*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_OpenRead" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.OpenRead">OpenRead()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileStream OpenRead()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileStream</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_OpenText.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.OpenText%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L397">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_OpenText_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.OpenText*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_OpenText" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.OpenText">OpenText()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StreamReader OpenText()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StreamReader</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_OpenWrite.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.OpenWrite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L403">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_OpenWrite_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.OpenWrite*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_OpenWrite" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.OpenWrite">OpenWrite()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileStream OpenWrite()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileStream</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Refresh.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Refresh%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L409">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Refresh_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Refresh*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Refresh" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Refresh">Refresh()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Refresh()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Replace_System_String_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Replace(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L415">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Replace_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Replace*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Replace_System_String_System_String_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Replace(System.String,System.String)">Replace(String, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileInfo Replace(string destinationFileName, string destinationBackupFileName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">destinationFileName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">destinationBackupFileName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileInfo</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_Replace_System_String_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.Replace(System.String%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L421">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Replace_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Replace*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_Replace_System_String_System_String_System_Boolean_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.Replace(System.String,System.String,System.Boolean)">Replace(String, String, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileInfo Replace(string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">destinationFileName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">destinationBackupFileName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">ignoreMetadataErrors</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileInfo</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_SetAccessControl_FileSecurity_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.SetAccessControl(FileSecurity)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L495">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_SetAccessControl_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.SetAccessControl*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_SetAccessControl_FileSecurity_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.SetAccessControl(FileSecurity)">SetAccessControl(FileSecurity)</h4>
+  <div class="markdown level1 summary"><p>Applies access control list (ACL) entries described by a
+FileSecurity object to the file described by the current FileInfo object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetAccessControl(FileSecurity fileSecurity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FileSecurity</span></td>
+        <td><span class="parametername">fileSecurity</span></td>
+        <td><p>A FileSecurity object that describes an access control list (ACL)
+entry to apply to the current file.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_SetAccessControl_FileSecurity__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The SetAccessControl method applies access control list (ACL)
+entries to the current file that represents the noninherited ACL list.
+</p>
+<p>
+Use the SetAccessControl method whenever you need to add or remove
+ACL entries from a file.
+</p>
+<p>
+The ACL specified for the fileSecurity parameter replaces the
+existing ACL for the file. To add permissions for a new user, use
+the GetAccessControl method to obtain the existing ACL, modify it,
+and then use SetAccessControl to apply it back to the file.
+</p>
+<p>
+An ACL describes individuals and/or groups who have, or do not have,
+rights to specific actions on the given file.
+</p>
+<p>
+The SetAccessControl method persists only FileSecurity objects that
+have been modified after object creation. If a FileSecurity object
+has not been modified, it will not be persisted to a file.
+Therefore, it is not possible to retrieve a FileSecurity object from
+one file and reapply the same object to another file.
+</p>
+<p>To copy ACL information from one file to another:</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo_ToString.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L501">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_FileProviders_ExtendedFileInfo_ToString_" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.ToString*"></a>
+  <h4 id="Cadru_Extensions_FileProviders_ExtendedFileInfo_ToString" data-uid="Cadru.Extensions.FileProviders.ExtendedFileInfo.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNotNull__1___0_">NullExtensions.IsNotNull&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNull__1___0_">NullExtensions.IsNull&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_FileProviders_ExtendedFileInfo.md&amp;value=---%0Auid%3A%20Cadru.Extensions.FileProviders.ExtendedFileInfo%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Extensions.FileProviders/ExtendedFileInfo.cs/#L40" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

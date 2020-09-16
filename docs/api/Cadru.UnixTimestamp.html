@@ -1,0 +1,1926 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Struct UnixTimestamp
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Struct UnixTimestamp
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.UnixTimestamp">
+  
+  
+  <h1 id="Cadru_UnixTimestamp" data-uid="Cadru.UnixTimestamp" class="text-break">Struct UnixTimestamp
+  </h1>
+  <div class="markdown level0 summary"><p>Represents an instant in time, defined as the number of seconds that
+have elapsed since 00:00:00 Coordinated Universal Time (UTC), Thursday,
+1 January 1970, not counting leap seconds.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">IFormattable</span></div>
+    <div><span class="xref">IComparable</span></div>
+    <div><span class="xref">IComparable</span>&lt;<a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a>&gt;</div>
+    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a>&gt;</div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.html">Cadru</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.Core.dll</h6>
+  <h5 id="Cadru_UnixTimestamp_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct UnixTimestamp : IFormattable, IComparable, IComparable&lt;UnixTimestamp&gt;, IEquatable&lt;UnixTimestamp&gt;</code></pre>
+  </div>
+  <h5 id="Cadru_UnixTimestamp_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>The date and time range that can be represented by a
+<a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> is constrained to the same date and time
+range as <a class="xref" href="Cadru.UnixTimestamp.html#Cadru_UnixTimestamp_DateTime">DateTime</a>.</p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp__ctor_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.%23ctor(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L103">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp__ctor_" data-uid="Cadru.UnixTimestamp.#ctor*"></a>
+  <h4 id="Cadru_UnixTimestamp__ctor_DateTime_" data-uid="Cadru.UnixTimestamp.#ctor(DateTime)">UnixTimestamp(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a>
+structure to the specified <a class="xref" href="Cadru.UnixTimestamp.html#Cadru_UnixTimestamp_DateTime">DateTime</a> value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnixTimestamp(DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A date and time.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp__ctor_System_Int32_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.%23ctor(System.Int32%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L115">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp__ctor_" data-uid="Cadru.UnixTimestamp.#ctor*"></a>
+  <h4 id="Cadru_UnixTimestamp__ctor_System_Int32_System_Int32_System_Int32_" data-uid="Cadru.UnixTimestamp.#ctor(System.Int32,System.Int32,System.Int32)">UnixTimestamp(Int32, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a>
+structure to the specified year, month and day.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnixTimestamp(int year, int month, int day)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">year</span></td>
+        <td><p>The year (0 through 9999).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">month</span></td>
+        <td><p>The month (0 through 12).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">day</span></td>
+        <td><p>The day (1 through the number of days in <code data-dev-comment-type="paramref" class="paramref">month</code>).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp__ctor_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.%23ctor(System.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L134">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp__ctor_" data-uid="Cadru.UnixTimestamp.#ctor*"></a>
+  <h4 id="Cadru_UnixTimestamp__ctor_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="Cadru.UnixTimestamp.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">UnixTimestamp(Int32, Int32, Int32, Int32, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a>
+structure to the specified year, month, day, hour, minute, and second.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnixTimestamp(int year, int month, int day, int hour, int minute, int second)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">year</span></td>
+        <td><p>The year (0 through 9999).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">month</span></td>
+        <td><p>The month (0 through 12).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">day</span></td>
+        <td><p>The day (1 through the number of days in <code data-dev-comment-type="paramref" class="paramref">month</code>).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">hour</span></td>
+        <td><p>The hours (0 through 23).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">minute</span></td>
+        <td><p>The minutes (0 through 59).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">second</span></td>
+        <td><p>The seconds (0 through 59).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp__ctor_System_Int64_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.%23ctor(System.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L82">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp__ctor_" data-uid="Cadru.UnixTimestamp.#ctor*"></a>
+  <h4 id="Cadru_UnixTimestamp__ctor_System_Int64_" data-uid="Cadru.UnixTimestamp.#ctor(System.Int64)">UnixTimestamp(Int64)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a>
+structure to the specified number of seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnixTimestamp(long seconds)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">seconds</span></td>
+        <td><p>A date and time expressed in the number of seconds that have elapsed
+since January 1, 1970 at 00:00:00.000 in the Gregorian calendar.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_MaxValue.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.MaxValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L54">View Source</a>
+  </span>
+  <h4 id="Cadru_UnixTimestamp_MaxValue" data-uid="Cadru.UnixTimestamp.MaxValue">MaxValue</h4>
+  <div class="markdown level1 summary"><p>Represents the largest possible value of
+<a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a>. This field is read-only.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly UnixTimestamp MaxValue</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_UnixTimestamp_MaxValue_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The value of this constant is equivalent to 23:59:59, December 31, 9999.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_MinValue.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.MinValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L63">View Source</a>
+  </span>
+  <h4 id="Cadru_UnixTimestamp_MinValue" data-uid="Cadru.UnixTimestamp.MinValue">MinValue</h4>
+  <div class="markdown level1 summary"><p>Represents the smallest possible value of
+<a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a>. This field is read-only.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly UnixTimestamp MinValue</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_UnixTimestamp_MinValue_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The value of this constant is equivalent to 00:00:00, January 01, 0001.</p>
+</div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_DateTime.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.DateTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L163">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_DateTime_" data-uid="Cadru.UnixTimestamp.DateTime*"></a>
+  <h4 id="Cadru_UnixTimestamp_DateTime" data-uid="Cadru.UnixTimestamp.DateTime">DateTime</h4>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Cadru.UnixTimestamp.html#Cadru_UnixTimestamp_DateTime">DateTime</a> value that represents the date and
+time of the current <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime DateTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>The date and time of the current <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_Days.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.Days%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L173">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_Days_" data-uid="Cadru.UnixTimestamp.Days*"></a>
+  <h4 id="Cadru_UnixTimestamp_Days" data-uid="Cadru.UnixTimestamp.Days">Days</h4>
+  <div class="markdown level1 summary"><p>Gets the number of days since 00:00:00 Coordinated Universal Time
+(UTC), Thursday, 1 January 1970 represented by current <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long Days { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><p>The number of days since 00:00:00 Coordinated Universal Time (UTC),
+Thursday, 1 January 1970 represented by current <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_Now.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.Now%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L150">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_Now_" data-uid="Cadru.UnixTimestamp.Now*"></a>
+  <h4 id="Cadru_UnixTimestamp_Now" data-uid="Cadru.UnixTimestamp.Now">Now</h4>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> object that is set to the current
+date and time on this computer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UnixTimestamp Now { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><p>An object whose value is the current local date and time.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_Seconds.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.Seconds%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L183">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_Seconds_" data-uid="Cadru.UnixTimestamp.Seconds*"></a>
+  <h4 id="Cadru_UnixTimestamp_Seconds" data-uid="Cadru.UnixTimestamp.Seconds">Seconds</h4>
+  <div class="markdown level1 summary"><p>Gets the number of seconds that represent the date and time of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long Seconds { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><p>The number of seconds that represent the date and time of this
+instance. The value is between
+<span class="xref">UnixTimestamp.MinValue.Seconds</span> and <span class="xref">UnixTimestamp.MaxValue.Seconds</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_Add_TimeSpan_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.Add(TimeSpan)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L325">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_Add_" data-uid="Cadru.UnixTimestamp.Add*"></a>
+  <h4 id="Cadru_UnixTimestamp_Add_TimeSpan_" data-uid="Cadru.UnixTimestamp.Add(TimeSpan)">Add(TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Returns a new <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> that adds the value of the
+specified <see cref="!:TimeSpan"></see> to the value of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnixTimestamp Add(TimeSpan value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The valueA positive or negative time interval.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><p>An object whose value is the sum of the date and time represented by
+this instance and the time interval represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_AddDays_System_Double_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.AddDays(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L346">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_AddDays_" data-uid="Cadru.UnixTimestamp.AddDays*"></a>
+  <h4 id="Cadru_UnixTimestamp_AddDays_System_Double_" data-uid="Cadru.UnixTimestamp.AddDays(System.Double)">AddDays(Double)</h4>
+  <div class="markdown level1 summary"><p>Returns a new <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> that adds the specified
+number of days to the value of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnixTimestamp AddDays(double value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A number of whole and fractional days. The <code data-dev-comment-type="paramref" class="paramref">value</code>
+parameter can be negative or positive.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><p>An object whose value is the sum of the date and time represented by
+this instance and the number of days represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_AddHours_System_Double_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.AddHours(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L367">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_AddHours_" data-uid="Cadru.UnixTimestamp.AddHours*"></a>
+  <h4 id="Cadru_UnixTimestamp_AddHours_System_Double_" data-uid="Cadru.UnixTimestamp.AddHours(System.Double)">AddHours(Double)</h4>
+  <div class="markdown level1 summary"><p>Returns a new <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> that adds the specified
+number of hours to the value of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnixTimestamp AddHours(double value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A number of whole and fractional hours. The <code data-dev-comment-type="paramref" class="paramref">value</code>
+parameter can be negative or positive.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><p>An object whose value is the sum of the date and time represented by
+this instance and the number of hours represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_AddMinutes_System_Double_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.AddMinutes(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L388">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_AddMinutes_" data-uid="Cadru.UnixTimestamp.AddMinutes*"></a>
+  <h4 id="Cadru_UnixTimestamp_AddMinutes_System_Double_" data-uid="Cadru.UnixTimestamp.AddMinutes(System.Double)">AddMinutes(Double)</h4>
+  <div class="markdown level1 summary"><p>Returns a new <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> that adds the specified
+number of minutes to the value of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnixTimestamp AddMinutes(double value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A number of whole and fractional minutes. The
+<code data-dev-comment-type="paramref" class="paramref">value</code> parameter can be negative or positive.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><p>An object whose value is the sum of the date and time represented by
+this instance and the number of minutes represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_AddMonths_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.AddMonths(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L409">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_AddMonths_" data-uid="Cadru.UnixTimestamp.AddMonths*"></a>
+  <h4 id="Cadru_UnixTimestamp_AddMonths_System_Int32_" data-uid="Cadru.UnixTimestamp.AddMonths(System.Int32)">AddMonths(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns a new <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> that adds the specified
+number of months to the value of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnixTimestamp AddMonths(int months)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">months</span></td>
+        <td><p>A number of months. The <code data-dev-comment-type="paramref" class="paramref">months</code> parameter can be
+negative or positive.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><p>An object whose value is the sum of the date and time represented by
+this instance and the number of months represented by <code data-dev-comment-type="paramref" class="paramref">months</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_AddSeconds_System_Double_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.AddSeconds(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L465">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_AddSeconds_" data-uid="Cadru.UnixTimestamp.AddSeconds*"></a>
+  <h4 id="Cadru_UnixTimestamp_AddSeconds_System_Double_" data-uid="Cadru.UnixTimestamp.AddSeconds(System.Double)">AddSeconds(Double)</h4>
+  <div class="markdown level1 summary"><p>Returns a new <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> that adds the specified
+number of seconds to the value of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnixTimestamp AddSeconds(double value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A number of whole and fractional seconds. The
+<code data-dev-comment-type="paramref" class="paramref">value</code> parameter can be negative or positive.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><p>An object whose value is the sum of the date and time represented by
+this instance and the number of seconds represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_AddYears_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.AddYears(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L490">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_AddYears_" data-uid="Cadru.UnixTimestamp.AddYears*"></a>
+  <h4 id="Cadru_UnixTimestamp_AddYears_System_Int32_" data-uid="Cadru.UnixTimestamp.AddYears(System.Int32)">AddYears(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns a new <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> that adds the specified
+number of years to the value of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnixTimestamp AddYears(int years)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">years</span></td>
+        <td><p>A number of years. The <code data-dev-comment-type="paramref" class="paramref">years</code> parameter can be
+negative or positive.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><p>An object whose value is the sum of the date and time represented by
+this instance and the number of years represented by <code data-dev-comment-type="paramref" class="paramref">years</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_CompareTo_Cadru_UnixTimestamp_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.CompareTo(Cadru.UnixTimestamp)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L581">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_CompareTo_" data-uid="Cadru.UnixTimestamp.CompareTo*"></a>
+  <h4 id="Cadru_UnixTimestamp_CompareTo_Cadru_UnixTimestamp_" data-uid="Cadru.UnixTimestamp.CompareTo(Cadru.UnixTimestamp)">CompareTo(UnixTimestamp)</h4>
+  <div class="markdown level1 summary"><p>Compares the value of this instance to a specified
+<a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> value and returns an integer that
+indicates whether this instance is earlier than, the same as, or
+later than the specified <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(UnixTimestamp other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The object to compare to the current instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>A signed number indicating the relative values of this instance and
+the <code data-dev-comment-type="paramref" class="paramref">other</code> parameter.</p>
+<table><thead><tr><th>ValueCondition</th><th></th></tr></thead><tbody><tr><td>Less than zero</td><td>This instance is earlier than <code data-dev-comment-type="paramref" class="paramref">other</code>.</td></tr><tr><td>Zero</td><td>This instance is the same as <code data-dev-comment-type="paramref" class="paramref">other</code>.</td></tr><tr><td>Greater than zero</td><td>This instance is later than <code data-dev-comment-type="paramref" class="paramref">other</code>.</td></tr></tbody></table>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_CompareTo_System_Object_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.CompareTo(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L537">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_CompareTo_" data-uid="Cadru.UnixTimestamp.CompareTo*"></a>
+  <h4 id="Cadru_UnixTimestamp_CompareTo_System_Object_" data-uid="Cadru.UnixTimestamp.CompareTo(System.Object)">CompareTo(Object)</h4>
+  <div class="markdown level1 summary"><p>Compares the value of this instance to a specified object that
+contains a specified <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> value, and returns
+an integer that indicates whether this instance is earlier than, the
+same as, or later than the specified <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>A boxed object to compare, or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>A signed number indicating the relative values of this instance and
+the <code data-dev-comment-type="paramref" class="paramref">obj</code> parameter.</p>
+<table><thead><tr><th>ValueCondition</th><th></th></tr></thead><tbody><tr><td>Less than zero</td><td>This instance is earlier than <code data-dev-comment-type="paramref" class="paramref">obj</code>.</td></tr><tr><td>Zero</td><td>This instance is the same as <code data-dev-comment-type="paramref" class="paramref">obj</code>.</td></tr><tr><td>Greater than zero</td><td>
+This instance is later than <code data-dev-comment-type="paramref" class="paramref">obj</code>, or
+<code data-dev-comment-type="paramref" class="paramref">obj</code> is <span class="xref">null</span>.
+</td></tr></tbody></table>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_Equals_Cadru_UnixTimestamp_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.Equals(Cadru.UnixTimestamp)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L622">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_Equals_" data-uid="Cadru.UnixTimestamp.Equals*"></a>
+  <h4 id="Cadru_UnixTimestamp_Equals_Cadru_UnixTimestamp_" data-uid="Cadru.UnixTimestamp.Equals(Cadru.UnixTimestamp)">Equals(UnixTimestamp)</h4>
+  <div class="markdown level1 summary"><p>Returns a value indicating whether the value of this instance is
+equal to the value of the specified <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(UnixTimestamp other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The object to compare to this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the <code data-dev-comment-type="paramref" class="paramref">other</code> parameter
+equals the value of this instance; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_UnixTimestamp_Equals_Cadru_UnixTimestamp__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The current instance and <code data-dev-comment-type="paramref" class="paramref">other</code> are equal if their
+<a class="xref" href="Cadru.UnixTimestamp.html#Cadru_UnixTimestamp_Seconds">Seconds</a> property values are equal.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_Equals_Cadru_UnixTimestamp_Cadru_UnixTimestamp_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.Equals(Cadru.UnixTimestamp%2CCadru.UnixTimestamp)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L307">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_Equals_" data-uid="Cadru.UnixTimestamp.Equals*"></a>
+  <h4 id="Cadru_UnixTimestamp_Equals_Cadru_UnixTimestamp_Cadru_UnixTimestamp_" data-uid="Cadru.UnixTimestamp.Equals(Cadru.UnixTimestamp,Cadru.UnixTimestamp)">Equals(UnixTimestamp, UnixTimestamp)</h4>
+  <div class="markdown level1 summary"><p>Returns a value indicating whether two <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a>
+instances represent the same point in time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Equals(UnixTimestamp left, UnixTimestamp right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first object to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second object to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the two values are equal; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L599">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_Equals_" data-uid="Cadru.UnixTimestamp.Equals*"></a>
+  <h4 id="Cadru_UnixTimestamp_Equals_System_Object_" data-uid="Cadru.UnixTimestamp.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Returns a value indicating whether the value of this instance is
+equal to the value of the specified <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>The object to compare to this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the <code data-dev-comment-type="paramref" class="paramref">obj</code> parameter
+equals the value of this instance; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_UnixTimestamp_Equals_System_Object__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The current instance and <code data-dev-comment-type="paramref" class="paramref">obj</code> are equal if their
+<a class="xref" href="Cadru.UnixTimestamp.html#Cadru_UnixTimestamp_Seconds">Seconds</a> property values are equal.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_GetHashCode.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L631">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_GetHashCode_" data-uid="Cadru.UnixTimestamp.GetHashCode*"></a>
+  <h4 id="Cadru_UnixTimestamp_GetHashCode" data-uid="Cadru.UnixTimestamp.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Returns the hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>A 32-bit signed integer hash code.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_Subtract_Cadru_UnixTimestamp_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.Subtract(Cadru.UnixTimestamp)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L653">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_Subtract_" data-uid="Cadru.UnixTimestamp.Subtract*"></a>
+  <h4 id="Cadru_UnixTimestamp_Subtract_Cadru_UnixTimestamp_" data-uid="Cadru.UnixTimestamp.Subtract(Cadru.UnixTimestamp)">Subtract(UnixTimestamp)</h4>
+  <div class="markdown level1 summary"><p>Subtracts the specified date and time from this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan Subtract(UnixTimestamp value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The date and time value to subtract.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><p>A time interval that is equal to the date and time represented by
+this instance minus the date and time represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_UnixTimestamp_Subtract_Cadru_UnixTimestamp__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If the date and time of the current instance is earlier than value,
+the method returns a <see cref="!:TimeSpan"></see> object that represents a
+negative time span. That is, the value of all of its non-zero
+properties (such as Days or Ticks) is negative.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_Subtract_TimeSpan_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.Subtract(TimeSpan)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L669">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_Subtract_" data-uid="Cadru.UnixTimestamp.Subtract*"></a>
+  <h4 id="Cadru_UnixTimestamp_Subtract_TimeSpan_" data-uid="Cadru.UnixTimestamp.Subtract(TimeSpan)">Subtract(TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Subtracts the specified duration from this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnixTimestamp Subtract(TimeSpan value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The time interval to subtract.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><p>An object that is equal to the date and time represented by this
+instance minus the time interval represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_ToDateTime.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.ToDateTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L682">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_ToDateTime_" data-uid="Cadru.UnixTimestamp.ToDateTime*"></a>
+  <h4 id="Cadru_UnixTimestamp_ToDateTime" data-uid="Cadru.UnixTimestamp.ToDateTime">ToDateTime()</h4>
+  <div class="markdown level1 summary"><p>Converts the value of the current <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> object
+to its equivalent <a class="xref" href="Cadru.UnixTimestamp.html#Cadru_UnixTimestamp_DateTime">DateTime</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime ToDateTime()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A <a class="xref" href="Cadru.UnixTimestamp.html#Cadru_UnixTimestamp_DateTime">DateTime</a> representing the current
+<a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_ToString.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L695">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_ToString_" data-uid="Cadru.UnixTimestamp.ToString*"></a>
+  <h4 id="Cadru_UnixTimestamp_ToString" data-uid="Cadru.UnixTimestamp.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Converts the value of the current <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> object
+to its equivalent string representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A string representation of the value of the current
+<a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_ToString_System_String_IFormatProvider_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.ToString(System.String%2CIFormatProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L717">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_ToString_" data-uid="Cadru.UnixTimestamp.ToString*"></a>
+  <h4 id="Cadru_UnixTimestamp_ToString_System_String_IFormatProvider_" data-uid="Cadru.UnixTimestamp.ToString(System.String,IFormatProvider)">ToString(String, IFormatProvider)</h4>
+  <div class="markdown level1 summary"><p>Converts the value of the current <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> object
+to its equivalent string representation using the specified format
+and culture-specific format information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format, IFormatProvider formatProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>A numeric format string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IFormatProvider</span></td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td><p>An object that supplies culture-specific formatting information.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A string representation of value of the current
+<a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> object as specified by
+<code data-dev-comment-type="paramref" class="paramref">format</code> and <code data-dev-comment-type="paramref" class="paramref">formatProvider</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_op_Equality_Cadru_UnixTimestamp_Cadru_UnixTimestamp_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.op_Equality(Cadru.UnixTimestamp%2CCadru.UnixTimestamp)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L215">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_op_Equality_" data-uid="Cadru.UnixTimestamp.op_Equality*"></a>
+  <h4 id="Cadru_UnixTimestamp_op_Equality_Cadru_UnixTimestamp_Cadru_UnixTimestamp_" data-uid="Cadru.UnixTimestamp.op_Equality(Cadru.UnixTimestamp,Cadru.UnixTimestamp)">Equality(UnixTimestamp, UnixTimestamp)</h4>
+  <div class="markdown level1 summary"><p>Determines whether two specified <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> objects
+represent the same point in time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(UnixTimestamp left, UnixTimestamp right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first object to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second object to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if both objects represent the same point in
+time; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_op_GreaterThan_Cadru_UnixTimestamp_Cadru_UnixTimestamp_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.op_GreaterThan(Cadru.UnixTimestamp%2CCadru.UnixTimestamp)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L277">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_op_GreaterThan_" data-uid="Cadru.UnixTimestamp.op_GreaterThan*"></a>
+  <h4 id="Cadru_UnixTimestamp_op_GreaterThan_Cadru_UnixTimestamp_Cadru_UnixTimestamp_" data-uid="Cadru.UnixTimestamp.op_GreaterThan(Cadru.UnixTimestamp,Cadru.UnixTimestamp)">GreaterThan(UnixTimestamp, UnixTimestamp)</h4>
+  <div class="markdown level1 summary"><p>Determines whether one specified <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> object
+is later than another specified <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator&gt;(UnixTimestamp left, UnixTimestamp right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first object to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second object to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if <code data-dev-comment-type="paramref" class="paramref">left</code> is later than
+<code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_op_GreaterThanOrEqual_Cadru_UnixTimestamp_Cadru_UnixTimestamp_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.op_GreaterThanOrEqual(Cadru.UnixTimestamp%2CCadru.UnixTimestamp)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L293">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_op_GreaterThanOrEqual_" data-uid="Cadru.UnixTimestamp.op_GreaterThanOrEqual*"></a>
+  <h4 id="Cadru_UnixTimestamp_op_GreaterThanOrEqual_Cadru_UnixTimestamp_Cadru_UnixTimestamp_" data-uid="Cadru.UnixTimestamp.op_GreaterThanOrEqual(Cadru.UnixTimestamp,Cadru.UnixTimestamp)">GreaterThanOrEqual(UnixTimestamp, UnixTimestamp)</h4>
+  <div class="markdown level1 summary"><p>Determines whether one specified <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> object
+is the same as or later than another specified
+<a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;=(UnixTimestamp left, UnixTimestamp right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first object to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second object to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if <code data-dev-comment-type="paramref" class="paramref">left</code> is the same as or
+later than <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_op_Implicit_Cadru_UnixTimestamp__System_Int64.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.op_Implicit(Cadru.UnixTimestamp)~System.Int64%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L190">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_op_Implicit_" data-uid="Cadru.UnixTimestamp.op_Implicit*"></a>
+  <h4 id="Cadru_UnixTimestamp_op_Implicit_Cadru_UnixTimestamp__System_Int64" data-uid="Cadru.UnixTimestamp.op_Implicit(Cadru.UnixTimestamp)~System.Int64">Implicit(UnixTimestamp to Int64)</h4>
+  <div class="markdown level1 summary"><p>Defines an implicit conversion from <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> to <see cref="!:System.Int64"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator long (UnixTimestamp value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The object to convert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><p>The converted object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_op_Implicit_System_Int64__Cadru_UnixTimestamp.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.op_Implicit(System.Int64)~Cadru.UnixTimestamp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L200">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_op_Implicit_" data-uid="Cadru.UnixTimestamp.op_Implicit*"></a>
+  <h4 id="Cadru_UnixTimestamp_op_Implicit_System_Int64__Cadru_UnixTimestamp" data-uid="Cadru.UnixTimestamp.op_Implicit(System.Int64)~Cadru.UnixTimestamp">Implicit(Int64 to UnixTimestamp)</h4>
+  <div class="markdown level1 summary"><p>Defines an implicit conversion from <see cref="!:System.Int64"></see> to <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator UnixTimestamp(long value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The object to convert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><p>The converted object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_op_Inequality_Cadru_UnixTimestamp_Cadru_UnixTimestamp_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.op_Inequality(Cadru.UnixTimestamp%2CCadru.UnixTimestamp)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L231">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_op_Inequality_" data-uid="Cadru.UnixTimestamp.op_Inequality*"></a>
+  <h4 id="Cadru_UnixTimestamp_op_Inequality_Cadru_UnixTimestamp_Cadru_UnixTimestamp_" data-uid="Cadru.UnixTimestamp.op_Inequality(Cadru.UnixTimestamp,Cadru.UnixTimestamp)">Inequality(UnixTimestamp, UnixTimestamp)</h4>
+  <div class="markdown level1 summary"><p>Determines whether two specified <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> objects
+represent different points in time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(UnixTimestamp left, UnixTimestamp right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first object to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second object to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if <code data-dev-comment-type="paramref" class="paramref">left</code> and
+<code data-dev-comment-type="paramref" class="paramref">right</code> do not represent the same point in time;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_op_LessThan_Cadru_UnixTimestamp_Cadru_UnixTimestamp_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.op_LessThan(Cadru.UnixTimestamp%2CCadru.UnixTimestamp)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L246">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_op_LessThan_" data-uid="Cadru.UnixTimestamp.op_LessThan*"></a>
+  <h4 id="Cadru_UnixTimestamp_op_LessThan_Cadru_UnixTimestamp_Cadru_UnixTimestamp_" data-uid="Cadru.UnixTimestamp.op_LessThan(Cadru.UnixTimestamp,Cadru.UnixTimestamp)">LessThan(UnixTimestamp, UnixTimestamp)</h4>
+  <div class="markdown level1 summary"><p>Determines whether one specified <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> object
+is earlier than another specified <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;(UnixTimestamp left, UnixTimestamp right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first object to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second object to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if <code data-dev-comment-type="paramref" class="paramref">left</code> is earlier than
+<code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp_op_LessThanOrEqual_Cadru_UnixTimestamp_Cadru_UnixTimestamp_.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp.op_LessThanOrEqual(Cadru.UnixTimestamp%2CCadru.UnixTimestamp)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L262">View Source</a>
+  </span>
+  <a id="Cadru_UnixTimestamp_op_LessThanOrEqual_" data-uid="Cadru.UnixTimestamp.op_LessThanOrEqual*"></a>
+  <h4 id="Cadru_UnixTimestamp_op_LessThanOrEqual_Cadru_UnixTimestamp_Cadru_UnixTimestamp_" data-uid="Cadru.UnixTimestamp.op_LessThanOrEqual(Cadru.UnixTimestamp,Cadru.UnixTimestamp)">LessThanOrEqual(UnixTimestamp, UnixTimestamp)</h4>
+  <div class="markdown level1 summary"><p>Determines whether one specified <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> object
+is the same as or earlier than another specified
+<a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;=(UnixTimestamp left, UnixTimestamp right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first object to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second object to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if <code data-dev-comment-type="paramref" class="paramref">left</code> is the same as or
+earlier than <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">IFormattable</span>
+  </div>
+  <div>
+      <span class="xref">IComparable</span>
+  </div>
+  <div>
+      <span class="xref">IComparable&lt;&gt;</span>
+  </div>
+  <div>
+      <span class="xref">IEquatable&lt;&gt;</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNotNull__1___0_">NullExtensions.IsNotNull&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNull__1___0_">NullExtensions.IsNull&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_UnixTimestamp.md&amp;value=---%0Auid%3A%20Cadru.UnixTimestamp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/UnixTimestamp.cs/#L44" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
