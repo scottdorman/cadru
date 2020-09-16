@@ -22,7 +22,7 @@ Provides additional ASP.NET Core TagHelpers.
 [![NuGet downloads](https://img.shields.io/nuget/dt/cadru.aspnetcore.mvc.taghelpers.svg)](http://www.nuget.org/packages/cadru.aspnetcore) [![NuGet version](https://img.shields.io/nuget/v/cadru.aspnetcore.mvc.taghelpers.svg)](http://www.nuget.org/packages/cadru.aspnetcore.mvc.taghelpers)
 
 ### Cadru.Build.Tasks
-Provides additiona MSBuild tasks and is used to support [assembly-build-versioning](https://github.com/scottdorman/assembly-build-versioning).
+Provides additional MSBuild tasks and is used to support [assembly-build-versioning](https://github.com/scottdorman/assembly-build-versioning).
 
 [![NuGet downloads](https://img.shields.io/nuget/dt/cadru.build.tasks.svg)](http://www.nuget.org/packages/cadru.build.tasks) [![NuGet version](https://img.shields.io/nuget/v/cadru.build.tasks.svg)](http://www.nuget.org/packages/cadru.build.tasks)
 
