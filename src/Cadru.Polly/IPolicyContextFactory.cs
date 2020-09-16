@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="PolicyContextItems.cs"
+// <copyright file="IPolicyContextFactory.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2020 Scott Dorman.
@@ -21,26 +21,35 @@
 //------------------------------------------------------------------------------
 
 using System;
-
-using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
 
 using Polly;
 
 namespace Cadru.Polly
 {
     /// <summary>
-    /// Standard <see cref="Context"/> item keys.
+    /// Represents a set of methods for creating instances of a
+    /// <see cref="Context"/> which has an <see cref="IServiceProvider"/> item
+    /// automatically added.
     /// </summary>
-    public static class PolicyContextItems
+    public interface IPolicyContextFactory
     {
         /// <summary>
-        /// The key for an <see cref="ILogger"/> item.
+        /// Create a new <see cref="Context"/> instance.
         /// </summary>
-        public static readonly string Logger = $"Logger";
+        /// <returns>
+        /// A new <see cref="Context"/> which has an
+        /// <see cref="IServiceProvider"/> item automatically added.
+        /// </returns>
+        Context Create();
 
         /// <summary>
-        /// The key for an <see cref="IServiceProvider"/> item.
+        /// Create a new <see cref="Context"/> instance.
         /// </summary>
-        public static readonly string Services = "Services";
+        /// <returns>
+        /// A new <see cref="Context"/> which has an
+        /// <see cref="IServiceProvider"/> item automatically added.
+        /// </returns>
+        Task<Context> CreateAsync();
     }
 }

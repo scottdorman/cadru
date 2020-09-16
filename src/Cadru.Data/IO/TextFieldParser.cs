@@ -530,7 +530,11 @@ namespace Cadru.Data.IO
         /// <param name="fieldWidths">A list of field widths</param>
         public void SetFieldWidths(params int[] fieldWidths)
         {
+#if NETSTANDARD2_0
+            Requires.ValidElements(fieldWidths.AsSpan().Slice(0, fieldWidths.Length - 1).ToArray(), fw => fw >= 0, nameof(fieldWidths), String.Format(Strings.TextFieldParser_FieldWidthsMustPositive, "fieldWidths"));
+#else
             Requires.ValidElements(fieldWidths[0..^1], fw => fw >= 0, nameof(fieldWidths), String.Format(Strings.TextFieldParser_FieldWidthsMustPositive, "fieldWidths"));
+#endif
 
             this.fieldWidths = fieldWidths;
             this.needPropertyCheck = true;
@@ -908,7 +912,11 @@ namespace Cadru.Data.IO
                         var delimiterMatch = this.delimiterRegex!.Match(line, index);
                         if (delimiterMatch.Success)
                         {
+#if NETSTANDARD2_0
+                            field = line.AsSpan().Slice(index, delimiterMatch.Index - index).ToString();
+#else
                             field = line[index..delimiterMatch.Index];
+#endif
                             fields.Add(this.TrimWhiteSpace ? field.Trim() : field);
                             index = delimiterMatch.Index + delimiterMatch.Length;
                         }
@@ -1224,7 +1232,16 @@ namespace Cadru.Data.IO
             Requires.IsTrue(this.fieldWidths != null && this.FieldWidths.Any(), nameof(this.fieldWidths));
 
             var length = 0;
+#if NETSTANDARD2_0
+            var lastIndex = this.fieldWidths!.Length - 1;
+            foreach (var fw in this.fieldWidths!.AsSpan().Slice(0, lastIndex))
+            {
+                Debug.Assert(fw > 0, "Bad field width, this should have been caught on input");
+                length += fw;
+            }
 
+            var lastFieldWidth = this.fieldWidths[lastIndex];
+#else
             this.fieldWidths![0..^1].ForEach(fw =>
             {
                 Debug.Assert(fw > 0, "Bad field width, this should have been caught on input");
@@ -1232,6 +1249,8 @@ namespace Cadru.Data.IO
             });
 
             var lastFieldWidth = this.fieldWidths[^1];
+#endif
+
             if (lastFieldWidth > 0)
             {
                 length += lastFieldWidth;
@@ -1248,10 +1267,10 @@ namespace Cadru.Data.IO
         /// <remarks></remarks>
         private void ValidateFixedWidthLine(StringInfo line, long lineNumber)
         {
-            Debug.Assert(line is object, "No Line sent");
+            Debug.Assert(line != null, "No Line sent");
 
             // The only malformed line for fixed length fields is one that's too short
-            if (line.LengthInTextElements < this.lineLength)
+            if (line!.LengthInTextElements < this.lineLength)
             {
                 this.ThrowMalformedLineException(line.String, lineNumber);
             }

@@ -105,10 +105,25 @@ namespace Cadru.Data
                 throw new ArgumentNullException(nameof(paramName));
             }
 
+#if NETSTANDARD2_0
+            var length = path.Length;
+            var lastPos = path.Length - 1;
+
+            bool EndsWith(char value)
+            {
+                return ((uint)lastPos < (uint)length) && path[lastPos] == value;
+            }
+
+            if (EndsWith(Path.DirectorySeparatorChar) || EndsWith(Path.AltDirectorySeparatorChar))
+            {
+                throw new ArgumentException(Strings.IO_FilePathException, nameof(paramName));
+            }
+#else
             if (path.EndsWith(Path.DirectorySeparatorChar) || path.EndsWith(Path.AltDirectorySeparatorChar))
             {
                 throw new ArgumentException(Strings.IO_FilePathException, nameof(paramName));
             }
+#endif
         }
 
         /// <summary>

@@ -220,7 +220,11 @@ namespace Cadru.Data.Dapper
             }
             else
             {
+#if NETSTANDARD2_0
+                unquotedString = quotedString.AsSpan().Slice(prefixLength, quotedStringLength).ToString();
+#else
                 unquotedString = quotedString[prefixLength..quotedStringLength];
+#endif
             }
             return true;
         }
