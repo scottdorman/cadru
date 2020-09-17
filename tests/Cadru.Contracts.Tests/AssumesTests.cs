@@ -55,47 +55,47 @@ namespace Cadru.Contracts.Tests
         [TestMethod]
         public void AssumptionException()
         {
-            ExceptionAssert.Throws<AssumptionException>(() => { throw new AssumptionException(); }).WithMessage("Assumption failed.");
-            ExceptionAssert.Throws<AssumptionException>(() => { throw new AssumptionException("Assumption failed.", new InvalidOperationException()); }).WithMessage("Assumption failed.").WithInnerException(typeof(InvalidOperationException));
+            Assert.ThrowsException<AssumptionException>(() => { throw new AssumptionException(); }).WithMessage("Assumption failed.");
+            Assert.ThrowsException<AssumptionException>(() => { throw new AssumptionException("Assumption failed.", new InvalidOperationException()); }).WithMessage("Assumption failed.").WithInnerException(typeof(InvalidOperationException));
         }
 
         [TestMethod]
         public void IsEnum()
         {
-            ExceptionAssert.Throws<ArgumentNullException>(() => Assumes.IsEnum(null, "foo"));
-            ExceptionAssert.Throws<AssumptionException>(() => Assumes.IsEnum(2, "foo"));
+            Assert.ThrowsException<ArgumentNullException>(() => Assumes.IsEnum(null, "foo"));
+            Assert.ThrowsException<AssumptionException>(() => Assumes.IsEnum(2, "foo"));
             Assumes.IsEnum(DayOfWeek.Friday, "foo");
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => Assumes.IsEnum((object)null, "foo"));
-            ExceptionAssert.Throws<AssumptionException>(() => Assumes.IsEnum((object)2, "foo"));
+            Assert.ThrowsException<ArgumentNullException>(() => Assumes.IsEnum((object)null, "foo"));
+            Assert.ThrowsException<AssumptionException>(() => Assumes.IsEnum((object)2, "foo"));
             Assumes.IsEnum((object)DayOfWeek.Friday, "foo");
         }
 
         [TestMethod]
         public void IsType()
         {
-            ExceptionAssert.Throws<ArgumentNullException>(() => Assumes.IsType(null, typeof(string), "foo"));
-            ExceptionAssert.Throws<AssumptionException>(() => Assumes.IsType(2, typeof(string), "foo"));
+            Assert.ThrowsException<ArgumentNullException>(() => Assumes.IsType(null, typeof(string), "foo"));
+            Assert.ThrowsException<AssumptionException>(() => Assumes.IsType(2, typeof(string), "foo"));
             Assumes.IsType(String.Empty, typeof(string), "foo");
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => Assumes.IsType<string>(null, "foo"));
-            ExceptionAssert.Throws<AssumptionException>(() => Assumes.IsType<string>(2, "foo"));
+            Assert.ThrowsException<ArgumentNullException>(() => Assumes.IsType<string>(null, "foo"));
+            Assert.ThrowsException<AssumptionException>(() => Assumes.IsType<string>(2, "foo"));
             Assumes.IsType<string>(String.Empty, "foo");
         }
 
         [TestMethod]
         public void Fail()
         {
-            ExceptionAssert.Throws<AssumptionException>(() => { Assumes.Fail((string)null); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
-            ExceptionAssert.Throws<AssumptionException>(() => { Assumes.Fail(String.Empty); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
-            ExceptionAssert.Throws<AssumptionException>(() => { Assumes.Fail("test."); }).WithMessage("Assumption failed. test.", ExceptionMessageComparison.StartsWith);
+            Assert.ThrowsException<AssumptionException>(() => { Assumes.Fail((string)null); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
+            Assert.ThrowsException<AssumptionException>(() => { Assumes.Fail(String.Empty); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
+            Assert.ThrowsException<AssumptionException>(() => { Assumes.Fail("test."); }).WithMessage("Assumption failed. test.", ExceptionMessageComparison.StartsWith);
         }
 
         [TestMethod]
         public void IsFalse()
         {
-            ExceptionAssert.Throws<AssumptionException>(() => { Assumes.IsFalse(true); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
-            ExceptionAssert.Throws<AssumptionException>(() => { Assumes.IsFalse(true, "test."); }).WithMessage("Assumption failed. test.", ExceptionMessageComparison.StartsWith);
+            Assert.ThrowsException<AssumptionException>(() => { Assumes.IsFalse(true); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
+            Assert.ThrowsException<AssumptionException>(() => { Assumes.IsFalse(true, "test."); }).WithMessage("Assumption failed. test.", ExceptionMessageComparison.StartsWith);
 
             Assumes.IsFalse(false);
             Assumes.IsFalse(false, "test");
@@ -104,8 +104,8 @@ namespace Cadru.Contracts.Tests
         [TestMethod]
         public void IsTrue()
         {
-            ExceptionAssert.Throws<AssumptionException>(() => { Assumes.IsTrue(false); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
-            ExceptionAssert.Throws<AssumptionException>(() => { Assumes.IsTrue(false, "test."); }).WithMessage("Assumption failed. test.", ExceptionMessageComparison.StartsWith);
+            Assert.ThrowsException<AssumptionException>(() => { Assumes.IsTrue(false); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
+            Assert.ThrowsException<AssumptionException>(() => { Assumes.IsTrue(false, "test."); }).WithMessage("Assumption failed. test.", ExceptionMessageComparison.StartsWith);
 
             Assumes.IsTrue(true);
             Assumes.IsTrue(true, "test");
@@ -119,10 +119,10 @@ namespace Cadru.Contracts.Tests
             string s3 = null;
             string s4 = null;
 
-            ExceptionAssert.Throws<AssumptionException>(() => { Assumes.NotNull(s1); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
-            ExceptionAssert.Throws<AssumptionException>(() => { Assumes.NotNull(s1, s2); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
-            ExceptionAssert.Throws<AssumptionException>(() => { Assumes.NotNull(s1, s2, s3); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
-            ExceptionAssert.Throws<AssumptionException>(() => { Assumes.NotNull(s1, s2, s3, s4); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
+            Assert.ThrowsException<AssumptionException>(() => { Assumes.NotNull(s1); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
+            Assert.ThrowsException<AssumptionException>(() => { Assumes.NotNull(s1, s2); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
+            Assert.ThrowsException<AssumptionException>(() => { Assumes.NotNull(s1, s2, s3); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
+            Assert.ThrowsException<AssumptionException>(() => { Assumes.NotNull(s1, s2, s3, s4); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
 
             Assumes.NotNull("");
             Assumes.NotNull("", "");
@@ -135,8 +135,8 @@ namespace Cadru.Contracts.Tests
         {
             string s1 = null;
 
-            ExceptionAssert.Throws<AssumptionException>(() => { Assumes.NotNullOrEmpty(s1); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
-            ExceptionAssert.Throws<AssumptionException>(() => { Assumes.NotNullOrEmpty(String.Empty); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
+            Assert.ThrowsException<AssumptionException>(() => { Assumes.NotNullOrEmpty(s1); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
+            Assert.ThrowsException<AssumptionException>(() => { Assumes.NotNullOrEmpty(String.Empty); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
 
             Assumes.NotNullOrEmpty("test");
         }
@@ -146,7 +146,7 @@ namespace Cadru.Contracts.Tests
         {
             object o1 = null;
 
-            ExceptionAssert.Throws<AssumptionException>(() => { Assumes.Null(new object()); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
+            Assert.ThrowsException<AssumptionException>(() => { Assumes.Null(new object()); }).WithMessage("Assumption failed.", ExceptionMessageComparison.StartsWith);
             Assumes.Null(o1);
         }
     }

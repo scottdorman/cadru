@@ -70,7 +70,7 @@ namespace Cadru.Core.Extensions.Tests
             Enum value = null;
 
             string actual;
-            ExceptionAssert.Throws<ArgumentNullException>(() => actual = value.GetDescription()).WithParameter("value");
+            Assert.ThrowsException<ArgumentNullException>(() => actual = value.GetDescription()).WithParameter("value");
 
             // This enum has the Flags attribute, but not a Description
             // attribute, so the description should be the enum value.
@@ -102,7 +102,7 @@ namespace Cadru.Core.Extensions.Tests
             Enum value = null;
 
             string actual;
-            ExceptionAssert.Throws<ArgumentNullException>(() => actual = value.GetDescription()).WithParameter("value");
+            Assert.ThrowsException<ArgumentNullException>(() => actual = value.GetDescription()).WithParameter("value");
 
             // This enum has the Flags and ComVisible(true) attributes, but not
             // a Description attribute, so the description should be the enum value.
@@ -139,7 +139,7 @@ namespace Cadru.Core.Extensions.Tests
             Enum value = null;
 
             string actual;
-            ExceptionAssert.Throws<ArgumentNullException>(() => actual = value.GetDescription()).WithParameter("value");
+            Assert.ThrowsException<ArgumentNullException>(() => actual = value.GetDescription()).WithParameter("value");
 
             // This enum has the Flags attribute, but not a Description
             // attribute, so the description should be the enum value.

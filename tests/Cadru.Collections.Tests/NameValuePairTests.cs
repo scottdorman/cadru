@@ -38,7 +38,7 @@ namespace Cadru.Collections.Tests
             var nvp = new NameValuePair<string>("test");
             nvp.Value.Add("one");
             nvp.Value.Add("two");
-            CustomAssert.IsNotEmpty((ICollection)nvp.Value);
+            CollectionAssert.That.IsNotEmpty((ICollection)nvp.Value);
             Assert.IsTrue(nvp.Value.Count == 2);
             Assert.AreEqual("one", nvp.Value[0]);
             Assert.AreEqual("two", nvp.Value[1]);
@@ -51,7 +51,7 @@ namespace Cadru.Collections.Tests
             Assert.IsNotNull(nvp.Key);
             Assert.AreEqual("test", nvp.Key);
             Assert.IsNotNull(nvp.Value);
-            CustomAssert.IsEmpty((ICollection)nvp.Value);
+            CollectionAssert.That.IsEmpty((ICollection)nvp.Value);
         }
 
         [TestMethod]

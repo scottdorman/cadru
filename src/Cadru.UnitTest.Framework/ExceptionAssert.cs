@@ -184,7 +184,7 @@ namespace Cadru.UnitTest.Framework
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
         [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
-        [Obsolete("Use Assert.DoesNotThrowException(Action, string, object[]).")]
+        [Obsolete("Use Assert.That.DoesNotThrowException(Action, string, object[]).")]
         public static void DoesNotThrow(Action code, string message, params object[] parameters)
         {
             Exception? caughtException = null;
@@ -206,7 +206,7 @@ namespace Cadru.UnitTest.Framework
         /// </summary>
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
-        [Obsolete("Use Assert.DoesNotThrowException(Action, string).")]
+        [Obsolete("Use Assert.That.DoesNotThrowException(Action, string).")]
         public static void DoesNotThrow(Action code, string message)
         {
             DoesNotThrow(code, message, Array.Empty<object>());
@@ -216,7 +216,7 @@ namespace Cadru.UnitTest.Framework
         /// Verifies that <paramref name="code"/> does not throw an exception.
         /// </summary>
         /// <param name="code">The code to test.</param>
-        [Obsolete("Use Assert.DoesNotThrowException(Action).")]
+        [Obsolete("Use Assert.That.DoesNotThrowException(Action).")]
         public static void DoesNotThrow(Action code)
         {
             DoesNotThrow(code, String.Empty, Array.Empty<object>());

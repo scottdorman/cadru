@@ -89,12 +89,12 @@ namespace Cadru.Collections.Tests
         {
             var comparer = DateComparer.Default as DateComparer;
 
-            ExceptionAssert.Throws<FormatException>(() => comparer.Compare("10/31/2006", "abc123"));
-            ExceptionAssert.Throws<FormatException>(() => comparer.Compare("abc123", "10/31/2006"));
-            ExceptionAssert.Throws<FormatException>(() => comparer.Compare("10/31/2006", String.Empty));
-            ExceptionAssert.Throws<FormatException>(() => comparer.Compare(String.Empty, "10/31/2006"));
-            ExceptionAssert.Throws<FormatException>(() => comparer.Compare("10/31/2006", null));
-            ExceptionAssert.Throws<FormatException>(() => comparer.Compare(null, "10/31/2006"));
+            Assert.ThrowsException<FormatException>(() => comparer.Compare("10/31/2006", "abc123"));
+            Assert.ThrowsException<FormatException>(() => comparer.Compare("abc123", "10/31/2006"));
+            Assert.ThrowsException<FormatException>(() => comparer.Compare("10/31/2006", String.Empty));
+            Assert.ThrowsException<FormatException>(() => comparer.Compare(String.Empty, "10/31/2006"));
+            Assert.ThrowsException<FormatException>(() => comparer.Compare("10/31/2006", null));
+            Assert.ThrowsException<FormatException>(() => comparer.Compare(null, "10/31/2006"));
         }
 
         [TestMethod]
@@ -146,14 +146,14 @@ namespace Cadru.Collections.Tests
         {
             var comparer = DateComparer.DefaultInvariant as DateComparer;
 
-            ExceptionAssert.Throws<FormatException>(() => comparer.Compare("10/31/2006", "abc123"));
-            ExceptionAssert.Throws<FormatException>(() => comparer.Compare("abc123", "10/31/2006"));
-            ExceptionAssert.Throws<FormatException>(() => comparer.Compare("10/31/2006", String.Empty));
-            ExceptionAssert.Throws<FormatException>(() => comparer.Compare(String.Empty, "10/31/2006"));
-            ExceptionAssert.Throws<FormatException>(() => comparer.Compare("10/31/2006", null));
-            ExceptionAssert.Throws<FormatException>(() => comparer.Compare(null, "10/31/2006"));
+            Assert.ThrowsException<FormatException>(() => comparer.Compare("10/31/2006", "abc123"));
+            Assert.ThrowsException<FormatException>(() => comparer.Compare("abc123", "10/31/2006"));
+            Assert.ThrowsException<FormatException>(() => comparer.Compare("10/31/2006", String.Empty));
+            Assert.ThrowsException<FormatException>(() => comparer.Compare(String.Empty, "10/31/2006"));
+            Assert.ThrowsException<FormatException>(() => comparer.Compare("10/31/2006", null));
+            Assert.ThrowsException<FormatException>(() => comparer.Compare(null, "10/31/2006"));
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => new DateComparer(null));
+            Assert.ThrowsException<ArgumentNullException>(() => new DateComparer(null));
         }
 
         [TestMethod]
@@ -292,7 +292,7 @@ namespace Cadru.Collections.Tests
             object c = "abc";
             Assert.AreEqual(c.GetHashCode(), comparer.GetHashCode(c));
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((DateComparer)DateComparer.Default).GetHashCode(((object)null)));
+            Assert.ThrowsException<ArgumentNullException>(() => ((DateComparer)DateComparer.Default).GetHashCode(((object)null)));
         }
 
         [TestMethod]
@@ -300,7 +300,7 @@ namespace Cadru.Collections.Tests
         {
             var comparer = DateComparer.Default as DateComparer;
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((DateComparer)DateComparer.Default).GetHashCode(((string)null)));
+            Assert.ThrowsException<ArgumentNullException>(() => ((DateComparer)DateComparer.Default).GetHashCode(((string)null)));
             Assert.AreEqual(String.Empty.GetHashCode(), comparer.GetHashCode(String.Empty));
 
             var c = "abc";
@@ -335,8 +335,8 @@ namespace Cadru.Collections.Tests
         public void GetHashCode5()
         {
             var comparer = DateComparer.DefaultInvariant as DateComparer;
-            ExceptionAssert.Throws<ArgumentNullException>(() => comparer.GetHashCode(((object)null)));
-            ExceptionAssert.Throws<ArgumentNullException>(() => comparer.GetHashCode(((string)null)));
+            Assert.ThrowsException<ArgumentNullException>(() => comparer.GetHashCode(((object)null)));
+            Assert.ThrowsException<ArgumentNullException>(() => comparer.GetHashCode(((string)null)));
             Assert.AreEqual(String.Empty.GetHashCode(), comparer.GetHashCode(String.Empty));
 
             var c = "abc";

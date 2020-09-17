@@ -79,8 +79,8 @@ namespace Cadru.Core.Tests
             Assert.AreEqual(date.AddMonths(2).Ticks, timestamp.AddMonths(2).DateTime.Ticks);
             Assert.AreEqual(date.AddMonths(-2).Ticks, timestamp.AddMonths(-2).DateTime.Ticks);
 
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => timestamp.AddMonths(130000));
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => timestamp.AddMonths(-130000));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => timestamp.AddMonths(130000));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => timestamp.AddMonths(-130000));
         }
 
         [TestMethod]
@@ -100,11 +100,11 @@ namespace Cadru.Core.Tests
             Assert.AreEqual(date.AddYears(2).Ticks, timestamp.AddYears(2).DateTime.Ticks);
             Assert.AreEqual(date.AddYears(-2).Ticks, timestamp.AddYears(-2).DateTime.Ticks);
 
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => timestamp.AddYears(10000));
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => timestamp.AddYears(-10000));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => timestamp.AddYears(10000));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => timestamp.AddYears(-10000));
 
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => timestamp.AddYears(12000));
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => timestamp.AddYears(-12000));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => timestamp.AddYears(12000));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => timestamp.AddYears(-12000));
         }
 
         [TestMethod]
@@ -116,7 +116,7 @@ namespace Cadru.Core.Tests
             var timestamp4 = new UnixTimestamp(rawTimestamp).AddMonths(-1);
 
             Assert.AreEqual(1, timestamp.CompareTo(null));
-            ExceptionAssert.Throws<ArgumentException>(() => timestamp.CompareTo("test"));
+            Assert.ThrowsException<ArgumentException>(() => timestamp.CompareTo("test"));
             Assert.AreEqual(0, timestamp.CompareTo((object)timestamp2));
             Assert.AreEqual(0, timestamp.CompareTo(timestamp2));
            Assert.That.IsGreater(0, timestamp.CompareTo(timestamp3));
@@ -136,8 +136,8 @@ namespace Cadru.Core.Tests
             Assert.AreEqual(date.Ticks, new UnixTimestamp(2014, 03, 18, 21, 0, 0).DateTime.Ticks);
             Assert.AreEqual(date.AddHours(-21).Ticks, new UnixTimestamp(2014, 03, 18).DateTime.Ticks);
 
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => new UnixTimestamp(UnixTimestamp.MaxValue.Seconds + 1));
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => new UnixTimestamp(UnixTimestamp.MinValue.Seconds - 1));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new UnixTimestamp(UnixTimestamp.MaxValue.Seconds + 1));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new UnixTimestamp(UnixTimestamp.MinValue.Seconds - 1));
         }
 
         [TestMethod]

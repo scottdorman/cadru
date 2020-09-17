@@ -915,11 +915,21 @@
         </member>
         <member name="T:Cadru.Polly.IPolicyContextFactory">
             <summary>
-            Represents a set of methods for creating instances of a <see cref="T:Polly.Context"/> which
-            has an <see cref="T:System.IServiceProvider"/> item automatically added.
+            Represents a set of methods for creating instances of a
+            <see cref="T:Polly.Context"/> which has an <see cref="T:System.IServiceProvider"/> item
+            automatically added.
             </summary>
         </member>
         <member name="M:Cadru.Polly.IPolicyContextFactory.Create">
+            <summary>
+            Create a new <see cref="T:Polly.Context"/> instance.
+            </summary>
+            <returns>
+            A new <see cref="T:Polly.Context"/> which has an
+            <see cref="T:System.IServiceProvider"/> item automatically added.
+            </returns>
+        </member>
+        <member name="M:Cadru.Polly.IPolicyContextFactory.CreateAsync">
             <summary>
             Create a new <see cref="T:Polly.Context"/> instance.
             </summary>
@@ -1033,17 +1043,20 @@
         </member>
         <member name="T:Cadru.Polly.PolicyContextFactory">
             <summary>
-            Represents a set of methods for creating instances of a <see cref="T:Polly.Context"/> which
-            has an <see cref="T:System.IServiceProvider"/> item automatically added.
+            Represents a set of methods for creating instances of a
+            <see cref="T:Polly.Context"/> which has an <see cref="T:System.IServiceProvider"/> item
+            automatically added.
             </summary>
         </member>
         <member name="M:Cadru.Polly.PolicyContextFactory.#ctor(System.IServiceProvider)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cadru.Polly.PolicyContextFactory"/>
-            class.
+            Initializes a new instance of the <see cref="T:Cadru.Polly.PolicyContextFactory"/> class.
             </summary>
         </member>
         <member name="M:Cadru.Polly.PolicyContextFactory.Create">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Polly.PolicyContextFactory.CreateAsync">
             <inheritdoc/>
         </member>
         <member name="T:Cadru.Polly.PolicyContextItems">

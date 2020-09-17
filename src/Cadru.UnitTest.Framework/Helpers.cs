@@ -91,7 +91,7 @@ namespace Cadru.UnitTest.Framework
                 return input;
             }
 
-            return input.Replace("\0", "\\0");
+            return input!.Replace("\0", "\\0");
         }
 
     }

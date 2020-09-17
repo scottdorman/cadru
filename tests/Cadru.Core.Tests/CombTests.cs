@@ -48,14 +48,14 @@ namespace Cadru.Core.Tests
             Assert.AreEqual(1, a.CompareTo(null));
             Assert.AreEqual(1, a.CompareTo((object)b));
 
-            ExceptionAssert.Throws<ArgumentException>(() => a.CompareTo("test"));
+            Assert.ThrowsException<ArgumentException>(() => a.CompareTo("test"));
         }
 
         [TestMethod]
         public void Constructors()
         {
             var c = new Comb("38ba4a03-0b00-b248-baa3-413faadaa2b8");
-            ExceptionAssert.Throws<FormatException>(() => new Comb("3e3a6e75-0100-0f45-ae41a3e3d2536a57"));
+            Assert.ThrowsException<FormatException>(() => new Comb("3e3a6e75-0100-0f45-ae41a3e3d2536a57"));
             Assert.AreEqual("38ba4a03-0b00-b248-baa3-413faadaa2b8", c.ToString());
 
             c = new Comb();
@@ -150,8 +150,8 @@ namespace Cadru.Core.Tests
             Assert.IsInstanceOfType(Comb.Parse("{3e3a6e75-0100-0f45-ae41-a3e3d2536a57}"), typeof(Comb));
             Assert.IsInstanceOfType(Comb.Parse("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57)"), typeof(Comb));
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => Comb.Parse(null));
-            ExceptionAssert.Throws<FormatException>(() => Comb.Parse("(00000000000000000000000000000000)"));
+            Assert.ThrowsException<ArgumentNullException>(() => Comb.Parse(null));
+            Assert.ThrowsException<FormatException>(() => Comb.Parse("(00000000000000000000000000000000)"));
         }
 
         [TestMethod]
@@ -169,9 +169,9 @@ namespace Cadru.Core.Tests
             Assert.IsInstanceOfType(Comb.ParseExact("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", "P"), typeof(Comb));
             Assert.IsInstanceOfType(Comb.ParseExact("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", "p"), typeof(Comb));
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => Comb.Parse(null));
-            ExceptionAssert.Throws<FormatException>(() => Comb.Parse("(00000000000000000000000000000000)"));
-            ExceptionAssert.Throws<FormatException>(() => Comb.ParseExact("3e3a6e75-0100-0f45-ae41a3e3d2536a57", "x"));
+            Assert.ThrowsException<ArgumentNullException>(() => Comb.Parse(null));
+            Assert.ThrowsException<FormatException>(() => Comb.Parse("(00000000000000000000000000000000)"));
+            Assert.ThrowsException<FormatException>(() => Comb.ParseExact("3e3a6e75-0100-0f45-ae41a3e3d2536a57", "x"));
         }
 
         [TestMethod]
@@ -199,7 +199,7 @@ namespace Cadru.Core.Tests
             Assert.AreEqual("(00000000-0000-0000-0000-000000000000)", Comb.Empty.ToString("P"));
             Assert.AreEqual("{00000000-0000-0000-0000-000000000000}", Comb.Empty.ToString("B"));
             Assert.AreEqual("{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}", Comb.Empty.ToString("X"));
-            ExceptionAssert.Throws<NotImplementedException>(() => Comb.Empty.ToString("e"));
+            Assert.ThrowsException<NotImplementedException>(() => Comb.Empty.ToString("e"));
         }
 
         [TestMethod]
@@ -264,7 +264,7 @@ namespace Cadru.Core.Tests
             Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a573e", "x", out _));
             Assert.IsFalse(Comb.TryParseExact("3e3a6e75-0100-0f45-ae41-a3e3d2536a", "x", out _));
 
-            ExceptionAssert.Throws<FormatException>(() => Comb.TryParseExact("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", "e", out _));
+            Assert.ThrowsException<FormatException>(() => Comb.TryParseExact("(3e3a6e75-0100-0f45-ae41-a3e3d2536a57)", "e", out _));
         }
     }
 }
