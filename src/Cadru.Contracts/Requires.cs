@@ -51,10 +51,10 @@ namespace Cadru.Contracts
         /// </exception>
         [DebuggerStepThrough]
         [ContractArgumentValidator]
-        public static void IsEnum([ValidatedNotNull] Enum value, string parameterName)
+        public static void IsEnum([ValidatedNotNull] Enum? value, string parameterName)
         {
             NotNull(value, parameterName);
-            IsTrue(value.GetType().GetTypeInfo().IsEnum);
+            IsTrue(value!.GetType().GetTypeInfo().IsEnum);
             Contract.EndContractBlock();
         }
 
@@ -71,10 +71,10 @@ namespace Cadru.Contracts
         /// </exception>
         [DebuggerStepThrough]
         [ContractArgumentValidator]
-        public static void IsEnum([ValidatedNotNull] object value, string parameterName)
+        public static void IsEnum([ValidatedNotNull] object? value, string parameterName)
         {
             NotNull(value, parameterName);
-            IsTrue(value.GetType().GetTypeInfo().IsEnum);
+            IsTrue(value!.GetType().GetTypeInfo().IsEnum);
             Contract.EndContractBlock();
         }
 
@@ -226,10 +226,10 @@ namespace Cadru.Contracts
         /// </exception>
         [DebuggerStepThrough]
         [ContractArgumentValidator]
-        public static void IsType([ValidatedNotNull] object value, Type expectedType, string parameterName)
+        public static void IsType([ValidatedNotNull] object? value, Type expectedType, string parameterName)
         {
             NotNull(value, parameterName);
-            IsTrue(value.GetType() == expectedType);
+            IsTrue(value!.GetType() == expectedType);
             Contract.EndContractBlock();
         }
 
@@ -247,7 +247,7 @@ namespace Cadru.Contracts
         [SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidator]
-        public static void IsType<T>([ValidatedNotNull] object value, string parameterName)
+        public static void IsType<T>([ValidatedNotNull] object? value, string parameterName)
         {
             IsType(value, typeof(T), parameterName);
             Contract.EndContractBlock();
@@ -264,7 +264,7 @@ namespace Cadru.Contracts
         /// </exception>
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNull<T>([ValidatedNotNull] T value, string parameterName) where T : class
+        public static void NotNull<T>([ValidatedNotNull] T? value, string parameterName) where T : class
         {
             NotNull(value, parameterName, null);
             Contract.EndContractBlock();
@@ -282,7 +282,7 @@ namespace Cadru.Contracts
         /// </exception>
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNull<T>([ValidatedNotNull] T value, string parameterName, string? message) where T : class
+        public static void NotNull<T>([ValidatedNotNull] T? value, string parameterName, string? message) where T : class
         {
             if (value == null)
             {
@@ -306,10 +306,10 @@ namespace Cadru.Contracts
         /// </exception>
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNullElements([ValidatedNotNull] IEnumerable values, string parameterName)
+        public static void NotNullElements([ValidatedNotNull] IEnumerable? values, string parameterName)
         {
             NotNull(values, "values");
-            foreach (var value in values)
+            foreach (var value in values!)
             {
                 if (value == null)
                 {
@@ -335,7 +335,7 @@ namespace Cadru.Contracts
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNullOrEmpty([ValidatedNotNull] string value, string parameterName)
+        public static void NotNullOrEmpty([ValidatedNotNull] string? value, string parameterName)
         {
             NotNullOrEmpty(value, parameterName, ExceptionBuilder.Format(Resources.Strings.ArgumentException_EmptyString, parameterName));
             Contract.EndContractBlock();
@@ -357,10 +357,10 @@ namespace Cadru.Contracts
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNullOrEmpty([ValidatedNotNull] string value, string parameterName, string? message)
+        public static void NotNullOrEmpty([ValidatedNotNull] string? value, string parameterName, string? message)
         {
             NotNull(value, parameterName);
-            if (value.Length == 0)
+            if (value!.Length == 0)
             {
                 throw ExceptionBuilder.CreateArgumentException(parameterName, message);
             }
@@ -383,7 +383,7 @@ namespace Cadru.Contracts
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNullOrEmpty([ValidatedNotNull] IEnumerable values, string parameterName)
+        public static void NotNullOrEmpty([ValidatedNotNull] IEnumerable? values, string parameterName)
         {
             if (values == null)
             {
@@ -414,7 +414,7 @@ namespace Cadru.Contracts
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNullOrEmpty([ValidatedNotNull] IEnumerable values, string parameterName, string? message)
+        public static void NotNullOrEmpty([ValidatedNotNull] IEnumerable? values, string parameterName, string? message)
         {
             if (values == null)
             {
@@ -444,7 +444,7 @@ namespace Cadru.Contracts
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNullOrWhiteSpace([ValidatedNotNull] string value, string parameterName)
+        public static void NotNullOrWhiteSpace([ValidatedNotNull] string? value, string parameterName)
         {
             NotNullOrWhiteSpace(value, parameterName, ExceptionBuilder.Format(Resources.Strings.ArgumentException_EmptyString, parameterName));
             Contract.EndContractBlock();
@@ -466,7 +466,7 @@ namespace Cadru.Contracts
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void NotNullOrWhiteSpace([ValidatedNotNull] string value, string parameterName, string? message)
+        public static void NotNullOrWhiteSpace([ValidatedNotNull] string? value, string parameterName, string? message)
         {
             NotNull(value, parameterName);
             if (String.IsNullOrWhiteSpace(value))
@@ -495,7 +495,7 @@ namespace Cadru.Contracts
         /// </exception>
         [DebuggerStepThrough]
         [ContractArgumentValidatorAttribute]
-        public static void ValidElements<T>([ValidatedNotNull] IEnumerable<T> values, Predicate<T> match, string parameterName, string? message)
+        public static void ValidElements<T>([ValidatedNotNull] IEnumerable<T>? values, Predicate<T> match, string parameterName, string? message)
         {
             NotNull(values, "values");
             if (values.Any(x => !match(x)))
