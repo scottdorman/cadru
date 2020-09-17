@@ -9,6 +9,12 @@
             Extension methods for working with a <see cref="T:Polly.Context"/>.
             </summary>
         </member>
+        <member name="M:Cadru.Polly.ContextExtensions.CreateScope(Polly.Context)">
+            <inheritdoc cref="M:Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.CreateScope(System.IServiceProvider)"/>
+            <param name="context">
+            The <see cref="T:Polly.Context"/> to retrieve items from.
+            </param>
+        </member>
         <member name="M:Cadru.Polly.ContextExtensions.GetLogger(Polly.Context)">
             <summary>
             Gets an <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance from the <see cref="T:Polly.Context"/>.
@@ -20,6 +26,28 @@
             An <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance if one is found in the
             <paramref name="context"/>; otherwise, <see langword="null"/>.
             </returns>
+            <remarks>
+            This expects the <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance to be a context item
+            and does not resolve it from the <see cref="T:System.IServiceProvider"/>.
+            </remarks>
+        </member>
+        <member name="M:Cadru.Polly.ContextExtensions.GetRequiredService``1(Polly.Context)">
+            <inheritdoc cref="M:Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService``1(System.IServiceProvider)"/>
+            <param name="context">
+            The <see cref="T:Polly.Context"/> to retrieve items from.
+            </param>
+        </member>
+        <member name="M:Cadru.Polly.ContextExtensions.GetService``1(Polly.Context)">
+            <inheritdoc cref="M:Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService``1(System.IServiceProvider)"/>
+            <param name="context">
+            The <see cref="T:Polly.Context"/> to retrieve items from.
+            </param>
+        </member>
+        <member name="M:Cadru.Polly.ContextExtensions.GetServices``1(Polly.Context)">
+            <inheritdoc cref="M:Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetServices``1(System.IServiceProvider)"/>
+            <param name="context">
+            The <see cref="T:Polly.Context"/> to retrieve items from.
+            </param>
         </member>
         <member name="M:Cadru.Polly.ContextExtensions.TryGetLogger(Polly.Context,Microsoft.Extensions.Logging.ILogger@)">
             <summary>
@@ -37,6 +65,10 @@
             <see langword="true"/> if the <paramref name="context"/> contains an
             <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance; otherwise, <see langword="false"/>.
             </returns>
+            <remarks>
+            This expects the <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance to be a context item
+            and does not resolve it from the <see cref="T:System.IServiceProvider"/>.
+            </remarks>
         </member>
         <member name="M:Cadru.Polly.ContextExtensions.TryGetValue``1(Polly.Context,System.String,``0@)">
             <summary>
@@ -94,6 +126,9 @@
             <returns>
             The <see cref="T:Polly.Context"/> so that additional calls can be chained.
             </returns>
+            <remarks>
+            This adds the <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance as a context item.
+            </remarks>
         </member>
         <member name="T:Cadru.Polly.Data.ISqlStrategy">
             <summary>
