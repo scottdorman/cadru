@@ -38,6 +38,11 @@ namespace Cadru.Net.Http.Collections
     public sealed class QueryStringParametersDictionary : Dictionary<string, string>
     {
         /// <summary>
+        /// An empty <see cref="QueryStringParametersDictionary"/>.
+        /// </summary>
+        public static QueryStringParametersDictionary Empty() => new QueryStringParametersDictionary();
+
+        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="QueryStringParametersDictionary"/> class that is empty
         /// and has the default initial capacity.
