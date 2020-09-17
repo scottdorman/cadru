@@ -180,7 +180,11 @@ namespace Cadru.Core.Extensions.Tests
         {
             var expected = Enum.GetNames(typeof(T));
             var emptyExpected = new string[expected.Count()];
+#if NET48
+            emptyExpected = Enumerable.Repeat((string)null, expected.Count()).ToArray();
+#else
             emptyExpected.AsSpan().Fill(null);
+#endif
             return (expected, emptyExpected);
         }
     }

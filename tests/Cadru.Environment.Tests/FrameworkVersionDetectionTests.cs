@@ -41,12 +41,14 @@ namespace Cadru.Environment.Tests
         {
             try
             {
-                using var regKey = Registry.LocalMachine.CreateSubKey(@"Software\\Microsoft\\Active Setup\\Installed Components\\{78705f0d-e8db-4b2d-8193-982bdda15ecd}");
-                regKey.SetValue("Version", "1,0,0000,1");
-                var emptyVersion = new Version(0, 0, 0, 0);
+                using (var regKey = Registry.LocalMachine.CreateSubKey(@"Software\\Microsoft\\Active Setup\\Installed Components\\{78705f0d-e8db-4b2d-8193-982bdda15ecd}"))
+                {
+                    regKey.SetValue("Version", "1,0,0000,1");
+                    var emptyVersion = new Version(0, 0, 0, 0);
 
-                Assert.AreEqual(1, FrameworkVersionDetection.GetServicePackLevel(FrameworkVersion.Fx10));
-                Assert.AreNotEqual(emptyVersion, FrameworkVersionDetection.GetExactVersion(FrameworkVersion.Fx10));
+                    Assert.AreEqual(1, FrameworkVersionDetection.GetServicePackLevel(FrameworkVersion.Fx10));
+                    Assert.AreNotEqual(emptyVersion, FrameworkVersionDetection.GetExactVersion(FrameworkVersion.Fx10));
+                }
             }
             finally
             {

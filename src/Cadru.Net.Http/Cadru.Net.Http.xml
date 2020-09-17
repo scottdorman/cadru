@@ -9,6 +9,11 @@
             Represents a collection of query string parameters and values.
             </summary>
         </member>
+        <member name="M:Cadru.Net.Http.Collections.QueryStringParametersDictionary.Empty">
+            <summary>
+            An empty <see cref="T:Cadru.Net.Http.Collections.QueryStringParametersDictionary"/>.
+            </summary>
+        </member>
         <member name="M:Cadru.Net.Http.Collections.QueryStringParametersDictionary.#ctor">
             <summary>
             Initializes a new instance of the
@@ -1210,73 +1215,77 @@
             <para>The <see cref="T:Cadru.Net.Http.UrlBuilder"/> instance has a bad password.</para>
             </exception>
         </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute">
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute">
             <summary>
-                Specifies that <see langword="null"/> is allowed as an input even if the
-                corresponding type disallows it.
+                Specifies that the method or property will ensure that the listed field and property members have
+                not-<see langword="null"/> values.
             </summary>
         </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.AllowNullAttribute.#ctor">
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.Members">
             <summary>
-                Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute"/> class.
+                Gets field or property member names.
             </summary>
         </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.DisallowNullAttribute">
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String)">
             <summary>
-                Specifies that <see langword="null"/> is disallowed as an input even if the
-                corresponding type allows it.
+                Initializes the attribute with a field or property member.
             </summary>
-        </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.DisallowNullAttribute.#ctor">
-            <summary>
-                Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DisallowNullAttribute"/> class.
-            </summary>
-        </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute">
-            <summary>
-                Specifies that a method that will never return under any circumstance.
-            </summary>
-        </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute.#ctor">
-             <summary>
-                 Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute"/> class.
-             </summary>
-            
-        </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute">
-            <summary>
-                Specifies that the method will not return if the associated <see cref="T:System.Boolean"/>
-                parameter is passed the specified value.
-            </summary>
-        </member>
-        <member name="P:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.ParameterValue">
-            <summary>
-                Gets the condition parameter value.
-                Code after the method is considered unreachable by diagnostics if the argument
-                to the associated parameter matches this value.
-            </summary>
-        </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.#ctor(System.Boolean)">
-            <summary>
-                Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute"/>
-                class with the specified parameter value.
-            </summary>
-            <param name="parameterValue">
-                The condition parameter value.
-                Code after the method is considered unreachable by diagnostics if the argument
-                to the associated parameter matches this value.
+            <param name="member">
+                The field or property member that is promised to be not-null.
             </param>
         </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullAttribute">
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String[])">
             <summary>
-                Specifies that an output may be <see langword="null"/> even if the
-                corresponding type disallows it.
+                Initializes the attribute with the list of field and property members.
+            </summary>
+            <param name="members">
+                The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute">
+            <summary>
+                Specifies that the method or property will ensure that the listed field and property members have
+                non-<see langword="null"/> values when returning with the specified return value condition.
             </summary>
         </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.MaybeNullAttribute.#ctor">
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.ReturnValue">
             <summary>
-                Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.MaybeNullAttribute"/> class.
+                Gets the return value condition.
             </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members">
+            <summary>
+                Gets field or property member names.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String)">
+            <summary>
+                Initializes the attribute with the specified return value condition and a field or property member.
+            </summary>
+            <param name="returnValue">
+                The return value condition. If the method returns this value,
+                the associated parameter will not be <see langword="null"/>.
+            </param>
+            <param name="member">
+                The field or property member that is promised to be not-<see langword="null"/>.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String[])">
+            <summary>
+                Initializes the attribute with the specified return value condition and list
+                of field and property members.
+            </summary>
+            <param name="returnValue">
+                The return value condition. If the method returns this value,
+                the associated parameter will not be <see langword="null"/>.
+            </param>
+            <param name="members">
+                The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+    </members>
+</doc>
+>
         </member>
         <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute">
             <summary>
