@@ -63,6 +63,12 @@ namespace Cadru.Build.Tasks
         public string Language { get; set; }
 
         /// <summary>
+        /// The root namespace for the generated code.
+        /// </summary>
+        [Required]
+        public string RootNamespace { get; set; }
+
+        /// <summary>
         /// Description of attributes to write. Item include is the full type
         /// name of the attribute. For example,
         /// "System.AssemblyVersionAttribute". Each piece of metadata is the
@@ -188,8 +194,7 @@ namespace Cadru.Build.Tasks
             extension = provider.FileExtension;
 
             var unit = new CodeCompileUnit();
-
-            var globalNamespace = new CodeNamespace();
+            var globalNamespace = new CodeNamespace(this.RootNamespace);
             unit.Namespaces.Add(globalNamespace);
 
             // Declare authorship. Unfortunately CodeDOM puts this comment after

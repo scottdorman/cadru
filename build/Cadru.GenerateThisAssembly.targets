@@ -1,6 +1,8 @@
 <Project>
   <PropertyGroup>
     <BuildDir>$([MSBuild]::EnsureTrailingSlash($(SolutionDir)build))</BuildDir>
+    <ThisAssemblyRootNamespace>$(RootNamespace)</ThisAssemblyRootNamespace>
+    <ThisAssemblyRootNamespace Condition="'$(ThisAssemblyRootNamespace)' == ''">$(MSBuildProjectName)</ThisAssemblyRootNamespace>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -34,7 +36,7 @@
       <Compile Remove="$(GeneratedThisAssemblyFile)" />
     </ItemGroup>
 
-    <WriteThisAssemblyCodeFile AssemblyAttributes="@(AssemblyAttribute)" Language="$(Language)" OutputFile="$(GeneratedThisAssemblyFile)">
+    <WriteThisAssemblyCodeFile AssemblyAttributes="@(AssemblyAttribute)" Language="$(Language)" RootNamespace="$(ThisAssemblyRootNamespace)" OutputFile="$(GeneratedThisAssemblyFile)">
       <Output TaskParameter="OutputFile" ItemName="Compile" />
       <Output TaskParameter="OutputFile" ItemName="FileWrites" />
     </WriteThisAssemblyCodeFile>

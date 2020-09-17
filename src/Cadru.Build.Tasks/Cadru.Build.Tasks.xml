@@ -488,6 +488,11 @@
             "VisualBasic". Emitted file will have the default extension for that language.
             </summary>
         </member>
+        <member name="P:Cadru.Build.Tasks.WriteThisAssemblyCodeFile.RootNamespace">
+            <summary>
+            The root namespace for the generated code.
+            </summary>
+        </member>
         <member name="P:Cadru.Build.Tasks.WriteThisAssemblyCodeFile.AssemblyAttributes">
             <summary>
             Description of attributes to write. Item include is the full type
