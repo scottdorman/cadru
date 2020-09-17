@@ -361,7 +361,7 @@ namespace Cadru.Core.Extensions.Tests
             Assert.AreEqual(testValue, testValue.Replace('c', 'Q', 0));
             Assert.AreEqual("abCDEfgabcdefg", testValue.Replace("cde", "CDE", 1));
             Assert.AreEqual("abCDEfgabCDEfg", testValue.Replace("cde", "CDE", 2));
-            Assert.AreEqual(testValue, testValue.Replace("cde", "CDE", 0));
+            Assert.AreEqual(testValue, testValue.Replace("cde", "CDE", 0, StringComparison.Ordinal));
             Assert.AreEqual("abCDEfgabCDEfg", testValue.Replace("cde", "CDE", 3));
             Assert.AreEqual("abCDEfgabcdefg", testValue.Replace("cde", "CDE", 1, StringComparison.Ordinal));
             Assert.AreEqual("abCDEfgabCDEfg", testValue.Replace("cde", "CDE", 2, StringComparison.Ordinal));
