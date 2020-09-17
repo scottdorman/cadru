@@ -26,7 +26,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 using Polly.Registry;
 
-namespace Cadru.Polly
+namespace Cadru.Polly.DependencyInjection
 {
     /// <summary>
     /// Extension methods for setting up

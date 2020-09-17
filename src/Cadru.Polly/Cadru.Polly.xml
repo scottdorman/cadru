@@ -1102,14 +1102,14 @@
               Looks up a localized string similar to There are no policies configured..
             </summary>
         </member>
-        <member name="T:Cadru.Polly.ServiceCollectionExtensions">
+        <member name="T:Cadru.Polly.DependencyInjection.ServiceCollectionExtensions">
             <summary>
             Extension methods for setting up
             <see href="https://github.com/App-vNext/Polly">Polly</see> services in
             an <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
             </summary>
         </member>
-        <member name="M:Cadru.Polly.ServiceCollectionExtensions.AddPolicyRegistry(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Cadru.Polly.DependencyInjection.ServiceCollectionExtensions.AddPolicyRegistry(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Adds a <see cref="T:Polly.Registry.PolicyRegistry"/> instance to the specified <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
             </summary>

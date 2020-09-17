@@ -29,7 +29,7 @@ projects from the command-line or the IDE. -->
   values specified here. -->
   <PropertyGroup>
     <VersionMajor>4</VersionMajor>
-    <VersionMinor>5</VersionMinor>
+    <VersionMinor>6</VersionMinor>
     <VersionPatch></VersionPatch>
     <VersionSuffix></VersionSuffix>
   </PropertyGroup>
