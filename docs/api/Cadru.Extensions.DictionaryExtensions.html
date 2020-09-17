@@ -1,0 +1,934 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DictionaryExtensions
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DictionaryExtensions
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.Extensions.DictionaryExtensions">
+  
+  
+  <h1 id="Cadru_Extensions_DictionaryExtensions" data-uid="Cadru.Extensions.DictionaryExtensions" class="text-break">Class DictionaryExtensions
+  </h1>
+  <div class="markdown level0 summary"><p>Provides basic routines for common dictionary manipulation.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">DictionaryExtensions</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.Extensions.html">Cadru.Extensions</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.Core.dll</h6>
+  <h5 id="Cadru_Extensions_DictionaryExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class DictionaryExtensions : object</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DictionaryExtensions_Add__2_IDictionary___0___1____0___1_Func_System_Boolean__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DictionaryExtensions.Add%60%602(IDictionary%7B%60%600%2C%60%601%7D%2C%60%600%2C%60%601%2CFunc%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DictionaryExtensions.cs/#L49">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DictionaryExtensions_Add_" data-uid="Cadru.Extensions.DictionaryExtensions.Add*"></a>
+  <h4 id="Cadru_Extensions_DictionaryExtensions_Add__2_IDictionary___0___1____0___1_Func_System_Boolean__" data-uid="Cadru.Extensions.DictionaryExtensions.Add``2(IDictionary{``0,``1},``0,``1,Func{System.Boolean})">Add&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey, TValue, Func&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the value associated with the specified key if the
+condition is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IDictionary&lt;TKey, TValue&gt; Add&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; source, TKey key, TValue value, Func&lt;bool&gt; condition)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source dictionary.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key of the value to get or set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value associated with the specified key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to add or update the value; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><p>The updated <see cref="!:IDictionary&lt;TKey, TValue>"></see> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>The type of the keys in the dictionary.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The type of the values in the dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DictionaryExtensions_GetValueOrDefault__1_IDictionary_System_Object___0_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DictionaryExtensions.GetValueOrDefault%60%601(IDictionary%2CSystem.Object%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DictionaryExtensions.cs/#L100">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DictionaryExtensions_GetValueOrDefault_" data-uid="Cadru.Extensions.DictionaryExtensions.GetValueOrDefault*"></a>
+  <h4 id="Cadru_Extensions_DictionaryExtensions_GetValueOrDefault__1_IDictionary_System_Object___0_" data-uid="Cadru.Extensions.DictionaryExtensions.GetValueOrDefault``1(IDictionary,System.Object,``0)">GetValueOrDefault&lt;TValue&gt;(IDictionary, Object, TValue)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key or the provided
+default value if the key is not found.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TValue GetValueOrDefault&lt;TValue&gt;(this IDictionary source, object key, TValue defaultValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source dictionary.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key of the value to get.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">defaultValue</span></td>
+        <td><p>The default value to be returned if key is not found.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">key</code> is found, the value associated with the
+specified key; otherwise, <code data-dev-comment-type="paramref" class="paramref">defaultValue</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The type of the values in the dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DictionaryExtensions_GetValueOrDefault__2_IDictionary___0___1____0___1_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DictionaryExtensions.GetValueOrDefault%60%602(IDictionary%7B%60%600%2C%60%601%7D%2C%60%600%2C%60%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DictionaryExtensions.cs/#L76">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DictionaryExtensions_GetValueOrDefault_" data-uid="Cadru.Extensions.DictionaryExtensions.GetValueOrDefault*"></a>
+  <h4 id="Cadru_Extensions_DictionaryExtensions_GetValueOrDefault__2_IDictionary___0___1____0___1_" data-uid="Cadru.Extensions.DictionaryExtensions.GetValueOrDefault``2(IDictionary{``0,``1},``0,``1)">GetValueOrDefault&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey, TValue)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key or the provided
+default value if the key is not found.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TValue GetValueOrDefault&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; source, TKey key, TValue defaultValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source dictionary.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key of the value to get.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">defaultValue</span></td>
+        <td><p>The default value to be returned if key is not found.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">key</code> is found, the value associated with the
+specified key; otherwise, <code data-dev-comment-type="paramref" class="paramref">defaultValue</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>The type of the keys in the dictionary.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The type of the values in the dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DictionaryExtensions_Merge__2_IDictionary___0___1____0___1_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DictionaryExtensions.Merge%60%602(IDictionary%7B%60%600%2C%60%601%7D%2C%60%600%2C%60%601%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DictionaryExtensions.cs/#L131">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DictionaryExtensions_Merge_" data-uid="Cadru.Extensions.DictionaryExtensions.Merge*"></a>
+  <h4 id="Cadru_Extensions_DictionaryExtensions_Merge__2_IDictionary___0___1____0___1_System_Boolean_" data-uid="Cadru.Extensions.DictionaryExtensions.Merge``2(IDictionary{``0,``1},``0,``1,System.Boolean)">Merge&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey, TValue, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Merges the specified key/value pair into the source dictionary.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Merge&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; source, TKey key, TValue value, bool replaceExisting)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:IDictionary&lt;TKey, TValue>"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key of the element to add.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of the element to add. It can be <span class="xref">null</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">replaceExisting</span></td>
+        <td><p><span class="xref">true</span> to replace the existing value, if found;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>The type of the keys in the dictionary.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The type of the values in the dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DictionaryExtensions_Merge__2_IDictionary___0___1__IDictionary___0___1__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DictionaryExtensions.Merge%60%602(IDictionary%7B%60%600%2C%60%601%7D%2CIDictionary%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DictionaryExtensions.cs/#L174">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DictionaryExtensions_Merge_" data-uid="Cadru.Extensions.DictionaryExtensions.Merge*"></a>
+  <h4 id="Cadru_Extensions_DictionaryExtensions_Merge__2_IDictionary___0___1__IDictionary___0___1__" data-uid="Cadru.Extensions.DictionaryExtensions.Merge``2(IDictionary{``0,``1},IDictionary{``0,``1})">Merge&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, IDictionary&lt;TKey, TValue&gt;)</h4>
+  <div class="markdown level1 summary"><p>Merges the specified instance into the source dictionary.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Merge&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; first, IDictionary&lt;TKey, TValue&gt; second)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">first</span></td>
+        <td><p>The source <see cref="!:IDictionary&lt;TKey, TValue>"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">second</span></td>
+        <td><p>An <see cref="!:IDictionary&lt;TKey, TValue>"></see> whose elements will be merged.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>The type of the keys in the dictionary.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The type of the values in the dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DictionaryExtensions_Merge__2_IDictionary___0___1__IDictionary___0___1__System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DictionaryExtensions.Merge%60%602(IDictionary%7B%60%600%2C%60%601%7D%2CIDictionary%7B%60%600%2C%60%601%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DictionaryExtensions.cs/#L152">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DictionaryExtensions_Merge_" data-uid="Cadru.Extensions.DictionaryExtensions.Merge*"></a>
+  <h4 id="Cadru_Extensions_DictionaryExtensions_Merge__2_IDictionary___0___1__IDictionary___0___1__System_Boolean_" data-uid="Cadru.Extensions.DictionaryExtensions.Merge``2(IDictionary{``0,``1},IDictionary{``0,``1},System.Boolean)">Merge&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, IDictionary&lt;TKey, TValue&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Merges the specified instance into the source dictionary.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Merge&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; first, IDictionary&lt;TKey, TValue&gt; second, bool replaceExisting)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">first</span></td>
+        <td><p>The source <see cref="!:IDictionary&lt;TKey, TValue>"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">second</span></td>
+        <td><p>An <see cref="!:IDictionary&lt;TKey, TValue>"></see> whose elements will be merged.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">replaceExisting</span></td>
+        <td><p><span class="xref">true</span> to replace the existing value, if found;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>The type of the keys in the dictionary.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The type of the values in the dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DictionaryExtensions_TryAdd__2_IDictionary___0___1____0___1_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DictionaryExtensions.TryAdd%60%602(IDictionary%7B%60%600%2C%60%601%7D%2C%60%600%2C%60%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DictionaryExtensions.cs/#L193">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DictionaryExtensions_TryAdd_" data-uid="Cadru.Extensions.DictionaryExtensions.TryAdd*"></a>
+  <h4 id="Cadru_Extensions_DictionaryExtensions_TryAdd__2_IDictionary___0___1____0___1_" data-uid="Cadru.Extensions.DictionaryExtensions.TryAdd``2(IDictionary{``0,``1},``0,``1)">TryAdd&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey, TValue)</h4>
+  <div class="markdown level1 summary"><p>Attempts to add the specified key and value to the dictionary.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryAdd&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; dictionary, TKey key, TValue value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">dictionary</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key of the element to add.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of the element to add. It can be <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the key/value pair was added to the
+dictionary successfully; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>The type of the keys in the dictionary.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The type of the values in the dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DictionaryExtensions_TryAdd__2_IDictionary___0___1__KeyValuePair___0___1__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DictionaryExtensions.TryAdd%60%602(IDictionary%7B%60%600%2C%60%601%7D%2CKeyValuePair%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DictionaryExtensions.cs/#L217">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DictionaryExtensions_TryAdd_" data-uid="Cadru.Extensions.DictionaryExtensions.TryAdd*"></a>
+  <h4 id="Cadru_Extensions_DictionaryExtensions_TryAdd__2_IDictionary___0___1__KeyValuePair___0___1__" data-uid="Cadru.Extensions.DictionaryExtensions.TryAdd``2(IDictionary{``0,``1},KeyValuePair{``0,``1})">TryAdd&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, KeyValuePair&lt;TKey, TValue&gt;)</h4>
+  <div class="markdown level1 summary"><p>Attempts to add the specified key and value to the dictionary.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryAdd&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; dictionary, KeyValuePair&lt;TKey, TValue&gt; item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">dictionary</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">KeyValuePair</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">item</span></td>
+        <td><p>The <see cref="!:KeyValuePair&lt;TKey, TValue>"></see> to add.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the key/value pair was added to the
+dictionary successfully; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>The type of the keys in the dictionary.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The type of the values in the dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DictionaryExtensions_TryGetValueOrDefault__1_IDictionary_System_Object___0___0__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DictionaryExtensions.TryGetValueOrDefault%60%601(IDictionary%2CSystem.Object%2C%60%600%2C%60%600%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DictionaryExtensions.cs/#L289">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DictionaryExtensions_TryGetValueOrDefault_" data-uid="Cadru.Extensions.DictionaryExtensions.TryGetValueOrDefault*"></a>
+  <h4 id="Cadru_Extensions_DictionaryExtensions_TryGetValueOrDefault__1_IDictionary_System_Object___0___0__" data-uid="Cadru.Extensions.DictionaryExtensions.TryGetValueOrDefault``1(IDictionary,System.Object,``0,``0@)">TryGetValueOrDefault&lt;TValue&gt;(IDictionary, Object, TValue, out TValue)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key or the provided
+default value if the key is not found.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryGetValueOrDefault&lt;TValue&gt;(this IDictionary dictionary, object key, TValue defaultValue, out TValue value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span></td>
+        <td><span class="parametername">dictionary</span></td>
+        <td><p>The source dictionary.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key of the value to get.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">defaultValue</span></td>
+        <td><p>The default value to be returned if key is not found.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>When this method returns, contains the value associated with the
+specified key, if the <code data-dev-comment-type="paramref" class="paramref">key</code> is found; otherwise,
+<code data-dev-comment-type="paramref" class="paramref">defaultValue</code>. This parameter is passed uninitialized.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the
+<see cref="!:System.Collections.Generic.Dictionary&lt;TKey,TValue>"></see>
+contains an element with the specified key; otherwise, false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The type of the values in the dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DictionaryExtensions_TryGetValueOrDefault__2_IDictionary___0___1____0___1___1__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DictionaryExtensions.TryGetValueOrDefault%60%602(IDictionary%7B%60%600%2C%60%601%7D%2C%60%600%2C%60%601%2C%60%601%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DictionaryExtensions.cs/#L252">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_DictionaryExtensions_TryGetValueOrDefault_" data-uid="Cadru.Extensions.DictionaryExtensions.TryGetValueOrDefault*"></a>
+  <h4 id="Cadru_Extensions_DictionaryExtensions_TryGetValueOrDefault__2_IDictionary___0___1____0___1___1__" data-uid="Cadru.Extensions.DictionaryExtensions.TryGetValueOrDefault``2(IDictionary{``0,``1},``0,``1,``1@)">TryGetValueOrDefault&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey, TValue, out TValue)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key or the provided
+default value if the key is not found.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryGetValueOrDefault&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; dictionary, TKey key, TValue defaultValue, out TValue value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">dictionary</span></td>
+        <td><p>The source dictionary.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key of the value to get.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">defaultValue</span></td>
+        <td><p>The default value to be returned if key is not found.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>When this method returns, contains the value associated with the
+specified key, if the <code data-dev-comment-type="paramref" class="paramref">key</code> is found; otherwise,
+<code data-dev-comment-type="paramref" class="paramref">defaultValue</code>. This parameter is passed uninitialized.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the
+<see cref="!:System.Collections.Generic.Dictionary&lt;TKey,TValue>"></see>
+contains an element with the specified key; otherwise, false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>The type of the keys in the dictionary.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The type of the values in the dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_DictionaryExtensions.md&amp;value=---%0Auid%3A%20Cadru.Extensions.DictionaryExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/DictionaryExtensions.cs/#L32" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

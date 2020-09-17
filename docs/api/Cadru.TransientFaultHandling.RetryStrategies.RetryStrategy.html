@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class RetryStrategy
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class RetryStrategy
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy">
+  
+  
+  <h1 id="Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy" data-uid="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy" class="text-break">Class RetryStrategy
+  </h1>
+  <div class="markdown level0 summary"><p>A retry strategy that determines the number of retry attempts and the interval between retries.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">RetryStrategy</span></div>
+      <div class="level2"><a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.html">ExponentialBackoffRetryStrategy</a></div>
+      <div class="level2"><a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.FixedIntervalRetryStrategy.html">FixedIntervalRetryStrategy</a></div>
+      <div class="level2"><a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.IncrementalRetryStrategy.html">IncrementalRetryStrategy</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.html">Cadru.TransientFaultHandling.RetryStrategies</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.TransientFaultHandling.dll</h6>
+  <h5 id="Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class RetryStrategy : object</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy__ctor_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.%23ctor(System.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.TransientFaultHandling/RetryStrategies/RetryStrategy.cs/#L67">View Source</a>
+  </span>
+  <a id="Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy__ctor_" data-uid="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.#ctor*"></a>
+  <h4 id="Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy__ctor_System_String_System_Boolean_" data-uid="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.#ctor(System.String,System.Boolean)">RetryStrategy(String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.html">RetryStrategy</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected RetryStrategy(string name, bool firstFastRetry)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name of the retry strategy.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">firstFastRetry</span></td>
+        <td><p>true to immediately retry in the first attempt; otherwise, false. The subsequent retries will remain subject to the configured retry interval.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_DefaultClientRetryCount.md&amp;value=---%0Auid%3A%20Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.DefaultClientRetryCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.TransientFaultHandling/RetryStrategies/RetryStrategy.cs/#L44">View Source</a>
+  </span>
+  <h4 id="Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_DefaultClientRetryCount" data-uid="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.DefaultClientRetryCount">DefaultClientRetryCount</h4>
+  <div class="markdown level1 summary"><p>Represents the default number of retry attempts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int DefaultClientRetryCount</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_DefaultFirstFastRetry.md&amp;value=---%0Auid%3A%20Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.DefaultFirstFastRetry%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.TransientFaultHandling/RetryStrategies/RetryStrategy.cs/#L55">View Source</a>
+  </span>
+  <h4 id="Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_DefaultFirstFastRetry" data-uid="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.DefaultFirstFastRetry">DefaultFirstFastRetry</h4>
+  <div class="markdown level1 summary"><p>Represents the default flag indicating whether the first retry attempt will be made immediately,
+whereas subsequent retries will remain subject to the retry interval.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly bool DefaultFirstFastRetry</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_DefaultRetryInterval.md&amp;value=---%0Auid%3A%20Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.DefaultRetryInterval%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.TransientFaultHandling/RetryStrategies/RetryStrategy.cs/#L49">View Source</a>
+  </span>
+  <h4 id="Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_DefaultRetryInterval" data-uid="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.DefaultRetryInterval">DefaultRetryInterval</h4>
+  <div class="markdown level1 summary"><p>Represents the default interval between retries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly TimeSpan DefaultRetryInterval</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_FastFirstRetry.md&amp;value=---%0Auid%3A%20Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.FastFirstRetry%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.TransientFaultHandling/RetryStrategies/RetryStrategy.cs/#L79">View Source</a>
+  </span>
+  <a id="Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_FastFirstRetry_" data-uid="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.FastFirstRetry*"></a>
+  <h4 id="Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_FastFirstRetry" data-uid="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.FastFirstRetry">FastFirstRetry</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the first retry attempt will be made immediately,
+whereas subsequent retries will remain subject to the retry interval.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FastFirstRetry { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_Name.md&amp;value=---%0Auid%3A%20Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.TransientFaultHandling/RetryStrategies/RetryStrategy.cs/#L84">View Source</a>
+  </span>
+  <a id="Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_Name_" data-uid="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.Name*"></a>
+  <h4 id="Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_Name" data-uid="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.Name">Name</h4>
+  <div class="markdown level1 summary"><p>Gets the name of the retry strategy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_GetShouldRetry.md&amp;value=---%0Auid%3A%20Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.GetShouldRetry%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.TransientFaultHandling/RetryStrategies/RetryStrategy.cs/#L92">View Source</a>
+  </span>
+  <a id="Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_GetShouldRetry_" data-uid="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.GetShouldRetry*"></a>
+  <h4 id="Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_GetShouldRetry" data-uid="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.GetShouldRetry">GetShouldRetry()</h4>
+  <div class="markdown level1 summary"><p>Returns the corresponding ShouldRetry delegate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ShouldRetry GetShouldRetry()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.ShouldRetry.html">ShouldRetry</a></td>
+        <td><p>The ShouldRetry delegate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNotNull__1___0_">NullExtensions.IsNotNull&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNull__1___0_">NullExtensions.IsNull&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy.md&amp;value=---%0Auid%3A%20Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.TransientFaultHandling/RetryStrategies/RetryStrategy.cs/#L38" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

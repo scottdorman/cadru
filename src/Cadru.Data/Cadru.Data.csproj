@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <Description>Provides a standard way to read Excel data and fixed width files.</Description>
@@ -14,6 +14,7 @@
     <PackageReference Include="System.Data.Common" Version="4.3.0" />
     <PackageReference Include="System.Memory" Version="4.5.4" />
     <PackageReference Include="System.Runtime.Serialization.Formatters" Version="4.3.0" />
+    <PackageReference Include="Nullable" Version="1.3.0" />
   </ItemGroup>
 
   <ItemGroup>

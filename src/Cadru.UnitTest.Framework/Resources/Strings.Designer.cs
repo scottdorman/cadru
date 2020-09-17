@@ -10,7 +10,6 @@
 
 namespace Cadru.UnitTest.Framework.Resources {
     using System;
-    using System.Reflection;
     
     
     /// <summary>
@@ -20,7 +19,7 @@ namespace Cadru.UnitTest.Framework.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Strings {
@@ -40,7 +39,7 @@ namespace Cadru.UnitTest.Framework.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Cadru.UnitTest.Framework.Resources.Strings", typeof(Strings).GetTypeInfo().Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Cadru.UnitTest.Framework.Resources.Strings", typeof(Strings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -62,33 +61,6 @@ namespace Cadru.UnitTest.Framework.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} cannot contain a null (Nothing in Visual Basic) element..
-        /// </summary>
-        internal static string Argument_NullElement {
-            get {
-                return ResourceManager.GetString("Argument_NullElement", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {0} cannot be an empty string..
-        /// </summary>
-        internal static string ArgumentException_EmptyString {
-            get {
-                return ResourceManager.GetString("ArgumentException_EmptyString", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Expected a collection containing &lt;0&gt; items but actual was &lt;{0}&gt; items..
-        /// </summary>
-        internal static string Assertion_CollectionFailure {
-            get {
-                return ResourceManager.GetString("Assertion_CollectionFailure", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Expected exception of type {0} but no exception was thrown..
         /// </summary>
         internal static string Assertion_ExceptionNotThrown {
@@ -98,7 +70,7 @@ namespace Cadru.UnitTest.Framework.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expected {0} to be assignable from {1}.
+        ///   Looks up a localized string similar to Expected {0} to be assignable from {1}..
         /// </summary>
         internal static string Assertion_ExpectedToBeAssignableFrom {
             get {
@@ -107,7 +79,7 @@ namespace Cadru.UnitTest.Framework.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expected &lt;{0}&gt; but actual was &lt;{1}&gt;..
+        ///   Looks up a localized string similar to Expected &amp;lt;{0}&amp;gt; but actual was &amp;lt;{1}&amp;gt;..
         /// </summary>
         internal static string Assertion_GenericFailure {
             get {
@@ -116,43 +88,7 @@ namespace Cadru.UnitTest.Framework.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} is {1} than {2}..
-        /// </summary>
-        internal static string Assertion_IsComparison {
-            get {
-                return ResourceManager.GetString("Assertion_IsComparison", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {0} is {1} than or equal to {2}..
-        /// </summary>
-        internal static string Assertion_IsComparisonOrEqualTo {
-            get {
-                return ResourceManager.GetString("Assertion_IsComparisonOrEqualTo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Expected exception with a message of &apos;{0}&apos; but exception with message of &apos;{1}&apos; was thrown instead..
-        /// </summary>
-        internal static string Assertion_UnexceptedExceptionMessage {
-            get {
-                return ResourceManager.GetString("Assertion_UnexceptedExceptionMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Expected exception was not thrown..
-        /// </summary>
-        internal static string Assertion_UnexpectedExceptionThrown {
-            get {
-                return ResourceManager.GetString("Assertion_UnexpectedExceptionThrown", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Expected type {0} but actual was  {1}..
+        ///   Looks up a localized string similar to Expected type {0} but actual was {1}..
         /// </summary>
         internal static string Assertion_WrongType {
             get {
@@ -161,29 +97,132 @@ namespace Cadru.UnitTest.Framework.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Assumption failed..
+        ///   Looks up a localized string similar to {0} failed. {1}.
         /// </summary>
-        internal static string AssumptionException_EmptyMessage {
+        internal static string AssertionFailed {
             get {
-                return ResourceManager.GetString("AssumptionException_EmptyMessage", resourceCulture);
+                return ResourceManager.GetString("AssertionFailed", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Assumption failed. {0}.
+        ///   Looks up a localized string similar to (null).
         /// </summary>
-        internal static string AssumptionException_Message {
+        internal static string Common_NullInMessages {
             get {
-                return ResourceManager.GetString("AssumptionException_Message", resourceCulture);
+                return ResourceManager.GetString("Common_NullInMessages", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The {0} member must be overridden by a derived class..
+        ///   Looks up a localized string similar to An exception of type {1} was thrown but was not expected. {0}
+        ///Exception Message: {2}
+        ///Stack Trace: {3}.
         /// </summary>
-        internal static string NotImplemented_NotOverriddenByDerived {
+        internal static string DoesNotThrowExceptionFailMsg {
             get {
-                return ResourceManager.GetString("NotImplemented_NotOverriddenByDerived", resourceCulture);
+                return ResourceManager.GetString("DoesNotThrowExceptionFailMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected an empty collection..
+        /// </summary>
+        internal static string IsCollectionEmptyFailMsg {
+            get {
+                return ResourceManager.GetString("IsCollectionEmptyFailMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected a collection with 1 or more elements..
+        /// </summary>
+        internal static string IsCollectionNotEmptyFailMsg {
+            get {
+                return ResourceManager.GetString("IsCollectionNotEmptyFailMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected an empty string but actual string had {0} characters..
+        /// </summary>
+        internal static string IsEmptyStringFailMsg {
+            get {
+                return ResourceManager.GetString("IsEmptyStringFailMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected an empty string but actual string was (null)..
+        /// </summary>
+        internal static string IsEmptyStringFailOnNullMsg {
+            get {
+                return ResourceManager.GetString("IsEmptyStringFailOnNullMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected {0} to be greater than {1}..
+        /// </summary>
+        internal static string IsGreaterFailMsg {
+            get {
+                return ResourceManager.GetString("IsGreaterFailMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected {0} to be greater than or equal to {1}..
+        /// </summary>
+        internal static string IsGreaterOrEqualFailMsg {
+            get {
+                return ResourceManager.GetString("IsGreaterOrEqualFailMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected {0} to be less than {1}..
+        /// </summary>
+        internal static string IsLessFailMsg {
+            get {
+                return ResourceManager.GetString("IsLessFailMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected {0} to be less than or equal to {1}..
+        /// </summary>
+        internal static string IsLessOrEqualFailMsg {
+            get {
+                return ResourceManager.GetString("IsLessOrEqualFailMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected a string with 1 or more characters but actual was empty..
+        /// </summary>
+        internal static string IsNotEmptyStringFailMsg {
+            get {
+                return ResourceManager.GetString("IsNotEmptyStringFailMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected a string with 1 or more characters but actual was (null)..
+        /// </summary>
+        internal static string IsNotEmptyStringFailOnNullMsg {
+            get {
+                return ResourceManager.GetString("IsNotEmptyStringFailOnNullMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Threw exception {0}, but exception {1} was expected.
+        ///Exception Message: {3}
+        ///Stack Trace: {4}.
+        /// </summary>
+        internal static string WrongExceptionThrown {
+            get {
+                return ResourceManager.GetString("WrongExceptionThrown", resourceCulture);
             }
         }
     }

@@ -21,9 +21,7 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Reflection;
 
-using Cadru.Contracts;
 using Cadru.UnitTest.Framework.Resources;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -40,9 +38,10 @@ namespace Cadru.UnitTest.Framework
         /// </summary>
         /// <param name="value">The value to be tested.</param>
         /// <param name="expectedType">The expected <see cref="Type"/>.</param>
+        [Obsolete("Use Assert.That.IsAssignableFrom<T>(object).")]
         public static void IsAssignableFrom(object value, Type expectedType)
         {
-            IsAssignableFrom(value, expectedType, Strings.Assertion_ExpectedToBeAssignableFrom, value, expectedType);
+            Assert.That.IsAssignableFrom(value, expectedType, Strings.Assertion_ExpectedToBeAssignableFrom, value, expectedType);
         }
 
         /// <summary>
@@ -53,9 +52,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">
         /// A message to display. This message can be seen in the unit test results.
         /// </param>
+        [Obsolete("Use Assert.That.IsAssignableFrom<T>(object, string).")]
         public static void IsAssignableFrom(object value, Type expectedType, string message)
         {
-            IsAssignableFrom(value, expectedType, message, null);
+            Assert.That.IsAssignableFrom(value, expectedType, message, value, expectedType);
         }
 
         /// <summary>
@@ -69,12 +69,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
+        [Obsolete("Use Assert.That.IsAssignableFrom<T>(object, string, object[]).")]
         public static void IsAssignableFrom(object value, Type expectedType, string message, params object[] parameters)
         {
-            if (!value.GetType().GetTypeInfo().IsAssignableFrom(expectedType.GetTypeInfo()))
-            {
-                Assert.Fail(message, parameters);
-            }
+            Assert.That.IsAssignableFrom(value, expectedType, message, parameters);
         }
 
         /// <summary>
@@ -82,9 +80,10 @@ namespace Cadru.UnitTest.Framework
         /// </summary>
         /// <param name="value">The value to be tested.</param>
         /// <param name="expectedType">The expected <see cref="Type"/>.</param>
+        [Obsolete("Use Assert.That.IsNotAssignableFrom<T>(object).")]
         public static void IsNotAssignableFrom(object value, Type expectedType)
         {
-            IsNotAssignableFrom(value, expectedType, Strings.Assertion_ExpectedToBeAssignableFrom, value, expectedType);
+            Assert.That.IsNotAssignableFrom(value, expectedType, Strings.Assertion_ExpectedToBeAssignableFrom, value, expectedType);
         }
 
         /// <summary>
@@ -95,9 +94,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">
         /// A message to display. This message can be seen in the unit test results.
         /// </param>
+        [Obsolete("Use Assert.That.IsNotAssignableFrom<T>(object, string).")]
         public static void IsNotAssignableFrom(object value, Type expectedType, string message)
         {
-            IsNotAssignableFrom(value, expectedType, message, null);
+            Assert.That.IsNotAssignableFrom(value, expectedType, message, value, expectedType);
         }
 
         /// <summary>
@@ -111,13 +111,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
+        [Obsolete("Use Assert.That.IsNotAssignableFrom<T>(object, string, object[]).")]
         public static void IsNotAssignableFrom(object value, Type expectedType, string message, params object[] parameters)
         {
-            Requires.NotNull(value, "value");
-            if (value.GetType().GetTypeInfo().IsAssignableFrom(expectedType.GetTypeInfo()))
-            {
-                Assert.Fail(message, parameters);
-            }
+            Assert.That.IsNotAssignableFrom(value, expectedType, message, parameters);
         }
 
         /// <summary>
@@ -125,21 +122,10 @@ namespace Cadru.UnitTest.Framework
         /// </summary>
         /// <typeparam name="T">The expected <see cref="Type"/>.</typeparam>
         /// <param name="value">The value to be tested.</param>
+        [Obsolete("Use Assert.That.IsType<T>(object).")]
         public static void IsType<T>(object value)
         {
-            IsType(value, typeof(T));
-        }
-
-        /// <summary>
-        /// Asserts that an object is of the given <see cref="Type"/>.
-        /// </summary>
-        /// <typeparam name="T">The expected <see cref="Type"/>.</typeparam>
-        /// <param name="assert">The <see cref="Assert"/> instance to extend.</param>
-        /// <param name="value">The value to be tested.</param>
-        public static Assert IsType<T>(this Assert assert, object value)
-        {
-            IsType(value, typeof(T));
-            return assert;
+            Assert.That.IsType<T>(value);
         }
 
         /// <summary>
@@ -147,10 +133,10 @@ namespace Cadru.UnitTest.Framework
         /// </summary>
         /// <param name="value">The value to be tested.</param>
         /// <param name="expectedType">The expected <see cref="Type"/>.</param>
+        [Obsolete("Use Assert.That.IsType<T>(object, string).")]
         public static void IsType(object value, Type expectedType)
         {
-            Requires.NotNull(value, "value");
-            IsType(value, expectedType, Strings.Assertion_WrongType, expectedType, value.GetType());
+            Assert.That.IsType(value, expectedType, Strings.Assertion_WrongType, expectedType, value?.GetType()!);
         }
 
         /// <summary>
@@ -161,9 +147,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">
         /// A message to display. This message can be seen in the unit test results.
         /// </param>
+        [Obsolete("Use Assert.That.IsType<T>(object, string).")]
         public static void IsType(object value, Type expectedType, string message)
         {
-            IsType(value, expectedType, message, null);
+            Assert.That.IsType(value, expectedType, message, expectedType, value?.GetType()!);
         }
 
         /// <summary>
@@ -177,21 +164,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
+        [Obsolete("Use Assert.That.IsType<T>(object, string, object[]).")]
         public static void IsType(object value, Type expectedType, string message, params object[] parameters)
         {
-            Requires.NotNull(value, "value");
-            var actualType = value.GetType();
-            if (actualType != expectedType)
-            {
-                if (String.IsNullOrWhiteSpace(message))
-                {
-                    Assert.Fail(Strings.Assertion_WrongType, expectedType, actualType);
-                }
-                else
-                {
-                    Assert.Fail(message, parameters);
-                }
-            }
+            Assert.That.IsType(value, expectedType, message, parameters);
         }
     }
 }

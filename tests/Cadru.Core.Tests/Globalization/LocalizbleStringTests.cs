@@ -43,9 +43,9 @@ namespace Cadru.Core.Globalization.Tests
             Assert.IsInstanceOfType(localized, typeof(LocalizableString));
             Assert.IsNull(localized.ResourceType);
 
-            ExceptionAssert.Throws<ArgumentException>(() => new LocalizableString(""));
-            ExceptionAssert.Throws<ArgumentNullException>(() => new LocalizableString(null));
-            ExceptionAssert.Throws<ArgumentException>(() => new LocalizableString("    "));
+            Assert.ThrowsException<ArgumentException>(() => new LocalizableString(""));
+            Assert.ThrowsException<ArgumentNullException>(() => new LocalizableString(null));
+            Assert.ThrowsException<ArgumentException>(() => new LocalizableString("    "));
         }
 
         [TestMethod]
@@ -59,26 +59,26 @@ namespace Cadru.Core.Globalization.Tests
             Assert.AreEqual("RelativeDateFormatStringYesterday", localized.Value);
             Assert.IsNotNull(localized.ResourceType);
 
-            ExceptionAssert.Throws<InvalidOperationException>(() => localized.GetLocalizableValue());
+            Assert.ThrowsException<InvalidOperationException>(() => localized.GetLocalizableValue());
 
             localized.ResourceType = typeof(LocalizbleStringTests.ResourceTester);
             localized.Value = "Invalid";
-            ExceptionAssert.Throws<InvalidOperationException>(() => localized.GetLocalizableValue());
+            Assert.ThrowsException<InvalidOperationException>(() => localized.GetLocalizableValue());
 
             localized.Value = "InvalidStatic";
-            ExceptionAssert.Throws<InvalidOperationException>(() => localized.GetLocalizableValue());
+            Assert.ThrowsException<InvalidOperationException>(() => localized.GetLocalizableValue());
 
             localized.Value = "Invalid2";
-            ExceptionAssert.Throws<InvalidOperationException>(() => localized.GetLocalizableValue());
+            Assert.ThrowsException<InvalidOperationException>(() => localized.GetLocalizableValue());
 
             localized.Value = "Invalid3";
-            ExceptionAssert.Throws<InvalidOperationException>(() => localized.GetLocalizableValue());
+            Assert.ThrowsException<InvalidOperationException>(() => localized.GetLocalizableValue());
 
             localized.Value = "Invalid4";
-            ExceptionAssert.Throws<InvalidOperationException>(() => localized.GetLocalizableValue());
+            Assert.ThrowsException<InvalidOperationException>(() => localized.GetLocalizableValue());
 
             localized.Value = "Invalid5";
-            ExceptionAssert.Throws<InvalidOperationException>(() => localized.GetLocalizableValue());
+            Assert.ThrowsException<InvalidOperationException>(() => localized.GetLocalizableValue());
         }
 
         [TestMethod]

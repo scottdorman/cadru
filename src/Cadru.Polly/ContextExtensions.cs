@@ -20,11 +20,14 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 using Cadru.Contracts;
 
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 using Polly;
@@ -36,6 +39,21 @@ namespace Cadru.Polly
     /// </summary>
     public static class ContextExtensions
     {
+        /// <inheritdoc cref="ServiceProviderServiceExtensions.CreateScope(IServiceProvider)"/>
+        /// <param name="context">
+        /// The <see cref="Context"/> to retrieve items from.
+        /// </param>
+        public static IServiceScope? CreateScope(this Context context)
+        {
+            IServiceScope? scope = null;
+            if (context.TryGetValue(PolicyContextItems.Services, out var objectValue) && objectValue is IServiceProvider serviceProvider)
+            {
+                scope = serviceProvider.CreateScope();
+            }
+
+            return scope;
+        }
+
         /// <summary>
         /// Gets an <see cref="ILogger"/> instance from the <see cref="Context"/>.
         /// </summary>
@@ -46,10 +64,62 @@ namespace Cadru.Polly
         /// An <see cref="ILogger"/> instance if one is found in the
         /// <paramref name="context"/>; otherwise, <see langword="null"/>.
         /// </returns>
+        /// <remarks>
+        /// This expects the <see cref="ILogger"/> instance to be a context item
+        /// and does not resolve it from the <see cref="IServiceProvider"/>.
+        /// </remarks>
         public static ILogger? GetLogger(this Context context)
         {
             context.TryGetLogger(out var logger);
             return logger;
+        }
+
+        /// <inheritdoc cref="ServiceProviderServiceExtensions.GetRequiredService{T}(IServiceProvider)"/>
+        /// <param name="context">
+        /// The <see cref="Context"/> to retrieve items from.
+        /// </param>
+        [return: NotNull]
+        public static T GetRequiredService<T>(this Context context)
+        {
+            T service = default;
+
+            if (context.TryGetValue(PolicyContextItems.Services, out var objectValue) && objectValue is IServiceProvider serviceProvider)
+            {
+                service = serviceProvider.GetRequiredService<T>();
+            }
+
+            return service!;
+        }
+
+        /// <inheritdoc cref="ServiceProviderServiceExtensions.GetService{T}(IServiceProvider)"/>
+        /// <param name="context">
+        /// The <see cref="Context"/> to retrieve items from.
+        /// </param>
+        [return: MaybeNull]
+        public static T GetService<T>(this Context context)
+        {
+            T service = default;
+
+            if (context.TryGetValue(PolicyContextItems.Services, out var objectValue) && objectValue is IServiceProvider serviceProvider)
+            {
+                service = serviceProvider.GetService<T>();
+            }
+
+            return service;
+        }
+
+        /// <inheritdoc cref="ServiceProviderServiceExtensions.GetServices{T}(IServiceProvider)"/>
+        /// <param name="context">
+        /// The <see cref="Context"/> to retrieve items from.
+        /// </param>
+        public static IEnumerable<T> GetServices<T>(this Context context)
+        {
+            var services = Enumerable.Empty<T>();
+            if (context.TryGetValue(PolicyContextItems.Services, out var objectValue) && objectValue is IServiceProvider serviceProvider)
+            {
+                services = serviceProvider.GetServices<T>();
+            }
+            return services;
         }
 
         /// <summary>
@@ -67,6 +137,10 @@ namespace Cadru.Polly
         /// <see langword="true"/> if the <paramref name="context"/> contains an
         /// <see cref="ILogger"/> instance; otherwise, <see langword="false"/>.
         /// </returns>
+        /// <remarks>
+        /// This expects the <see cref="ILogger"/> instance to be a context item
+        /// and does not resolve it from the <see cref="IServiceProvider"/>.
+        /// </remarks>
         public static bool TryGetLogger(this Context context, [NotNullWhen(true)] out ILogger? logger)
         {
             if (context.TryGetValue(PolicyContextItems.Logger, out ILogger contextLogger))
@@ -166,6 +240,9 @@ namespace Cadru.Polly
         /// <returns>
         /// The <see cref="Context"/> so that additional calls can be chained.
         /// </returns>
+        /// <remarks>
+        /// This adds the <see cref="ILogger"/> instance as a context item.
+        /// </remarks>
         public static Context WithLogger(this Context context, ILogger logger)
         {
             context[PolicyContextItems.Logger] = logger;

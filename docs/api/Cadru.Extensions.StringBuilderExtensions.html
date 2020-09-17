@@ -1,0 +1,2276 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class StringBuilderExtensions
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class StringBuilderExtensions
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.Extensions.StringBuilderExtensions">
+  
+  
+  <h1 id="Cadru_Extensions_StringBuilderExtensions" data-uid="Cadru.Extensions.StringBuilderExtensions" class="text-break">Class StringBuilderExtensions
+  </h1>
+  <div class="markdown level0 summary"><p>Provides basic routines for common <see cref="!:StringBuilder"></see> manipulation.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">StringBuilderExtensions</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.Extensions.html">Cadru.Extensions</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.Core.dll</h6>
+  <h5 id="Cadru_Extensions_StringBuilderExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class StringBuilderExtensions : object</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendAsHexadecimal_StringBuilder_System_Byte_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendAsHexadecimal(StringBuilder%2CSystem.Byte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L103">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendAsHexadecimal_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendAsHexadecimal*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendAsHexadecimal_StringBuilder_System_Byte_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendAsHexadecimal(StringBuilder,System.Byte)">AppendAsHexadecimal(StringBuilder, Byte)</h4>
+  <div class="markdown level1 summary"><p>Appends the hexadecimal string representation of a specified
+<see cref="!:Byte"></see> value to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendAsHexadecimal(this StringBuilder source, byte value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <see cref="!:Byte"></see> value to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendAsHexadecimal_StringBuilder_System_Byte___.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendAsHexadecimal(StringBuilder%2CSystem.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L126">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendAsHexadecimal_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendAsHexadecimal*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendAsHexadecimal_StringBuilder_System_Byte___" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendAsHexadecimal(StringBuilder,System.Byte[])">AppendAsHexadecimal(StringBuilder, Byte[])</h4>
+  <div class="markdown level1 summary"><p>Appends the hexadecimal string representation of a specified
+<see cref="!:Byte"></see> array to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendAsHexadecimal(this StringBuilder source, params byte[] values)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">values</span></td>
+        <td><p>The <see cref="!:Byte"></see> array to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendAsHexadecimal_StringBuilder_System_Int16_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendAsHexadecimal(StringBuilder%2CSystem.Int16)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L78">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendAsHexadecimal_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendAsHexadecimal*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendAsHexadecimal_StringBuilder_System_Int16_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendAsHexadecimal(StringBuilder,System.Int16)">AppendAsHexadecimal(StringBuilder, Int16)</h4>
+  <div class="markdown level1 summary"><p>Appends the hexadecimal string representation of a specified
+<see cref="!:Int16"></see> value to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendAsHexadecimal(this StringBuilder source, short value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int16</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <see cref="!:Int16"></see> value to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendAsHexadecimal_StringBuilder_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendAsHexadecimal(StringBuilder%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L49">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendAsHexadecimal_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendAsHexadecimal*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendAsHexadecimal_StringBuilder_System_Int32_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendAsHexadecimal(StringBuilder,System.Int32)">AppendAsHexadecimal(StringBuilder, Int32)</h4>
+  <div class="markdown level1 summary"><p>Appends the hexadecimal string representation of a specified
+<see cref="!:Int32"></see> value to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendAsHexadecimal(this StringBuilder source, int value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <see cref="!:Int32"></see> value to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendFormatIf_StringBuilder_System_Boolean_IFormatProvider_System_String_System_Object___.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendFormatIf(StringBuilder%2CSystem.Boolean%2CIFormatProvider%2CSystem.String%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L224">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendFormatIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendFormatIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendFormatIf_StringBuilder_System_Boolean_IFormatProvider_System_String_System_Object___" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendFormatIf(StringBuilder,System.Boolean,IFormatProvider,System.String,System.Object[])">AppendFormatIf(StringBuilder, Boolean, IFormatProvider, String, Object[])</h4>
+  <div class="markdown level1 summary"><p>Appends the string returned by processing a composite format string,
+which contains zero or more format items, followed by the default
+line terminator to the end of this instance if
+<code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>. Each format
+item is replaced by the string representation of a corresponding
+argument in a parameter array using a specified format provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendFormatIf(this StringBuilder source, bool condition, IFormatProvider provider, string format, params object[] args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">format</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IFormatProvider</span></td>
+        <td><span class="parametername">provider</span></td>
+        <td><p>An object that supplies culture-specific formatting information.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>A composite format string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>An array of objects to format.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to <code data-dev-comment-type="paramref" class="paramref">source</code> with
+<code data-dev-comment-type="paramref" class="paramref">format</code> appended, if <code data-dev-comment-type="paramref" class="paramref">condition</code>
+is <span class="xref">true</span>. Each format item in
+<code data-dev-comment-type="paramref" class="paramref">format</code> is replaced by the string representation
+of the corresponding object argument.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendFormatIf_StringBuilder_System_Boolean_System_String_System_Object___.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendFormatIf(StringBuilder%2CSystem.Boolean%2CSystem.String%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L180">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendFormatIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendFormatIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendFormatIf_StringBuilder_System_Boolean_System_String_System_Object___" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendFormatIf(StringBuilder,System.Boolean,System.String,System.Object[])">AppendFormatIf(StringBuilder, Boolean, String, Object[])</h4>
+  <div class="markdown level1 summary"><p>Appends the string returned by processing a composite format string,
+which contains zero or more format items, followed by the default
+line terminator to the end of this instance if
+<code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendFormatIf(this StringBuilder source, bool condition, string format, params object[] args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">format</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>A composite format string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>An array of objects to format.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to <code data-dev-comment-type="paramref" class="paramref">source</code> with
+<code data-dev-comment-type="paramref" class="paramref">format</code> appended. Each format item in
+<code data-dev-comment-type="paramref" class="paramref">format</code> is replaced by the string representation
+of the corresponding object argument.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendFormatLine_StringBuilder_IFormatProvider_System_String_System_Object___.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendFormatLine(StringBuilder%2CIFormatProvider%2CSystem.String%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L309">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendFormatLine_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendFormatLine*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendFormatLine_StringBuilder_IFormatProvider_System_String_System_Object___" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendFormatLine(StringBuilder,IFormatProvider,System.String,System.Object[])">AppendFormatLine(StringBuilder, IFormatProvider, String, Object[])</h4>
+  <div class="markdown level1 summary"><p>Appends the string returned by processing a composite format string,
+which contains zero or more format items, followed by the default
+line terminator to the end of this instance. Each format item is
+replaced by the string representation of a corresponding argument in
+a parameter array using a specified format provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendFormatLine(this StringBuilder source, IFormatProvider provider, string format, params object[] args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IFormatProvider</span></td>
+        <td><span class="parametername">provider</span></td>
+        <td><p>An object that supplies culture-specific formatting information.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>A composite format string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>An array of objects to format.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to <code data-dev-comment-type="paramref" class="paramref">source</code> with
+<code data-dev-comment-type="paramref" class="paramref">format</code> appended. Each format item in
+<code data-dev-comment-type="paramref" class="paramref">format</code> is replaced by the string representation
+of the corresponding object argument.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendFormatLine_StringBuilder_System_String_System_Object___.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendFormatLine(StringBuilder%2CSystem.String%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L271">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendFormatLine_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendFormatLine*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendFormatLine_StringBuilder_System_String_System_Object___" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendFormatLine(StringBuilder,System.String,System.Object[])">AppendFormatLine(StringBuilder, String, Object[])</h4>
+  <div class="markdown level1 summary"><p>Appends the string returned by processing a composite format string,
+which contains zero or more format items, followed by the default
+line terminator to the end of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendFormatLine(this StringBuilder source, string format, params object[] args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>A composite format string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>An array of objects to format.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to <code data-dev-comment-type="paramref" class="paramref">source</code> with
+<code data-dev-comment-type="paramref" class="paramref">format</code> appended. Each format item in
+<code data-dev-comment-type="paramref" class="paramref">format</code> is replaced by the string representation
+of the corresponding object argument.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendFormatLineIf_StringBuilder_System_Boolean_IFormatProvider_System_String_System_Object___.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendFormatLineIf(StringBuilder%2CSystem.Boolean%2CIFormatProvider%2CSystem.String%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L407">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendFormatLineIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendFormatLineIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendFormatLineIf_StringBuilder_System_Boolean_IFormatProvider_System_String_System_Object___" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendFormatLineIf(StringBuilder,System.Boolean,IFormatProvider,System.String,System.Object[])">AppendFormatLineIf(StringBuilder, Boolean, IFormatProvider, String, Object[])</h4>
+  <div class="markdown level1 summary"><p>Appends the string returned by processing a composite format string,
+which contains zero or more format items, followed by the default
+line terminator to the end of this instance if
+<code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>. Each format
+item is replaced by the string representation of a corresponding
+argument in a parameter array using a specified format provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendFormatLineIf(this StringBuilder source, bool condition, IFormatProvider provider, string format, params object[] args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">format</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IFormatProvider</span></td>
+        <td><span class="parametername">provider</span></td>
+        <td><p>An object that supplies culture-specific formatting information.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>A composite format string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>An array of objects to format.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to <code data-dev-comment-type="paramref" class="paramref">source</code> with
+<code data-dev-comment-type="paramref" class="paramref">format</code> appended. Each format item in
+<code data-dev-comment-type="paramref" class="paramref">format</code> is replaced by the string representation
+of the corresponding object argument.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendFormatLineIf_StringBuilder_System_Boolean_System_String_System_Object___.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendFormatLineIf(StringBuilder%2CSystem.Boolean%2CSystem.String%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L357">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendFormatLineIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendFormatLineIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendFormatLineIf_StringBuilder_System_Boolean_System_String_System_Object___" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendFormatLineIf(StringBuilder,System.Boolean,System.String,System.Object[])">AppendFormatLineIf(StringBuilder, Boolean, String, Object[])</h4>
+  <div class="markdown level1 summary"><p>Appends the string returned by processing a composite format string,
+which contains zero or more format items, followed by the default
+line terminator to the end of this instance if
+<code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendFormatLineIf(this StringBuilder source, bool condition, string format, params object[] args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">format</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>A composite format string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>An array of objects to format.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to <code data-dev-comment-type="paramref" class="paramref">source</code> with
+<code data-dev-comment-type="paramref" class="paramref">format</code> appended. Each format item in
+<code data-dev-comment-type="paramref" class="paramref">format</code> is replaced by the string representation
+of the corresponding object argument.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L442">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Boolean_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.Boolean)">AppendIf(StringBuilder, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of a specified
+<see cref="!:Boolean"></see> value to this instance if
+<code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, bool value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <see cref="!:Boolean"></see> value to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Byte_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.Byte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L471">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Byte_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.Byte)">AppendIf(StringBuilder, Boolean, Byte)</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of a specified 8-bit unsigned
+integer to this instance if <code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, byte value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Char_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.Char)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L500">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Char_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.Char)">AppendIf(StringBuilder, Boolean, Char)</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of a specified Unicode character
+to this instance if <code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, char value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Char</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The Unicode character to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Char_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.Char%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L884">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Char_System_Int32_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.Char,System.Int32)">AppendIf(StringBuilder, Boolean, Char, Int32)</h4>
+  <div class="markdown level1 summary"><p>Appends a specified number of copies of the string representation of
+a Unicode character to this instance if <code data-dev-comment-type="paramref" class="paramref">condition</code>
+is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, char value, int repeatCount)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Char</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The character to append.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">repeatCount</span></td>
+        <td><p>The number of times to append <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Char___.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.Char%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L529">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Char___" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.Char[])">AppendIf(StringBuilder, Boolean, Char[])</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of Unicode characters in a
+specified array to this instance if <code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, char[] value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Char</span>[]</td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The array of characters to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Char___System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.Char%5B%5D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L929">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Char___System_Int32_System_Int32_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.Char[],System.Int32,System.Int32)">AppendIf(StringBuilder, Boolean, Char[], Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of a specified subarray of Unicode
+characters to this instance if <code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, char[] value, int startIndex, int charCount)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Char</span>[]</td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A character array.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">startIndex</span></td>
+        <td><p>The starting position in <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">charCount</span></td>
+        <td><p>The number of characters to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Double_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L559">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Double_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.Double)">AppendIf(StringBuilder, Boolean, Double)</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of a specified double-precision
+floating-point number to this instance if
+<code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, double value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Int16_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.Int16)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L734">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Int16_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.Int16)">AppendIf(StringBuilder, Boolean, Int16)</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of a specified 16-bit signed
+integer to this instance if <code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, short value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int16</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L618">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Int32_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.Int32)">AppendIf(StringBuilder, Boolean, Int32)</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of a specified 32-bit signed
+integer to this instance if <code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, int value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Int64_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L647">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Int64_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.Int64)">AppendIf(StringBuilder, Boolean, Int64)</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of a specified 64-bit signed
+integer to this instance if <code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, long value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Object_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L676">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Object_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.Object)">AppendIf(StringBuilder, Boolean, Object)</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of a specified object to this
+instance if <code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_SByte_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.SByte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L705">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_SByte_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.SByte)">AppendIf(StringBuilder, Boolean, SByte)</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of a specified 8-bit signed
+integer to this instance if <code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, sbyte value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.SByte</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Single_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L589">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_Single_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.Single)">AppendIf(StringBuilder, Boolean, Single)</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of a specified single-precision
+floating-point number to this instance if
+<code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, float value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L763">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_String_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.String)">AppendIf(StringBuilder, Boolean, String)</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of the specified 8-bit unsigned
+integer to this instance if <code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The string to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_String_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.String%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L978">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_String_System_Int32_System_Int32_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.String,System.Int32,System.Int32)">AppendIf(StringBuilder, Boolean, String, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Appends a copy of a specified substring to this instance if
+<code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, string value, int startIndex, int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The string that contains the substring to append.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">startIndex</span></td>
+        <td><p>The starting position of the substring within <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td><p>The number of characters in <code data-dev-comment-type="paramref" class="paramref">value</code> to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_UInt16_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.UInt16)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L850">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_UInt16_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.UInt16)">AppendIf(StringBuilder, Boolean, UInt16)</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of a specified 16-bit unsigned
+integer to this instance if <code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, ushort value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_UInt32_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.UInt32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L792">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_UInt32_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.UInt32)">AppendIf(StringBuilder, Boolean, UInt32)</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of a specified 32-bit unsigned
+integer to this instance if <code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, uint value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_UInt64_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder%2CSystem.Boolean%2CSystem.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L821">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendIf_StringBuilder_System_Boolean_System_UInt64_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendIf(StringBuilder,System.Boolean,System.UInt64)">AppendIf(StringBuilder, Boolean, UInt64)</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of a specified 64-bit unsigned
+integer to this instance if <code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder source, bool condition, ulong value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendLineIf_StringBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendLineIf(StringBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L1012">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendLineIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendLineIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendLineIf_StringBuilder_System_Boolean_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendLineIf(StringBuilder,System.Boolean)">AppendLineIf(StringBuilder, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Appends the default line terminator to the end of this instance if
+<code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendLineIf(this StringBuilder source, bool condition)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append the default line terminator;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendLineIf_StringBuilder_System_Boolean_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendLineIf(StringBuilder%2CSystem.Boolean%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L1042">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendLineIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendLineIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendLineIf_StringBuilder_System_Boolean_System_String_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendLineIf(StringBuilder,System.Boolean,System.String)">AppendLineIf(StringBuilder, Boolean, String)</h4>
+  <div class="markdown level1 summary"><p>Appends a copy of the specified string followed by the default line
+terminator to the end of this instance if
+<code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendLineIf(this StringBuilder source, bool condition, string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">value</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The string to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendLines_StringBuilder_IEnumerable_System_String__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendLines(StringBuilder%2CIEnumerable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L1066">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendLines_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendLines*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendLines_StringBuilder_IEnumerable_System_String__" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendLines(StringBuilder,IEnumerable{System.String})">AppendLines(StringBuilder, IEnumerable&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"><p>Appends a copy of each of the specified strings followed by the
+default line terminator to the end of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendLines(this StringBuilder source, IEnumerable&lt;string&gt; values)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">values</span></td>
+        <td><p>The strings to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions_AppendLinesIf_StringBuilder_System_Boolean_IEnumerable_System_String__.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions.AppendLinesIf(StringBuilder%2CSystem.Boolean%2CIEnumerable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L1095">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_StringBuilderExtensions_AppendLinesIf_" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendLinesIf*"></a>
+  <h4 id="Cadru_Extensions_StringBuilderExtensions_AppendLinesIf_StringBuilder_System_Boolean_IEnumerable_System_String__" data-uid="Cadru.Extensions.StringBuilderExtensions.AppendLinesIf(StringBuilder,System.Boolean,IEnumerable{System.String})">AppendLinesIf(StringBuilder, Boolean, IEnumerable&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"><p>Appends a copy of each of the specified strings followed by the
+default line terminator to the end of this instance if
+<code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendLinesIf(this StringBuilder source, bool condition, IEnumerable&lt;string&gt; values)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The source <see cref="!:StringBuilder"></see> object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p><span class="xref">true</span> to append <code data-dev-comment-type="paramref" class="paramref">values</code>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">values</span></td>
+        <td><p>The strings to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>A reference to this instance after the append operation has,
+optionally, completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_StringBuilderExtensions.md&amp;value=---%0Auid%3A%20Cadru.Extensions.StringBuilderExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/StringBuilderExtensions.cs/#L34" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

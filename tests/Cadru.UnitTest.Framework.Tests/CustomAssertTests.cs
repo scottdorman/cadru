@@ -34,42 +34,42 @@ namespace Cadru.UnitTest.Framework.Tests
         [TestMethod]
         public void CaseInsensitiveCompare()
         {
-            CustomAssert.AreEqualIgnoringCase("name", "NAME");
-            CustomAssert.AreEqualIgnoringCase("name", "NAME", "test message");
+            Assert.That.AreEqualIgnoringCase("name", "NAME");
+            Assert.That.AreEqualIgnoringCase("name", "NAME", "test message");
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void CaseInsensitiveCompareFails()
         {
-            CustomAssert.AreEqualIgnoringCase("Name", "NAMES");
-            CustomAssert.AreEqualIgnoringCase("Name", "NAMES", "test message");
+            Assert.That.AreEqualIgnoringCase("Name", "NAMES");
+            Assert.That.AreEqualIgnoringCase("Name", "NAMES", "test message");
         }
 
         [TestMethod]
         public void IsEmpty()
         {
-            CustomAssert.IsEmpty("", "Failed on empty String");
-            CustomAssert.IsEmpty(Array.Empty<int>(), "Failed on empty Array");
-            CustomAssert.IsEmpty(new ArrayList(), "Failed on empty ArrayList");
-            CustomAssert.IsEmpty(new Hashtable(), "Failed on empty Hashtable");
+            Assert.That.IsEmpty("", "Failed on empty String");
+            CollectionAssert.That.IsEmpty(Array.Empty<int>(), "Failed on empty Array");
+            CollectionAssert.That.IsEmpty(new ArrayList(), "Failed on empty ArrayList");
+            CollectionAssert.That.IsEmpty(new Hashtable(), "Failed on empty Hashtable");
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void IsEmptyFailsOnNonEmptyArray()
         {
-            CustomAssert.IsEmpty(new int[] { 1, 2, 3 });
+            CollectionAssert.That.IsEmpty(new int[] { 1, 2, 3 });
         }
 
-        [TestMethod, ExpectedException(typeof(NullReferenceException))]
+        [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void IsEmptyFailsOnNullString()
         {
-            CustomAssert.IsEmpty((string)null);
+            Assert.That.IsEmpty((string)null);
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void IsEmptyFailsOnString()
         {
-            CustomAssert.IsEmpty("Hi!");
+            Assert.That.IsEmpty("Hi!");
         }
 
         [TestMethod]
@@ -82,34 +82,34 @@ namespace Cadru.UnitTest.Framework.Tests
                 { "array", array }
             };
 
-            CustomAssert.IsNotEmpty("Hi!", "Failed on String");
-            CustomAssert.IsNotEmpty(array, "Failed on Array");
-            CustomAssert.IsNotEmpty(list, "Failed on ArrayList");
-            CustomAssert.IsNotEmpty(hash, "Failed on Hashtable");
+            Assert.That.IsNotEmpty("Hi!", "Failed on String");
+            CollectionAssert.That.IsNotEmpty(array, "Failed on Array");
+            CollectionAssert.That.IsNotEmpty(list, "Failed on ArrayList");
+            CollectionAssert.That.IsNotEmpty(hash, "Failed on Hashtable");
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void IsNotEmptyFailsOnEmptyArray()
         {
-            CustomAssert.IsNotEmpty(Array.Empty<int>());
+            CollectionAssert.That.IsNotEmpty(Array.Empty<int>());
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void IsNotEmptyFailsOnEmptyArrayList()
         {
-            CustomAssert.IsNotEmpty(new ArrayList());
+            CollectionAssert.That.IsNotEmpty(new ArrayList());
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void IsNotEmptyFailsOnEmptyHashTable()
         {
-            CustomAssert.IsNotEmpty(new Hashtable());
+            CollectionAssert.That.IsNotEmpty(new Hashtable());
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void IsNotEmptyFailsOnEmptyString()
         {
-            CustomAssert.IsNotEmpty("");
+            Assert.That.IsNotEmpty("");
         }
     }
 }

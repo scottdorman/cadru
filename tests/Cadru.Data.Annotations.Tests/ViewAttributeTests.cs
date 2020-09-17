@@ -23,8 +23,6 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-using Cadru.UnitTest.Framework;
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Cadru.Data.Annotations.Tests
@@ -43,8 +41,8 @@ namespace Cadru.Data.Annotations.Tests
             Assert.AreEqual("test", attribute.Name);
             Assert.AreEqual("dbo", attribute.Schema);
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => new ViewAttribute(null));
-            ExceptionAssert.Throws<ArgumentException>(() => new ViewAttribute(String.Empty));
+            Assert.ThrowsException<ArgumentNullException>(() => new ViewAttribute(null));
+            Assert.ThrowsException<ArgumentException>(() => new ViewAttribute(String.Empty));
 
             attribute = new ViewAttribute("test") { Schema = null };
             Assert.AreEqual("test", attribute.Name);

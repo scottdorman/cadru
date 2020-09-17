@@ -1,0 +1,1915 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class StateManagementExtensions
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class StateManagementExtensions
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions">
+  
+  
+  <h1 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions" class="text-break">Class StateManagementExtensions
+  </h1>
+  <div class="markdown level0 summary"><p>Extension methods that aid in working with ASP.NET Core session state by
+providing a common abstraction layer for <see cref="!:ISession"></see>,
+<see cref="!:ITempDataDictionary"></see>, and <see cref="!:ViewDataDictionary"></see>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">StateManagementExtensions</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.AspNetCore.Mvc.Extensions.html">Cadru.AspNetCore.Mvc.Extensions</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.AspNetCore.Mvc.dll</h6>
+  <h5 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class StateManagementExtensions : object</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get__1_ISession_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get%60%601(ISession)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L99">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get__1_ISession_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(ISession)">Get&lt;T&gt;(ISession)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Get&lt;T&gt;(this ISession storageProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ISession</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get__1_ISession__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+This is equivalent to calling
+<see cref="!:Get&lt;T>(ISession, String)"></see> where the key is the
+full name of <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get__1_ISession_System_String_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get%60%601(ISession%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L117">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get__1_ISession_System_String_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(ISession,System.String)">Get&lt;T&gt;(ISession, String)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Get&lt;T&gt;(this ISession storageProvider, string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ISession</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key whose value to get.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get__1_ITempDataDictionary_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get%60%601(ITempDataDictionary)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L57">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get__1_ITempDataDictionary_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(ITempDataDictionary)">Get&lt;T&gt;(ITempDataDictionary)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Get&lt;T&gt;(this ITempDataDictionary storageProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ITempDataDictionary</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get__1_ITempDataDictionary__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+This is equivalent to calling
+<see cref="!:Get&lt;T>(ITempDataDictionary, String)"></see> where the key
+is the full name of <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get__1_ITempDataDictionary_System_String_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get%60%601(ITempDataDictionary%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L75">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get__1_ITempDataDictionary_System_String_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(ITempDataDictionary,System.String)">Get&lt;T&gt;(ITempDataDictionary, String)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Get&lt;T&gt;(this ITempDataDictionary storageProvider, string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ITempDataDictionary</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key whose value to get.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get__1_ViewDataDictionary_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get%60%601(ViewDataDictionary)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L141">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get__1_ViewDataDictionary_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(ViewDataDictionary)">Get&lt;T&gt;(ViewDataDictionary)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Get&lt;T&gt;(this ViewDataDictionary storageProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ViewDataDictionary</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get__1_ViewDataDictionary__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+This is equivalent to calling
+<see cref="!:Get&lt;T>(ViewDataDictionary, String)"></see> where the key
+is the full name of <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get__1_ViewDataDictionary_System_String_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get%60%601(ViewDataDictionary%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L159">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Get__1_ViewDataDictionary_System_String_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Get``1(ViewDataDictionary,System.String)">Get&lt;T&gt;(ViewDataDictionary, String)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Get&lt;T&gt;(this ViewDataDictionary storageProvider, string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ViewDataDictionary</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key whose value to get.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek__1_ISession_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek%60%601(ISession)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L228">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek__1_ISession_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek``1(ISession)">Peek&lt;T&gt;(ISession)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the key derived from the full name of <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Peek&lt;T&gt;(this ISession storageProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ISession</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek__1_ISession__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+This is equivalent to calling
+<see cref="!:Get&lt;T>(ISession, String)"></see> where the key is the
+full name of <code data-dev-comment-type="typeparamref" class="typeparamref">T</code> and is provided for ease of
+use when switching between different storage providers.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek__1_ISession_System_String_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek%60%601(ISession%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L253">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek__1_ISession_System_String_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek``1(ISession,System.String)">Peek&lt;T&gt;(ISession, String)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Peek&lt;T&gt;(this ISession storageProvider, string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ISession</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key whose value to get.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek__1_ISession_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+This is equivalent to calling
+<see cref="!:Get&lt;T>(ISession, String)"></see> where the key is the
+full name of <code data-dev-comment-type="typeparamref" class="typeparamref">T</code> and is provided for ease of
+use when switching between different storage providers.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek__1_ITempDataDictionary_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek%60%601(ITempDataDictionary)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L184">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek__1_ITempDataDictionary_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek``1(ITempDataDictionary)">Peek&lt;T&gt;(ITempDataDictionary)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key, without marking
+the key for deletion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Peek&lt;T&gt;(this ITempDataDictionary storageProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ITempDataDictionary</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek__1_ITempDataDictionary__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+This is equivalent to calling
+<see cref="!:Peek&lt;T>(ITempDataDictionary, String)"></see> where the
+key is the full name of <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek__1_ITempDataDictionary_System_String_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek%60%601(ITempDataDictionary%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L203">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek__1_ITempDataDictionary_System_String_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek``1(ITempDataDictionary,System.String)">Peek&lt;T&gt;(ITempDataDictionary, String)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key, without marking
+the key for deletion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Peek&lt;T&gt;(this ITempDataDictionary storageProvider, string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ITempDataDictionary</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key whose value to get.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek__1_ViewDataDictionary_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek%60%601(ViewDataDictionary)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L277">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek__1_ViewDataDictionary_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek``1(ViewDataDictionary)">Peek&lt;T&gt;(ViewDataDictionary)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the key derived from the full name of <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Peek&lt;T&gt;(this ViewDataDictionary storageProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ViewDataDictionary</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek__1_ViewDataDictionary__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+This is equivalent to calling
+<see cref="!:Get&lt;T>(ViewDataDictionary, String)"></see> where the key
+is the full name of <code data-dev-comment-type="typeparamref" class="typeparamref">T</code> and is provided for
+ease of use when switching between different storage providers.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek__1_ViewDataDictionary_System_String_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek%60%601(ViewDataDictionary%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L301">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek__1_ViewDataDictionary_System_String_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Peek``1(ViewDataDictionary,System.String)">Peek&lt;T&gt;(ViewDataDictionary, String)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Peek&lt;T&gt;(this ViewDataDictionary storageProvider, string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ViewDataDictionary</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key whose value to get.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Peek__1_ViewDataDictionary_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+This is equivalent to calling
+<see cref="!:Get&lt;T>(ViewDataDictionary, String)"></see> and is
+provided for ease of use when switching between different storage providers.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ISession___0_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put%60%601(ISession%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L356">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ISession___0_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put``1(ISession,``0)">Put&lt;T&gt;(ISession, T)</h4>
+  <div class="markdown level1 summary"><p>Adds the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Put&lt;T&gt;(this ISession storageProvider, T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ISession</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to store.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ISession___0__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The value is stored as a JSON serialized string.</p>
+<p>
+This is equivalent to calling
+<see cref="!:Put&lt;T>(ISession, String, T)"></see> where the key is the
+full name of <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ISession_System_String___0_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put%60%601(ISession%2CSystem.String%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L371">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ISession_System_String___0_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put``1(ISession,System.String,``0)">Put&lt;T&gt;(ISession, String, T)</h4>
+  <div class="markdown level1 summary"><p>Adds the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Put&lt;T&gt;(this ISession storageProvider, string key, T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ISession</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key to associate with the stored value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to store.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ISession_System_String___0__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The value is stored as a JSON serialized string.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ITempDataDictionary___0_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put%60%601(ITempDataDictionary%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L322">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ITempDataDictionary___0_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put``1(ITempDataDictionary,``0)">Put&lt;T&gt;(ITempDataDictionary, T)</h4>
+  <div class="markdown level1 summary"><p>Adds the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Put&lt;T&gt;(this ITempDataDictionary storageProvider, T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ITempDataDictionary</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to store.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ITempDataDictionary___0__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The value is stored as a JSON serialized string.</p>
+<p>
+This is equivalent to calling
+<see cref="!:Put&lt;T>(ITempDataDictionary, String, T)"></see> where the
+key is the full name of <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ITempDataDictionary_System_String___0_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put%60%601(ITempDataDictionary%2CSystem.String%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L337">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ITempDataDictionary_System_String___0_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put``1(ITempDataDictionary,System.String,``0)">Put&lt;T&gt;(ITempDataDictionary, String, T)</h4>
+  <div class="markdown level1 summary"><p>Adds the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Put&lt;T&gt;(this ITempDataDictionary storageProvider, string key, T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ITempDataDictionary</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key to associate with the stored value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to store.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ITempDataDictionary_System_String___0__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The value is stored as a JSON serialized string.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ViewDataDictionary___0_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put%60%601(ViewDataDictionary%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L390">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ViewDataDictionary___0_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put``1(ViewDataDictionary,``0)">Put&lt;T&gt;(ViewDataDictionary, T)</h4>
+  <div class="markdown level1 summary"><p>Adds the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Put&lt;T&gt;(this ViewDataDictionary storageProvider, T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ViewDataDictionary</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to store.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ViewDataDictionary___0__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The value is stored as a JSON serialized string.</p>
+<p>
+This is equivalent to calling
+<see cref="!:Put&lt;T>(ViewDataDictionary, String, T)"></see> where the
+key is the full name of <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ViewDataDictionary_System_String___0_.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put%60%601(ViewDataDictionary%2CSystem.String%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L405">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ViewDataDictionary_System_String___0_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.Put``1(ViewDataDictionary,System.String,``0)">Put&lt;T&gt;(ViewDataDictionary, String, T)</h4>
+  <div class="markdown level1 summary"><p>Adds the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Put&lt;T&gt;(this ViewDataDictionary storageProvider, string key, T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ViewDataDictionary</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key to associate with the stored value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to store.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_Put__1_ViewDataDictionary_System_String___0__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The value is stored as a JSON serialized string.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryGetValue__1_ISession_System_String___0__.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryGetValue%60%601(ISession%2CSystem.String%2C%60%600%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L464">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryGetValue_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryGetValue*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryGetValue__1_ISession_System_String___0__" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryGetValue``1(ISession,System.String,``0@)">TryGetValue&lt;T&gt;(ISession, String, out T)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryGetValue&lt;T&gt;(this ISession storageProvider, string key, out T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ISession</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key whose value to get.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter. This parameter is passed uninitialized.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the
+<code data-dev-comment-type="paramref" class="paramref">storageProvider</code> contains an element with the
+specified key; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryGetValue__1_ITempDataDictionary_System_String___0__.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryGetValue%60%601(ITempDataDictionary%2CSystem.String%2C%60%600%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L426">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryGetValue_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryGetValue*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryGetValue__1_ITempDataDictionary_System_String___0__" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryGetValue``1(ITempDataDictionary,System.String,``0@)">TryGetValue&lt;T&gt;(ITempDataDictionary, String, out T)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryGetValue&lt;T&gt;(this ITempDataDictionary storageProvider, string key, out T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ITempDataDictionary</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key whose value to get.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter. This parameter is passed uninitialized.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the
+<code data-dev-comment-type="paramref" class="paramref">storageProvider</code> contains an element with the
+specified key; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryGetValue__1_ViewDataDictionary_System_String___0__.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryGetValue%60%601(ViewDataDictionary%2CSystem.String%2C%60%600%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L503">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryGetValue_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryGetValue*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryGetValue__1_ViewDataDictionary_System_String___0__" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryGetValue``1(ViewDataDictionary,System.String,``0@)">TryGetValue&lt;T&gt;(ViewDataDictionary, String, out T)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryGetValue&lt;T&gt;(this ViewDataDictionary storageProvider, string key, out T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ViewDataDictionary</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key whose value to get.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter. This parameter is passed uninitialized.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the
+<code data-dev-comment-type="paramref" class="paramref">storageProvider</code> contains an element with the
+specified key; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryPeekValue__1_ISession_System_String___0__.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryPeekValue%60%601(ISession%2CSystem.String%2C%60%600%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L587">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryPeekValue_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryPeekValue*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryPeekValue__1_ISession_System_String___0__" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryPeekValue``1(ISession,System.String,``0@)">TryPeekValue&lt;T&gt;(ISession, String, out T)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryPeekValue&lt;T&gt;(this ISession storageProvider, string key, out T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ISession</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key whose value to get.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter. This parameter is passed uninitialized.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the
+<code data-dev-comment-type="paramref" class="paramref">storageProvider</code> contains an element with the
+specified key; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryPeekValue__1_ISession_System_String___0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is equivalent to calling
+<see cref="!:TryGetValue&lt;T>(ISession, String, out T)"></see> and is
+provided for ease of use when switching between different storage providers.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryPeekValue__1_ITempDataDictionary_System_String___0__.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryPeekValue%60%601(ITempDataDictionary%2CSystem.String%2C%60%600%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L542">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryPeekValue_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryPeekValue*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryPeekValue__1_ITempDataDictionary_System_String___0__" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryPeekValue``1(ITempDataDictionary,System.String,``0@)">TryPeekValue&lt;T&gt;(ITempDataDictionary, String, out T)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key, without marking
+the key for deletion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryPeekValue&lt;T&gt;(this ITempDataDictionary storageProvider, string key, out T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ITempDataDictionary</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key whose value to get.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter. This parameter is passed uninitialized.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the
+<code data-dev-comment-type="paramref" class="paramref">storageProvider</code> contains an element with the
+specified key; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryPeekValue__1_ViewDataDictionary_System_String___0__.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryPeekValue%60%601(ViewDataDictionary%2CSystem.String%2C%60%600%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L614">View Source</a>
+  </span>
+  <a id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryPeekValue_" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryPeekValue*"></a>
+  <h4 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryPeekValue__1_ViewDataDictionary_System_String___0__" data-uid="Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.TryPeekValue``1(ViewDataDictionary,System.String,``0@)">TryPeekValue&lt;T&gt;(ViewDataDictionary, String, out T)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryPeekValue&lt;T&gt;(this ViewDataDictionary storageProvider, string key, out T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ViewDataDictionary</span></td>
+        <td><span class="parametername">storageProvider</span></td>
+        <td><p>The underlying storage provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key whose value to get.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>When this method returns, the value associated with the specified
+key, if the key is found; otherwise, the default value for the type
+of the value parameter. This parameter is passed uninitialized.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the
+<code data-dev-comment-type="paramref" class="paramref">storageProvider</code> contains an element with the
+specified key; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions_TryPeekValue__1_ViewDataDictionary_System_String___0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is equivalent to calling
+<see cref="!:TryGetValue&lt;T>(ViewDataDictionary, String, out T)"></see>
+and is provided for ease of use when switching between different
+storage providers.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_AspNetCore_Mvc_Extensions_StateManagementExtensions.md&amp;value=---%0Auid%3A%20Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.AspNetCore.Mvc/Extensions/StateManagementExtensions.cs/#L38" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

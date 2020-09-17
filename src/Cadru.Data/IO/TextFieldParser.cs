@@ -530,7 +530,11 @@ namespace Cadru.Data.IO
         /// <param name="fieldWidths">A list of field widths</param>
         public void SetFieldWidths(params int[] fieldWidths)
         {
+#if NETSTANDARD2_0
+            Requires.ValidElements(fieldWidths.AsSpan().Slice(0, fieldWidths.Length - 1).ToArray(), fw => fw >= 0, nameof(fieldWidths), String.Format(Strings.TextFieldParser_FieldWidthsMustPositive, "fieldWidths"));
+#else
             Requires.ValidElements(fieldWidths[0..^1], fw => fw >= 0, nameof(fieldWidths), String.Format(Strings.TextFieldParser_FieldWidthsMustPositive, "fieldWidths"));
+#endif
 
             this.fieldWidths = fieldWidths;
             this.needPropertyCheck = true;
@@ -625,8 +629,8 @@ namespace Cadru.Data.IO
         /// </remarks>
         private int GetEndOfLineIndex(string line)
         {
-            Debug.Assert(line is object, "We are parsing a Nothing");
-            var length = line.Length;
+            Debug.Assert(line != null, "We are parsing a Nothing");
+            var length = line!.Length;
             Debug.Assert(length > 0, "A blank line shouldn't be parsed");
 
             if (length == 1)
@@ -740,14 +744,14 @@ namespace Cadru.Data.IO
         /// <remarks>This is needed for PeekChars and EndOfData</remarks>
         private int IncreaseBufferSize()
         {
-            Debug.Assert(this.buffer is object, "There's no buffer");
-            Debug.Assert(this.reader is object, "There's no StreamReader");
+            Debug.Assert(this.buffer != null, "There's no buffer");
+            Debug.Assert(this.reader != null, "There's no StreamReader");
 
             // Set cursor
             this.peekPosition = this.charsRead;
 
             // Create a larger buffer and copy our data into it
-            var bufferSize = this.buffer.Length + DefaultBufferLength;
+            var bufferSize = this.buffer!.Length + DefaultBufferLength;
 
             // Make sure the buffer hasn't grown too large
             if (bufferSize > MaxBufferSize)
@@ -758,7 +762,7 @@ namespace Cadru.Data.IO
             var tempArray = new char[bufferSize];
             Buffer.BlockCopy(this.buffer, 0, tempArray, 0, this.buffer.Length * sizeof(char));
 
-            var r = this.reader.Read(tempArray, this.buffer.Length, DefaultBufferLength);
+            var r = this.reader!.Read(tempArray, this.buffer.Length, DefaultBufferLength);
             this.buffer = tempArray;
             this.charsRead += r;
             Debug.Assert(this.charsRead <= bufferSize, "We've read more chars than we have space for");
@@ -908,7 +912,11 @@ namespace Cadru.Data.IO
                         var delimiterMatch = this.delimiterRegex!.Match(line, index);
                         if (delimiterMatch.Success)
                         {
+#if NETSTANDARD2_0
+                            field = line.AsSpan().Slice(index, delimiterMatch.Index - index).ToString();
+#else
                             field = line[index..delimiterMatch.Index];
+#endif
                             fields.Add(this.TrimWhiteSpace ? field.Trim() : field);
                             index = delimiterMatch.Index + delimiterMatch.Length;
                         }
@@ -937,14 +945,14 @@ namespace Cadru.Data.IO
         /// <remarks></remarks>
         private string[]? ParseFixedWidthLine()
         {
-            Debug.Assert(this.fieldWidths is object, "No field widths");
+            Debug.Assert(this.fieldWidths != null, "No field widths");
 
             if (this.ReadNextDataLine(out var line))
             {
                 var lineInfo = new StringInfo(line.TrimEnd('\r', '\n'));
                 this.ValidateFixedWidthLine(lineInfo, this.lineNumber - 1L);
                 var index = 0;
-                var fields = new string[this.fieldWidths.Length];
+                var fields = new string[this.fieldWidths!.Length];
                 for (var i = 0; i <= this.fieldWidths.Length - 1; i++)
                 {
                     fields[i] = this.GetFixedWidthField(lineInfo, index, this.fieldWidths[i]);
@@ -1018,7 +1026,7 @@ namespace Cadru.Data.IO
         /// <remarks>Returns Nothing if we are at the end of the file</remarks>
         private string? ReadNextLine(ref int cursor, ChangeBufferFunction changeBuffer)
         {
-            Debug.Assert(this.buffer is object, "There's no buffer");
+            Debug.Assert(this.buffer != null, "There's no buffer");
             Debug.Assert(cursor >= 0 && cursor <= this.charsRead, "The cursor is out of range");
 
             // Check to see if the cursor is at the end of the chars in the
@@ -1036,7 +1044,7 @@ namespace Cadru.Data.IO
                 // line can be vbLf (\n), vbCr (\r) or vbCrLf (\r\n)
                 for (var i = cursor; i <= this.charsRead - 1; i++)
                 {
-                    var character = this.buffer[i];
+                    var character = this.buffer![i];
                     if (character == '\r' || character == '\n')
                     {
                         // We've found the end of a line so add everything we've
@@ -1097,12 +1105,12 @@ namespace Cadru.Data.IO
         /// <remarks></remarks>
         private int ReadToBuffer()
         {
-            Debug.Assert(this.buffer is object, "There's no buffer");
-            Debug.Assert(this.reader is object, "There's no StreamReader");
+            Debug.Assert(this.buffer != null, "There's no buffer");
+            Debug.Assert(this.reader != null, "There's no StreamReader");
 
             // Set cursor to beginning of buffer
             this.position = 0;
-            var bufferLength = this.buffer.Length;
+            var bufferLength = this.buffer!.Length;
             Debug.Assert(bufferLength >= DefaultBufferLength, "Buffer shrunk to below default");
 
             // If the buffer has grown, shrink it back to the default size
@@ -1112,7 +1120,7 @@ namespace Cadru.Data.IO
             }
 
             this.buffer = new char[bufferLength];
-            this.charsRead = this.reader.Read(this.buffer, 0, bufferLength);
+            this.charsRead = this.reader!.Read(this.buffer, 0, bufferLength);
             return this.charsRead;
         }
 
@@ -1131,20 +1139,20 @@ namespace Cadru.Data.IO
         /// </remarks>
         private void SlideCursorToStartOfBuffer()
         {
-            Debug.Assert(this.buffer is object, "There's no buffer");
-            Debug.Assert(this.reader is object, "There's no StreamReader");
-            Debug.Assert(this.position >= 0 && this.position <= this.buffer.Length, "The cursor is out of range");
+            Debug.Assert(this.buffer != null, "There's no buffer");
+            Debug.Assert(this.reader != null, "There's no StreamReader");
+            Debug.Assert(this.position >= 0 && this.position <= this.buffer!.Length, "The cursor is out of range");
 
             // No need to slide if we're already at the beginning
             if (this.position > 0)
             {
-                var bufferLength = this.buffer.Length;
+                var bufferLength = this.buffer!.Length;
                 var tempArray = new char[bufferLength];
 
                 Buffer.BlockCopy(this.buffer, sizeof(char) * this.position, tempArray, 0, (bufferLength - this.position) * sizeof(char));
 
                 // Fill the rest of the buffer
-                var internalCharsRead = this.reader.Read(tempArray, bufferLength - this.position, this.position);
+                var internalCharsRead = this.reader!.Read(tempArray, bufferLength - this.position, this.position);
                 this.charsRead = this.charsRead - this.position + internalCharsRead;
                 this.position = 0;
                 this.buffer = tempArray;
@@ -1224,7 +1232,16 @@ namespace Cadru.Data.IO
             Requires.IsTrue(this.fieldWidths != null && this.FieldWidths.Any(), nameof(this.fieldWidths));
 
             var length = 0;
+#if NETSTANDARD2_0
+            var lastIndex = this.fieldWidths!.Length - 1;
+            foreach (var fw in this.fieldWidths!.AsSpan().Slice(0, lastIndex))
+            {
+                Debug.Assert(fw > 0, "Bad field width, this should have been caught on input");
+                length += fw;
+            }
 
+            var lastFieldWidth = this.fieldWidths[lastIndex];
+#else
             this.fieldWidths![0..^1].ForEach(fw =>
             {
                 Debug.Assert(fw > 0, "Bad field width, this should have been caught on input");
@@ -1232,6 +1249,8 @@ namespace Cadru.Data.IO
             });
 
             var lastFieldWidth = this.fieldWidths[^1];
+#endif
+
             if (lastFieldWidth > 0)
             {
                 length += lastFieldWidth;
@@ -1248,10 +1267,10 @@ namespace Cadru.Data.IO
         /// <remarks></remarks>
         private void ValidateFixedWidthLine(StringInfo line, long lineNumber)
         {
-            Debug.Assert(line is object, "No Line sent");
+            Debug.Assert(line != null, "No Line sent");
 
             // The only malformed line for fixed length fields is one that's too short
-            if (line.LengthInTextElements < this.lineLength)
+            if (line!.LengthInTextElements < this.lineLength)
             {
                 this.ThrowMalformedLineException(line.String, lineNumber);
             }

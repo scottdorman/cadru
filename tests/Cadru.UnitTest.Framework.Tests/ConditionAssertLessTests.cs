@@ -47,51 +47,51 @@ namespace Cadru.UnitTest.Framework.Tests
 
             try
             {
-                ConditionAssert.Less(9, 4);
+                Assert.That.IsLess(9, 4);
             }
             catch (AssertFailedException ex)
             {
                 msg = ex.Message;
             }
 
-            StringAssert.Contains("Assert.Fail failed. 4 is greater than or equal to 9.", msg);
+            StringAssert.Contains(msg, "Assert.IsLess failed");
         }
 
         [TestMethod]
         public void Less()
         {
-            ConditionAssert.Less(this.i1, this.i2);
-            ConditionAssert.Less(this.i1, this.i2, "int");
-            ConditionAssert.Less(this.i1, this.i2, "{0}", "int");
-            ConditionAssert.Less(this.u1, this.u2, "uint");
-            ConditionAssert.Less(this.u1, this.u2, "{0}", "uint");
-            ConditionAssert.Less(this.d1, this.d2);
-            ConditionAssert.Less(this.d1, this.d2, "double");
-            ConditionAssert.Less(this.d1, this.d2, "{0}", "double");
-            ConditionAssert.Less(this.de1, this.de2);
-            ConditionAssert.Less(this.de1, this.de2, "decimal");
-            ConditionAssert.Less(this.de1, this.de2, "{0}", "decimal");
-            ConditionAssert.Less(this.f1, this.f2);
-            ConditionAssert.Less(this.f1, this.f2, "float");
-            ConditionAssert.Less(this.f1, this.f2, "{0}", "float");
+            Assert.That.IsLess(this.i1, this.i2);
+            Assert.That.IsLess(this.i1, this.i2, "int");
+            Assert.That.IsLess(this.i1, this.i2, "{0}", "int");
+            Assert.That.IsLess(this.u1, this.u2, "uint");
+            Assert.That.IsLess(this.u1, this.u2, "{0}", "uint");
+            Assert.That.IsLess(this.d1, this.d2);
+            Assert.That.IsLess(this.d1, this.d2, "double");
+            Assert.That.IsLess(this.d1, this.d2, "{0}", "double");
+            Assert.That.IsLess(this.de1, this.de2);
+            Assert.That.IsLess(this.de1, this.de2, "decimal");
+            Assert.That.IsLess(this.de1, this.de2, "{0}", "decimal");
+            Assert.That.IsLess(this.f1, this.f2);
+            Assert.That.IsLess(this.f1, this.f2, "float");
+            Assert.That.IsLess(this.f1, this.f2, "{0}", "float");
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void NotLess()
         {
-            ConditionAssert.Less(this.i2, this.i1);
+            Assert.That.IsLess(this.i2, this.i1);
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void NotLessIComparable()
         {
-            ConditionAssert.Less(System.Net.DecompressionMethods.Deflate, System.Net.DecompressionMethods.GZip);
+            Assert.That.IsLess(System.Net.DecompressionMethods.Deflate, System.Net.DecompressionMethods.GZip);
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void NotLessWhenEqual()
         {
-            ConditionAssert.Less(this.i1, this.i1);
+            Assert.That.IsLess(this.i1, this.i1);
         }
     }
 }

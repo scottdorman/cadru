@@ -459,9 +459,9 @@ namespace Cadru.Core.Extensions.Tests
             Assert.AreEqual(GCWeekOfYear(new DateTime(2005, 12, 31), CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Wednesday), new DateTime(2005, 12, 31).GetWeekOfYear(CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Wednesday));
             Assert.AreEqual(GCWeekOfYear(new DateTime(2005, 12, 31), CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Thursday), new DateTime(2005, 12, 31).GetWeekOfYear(CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Thursday));
 
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => new DateTime(2010, 01, 01).GetWeekOfYear(CalendarWeekRule.FirstFourDayWeek, (DayOfWeek)8)).WithParameter("firstDayOfWeek");
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => new DateTime(2010, 01, 01).GetWeekOfYear(CalendarWeekRule.FirstFourDayWeek, (DayOfWeek)(-1))).WithParameter("firstDayOfWeek");
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => new DateTime(2010, 01, 01).GetWeekOfYear((CalendarWeekRule)24)).WithParameter("rule");
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new DateTime(2010, 01, 01).GetWeekOfYear(CalendarWeekRule.FirstFourDayWeek, (DayOfWeek)8)).WithParameter("firstDayOfWeek");
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new DateTime(2010, 01, 01).GetWeekOfYear(CalendarWeekRule.FirstFourDayWeek, (DayOfWeek)(-1))).WithParameter("firstDayOfWeek");
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new DateTime(2010, 01, 01).GetWeekOfYear((CalendarWeekRule)24)).WithParameter("rule");
         }
 
         [TestMethod]
@@ -502,10 +502,10 @@ namespace Cadru.Core.Extensions.Tests
         public void MonthNames()
         {
             var months = DateTimeExtensions.GetMonthNames();
-            CustomAssert.IsNotEmpty((ICollection)months);
+            CollectionAssert.That.IsNotEmpty((ICollection)months);
 
             months = DateTimeExtensions.GetAbbreviatedMonthNames();
-            CustomAssert.IsNotEmpty((ICollection)months);
+            CollectionAssert.That.IsNotEmpty((ICollection)months);
 
             Assert.AreEqual("July", new DateTime(2013, 7, 1).GetMonthName());
             Assert.AreEqual("Jul", new DateTime(2013, 7, 1).GetAbbreviatedMonthName());

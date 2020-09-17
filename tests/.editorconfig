@@ -1,0 +1,24 @@
+﻿[*.cs]
+
+# Globally disable diagnostic analyzers for all tests projects.
+dotnet_analyzer_diagnostic.severity = none
+#dotnet_diagnostic.CA1034.severity = none
+#dotnet_diagnostic.CA1822.severity = none
+#dotnet_diagnostic.CS1591.severity = none
+#dotnet_diagnostic.IDE0063.severity = none
+#dotnet_diagnostic.IDE0060.severity = none
+#dotnet_diagnostic.S108.severity = none
+#dotnet_diagnostic.S125.severity = none
+#dotnet_diagnostic.S1144.severity = none
+#dotnet_diagnostic.S1186.severity = none
+#dotnet_diagnostic.S1481.severity = none
+#dotnet_diagnostic.S1764.severity = none
+#dotnet_diagnostic.S1854.severity = none
+#dotnet_diagnostic.S1905.severity = none
+#dotnet_diagnostic.S2219.severity = none
+#dotnet_diagnostic.S2234.severity = none
+#dotnet_diagnostic.S2376.severity = none
+#dotnet_diagnostic.S2699.severity = none
+#dotnet_diagnostic.S3237.severity = none
+#dotnet_diagnostic.S3881.severity = none
+#dotnet_diagnostic.S3928.severity = none

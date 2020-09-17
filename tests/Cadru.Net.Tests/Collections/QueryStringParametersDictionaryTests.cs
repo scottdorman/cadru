@@ -26,7 +26,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 using Cadru.Net.Http.Collections;
-using Cadru.UnitTest.Framework;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -112,7 +111,7 @@ namespace Cadru.Net.Collections.Tests
             Assert.AreEqual("", q["baz"]);
             Assert.AreEqual("foo=bar&baz=", q.ToQueryString());
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => new QueryStringParametersDictionary((Dictionary<string, string>)null));
+            Assert.ThrowsException<ArgumentNullException>(() => new QueryStringParametersDictionary((Dictionary<string, string>)null));
         }
 
         [TestMethod]
@@ -213,7 +212,7 @@ namespace Cadru.Net.Collections.Tests
             Assert.AreEqual("", q["baz"]);
             Assert.AreEqual("foo=bar&baz=", q.ToQueryString());
 
-            ExceptionAssert.Throws<InvalidOperationException>(() => new QueryStringParametersDictionary("foo"));
+            Assert.ThrowsException<InvalidOperationException>(() => new QueryStringParametersDictionary("foo"));
         }
     }
 }

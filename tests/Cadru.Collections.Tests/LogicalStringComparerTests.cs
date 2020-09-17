@@ -157,7 +157,7 @@ namespace Cadru.Collections.Tests
             Assert.IsFalse(comparer.Compare("abc", "a†bcd") < 0);
             Assert.IsFalse(comparer.Compare("a†bcd", "abc") > 0);
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => new LogicalStringComparer(null));
+            Assert.ThrowsException<ArgumentNullException>(() => new LogicalStringComparer(null));
         }
 
         /// <summary>
@@ -342,9 +342,9 @@ namespace Cadru.Collections.Tests
             object y = "def";
             Assert.AreEqual(y.GetHashCode(), comparer.GetHashCode(y));
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => comparer.GetHashCode(((object)null)));
-            ExceptionAssert.Throws<ArgumentException>(() => comparer.GetHashCode(((object)DateTime.Today)));
-            ExceptionAssert.Throws<ArgumentNullException>(() => comparer.GetHashCode(((string)null)));
+            Assert.ThrowsException<ArgumentNullException>(() => comparer.GetHashCode(((object)null)));
+            Assert.ThrowsException<ArgumentException>(() => comparer.GetHashCode(((object)DateTime.Today)));
+            Assert.ThrowsException<ArgumentNullException>(() => comparer.GetHashCode(((string)null)));
         }
     }
 }

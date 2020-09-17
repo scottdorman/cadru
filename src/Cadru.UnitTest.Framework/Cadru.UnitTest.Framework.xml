@@ -4,6 +4,2364 @@
         <name>Cadru.UnitTest.Framework</name>
     </assembly>
     <members>
+        <member name="T:Cadru.UnitTest.Framework.AssertExtensions">
+            <summary>
+            A collection of helpers to test various conditions within unit tests.
+            If the condition being tested is not met, an exception is thrown.
+            </summary>
+            <summary>
+            A collection of helpers to test various conditions within unit tests.
+            If the condition being tested is not met, an exception is thrown.
+            </summary>
+            <summary>
+            A collection of helpers to test various conditions within unit tests.
+            If the condition being tested is not met, an exception is thrown.
+            </summary>
+            <summary>
+            A collection of helpers to test various conditions within unit tests.
+            If the condition being tested is not met, an exception is thrown.
+            </summary>
+            <summary>
+            A collection of helpers to test various conditions within unit tests.
+            If the condition being tested is not met, an exception is thrown.
+            </summary>
+            <summary>
+            A collection of helpers to test various conditions within unit tests.
+            If the condition being tested is not met, an exception is thrown.
+            </summary>
+            <summary>
+            A collection of helpers to test various conditions within unit tests.
+            If the condition being tested is not met, an exception is thrown.
+            </summary>
+            <summary>
+            A collection of helpers to test various conditions within unit tests.
+            If the condition being tested is not met, an exception is thrown.
+            </summary>
+            <summary>
+            A collection of helpers to test various conditions within unit tests.
+            If the condition being tested is not met, an exception is thrown.
+            </summary>
+            <summary>
+            A collection of helpers to test various conditions within unit tests.
+            If the condition being tested is not met, an exception is thrown.
+            </summary>
+            <summary>
+            A collection of helpers to test various conditions within unit tests.
+            If the condition being tested is not met, an exception is thrown.
+            </summary>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.String)">
+            <summary>
+            Asserts that a string is empty.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to be tested.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.String,System.String)">
+            <summary>
+            Asserts that a string is empty.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to be tested.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.String,System.String,System.Object[])">
+            <summary>
+            Asserts that a string is empty.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to be tested.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsNotEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.String)">
+            <summary>
+            Asserts that a string is not empty.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to be tested.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsNotEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.String,System.String)">
+            <summary>
+            Asserts that a string is not empty.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to be tested.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsNotEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.String,System.String,System.Object[])">
+            <summary>
+            Asserts that a string is not empty.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to be tested.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.AreEqualIgnoringCase(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.String,System.String)">
+            <summary>
+            Asserts that two strings are equal, without regard to case.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The expected string.</param>
+            <param name="actual">The actual string.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.AreEqualIgnoringCase(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.String,System.String,System.String)">
+            <summary>
+            Asserts that two strings are equal, without regard to case.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The expected string.</param>
+            <param name="actual">The actual string.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.AreEqualIgnoringCase(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.String,System.String,System.String,System.Object[])">
+            <summary>
+            Asserts that two strings are equal, without regard to case.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The expected string.</param>
+            <param name="actual">The actual string.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.AreNotEqualIgnoringCase(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.String,System.String)">
+            <summary>
+            Asserts that two strings are not equal, without regard to case.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The expected string.</param>
+            <param name="actual">The actual string.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.AreNotEqualIgnoringCase(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.String,System.String,System.String)">
+            <summary>
+            Asserts that two strings are not equal, without regard to case.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The expected string.</param>
+            <param name="actual">The actual string.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.AreNotEqualIgnoringCase(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.String,System.String,System.String,System.Object[])">
+            <summary>
+            Asserts that two strings are not equal, without regard to case.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The expected string.</param>
+            <param name="actual">The actual string.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.DoesNotThrowException(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Action)">
+            <summary>
+            Tests whether the code specified by delegate
+            <paramref name="action"/> does not throw an exception.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="action">
+            Delegate to code to be tested and which is expected to throw exception.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.DoesNotThrowException(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Action,System.String)">
+            <summary>
+            Tests whether the code specified by delegate
+            <paramref name="action"/> does not throw an exception.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="action">
+            Delegate to code to be tested and which is expected to throw exception.
+            </param>
+            <param name="message">
+            The message to include in the exception when
+            <paramref name="action"/> does throw an exception.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.DoesNotThrowException(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Action,System.String,System.Object[])">
+            <summary>
+            Tests whether the code specified by delegate
+            <paramref name="action"/> does not throw an exception.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="action">
+            Delegate to code to be tested and which is expected to throw exception.
+            </param>
+            <param name="message">
+            The message to include in the exception when
+            <paramref name="action"/> does throw an exception.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Byte,System.Byte)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first byte to compare. This is the byte the tests expects.</param>
+            <param name="actual">The second byte to compare. This is the byte produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Byte,System.Byte,System.String)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first byte to compare. This is the byte the tests expects.</param>
+            <param name="actual">The second byte to compare. This is the byte produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Byte,System.Byte,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first byte to compare. This is the byte the tests expects.</param>
+            <param name="actual">The second byte to compare. This is the byte produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.SByte,System.SByte)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first sbyte to compare. This is the sbyte the tests expects.</param>
+            <param name="actual">The second sbyte to compare. This is the sbyte produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.SByte,System.SByte,System.String)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first sbyte to compare. This is the sbyte the tests expects.</param>
+            <param name="actual">The second sbyte to compare. This is the sbyte produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.SByte,System.SByte,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first sbyte to compare. This is the sbyte the tests expects.</param>
+            <param name="actual">The second sbyte to compare. This is the sbyte produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Char,System.Char)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first char to compare. This is the char the tests expects.</param>
+            <param name="actual">The second char to compare. This is the char produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Char,System.Char,System.String)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first char to compare. This is the char the tests expects.</param>
+            <param name="actual">The second char to compare. This is the char produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Char,System.Char,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first char to compare. This is the char the tests expects.</param>
+            <param name="actual">The second char to compare. This is the char produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Decimal,System.Decimal)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first decimal to compare. This is the decimal the tests expects.</param>
+            <param name="actual">The second decimal to compare. This is the decimal produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Decimal,System.Decimal,System.String)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first decimal to compare. This is the decimal the tests expects.</param>
+            <param name="actual">The second decimal to compare. This is the decimal produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Decimal,System.Decimal,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first decimal to compare. This is the decimal the tests expects.</param>
+            <param name="actual">The second decimal to compare. This is the decimal produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Double,System.Double)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first double to compare. This is the double the tests expects.</param>
+            <param name="actual">The second double to compare. This is the double produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Double,System.Double,System.String)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first double to compare. This is the double the tests expects.</param>
+            <param name="actual">The second double to compare. This is the double produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Double,System.Double,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first double to compare. This is the double the tests expects.</param>
+            <param name="actual">The second double to compare. This is the double produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Single,System.Single)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first float to compare. This is the float the tests expects.</param>
+            <param name="actual">The second float to compare. This is the float produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Single,System.Single,System.String)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first float to compare. This is the float the tests expects.</param>
+            <param name="actual">The second float to compare. This is the float produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Single,System.Single,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first float to compare. This is the float the tests expects.</param>
+            <param name="actual">The second float to compare. This is the float produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int32,System.Int32)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first int to compare. This is the int the tests expects.</param>
+            <param name="actual">The second int to compare. This is the int produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int32,System.Int32,System.String)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first int to compare. This is the int the tests expects.</param>
+            <param name="actual">The second int to compare. This is the int produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int32,System.Int32,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first int to compare. This is the int the tests expects.</param>
+            <param name="actual">The second int to compare. This is the int produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt32,System.UInt32)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first uint to compare. This is the uint the tests expects.</param>
+            <param name="actual">The second uint to compare. This is the uint produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt32,System.UInt32,System.String)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first uint to compare. This is the uint the tests expects.</param>
+            <param name="actual">The second uint to compare. This is the uint produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt32,System.UInt32,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first uint to compare. This is the uint the tests expects.</param>
+            <param name="actual">The second uint to compare. This is the uint produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int64,System.Int64)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first long to compare. This is the long the tests expects.</param>
+            <param name="actual">The second long to compare. This is the long produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int64,System.Int64,System.String)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first long to compare. This is the long the tests expects.</param>
+            <param name="actual">The second long to compare. This is the long produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int64,System.Int64,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first long to compare. This is the long the tests expects.</param>
+            <param name="actual">The second long to compare. This is the long produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt64,System.UInt64)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ulong to compare. This is the ulong the tests expects.</param>
+            <param name="actual">The second ulong to compare. This is the ulong produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt64,System.UInt64,System.String)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ulong to compare. This is the ulong the tests expects.</param>
+            <param name="actual">The second ulong to compare. This is the ulong produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt64,System.UInt64,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ulong to compare. This is the ulong the tests expects.</param>
+            <param name="actual">The second ulong to compare. This is the ulong produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int16,System.Int16)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first short to compare. This is the short the tests expects.</param>
+            <param name="actual">The second short to compare. This is the short produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int16,System.Int16,System.String)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first short to compare. This is the short the tests expects.</param>
+            <param name="actual">The second short to compare. This is the short produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int16,System.Int16,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first short to compare. This is the short the tests expects.</param>
+            <param name="actual">The second short to compare. This is the short produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt16,System.UInt16)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ushort to compare. This is the ushort the tests expects.</param>
+            <param name="actual">The second ushort to compare. This is the ushort produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt16,System.UInt16,System.String)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ushort to compare. This is the ushort the tests expects.</param>
+            <param name="actual">The second ushort to compare. This is the ushort produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt16,System.UInt16,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ushort to compare. This is the ushort the tests expects.</param>
+            <param name="actual">The second ushort to compare. This is the ushort produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,``0,``0)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <typeparam name="T">The type of the values to compare.</typeparam>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> the tests expects.</param>
+            <param name="actual">The second <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,``0,``0,System.String)">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <typeparam name="T">The type of the values to compare.</typeparam>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> the tests expects.</param>
+            <param name="actual">The second <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreater``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,``0,``0,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than the second value.
+            </summary>
+            <typeparam name="T">The type of the values to compare.</typeparam>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> the tests expects.</param>
+            <param name="actual">The second <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Byte,System.Byte)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first byte to compare. This is the byte the tests expects.</param>
+            <param name="actual">The second byte to compare. This is the byte produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Byte,System.Byte,System.String)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first byte to compare. This is the byte the tests expects.</param>
+            <param name="actual">The second byte to compare. This is the byte produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Byte,System.Byte,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first byte to compare. This is the byte the tests expects.</param>
+            <param name="actual">The second byte to compare. This is the byte produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.SByte,System.SByte)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first sbyte to compare. This is the sbyte the tests expects.</param>
+            <param name="actual">The second sbyte to compare. This is the sbyte produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.SByte,System.SByte,System.String)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first sbyte to compare. This is the sbyte the tests expects.</param>
+            <param name="actual">The second sbyte to compare. This is the sbyte produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.SByte,System.SByte,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first sbyte to compare. This is the sbyte the tests expects.</param>
+            <param name="actual">The second sbyte to compare. This is the sbyte produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Char,System.Char)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first char to compare. This is the char the tests expects.</param>
+            <param name="actual">The second char to compare. This is the char produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Char,System.Char,System.String)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first char to compare. This is the char the tests expects.</param>
+            <param name="actual">The second char to compare. This is the char produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Char,System.Char,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first char to compare. This is the char the tests expects.</param>
+            <param name="actual">The second char to compare. This is the char produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Decimal,System.Decimal)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first decimal to compare. This is the decimal the tests expects.</param>
+            <param name="actual">The second decimal to compare. This is the decimal produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Decimal,System.Decimal,System.String)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first decimal to compare. This is the decimal the tests expects.</param>
+            <param name="actual">The second decimal to compare. This is the decimal produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Decimal,System.Decimal,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first decimal to compare. This is the decimal the tests expects.</param>
+            <param name="actual">The second decimal to compare. This is the decimal produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Double,System.Double)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first double to compare. This is the double the tests expects.</param>
+            <param name="actual">The second double to compare. This is the double produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Double,System.Double,System.String)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first double to compare. This is the double the tests expects.</param>
+            <param name="actual">The second double to compare. This is the double produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Double,System.Double,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first double to compare. This is the double the tests expects.</param>
+            <param name="actual">The second double to compare. This is the double produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Single,System.Single)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first float to compare. This is the float the tests expects.</param>
+            <param name="actual">The second float to compare. This is the float produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Single,System.Single,System.String)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first float to compare. This is the float the tests expects.</param>
+            <param name="actual">The second float to compare. This is the float produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Single,System.Single,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first float to compare. This is the float the tests expects.</param>
+            <param name="actual">The second float to compare. This is the float produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int32,System.Int32)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first int to compare. This is the int the tests expects.</param>
+            <param name="actual">The second int to compare. This is the int produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int32,System.Int32,System.String)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first int to compare. This is the int the tests expects.</param>
+            <param name="actual">The second int to compare. This is the int produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int32,System.Int32,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first int to compare. This is the int the tests expects.</param>
+            <param name="actual">The second int to compare. This is the int produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt32,System.UInt32)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first uint to compare. This is the uint the tests expects.</param>
+            <param name="actual">The second uint to compare. This is the uint produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt32,System.UInt32,System.String)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first uint to compare. This is the uint the tests expects.</param>
+            <param name="actual">The second uint to compare. This is the uint produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt32,System.UInt32,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first uint to compare. This is the uint the tests expects.</param>
+            <param name="actual">The second uint to compare. This is the uint produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int64,System.Int64)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first long to compare. This is the long the tests expects.</param>
+            <param name="actual">The second long to compare. This is the long produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int64,System.Int64,System.String)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first long to compare. This is the long the tests expects.</param>
+            <param name="actual">The second long to compare. This is the long produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int64,System.Int64,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first long to compare. This is the long the tests expects.</param>
+            <param name="actual">The second long to compare. This is the long produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt64,System.UInt64)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ulong to compare. This is the ulong the tests expects.</param>
+            <param name="actual">The second ulong to compare. This is the ulong produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt64,System.UInt64,System.String)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ulong to compare. This is the ulong the tests expects.</param>
+            <param name="actual">The second ulong to compare. This is the ulong produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt64,System.UInt64,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ulong to compare. This is the ulong the tests expects.</param>
+            <param name="actual">The second ulong to compare. This is the ulong produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int16,System.Int16)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first short to compare. This is the short the tests expects.</param>
+            <param name="actual">The second short to compare. This is the short produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int16,System.Int16,System.String)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first short to compare. This is the short the tests expects.</param>
+            <param name="actual">The second short to compare. This is the short produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int16,System.Int16,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first short to compare. This is the short the tests expects.</param>
+            <param name="actual">The second short to compare. This is the short produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt16,System.UInt16)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ushort to compare. This is the ushort the tests expects.</param>
+            <param name="actual">The second ushort to compare. This is the ushort produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt16,System.UInt16,System.String)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ushort to compare. This is the ushort the tests expects.</param>
+            <param name="actual">The second ushort to compare. This is the ushort produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt16,System.UInt16,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ushort to compare. This is the ushort the tests expects.</param>
+            <param name="actual">The second ushort to compare. This is the ushort produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,``0,``0)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <typeparam name="T">The type of the values to compare.</typeparam>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> the tests expects.</param>
+            <param name="actual">The second <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,``0,``0,System.String)">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <typeparam name="T">The type of the values to compare.</typeparam>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> the tests expects.</param>
+            <param name="actual">The second <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsGreaterOrEqual``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,``0,``0,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is greater than or equal to the second value.
+            </summary>
+            <typeparam name="T">The type of the values to compare.</typeparam>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> the tests expects.</param>
+            <param name="actual">The second <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Byte,System.Byte)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first byte to compare. This is the byte the tests expects.</param>
+            <param name="actual">The second byte to compare. This is the byte produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Byte,System.Byte,System.String)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first byte to compare. This is the byte the tests expects.</param>
+            <param name="actual">The second byte to compare. This is the byte produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Byte,System.Byte,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first byte to compare. This is the byte the tests expects.</param>
+            <param name="actual">The second byte to compare. This is the byte produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.SByte,System.SByte)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first sbyte to compare. This is the sbyte the tests expects.</param>
+            <param name="actual">The second sbyte to compare. This is the sbyte produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.SByte,System.SByte,System.String)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first sbyte to compare. This is the sbyte the tests expects.</param>
+            <param name="actual">The second sbyte to compare. This is the sbyte produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.SByte,System.SByte,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first sbyte to compare. This is the sbyte the tests expects.</param>
+            <param name="actual">The second sbyte to compare. This is the sbyte produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Char,System.Char)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first char to compare. This is the char the tests expects.</param>
+            <param name="actual">The second char to compare. This is the char produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Char,System.Char,System.String)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first char to compare. This is the char the tests expects.</param>
+            <param name="actual">The second char to compare. This is the char produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Char,System.Char,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first char to compare. This is the char the tests expects.</param>
+            <param name="actual">The second char to compare. This is the char produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Decimal,System.Decimal)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first decimal to compare. This is the decimal the tests expects.</param>
+            <param name="actual">The second decimal to compare. This is the decimal produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Decimal,System.Decimal,System.String)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first decimal to compare. This is the decimal the tests expects.</param>
+            <param name="actual">The second decimal to compare. This is the decimal produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Decimal,System.Decimal,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first decimal to compare. This is the decimal the tests expects.</param>
+            <param name="actual">The second decimal to compare. This is the decimal produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Double,System.Double)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first double to compare. This is the double the tests expects.</param>
+            <param name="actual">The second double to compare. This is the double produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Double,System.Double,System.String)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first double to compare. This is the double the tests expects.</param>
+            <param name="actual">The second double to compare. This is the double produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Double,System.Double,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first double to compare. This is the double the tests expects.</param>
+            <param name="actual">The second double to compare. This is the double produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Single,System.Single)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first float to compare. This is the float the tests expects.</param>
+            <param name="actual">The second float to compare. This is the float produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Single,System.Single,System.String)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first float to compare. This is the float the tests expects.</param>
+            <param name="actual">The second float to compare. This is the float produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Single,System.Single,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first float to compare. This is the float the tests expects.</param>
+            <param name="actual">The second float to compare. This is the float produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int32,System.Int32)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first int to compare. This is the int the tests expects.</param>
+            <param name="actual">The second int to compare. This is the int produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int32,System.Int32,System.String)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first int to compare. This is the int the tests expects.</param>
+            <param name="actual">The second int to compare. This is the int produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int32,System.Int32,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first int to compare. This is the int the tests expects.</param>
+            <param name="actual">The second int to compare. This is the int produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt32,System.UInt32)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first uint to compare. This is the uint the tests expects.</param>
+            <param name="actual">The second uint to compare. This is the uint produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt32,System.UInt32,System.String)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first uint to compare. This is the uint the tests expects.</param>
+            <param name="actual">The second uint to compare. This is the uint produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt32,System.UInt32,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first uint to compare. This is the uint the tests expects.</param>
+            <param name="actual">The second uint to compare. This is the uint produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int64,System.Int64)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first long to compare. This is the long the tests expects.</param>
+            <param name="actual">The second long to compare. This is the long produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int64,System.Int64,System.String)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first long to compare. This is the long the tests expects.</param>
+            <param name="actual">The second long to compare. This is the long produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int64,System.Int64,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first long to compare. This is the long the tests expects.</param>
+            <param name="actual">The second long to compare. This is the long produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt64,System.UInt64)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ulong to compare. This is the ulong the tests expects.</param>
+            <param name="actual">The second ulong to compare. This is the ulong produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt64,System.UInt64,System.String)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ulong to compare. This is the ulong the tests expects.</param>
+            <param name="actual">The second ulong to compare. This is the ulong produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt64,System.UInt64,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ulong to compare. This is the ulong the tests expects.</param>
+            <param name="actual">The second ulong to compare. This is the ulong produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int16,System.Int16)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first short to compare. This is the short the tests expects.</param>
+            <param name="actual">The second short to compare. This is the short produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int16,System.Int16,System.String)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first short to compare. This is the short the tests expects.</param>
+            <param name="actual">The second short to compare. This is the short produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int16,System.Int16,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first short to compare. This is the short the tests expects.</param>
+            <param name="actual">The second short to compare. This is the short produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt16,System.UInt16)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ushort to compare. This is the ushort the tests expects.</param>
+            <param name="actual">The second ushort to compare. This is the ushort produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt16,System.UInt16,System.String)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ushort to compare. This is the ushort the tests expects.</param>
+            <param name="actual">The second ushort to compare. This is the ushort produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt16,System.UInt16,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ushort to compare. This is the ushort the tests expects.</param>
+            <param name="actual">The second ushort to compare. This is the ushort produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is greater than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,``0,``0)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <typeparam name="T">The type of the values to compare.</typeparam>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> the tests expects.</param>
+            <param name="actual">The second <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,``0,``0,System.String)">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <typeparam name="T">The type of the values to compare.</typeparam>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> the tests expects.</param>
+            <param name="actual">The second <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLess``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,``0,``0,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than the second value.
+            </summary>
+            <typeparam name="T">The type of the values to compare.</typeparam>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> the tests expects.</param>
+            <param name="actual">The second <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Byte,System.Byte)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first byte to compare. This is the byte the tests expects.</param>
+            <param name="actual">The second byte to compare. This is the byte produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Byte,System.Byte,System.String)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first byte to compare. This is the byte the tests expects.</param>
+            <param name="actual">The second byte to compare. This is the byte produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Byte,System.Byte,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first byte to compare. This is the byte the tests expects.</param>
+            <param name="actual">The second byte to compare. This is the byte produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.SByte,System.SByte)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first sbyte to compare. This is the sbyte the tests expects.</param>
+            <param name="actual">The second sbyte to compare. This is the sbyte produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.SByte,System.SByte,System.String)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first sbyte to compare. This is the sbyte the tests expects.</param>
+            <param name="actual">The second sbyte to compare. This is the sbyte produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.SByte,System.SByte,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first sbyte to compare. This is the sbyte the tests expects.</param>
+            <param name="actual">The second sbyte to compare. This is the sbyte produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Char,System.Char)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first char to compare. This is the char the tests expects.</param>
+            <param name="actual">The second char to compare. This is the char produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Char,System.Char,System.String)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first char to compare. This is the char the tests expects.</param>
+            <param name="actual">The second char to compare. This is the char produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Char,System.Char,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first char to compare. This is the char the tests expects.</param>
+            <param name="actual">The second char to compare. This is the char produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Decimal,System.Decimal)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first decimal to compare. This is the decimal the tests expects.</param>
+            <param name="actual">The second decimal to compare. This is the decimal produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Decimal,System.Decimal,System.String)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first decimal to compare. This is the decimal the tests expects.</param>
+            <param name="actual">The second decimal to compare. This is the decimal produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Decimal,System.Decimal,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first decimal to compare. This is the decimal the tests expects.</param>
+            <param name="actual">The second decimal to compare. This is the decimal produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Double,System.Double)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first double to compare. This is the double the tests expects.</param>
+            <param name="actual">The second double to compare. This is the double produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Double,System.Double,System.String)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first double to compare. This is the double the tests expects.</param>
+            <param name="actual">The second double to compare. This is the double produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Double,System.Double,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first double to compare. This is the double the tests expects.</param>
+            <param name="actual">The second double to compare. This is the double produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Single,System.Single)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first float to compare. This is the float the tests expects.</param>
+            <param name="actual">The second float to compare. This is the float produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Single,System.Single,System.String)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first float to compare. This is the float the tests expects.</param>
+            <param name="actual">The second float to compare. This is the float produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Single,System.Single,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first float to compare. This is the float the tests expects.</param>
+            <param name="actual">The second float to compare. This is the float produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int32,System.Int32)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first int to compare. This is the int the tests expects.</param>
+            <param name="actual">The second int to compare. This is the int produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int32,System.Int32,System.String)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first int to compare. This is the int the tests expects.</param>
+            <param name="actual">The second int to compare. This is the int produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int32,System.Int32,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first int to compare. This is the int the tests expects.</param>
+            <param name="actual">The second int to compare. This is the int produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt32,System.UInt32)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first uint to compare. This is the uint the tests expects.</param>
+            <param name="actual">The second uint to compare. This is the uint produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt32,System.UInt32,System.String)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first uint to compare. This is the uint the tests expects.</param>
+            <param name="actual">The second uint to compare. This is the uint produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt32,System.UInt32,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first uint to compare. This is the uint the tests expects.</param>
+            <param name="actual">The second uint to compare. This is the uint produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int64,System.Int64)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first long to compare. This is the long the tests expects.</param>
+            <param name="actual">The second long to compare. This is the long produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int64,System.Int64,System.String)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first long to compare. This is the long the tests expects.</param>
+            <param name="actual">The second long to compare. This is the long produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int64,System.Int64,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first long to compare. This is the long the tests expects.</param>
+            <param name="actual">The second long to compare. This is the long produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt64,System.UInt64)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ulong to compare. This is the ulong the tests expects.</param>
+            <param name="actual">The second ulong to compare. This is the ulong produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt64,System.UInt64,System.String)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ulong to compare. This is the ulong the tests expects.</param>
+            <param name="actual">The second ulong to compare. This is the ulong produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt64,System.UInt64,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ulong to compare. This is the ulong the tests expects.</param>
+            <param name="actual">The second ulong to compare. This is the ulong produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int16,System.Int16)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first short to compare. This is the short the tests expects.</param>
+            <param name="actual">The second short to compare. This is the short produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int16,System.Int16,System.String)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first short to compare. This is the short the tests expects.</param>
+            <param name="actual">The second short to compare. This is the short produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Int16,System.Int16,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first short to compare. This is the short the tests expects.</param>
+            <param name="actual">The second short to compare. This is the short produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt16,System.UInt16)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ushort to compare. This is the ushort the tests expects.</param>
+            <param name="actual">The second ushort to compare. This is the ushort produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt16,System.UInt16,System.String)">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ushort to compare. This is the ushort the tests expects.</param>
+            <param name="actual">The second ushort to compare. This is the ushort produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.UInt16,System.UInt16,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than or equal to or equal to the second value.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first ushort to compare. This is the ushort the tests expects.</param>
+            <param name="actual">The second ushort to compare. This is the ushort produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,``0,``0)">
+            <summary>
+            Verifies that the first value is less than or equal to the second value.
+            </summary>
+            <typeparam name="T">The type of the values to compare.</typeparam>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> the tests expects.</param>
+            <param name="actual">The second <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> produced by the code under test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,``0,``0,System.String)">
+            <summary>
+            Verifies that the first value is less than or equal to the second value.
+            </summary>
+            <typeparam name="T">The type of the values to compare.</typeparam>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> the tests expects.</param>
+            <param name="actual">The second <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsLessOrEqual``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,``0,``0,System.String,System.Object[])">
+            <summary>
+            Verifies that the first value is less than or equal to the second value.
+            </summary>
+            <typeparam name="T">The type of the values to compare.</typeparam>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="expected">The first <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> the tests expects.</param>
+            <param name="actual">The second <typeparamref name="T"/> to compare. This is the <typeparamref name="T"/> produced by the code under test.</param>
+            <param name="message">
+            The message to include in the exception when <paramref name="actual"/>
+            is less than <paramref name="expected"/>. The message is shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsNaN(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Double)">
+            <summary>
+            Verifies that the value is <see cref="F:System.Double.NaN"/>.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsNaN(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Double,System.String)">
+            <summary>
+            Verifies that the value is <see cref="F:System.Double.NaN"/>.
+            </summary>
+            <param name="value">The value to test.</param>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsNaN(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Double,System.String,System.Object[])">
+            <summary>
+            Verifies that the value is <see cref="F:System.Double.NaN"/>.
+            </summary>
+            <param name="value">The value to test.</param>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsNaN(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Single)">
+            <summary>
+            Verifies that the value is <see cref="F:System.Single.NaN"/>.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to test.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsNaN(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Single,System.String)">
+            <summary>
+            Verifies that the value is <see cref="F:System.Single.NaN"/>.
+            </summary>
+            <param name="value">The value to test.</param>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsNaN(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Single,System.String,System.Object[])">
+            <summary>
+            Verifies that the value is <see cref="F:System.Single.NaN"/>.
+            </summary>
+            <param name="value">The value to test.</param>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsFalse(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Nullable{System.Boolean})">
+            <summary>
+            Verifies that the specified condition is <see langword="false"/>.
+            The assertion fails if the condition is <see langword="true"/>.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="condition">The condition to verify is <see langword="false"/>.</param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            <paramref name="condition"/> evaluates to <see langword="true"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsFalse(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Nullable{System.Boolean},System.String)">
+            <summary>
+            Verifies that the specified condition is <see langword="false"/>.
+            The assertion fails if the condition is <see langword="true"/>.
+            Displays a message if the assertion fails.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="condition">The condition to verify is <see langword="false"/>.</param>
+            <param name="message">
+            A message to display if the assertion fails. This message can be
+            seen in the unit test results.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            <paramref name="condition"/> evaluates to <see langword="true"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsFalse(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Nullable{System.Boolean},System.String,System.Object[])">
+            <summary>
+            Verifies that the specified condition is <see langword="false"/>.
+            The assertion fails if the condition is <see langword="true"/>.
+            Displays a message if the assertion fails, and applies the specified
+            formatting to it.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="condition">The condition to verify is <see langword="false"/>.</param>
+            <param name="message">
+            A message to display if the assertion fails. This message can be
+            seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            <paramref name="condition"/> evaluates to <see langword="true"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsTrue(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Nullable{System.Boolean})">
+            <summary>
+            Verifies that the specified condition is <see langword="true"/>. The
+            assertion fails if the condition is <see langword="false"/>.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="condition">The condition to verify is <see langword="true"/>.</param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            <paramref name="condition"/> evaluates to <see langword="false"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsTrue(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Nullable{System.Boolean},System.String)">
+            <summary>
+            Verifies that the specified condition is <see langword="true"/>. The
+            assertion fails if the condition is <see langword="false"/>.
+            Displays a message if the assertion fails.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="condition">The condition to verify is <see langword="true"/>.</param>
+            <param name="message">
+            A message to display if the assertion fails. This message can be
+            seen in the unit test results.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            <paramref name="condition"/> evaluates to <see langword="false"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsTrue(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Nullable{System.Boolean},System.String,System.Object[])">
+            <summary>
+            Verifies that the specified condition is <see langword="true"/>. The
+            assertion fails if the condition is <see langword="false"/>.
+            Displays a message if the assertion fails, and applies the specified
+            formatting to it.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="condition">The condition to verify is <see langword="true"/>.</param>
+            <param name="message">
+            A message to display if the assertion fails. This message can be
+            seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            <paramref name="condition"/> evaluates to <see langword="false"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsType``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Object)">
+            <summary>
+            Asserts that an object is of the given <see cref="T:System.Type"/>.
+            </summary>
+            <typeparam name="T">The expected <see cref="T:System.Type"/>.</typeparam>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to be tested.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsType``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Object,System.String)">
+            <summary>
+            Asserts that an object is of the given <see cref="T:System.Type"/>.
+            </summary>
+            <typeparam name="T">The expected <see cref="T:System.Type"/>.</typeparam>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to be tested.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsType``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Object,System.String,System.Object[])">
+            <summary>
+            Asserts that an object is of the given <see cref="T:System.Type"/>.
+            </summary>
+            <typeparam name="T">The expected <see cref="T:System.Type"/>.</typeparam>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to be tested.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsAssignableFrom``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Object)">
+            <summary>
+            Asserts that an object may be assigned a value of a given <see cref="T:System.Type"/>.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to be tested.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsAssignableFrom``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Object,System.String)">
+            <summary>
+            Asserts that an object may be assigned a value of a given <see cref="T:System.Type"/>.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to be tested.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsAssignableFrom``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Object,System.String,System.Object[])">
+            <summary>
+            Asserts that an object may be assigned a value of a given <see cref="T:System.Type"/>.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to be tested.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsNotAssignableFrom``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Object)">
+            <summary>
+            Asserts that an object may not be assigned a value of a given <see cref="T:System.Type"/>.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to be tested.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsNotAssignableFrom``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Object,System.String)">
+            <summary>
+            Asserts that an object may not be assigned a value of a given <see cref="T:System.Type"/>.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to be tested.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.AssertExtensions.IsNotAssignableFrom``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Object,System.String,System.Object[])">
+            <summary>
+            Asserts that an object may not be assigned a value of a given <see cref="T:System.Type"/>.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
+            <param name="value">The value to be tested.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="T:Cadru.UnitTest.Framework.CollectionAssertExtensions">
+            <summary>
+            A collection of helpers to test various conditions within unit tests.
+            If the condition being tested is not met, an exception is thrown.
+            </summary>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.CollectionAssertExtensions.IsEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert,System.Collections.IEnumerable)">
+            <summary>
+            Assert that an array, list or other collection is empty.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert"/> instance to extend.</param>
+            <param name="collection">The value to be tested.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.CollectionAssertExtensions.IsEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert,System.Collections.IEnumerable,System.String)">
+            <summary>
+            Assert that an array, list or other collection is empty.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert"/> instance to extend.</param>
+            <param name="collection">The value to be tested.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.CollectionAssertExtensions.IsEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert,System.Collections.IEnumerable,System.String,System.Object[])">
+            <summary>
+            Assert that an array, list or other collection is empty.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert"/> instance to extend.</param>
+            <param name="collection">The value to be tested.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.CollectionAssertExtensions.IsNotEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert,System.Collections.IEnumerable)">
+            <summary>
+            Assert that an array, list or other collection is not empty.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert"/> instance to extend.</param>
+            <param name="collection">The value to be tested.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.CollectionAssertExtensions.IsNotEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert,System.Collections.IEnumerable,System.String)">
+            <summary>
+            Assert that an array, list or other collection is not empty.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert"/> instance to extend.</param>
+            <param name="collection">The value to be tested.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.CollectionAssertExtensions.IsNotEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert,System.Collections.IEnumerable,System.String,System.Object[])">
+            <summary>
+            Assert that an array, list or other collection is not empty.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert"/> instance to extend.</param>
+            <param name="collection">The value to be tested.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
         <member name="T:Cadru.UnitTest.Framework.ConditionAssert">
             <summary>
             Contains assertion types that are not provided with the standard MSTest assertions.
@@ -42,7 +2400,7 @@
             An array of parameters to use when formatting <paramref name="message"/>.
             </param>
         </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.GreaterOrEqual``1(``0,``0)">
+        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsGreaterOrEqual``1(``0,``0)">
             <summary>
             Verifies that the first value is greater than or equal to the second value.
             </summary>
@@ -612,7 +2970,7 @@
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.WithInnerException``1(``0,System.Type)">
             <summary>
-            Verifies that the exception <see cref="P:System.Exception.InnerException"/>
+            Verifies that <see cref="P:System.Exception.InnerException"/>
             is of the specified type.
             </summary>
             <typeparam name="T">The source exception type.</typeparam>
@@ -620,6 +2978,17 @@
             The exception whose <see cref="P:System.Exception.InnerException"/> will be tested.
             </param>
             <param name="innerException">The expected type of the inner exception.</param>
+            <returns>The original <see cref="T:System.Exception"/>.</returns>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.WithInnerException``1(System.Exception)">
+            <summary>
+            Verifies that <see cref="P:System.Exception.InnerException"/>
+            is of the specified type.
+            </summary>
+            <typeparam name="T">The inner exception type.</typeparam>
+            <param name="exception">
+            The exception whose <see cref="P:System.Exception.InnerException"/> will be tested.
+            </param>
             <returns>The original <see cref="T:System.Exception"/>.</returns>
         </member>
         <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.WithMessage``1(``0,System.String,Cadru.UnitTest.Framework.ExceptionMessageComparison)">
@@ -690,6 +3059,46 @@
             The exception message should end with the given string.
             </summary>
         </member>
+        <member name="M:Cadru.UnitTest.Framework.Helpers.HandleFail(System.String,System.String,System.Object[])">
+            <summary>
+            Helper function that creates and throws an AssertionFailedException
+            </summary>
+            <param name="assertionName">
+            name of the assertion throwing an exception
+            </param>
+            <param name="message">
+            message describing conditions for assertion failure
+            </param>
+            <param name="parameters">
+            The parameters.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.Helpers.ReplaceNulls(System.Object)">
+            <summary>
+            Safely converts an object to a string, handling null values and null characters.
+            Null values are converted to "(null)". Null characters are converted to "\\0".
+            </summary>
+            <param name="input">
+            The object to convert to a string.
+            </param>
+            <returns>
+            The converted string.
+            </returns>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.Helpers.ReplaceNullChars(System.String)">
+            <summary>
+            Replaces null characters ('\0') with "\\0".
+            </summary>
+            <param name="input">
+            The string to search.
+            </param>
+            <returns>
+            The converted string with null characters replaced by "\\0".
+            </returns>
+            <remarks>
+            This is only public and still present to preserve compatibility with the V1 framework.
+            </remarks>
+        </member>
         <member name="T:Cadru.UnitTest.Framework.Resources.Strings">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
@@ -706,21 +3115,6 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.Argument_NullElement">
-            <summary>
-              Looks up a localized string similar to {0} cannot contain a null (Nothing in Visual Basic) element..
-            </summary>
-        </member>
-        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.ArgumentException_EmptyString">
-            <summary>
-              Looks up a localized string similar to {0} cannot be an empty string..
-            </summary>
-        </member>
-        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.Assertion_CollectionFailure">
-            <summary>
-              Looks up a localized string similar to Expected a collection containing &lt;0&gt; items but actual was &lt;{0}&gt; items..
-            </summary>
-        </member>
         <member name="P:Cadru.UnitTest.Framework.Resources.Strings.Assertion_ExceptionNotThrown">
             <summary>
               Looks up a localized string similar to Expected exception of type {0} but no exception was thrown..
@@ -728,53 +3122,92 @@
         </member>
         <member name="P:Cadru.UnitTest.Framework.Resources.Strings.Assertion_ExpectedToBeAssignableFrom">
             <summary>
-              Looks up a localized string similar to Expected {0} to be assignable from {1}.
+              Looks up a localized string similar to Expected {0} to be assignable from {1}..
             </summary>
         </member>
         <member name="P:Cadru.UnitTest.Framework.Resources.Strings.Assertion_GenericFailure">
             <summary>
-              Looks up a localized string similar to Expected &lt;{0}&gt; but actual was &lt;{1}&gt;..
-            </summary>
-        </member>
-        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.Assertion_IsComparison">
-            <summary>
-              Looks up a localized string similar to {0} is {1} than {2}..
-            </summary>
-        </member>
-        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.Assertion_IsComparisonOrEqualTo">
-            <summary>
-              Looks up a localized string similar to {0} is {1} than or equal to {2}..
-            </summary>
-        </member>
-        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.Assertion_UnexceptedExceptionMessage">
-            <summary>
-              Looks up a localized string similar to Expected exception with a message of &apos;{0}&apos; but exception with message of &apos;{1}&apos; was thrown instead..
-            </summary>
-        </member>
-        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.Assertion_UnexpectedExceptionThrown">
-            <summary>
-              Looks up a localized string similar to Expected exception was not thrown..
+              Looks up a localized string similar to Expected &amp;lt;{0}&amp;gt; but actual was &amp;lt;{1}&amp;gt;..
             </summary>
         </member>
         <member name="P:Cadru.UnitTest.Framework.Resources.Strings.Assertion_WrongType">
             <summary>
-              Looks up a localized string similar to Expected type {0} but actual was  {1}..
+              Looks up a localized string similar to Expected type {0} but actual was {1}..
             </summary>
         </member>
-        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.AssumptionException_EmptyMessage">
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.AssertionFailed">
             <summary>
-              Looks up a localized string similar to Assumption failed..
+              Looks up a localized string similar to {0} failed. {1}.
             </summary>
         </member>
-        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.AssumptionException_Message">
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.Common_NullInMessages">
             <summary>
-              Looks up a localized string similar to Assumption failed. {0}.
+              Looks up a localized string similar to (null).
             </summary>
         </member>
-        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.NotImplemented_NotOverriddenByDerived">
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.DoesNotThrowExceptionFailMsg">
+             <summary>
+               Looks up a localized string similar to An exception of type {1} was thrown but was not expected. {0}
+            Exception Message: {2}
+            Stack Trace: {3}.
+             </summary>
+        </member>
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.IsCollectionEmptyFailMsg">
             <summary>
-              Looks up a localized string similar to The {0} member must be overridden by a derived class..
+              Looks up a localized string similar to Expected an empty collection..
             </summary>
+        </member>
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.IsCollectionNotEmptyFailMsg">
+            <summary>
+              Looks up a localized string similar to Expected a collection with 1 or more elements..
+            </summary>
+        </member>
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.IsEmptyStringFailMsg">
+            <summary>
+              Looks up a localized string similar to Expected an empty string but actual string had {0} characters..
+            </summary>
+        </member>
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.IsEmptyStringFailOnNullMsg">
+            <summary>
+              Looks up a localized string similar to Expected an empty string but actual string was (null)..
+            </summary>
+        </member>
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.IsGreaterFailMsg">
+            <summary>
+              Looks up a localized string similar to Expected {0} to be greater than {1}..
+            </summary>
+        </member>
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.IsGreaterOrEqualFailMsg">
+            <summary>
+              Looks up a localized string similar to Expected {0} to be greater than or equal to {1}..
+            </summary>
+        </member>
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.IsLessFailMsg">
+            <summary>
+              Looks up a localized string similar to Expected {0} to be less than {1}..
+            </summary>
+        </member>
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.IsLessOrEqualFailMsg">
+            <summary>
+              Looks up a localized string similar to Expected {0} to be less than or equal to {1}..
+            </summary>
+        </member>
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.IsNotEmptyStringFailMsg">
+            <summary>
+              Looks up a localized string similar to Expected a string with 1 or more characters but actual was empty..
+            </summary>
+        </member>
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.IsNotEmptyStringFailOnNullMsg">
+            <summary>
+              Looks up a localized string similar to Expected a string with 1 or more characters but actual was (null)..
+            </summary>
+        </member>
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.WrongExceptionThrown">
+             <summary>
+               Looks up a localized string similar to Threw exception {0}, but exception {1} was expected.
+            Exception Message: {3}
+            Stack Trace: {4}.
+             </summary>
         </member>
         <member name="T:Cadru.UnitTest.Framework.TypeAssert">
             <summary>
@@ -846,14 +3279,6 @@
             Asserts that an object is of the given <see cref="T:System.Type"/>.
             </summary>
             <typeparam name="T">The expected <see cref="T:System.Type"/>.</typeparam>
-            <param name="value">The value to be tested.</param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsType``1(Microsoft.VisualStudio.TestTools.UnitTesting.Assert,System.Object)">
-            <summary>
-            Asserts that an object is of the given <see cref="T:System.Type"/>.
-            </summary>
-            <typeparam name="T">The expected <see cref="T:System.Type"/>.</typeparam>
-            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.Assert"/> instance to extend.</param>
             <param name="value">The value to be tested.</param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsType(System.Object,System.Type)">

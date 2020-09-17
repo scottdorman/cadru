@@ -1,0 +1,585 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class LogicalStringComparer
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class LogicalStringComparer
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.Collections.LogicalStringComparer">
+  
+  
+  <h1 id="Cadru_Collections_LogicalStringComparer" data-uid="Cadru.Collections.LogicalStringComparer" class="text-break">Class LogicalStringComparer
+  </h1>
+  <div class="markdown level0 summary"><p>Compares two strings for equivalence, ignoring case, in natural numeric order.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">LogicalStringComparer</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">IEqualityComparer</span></div>
+    <div><span class="xref">IComparer</span>&lt;<span class="xref">System.String</span>&gt;</div>
+    <div><span class="xref">IEqualityComparer</span>&lt;<span class="xref">System.String</span>&gt;</div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.Collections.html">Cadru.Collections</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.Collections.dll</h6>
+  <h5 id="Cadru_Collections_LogicalStringComparer_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class LogicalStringComparer : IComparer, IEqualityComparer, IComparer&lt;string&gt;, IEqualityComparer&lt;string&gt;</code></pre>
+  </div>
+  <h5 id="Cadru_Collections_LogicalStringComparer_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+Windows implements natural numeric sorting inside the
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb759947(v=vs.85).aspx">StrCmpLogicalW</a>
+function in
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb759844(v=vs.85).aspx">Shell
+Lightweight Utility Functions</a>. This function is available on
+Windows XP or higher.
+</p>
+<p>
+This implementation is not 100% compatible with
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb759947(v=vs.85).aspx">StrCmpLogicalW</a>.
+It gives the same results for the numeric sort, with the exception of
+strings containing non-alphanumeric ASCII characters. The code relies on
+the current locale to find the order of the characters.
+</p>
+<p>
+The code here will order files that start with special characters based
+on the code table order. Windows Explorer uses another order.
+</p>
+<p><example>Windows Explorer: (1.txt, [1.txt, _1.txt, =1.txt</example></p>
+<p><example>this code: (1.txt, =1.txt, [1.txt, _1.txt</example></p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_LogicalStringComparer__ctor.md&amp;value=---%0Auid%3A%20Cadru.Collections.LogicalStringComparer.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/LogicalStringComparer.cs/#L81">View Source</a>
+  </span>
+  <a id="Cadru_Collections_LogicalStringComparer__ctor_" data-uid="Cadru.Collections.LogicalStringComparer.#ctor*"></a>
+  <h4 id="Cadru_Collections_LogicalStringComparer__ctor" data-uid="Cadru.Collections.LogicalStringComparer.#ctor">LogicalStringComparer()</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the
+<a class="xref" href="Cadru.Collections.LogicalStringComparer.html">LogicalStringComparer</a> class using the
+<see cref="!:CultureInfo.CurrentCulture"></see> of the current thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LogicalStringComparer()</code></pre>
+  </div>
+  <h5 id="Cadru_Collections_LogicalStringComparer__ctor_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>When the <a class="xref" href="Cadru.Collections.LogicalStringComparer.html">LogicalStringComparer</a> instance is created
+using this constructor, the <see cref="!:CultureInfo.CurrentCulture"></see>
+of the current thread is saved. Comparison procedures use the saved
+culture to determine the sort order and casing rules; therefore,
+string comparisons might have different results depending on the
+culture. For more information on culture-specific comparisons, see
+the <see cref="!:System.Globalization"></see> namespace and
+<a href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
+and Localization</a>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_LogicalStringComparer__ctor_CultureInfo_.md&amp;value=---%0Auid%3A%20Cadru.Collections.LogicalStringComparer.%23ctor(CultureInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/LogicalStringComparer.cs/#L105">View Source</a>
+  </span>
+  <a id="Cadru_Collections_LogicalStringComparer__ctor_" data-uid="Cadru.Collections.LogicalStringComparer.#ctor*"></a>
+  <h4 id="Cadru_Collections_LogicalStringComparer__ctor_CultureInfo_" data-uid="Cadru.Collections.LogicalStringComparer.#ctor(CultureInfo)">LogicalStringComparer(CultureInfo)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the
+<a class="xref" href="Cadru.Collections.LogicalStringComparer.html">LogicalStringComparer</a> class using the specified <see cref="!:System.Globalization.CultureInfo"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LogicalStringComparer(CultureInfo culture)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">CultureInfo</span></td>
+        <td><span class="parametername">culture</span></td>
+        <td><p>The <see cref="!:CultureInfo"></see> to use for the new <a class="xref" href="Cadru.Collections.LogicalStringComparer.html">LogicalStringComparer</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_LogicalStringComparer_Default.md&amp;value=---%0Auid%3A%20Cadru.Collections.LogicalStringComparer.Default%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/LogicalStringComparer.cs/#L127">View Source</a>
+  </span>
+  <a id="Cadru_Collections_LogicalStringComparer_Default_" data-uid="Cadru.Collections.LogicalStringComparer.Default*"></a>
+  <h4 id="Cadru_Collections_LogicalStringComparer_Default" data-uid="Cadru.Collections.LogicalStringComparer.Default">Default</h4>
+  <div class="markdown level1 summary"><p>Represents an instance of <a class="xref" href="Cadru.Collections.LogicalStringComparer.html">LogicalStringComparer</a> that
+is associated with the <see cref="!:CultureInfo.CurrentCulture"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IComparer Default { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IComparer</span></td>
+        <td><p>The default <a class="xref" href="Cadru.Collections.LogicalStringComparer.html">LogicalStringComparer</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_LogicalStringComparer_Default_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Comparison procedures use the
+<see cref="!:CultureInfo.CurrentCulture"></see> of the current thread to
+determine the sort order and casing rules. String comparisons might
+have different results depending on the culture. For more
+information on culture-specific comparisons, see the
+<see cref="!:System.Globalization"></see> namespace and
+<a href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
+and Localization</a>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_LogicalStringComparer_DefaultInvariant.md&amp;value=---%0Auid%3A%20Cadru.Collections.LogicalStringComparer.DefaultInvariant%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/LogicalStringComparer.cs/#L150">View Source</a>
+  </span>
+  <a id="Cadru_Collections_LogicalStringComparer_DefaultInvariant_" data-uid="Cadru.Collections.LogicalStringComparer.DefaultInvariant*"></a>
+  <h4 id="Cadru_Collections_LogicalStringComparer_DefaultInvariant" data-uid="Cadru.Collections.LogicalStringComparer.DefaultInvariant">DefaultInvariant</h4>
+  <div class="markdown level1 summary"><p>Represents an instance of <a class="xref" href="Cadru.Collections.LogicalStringComparer.html">LogicalStringComparer</a> that
+is associated with the <see cref="!:CultureInfo.InvariantCulture"></see>
+and that is always available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IComparer DefaultInvariant { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IComparer</span></td>
+        <td><p>An instance of <a class="xref" href="Cadru.Collections.LogicalStringComparer.html">LogicalStringComparer</a> that is
+associated with <see cref="!:CultureInfo.InvariantCulture"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Collections_LogicalStringComparer_DefaultInvariant_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Comparison procedures use the
+<see cref="!:CultureInfo.InvariantCulture"></see> to determine the sort
+order and casing rules. String comparisons might have different
+results depending on the culture. For more information on
+culture-specific comparisons, see the
+<see cref="!:System.Globalization"></see> namespace and
+<a href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
+and Localization</a>.</p>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_LogicalStringComparer_Compare_System_Object_System_Object_.md&amp;value=---%0Auid%3A%20Cadru.Collections.LogicalStringComparer.Compare(System.Object%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/LogicalStringComparer.cs/#L154">View Source</a>
+  </span>
+  <a id="Cadru_Collections_LogicalStringComparer_Compare_" data-uid="Cadru.Collections.LogicalStringComparer.Compare*"></a>
+  <h4 id="Cadru_Collections_LogicalStringComparer_Compare_System_Object_System_Object_" data-uid="Cadru.Collections.LogicalStringComparer.Compare(System.Object,System.Object)">Compare(Object, Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Compare(object x, object y)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">x</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">y</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_LogicalStringComparer_Compare_System_String_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Collections.LogicalStringComparer.Compare(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/LogicalStringComparer.cs/#L191">View Source</a>
+  </span>
+  <a id="Cadru_Collections_LogicalStringComparer_Compare_" data-uid="Cadru.Collections.LogicalStringComparer.Compare*"></a>
+  <h4 id="Cadru_Collections_LogicalStringComparer_Compare_System_String_System_String_" data-uid="Cadru.Collections.LogicalStringComparer.Compare(System.String,System.String)">Compare(String, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Compare(string x, string y)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">x</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">y</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_LogicalStringComparer_Equals_System_String_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Collections.LogicalStringComparer.Equals(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/LogicalStringComparer.cs/#L316">View Source</a>
+  </span>
+  <a id="Cadru_Collections_LogicalStringComparer_Equals_" data-uid="Cadru.Collections.LogicalStringComparer.Equals*"></a>
+  <h4 id="Cadru_Collections_LogicalStringComparer_Equals_System_String_System_String_" data-uid="Cadru.Collections.LogicalStringComparer.Equals(System.String,System.String)">Equals(String, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(string x, string y)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">x</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">y</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_LogicalStringComparer_GetHashCode_System_Object_.md&amp;value=---%0Auid%3A%20Cadru.Collections.LogicalStringComparer.GetHashCode(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/LogicalStringComparer.cs/#L322">View Source</a>
+  </span>
+  <a id="Cadru_Collections_LogicalStringComparer_GetHashCode_" data-uid="Cadru.Collections.LogicalStringComparer.GetHashCode*"></a>
+  <h4 id="Cadru_Collections_LogicalStringComparer_GetHashCode_System_Object_" data-uid="Cadru.Collections.LogicalStringComparer.GetHashCode(System.Object)">GetHashCode(Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetHashCode(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_LogicalStringComparer_GetHashCode_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Collections.LogicalStringComparer.GetHashCode(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/LogicalStringComparer.cs/#L335">View Source</a>
+  </span>
+  <a id="Cadru_Collections_LogicalStringComparer_GetHashCode_" data-uid="Cadru.Collections.LogicalStringComparer.GetHashCode*"></a>
+  <h4 id="Cadru_Collections_LogicalStringComparer_GetHashCode_System_String_" data-uid="Cadru.Collections.LogicalStringComparer.GetHashCode(System.String)">GetHashCode(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetHashCode(string obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">IEqualityComparer</span>
+  </div>
+  <div>
+      <span class="xref">IComparer&lt;&gt;</span>
+  </div>
+  <div>
+      <span class="xref">IEqualityComparer&lt;&gt;</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNotNull__1___0_">NullExtensions.IsNotNull&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNull__1___0_">NullExtensions.IsNull&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Collections_LogicalStringComparer.md&amp;value=---%0Auid%3A%20Cadru.Collections.LogicalStringComparer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Collections/LogicalStringComparer.cs/#L60" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

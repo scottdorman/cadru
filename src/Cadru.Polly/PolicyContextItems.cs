@@ -20,6 +20,8 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
 using Microsoft.Extensions.Logging;
 
 using Polly;
@@ -35,5 +37,10 @@ namespace Cadru.Polly
         /// The key for an <see cref="ILogger"/> item.
         /// </summary>
         public static readonly string Logger = $"Logger";
+
+        /// <summary>
+        /// The key for an <see cref="IServiceProvider"/> item.
+        /// </summary>
+        public static readonly string Services = "Services";
     }
 }

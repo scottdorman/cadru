@@ -1,0 +1,3402 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/Users/Scott/Source/github/cadru/docfx_project",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Http.IRequestResponseLoggingScopeFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Http.IRequestResponseLoggingScopeFactory.html",
+          "hash": "59UwSb4WbNR01xoq8bq2gQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Http.IRequestResponseLoggingSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Http.IRequestResponseLoggingSerializer.html",
+          "hash": "DnJarnzudviSJTiKVxpAPA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Http.RequestResponseLoggingDelegatingHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Http.RequestResponseLoggingDelegatingHandler.html",
+          "hash": "xvuApGlDEp/LcdBpaPB6Aw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Http.RequestResponseLoggingMiddleware.html",
+          "hash": "MvFJIVCbtZHn9DZ24LrlLA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Http.RequestResponseLoggingMiddlewareExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Http.RequestResponseLoggingMiddlewareExtensions.html",
+          "hash": "VSs2Pe9N1cWkxAKqQ/3pig=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Http.RequestResponseLoggingOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Http.RequestResponseLoggingOptions.html",
+          "hash": "qznxGFzgahnGSOs9cY5sdg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Http.RequestResponseLoggingScope.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Http.RequestResponseLoggingScope.html",
+          "hash": "DOPw2DLIEvvNH7okBVy10Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Http.RequestResponseLoggingSerializer.html",
+          "hash": "vckVYhhdVqbUILTq8fxXwg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Http.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Http.html",
+          "hash": "sO2yBUP5Kq7ec0S325IGvQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.IMimeMappingProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.IMimeMappingProvider.html",
+          "hash": "LV+GCzOpZxsOl4O3UwJ5iQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.MimeMappingProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.MimeMappingProvider.html",
+          "hash": "MzfoW9Y1MDvW6VoNMnVeIQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.MimeTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.MimeTypes.html",
+          "hash": "aRJRR29hsNmDl9BQU9BhOw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.Extensions.StateManagementExtensions.html",
+          "hash": "gctUGR/5w8UOXAJcp7lh1w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.Extensions.html",
+          "hash": "ZU4l5G/g/FG3xyJzU3yh8g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.ModelBinding.Metadata.AdditionalMetadataAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.ModelBinding.Metadata.AdditionalMetadataAttribute.html",
+          "hash": "RXS7k84S8tHR57krJDbK0Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.ModelBinding.Metadata.IMetadataAware.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.ModelBinding.Metadata.IMetadataAware.html",
+          "hash": "s8HFuWX0l2167EqQsKxaRA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.ModelBinding.Metadata.MetadataAwareAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.ModelBinding.Metadata.MetadataAwareAttribute.html",
+          "hash": "KY9FjxbIvDjqcQrTIcSh1w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.ModelBinding.Metadata.MetadataAwareProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.ModelBinding.Metadata.MetadataAwareProvider.html",
+          "hash": "Kr7LCKdtB8OgeR3akzllfQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.ModelBinding.Metadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.ModelBinding.Metadata.html",
+          "hash": "AxLyaPqOP727Begain8sqA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.Razor.LayoutViewLocationExpander.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.Razor.LayoutViewLocationExpander.html",
+          "hash": "ZrWm2tWYjGRvAe0RRuZomw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.Razor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.Razor.html",
+          "hash": "TE/yrTumR3ZZSqDU6F2gqQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.Rendering.HtmlHelperExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.Rendering.HtmlHelperExtensions.html",
+          "hash": "GmQuaANfDM+4D5Xb+B7fmg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.Rendering.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.Rendering.html",
+          "hash": "hHSWBKWavUy80THcegZjvw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.TagHelpers.AnchorIconTagHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.TagHelpers.AnchorIconTagHelper.html",
+          "hash": "4uQ4WTJyIjPdlUKBXOLG+A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.TagHelpers.BootstrapNavLinkTagHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.TagHelpers.BootstrapNavLinkTagHelper.html",
+          "hash": "5EpAArcs8QF1UtmGQFOTmw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.TagHelpers.BreadcrumbItemTagHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.TagHelpers.BreadcrumbItemTagHelper.html",
+          "hash": "xJLo185CJeF33UOnj3EgUg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.TagHelpers.BreadcrumbTagHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.TagHelpers.BreadcrumbTagHelper.html",
+          "hash": "rO98SazrWk7vMHQWWMOd4A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.TagHelpers.InputPlaceholderTagHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.TagHelpers.InputPlaceholderTagHelper.html",
+          "hash": "pGGzxEyXth7R/C689jXezw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.TagHelpers.TagBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.TagHelpers.TagBuilderExtensions.html",
+          "hash": "wLVyYnxVqGGCnqzpJPp5oA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.Mvc.TagHelpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.Mvc.TagHelpers.html",
+          "hash": "uHV1p7tlvG5lDZRGop/8ow=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.AspNetCore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.AspNetCore.html",
+          "hash": "CJFR8X6frfGms/IP9HeEnw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Build.Tasks.AddReleaseNotesRootEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Build.Tasks.AddReleaseNotesRootEntry.html",
+          "hash": "B6doOE6huG+SxIbnYB3TeA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Build.Tasks.GetAssemblyVersion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Build.Tasks.GetAssemblyVersion.html",
+          "hash": "AmmQLU5ifwqQuNISqYHoTg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Build.Tasks.GetVersionProperties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Build.Tasks.GetVersionProperties.html",
+          "hash": "LqZqJ7rzwDWXSgbXyGec/A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Build.Tasks.Internal.CodeWarningPragmaDirective.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Build.Tasks.Internal.CodeWarningPragmaDirective.html",
+          "hash": "MP+hjJzP2r9kU2aJRlzPjA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Build.Tasks.Internal.WarningPragmaMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Build.Tasks.Internal.WarningPragmaMode.html",
+          "hash": "eAmBipdi8GPE2eGiXbwZmQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Build.Tasks.Internal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Build.Tasks.Internal.html",
+          "hash": "jgLjMWkM+vj2z2oIjoGSKQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Build.Tasks.VersionStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Build.Tasks.VersionStrategy.html",
+          "hash": "y1iUWku7TAqJi0kh0X8I+Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Build.Tasks.WriteThisAssemblyCodeFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Build.Tasks.WriteThisAssemblyCodeFile.html",
+          "hash": "xQpQ/22UDcBp/9r0M44avg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Build.Tasks.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Build.Tasks.html",
+          "hash": "SqUKqs7OC5qxUbkAXZjsHQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Caching.CacheKey.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Caching.CacheKey.html",
+          "hash": "iZ3kwaC0f8Bcs+aN/56JXQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Caching.CacheKeys.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Caching.CacheKeys.html",
+          "hash": "rZptmRDUrMT6c+eHlydhRA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Caching.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Caching.html",
+          "hash": "KO36DWPcHepMkQCQaa1BIQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.CancelEventArgs-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.CancelEventArgs-1.html",
+          "hash": "UjpCt4bQ6g19VcW3jId6Zg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Collections.CaseInsensitiveStringDictionary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Collections.CaseInsensitiveStringDictionary.html",
+          "hash": "cghXcO7qcVaCrrJujv/5UQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Collections.ComparisonComparer-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Collections.ComparisonComparer-1.html",
+          "hash": "51vGDGzFFLhNa9INWn7Dmw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Collections.DateComparer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Collections.DateComparer.html",
+          "hash": "XouNHEEhOCirxz3UUPzRQA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Collections.Equality-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Collections.Equality-1.html",
+          "hash": "nyDiUyEUj9vJjOG8WbNqNg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Collections.GenericKeyedCollection-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Collections.GenericKeyedCollection-2.html",
+          "hash": "IlnmtdabZkZObdy/ykH0KA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Collections.LogicalStringComparer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Collections.LogicalStringComparer.html",
+          "hash": "yu/ERrHRtoUnOhakWAPY5A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Collections.MultiValueDictionary-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Collections.MultiValueDictionary-2.html",
+          "hash": "qZYcLzr07/iRLGSQ+2XdCQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Collections.NameValuePair-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Collections.NameValuePair-1.html",
+          "hash": "vppnkptsCN0HHt2LoUyPtg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Collections.Range-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Collections.Range-1.html",
+          "hash": "Z5cSOpPtA9fewO6OusHPMQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Collections.RangeEndpointOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Collections.RangeEndpointOption.html",
+          "hash": "gzK4s9U+c7MNwRd52pYimw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Collections.RangeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Collections.RangeExtensions.html",
+          "hash": "RSCi6+zvxZOhBsVKPMMbMg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Collections.RangeIterator-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Collections.RangeIterator-1.html",
+          "hash": "K+/CnRG5vZX+JpLYGoqLhw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Collections.ReverseComparisonComparer-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Collections.ReverseComparisonComparer-1.html",
+          "hash": "8Z3Yp6NQewD236U7iKyP+Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Collections.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Collections.html",
+          "hash": "CHVjtM2OqPD92wmw0U08NA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Color.ColorUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Color.ColorUtils.html",
+          "hash": "+8/ZFh+/Tgfc7q8mNRllxQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Color.HSV.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Color.HSV.html",
+          "hash": "kkthDFU5w79LOMCbUZkCdw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Color.RGB.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Color.RGB.html",
+          "hash": "PS6LeFVoH+xnOhY4aGx/sQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Color.RGBA.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Color.RGBA.html",
+          "hash": "T+Tq7sc17Z05p4La5vn/EA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Color.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Color.html",
+          "hash": "8rINOFnKgYIhj61mETKrLA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Comb.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Comb.html",
+          "hash": "fX0XiJzLbSeAQ2MNJIimbQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.ConstrainedNumeric-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.ConstrainedNumeric-1.html",
+          "hash": "R5fPI2dCUpSgAt9MFd+R8Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Contracts.Assumes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Contracts.Assumes.html",
+          "hash": "ppMQbbwktA0p8Ev0Mf2Vtw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Contracts.AssumptionException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Contracts.AssumptionException.html",
+          "hash": "OK9ecjLmDm3dujMGrKeUqQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Contracts.ContractArgumentValidatorAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Contracts.ContractArgumentValidatorAttribute.html",
+          "hash": "FIHvqovgYpNPhG6A+DtYxw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Contracts.Requires.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Contracts.Requires.html",
+          "hash": "Gw2pok9R73NpnmeBEiQGhA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Contracts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Contracts.html",
+          "hash": "cL2CESmAkuP2t2rpu9JUTw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Annotations.ExportableAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Annotations.ExportableAttribute.html",
+          "hash": "J257HQciiV3VF9tjZd4s/w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Annotations.ExtendedPropertyAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Annotations.ExtendedPropertyAttribute.html",
+          "hash": "VYxnhxBkARHXCBJGuEROng=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Annotations.StringHandlingAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Annotations.StringHandlingAttribute.html",
+          "hash": "n10w70Zr3CNMI4+SmlzkPg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Annotations.StringHandlingOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Annotations.StringHandlingOption.html",
+          "hash": "tV67XTrx32gMmJRIVvdg9g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Annotations.ViewAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Annotations.ViewAttribute.html",
+          "hash": "OGa4SEdK7EGKbhabhHzfxw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Annotations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Annotations.html",
+          "hash": "wjWLTj+zJaHyZU9AZi3CXg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.CombTypeHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.CombTypeHandler.html",
+          "hash": "DmcvMQxkqWxr4Sp392ejwQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.CommandAdapter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.CommandAdapter.html",
+          "hash": "BJRNhA05hOvr5XTwPPKCNg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.Configuration.DapperConfigurationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.Configuration.DapperConfigurationExtensions.html",
+          "hash": "Yn2JVUa6c5oyXORwATHjzw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.Configuration.DapperContextBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.Configuration.DapperContextBuilder.html",
+          "hash": "iTkUk9yllOaGRoNdU+CS5w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.Configuration.DapperContextBuilderExtensions.html",
+          "hash": "zzWcsv25CQVkUhuU88RSyQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.Configuration.DapperContextOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.Configuration.DapperContextOptions.html",
+          "hash": "aVCXpoiMW6IugCh1UwR5BA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.Configuration.LoggingOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.Configuration.LoggingOptions.html",
+          "hash": "bz3fqs8K5kjSkKDz3cdYFg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.Configuration.TimeoutOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.Configuration.TimeoutOptions.html",
+          "hash": "zlOTZ/nyqW8MqLuOW9/DOA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.Configuration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.Configuration.html",
+          "hash": "rIYzrAb8dGv1BKqxiy31qQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.DapperCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.DapperCommandBuilder.html",
+          "hash": "JXMB7RQLTzIzsfanCnUWJw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.DapperContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.DapperContext.html",
+          "hash": "+OaxvzoTLMCv95I+Ug+FmA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.DapperContextFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.DapperContextFactory.html",
+          "hash": "Db4jEcLnr0Y1savdDx6c5w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.DapperPollyContextExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.DapperPollyContextExtensions.html",
+          "hash": "S2cFUBwz+QO7DyMA46YnbQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.DatabaseObject-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.DatabaseObject-1.html",
+          "hash": "dac82ayvvE3orUdZLQrBeg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.DatabaseObjectType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.DatabaseObjectType.html",
+          "hash": "rSuS1K4w/5PQ+GIGefpDyA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.ICommandAdapter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.ICommandAdapter.html",
+          "hash": "78CH4H+LLU1H/AGNHkOqyQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.IDapperCommandBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.IDapperCommandBuilder.html",
+          "hash": "7O1eda/CNCObr4vMxa425Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.IDapperContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.IDapperContext.html",
+          "hash": "YRFBXM+lMKCsDx1ZYY2Y7A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.IDatabaseObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.IDatabaseObject.html",
+          "hash": "5DRRnkdzOEwbn+il8b9WVQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.IObjectMap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.IObjectMap.html",
+          "hash": "tXBB+la3YWPD9nbasbsmYQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.IPropertyMap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.IPropertyMap.html",
+          "hash": "9kPVJerDSDzIg8dnlw1I1A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.ObjectMap-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.ObjectMap-1.html",
+          "hash": "AnDrDrFilVNV2gLFGqaasg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.ObjectMappingDictionary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.ObjectMappingDictionary.html",
+          "hash": "8M1luWCACLAb1t5JDGJdhg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.Predicates.IPredicate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.Predicates.IPredicate.html",
+          "hash": "JFrwyWKpogUaRpMcEMzeYw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.Predicates.IPredicateGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.Predicates.IPredicateGroup.html",
+          "hash": "0W9nkh6BthXhpRG7HqkvZQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.Predicates.Operator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.Predicates.Operator.html",
+          "hash": "7KQ6Ose8J5W1uTgX/1Klbw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.Predicates.Predicate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.Predicates.Predicate.html",
+          "hash": "YA/Lknkfm04jvTiU86OWxQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.Predicates.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.Predicates.html",
+          "hash": "iaaDx4m31whB7R13khHn1A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.PropertyMap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.PropertyMap.html",
+          "hash": "prslTi6E/5PCYf2A03b2uQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.SqlCommandAdapter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.SqlCommandAdapter.html",
+          "hash": "BvHrthpkUlm/nbAWjeI3fw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.Table-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.Table-1.html",
+          "hash": "qBD3Q6x1/2zXI8G85AgxaA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.TrackedEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.TrackedEntity.html",
+          "hash": "mkWxZfN1jzvEdgTAWql1Yg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.View-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.View-1.html",
+          "hash": "fG63ADhVxh8j/42lA+cKeQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Dapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Dapper.html",
+          "hash": "trRGOL19nGwiqr95/mdlDw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.DataReaderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.DataReaderExtensions.html",
+          "hash": "09skAvYIi5o0xSCUdh5bAQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Excel.DataReaderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Excel.DataReaderExtensions.html",
+          "hash": "gXf2NiSR7bQe13h6Kfw4ng=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Excel.ExcelDataReader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Excel.ExcelDataReader.html",
+          "hash": "nlMGwQO6seIVZ9odHB3lMw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Excel.ExcelDataWriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Excel.ExcelDataWriter.html",
+          "hash": "HxumXueWebZGYGApfMzwxA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.Excel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.Excel.html",
+          "hash": "pPDlyKhcMjvZtfhpPGIeeQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.IO.FieldType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.IO.FieldType.html",
+          "hash": "057f15SqV27N8NhGes2rEw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.IO.MalformedLineException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.IO.MalformedLineException.html",
+          "hash": "8wdVi7U5Xa/ST9SdwVhTlA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.IO.NullRemovalStream.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.IO.NullRemovalStream.html",
+          "hash": "OrT7ChBkf73o/Im+AfJhDg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.IO.NullRemovalStreamReader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.IO.NullRemovalStreamReader.html",
+          "hash": "Dm8N8YGXUbwx0LoR1Hv5sg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.IO.TextFieldParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.IO.TextFieldParser.html",
+          "hash": "gg1jfd8WZUwkoKsoD+rOng=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.IO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.IO.html",
+          "hash": "Wo+RsBJJ3CY3BlKrBc3WIQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.OrderedEnumerableRowCollection-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.OrderedEnumerableRowCollection-1.html",
+          "hash": "rlZkADE5tpiFKq5/udt8dQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Data.html",
+          "hash": "32COWk/kvdpWw3v4ttwphg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Diagnostics.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Diagnostics.Extensions.html",
+          "hash": "h2jDrV+LrXOHhLEIMfaMVA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Diagnostics.StopwatchTimer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Diagnostics.StopwatchTimer.html",
+          "hash": "i/Cgj8Q9xWBDLPj2Uyq9ZQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Diagnostics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Diagnostics.html",
+          "hash": "qWqyKM+qa4dp06ISp4iteQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.EmptyDisposable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.EmptyDisposable.html",
+          "hash": "kHw1onHygJdnlhd64ePoIg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Enum-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Enum-1.html",
+          "hash": "zHVZs9lF6oiuxjJ1uB7jwg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.EnumDescriptionAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.EnumDescriptionAttribute.html",
+          "hash": "WQnaKt0DdEgKSfTgkGQuuA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Environment.FrameworkVersion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Environment.FrameworkVersion.html",
+          "hash": "3bOCjaXq4ZU7xVKXE4/mnQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Environment.FrameworkVersionDetection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Environment.FrameworkVersionDetection.html",
+          "hash": "SpR5im4ysy1OwfMYuF6zAw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Environment.InternetInformationServicesDetection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Environment.InternetInformationServicesDetection.html",
+          "hash": "q0Cf0pCu0SLYCE7IkIq2HA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Environment.InternetInformationServicesFeature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Environment.InternetInformationServicesFeature.html",
+          "hash": "Wz0z3Q+w0yix85R934EdyQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Environment.InternetInformationServicesSubcomponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Environment.InternetInformationServicesSubcomponent.html",
+          "hash": "LVgyfTsT0ly5yPzIiL2H0A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Environment.InternetInformationServicesVersion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Environment.InternetInformationServicesVersion.html",
+          "hash": "Sbhwpr7zzxY/cQhiuH1X4Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Environment.WindowsFoundationLibrary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Environment.WindowsFoundationLibrary.html",
+          "hash": "Wrbqwpzi7X9GPHg6Twzo9A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Environment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Environment.html",
+          "hash": "Z4ZekQBzgEj8xAsxrll2GQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.EventArgs-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.EventArgs-1.html",
+          "hash": "HETBB5JiCGgl/MB0thMN2g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.ArrayExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.ArrayExtensions.html",
+          "hash": "x/KhLiyeMIllJQV/fNSIVw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.BooleanExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.BooleanExtensions.html",
+          "hash": "ipQaDIt+wwjTJgQmScw5Pw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.CollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.CollectionExtensions.html",
+          "hash": "w2Kby1Lx60+F1VGek9Uo5w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.DateTimeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.DateTimeExtensions.html",
+          "hash": "XoR7RL+JZEd+zTHxG3SIWg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.DateTimeOffsetExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.DateTimeOffsetExtensions.html",
+          "hash": "wwOodOTXEuZwWCZEWc0Wqg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.DictionaryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.DictionaryExtensions.html",
+          "hash": "bVoPSqTzvleYL3pLrqIHLA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.EnumExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.EnumExtensions.html",
+          "hash": "S38gLDzEoNooiPxl69fcQw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.EnumerableExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.EnumerableExtensions.html",
+          "hash": "E37ohGKzyh1ZjW8hHYjtkQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.FileProviders.ExecutableType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.FileProviders.ExecutableType.html",
+          "hash": "81QbA84hib59LzNaYanSlA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.FileProviders.ExtendedFileInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.FileProviders.ExtendedFileInfo.html",
+          "hash": "suXjw3Vn2wfK4bTPQL/bZg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.FileProviders.ExtendedPhysicalFileProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.FileProviders.ExtendedPhysicalFileProvider.html",
+          "hash": "hVtKxI67PLY75doP/bS9Pw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.FileProviders.FileName.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.FileProviders.FileName.html",
+          "hash": "yRih5lm0E1Ajs9SmeEOMNQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.FileProviders.IFileInfoExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.FileProviders.IFileInfoExtensions.html",
+          "hash": "IhNgmFTOvf4GiPxaQnkKsA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.FileProviders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.FileProviders.html",
+          "hash": "ZU4P0+TABPKLPC7b/FbguQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.NameValueCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.NameValueCollectionExtensions.html",
+          "hash": "KSQKIFkOOiaJ6hWyATxK5w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.NullExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.NullExtensions.html",
+          "hash": "MUv7Npujo9IcSoExBzwR7Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.NumericExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.NumericExtensions.html",
+          "hash": "cJQqgDk8qoRdpSub1F38KQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.StringBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.StringBuilderExtensions.html",
+          "hash": "EWY7MOiWNFNwGo/pDoRHQA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.StringExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.StringExtensions.html",
+          "hash": "gyLwYfqtlSiF9KCtPJ3+BQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.TypeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.TypeExtensions.html",
+          "hash": "lkH3X1bODNN4XTz4lyqR5A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Extensions.html",
+          "hash": "DgQ9wPdBqMiy6nGV12xa+A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Globalization.CountryCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Globalization.CountryCode.html",
+          "hash": "gpIucc5QJYaBI1YAElgtBg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Globalization.LocalizableString.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Globalization.LocalizableString.html",
+          "hash": "CaQ7deYwMXkHyDyAOL1t6Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Globalization.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Globalization.html",
+          "hash": "Ct480S+VzMbLFdYdgFDfpw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.IDisposablePattern.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.IDisposablePattern.html",
+          "hash": "WVSYRUBKL7aQlyQKxNOzyA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.IO.ExecutableType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.IO.ExecutableType.html",
+          "hash": "PqTXDPx+s2aEWYUrRiq6pw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.IO.ExtendedDirectoryInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.IO.ExtendedDirectoryInfo.html",
+          "hash": "Lc3mwheRddvaT6+qxULHFw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.IO.ExtendedFileInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.IO.ExtendedFileInfo.html",
+          "hash": "5+N7Obf8y7NHSnckjFj1dA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.IO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.IO.html",
+          "hash": "fCS2IHuooTTpvdREcS1jaA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Internal.ExceptionBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Internal.ExceptionBuilder.html",
+          "hash": "48gm+M1YzPuObKX9amGIFA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Internal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Internal.html",
+          "hash": "5L7ZV4mrfWKUTshGuHy6IQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.Http.Collections.QueryStringParametersDictionary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.Http.Collections.QueryStringParametersDictionary.html",
+          "hash": "qfIX0gYm6yFATyOnQCP+6g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.Http.Collections.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.Http.Collections.html",
+          "hash": "aSFlDBQArV9yGQNgjqgZkA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.Http.CompressingHttpClientHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.Http.CompressingHttpClientHandler.html",
+          "hash": "MV3WSVe8NUGl6agmobhNIQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.Http.Extensions.HttpClientExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.Http.Extensions.HttpClientExtensions.html",
+          "hash": "EJ2Xw+YULyjBEZYpoorGZQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.Http.Extensions.HttpExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.Http.Extensions.HttpExtensions.html",
+          "hash": "foMNnaAUCNIHGPCWdvMShA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.Http.Extensions.UriExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.Http.Extensions.UriExtensions.html",
+          "hash": "3qNfhU+ks4Rec0ctrdexKQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.Http.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.Http.Extensions.html",
+          "hash": "j8yUxeYyk2mmy7+BrNKQMw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.Http.HttpRequestWithStatusException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.Http.HttpRequestWithStatusException.html",
+          "hash": "abUHJTlb4pxBjhTv+0tjMQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.Http.HttpTransientErrorDetectionStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.Http.HttpTransientErrorDetectionStrategy.html",
+          "hash": "Y4vmym5Saa9/pPuWaJbLOg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.Http.UriScheme.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.Http.UriScheme.html",
+          "hash": "HQpKbT9E/k5Y1+yFlbGseQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.Http.UrlBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.Http.UrlBuilder.html",
+          "hash": "fgsiDqFXDvDFaeU0br/syw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.Http.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.Http.html",
+          "hash": "h0u7GrZnK3o+uotUx/nT6A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.NetworkInformation.Collections.IPAddressComparer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.NetworkInformation.Collections.IPAddressComparer.html",
+          "hash": "Pmz8izC56xJYcMxvKjAwwQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.NetworkInformation.Collections.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.NetworkInformation.Collections.html",
+          "hash": "8cGGuKy3oIIpMegIw9bONQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.NetworkInformation.ConnectionStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.NetworkInformation.ConnectionStatus.html",
+          "hash": "NYf+x5fvhCRRT4DGByxZ+Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.NetworkInformation.NetworkStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.NetworkInformation.NetworkStatus.html",
+          "hash": "JG8Odmcl1pRIAFbAcmE3fQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.NetworkInformation.NetworkStatusChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.NetworkInformation.NetworkStatusChangedEventArgs.html",
+          "hash": "nppBmKODjn+Ndr0a285gBQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.NetworkInformation.PlatformId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.NetworkInformation.PlatformId.html",
+          "hash": "HyXgoAmE8Pkxwu9RU+wWew=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.NetworkInformation.ServerInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.NetworkInformation.ServerInfo.html",
+          "hash": "0RAkdMEtSduz6c9iQtiqrQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.NetworkInformation.ServerTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.NetworkInformation.ServerTypes.html",
+          "hash": "nVt4gjP+VZOu4h+Wnb+dgg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Net.NetworkInformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Net.NetworkInformation.html",
+          "hash": "hMA5PB9h5bAdzTVG4KZ5iA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Networking.ExtendedNetworkInformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Networking.ExtendedNetworkInformation.html",
+          "hash": "JdkkqzdeOjHrCT4xFk6LzQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Networking.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Networking.html",
+          "hash": "yyuTmMPpTxazck6F8LzX+A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.AsyncExecutionEnvironment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.AsyncExecutionEnvironment.html",
+          "hash": "vVodJx4bICBeDgUqFexh1w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.ContextExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.ContextExtensions.html",
+          "hash": "T2Yt3ZxEL9vdWyllXTWH5Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.ISqlStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.ISqlStrategy.html",
+          "hash": "2Ah3a8DAdAQFCeYhkl99NA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.ISqlStrategyFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.ISqlStrategyFactory.html",
+          "hash": "+68OEZ7pgne34tQS1ntHpw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlServer.NetworkConnectivityExceptionHandlingStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlServer.NetworkConnectivityExceptionHandlingStrategy.html",
+          "hash": "dSYvbKqHeq3aBPig/0cGFg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlServer.ServiceCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlServer.ServiceCollectionExtensions.html",
+          "hash": "lU+IymsIGj5D3ApUheLRdg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlServer.SqlServerStrategyBuilder.html",
+          "hash": "Lc3b1TunJsIh4/VnHzTxqw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlServer.SqlServerStrategyFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlServer.SqlServerStrategyFactory.html",
+          "hash": "d62YFduT2F3Sv0Floa3Qsw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlServer.SqlServerStrategySyntax.html",
+          "hash": "lU1p06+VHXEAGb8EeyXpBw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlServer.SqlServerTimeoutExceptionHandlingStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlServer.SqlServerTimeoutExceptionHandlingStrategy.html",
+          "hash": "788B4q+k9BMkLkhKnyZRrA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlServer.SqlServerTransientExceptionHandlingStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlServer.SqlServerTransientExceptionHandlingStrategy.html",
+          "hash": "r47oXbapM0ah4zuUIwCneQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlServer.SqlServerTransientTransactionExceptionHandlingStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlServer.SqlServerTransientTransactionExceptionHandlingStrategy.html",
+          "hash": "2FnHww1eqLRxn4K2r2oLsA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlServer.ThrottledResourceType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlServer.ThrottledResourceType.html",
+          "hash": "HcyvtUmgqjxuwMTdrCodlg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlServer.ThrottlingCondition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlServer.ThrottlingCondition.html",
+          "hash": "H8tKuEvP8Bi0aqMioEci4w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlServer.ThrottlingMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlServer.ThrottlingMode.html",
+          "hash": "DZdx4jBXS8RAcI+KM9fUVQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlServer.ThrottlingType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlServer.ThrottlingType.html",
+          "hash": "4brARUN7C9XTN8GNW9hm2g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlServer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlServer.html",
+          "hash": "BhNV7sl+NxNB22LdV8nL8Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlStrategy.html",
+          "hash": "JC/hU5VbSXHP6JnuhPIPCQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlStrategyBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlStrategyBuilder.html",
+          "hash": "6KhmT44yx8bRYv8UwPwdNw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlStrategyFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlStrategyFactory.html",
+          "hash": "ow9Wo4YVOzZCitglEM8Hwg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlStrategyOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlStrategyOptions.html",
+          "hash": "BqJ+EDK2c6ADuKCSd8eeMQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.SqlStrategyOptionsExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.SqlStrategyOptionsExtensions.html",
+          "hash": "8rcy5xT/b8qk3yYa+yEDTA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Data.html",
+          "hash": "aU9b0bd2X+9jVGRh8gz47g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.ExecutionEnvironment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.ExecutionEnvironment.html",
+          "hash": "IKEOFRwCnbLLqa5K6DRskg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.IExceptionHandlingStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.IExceptionHandlingStrategy.html",
+          "hash": "xG8IsJFycblsBKKXEX8stA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Logging.AsyncLoggingPolicy-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Logging.AsyncLoggingPolicy-1.html",
+          "hash": "4DZbWdIxwScqBdCPQIcC9w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Logging.AsyncLoggingPolicy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Logging.AsyncLoggingPolicy.html",
+          "hash": "X0inowRr7ei5pHyMVJqoEQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Logging.ILoggingPolicy-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Logging.ILoggingPolicy-1.html",
+          "hash": "fd6S43yyxPjCrlOANHYDTg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Logging.ILoggingPolicy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Logging.ILoggingPolicy.html",
+          "hash": "0Cr3LPrtiI6DbyuqI2WZjQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Logging.LoggingPolicy-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Logging.LoggingPolicy-1.html",
+          "hash": "go/P4cU46VPvWytaa6LQqg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Logging.LoggingPolicy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Logging.LoggingPolicy.html",
+          "hash": "+lyPlV1UKBQjuTt8pOXU+w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Logging.LoggingPolicySyntax.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Logging.LoggingPolicySyntax.html",
+          "hash": "k8ZvABzQs+LVAkNOyj7dgA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Logging.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Logging.html",
+          "hash": "NmcTLuZk7JBJAc+KF911HA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.PolicyContextItems.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.PolicyContextItems.html",
+          "hash": "zvcGAAxiTOqJZBi6TtmurA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.PolicyExecutionEnvironment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.PolicyExecutionEnvironment.html",
+          "hash": "vfWCSy27SgPNKVlOr2Aeng=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.PolicyRegistryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.PolicyRegistryExtensions.html",
+          "hash": "dcXoU2dSvTznVWMoPLSu4w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.ServiceCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.ServiceCollectionExtensions.html",
+          "hash": "WF5jG/DufT7+Hq4PsyzwuQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Utilities.TimeoutHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Utilities.TimeoutHelper.html",
+          "hash": "0fOSWZCR4VDrHgp5R7P4yA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.Utilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.Utilities.html",
+          "hash": "uTg6bsMNIyY2jY5r2ZAToQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Polly.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Polly.html",
+          "hash": "R5E7tGrkQmSG/w+YFcEH3w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Scim.Filters.FilterExpression.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Scim.Filters.FilterExpression.html",
+          "hash": "lzoHQP9og+5EVrDeINmYfg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Scim.Filters.FilterExpressionOperator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Scim.Filters.FilterExpressionOperator.html",
+          "hash": "ZPiE7BXXUQCvNMJ+c8kvdg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Scim.Filters.FilterGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Scim.Filters.FilterGroup.html",
+          "hash": "PP7uux7rvMTiTPuzt8CCOw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Scim.Filters.FilterGroupExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Scim.Filters.FilterGroupExtensions.html",
+          "hash": "mSITfnh9UwPCFcnhOtlyew=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Scim.Filters.FilterLogicalOperator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Scim.Filters.FilterLogicalOperator.html",
+          "hash": "35XVDLq/LGjkPBn8nC1qQg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Scim.Filters.GroupingCharacter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Scim.Filters.GroupingCharacter.html",
+          "hash": "4MA9rwzCoR6pfB/HtTMShQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Scim.Filters.IFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Scim.Filters.IFilter.html",
+          "hash": "wvxRgpKzqad8iK5K0MhSaA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Scim.Filters.IFilterExpression.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Scim.Filters.IFilterExpression.html",
+          "hash": "1zle/O62b/0FLLnxqXu8wQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Scim.Filters.IFilterGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Scim.Filters.IFilterGroup.html",
+          "hash": "jOeHydyNRnJfFZHguJrfIg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Scim.Filters.NotFilterGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Scim.Filters.NotFilterGroup.html",
+          "hash": "2dvq0wbmALP5dAvv9AsUjw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Scim.Filters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Scim.Filters.html",
+          "hash": "bIpbWJ32IMlMWg/u3tmCJw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Text.DataValidation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Text.DataValidation.html",
+          "hash": "/6C01+7e1KMuid0WUnBMtg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Text.NormalizationOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Text.NormalizationOptions.html",
+          "hash": "LaLMeNRsiKlfnj0od+BcLQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Text.NumericComparisonOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Text.NumericComparisonOptions.html",
+          "hash": "wEzt5e+A7syDgNKYnBNI7w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Text.RelativeDateFormatting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Text.RelativeDateFormatting.html",
+          "hash": "5ytY3SYHpEXxkHMPA23bCQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.Text.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.Text.html",
+          "hash": "vdV8hB2wl4CxZhRI29isYQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.TransientFaultHandling.DetectionStrategies.ITransientErrorDetectionStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.TransientFaultHandling.DetectionStrategies.ITransientErrorDetectionStrategy.html",
+          "hash": "l21d5v6WzNQSXimZ0qH7EA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.TransientFaultHandling.DetectionStrategies.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.TransientFaultHandling.DetectionStrategies.html",
+          "hash": "2q/CnCSP6ADPc5yHl7wsmA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.TransientFaultHandling.RetryCondition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.TransientFaultHandling.RetryCondition.html",
+          "hash": "A23GzNgc2qyWU0SwR4iN2Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.TransientFaultHandling.RetryManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.TransientFaultHandling.RetryManager.html",
+          "hash": "btZDgVWyIQB1U5QzDIJdRg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.TransientFaultHandling.RetryPolicy-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.TransientFaultHandling.RetryPolicy-1.html",
+          "hash": "gpQsYuv0tlzIicWwz5Ipfw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.TransientFaultHandling.RetryPolicy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.TransientFaultHandling.RetryPolicy.html",
+          "hash": "G9+n1WG/9LX5YXRkUXLlbA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.html",
+          "hash": "NrPxM5UKU/xTvHJx8qJ46A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.TransientFaultHandling.RetryStrategies.FixedIntervalRetryStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.TransientFaultHandling.RetryStrategies.FixedIntervalRetryStrategy.html",
+          "hash": "AbwvAryMRR/B1fiY3Sd2fw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.TransientFaultHandling.RetryStrategies.IncrementalRetryStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.TransientFaultHandling.RetryStrategies.IncrementalRetryStrategy.html",
+          "hash": "8LdvBbG0sIp/2ph9X5rOkw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.html",
+          "hash": "KYvY3gdV0lPOIuy8ltEvYg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.TransientFaultHandling.RetryStrategies.ShouldRetry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.TransientFaultHandling.RetryStrategies.ShouldRetry.html",
+          "hash": "qVuQ4whg0jTg/uiE551Jog=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.TransientFaultHandling.RetryStrategies.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.TransientFaultHandling.RetryStrategies.html",
+          "hash": "0Z23M0PKuAB2+SzI8wP0kQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.TransientFaultHandling.RetryingEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.TransientFaultHandling.RetryingEventArgs.html",
+          "hash": "s4sTOAE/W3C7f9RYfywOLA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.TransientFaultHandling.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.TransientFaultHandling.html",
+          "hash": "Qp4GEj78kj/3G7KoFz0dRw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.UnitTest.Framework.AssertExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.UnitTest.Framework.AssertExtensions.html",
+          "hash": "b4m4v8Tl4nFRVijg+nQtWA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.UnitTest.Framework.CollectionAssertExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.UnitTest.Framework.CollectionAssertExtensions.html",
+          "hash": "A7rHDRUQVexrHO4tQjd/yw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.UnitTest.Framework.ConditionAssert.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.UnitTest.Framework.ConditionAssert.html",
+          "hash": "2Vj4041R12y392Lz8PW1dg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.UnitTest.Framework.CustomAssert.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.UnitTest.Framework.CustomAssert.html",
+          "hash": "K0zCL2k+7gw8LJSoulp6nw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.UnitTest.Framework.ExceptionAssert.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.UnitTest.Framework.ExceptionAssert.html",
+          "hash": "qkpuzfYmkBs1bqlfG7Z4kw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.UnitTest.Framework.ExceptionMessageComparison.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.UnitTest.Framework.ExceptionMessageComparison.html",
+          "hash": "OJwlsVuhO01Il0ODClN0Fg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.UnitTest.Framework.TypeAssert.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.UnitTest.Framework.TypeAssert.html",
+          "hash": "DgSOenWxltMW0jnqf722vA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.UnitTest.Framework.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.UnitTest.Framework.html",
+          "hash": "eghp2TVGo8eSRVd4Q1qebg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.UnixTimestamp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.UnixTimestamp.html",
+          "hash": "klOz7dkz040uDk3u003bKg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.WeakReference-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.WeakReference-1.html",
+          "hash": "aW5aagVm7ROH+UuNiuh5zw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cadru.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cadru.html",
+          "hash": "/okBF1iaw0mHLPaNJ6rmdw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "WefY2KOQDJQ1fLhDNX3QWw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "KQyZDO3BANF4tNeyby3ASg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "kdfy/aJI4+0AFdujUlIqeg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "gB8AESyvNru97tzIZofEEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "3sNJ3umkv8wXXXPB+EoOOA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "+rHUkRZHZRi5gd1aTU6lJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 3
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 273,
+          "skipped_file_count": 273
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

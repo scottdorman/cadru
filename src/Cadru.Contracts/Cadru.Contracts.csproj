@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <Description>Provides static classes for representing program contracts as preconditions in a way that's compatible with System.Diagnostics.Contracts.</Description>

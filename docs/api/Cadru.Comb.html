@@ -1,0 +1,1889 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Struct Comb
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Struct Comb
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.Comb">
+  
+  
+  <h1 id="Cadru_Comb" data-uid="Cadru.Comb" class="text-break">Struct Comb
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a combined globally unique identifier (GUID) and time stamp.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">IFormattable</span></div>
+    <div><span class="xref">IComparable</span></div>
+    <div><span class="xref">IComparable</span>&lt;<a class="xref" href="Cadru.Comb.html">Comb</a>&gt;</div>
+    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="Cadru.Comb.html">Comb</a>&gt;</div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.html">Cadru</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.Core.dll</h6>
+  <h5 id="Cadru_Comb_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct Comb : IFormattable, IComparable, IComparable&lt;Comb&gt;, IEquatable&lt;Comb&gt;</code></pre>
+  </div>
+  <h5 id="Cadru_Comb_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>A COMB is a 128-bit integer (16 bytes) that can be used across all
+computers and networks wherever a unique identifier is required. Such an
+identifier has a low probability of being duplicated.</p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb__ctor_System_Byte___.md&amp;value=---%0Auid%3A%20Cadru.Comb.%23ctor(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L98">View Source</a>
+  </span>
+  <a id="Cadru_Comb__ctor_" data-uid="Cadru.Comb.#ctor*"></a>
+  <h4 id="Cadru_Comb__ctor_System_Byte___" data-uid="Cadru.Comb.#ctor(System.Byte[])">Comb(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.Comb.html">Comb</a> structure using
+the specified array of bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Comb(byte[] array)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">array</span></td>
+        <td><p>A 16 element byte array containing values with which to initialize
+the <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb__ctor_System_Int32_System_Int16_System_Int16_System_Byte_System_Byte_System_Byte_System_Byte_System_Byte_System_Byte_System_Byte_System_Byte_.md&amp;value=---%0Auid%3A%20Cadru.Comb.%23ctor(System.Int32%2CSystem.Int16%2CSystem.Int16%2CSystem.Byte%2CSystem.Byte%2CSystem.Byte%2CSystem.Byte%2CSystem.Byte%2CSystem.Byte%2CSystem.Byte%2CSystem.Byte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L166">View Source</a>
+  </span>
+  <a id="Cadru_Comb__ctor_" data-uid="Cadru.Comb.#ctor*"></a>
+  <h4 id="Cadru_Comb__ctor_System_Int32_System_Int16_System_Int16_System_Byte_System_Byte_System_Byte_System_Byte_System_Byte_System_Byte_System_Byte_System_Byte_" data-uid="Cadru.Comb.#ctor(System.Int32,System.Int16,System.Int16,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte)">Comb(Int32, Int16, Int16, Byte, Byte, Byte, Byte, Byte, Byte, Byte, Byte)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.Comb.html">Comb</a> structure using
+the specified integers and bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Comb(int a, short b, short c, byte d, byte e, byte f, byte g, byte h, byte i, byte j, byte k)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">a</span></td>
+        <td><p>The first 4 bytes of the <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int16</span></td>
+        <td><span class="parametername">b</span></td>
+        <td><p>The next 2 bytes of the <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int16</span></td>
+        <td><span class="parametername">c</span></td>
+        <td><p>The next 2 bytes of the <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td><span class="parametername">d</span></td>
+        <td><p>The next byte of the <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td><span class="parametername">e</span></td>
+        <td><p>The next byte of the <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td><span class="parametername">f</span></td>
+        <td><p>The next byte of the <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td><span class="parametername">g</span></td>
+        <td><p>The next byte of the <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td><span class="parametername">h</span></td>
+        <td><p>The next byte of the <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td><span class="parametername">i</span></td>
+        <td><p>The next byte of the <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td><span class="parametername">j</span></td>
+        <td><p>The next byte of the <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td><span class="parametername">k</span></td>
+        <td><p>The next byte of the <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb__ctor_System_Int32_System_Int16_System_Int16_System_Byte___.md&amp;value=---%0Auid%3A%20Cadru.Comb.%23ctor(System.Int32%2CSystem.Int16%2CSystem.Int16%2CSystem.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L126">View Source</a>
+  </span>
+  <a id="Cadru_Comb__ctor_" data-uid="Cadru.Comb.#ctor*"></a>
+  <h4 id="Cadru_Comb__ctor_System_Int32_System_Int16_System_Int16_System_Byte___" data-uid="Cadru.Comb.#ctor(System.Int32,System.Int16,System.Int16,System.Byte[])">Comb(Int32, Int16, Int16, Byte[])</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.Comb.html">Comb</a> structure using
+the specified integers and bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Comb(int a, short b, short c, byte[] d)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">a</span></td>
+        <td><p>The first 4 bytes of the <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int16</span></td>
+        <td><span class="parametername">b</span></td>
+        <td><p>The next 2 bytes of the <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int16</span></td>
+        <td><span class="parametername">c</span></td>
+        <td><p>The next 2 bytes of the <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">d</span></td>
+        <td><p>The remaining 8 bytes of the <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb__ctor_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Comb.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L219">View Source</a>
+  </span>
+  <a id="Cadru_Comb__ctor_" data-uid="Cadru.Comb.#ctor*"></a>
+  <h4 id="Cadru_Comb__ctor_System_String_" data-uid="Cadru.Comb.#ctor(System.String)">Comb(String)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.Comb.html">Comb</a> structure using
+the specified integers and byte array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Comb(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>
+A string that contains a <a class="xref" href="Cadru.Comb.html">Comb</a> in the following format:
+</p>
+<p>
+hexadecimal digits are arranged in groups of 8, 4, 4, 4, and 12
+digits with hyphens between the groups. The <a class="xref" href="Cadru.Comb.html">Comb</a> can
+optionally be enclosed in matching braces.
+</p>
+<p>For example: dddddddd-dddd-dddd-dddd-dddddddddddd or {dddddddd-dddd-dddd-dddd-dddddddddddd}.</p>
+<p>
+Alternatively, the following format is permitted:
+{0xdddddddd,0xdddd,
+0xdddd,{0xdd},{0xdd},{0xdd},{0xdd},{0xdd},{0xdd},{0xdd},{0xdd}},
+where d is a hexadecimal digit. If this format is used, all brackets
+and commas indicated are required, and all numbers must be prefixed
+with &quot;0x&quot; as shown. Fewer hexadecimal digits than shown can be used,
+but not more.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_Empty.md&amp;value=---%0Auid%3A%20Cadru.Comb.Empty%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L54">View Source</a>
+  </span>
+  <h4 id="Cadru_Comb_Empty" data-uid="Cadru.Comb.Empty">Empty</h4>
+  <div class="markdown level1 summary"><p>A read-only instance of <a class="xref" href="Cadru.Comb.html">Comb</a> structure whose value is
+all zeros.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Comb Empty</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Comb_Empty_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>You can compare a <a class="xref" href="Cadru.Comb.html">Comb</a> with the value of the
+<a class="xref" href="Cadru.Comb.html#Cadru_Comb_Empty">Empty</a> field to determine whether a
+<a class="xref" href="Cadru.Comb.html">Comb</a> is non-zero.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_MaxDate.md&amp;value=---%0Auid%3A%20Cadru.Comb.MaxDate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L60">View Source</a>
+  </span>
+  <h4 id="Cadru_Comb_MaxDate" data-uid="Cadru.Comb.MaxDate">MaxDate</h4>
+  <div class="markdown level1 summary"><p>Represents the greatest possible date and time value which can be
+held by a <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DateTimeOffset MaxDate</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_MinDate.md&amp;value=---%0Auid%3A%20Cadru.Comb.MinDate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L66">View Source</a>
+  </span>
+  <h4 id="Cadru_Comb_MinDate" data-uid="Cadru.Comb.MinDate">MinDate</h4>
+  <div class="markdown level1 summary"><p>Represents the earliest possible date and time value which can be
+held by a <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DateTimeOffset MinDate</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_DateTime.md&amp;value=---%0Auid%3A%20Cadru.Comb.DateTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L239">View Source</a>
+  </span>
+  <a id="Cadru_Comb_DateTime_" data-uid="Cadru.Comb.DateTime*"></a>
+  <h4 id="Cadru_Comb_DateTime" data-uid="Cadru.Comb.DateTime">DateTime</h4>
+  <div class="markdown level1 summary"><p>Gets the date and time represented by the current instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTimeOffset DateTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><p>A <see cref="!:DateTimeOffset"></see> containing the data and time
+represented by the current instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_CompareTo_Cadru_Comb_.md&amp;value=---%0Auid%3A%20Cadru.Comb.CompareTo(Cadru.Comb)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L821">View Source</a>
+  </span>
+  <a id="Cadru_Comb_CompareTo_" data-uid="Cadru.Comb.CompareTo*"></a>
+  <h4 id="Cadru_Comb_CompareTo_Cadru_Comb_" data-uid="Cadru.Comb.CompareTo(Cadru.Comb)">CompareTo(Comb)</h4>
+  <div class="markdown level1 summary"><p>Compares the value of this instance to a specified
+<a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> value and returns an integer that
+indicates whether this instance is earlier than, the same as, or
+later than the specified <a class="xref" href="Cadru.UnixTimestamp.html">UnixTimestamp</a> value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(Comb other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The object to compare to the current instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>A signed number indicating the relative values of this instance and
+the <code data-dev-comment-type="paramref" class="paramref">other</code> parameter.</p>
+<table><thead><tr><th>ValueCondition</th><th></th></tr></thead><tbody><tr><td>Less than zero</td><td>This instance is earlier than <code data-dev-comment-type="paramref" class="paramref">other</code>.</td></tr><tr><td>Zero</td><td>This instance is the same as <code data-dev-comment-type="paramref" class="paramref">other</code>.</td></tr><tr><td>Greater than zero</td><td>This instance is later than <code data-dev-comment-type="paramref" class="paramref">other</code>.</td></tr></tbody></table>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_CompareTo_System_Object_.md&amp;value=---%0Auid%3A%20Cadru.Comb.CompareTo(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L777">View Source</a>
+  </span>
+  <a id="Cadru_Comb_CompareTo_" data-uid="Cadru.Comb.CompareTo*"></a>
+  <h4 id="Cadru_Comb_CompareTo_System_Object_" data-uid="Cadru.Comb.CompareTo(System.Object)">CompareTo(Object)</h4>
+  <div class="markdown level1 summary"><p>Compares this instance to a specified object and returns an
+indication of their relative values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>A boxed object to compare, or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>A signed number indicating the relative values of this instance and
+the <code data-dev-comment-type="paramref" class="paramref">obj</code> parameter.</p>
+<table><thead><tr><th>ValueCondition</th><th></th></tr></thead><tbody><tr><td>Less than zero</td><td>This instance is less than <code data-dev-comment-type="paramref" class="paramref">obj</code>.</td></tr><tr><td>Zero</td><td>This instance is the same as <code data-dev-comment-type="paramref" class="paramref">obj</code>.</td></tr><tr><td>Greater than zero</td><td>
+This instance is greater than <code data-dev-comment-type="paramref" class="paramref">obj</code>, or
+<code data-dev-comment-type="paramref" class="paramref">obj</code> is <span class="xref">null</span>.
+</td></tr></tbody></table>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_Equals_Cadru_Comb_.md&amp;value=---%0Auid%3A%20Cadru.Comb.Equals(Cadru.Comb)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L857">View Source</a>
+  </span>
+  <a id="Cadru_Comb_Equals_" data-uid="Cadru.Comb.Equals*"></a>
+  <h4 id="Cadru_Comb_Equals_Cadru_Comb_" data-uid="Cadru.Comb.Equals(Cadru.Comb)">Equals(Comb)</h4>
+  <div class="markdown level1 summary"><p>Returns a value indicating whether this instance and a specified
+<a class="xref" href="Cadru.Comb.html">Comb</a> object represent the same value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Comb other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>An object to compare to this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if <code data-dev-comment-type="paramref" class="paramref">other</code> has the same
+value as this instance; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Cadru.Comb.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L836">View Source</a>
+  </span>
+  <a id="Cadru_Comb_Equals_" data-uid="Cadru.Comb.Equals*"></a>
+  <h4 id="Cadru_Comb_Equals_System_Object_" data-uid="Cadru.Comb.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Returns a value indicating whether this instance is equal to a
+specified object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>The object to compare with this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if <code data-dev-comment-type="paramref" class="paramref">obj</code> is a
+<a class="xref" href="Cadru.Comb.html">Comb</a> and has the same value as this instance;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_GetHashCode.md&amp;value=---%0Auid%3A%20Cadru.Comb.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L866">View Source</a>
+  </span>
+  <a id="Cadru_Comb_GetHashCode_" data-uid="Cadru.Comb.GetHashCode*"></a>
+  <h4 id="Cadru_Comb_GetHashCode" data-uid="Cadru.Comb.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Returns the hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The hash code for this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_NewComb.md&amp;value=---%0Auid%3A%20Cadru.Comb.NewComb%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L334">View Source</a>
+  </span>
+  <a id="Cadru_Comb_NewComb_" data-uid="Cadru.Comb.NewComb*"></a>
+  <h4 id="Cadru_Comb_NewComb" data-uid="Cadru.Comb.NewComb">NewComb()</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.Comb.html">Comb</a> structure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Comb NewComb()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><p>A new <a class="xref" href="Cadru.Comb.html">Comb</a> object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Comb_NewComb_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The date and time value contained by the new <a class="xref" href="Cadru.Comb.html">Comb</a> is
+the current date and time as represented by <see cref="!:DateTimeOffset.UtcNow"></see>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_NewComb_DateTime_.md&amp;value=---%0Auid%3A%20Cadru.Comb.NewComb(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L346">View Source</a>
+  </span>
+  <a id="Cadru_Comb_NewComb_" data-uid="Cadru.Comb.NewComb*"></a>
+  <h4 id="Cadru_Comb_NewComb_DateTime_" data-uid="Cadru.Comb.NewComb(DateTime)">NewComb(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.Comb.html">Comb</a> structure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Comb NewComb(DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A date and time value to be contained by the new <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><p>A new <a class="xref" href="Cadru.Comb.html">Comb</a> object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_NewComb_DateTimeOffset_.md&amp;value=---%0Auid%3A%20Cadru.Comb.NewComb(DateTimeOffset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L358">View Source</a>
+  </span>
+  <a id="Cadru_Comb_NewComb_" data-uid="Cadru.Comb.NewComb*"></a>
+  <h4 id="Cadru_Comb_NewComb_DateTimeOffset_" data-uid="Cadru.Comb.NewComb(DateTimeOffset)">NewComb(DateTimeOffset)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.Comb.html">Comb</a> structure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Comb NewComb(DateTimeOffset date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>A date and time value to be contained by the new <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><p>A new <a class="xref" href="Cadru.Comb.html">Comb</a> object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_Parse_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Comb.Parse(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L485">View Source</a>
+  </span>
+  <a id="Cadru_Comb_Parse_" data-uid="Cadru.Comb.Parse*"></a>
+  <h4 id="Cadru_Comb_Parse_System_String_" data-uid="Cadru.Comb.Parse(System.String)">Parse(String)</h4>
+  <div class="markdown level1 summary"><p>Converts the string representation of a COMB to the equivalent
+<a class="xref" href="Cadru.Comb.html">Comb</a> structure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Comb Parse(string input)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>The string to convert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><p>A structure that contains the value that was parsed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Comb_Parse_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The Parse method converts the string representation of a COMB to a
+<a class="xref" href="Cadru.Comb.html">Comb</a> value. This method can convert strings in any of
+the five formats produced by the <see cref="!:ToString(String)"></see> and
+<see cref="!:ToString(String, IFormatProvider)"></see> methods, as shown in
+the following table.
+</p>
+<table><thead><tr><th>SpecifierDescriptionFormat</th><th></th></tr></thead><tbody><tr><td>N</td><td>32 digits00000000000000000000000000000000</td></tr><tr><td>D</td><td>32 digits separated by hyphens00000000-0000-0000-0000-000000000000</td></tr><tr><td>B</td><td>
+32 digits separated by hyphens, enclosed in braces
+{00000000-0000-0000-0000-000000000000}</td></tr><tr><td>P</td><td>
+32 digits separated by hyphens, enclosed in parentheses
+(00000000-0000-0000-0000-000000000000)</td></tr><tr><td>X</td><td>
+Four hexadecimal values enclosed in braces, where the fourth value
+is a subset of eight hexadecimal values that is also enclosed in braces
+{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</td></tr></tbody></table>
+<p>
+The method throws a <see cref="!:FormatException"></see> if it is unable to
+successfully parse the string. Some of the reasons why this might
+occur include:
+</p>
+<ul><li>
+<code data-dev-comment-type="paramref" class="paramref">input</code> contains characters that are not part of
+the hexadecimal character set.
+</li><li>
+<code data-dev-comment-type="paramref" class="paramref">input</code> has too many or too few numeric characters.
+</li><li>
+<code data-dev-comment-type="paramref" class="paramref">input</code> has too many or too few of the non-numeric
+characters appropriate for a particular format.
+</li><li>
+<code data-dev-comment-type="paramref" class="paramref">input</code> is not in one of the formats recognized by
+the <a class="xref" href="Cadru.Comb.html#Cadru_Comb_ToString">ToString()</a> method and listed in the previous table.
+</li></ul>
+<p>
+Use the <a class="xref" href="Cadru.Comb.html#Cadru_Comb_TryParse_System_String_Cadru_Comb__">TryParse(String, out Comb)</a> method to catch any unsuccessful
+parse operations without having to handle an exception.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_ParseExact_System_String_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Comb.ParseExact(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L565">View Source</a>
+  </span>
+  <a id="Cadru_Comb_ParseExact_" data-uid="Cadru.Comb.ParseExact*"></a>
+  <h4 id="Cadru_Comb_ParseExact_System_String_System_String_" data-uid="Cadru.Comb.ParseExact(System.String,System.String)">ParseExact(String, String)</h4>
+  <div class="markdown level1 summary"><p>Converts the string representation of a COMB to the equivalent
+<a class="xref" href="Cadru.Comb.html">Comb</a> structure, provided that the string is in the
+specified format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Comb ParseExact(string input, string format)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>The string to convert.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>One of the following specifiers that indicates the exact format to
+use when interpreting input: &quot;N&quot;, &quot;D&quot;, &quot;B&quot;, &quot;P&quot;, or &quot;X&quot;.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><p>A structure that contains the value that was parsed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Comb_ParseExact_System_String_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The following table shows the accepted format specifiers for the
+<code data-dev-comment-type="paramref" class="paramref">format</code> parameter. &quot;0&quot; represents a digit; hyphens
+(&quot;-&quot;), braces (&quot;{&quot;, &quot;}&quot;), and parentheses (&quot;(&quot;, &quot;)&quot;) appear as shown.
+</p>
+<table><thead><tr><th>SpecifierFormat of return value</th><th></th></tr></thead><tbody><tr><td>N</td><td>
+<p>32 digits:</p>
+<p>00000000000000000000000000000000</p>
+</td></tr><tr><td>D</td><td>
+<p>32 digits separated by hyphens:</p>
+<p>00000000-0000-0000-0000-000000000000</p>
+</td></tr><tr><td>B</td><td>
+<p>32 digits separated by hyphens, enclosed in braces:</p>
+<p>{00000000-0000-0000-0000-000000000000}</p>
+</td></tr><tr><td>P</td><td>
+<p>32 digits separated by hyphens, enclosed in parentheses:</p>
+<p>(00000000-0000-0000-0000-000000000000)</p>
+</td></tr><tr><td>X</td><td>
+<p>
+Four hexadecimal values enclosed in braces, where the fourth value
+is a subset of eight hexadecimal values that is also enclosed in braces:
+</p>
+<p>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</p>
+</td></tr></tbody></table>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_ToByteArray.md&amp;value=---%0Auid%3A%20Cadru.Comb.ToByteArray%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L1178">View Source</a>
+  </span>
+  <a id="Cadru_Comb_ToByteArray_" data-uid="Cadru.Comb.ToByteArray*"></a>
+  <h4 id="Cadru_Comb_ToByteArray" data-uid="Cadru.Comb.ToByteArray">ToByteArray()</h4>
+  <div class="markdown level1 summary"><p>Returns a 16-element byte array that contains the value of the <a class="xref" href="Cadru.Comb.html">Comb</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] ToByteArray()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>A 16-element byte array.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_ToString.md&amp;value=---%0Auid%3A%20Cadru.Comb.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L890">View Source</a>
+  </span>
+  <a id="Cadru_Comb_ToString_" data-uid="Cadru.Comb.ToString*"></a>
+  <h4 id="Cadru_Comb_ToString" data-uid="Cadru.Comb.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Returns a string representation of the value of this instance in
+registry format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>
+The value of this <a class="xref" href="Cadru.Comb.html">Comb</a>, formatted by using the &quot;D&quot;
+format specifier as follows:
+</p>
+<p>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</p>
+<p>
+where the value of the GUID is represented as a series of lowercase
+hexadecimal digits in groups of 8, 4, 4, 4, and 12 digits and
+separated by hyphens. An example of a return value is
+&quot;382c74c3-721d-4f34-80e5-57657b6cbc27&quot;. To convert the hexadecimal
+digits from a through f to uppercase, call the
+<see cref="!:String.ToUpper()"></see> method on the returned string.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_ToString_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Comb.ToString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L968">View Source</a>
+  </span>
+  <a id="Cadru_Comb_ToString_" data-uid="Cadru.Comb.ToString*"></a>
+  <h4 id="Cadru_Comb_ToString_System_String_" data-uid="Cadru.Comb.ToString(System.String)">ToString(String)</h4>
+  <div class="markdown level1 summary"><p>Returns a string representation of the value of this
+<a class="xref" href="Cadru.Comb.html">Comb</a> instance, according to the provided format specifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>A single format specifier that indicates how to format the value of
+this <a class="xref" href="Cadru.Comb.html">Comb</a>. The format parameter can be &quot;N&quot;, &quot;D&quot;, &quot;B&quot;,
+&quot;P&quot;, or &quot;X&quot;. If <code data-dev-comment-type="paramref" class="paramref">format</code> is <span class="xref">null</span>
+or an empty string (&quot;&quot;), &quot;D&quot; is used.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The value of this <a class="xref" href="Cadru.Comb.html">Comb</a>, represented as a series of
+lowercase hexadecimal digits in the specified format.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Comb_ToString_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The following table shows the accepted format specifiers for the
+<code data-dev-comment-type="paramref" class="paramref">format</code> parameter. &quot;0&quot; represents a digit; hyphens
+(&quot;-&quot;), braces (&quot;{&quot;, &quot;}&quot;), and parentheses (&quot;(&quot;, &quot;)&quot;) appear as shown.</p>
+<table><thead><tr><th>SpecifierFormat of return value</th><th></th></tr></thead><tbody><tr><td>N</td><td>
+<p>32 digits:</p>
+<p>00000000000000000000000000000000</p>
+</td></tr><tr><td>D</td><td>
+<p>32 digits separated by hyphens:</p>
+<p>00000000-0000-0000-0000-000000000000</p>
+</td></tr><tr><td>B</td><td>
+<p>32 digits separated by hyphens, enclosed in braces:</p>
+<p>{00000000-0000-0000-0000-000000000000}</p>
+</td></tr><tr><td>P</td><td>
+<p>32 digits separated by hyphens, enclosed in parentheses:</p>
+<p>(00000000-0000-0000-0000-000000000000)</p>
+</td></tr><tr><td>X</td><td>
+<p>
+Four hexadecimal values enclosed in braces, where the fourth value
+is a subset of eight hexadecimal values that is also enclosed in braces:
+</p>
+<p>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</p>
+</td></tr></tbody></table>
+<p>
+The hexadecimal digits a through f are lowercase in the returned
+string. To convert them to uppercase, call the
+<see cref="!:String.ToUpper()"></see> method on the returned string.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_ToString_System_String_System_Nullable_IFormatProvider__.md&amp;value=---%0Auid%3A%20Cadru.Comb.ToString(System.String%2CSystem.Nullable%7BIFormatProvider%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L1167">View Source</a>
+  </span>
+  <a id="Cadru_Comb_ToString_" data-uid="Cadru.Comb.ToString*"></a>
+  <h4 id="Cadru_Comb_ToString_System_String_System_Nullable_IFormatProvider__" data-uid="Cadru.Comb.ToString(System.String,System.Nullable{IFormatProvider})">ToString(String, Nullable&lt;IFormatProvider&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a string representation of the value of this
+<a class="xref" href="Cadru.Comb.html">Comb</a> instance, according to the provided format
+specifier and culture-specific format information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format, IFormatProvider? formatProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>A single format specifier that indicates how to format the value of
+this <a class="xref" href="Cadru.Comb.html">Comb</a>. The format parameter can be &quot;N&quot;, &quot;D&quot;, &quot;B&quot;,
+&quot;P&quot;, or &quot;X&quot;. If <code data-dev-comment-type="paramref" class="paramref">format</code> is <span class="xref">null</span>
+or an empty string (&quot;&quot;), &quot;D&quot; is used.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IFormatProvider</span>&gt;</td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td><p>(Reserved) An object that supplies culture-specific formatting information.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The value of this <a class="xref" href="Cadru.Comb.html">Comb</a>, represented as a series of
+lowercase hexadecimal digits in the specified format.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Comb_ToString_System_String_System_Nullable_IFormatProvider___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The <code data-dev-comment-type="paramref" class="paramref">formatProvider</code> parameter is reserved for
+future use and does not contribute to the execution of this method.
+You can pass <span class="xref">null</span> in the method call.
+</p>
+<p>
+The following table shows the accepted format specifiers for the
+<code data-dev-comment-type="paramref" class="paramref">format</code> parameter. &quot;0&quot; represents a digit; hyphens
+(&quot;-&quot;), braces (&quot;{&quot;, &quot;}&quot;), and parentheses (&quot;(&quot;, &quot;)&quot;) appear as shown.
+</p>
+<table><thead><tr><th>SpecifierFormat of return value</th><th></th></tr></thead><tbody><tr><td>N</td><td>
+<p>32 digits:</p>
+<p>00000000000000000000000000000000</p>
+</td></tr><tr><td>D</td><td>
+<p>32 digits separated by hyphens:</p>
+<p>00000000-0000-0000-0000-000000000000</p>
+</td></tr><tr><td>B</td><td>
+<p>32 digits separated by hyphens, enclosed in braces:</p>
+<p>{00000000-0000-0000-0000-000000000000}</p>
+</td></tr><tr><td>P</td><td>
+<p>32 digits separated by hyphens, enclosed in parentheses:</p>
+<p>(00000000-0000-0000-0000-000000000000)</p>
+</td></tr><tr><td>X</td><td>
+<p>
+Four hexadecimal values enclosed in braces, where the fourth value
+is a subset of eight hexadecimal values that is also enclosed in braces:
+</p>
+<p>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</p>
+</td></tr></tbody></table>
+<p>
+The hexadecimal digits a through f are lowercase in the returned
+string. To convert them to uppercase, call the
+<see cref="!:String.ToUpper()"></see> method on the returned string.
+</p>
+<p>
+Because the <code data-dev-comment-type="paramref" class="paramref">formatProvider</code> parameter is ignored,
+you cannot use it to provide a custom formatting solution. To
+represent a <a class="xref" href="Cadru.Comb.html">Comb</a> value as a string in a format that
+isn&apos;t supported by the standard COMB format strings, call the
+<see cref="!:String.Format(IFormatProvider, String, Object[])"></see>
+method with a provider object that implements both the
+<see cref="!:ICustomFormatter"></see> and <see cref="!:IFormatProvider"></see>
+interfaces. For more information, see the &quot;Custom Formatting with
+ICustomFormatter&quot; section in the
+<a href="http://msdn.microsoft.com/en-us/library/26etazsy(v=vs.110).aspx">Formatting
+Types</a> article.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_TryParse_System_String_Cadru_Comb__.md&amp;value=---%0Auid%3A%20Cadru.Comb.TryParse(System.String%2CCadru.Comb%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L644">View Source</a>
+  </span>
+  <a id="Cadru_Comb_TryParse_" data-uid="Cadru.Comb.TryParse*"></a>
+  <h4 id="Cadru_Comb_TryParse_System_String_Cadru_Comb__" data-uid="Cadru.Comb.TryParse(System.String,Cadru.Comb@)">TryParse(String, out Comb)</h4>
+  <div class="markdown level1 summary"><p>Converts the string representation of a COMB to the equivalent
+<a class="xref" href="Cadru.Comb.html">Comb</a> structure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParse(string input, out Comb result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>The string to convert.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>The structure that will contain the parsed value. If the method
+returns <span class="xref">true</span>, <code data-dev-comment-type="paramref" class="paramref">result</code> contains a
+valid <a class="xref" href="Cadru.Comb.html">Comb</a>. If the method returns
+<span class="xref">false</span>, <code data-dev-comment-type="paramref" class="paramref">result</code> equals <a class="xref" href="Cadru.Comb.html#Cadru_Comb_Empty">Empty</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the parse operation was successful;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Comb_TryParse_System_String_Cadru_Comb___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+This method is like the <a class="xref" href="Cadru.Comb.html#Cadru_Comb_Parse_System_String_">Parse(String)</a> method, except that
+instead of returning the parsed COMB, it returns
+<span class="xref">false</span> if <code data-dev-comment-type="paramref" class="paramref">input</code> is
+<span class="xref">null</span> or not in a recognized format and doesn&apos;t
+throw an exception. It converts strings in any of the five formats
+produced by the <see cref="!:ToString(String)"></see> and
+<see cref="!:ToString(String, IFormatProvider)"></see> methods, as shown in
+the following table.
+</p>
+<table><thead><tr><th>SpecifierDescriptionFormat</th><th></th></tr></thead><tbody><tr><td>N</td><td>32 digits00000000000000000000000000000000</td></tr><tr><td>D</td><td>32 digits separated by hyphens00000000-0000-0000-0000-000000000000</td></tr><tr><td>B</td><td>
+32 digits separated by hyphens, enclosed in braces
+{00000000-0000-0000-0000-000000000000}</td></tr><tr><td>P</td><td>
+32 digits separated by hyphens, enclosed in parentheses
+(00000000-0000-0000-0000-000000000000)</td></tr><tr><td>X</td><td>
+Four hexadecimal values enclosed in braces, where the fourth value
+is a subset of eight hexadecimal values that is also enclosed in braces
+{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</td></tr></tbody></table>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_TryParseExact_System_String_System_String_Cadru_Comb__.md&amp;value=---%0Auid%3A%20Cadru.Comb.TryParseExact(System.String%2CSystem.String%2CCadru.Comb%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L732">View Source</a>
+  </span>
+  <a id="Cadru_Comb_TryParseExact_" data-uid="Cadru.Comb.TryParseExact*"></a>
+  <h4 id="Cadru_Comb_TryParseExact_System_String_System_String_Cadru_Comb__" data-uid="Cadru.Comb.TryParseExact(System.String,System.String,Cadru.Comb@)">TryParseExact(String, String, out Comb)</h4>
+  <div class="markdown level1 summary"><p>Converts the string representation of a COMB to the equivalent
+<a class="xref" href="Cadru.Comb.html">Comb</a> structure provided that the string is in the
+specified format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParseExact(string input, string format, out Comb result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>The string to convert.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>One of the following specifiers that indicates the exact format to
+use when interpreting input: &quot;N&quot;, &quot;D&quot;, &quot;B&quot;, &quot;P&quot;, or &quot;X&quot;.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>The structure that will contain the parsed value. If the method
+returns <span class="xref">true</span>, <code data-dev-comment-type="paramref" class="paramref">result</code> contains a
+valid <a class="xref" href="Cadru.Comb.html">Comb</a>. If the method returns
+<span class="xref">false</span>, <code data-dev-comment-type="paramref" class="paramref">result</code> equals <a class="xref" href="Cadru.Comb.html#Cadru_Comb_Empty">Empty</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the parse operation was successful;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Comb_TryParseExact_System_String_System_String_Cadru_Comb___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+This method returns <span class="xref">false</span> if
+<code data-dev-comment-type="paramref" class="paramref">input</code> is <span class="xref">null</span> or not in a
+recognized format and doesn&apos;t throw an exception.
+</p>
+<p>
+The following table shows the accepted format specifiers for the
+<code data-dev-comment-type="paramref" class="paramref">format</code> parameter. &quot;0&quot; represents a digit; hyphens
+(&quot;-&quot;), braces (&quot;{&quot;, &quot;}&quot;), and parentheses (&quot;(&quot;, &quot;)&quot;) appear as shown.
+</p>
+<table><thead><tr><th>SpecifierFormat of return value</th><th></th></tr></thead><tbody><tr><td>N</td><td>
+<p>32 digits:</p>
+<p>00000000000000000000000000000000</p>
+</td></tr><tr><td>D</td><td>
+<p>32 digits separated by hyphens:</p>
+<p>00000000-0000-0000-0000-000000000000</p>
+</td></tr><tr><td>B</td><td>
+<p>32 digits separated by hyphens, enclosed in braces:</p>
+<p>{00000000-0000-0000-0000-000000000000}</p>
+</td></tr><tr><td>P</td><td>
+<p>32 digits separated by hyphens, enclosed in parentheses:</p>
+<p>(00000000-0000-0000-0000-000000000000)</p>
+</td></tr><tr><td>X</td><td>
+<p>
+Four hexadecimal values enclosed in braces, where the fourth value
+is a subset of eight hexadecimal values that is also enclosed in braces:
+</p>
+<p>{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}</p>
+</td></tr></tbody></table>
+</div>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_op_Equality_Cadru_Comb_Cadru_Comb_.md&amp;value=---%0Auid%3A%20Cadru.Comb.op_Equality(Cadru.Comb%2CCadru.Comb)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L249">View Source</a>
+  </span>
+  <a id="Cadru_Comb_op_Equality_" data-uid="Cadru.Comb.op_Equality*"></a>
+  <h4 id="Cadru_Comb_op_Equality_Cadru_Comb_Cadru_Comb_" data-uid="Cadru.Comb.op_Equality(Cadru.Comb,Cadru.Comb)">Equality(Comb, Comb)</h4>
+  <div class="markdown level1 summary"><p>Determines whether two specified <a class="xref" href="Cadru.Comb.html">Comb</a> objects are equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Comb left, Comb right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first object to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second object to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if both objects are equal; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_op_GreaterThan_Cadru_Comb_Cadru_Comb_.md&amp;value=---%0Auid%3A%20Cadru.Comb.op_GreaterThan(Cadru.Comb%2CCadru.Comb)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L264">View Source</a>
+  </span>
+  <a id="Cadru_Comb_op_GreaterThan_" data-uid="Cadru.Comb.op_GreaterThan*"></a>
+  <h4 id="Cadru_Comb_op_GreaterThan_Cadru_Comb_Cadru_Comb_" data-uid="Cadru.Comb.op_GreaterThan(Cadru.Comb,Cadru.Comb)">GreaterThan(Comb, Comb)</h4>
+  <div class="markdown level1 summary"><p>Determines whether one <a class="xref" href="Cadru.Comb.html">Comb</a> instance is greater than
+the other.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator&gt;(Comb left, Comb right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first object to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second object to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the first instance is greater than the
+second; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_op_GreaterThanOrEqual_Cadru_Comb_Cadru_Comb_.md&amp;value=---%0Auid%3A%20Cadru.Comb.op_GreaterThanOrEqual(Cadru.Comb%2CCadru.Comb)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L279">View Source</a>
+  </span>
+  <a id="Cadru_Comb_op_GreaterThanOrEqual_" data-uid="Cadru.Comb.op_GreaterThanOrEqual*"></a>
+  <h4 id="Cadru_Comb_op_GreaterThanOrEqual_Cadru_Comb_Cadru_Comb_" data-uid="Cadru.Comb.op_GreaterThanOrEqual(Cadru.Comb,Cadru.Comb)">GreaterThanOrEqual(Comb, Comb)</h4>
+  <div class="markdown level1 summary"><p>Determines whether one <a class="xref" href="Cadru.Comb.html">Comb</a> instance is greater than
+or equal to the other.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;=(Comb left, Comb right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first object to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second object to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the first instance is greater than or
+equal to the second; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_op_Inequality_Cadru_Comb_Cadru_Comb_.md&amp;value=---%0Auid%3A%20Cadru.Comb.op_Inequality(Cadru.Comb%2CCadru.Comb)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L307">View Source</a>
+  </span>
+  <a id="Cadru_Comb_op_Inequality_" data-uid="Cadru.Comb.op_Inequality*"></a>
+  <h4 id="Cadru_Comb_op_Inequality_Cadru_Comb_Cadru_Comb_" data-uid="Cadru.Comb.op_Inequality(Cadru.Comb,Cadru.Comb)">Inequality(Comb, Comb)</h4>
+  <div class="markdown level1 summary"><p>Determines whether two specified <a class="xref" href="Cadru.Comb.html">Comb</a> objects are not equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Comb left, Comb right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first object to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second object to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if both objects are not equal; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_op_LessThan_Cadru_Comb_Cadru_Comb_.md&amp;value=---%0Auid%3A%20Cadru.Comb.op_LessThan(Cadru.Comb%2CCadru.Comb)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L321">View Source</a>
+  </span>
+  <a id="Cadru_Comb_op_LessThan_" data-uid="Cadru.Comb.op_LessThan*"></a>
+  <h4 id="Cadru_Comb_op_LessThan_Cadru_Comb_Cadru_Comb_" data-uid="Cadru.Comb.op_LessThan(Cadru.Comb,Cadru.Comb)">LessThan(Comb, Comb)</h4>
+  <div class="markdown level1 summary"><p>Determines whether one <a class="xref" href="Cadru.Comb.html">Comb</a> instance is less than the other.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;(Comb left, Comb right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first object to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second object to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the first instance is less than the
+second; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb_op_LessThanOrEqual_Cadru_Comb_Cadru_Comb_.md&amp;value=---%0Auid%3A%20Cadru.Comb.op_LessThanOrEqual(Cadru.Comb%2CCadru.Comb)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L294">View Source</a>
+  </span>
+  <a id="Cadru_Comb_op_LessThanOrEqual_" data-uid="Cadru.Comb.op_LessThanOrEqual*"></a>
+  <h4 id="Cadru_Comb_op_LessThanOrEqual_Cadru_Comb_Cadru_Comb_" data-uid="Cadru.Comb.op_LessThanOrEqual(Cadru.Comb,Cadru.Comb)">LessThanOrEqual(Comb, Comb)</h4>
+  <div class="markdown level1 summary"><p>Determines whether one <a class="xref" href="Cadru.Comb.html">Comb</a> instance is less than or
+equal to the other.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;=(Comb left, Comb right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first object to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Cadru.Comb.html">Comb</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second object to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the first instance is less than or equal
+to the second; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">IFormattable</span>
+  </div>
+  <div>
+      <span class="xref">IComparable</span>
+  </div>
+  <div>
+      <span class="xref">IComparable&lt;&gt;</span>
+  </div>
+  <div>
+      <span class="xref">IEquatable&lt;&gt;</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNotNull__1___0_">NullExtensions.IsNotNull&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNull__1___0_">NullExtensions.IsNull&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Comb.md&amp;value=---%0Auid%3A%20Cadru.Comb%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Comb.cs/#L42" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

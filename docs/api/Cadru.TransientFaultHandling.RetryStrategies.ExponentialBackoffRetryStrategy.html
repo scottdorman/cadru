@@ -1,0 +1,477 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ExponentialBackoffRetryStrategy
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ExponentialBackoffRetryStrategy
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy">
+  
+  
+  <h1 id="Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy" data-uid="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy" class="text-break">Class ExponentialBackoffRetryStrategy
+  </h1>
+  <div class="markdown level0 summary"><p>A retry strategy with back-off parameters for calculating the exponential delay between retries.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.html">RetryStrategy</a></div>
+    <div class="level2"><span class="xref">ExponentialBackoffRetryStrategy</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.html#Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_DefaultClientRetryCount">RetryStrategy.DefaultClientRetryCount</a>
+    </div>
+    <div>
+      <a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.html#Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_DefaultRetryInterval">RetryStrategy.DefaultRetryInterval</a>
+    </div>
+    <div>
+      <a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.html#Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_DefaultFirstFastRetry">RetryStrategy.DefaultFirstFastRetry</a>
+    </div>
+    <div>
+      <a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.html#Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_FastFirstRetry">RetryStrategy.FastFirstRetry</a>
+    </div>
+    <div>
+      <a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.html#Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_Name">RetryStrategy.Name</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.html">Cadru.TransientFaultHandling.RetryStrategies</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.TransientFaultHandling.dll</h6>
+  <h5 id="Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ExponentialBackoffRetryStrategy : RetryStrategy</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy__ctor.md&amp;value=---%0Auid%3A%20Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.TransientFaultHandling/RetryStrategies/ExponentialBackoffRetryStategy.cs/#L61">View Source</a>
+  </span>
+  <a id="Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy__ctor_" data-uid="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.#ctor*"></a>
+  <h4 id="Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy__ctor" data-uid="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.#ctor">ExponentialBackoffRetryStrategy()</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.html">ExponentialBackoffRetryStrategy</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExponentialBackoffRetryStrategy()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy__ctor_System_Int32_TimeSpan_TimeSpan_TimeSpan_.md&amp;value=---%0Auid%3A%20Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.%23ctor(System.Int32%2CTimeSpan%2CTimeSpan%2CTimeSpan)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.TransientFaultHandling/RetryStrategies/ExponentialBackoffRetryStategy.cs/#L73">View Source</a>
+  </span>
+  <a id="Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy__ctor_" data-uid="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.#ctor*"></a>
+  <h4 id="Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy__ctor_System_Int32_TimeSpan_TimeSpan_TimeSpan_" data-uid="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.#ctor(System.Int32,TimeSpan,TimeSpan,TimeSpan)">ExponentialBackoffRetryStrategy(Int32, TimeSpan, TimeSpan, TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.html">ExponentialBackoffRetryStrategy</a> class with the specified retry settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExponentialBackoffRetryStrategy(int retryCount, TimeSpan minimum, TimeSpan maximum, TimeSpan delta)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">retryCount</span></td>
+        <td><p>The maximum number of retry attempts.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">minimum</span></td>
+        <td><p>The minimum back-off time</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">maximum</span></td>
+        <td><p>The maximum back-off time.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">delta</span></td>
+        <td><p>The value that will be used to calculate a random delta in the exponential delay between retries.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy__ctor_System_String_System_Int32_TimeSpan_TimeSpan_TimeSpan_.md&amp;value=---%0Auid%3A%20Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.%23ctor(System.String%2CSystem.Int32%2CTimeSpan%2CTimeSpan%2CTimeSpan)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.TransientFaultHandling/RetryStrategies/ExponentialBackoffRetryStategy.cs/#L86">View Source</a>
+  </span>
+  <a id="Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy__ctor_" data-uid="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.#ctor*"></a>
+  <h4 id="Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy__ctor_System_String_System_Int32_TimeSpan_TimeSpan_TimeSpan_" data-uid="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.#ctor(System.String,System.Int32,TimeSpan,TimeSpan,TimeSpan)">ExponentialBackoffRetryStrategy(String, Int32, TimeSpan, TimeSpan, TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.html">ExponentialBackoffRetryStrategy</a> class with the specified name and retry settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExponentialBackoffRetryStrategy(string name, int retryCount, TimeSpan minimum, TimeSpan maximum, TimeSpan delta)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name of the retry strategy.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">retryCount</span></td>
+        <td><p>The maximum number of retry attempts.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">minimum</span></td>
+        <td><p>The minimum back-off time</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">maximum</span></td>
+        <td><p>The maximum back-off time.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">delta</span></td>
+        <td><p>The value that will be used to calculate a random delta in the exponential delay between retries.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy__ctor_System_String_System_Int32_TimeSpan_TimeSpan_TimeSpan_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.%23ctor(System.String%2CSystem.Int32%2CTimeSpan%2CTimeSpan%2CTimeSpan%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.TransientFaultHandling/RetryStrategies/ExponentialBackoffRetryStategy.cs/#L100">View Source</a>
+  </span>
+  <a id="Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy__ctor_" data-uid="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.#ctor*"></a>
+  <h4 id="Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy__ctor_System_String_System_Int32_TimeSpan_TimeSpan_TimeSpan_System_Boolean_" data-uid="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.#ctor(System.String,System.Int32,TimeSpan,TimeSpan,TimeSpan,System.Boolean)">ExponentialBackoffRetryStrategy(String, Int32, TimeSpan, TimeSpan, TimeSpan, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.html">ExponentialBackoffRetryStrategy</a> class with the specified name, retry settings, and fast retry option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExponentialBackoffRetryStrategy(string name, int retryCount, TimeSpan minimum, TimeSpan maximum, TimeSpan delta, bool firstFastRetry)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name of the retry strategy.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">retryCount</span></td>
+        <td><p>The maximum number of retry attempts.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">minimum</span></td>
+        <td><p>The minimum back-off time</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">maximum</span></td>
+        <td><p>The maximum back-off time.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">delta</span></td>
+        <td><p>The value that will be used to calculate a random delta in the exponential delay between retries.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">firstFastRetry</span></td>
+        <td><p>true to immediately retry in the first attempt; otherwise, false. The subsequent retries will remain subject to the configured retry interval.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy_DefaultClientBackoff.md&amp;value=---%0Auid%3A%20Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.DefaultClientBackoff%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.TransientFaultHandling/RetryStrategies/ExponentialBackoffRetryStategy.cs/#L36">View Source</a>
+  </span>
+  <h4 id="Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy_DefaultClientBackoff" data-uid="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.DefaultClientBackoff">DefaultClientBackoff</h4>
+  <div class="markdown level1 summary"><p>Represents the default amount of time used when calculating a random delta in the exponential delay between retries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly TimeSpan DefaultClientBackoff</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy_DefaultMaxBackoff.md&amp;value=---%0Auid%3A%20Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.DefaultMaxBackoff%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.TransientFaultHandling/RetryStrategies/ExponentialBackoffRetryStategy.cs/#L41">View Source</a>
+  </span>
+  <h4 id="Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy_DefaultMaxBackoff" data-uid="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.DefaultMaxBackoff">DefaultMaxBackoff</h4>
+  <div class="markdown level1 summary"><p>Represents the default maximum amount of time used when calculating the exponential delay between retries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly TimeSpan DefaultMaxBackoff</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy_DefaultMinBackoff.md&amp;value=---%0Auid%3A%20Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.DefaultMinBackoff%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.TransientFaultHandling/RetryStrategies/ExponentialBackoffRetryStategy.cs/#L46">View Source</a>
+  </span>
+  <h4 id="Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy_DefaultMinBackoff" data-uid="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.DefaultMinBackoff">DefaultMinBackoff</h4>
+  <div class="markdown level1 summary"><p>Represents the default minimum amount of time used when calculating the exponential delay between retries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly TimeSpan DefaultMinBackoff</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy_GetShouldRetry.md&amp;value=---%0Auid%3A%20Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.GetShouldRetry%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.TransientFaultHandling/RetryStrategies/ExponentialBackoffRetryStategy.cs/#L124">View Source</a>
+  </span>
+  <a id="Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy_GetShouldRetry_" data-uid="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.GetShouldRetry*"></a>
+  <h4 id="Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy_GetShouldRetry" data-uid="Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy.GetShouldRetry">GetShouldRetry()</h4>
+  <div class="markdown level1 summary"><p>Returns the corresponding ShouldRetry delegate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ShouldRetry GetShouldRetry()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.ShouldRetry.html">ShouldRetry</a></td>
+        <td><p>The ShouldRetry delegate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Cadru.TransientFaultHandling.RetryStrategies.RetryStrategy.html#Cadru_TransientFaultHandling_RetryStrategies_RetryStrategy_GetShouldRetry">RetryStrategy.GetShouldRetry()</a></div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNotNull__1___0_">NullExtensions.IsNotNull&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNull__1___0_">NullExtensions.IsNull&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_TransientFaultHandling_RetryStrategies_ExponentialBackoffRetryStrategy.md&amp;value=---%0Auid%3A%20Cadru.TransientFaultHandling.RetryStrategies.ExponentialBackoffRetryStrategy%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.TransientFaultHandling/RetryStrategies/ExponentialBackoffRetryStategy.cs/#L30" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

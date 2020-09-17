@@ -78,9 +78,9 @@ namespace Cadru.Core.Extensions.Tests
             Assert.AreEqual("\ufeff \u0100\u0100", "\ufeff\u2000\u1680\u1680\u0100\u0100".Clean(NormalizationOptions.Whitespace));
             Assert.AreEqual("! \0", "!\t\t\u0019\0\0".Clean(NormalizationOptions.All));
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).Clean());
-            ExceptionAssert.Throws<ArgumentException>(() => testValue.Clean((NormalizationOptions)30));
-            ExceptionAssert.Throws<ArgumentException>(() => testValue.Clean((NormalizationOptions)(-1)));
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).Clean());
+            Assert.ThrowsException<ArgumentException>(() => testValue.Clean((NormalizationOptions)30));
+            Assert.ThrowsException<ArgumentException>(() => testValue.Clean((NormalizationOptions)(-1)));
         }
 
         [TestMethod]
@@ -210,7 +210,7 @@ namespace Cadru.Core.Extensions.Tests
             var testValue = "abcdefg";
 
             Assert.AreEqual('g', testValue.LastCharacter());
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LastCharacter());
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).LastCharacter());
         }
 
         [TestMethod]
@@ -236,13 +236,13 @@ namespace Cadru.Core.Extensions.Tests
             Assert.AreEqual("abcdefgabcdefg", testValue.LeftSubstring("c", 3));
             Assert.AreEqual("abc", testValue.LeftSubstring("c", 1, StringComparison.Ordinal));
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LeftSubstring("c")).WithParameter("source");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.LeftSubstring(null)).WithParameter("value");
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LeftSubstring(null, 3)).WithParameter("source");
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.LeftSubstring(-1));
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.LeftSubstring(0));
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.LeftSubstring(20));
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LeftSubstring('c')).WithParameter("source");
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).LeftSubstring("c")).WithParameter("source");
+            Assert.ThrowsException<ArgumentNullException>(() => testValue.LeftSubstring(null)).WithParameter("value");
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).LeftSubstring(null, 3)).WithParameter("source");
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.LeftSubstring(-1));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.LeftSubstring(0));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.LeftSubstring(20));
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).LeftSubstring('c')).WithParameter("source");
         }
 
         [TestMethod]
@@ -277,7 +277,7 @@ namespace Cadru.Core.Extensions.Tests
             Assert.IsFalse(String.Empty.LengthBetween(5, 10, NumericComparisonOptions.IncludeMinimum));
             Assert.IsFalse(String.Empty.LengthBetween(5, 10, NumericComparisonOptions.None));
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthBetween(5, 10));
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).LengthBetween(5, 10));
         }
 
         [TestMethod]
@@ -287,7 +287,7 @@ namespace Cadru.Core.Extensions.Tests
             Assert.IsFalse("ABCDE".LengthGreaterThan(5));
             Assert.IsFalse("ABCD".LengthGreaterThan(5));
             Assert.IsFalse(String.Empty.LengthGreaterThan(5));
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthGreaterThan(5));
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).LengthGreaterThan(5));
         }
 
         [TestMethod]
@@ -297,7 +297,7 @@ namespace Cadru.Core.Extensions.Tests
             Assert.IsTrue("ABCDE".LengthGreaterThanOrEqualTo(5));
             Assert.IsFalse("ABCD".LengthGreaterThanOrEqualTo(5));
             Assert.IsFalse(String.Empty.LengthGreaterThanOrEqualTo(5));
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthGreaterThanOrEqualTo(5));
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).LengthGreaterThanOrEqualTo(5));
         }
 
         [TestMethod]
@@ -307,7 +307,7 @@ namespace Cadru.Core.Extensions.Tests
             Assert.IsFalse("ABCDE".LengthLessThan(5));
             Assert.IsFalse("ABCDEF".LengthLessThan(5));
             Assert.IsTrue(String.Empty.LengthLessThan(5));
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthLessThan(5));
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).LengthLessThan(5));
         }
 
         [TestMethod]
@@ -317,7 +317,7 @@ namespace Cadru.Core.Extensions.Tests
             Assert.IsTrue("ABCDE".LengthLessThanOrEqualTo(5));
             Assert.IsFalse("ABCDEF".LengthLessThanOrEqualTo(5));
             Assert.IsTrue(String.Empty.LengthLessThanOrEqualTo(5));
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).LengthLessThanOrEqualTo(5));
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).LengthLessThanOrEqualTo(5));
         }
 
         [TestMethod]
@@ -334,9 +334,9 @@ namespace Cadru.Core.Extensions.Tests
             Assert.AreEqual(0, testValue.OccurrencesOf('q'));
             Assert.AreEqual(0, testValue.OccurrencesOf("q"));
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).OccurrencesOf('c'));
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).OccurrencesOf("c"));
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.OccurrencesOf(null)).WithParameter("value");
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).OccurrencesOf('c'));
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).OccurrencesOf("c"));
+            Assert.ThrowsException<ArgumentNullException>(() => testValue.OccurrencesOf(null)).WithParameter("value");
         }
 
         [TestMethod]
@@ -370,10 +370,10 @@ namespace Cadru.Core.Extensions.Tests
             Assert.AreEqual(testValue, testValue.Replace("CDE", "CDE", 2, StringComparison.Ordinal));
             Assert.AreEqual(testValue, testValue.Replace("CDE", "CDE", 0, StringComparison.Ordinal));
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).Replace('c', 'Q', 0));
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).Replace("CDE", "CDE", 0, StringComparison.Ordinal)).WithParameter("source");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.Replace(null, "CDE", 0, StringComparison.Ordinal)).WithParameter("oldValue");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.Replace("CDE", null, 0, StringComparison.Ordinal)).WithParameter("newValue");
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).Replace('c', 'Q', 0));
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).Replace("CDE", "CDE", 0, StringComparison.Ordinal)).WithParameter("source");
+            Assert.ThrowsException<ArgumentNullException>(() => testValue.Replace(null, "CDE", 0, StringComparison.Ordinal)).WithParameter("oldValue");
+            Assert.ThrowsException<ArgumentNullException>(() => testValue.Replace("CDE", null, 0, StringComparison.Ordinal)).WithParameter("newValue");
         }
 
         [TestMethod]
@@ -393,20 +393,20 @@ namespace Cadru.Core.Extensions.Tests
             Assert.AreEqual("abcXYZefgabcdefg", testValue.ReplaceBetween("c", "e", "XYZ", false, StringComparison.Ordinal));
             Assert.AreEqual(testValue, testValue.ReplaceBetween("C", "E", "XYZ", false, StringComparison.Ordinal));
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).ReplaceBetween('C', 'E', "XYZ")).WithParameter("source");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween('C', 'E', null)).WithParameter("newValue");
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).ReplaceBetween("C", "E", "XYZ", true, StringComparison.Ordinal)).WithParameter("source");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween(null, "E", "XYZ", true, StringComparison.Ordinal)).WithParameter("start");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween("C", null, "XYZ", true, StringComparison.Ordinal)).WithParameter("end");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween("C", "E", null, true, StringComparison.Ordinal)).WithParameter("newValue");
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).ReplaceBetween(2, 4, "XYZ", true)).WithParameter("source");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.ReplaceBetween(2, 4, null, true)).WithParameter("newValue");
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(-1, 4, "XYZ", true)).WithParameter("start");
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(2, -1, "XYZ", true)).WithParameter("end");
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(2, 2, "XYZ", true));
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(10, 2, "XYZ", true));
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(20, 4, "XYZ", true)).WithParameter("start");
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(2, 20, "XYZ", true)).WithParameter("end");
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).ReplaceBetween('C', 'E', "XYZ")).WithParameter("source");
+            Assert.ThrowsException<ArgumentNullException>(() => testValue.ReplaceBetween('C', 'E', null)).WithParameter("newValue");
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).ReplaceBetween("C", "E", "XYZ", true, StringComparison.Ordinal)).WithParameter("source");
+            Assert.ThrowsException<ArgumentNullException>(() => testValue.ReplaceBetween(null, "E", "XYZ", true, StringComparison.Ordinal)).WithParameter("start");
+            Assert.ThrowsException<ArgumentNullException>(() => testValue.ReplaceBetween("C", null, "XYZ", true, StringComparison.Ordinal)).WithParameter("end");
+            Assert.ThrowsException<ArgumentNullException>(() => testValue.ReplaceBetween("C", "E", null, true, StringComparison.Ordinal)).WithParameter("newValue");
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).ReplaceBetween(2, 4, "XYZ", true)).WithParameter("source");
+            Assert.ThrowsException<ArgumentNullException>(() => testValue.ReplaceBetween(2, 4, null, true)).WithParameter("newValue");
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(-1, 4, "XYZ", true)).WithParameter("start");
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(2, -1, "XYZ", true)).WithParameter("end");
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(2, 2, "XYZ", true));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(10, 2, "XYZ", true));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(20, 4, "XYZ", true)).WithParameter("start");
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.ReplaceBetween(2, 20, "XYZ", true)).WithParameter("end");
         }
 
         [TestMethod]
@@ -445,13 +445,13 @@ namespace Cadru.Core.Extensions.Tests
             Assert.AreEqual("defgabcdefg", testValue.RightSubstring("c", 1, StringComparison.Ordinal));
             Assert.AreEqual("defg", testValue.RightSubstring("c", 2, StringComparison.Ordinal));
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).RightSubstring("c")).WithParameter("source");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.RightSubstring(null)).WithParameter("value");
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).RightSubstring(3)).WithParameter("source");
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.RightSubstring(-1)).WithParameter("endingIndex");
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.RightSubstring(0)).WithParameter("endingIndex");
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => testValue.RightSubstring(20)).WithParameter("endingIndex");
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).RightSubstring('c', 1)).WithParameter("source");
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).RightSubstring("c")).WithParameter("source");
+            Assert.ThrowsException<ArgumentNullException>(() => testValue.RightSubstring(null)).WithParameter("value");
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).RightSubstring(3)).WithParameter("source");
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.RightSubstring(-1)).WithParameter("endingIndex");
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.RightSubstring(0)).WithParameter("endingIndex");
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.RightSubstring(20)).WithParameter("endingIndex");
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).RightSubstring('c', 1)).WithParameter("source");
         }
 
         [TestMethod]
@@ -499,10 +499,10 @@ namespace Cadru.Core.Extensions.Tests
             Assert.AreEqual("", testValue.SubstringBetween("c", "j", true));
             Assert.AreEqual("", testValue.SubstringBetween("c", "j", false));
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).SubstringBetween('c', 'e', false)).WithParameter("source");
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).SubstringBetween("c", "e", false)).WithParameter("source");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.SubstringBetween(null, "e", false)).WithParameter("start");
-            ExceptionAssert.Throws<ArgumentNullException>(() => testValue.SubstringBetween("c", null, false)).WithParameter("end");
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).SubstringBetween('c', 'e', false)).WithParameter("source");
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).SubstringBetween("c", "e", false)).WithParameter("source");
+            Assert.ThrowsException<ArgumentNullException>(() => testValue.SubstringBetween(null, "e", false)).WithParameter("start");
+            Assert.ThrowsException<ArgumentNullException>(() => testValue.SubstringBetween("c", null, false)).WithParameter("end");
         }
 
         [TestMethod]

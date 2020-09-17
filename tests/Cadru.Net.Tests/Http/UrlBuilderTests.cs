@@ -303,10 +303,10 @@ namespace Cadru.Net.Http.Tests
             Assert.AreEqual("fuzz", builder.QueryParameters["baz"]);
             Assert.AreEqual("foo=bar&baz=fuzz", builder.Query);
 
-            ExceptionAssert.Throws<ArgumentException>(() => builder.Query = "foo=bar&baz=fuzz");
+            Assert.ThrowsException<ArgumentException>(() => builder.Query = "foo=bar&baz=fuzz");
 
             builder.QueryParameters.Clear();
-            ExceptionAssert.Throws<InvalidOperationException>(() => builder.Query = "foo");
+            Assert.ThrowsException<InvalidOperationException>(() => builder.Query = "foo");
         }
 
         [TestMethod]

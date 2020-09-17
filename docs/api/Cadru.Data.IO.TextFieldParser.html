@@ -1,0 +1,1146 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class TextFieldParser
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class TextFieldParser
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.Data.IO.TextFieldParser">
+  
+  
+  <h1 id="Cadru_Data_IO_TextFieldParser" data-uid="Cadru.Data.IO.TextFieldParser" class="text-break">Class TextFieldParser
+  </h1>
+  <div class="markdown level0 summary"><p>Enables parsing very large delimited or fixed width field files</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">TextFieldParser</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.Data.IO.html">Cadru.Data.IO</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.Data.dll</h6>
+  <h5 id="Cadru_Data_IO_TextFieldParser_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TextFieldParser : IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser__ctor_Stream_.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.%23ctor(Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L149">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser__ctor_" data-uid="Cadru.Data.IO.TextFieldParser.#ctor*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser__ctor_Stream_" data-uid="Cadru.Data.IO.TextFieldParser.#ctor(Stream)">TextFieldParser(Stream)</h4>
+  <div class="markdown level1 summary"><p>Creates a new TextFieldParser to parse a file represented by the
+passed in stream</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextFieldParser(Stream stream)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser__ctor_Stream_Encoding_.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.%23ctor(Stream%2CEncoding)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L163">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser__ctor_" data-uid="Cadru.Data.IO.TextFieldParser.#ctor*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser__ctor_Stream_Encoding_" data-uid="Cadru.Data.IO.TextFieldParser.#ctor(Stream,Encoding)">TextFieldParser(Stream, Encoding)</h4>
+  <div class="markdown level1 summary"><p>Creates a new TextFieldParser to parse a file represented by the
+passed in stream</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextFieldParser(Stream stream, Encoding defaultEncoding)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Encoding</span></td>
+        <td><span class="parametername">defaultEncoding</span></td>
+        <td><p>The decoding to default to if encoding isn't determined from file</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser__ctor_Stream_Encoding_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.%23ctor(Stream%2CEncoding%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L180">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser__ctor_" data-uid="Cadru.Data.IO.TextFieldParser.#ctor*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser__ctor_Stream_Encoding_System_Boolean_" data-uid="Cadru.Data.IO.TextFieldParser.#ctor(Stream,Encoding,System.Boolean)">TextFieldParser(Stream, Encoding, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Creates a new TextFieldParser to parse a file represented by the
+passed in stream</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextFieldParser(Stream stream, Encoding defaultEncoding, bool detectEncoding)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Encoding</span></td>
+        <td><span class="parametername">defaultEncoding</span></td>
+        <td><p>The decoding to default to if encoding isn't determined from file</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">detectEncoding</span></td>
+        <td><p>Indicates whether or not to try to detect the encoding from the BOM</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser__ctor_Stream_Encoding_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.%23ctor(Stream%2CEncoding%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L200">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser__ctor_" data-uid="Cadru.Data.IO.TextFieldParser.#ctor*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser__ctor_Stream_Encoding_System_Boolean_System_Boolean_" data-uid="Cadru.Data.IO.TextFieldParser.#ctor(Stream,Encoding,System.Boolean,System.Boolean)">TextFieldParser(Stream, Encoding, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Creates a new TextFieldParser to parse a file represented by the
+passed in stream</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextFieldParser(Stream stream, Encoding defaultEncoding, bool detectEncoding, bool leaveOpen)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Encoding</span></td>
+        <td><span class="parametername">defaultEncoding</span></td>
+        <td><p>The decoding to default to if encoding isn't determined from file</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">detectEncoding</span></td>
+        <td><p>Indicates whether or not to try to detect the encoding from the BOM</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">leaveOpen</span></td>
+        <td><p>Indicates whether or not to leave the passed in stream open</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser__ctor_System_String_.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L109">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser__ctor_" data-uid="Cadru.Data.IO.TextFieldParser.#ctor*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser__ctor_System_String_" data-uid="Cadru.Data.IO.TextFieldParser.#ctor(System.String)">TextFieldParser(String)</h4>
+  <div class="markdown level1 summary"><p>Creates a new TextFieldParser to parse the passed in file</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextFieldParser(string path)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">path</span></td>
+        <td><p>The path of the file to be parsed</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser__ctor_System_String_Encoding_.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.%23ctor(System.String%2CEncoding)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L122">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser__ctor_" data-uid="Cadru.Data.IO.TextFieldParser.#ctor*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser__ctor_System_String_Encoding_" data-uid="Cadru.Data.IO.TextFieldParser.#ctor(System.String,Encoding)">TextFieldParser(String, Encoding)</h4>
+  <div class="markdown level1 summary"><p>Creates a new TextFieldParser to parse the passed in file</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextFieldParser(string path, Encoding defaultEncoding)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">path</span></td>
+        <td><p>The path of the file to be parsed</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Encoding</span></td>
+        <td><span class="parametername">defaultEncoding</span></td>
+        <td><p>The decoding to default to if encoding isn't determined from file</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser__ctor_System_String_Encoding_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.%23ctor(System.String%2CEncoding%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L138">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser__ctor_" data-uid="Cadru.Data.IO.TextFieldParser.#ctor*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser__ctor_System_String_Encoding_System_Boolean_" data-uid="Cadru.Data.IO.TextFieldParser.#ctor(System.String,Encoding,System.Boolean)">TextFieldParser(String, Encoding, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Creates a new TextFieldParser to parse the passed in file</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextFieldParser(string path, Encoding defaultEncoding, bool detectEncoding)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">path</span></td>
+        <td><p>The path of the file to be parsed</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Encoding</span></td>
+        <td><span class="parametername">defaultEncoding</span></td>
+        <td><p>The decoding to default to if encoding isn't determined from file</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">detectEncoding</span></td>
+        <td><p>Indicates whether or not to try to detect the encoding from the BOM</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser__ctor_TextReader_.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.%23ctor(TextReader)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L212">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser__ctor_" data-uid="Cadru.Data.IO.TextFieldParser.#ctor*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser__ctor_TextReader_" data-uid="Cadru.Data.IO.TextFieldParser.#ctor(TextReader)">TextFieldParser(TextReader)</h4>
+  <div class="markdown level1 summary"><p>Creates a new TextFieldParser to parse a stream or file represented
+by the passed in TextReader</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextFieldParser(TextReader reader)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TextReader</span></td>
+        <td><span class="parametername">reader</span></td>
+        <td><p>The TextReader that does the reading</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_CommentTokens.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.CommentTokens%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L242">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_CommentTokens_" data-uid="Cadru.Data.IO.TextFieldParser.CommentTokens*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_CommentTokens" data-uid="Cadru.Data.IO.TextFieldParser.CommentTokens">CommentTokens</h4>
+  <div class="markdown level1 summary"><p>Gets the strings that indicate a line is a comment</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt; CommentTokens { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_Delimiters.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.Delimiters%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L248">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_Delimiters_" data-uid="Cadru.Data.IO.TextFieldParser.Delimiters*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_Delimiters" data-uid="Cadru.Data.IO.TextFieldParser.Delimiters">Delimiters</h4>
+  <div class="markdown level1 summary"><p>Gets the delimiters used in a file</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt; Delimiters { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_EndOfData.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.EndOfData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L258">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_EndOfData_" data-uid="Cadru.Data.IO.TextFieldParser.EndOfData*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_EndOfData" data-uid="Cadru.Data.IO.TextFieldParser.EndOfData">EndOfData</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not there is any data (non
+ignorable lines) left to read in the file</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool EndOfData { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if there is more data to read; otherwise <span class="xref">false</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Data_IO_TextFieldParser_EndOfData_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This ignores comments and blank lines.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_ErrorLine.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.ErrorLine%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L289">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_ErrorLine_" data-uid="Cadru.Data.IO.TextFieldParser.ErrorLine*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_ErrorLine" data-uid="Cadru.Data.IO.TextFieldParser.ErrorLine">ErrorLine</h4>
+  <div class="markdown level1 summary"><p>Returns the last malformed line if there is one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ErrorLine { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The last malformed line</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_ErrorLineNumber.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.ErrorLineNumber%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L295">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_ErrorLineNumber_" data-uid="Cadru.Data.IO.TextFieldParser.ErrorLineNumber*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_ErrorLineNumber" data-uid="Cadru.Data.IO.TextFieldParser.ErrorLineNumber">ErrorLineNumber</h4>
+  <div class="markdown level1 summary"><p>Returns the line number of last malformed line if there is one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long ErrorLineNumber { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><p>The last malformed line number</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_FieldWidths.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.FieldWidths%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L301">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_FieldWidths_" data-uid="Cadru.Data.IO.TextFieldParser.FieldWidths*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_FieldWidths" data-uid="Cadru.Data.IO.TextFieldParser.FieldWidths">FieldWidths</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the widths of the fields for reading a fixed width file</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;int&gt; FieldWidths { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IReadOnlyList</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><p>An array of the widths</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_HasFieldsEnclosedInQuotes.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.HasFieldsEnclosedInQuotes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L307">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_HasFieldsEnclosedInQuotes_" data-uid="Cadru.Data.IO.TextFieldParser.HasFieldsEnclosedInQuotes*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_HasFieldsEnclosedInQuotes" data-uid="Cadru.Data.IO.TextFieldParser.HasFieldsEnclosedInQuotes">HasFieldsEnclosedInQuotes</h4>
+  <div class="markdown level1 summary"><p>Indicates whether or not to handle quotes in a csv friendly way</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasFieldsEnclosedInQuotes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if we escape quotes otherwise false</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_LineNumber.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.LineNumber%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L318">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_LineNumber_" data-uid="Cadru.Data.IO.TextFieldParser.LineNumber*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_LineNumber" data-uid="Cadru.Data.IO.TextFieldParser.LineNumber">LineNumber</h4>
+  <div class="markdown level1 summary"><p>The line to the right of the cursor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long LineNumber { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><p>The number of the line</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Data_IO_TextFieldParser_LineNumber_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>LineNumber returns the location in the file and has nothing to do
+with rows or fields</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_TextFieldType.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.TextFieldType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L337">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_TextFieldType_" data-uid="Cadru.Data.IO.TextFieldParser.TextFieldType*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_TextFieldType" data-uid="Cadru.Data.IO.TextFieldParser.TextFieldType">TextFieldType</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating the type of file being read, either
+fixed width or delimited</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FieldType TextFieldType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Cadru.Data.IO.FieldType.html">FieldType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_TrimWhiteSpace.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.TrimWhiteSpace%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L352">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_TrimWhiteSpace_" data-uid="Cadru.Data.IO.TextFieldParser.TrimWhiteSpace*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_TrimWhiteSpace" data-uid="Cadru.Data.IO.TextFieldParser.TrimWhiteSpace">TrimWhiteSpace</h4>
+  <div class="markdown level1 summary"><p>Indicates whether or not leading and trailing white space should be
+removed when returning a field</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TrimWhiteSpace { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if white space should be removed; otherwise <span class="xref">true</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_Close.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.Close%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L365">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_Close_" data-uid="Cadru.Data.IO.TextFieldParser.Close*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_Close" data-uid="Cadru.Data.IO.TextFieldParser.Close">Close()</h4>
+  <div class="markdown level1 summary"><p>Closes the StreamReader</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Close()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_Dispose.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L374">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_Dispose_" data-uid="Cadru.Data.IO.TextFieldParser.Dispose*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_Dispose" data-uid="Cadru.Data.IO.TextFieldParser.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"><p>Closes the StreamReader</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L547">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_Dispose_" data-uid="Cadru.Data.IO.TextFieldParser.Dispose*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_Dispose_System_Boolean_" data-uid="Cadru.Data.IO.TextFieldParser.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Standard implementation of IDisposable.Dispose for non sealed
+classes. Classes derived from TextFieldParser should override this
+method. After doing their own cleanup, they should call this method (MyBase.Dispose(disposing))</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">disposing</span></td>
+        <td><p>Indicates we are called by Dispose and not GC</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_Finalize.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.Finalize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L224">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_Finalize_" data-uid="Cadru.Data.IO.TextFieldParser.Finalize*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_Finalize" data-uid="Cadru.Data.IO.TextFieldParser.Finalize">Finalize()</h4>
+  <div class="markdown level1 summary"><p>Clean up following dispose pattern</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void Finalize()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_PeekChars_System_Int32_.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.PeekChars(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L393">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_PeekChars_" data-uid="Cadru.Data.IO.TextFieldParser.PeekChars*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_PeekChars_System_Int32_" data-uid="Cadru.Data.IO.TextFieldParser.PeekChars(System.Int32)">PeekChars(Int32)</h4>
+  <div class="markdown level1 summary"><p>Enables looking at the passed in number of characters of the next
+data line without reading the line</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? PeekChars(int numberOfChars)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">numberOfChars</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>A string consisting of the first <code data-dev-comment-type="paramref" class="paramref">numberOfChars</code>
+characters of the next line</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Data_IO_TextFieldParser_PeekChars_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If <code data-dev-comment-type="paramref" class="paramref">numberOfChars</code> is greater than the next line,
+only the next line is returned</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_ReadFields.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.ReadFields%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L424">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_ReadFields_" data-uid="Cadru.Data.IO.TextFieldParser.ReadFields*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_ReadFields" data-uid="Cadru.Data.IO.TextFieldParser.ReadFields">ReadFields()</h4>
+  <div class="markdown level1 summary"><p>Reads a non ignorable line and parses it into fields</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] ReadFields()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><p>The line parsed into fields</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Data_IO_TextFieldParser_ReadFields_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This is a data aware method. Comments and blank lines are ignored.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_ReadLine.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.ReadLine%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L449">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_ReadLine_" data-uid="Cadru.Data.IO.TextFieldParser.ReadLine*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_ReadLine" data-uid="Cadru.Data.IO.TextFieldParser.ReadLine">ReadLine()</h4>
+  <div class="markdown level1 summary"><p>Reads and returns the next line from the file</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ReadLine()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>The line read or <span class="xref">null</span> if at the end of the file</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Data_IO_TextFieldParser_ReadLine_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This is data unaware method. It simply reads the next line in the file.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_ReadToEnd.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.ReadToEnd%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L485">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_ReadToEnd_" data-uid="Cadru.Data.IO.TextFieldParser.ReadToEnd*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_ReadToEnd" data-uid="Cadru.Data.IO.TextFieldParser.ReadToEnd">ReadToEnd()</h4>
+  <div class="markdown level1 summary"><p>Reads the file starting at the current position and moving to the
+end of the file</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ReadToEnd()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>The contents of the file from the current position to the end of the file</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Data_IO_TextFieldParser_ReadToEnd_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This is not a data aware method. Everything in the file from the
+current position to the end is read</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_SetCommentTokens_System_String___.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.SetCommentTokens(System.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L504">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_SetCommentTokens_" data-uid="Cadru.Data.IO.TextFieldParser.SetCommentTokens*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_SetCommentTokens_System_String___" data-uid="Cadru.Data.IO.TextFieldParser.SetCommentTokens(System.String[])">SetCommentTokens(String[])</h4>
+  <div class="markdown level1 summary"><p>Set the comment tokens</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCommentTokens(params string[] tokens)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">tokens</span></td>
+        <td><p>A list of the comment tokens</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_SetDelimiters_System_String___.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.SetDelimiters(System.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L516">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_SetDelimiters_" data-uid="Cadru.Data.IO.TextFieldParser.SetDelimiters*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_SetDelimiters_System_String___" data-uid="Cadru.Data.IO.TextFieldParser.SetDelimiters(System.String[])">SetDelimiters(String[])</h4>
+  <div class="markdown level1 summary"><p>Set the delimiters</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDelimiters(params string[] delimiters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">delimiters</span></td>
+        <td><p>A list of the delimiters</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser_SetFieldWidths_System_Int32___.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser.SetFieldWidths(System.Int32%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L531">View Source</a>
+  </span>
+  <a id="Cadru_Data_IO_TextFieldParser_SetFieldWidths_" data-uid="Cadru.Data.IO.TextFieldParser.SetFieldWidths*"></a>
+  <h4 id="Cadru_Data_IO_TextFieldParser_SetFieldWidths_System_Int32___" data-uid="Cadru.Data.IO.TextFieldParser.SetFieldWidths(System.Int32[])">SetFieldWidths(Int32[])</h4>
+  <div class="markdown level1 summary"><p>Set the field widths</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetFieldWidths(params int[] fieldWidths)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span>[]</td>
+        <td><span class="parametername">fieldWidths</span></td>
+        <td><p>A list of field widths</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNotNull__1___0_">NullExtensions.IsNotNull&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="Cadru.Extensions.NullExtensions.html#Cadru_Extensions_NullExtensions_IsNull__1___0_">NullExtensions.IsNull&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Data_IO_TextFieldParser.md&amp;value=---%0Auid%3A%20Cadru.Data.IO.TextFieldParser%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Data/IO/TextFieldParser.cs/#L43" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

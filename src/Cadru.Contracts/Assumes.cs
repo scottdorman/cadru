@@ -60,10 +60,10 @@ namespace Cadru.Contracts
         /// </exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void IsEnum([ValidatedNotNull] Enum value, string parameterName)
+        public static void IsEnum([ValidatedNotNull] Enum? value, string parameterName)
         {
             Requires.NotNull(value, parameterName);
-            IsTrue(value.GetType().GetTypeInfo().IsEnum);
+            IsTrue(value!.GetType().GetTypeInfo().IsEnum);
         }
 
         /// <summary>
@@ -79,10 +79,10 @@ namespace Cadru.Contracts
         /// </exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void IsEnum([ValidatedNotNull] object value, string parameterName)
+        public static void IsEnum([ValidatedNotNull] object? value, string parameterName)
         {
             Requires.NotNull(value, parameterName);
-            IsTrue(value.GetType().GetTypeInfo().IsEnum);
+            IsTrue(value!.GetType().GetTypeInfo().IsEnum);
         }
 
         /// <summary>
@@ -177,10 +177,10 @@ namespace Cadru.Contracts
         /// </exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void IsType([ValidatedNotNull] object value, Type expectedType, string parameterName)
+        public static void IsType([ValidatedNotNull] object? value, Type expectedType, string parameterName)
         {
             Requires.NotNull(value, parameterName);
-            IsTrue(value.GetType() == expectedType);
+            IsTrue(value!.GetType() == expectedType);
         }
 
         /// <summary>
@@ -197,7 +197,7 @@ namespace Cadru.Contracts
         [SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void IsType<T>([ValidatedNotNull] object value, string parameterName)
+        public static void IsType<T>([ValidatedNotNull] object? value, string parameterName)
         {
             IsType(value, typeof(T), parameterName);
         }
@@ -212,7 +212,7 @@ namespace Cadru.Contracts
         /// </exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void NotNull<T>(T value)
+        public static void NotNull<T>(T? value) where T : class
         {
             IsTrue(value != null);
         }
@@ -234,7 +234,9 @@ namespace Cadru.Contracts
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "2", Justification = "This is the clearest name.")]
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void NotNull<T1, T2>(T1 value1, T2 value2)
+        public static void NotNull<T1, T2>(T1? value1, T2? value2)
+            where T1 : class
+            where T2 : class
         {
             NotNull(value1);
             NotNull(value2);
@@ -262,7 +264,10 @@ namespace Cadru.Contracts
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "3", Justification = "This is the clearest name.")]
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void NotNull<T1, T2, T3>(T1 value1, T2 value2, T3 value3)
+        public static void NotNull<T1, T2, T3>(T1? value1, T2? value2, T3? value3)
+             where T1 : class
+            where T2 : class
+            where T3 : class
         {
             NotNull(value1);
             NotNull(value2);
@@ -296,7 +301,11 @@ namespace Cadru.Contracts
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "4", Justification = "This is the clearest name.")]
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void NotNull<T1, T2, T3, T4>(T1 value1, T2 value2, T3 value3, T4 value4)
+        public static void NotNull<T1, T2, T3, T4>(T1? value1, T2? value2, T3? value3, T4? value4)
+              where T1 : class
+            where T2 : class
+            where T3 : class
+            where T4 : class
         {
             NotNull(value1);
             NotNull(value2);
@@ -315,10 +324,10 @@ namespace Cadru.Contracts
         [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void NotNullOrEmpty([ValidatedNotNull] string value)
+        public static void NotNullOrEmpty([ValidatedNotNull] string? value)
         {
             NotNull(value);
-            IsTrue(value.Length > 0);
+            IsTrue(value!.Length > 0);
         }
 
         /// <summary>
@@ -330,7 +339,7 @@ namespace Cadru.Contracts
         /// </exception>
         [DebuggerStepThrough]
         [Conditional("DEBUG")]
-        public static void Null(object value)
+        public static void Null(object? value)
         {
             IsTrue(value == null);
         }

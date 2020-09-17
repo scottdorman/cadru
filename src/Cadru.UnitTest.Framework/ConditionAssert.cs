@@ -22,8 +22,6 @@
 
 using System;
 
-using Cadru.UnitTest.Framework.Resources;
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Cadru.UnitTest.Framework
@@ -39,9 +37,10 @@ namespace Cadru.UnitTest.Framework
         /// <typeparam name="T">The type of the values to compare.</typeparam>
         /// <param name="arg1">The first value, expected to be greater.</param>
         /// <param name="arg2">The second value, expected to be less.</param>
+        [Obsolete("Use Assert.That.IsGreater<T>(T, T).")]
         public static void Greater<T>(T arg1, T arg2) where T : IComparable
         {
-            Greater(arg1, arg2, Strings.Assertion_IsComparisonOrEqualTo, arg2, "less", arg1);
+            Assert.That.IsGreater(arg1, arg2);
         }
 
         /// <summary>
@@ -53,9 +52,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">
         /// A message to display. This message can be seen in the unit test results.
         /// </param>
+        [Obsolete("Use Assert.That.IsGreater<T>(T, T, string).")]
         public static void Greater<T>(T arg1, T arg2, string message) where T : IComparable
         {
-            Greater(arg1, arg2, message, null);
+            Assert.That.IsGreater(arg1, arg2, message);
         }
 
         /// <summary>
@@ -70,12 +70,11 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
+        [Obsolete("Use Assert.That.IsGreater<T>(T, T, string, object[].")]
         public static void Greater<T>(T arg1, T arg2, string message, params object[] parameters) where T : IComparable
         {
-            if (((IComparable)arg1).CompareTo(arg2) <= 0)
-            {
-                Assert.Fail(message, parameters);
-            }
+            Assert.That.IsGreater(arg1, arg2, message, parameters);
+
         }
 
         /// <summary>
@@ -84,9 +83,10 @@ namespace Cadru.UnitTest.Framework
         /// <typeparam name="T">The type of the values to compare.</typeparam>
         /// <param name="arg1">The first value, expected to be greater.</param>
         /// <param name="arg2">The second value, expected to be less.</param>
-        public static void GreaterOrEqual<T>(T arg1, T arg2) where T : IComparable
+        [Obsolete("Use Assert.That.GreaterOrEqual<T>(T, T)")]
+        public static void IsGreaterOrEqual<T>(T arg1, T arg2) where T : IComparable
         {
-            GreaterOrEqual(arg1, arg2, Strings.Assertion_IsComparison, arg2, "less", arg1);
+            Assert.That.IsGreaterOrEqual(arg1, arg2);
         }
 
         /// <summary>
@@ -98,9 +98,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">
         /// A message to display. This message can be seen in the unit test results.
         /// </param>
+        [Obsolete("Use Assert.That.IsGreaterOrEqual<T>(T, T, string)")]
         public static void GreaterOrEqual<T>(T arg1, T arg2, string message) where T : IComparable
         {
-            GreaterOrEqual(arg1, arg2, message, null);
+            Assert.That.IsGreaterOrEqual(arg1, arg2, message);
         }
 
         /// <summary>
@@ -115,12 +116,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
+        [Obsolete("Use Assert.That.IsGreaterOrEqual<T>(T, T, string, object[])")]
         public static void GreaterOrEqual<T>(T arg1, T arg2, string message, params object[] parameters) where T : IComparable
         {
-            if (((IComparable)arg1).CompareTo(arg2) < 0)
-            {
-                Assert.Fail(message, parameters);
-            }
+            Assert.That.IsGreaterOrEqual(arg1, arg2, message, parameters);
         }
 
         /// <summary>
@@ -131,9 +130,10 @@ namespace Cadru.UnitTest.Framework
         /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
         /// <paramref name="condition"/> evaluates to <see langword="true"/>.
         /// </exception>
+        [Obsolete("Use Assert.That.IsFalse(bool?)")]
         public static void IsFalse(bool? condition)
         {
-            IsFalse(condition, Strings.Assertion_GenericFailure, true, condition);
+            Assert.That.IsFalse(condition);
         }
 
         /// <summary>
@@ -149,9 +149,10 @@ namespace Cadru.UnitTest.Framework
         /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
         /// <paramref name="condition"/> evaluates to <see langword="true"/>.
         /// </exception>
+        [Obsolete("Use Assert.That.IsFalse(bool?, string)")]
         public static void IsFalse(bool? condition, string message)
         {
-            IsFalse(condition, message, null);
+            Assert.That.IsFalse(condition, message);
         }
 
         /// <summary>
@@ -171,21 +172,20 @@ namespace Cadru.UnitTest.Framework
         /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
         /// <paramref name="condition"/> evaluates to <see langword="true"/>.
         /// </exception>
+        [Obsolete("Use Assert.That.IsFalse(bool?, string, object[])")]
         public static void IsFalse(bool? condition, string message, params object[] parameters)
         {
-            if (!condition.HasValue || condition.Value)
-            {
-                Assert.Fail(message, parameters);
-            }
+            Assert.That.IsFalse(condition, message, parameters);
         }
 
         /// <summary>
         /// Verifies that the value is <see cref="Double.NaN"/>.
         /// </summary>
         /// <param name="value">The value to test.</param>
+        [Obsolete("Use Assert.That.IsNan(double)")]
         public static void IsNaN(double value)
         {
-            IsNaN(value, Strings.Assertion_GenericFailure, Double.NaN, value);
+            Assert.That.IsNaN(value);
         }
 
         /// <summary>
@@ -195,9 +195,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">
         /// A message to display. This message can be seen in the unit test results.
         /// </param>
+        [Obsolete("Use Assert.That.IsNan(double, string)")]
         public static void IsNaN(double value, string message)
         {
-            IsNaN(value, message, null);
+            Assert.That.IsNaN(value, message);
         }
 
         /// <summary>
@@ -210,12 +211,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
+        [Obsolete("Use Assert.That.IsNan(double, string, object[])")]
         public static void IsNaN(double value, string message, params object[] parameters)
         {
-            if (!Double.IsNaN(value))
-            {
-                Assert.Fail(message, parameters);
-            }
+            Assert.That.IsNaN(value, message, parameters);
         }
 
         /// <summary>
@@ -226,9 +225,10 @@ namespace Cadru.UnitTest.Framework
         /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
         /// <paramref name="condition"/> evaluates to <see langword="false"/>.
         /// </exception>
+        [Obsolete("Use Assert.That.IsTrue(bool?)")]
         public static void IsTrue(bool? condition)
         {
-            IsTrue(condition, Strings.Assertion_GenericFailure, true, condition);
+            Assert.That.IsTrue(condition);
         }
 
         /// <summary>
@@ -244,9 +244,10 @@ namespace Cadru.UnitTest.Framework
         /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
         /// <paramref name="condition"/> evaluates to <see langword="false"/>.
         /// </exception>
+        [Obsolete("Use Assert.That.IsTrue(bool?, string)")]
         public static void IsTrue(bool? condition, string message)
         {
-            IsTrue(condition, message, null);
+            Assert.That.IsTrue(condition, message);
         }
 
         /// <summary>
@@ -266,12 +267,10 @@ namespace Cadru.UnitTest.Framework
         /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
         /// <paramref name="condition"/> evaluates to <see langword="false"/>.
         /// </exception>
+        [Obsolete("Use Assert.That.IsTrue(bool?, string, object[])")]
         public static void IsTrue(bool? condition, string message, params object[] parameters)
         {
-            if (!condition.HasValue || !condition.Value)
-            {
-                Assert.Fail(message, parameters);
-            }
+            Assert.That.IsTrue(condition, message, parameters);
         }
 
         /// <summary>
@@ -280,9 +279,10 @@ namespace Cadru.UnitTest.Framework
         /// <typeparam name="T">The type of the values to compare.</typeparam>
         /// <param name="arg1">The first value, expected to be less.</param>
         /// <param name="arg2">The second value, expected to be greater.</param>
+        [Obsolete("Use Assert.That.IsLess<T>(T, T).")]
         public static void Less<T>(T arg1, T arg2) where T : IComparable
         {
-            Less(arg1, arg2, Strings.Assertion_IsComparisonOrEqualTo, arg2, "greater", arg1);
+            Assert.That.IsLess(arg1, arg2);
         }
 
         /// <summary>
@@ -294,9 +294,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">
         /// A message to display. This message can be seen in the unit test results.
         /// </param>
+        [Obsolete("Use Assert.That.IsLess<T>(T, T, string).")]
         public static void Less<T>(T arg1, T arg2, string message) where T : IComparable
         {
-            Less(arg1, arg2, message, null);
+            Assert.That.IsLess(arg1, arg2, message);
         }
 
         /// <summary>
@@ -311,12 +312,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
+        [Obsolete("Use Assert.That.IsLess<T>(T, T, string, object[]).")]
         public static void Less<T>(T arg1, T arg2, string message, params object[] parameters) where T : IComparable
         {
-            if (((IComparable)arg1).CompareTo(arg2) >= 0)
-            {
-                Assert.Fail(message, parameters);
-            }
+            Assert.That.IsLess(arg1, arg2, message, parameters);
         }
 
         /// <summary>
@@ -325,9 +324,10 @@ namespace Cadru.UnitTest.Framework
         /// <typeparam name="T">The type of the values to compare.</typeparam>
         /// <param name="arg1">The first value, expected to be less.</param>
         /// <param name="arg2">The second value, expected to be greater.</param>
+        [Obsolete("Use Assert.That.IsLessOrEqual<T>(T, T).")]
         public static void LessOrEqual<T>(T arg1, T arg2) where T : IComparable
         {
-            LessOrEqual(arg1, arg2, Strings.Assertion_IsComparison, arg2, "greater", arg1);
+            Assert.That.IsLessOrEqual(arg1, arg2);
         }
 
         /// <summary>
@@ -339,9 +339,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">
         /// A message to display. This message can be seen in the unit test results.
         /// </param>
+        [Obsolete("Use Assert.That.IsLessOrEqual<T>(T, T, string).")]
         public static void LessOrEqual<T>(T arg1, T arg2, string message) where T : IComparable
         {
-            LessOrEqual(arg1, arg2, message, null);
+            Assert.That.IsLessOrEqual(arg1, arg2, message);
         }
 
         /// <summary>
@@ -356,12 +357,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
+        [Obsolete("Use Assert.That.IsLessOrEqual<T>(T, T, string, object[]).")]
         public static void LessOrEqual<T>(T arg1, T arg2, string message, params object[] parameters) where T : IComparable
         {
-            if (((IComparable)arg1).CompareTo(arg2) > 0)
-            {
-                Assert.Fail(message, parameters);
-            }
+            Assert.That.IsLessOrEqual(arg1, arg2, message, parameters);
         }
     }
 }

@@ -458,9 +458,9 @@ namespace Cadru.Core.Extensions.Tests
             Assert.AreEqual(GCWeekOfYear(new DateTimeOffset(2005, 12, 31, 0, 0, 0, DateTimeOffset.Now.Offset), CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Wednesday), new DateTimeOffset(2005, 12, 31, 0, 0, 0, DateTimeOffset.Now.Offset).GetWeekOfYear(CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Wednesday));
             Assert.AreEqual(GCWeekOfYear(new DateTimeOffset(2005, 12, 31, 0, 0, 0, DateTimeOffset.Now.Offset), CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Thursday), new DateTimeOffset(2005, 12, 31, 0, 0, 0, DateTimeOffset.Now.Offset).GetWeekOfYear(CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Thursday));
 
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => new DateTimeOffset(2010, 01, 01, 0, 0, 0, DateTimeOffset.Now.Offset).GetWeekOfYear(CalendarWeekRule.FirstFourDayWeek, (DayOfWeek)8)).WithParameter("firstDayOfWeek");
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => new DateTimeOffset(2010, 01, 01, 0, 0, 0, DateTimeOffset.Now.Offset).GetWeekOfYear(CalendarWeekRule.FirstFourDayWeek, (DayOfWeek)(-1))).WithParameter("firstDayOfWeek");
-            ExceptionAssert.Throws<ArgumentOutOfRangeException>(() => new DateTimeOffset(2010, 01, 01, 0, 0, 0, DateTimeOffset.Now.Offset).GetWeekOfYear((CalendarWeekRule)24)).WithParameter("rule");
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new DateTimeOffset(2010, 01, 01, 0, 0, 0, DateTimeOffset.Now.Offset).GetWeekOfYear(CalendarWeekRule.FirstFourDayWeek, (DayOfWeek)8)).WithParameter("firstDayOfWeek");
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new DateTimeOffset(2010, 01, 01, 0, 0, 0, DateTimeOffset.Now.Offset).GetWeekOfYear(CalendarWeekRule.FirstFourDayWeek, (DayOfWeek)(-1))).WithParameter("firstDayOfWeek");
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new DateTimeOffset(2010, 01, 01, 0, 0, 0, DateTimeOffset.Now.Offset).GetWeekOfYear((CalendarWeekRule)24)).WithParameter("rule");
         }
 
         [TestMethod]
@@ -511,10 +511,10 @@ namespace Cadru.Core.Extensions.Tests
         public void MonthNames()
         {
             var months = DateTimeOffsetExtensions.GetMonthNames();
-            CustomAssert.IsNotEmpty((ICollection)months);
+            CollectionAssert.That.IsNotEmpty((ICollection)months);
 
             months = DateTimeOffsetExtensions.GetAbbreviatedMonthNames();
-            CustomAssert.IsNotEmpty((ICollection)months);
+            CollectionAssert.That.IsNotEmpty((ICollection)months);
 
             Assert.AreEqual("July", new DateTimeOffset(2013, 7, 1, 0, 0, 0, DateTimeOffset.Now.Offset).GetMonthName());
             Assert.AreEqual("Jul", new DateTimeOffset(2013, 7, 1, 0, 0, 0, DateTimeOffset.Now.Offset).GetAbbreviatedMonthName());

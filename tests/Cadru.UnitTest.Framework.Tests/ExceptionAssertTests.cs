@@ -33,14 +33,14 @@ namespace Cadru.UnitTest.Framework.Tests
         [TestMethod()]
         public void Throws()
         {
-            ExceptionAssert.Throws<ArgumentException>(() => { throw new ArgumentException(); });
-            ExceptionAssert.Throws<ArgumentException>(() => { throw new ArgumentException("Test message"); }).WithMessage("Test message");
+            Assert.ThrowsException<ArgumentException>(() => { throw new ArgumentException(); });
+            Assert.ThrowsException<ArgumentException>(() => { throw new ArgumentException("Test message"); }).WithMessage("Test message");
         }
 
         [TestMethod(), ExpectedException(typeof(AssertFailedException))]
         public void Throws1()
         {
-            ExceptionAssert.Throws<ArgumentException>(() => { throw new ArgumentException("Test message"); }).WithMessage("Test");
+            Assert.ThrowsException<ArgumentException>(() => { throw new ArgumentException("Test message"); }).WithMessage("Test");
         }
     }
 }

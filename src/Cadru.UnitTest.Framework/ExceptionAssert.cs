@@ -44,6 +44,7 @@ namespace Cadru.UnitTest.Framework
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        [Obsolete("Use Assert.ThrowsException<T>(Action, string, object[]).")]
         public static Exception Catch(Action code, string message, params object[] parameters)
         {
             return Catch(typeof(Exception), code, message, parameters);
@@ -56,6 +57,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        [Obsolete("Use Assert.ThrowsException<T>(Action, string).")]
         public static Exception Catch(Action code, string message)
         {
             return Catch(typeof(Exception), code, message);
@@ -67,6 +69,7 @@ namespace Cadru.UnitTest.Framework
         /// </summary>
         /// <param name="code">The code to test.</param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        [Obsolete("Use Assert.ThrowsException<T>(Action).")]
         public static Exception Catch(Action code)
         {
             return Catch(typeof(Exception), code);
@@ -84,26 +87,21 @@ namespace Cadru.UnitTest.Framework
         /// </param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
+        [Obsolete("Use Assert.ThrowsException<T>(Action, string, object[]).")]
         public static Exception Catch(Type expectedExceptionType, Action code, string message, params object[] parameters)
         {
-            Exception caughtException = null;
-
             try
             {
                 code();
             }
             catch (Exception ex)
             {
-                caughtException = ex;
-                Assert.IsInstanceOfType(caughtException, expectedExceptionType, message, parameters);
+                Assert.IsInstanceOfType(ex, expectedExceptionType, message, parameters);
+                return ex;
             }
 
-            if (caughtException == null)
-            {
-                Assert.Fail(Strings.Assertion_ExceptionNotThrown, expectedExceptionType);
-            }
-
-            return caughtException;
+            Assert.Fail(Strings.Assertion_ExceptionNotThrown, expectedExceptionType);
+            return null!;
         }
 
         /// <summary>
@@ -114,9 +112,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        [Obsolete("Use Assert.ThrowsException<T>(Action, string")]
         public static Exception Catch(Type expectedExceptionType, Action code, string message)
         {
-            return Catch(expectedExceptionType, code, message, null);
+            return Catch(expectedExceptionType, code, message, Array.Empty<object>());
         }
 
         /// <summary>
@@ -126,9 +125,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="expectedExceptionType">The expected exception type.</param>
         /// <param name="code">The code to test.</param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        [Obsolete("Use Assert.ThrowsException<T>(Action).")]
         public static Exception Catch(Type expectedExceptionType, Action code)
         {
-            return Catch(expectedExceptionType, code, String.Empty, null);
+            return Catch(expectedExceptionType, code, String.Empty, Array.Empty<object>());
         }
 
         /// <summary>
@@ -142,7 +142,8 @@ namespace Cadru.UnitTest.Framework
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
-        public static T Catch<T>(Action code, string message, params object[] parameters) where T : System.Exception
+        [Obsolete("Use Assert.ThrowsException<T>(Action, string, object[]).")]
+        public static T Catch<T>(Action code, string message, params object[] parameters) where T : Exception
         {
             return (T)Catch(typeof(T), code, message, parameters);
         }
@@ -155,7 +156,8 @@ namespace Cadru.UnitTest.Framework
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
-        public static T Catch<T>(Action code, string message) where T : System.Exception
+        [Obsolete("Use Assert.ThrowsException<T>(Action, string).")]
+        public static T Catch<T>(Action code, string message) where T : Exception
         {
             return (T)Catch(typeof(T), code, message);
         }
@@ -167,6 +169,7 @@ namespace Cadru.UnitTest.Framework
         /// <typeparam name="T">The expected exception type.</typeparam>
         /// <param name="code">The code to test.</param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        [Obsolete("Use Assert.ThrowsException<T>(Action).")]
         public static T Catch<T>(Action code) where T : System.Exception
         {
             return (T)Catch(typeof(T), code);
@@ -181,9 +184,10 @@ namespace Cadru.UnitTest.Framework
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
         [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
+        [Obsolete("Use Assert.That.DoesNotThrowException(Action, string, object[]).")]
         public static void DoesNotThrow(Action code, string message, params object[] parameters)
         {
-            Exception caughtException = null;
+            Exception? caughtException = null;
 
             try
             {
@@ -202,18 +206,20 @@ namespace Cadru.UnitTest.Framework
         /// </summary>
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
+        [Obsolete("Use Assert.That.DoesNotThrowException(Action, string).")]
         public static void DoesNotThrow(Action code, string message)
         {
-            DoesNotThrow(code, message, null);
+            DoesNotThrow(code, message, Array.Empty<object>());
         }
 
         /// <summary>
         /// Verifies that <paramref name="code"/> does not throw an exception.
         /// </summary>
         /// <param name="code">The code to test.</param>
+        [Obsolete("Use Assert.That.DoesNotThrowException(Action).")]
         public static void DoesNotThrow(Action code)
         {
-            DoesNotThrow(code, String.Empty, null);
+            DoesNotThrow(code, String.Empty, Array.Empty<object>());
         }
 
         /// <summary>
@@ -225,6 +231,7 @@ namespace Cadru.UnitTest.Framework
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        [Obsolete("Use Assert.ThrowsException<T>(Action, string, object[]).")]
         public static Exception Throws(Action code, string message, params object[] parameters)
         {
             return Throws(typeof(Exception), code, message, parameters);
@@ -236,6 +243,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        [Obsolete("Use Assert.ThrowsException<T>(Action, string).")]
         public static Exception Throws(Action code, string message)
         {
             return Throws(typeof(Exception), code, message);
@@ -246,6 +254,7 @@ namespace Cadru.UnitTest.Framework
         /// </summary>
         /// <param name="code">The code to test.</param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        [Obsolete("Use Assert.ThrowsException<T>(Action).")]
         public static Exception Throws(Action code)
         {
             return Throws(typeof(Exception), code);
@@ -263,26 +272,21 @@ namespace Cadru.UnitTest.Framework
         /// </param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
         [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
+        [Obsolete("Use Assert.ThrowsException<T>(Action, string, object[]).")]
         public static Exception Throws(Type expectedExceptionType, Action code, string message, params object[] parameters)
         {
-            Exception caughtException = null;
-
             try
             {
                 code();
             }
             catch (Exception ex)
             {
-                caughtException = ex;
-                TypeAssert.IsType(caughtException, expectedExceptionType, message, parameters);
+                TypeAssert.IsType(ex, expectedExceptionType, message, parameters);
+                return ex;
             }
 
-            if (caughtException == null)
-            {
-                Assert.Fail(Strings.Assertion_ExceptionNotThrown, expectedExceptionType);
-            }
-
-            return caughtException;
+            Assert.Fail(Strings.Assertion_ExceptionNotThrown, expectedExceptionType);
+            return null!;
         }
 
         /// <summary>
@@ -293,9 +297,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        [Obsolete("Use Assert.ThrowsException<T>(Action, string).")]
         public static Exception Throws(Type expectedExceptionType, Action code, string message)
         {
-            return Throws(expectedExceptionType, code, message, null);
+            return Throws(expectedExceptionType, code, message, Array.Empty<object>());
         }
 
         /// <summary>
@@ -305,9 +310,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="expectedExceptionType">The exception Type expected.</param>
         /// <param name="code">The code to test.</param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        [Obsolete("Use Assert.ThrowsException<T>(Action).")]
         public static Exception Throws(Type expectedExceptionType, Action code)
         {
-            return Throws(expectedExceptionType, code, String.Empty, null);
+            return Throws(expectedExceptionType, code, String.Empty, Array.Empty<object>());
         }
 
         /// <summary>
@@ -321,6 +327,7 @@ namespace Cadru.UnitTest.Framework
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        [Obsolete("Use Assert.ThrowsException<T>(Action, string, object[]).")]
         public static T Throws<T>(Action code, string message, params object[] parameters) where T : Exception
         {
             return (T)Throws(typeof(T), code, message, parameters);
@@ -334,9 +341,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="code">The code to test.</param>
         /// <param name="message">The message that will be displayed on failure.</param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        [Obsolete("Use Assert.ThrowsException<T>(Action, string).")]
         public static T Throws<T>(Action code, string message) where T : Exception
         {
-            return Throws<T>(code, message, null);
+            return Throws<T>(code, message, Array.Empty<object>());
         }
 
         /// <summary>
@@ -346,13 +354,14 @@ namespace Cadru.UnitTest.Framework
         /// <typeparam name="T">Type of the expected exception.</typeparam>
         /// <param name="code">The code to test.</param>
         /// <returns>The <see cref="Exception"/> thrown by <paramref name="code"/>.</returns>
+        [Obsolete("Use Assert.ThrowsException<T>(Action, string).")]
         public static T Throws<T>(Action code) where T : Exception
         {
-            return Throws<T>(code, String.Empty, null);
+            return Throws<T>(code, String.Empty, Array.Empty<object>());
         }
 
         /// <summary>
-        /// Verifies that the exception <see cref="Exception.InnerException"/>
+        /// Verifies that <see cref="Exception.InnerException"/>
         /// is of the specified type.
         /// </summary>
         /// <typeparam name="T">The source exception type.</typeparam>
@@ -363,7 +372,24 @@ namespace Cadru.UnitTest.Framework
         /// <returns>The original <see cref="Exception"/>.</returns>
         public static T WithInnerException<T>(this T exception, Type innerException) where T : Exception
         {
-            TypeAssert.IsType(exception.InnerException, innerException);
+            Assert.That.IsType(exception.InnerException, innerException, Strings.WrongExceptionThrown, innerException.Name, typeof(T).Name, exception.Message, exception.StackTrace);
+            return exception;
+        }
+
+
+        /// <summary>
+        /// Verifies that <see cref="Exception.InnerException"/>
+        /// is of the specified type.
+        /// </summary>
+        /// <typeparam name="T">The inner exception type.</typeparam>
+        /// <param name="exception">
+        /// The exception whose <see cref="Exception.InnerException"/> will be tested.
+        /// </param>
+        /// <returns>The original <see cref="Exception"/>.</returns>
+        public static Exception WithInnerException<T>(this Exception exception)
+            where T : Exception
+        {
+            Assert.That.IsType<T>(exception.InnerException, Strings.WrongExceptionThrown, exception.InnerException.GetType().Name, typeof(T).Name, exception.Message, exception.StackTrace);
             return exception;
         }
 

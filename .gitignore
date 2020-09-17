@@ -203,3 +203,5 @@ FakesAssemblies/
 *.opt
 
 documentation/build
+GlobalSuppressions.cs
+CodeMaid.config

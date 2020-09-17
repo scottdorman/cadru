@@ -55,7 +55,7 @@ namespace Cadru.Core.Text.Tests
             Assert.IsTrue("ADZ./;".IsAlpha());
             Assert.IsFalse("ADZe321".IsAlpha());
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).IsAlpha());
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).IsAlpha());
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace Cadru.Core.Text.Tests
             // This is a high ASCII character.
             Assert.IsFalse("×".IsAlphanumeric());
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).IsAlphanumeric());
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).IsAlphanumeric());
         }
 
         /// <summary>
@@ -323,7 +323,7 @@ namespace Cadru.Core.Text.Tests
             Assert.IsFalse("ADZ./;".IsStrictlyAlpha());
             Assert.IsFalse("321./;".IsStrictlyAlpha());
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).IsStrictlyAlpha());
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).IsStrictlyAlpha());
         }
 
         /// <summary>
@@ -346,7 +346,7 @@ namespace Cadru.Core.Text.Tests
             Assert.IsFalse("ADZ./;".IsStrictlyAlphanumeric());
             Assert.IsFalse("321./;".IsStrictlyAlphanumeric());
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => ((string)null).IsStrictlyAlphanumeric());
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).IsStrictlyAlphanumeric());
         }
 
         /// <summary>

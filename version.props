@@ -28,9 +28,9 @@ projects from the command-line or the IDE. -->
   Any properties defined in the build/version.props file will override the
   values specified here. -->
   <PropertyGroup>
-    <VersionMajor>4</VersionMajor>
-    <VersionMinor>6</VersionMinor>
-    <VersionPatch></VersionPatch>
-    <VersionSuffix></VersionSuffix>
+    <VersionMajor>5</VersionMajor>
+    <VersionMinor>0</VersionMinor>
+    <VersionPatch>1</VersionPatch>
+    <VersionSuffix>preview-1</VersionSuffix>
   </PropertyGroup>
 </Project>

@@ -16,7 +16,7 @@ namespace Cadru.Extensions.FileProviders.Tests
             using (var provider = new ExtendedPhysicalFileProvider(Path.GetTempPath()))
             {
                 var info = provider.CreateDirectory("ExtendedPhysicalFileProvider-CreateDirectoryTest");
-                TypeAssert.IsType<PhysicalDirectoryInfo>(info);
+                Assert.That.IsType<PhysicalDirectoryInfo>(info);
                 Assert.IsTrue(info.Exists);
             }
         }
@@ -27,7 +27,7 @@ namespace Cadru.Extensions.FileProviders.Tests
             using (var provider = new ExtendedPhysicalFileProvider(Path.GetTempPath()))
             {
                 var info = provider.CreateFile("ExtendedPhysicalFileProvider-CreateFileTest.txt");
-                TypeAssert.IsType<PhysicalFileInfo>(info);
+                Assert.That.IsType<PhysicalFileInfo>(info);
                 Assert.IsTrue(info.Exists);
             }
         }
@@ -38,15 +38,15 @@ namespace Cadru.Extensions.FileProviders.Tests
             using (var provider = new ExtendedPhysicalFileProvider(Path.GetTempPath()))
             {
                 var info = provider.CreateDirectory("ExtendedPhysicalFileProvider-CreateDirectoryTest");
-                TypeAssert.IsType<PhysicalDirectoryInfo>(info);
+                Assert.That.IsType<PhysicalDirectoryInfo>(info);
                 Assert.IsTrue(info.Exists);
 
                 info = provider.GetDirectoryInfo("ExtendedPhysicalFileProvider-CreateDirectoryTest");
-                TypeAssert.IsType<PhysicalDirectoryInfo>(info);
+                Assert.That.IsType<PhysicalDirectoryInfo>(info);
                 Assert.IsTrue(info.Exists);
 
                 info = provider.GetDirectoryInfo("ExtendedPhysicalFileProvider-DoesNotExistCreateDirectoryTest");
-                TypeAssert.IsType<PhysicalDirectoryInfo>(info);
+                Assert.That.IsType<PhysicalDirectoryInfo>(info);
                 Assert.IsFalse(info.Exists);
             }
         }

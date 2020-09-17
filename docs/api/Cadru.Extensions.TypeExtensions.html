@@ -1,0 +1,1280 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class TypeExtensions
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class TypeExtensions
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Cadru.Extensions.TypeExtensions">
+  
+  
+  <h1 id="Cadru_Extensions_TypeExtensions" data-uid="Cadru.Extensions.TypeExtensions" class="text-break">Class TypeExtensions
+  </h1>
+  <div class="markdown level0 summary"><p>Provides basic routines for common type manipulation.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">TypeExtensions</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Cadru.Extensions.html">Cadru.Extensions</a></h6>
+  <h6><strong>Assembly</strong>: Cadru.Core.dll</h6>
+  <h5 id="Cadru_Extensions_TypeExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class TypeExtensions : object</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_GetAttributeOfType__1_FieldInfo_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.GetAttributeOfType%60%601(FieldInfo%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L55">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_GetAttributeOfType_" data-uid="Cadru.Extensions.TypeExtensions.GetAttributeOfType*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_GetAttributeOfType__1_FieldInfo_System_Boolean_" data-uid="Cadru.Extensions.TypeExtensions.GetAttributeOfType``1(FieldInfo,System.Boolean)">GetAttributeOfType&lt;T&gt;(FieldInfo, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Retrieves a custom attribute of a specified type that is applied to
+a specified field, and optionally inspects the ancestors of that field.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T GetAttributeOfType&lt;T&gt;(this FieldInfo element, bool inherit = false)
+    where T : Attribute</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FieldInfo</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The field to inspect.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">inherit</span></td>
+        <td><p><span class="xref">true</span> to inspect the ancestors of element;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>A custom attribute that matches <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>, or
+<span class="xref">null</span> if no such attribute is found.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of attribute to search for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_GetDescription_FieldInfo_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.GetDescription(FieldInfo%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L85">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_GetDescription_" data-uid="Cadru.Extensions.TypeExtensions.GetDescription*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_GetDescription_FieldInfo_System_Boolean_" data-uid="Cadru.Extensions.TypeExtensions.GetDescription(FieldInfo,System.Boolean)">GetDescription(FieldInfo, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Retrieves a custom description that is applied to a specified field,
+and optionally inspects the ancestors of that field.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? GetDescription(this FieldInfo field, bool useNameAsFallback)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FieldInfo</span></td>
+        <td><span class="parametername">field</span></td>
+        <td><p>The field to inspect.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">useNameAsFallback</span></td>
+        <td><p>If <span class="xref">true</span>, the name of the field is used if no
+description is found; otherwise, <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>A string containing the description of the field; or
+<span class="xref">null</span> if no such constant is found and
+<code data-dev-comment-type="paramref" class="paramref">useNameAsFallback</code> is <span class="xref">false</span>;
+otherwise, the name of the field.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Cadru_Extensions_TypeExtensions_GetDescription_FieldInfo_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method will use the value from an
+<a class="xref" href="Cadru.EnumDescriptionAttribute.html">EnumDescriptionAttribute</a>,
+<see cref="!:DisplayAttribute"></see>, or
+<see cref="!:DescriptionAttribute"></see> if found, in that respective
+order. If none of those attributes are found, or the value is
+<span class="xref">null</span>, and <code data-dev-comment-type="paramref" class="paramref">useNameAsFallback</code> is
+<span class="xref">true</span>, then the name of the enumerated constant is
+used; otherwise, a <span class="xref">null</span> is used.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_HasCustomAttribute__1_MemberInfo_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.HasCustomAttribute%60%601(MemberInfo%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L152">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_HasCustomAttribute_" data-uid="Cadru.Extensions.TypeExtensions.HasCustomAttribute*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_HasCustomAttribute__1_MemberInfo_System_Boolean_" data-uid="Cadru.Extensions.TypeExtensions.HasCustomAttribute``1(MemberInfo,System.Boolean)">HasCustomAttribute&lt;T&gt;(MemberInfo, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified type has a custom attribute</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasCustomAttribute&lt;T&gt;(this MemberInfo element, bool inherit = false)
+    where T : Attribute</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">MemberInfo</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The member to inspect.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">inherit</span></td>
+        <td><p><span class="xref">true</span> to inspect the ancestors of element;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified element has the attribute;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of attribute to search for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_HasCustomAttribute__1_Type_System_Boolean_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.HasCustomAttribute%60%601(Type%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L119">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_HasCustomAttribute_" data-uid="Cadru.Extensions.TypeExtensions.HasCustomAttribute*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_HasCustomAttribute__1_Type_System_Boolean_" data-uid="Cadru.Extensions.TypeExtensions.HasCustomAttribute``1(Type,System.Boolean)">HasCustomAttribute&lt;T&gt;(Type, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified type has a custom attribute</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasCustomAttribute&lt;T&gt;(this Type element, bool inherit = false)
+    where T : Attribute</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The member to inspect.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">inherit</span></td>
+        <td><p><span class="xref">true</span> to inspect the ancestors of element;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified element has the attribute;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of attribute to search for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_HasInterface__1_Type_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.HasInterface%60%601(Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L168">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_HasInterface_" data-uid="Cadru.Extensions.TypeExtensions.HasInterface*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_HasInterface__1_Type_" data-uid="Cadru.Extensions.TypeExtensions.HasInterface``1(Type)">HasInterface&lt;TInterface&gt;(Type)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified type implements an interface</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasInterface&lt;TInterface&gt;(this Type element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The type to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified type implements the
+interface; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInterface</span></td>
+        <td><p>The interface for which the type will be tested.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_HasInterface__1_TypeInfo_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.HasInterface%60%601(TypeInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L187">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_HasInterface_" data-uid="Cadru.Extensions.TypeExtensions.HasInterface*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_HasInterface__1_TypeInfo_" data-uid="Cadru.Extensions.TypeExtensions.HasInterface``1(TypeInfo)">HasInterface&lt;TInterface&gt;(TypeInfo)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified type implements an interface</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasInterface&lt;TInterface&gt;(this TypeInfo element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TypeInfo</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The type to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified type implements the
+interface; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInterface</span></td>
+        <td><p>The interface for which the type will be tested.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_IsBoolean_Type_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.IsBoolean(Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L213">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_IsBoolean_" data-uid="Cadru.Extensions.TypeExtensions.IsBoolean*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_IsBoolean_Type_" data-uid="Cadru.Extensions.TypeExtensions.IsBoolean(Type)">IsBoolean(Type)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified type is a <see cref="!:Boolean"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsBoolean(this Type element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The type to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified type is a
+<see cref="!:Boolean"></see>; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_IsBoolean_TypeInfo_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.IsBoolean(TypeInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L227">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_IsBoolean_" data-uid="Cadru.Extensions.TypeExtensions.IsBoolean*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_IsBoolean_TypeInfo_" data-uid="Cadru.Extensions.TypeExtensions.IsBoolean(TypeInfo)">IsBoolean(TypeInfo)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified type is a <see cref="!:Boolean"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsBoolean(this TypeInfo element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TypeInfo</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The type to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified type is a
+<see cref="!:Boolean"></see>; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_IsDate_Type_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.IsDate(Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L241">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_IsDate_" data-uid="Cadru.Extensions.TypeExtensions.IsDate*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_IsDate_Type_" data-uid="Cadru.Extensions.TypeExtensions.IsDate(Type)">IsDate(Type)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified type is a <see cref="!:DateTime"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsDate(this Type element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The type to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified type is a
+<see cref="!:DateTime"></see>; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_IsDate_TypeInfo_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.IsDate(TypeInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L255">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_IsDate_" data-uid="Cadru.Extensions.TypeExtensions.IsDate*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_IsDate_TypeInfo_" data-uid="Cadru.Extensions.TypeExtensions.IsDate(TypeInfo)">IsDate(TypeInfo)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified type is a <see cref="!:DateTime"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsDate(this TypeInfo element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TypeInfo</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The type to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified type is a
+<see cref="!:DateTime"></see>; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_IsDateOffset_Type_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.IsDateOffset(Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L277">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_IsDateOffset_" data-uid="Cadru.Extensions.TypeExtensions.IsDateOffset*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_IsDateOffset_Type_" data-uid="Cadru.Extensions.TypeExtensions.IsDateOffset(Type)">IsDateOffset(Type)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified type is a <see cref="!:DateTimeOffset"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsDateOffset(this Type element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The type to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified type is a
+<see cref="!:DateTimeOffset"></see>; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_IsDateOffset_TypeInfo_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.IsDateOffset(TypeInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L291">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_IsDateOffset_" data-uid="Cadru.Extensions.TypeExtensions.IsDateOffset*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_IsDateOffset_TypeInfo_" data-uid="Cadru.Extensions.TypeExtensions.IsDateOffset(TypeInfo)">IsDateOffset(TypeInfo)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified type is a <see cref="!:DateTimeOffset"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsDateOffset(this TypeInfo element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TypeInfo</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The type to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified type is a
+<see cref="!:DateTimeOffset"></see>; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_IsEnumerableType_Type_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.IsEnumerableType(Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L313">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_IsEnumerableType_" data-uid="Cadru.Extensions.TypeExtensions.IsEnumerableType*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_IsEnumerableType_Type_" data-uid="Cadru.Extensions.TypeExtensions.IsEnumerableType(Type)">IsEnumerableType(Type)</h4>
+  <div class="markdown level1 summary"><p>Determines if the type is an enumerable type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsEnumerableType(this Type element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The type to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified type is an enumerable type;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_IsEnumerableType_TypeInfo_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.IsEnumerableType(TypeInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L326">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_IsEnumerableType_" data-uid="Cadru.Extensions.TypeExtensions.IsEnumerableType*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_IsEnumerableType_TypeInfo_" data-uid="Cadru.Extensions.TypeExtensions.IsEnumerableType(TypeInfo)">IsEnumerableType(TypeInfo)</h4>
+  <div class="markdown level1 summary"><p>Determines if the type is an enumerable type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsEnumerableType(this TypeInfo element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TypeInfo</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The type to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified type is an enumerable type;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_IsFlagsEnum_Type_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.IsFlagsEnum(Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L341">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_IsFlagsEnum_" data-uid="Cadru.Extensions.TypeExtensions.IsFlagsEnum*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_IsFlagsEnum_Type_" data-uid="Cadru.Extensions.TypeExtensions.IsFlagsEnum(Type)">IsFlagsEnum(Type)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified type is an <see cref="!:Enum"></see> with
+an associated <see cref="!:FlagsAttribute"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsFlagsEnum(this Type element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The type to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified type is an
+<see cref="!:Enum"></see> with an associated <see cref="!:FlagsAttribute"></see>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_IsFlagsEnum_TypeInfo_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.IsFlagsEnum(TypeInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L358">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_IsFlagsEnum_" data-uid="Cadru.Extensions.TypeExtensions.IsFlagsEnum*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_IsFlagsEnum_TypeInfo_" data-uid="Cadru.Extensions.TypeExtensions.IsFlagsEnum(TypeInfo)">IsFlagsEnum(TypeInfo)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified type is an <see cref="!:Enum"></see> with
+an associated <see cref="!:FlagsAttribute"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsFlagsEnum(this TypeInfo element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TypeInfo</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The type to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified type is an
+<see cref="!:Enum"></see> with an associated <see cref="!:FlagsAttribute"></see>;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_IsNullable_Type_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.IsNullable(Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L373">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_IsNullable_" data-uid="Cadru.Extensions.TypeExtensions.IsNullable*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_IsNullable_Type_" data-uid="Cadru.Extensions.TypeExtensions.IsNullable(Type)">IsNullable(Type)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified type is nullable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsNullable(this Type element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The type to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified type is nullable; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_IsNullable_TypeInfo_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.IsNullable(TypeInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L388">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_IsNullable_" data-uid="Cadru.Extensions.TypeExtensions.IsNullable*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_IsNullable_TypeInfo_" data-uid="Cadru.Extensions.TypeExtensions.IsNullable(TypeInfo)">IsNullable(TypeInfo)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified type is nullable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsNullable(this TypeInfo element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TypeInfo</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The type to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified type is nullable; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_IsNumeric_Type_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.IsNumeric(Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L402">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_IsNumeric_" data-uid="Cadru.Extensions.TypeExtensions.IsNumeric*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_IsNumeric_Type_" data-uid="Cadru.Extensions.TypeExtensions.IsNumeric(Type)">IsNumeric(Type)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified type is a numeric type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsNumeric(this Type element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The type to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified type is a numeric type;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions_IsNumeric_TypeInfo_.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions.IsNumeric(TypeInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L416">View Source</a>
+  </span>
+  <a id="Cadru_Extensions_TypeExtensions_IsNumeric_" data-uid="Cadru.Extensions.TypeExtensions.IsNumeric*"></a>
+  <h4 id="Cadru_Extensions_TypeExtensions_IsNumeric_TypeInfo_" data-uid="Cadru.Extensions.TypeExtensions.IsNumeric(TypeInfo)">IsNumeric(TypeInfo)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified type is a numeric type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsNumeric(this TypeInfo element)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TypeInfo</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The type to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the specified type is a numeric type;
+otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/new/master/apiSpec/new?filename=Cadru_Extensions_TypeExtensions.md&amp;value=---%0Auid%3A%20Cadru.Extensions.TypeExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/scottdorman/cadru/blob/master/src/Cadru.Core/Extensions/TypeExtensions.cs/#L39" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

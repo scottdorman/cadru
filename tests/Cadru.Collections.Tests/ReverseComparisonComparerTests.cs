@@ -23,8 +23,6 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-using Cadru.UnitTest.Framework;
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Cadru.Collections.Tests
@@ -46,7 +44,7 @@ namespace Cadru.Collections.Tests
             Assert.IsTrue(comparer.Compare(y, x) < 0);
             Assert.IsTrue(comparer.Compare(x, x) == 0);
 
-            ExceptionAssert.Throws<ArgumentNullException>(() => ComparisonComparer<string>.Create(null));
+            Assert.ThrowsException<ArgumentNullException>(() => ComparisonComparer<string>.Create(null));
         }
     }
 }

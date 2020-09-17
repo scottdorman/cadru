@@ -23,8 +23,6 @@
 using System;
 using System.Collections;
 
-using Cadru.UnitTest.Framework.Resources;
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Cadru.UnitTest.Framework
@@ -39,9 +37,10 @@ namespace Cadru.UnitTest.Framework
         /// </summary>
         /// <param name="expected">The expected string.</param>
         /// <param name="actual">The actual string.</param>
+        [Obsolete("Use Assert.That.AreEqualIgnoringCase(string, string).")]
         public static void AreEqualIgnoringCase(string expected, string actual)
         {
-            AreEqualIgnoringCase(expected, actual, Strings.Assertion_GenericFailure, expected, actual);
+            Assert.That.AreEqualIgnoringCase(expected, actual);
         }
 
         /// <summary>
@@ -52,9 +51,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">
         /// A message to display. This message can be seen in the unit test results.
         /// </param>
+        [Obsolete("Use Assert.That.AreEqualIgnoringCase(string, string, string).")]
         public static void AreEqualIgnoringCase(string expected, string actual, string message)
         {
-            AreEqualIgnoringCase(expected, actual, message, null);
+            Assert.That.AreEqualIgnoringCase(expected, actual, message);
         }
 
         /// <summary>
@@ -68,18 +68,20 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
+        [Obsolete("Use Assert.That.AreEqualIgnoringCase(string, string, string, object[]).")]
         public static void AreEqualIgnoringCase(string expected, string actual, string message, params object[] parameters)
         {
-            Assert.IsTrue(String.Compare(expected, actual, StringComparison.CurrentCultureIgnoreCase) == 0, message, parameters);
+            Assert.That.AreEqualIgnoringCase(expected, actual, message, parameters);
         }
 
         /// <summary>
         /// Assert that an array, list or other collection is empty.
         /// </summary>
         /// <param name="collection">The value to be tested.</param>
+        [Obsolete("Use CollectionAssert.That.IsEmpty(ICollection).")]
         public static void IsEmpty(ICollection collection)
         {
-            IsEmpty(collection, Strings.Assertion_CollectionFailure, 0, collection.Count);
+            CollectionAssert.That.IsEmpty(collection);
         }
 
         /// <summary>
@@ -89,9 +91,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">
         /// A message to display. This message can be seen in the unit test results.
         /// </param>
+        [Obsolete("Use CollectionAssert.That.IsEmpty(ICollection, string).")]
         public static void IsEmpty(ICollection collection, string message)
         {
-            IsEmpty(collection, message, null);
+            CollectionAssert.That.IsEmpty(collection, message);
         }
 
         /// <summary>
@@ -104,18 +107,20 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
+        [Obsolete("Use CollectionAssert.That.IsEmpty(ICollection, string, object[]).")]
         public static void IsEmpty(ICollection collection, string message, params object[] parameters)
         {
-            Assert.IsTrue(collection.Count == 0, message, parameters);
+            CollectionAssert.That.IsEmpty(collection, message, parameters);
         }
 
         /// <summary>
         /// Asserts that a string is empty.
         /// </summary>
         /// <param name="value">The value to be tested.</param>
+        [Obsolete("Use Assert.That.IsEmpty(string).")]
         public static void IsEmpty(string value)
         {
-            IsEmpty(value, Strings.Assertion_GenericFailure, String.Empty, value);
+            Assert.That.IsEmpty(value);
         }
 
         /// <summary>
@@ -125,9 +130,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">
         /// A message to display. This message can be seen in the unit test results.
         /// </param>
+        [Obsolete("Use Assert.That.IsEmpty(string, string).")]
         public static void IsEmpty(string value, string message)
         {
-            IsEmpty(value, message, null);
+            Assert.That.IsEmpty(value, message);
         }
 
         /// <summary>
@@ -140,18 +146,20 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
+        [Obsolete("Use Assert.That.IsEmpty(string, string, object[]).")]
         public static void IsEmpty(string value, string message, params object[] parameters)
         {
-            Assert.IsTrue(value.Length == 0, message, parameters);
+            Assert.That.IsEmpty(value, message, parameters);
         }
 
         /// <summary>
         /// Assert that an array, list or other collection is not empty.
         /// </summary>
         /// <param name="collection">The value to be tested.</param>
+        [Obsolete("Use CollectionAssert.That.IsNotEmpty(ICollection).")]
         public static void IsNotEmpty(ICollection collection)
         {
-            IsNotEmpty(collection, Strings.Assertion_CollectionFailure, collection.Count, 0);
+            CollectionAssert.That.IsNotEmpty(collection);
         }
 
         /// <summary>
@@ -161,9 +169,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">
         /// A message to display. This message can be seen in the unit test results.
         /// </param>
+        [Obsolete("Use CollectionAssert.That.IsNotEmpty(ICollection, string).")]
         public static void IsNotEmpty(ICollection collection, string message)
         {
-            IsNotEmpty(collection, message, null);
+            CollectionAssert.That.IsNotEmpty(collection, message);
         }
 
         /// <summary>
@@ -176,18 +185,20 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
+        [Obsolete("Use CollectionAssert.That.IsNotEmpty(ICollection, string, object[]).")]
         public static void IsNotEmpty(ICollection collection, string message, params object[] parameters)
         {
-            Assert.IsFalse(collection.Count == 0, message, parameters);
+            CollectionAssert.That.IsNotEmpty(collection, message, parameters);
         }
 
         /// <summary>
         /// Asserts that a string is not empty.
         /// </summary>
         /// <param name="value">The value to be tested.</param>
+        [Obsolete("Use Assert.That.IsNotEmpty(string).")]
         public static void IsNotEmpty(string value)
         {
-            IsNotEmpty(value, Strings.Assertion_GenericFailure, value, String.Empty);
+            Assert.That.IsNotEmpty(value);
         }
 
         /// <summary>
@@ -197,9 +208,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">
         /// A message to display. This message can be seen in the unit test results.
         /// </param>
+        [Obsolete("Use Assert.That.IsNotEmpty(string, string).")]
         public static void IsNotEmpty(string value, string message)
         {
-            IsNotEmpty(value, message, null);
+            Assert.That.IsNotEmpty(value, message);
         }
 
         /// <summary>
@@ -212,9 +224,10 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
+        [Obsolete("Use Assert.That.IsNotEmpty(string, string, object[]).")]
         public static void IsNotEmpty(string value, string message, params object[] parameters)
         {
-            Assert.IsFalse(value.Length == 0, message, parameters);
+            Assert.That.IsNotEmpty(value, message, parameters);
         }
     }
 }

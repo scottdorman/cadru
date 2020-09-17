@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <Description>Provides a standard implementation for creating and using cache keys.</Description>

@@ -4,20 +4,18 @@
       "src": [
         {
           "files": [
-            "**/**.csproj"
+            "src/**.csproj"
           ],
-          "exclude": [
-            "**/obj/**",
-            "**/bin/**",
-            "_site/**"
-          ],
-          "src": "../src"
+          "src": "../"
         }
       ],
-      "dest": "api"
+      "dest": "api",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
     }
   ],
   "build": {
+    "template": [ "statictoc" ],
     "content": [
       {
         "files": [
@@ -31,10 +29,6 @@
           "articles/**/toc.yml",
           "toc.yml",
           "*.md"
-        ],
-        "exclude": [
-          "obj/**",
-          "_site/**"
         ]
       }
     ],
@@ -42,10 +36,6 @@
       {
         "files": [
           "images/**"
-        ],
-        "exclude": [
-          "obj/**",
-          "_site/**"
         ]
       }
     ],
@@ -60,14 +50,17 @@
         ]
       }
     ],
-    "dest": "_site",
+    "dest": "../docs",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
       "default"
     ],
     "postProcessors": [],
+    "markdownEngineName": "markdig",
     "noLangKeyword": false,
-    "keepFileLink": false
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": false
   }
 }

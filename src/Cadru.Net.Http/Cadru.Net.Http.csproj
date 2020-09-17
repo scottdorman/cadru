@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <Description>Provides transient error detection strategies for adding retry logic into your HttpClient calls, a UrlBuilder to help simplify building complex URLs, and additional extensions for working with HttpClient.</Description>
@@ -11,6 +11,7 @@
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="System.Net.Requests" Version="4.3.0" />
+    <PackageReference Include="Nullable" Version="1.3.0" />
   </ItemGroup>
 
   <ItemGroup>
