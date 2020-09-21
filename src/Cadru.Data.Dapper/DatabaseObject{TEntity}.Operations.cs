@@ -25,7 +25,6 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-using Cadru.Contracts;
 using Cadru.Data.Dapper.Predicates;
 
 using Dapper;
@@ -34,6 +33,8 @@ using Microsoft.Extensions.Logging;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
+using Validation;
 
 namespace Cadru.Data.Dapper
 {

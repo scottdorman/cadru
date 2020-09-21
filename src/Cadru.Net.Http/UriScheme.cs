@@ -23,7 +23,7 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-using Cadru.Contracts;
+using Validation;
 
 namespace Cadru.Net.Http
 {

@@ -20,11 +20,11 @@
 // </license>
 //------------------------------------------------------------------------------
 
-using Cadru.Contracts;
-
 using Microsoft.Extensions.DependencyInjection;
 
 using Polly.Registry;
+
+using Validation;
 
 namespace Cadru.Polly.DependencyInjection
 {

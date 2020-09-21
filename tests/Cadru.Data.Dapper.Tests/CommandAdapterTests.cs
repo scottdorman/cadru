@@ -62,11 +62,11 @@ namespace Cadru.Data.Dapper.Tests
         {
             var adapter = new CommandAdapter();
             Assert.AreEqual("test", adapter.QuoteIdentifier("test"));
-            Assert.ThrowsException<InvalidOperationException>(() => adapter.QuoteIdentifier("tes't"));
+            Assert.ThrowsException<ArgumentException>(() => adapter.QuoteIdentifier("tes't"));
 
             adapter = new SqlCommandAdapter();
             Assert.AreEqual("[test]", adapter.QuoteIdentifier("test"));
-            Assert.ThrowsException<InvalidOperationException>(() => adapter.QuoteIdentifier("tes't"));
+            Assert.ThrowsException<ArgumentException>(() => adapter.QuoteIdentifier("tes't"));
         }
 
         [TestMethod]

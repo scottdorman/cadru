@@ -24,6 +24,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+using Validation;
+
 namespace Cadru.Extensions
 {
     /// <summary>
@@ -52,6 +54,7 @@ namespace Cadru.Extensions
             {
                 source[key] = value!;
             }
+
             return source;
         }
 
@@ -75,7 +78,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static TValue GetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> source, TKey key, TValue defaultValue)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             return source.TryGetValue(key, out var result) ? result : defaultValue;
         }
@@ -99,7 +102,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static TValue GetValueOrDefault<TValue>(this IDictionary source, object key, TValue defaultValue)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             TValue result;
             if (source is Dictionary<object, TValue> temp)
@@ -251,7 +254,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static bool TryGetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue, out TValue value)
         {
-            Contracts.Requires.NotNull(dictionary, nameof(dictionary));
+            Requires.NotNull(dictionary, nameof(dictionary));
 
             var found = true;
             if (!dictionary.TryGetValue(key, out value))
@@ -288,7 +291,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static bool TryGetValueOrDefault<TValue>(this IDictionary dictionary, object key, TValue defaultValue, out TValue value)
         {
-            Contracts.Requires.NotNull(dictionary, nameof(dictionary));
+            Requires.NotNull(dictionary, nameof(dictionary));
 
             bool found;
             if (dictionary is Dictionary<object, TValue> temp)

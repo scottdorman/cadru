@@ -12,10 +12,7 @@
     <PackageReference Include="System.Net.NetworkInformation" Version="4.3.0" />
     <PackageReference Include="System.Net.Primitives" Version="4.3.1" />
     <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Cadru.Contracts\Cadru.Contracts.csproj" />
+    <PackageReference Include="Validation" Version="2.4.22" />
   </ItemGroup>
 
   <ItemGroup>

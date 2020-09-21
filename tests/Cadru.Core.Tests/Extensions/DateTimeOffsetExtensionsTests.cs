@@ -511,10 +511,10 @@ namespace Cadru.Core.Extensions.Tests
         public void MonthNames()
         {
             var months = DateTimeOffsetExtensions.GetMonthNames();
-            CollectionAssert.That.IsNotEmpty((ICollection)months);
+            CollectionAssert.That.IsNotEmpty(months);
 
             months = DateTimeOffsetExtensions.GetAbbreviatedMonthNames();
-            CollectionAssert.That.IsNotEmpty((ICollection)months);
+            CollectionAssert.That.IsNotEmpty(months);
 
             Assert.AreEqual("July", new DateTimeOffset(2013, 7, 1, 0, 0, 0, DateTimeOffset.Now.Offset).GetMonthName());
             Assert.AreEqual("Jul", new DateTimeOffset(2013, 7, 1, 0, 0, 0, DateTimeOffset.Now.Offset).GetAbbreviatedMonthName());

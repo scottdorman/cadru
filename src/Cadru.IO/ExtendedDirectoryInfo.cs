@@ -27,6 +27,8 @@ using System.Security;
 using System.Security.AccessControl;
 using System.Security.Principal;
 
+using Validation;
+
 namespace Cadru.IO
 {
     /// <summary>
@@ -74,7 +76,7 @@ namespace Cadru.IO
         /// </remarks>
         public ExtendedDirectoryInfo(string path)
         {
-            Contracts.Requires.NotNullOrEmpty(path, "path");
+            Requires.NotNullOrEmpty(path, "path");
             this.directoryInfo = new DirectoryInfo(path);
             if (this.directoryInfo.Exists)
             {

@@ -350,30 +350,30 @@ namespace Cadru.Core.Extensions.Tests
         }
 
         [TestMethod]
-        public void Replace()
+        public void ReplaceOccurrences()
         {
             var testValue = "abcdefgabcdefg";
 
-            Assert.AreEqual("abQdefgabcdefg", testValue.Replace('c', 'Q', 1));
-            Assert.AreEqual(testValue, testValue.Replace('h', 'Q', 2));
-            Assert.AreEqual("abQdefgabQdefg", testValue.Replace('c', 'Q', 3));
-            Assert.AreEqual("abQdefgabQdefg", testValue.Replace('c', 'Q', 2));
-            Assert.AreEqual(testValue, testValue.Replace('c', 'Q', 0));
-            Assert.AreEqual("abCDEfgabcdefg", testValue.Replace("cde", "CDE", 1));
-            Assert.AreEqual("abCDEfgabCDEfg", testValue.Replace("cde", "CDE", 2));
-            Assert.AreEqual(testValue, testValue.Replace("cde", "CDE", 0, StringComparison.Ordinal));
-            Assert.AreEqual("abCDEfgabCDEfg", testValue.Replace("cde", "CDE", 3));
-            Assert.AreEqual("abCDEfgabcdefg", testValue.Replace("cde", "CDE", 1, StringComparison.Ordinal));
-            Assert.AreEqual("abCDEfgabCDEfg", testValue.Replace("cde", "CDE", 2, StringComparison.Ordinal));
-            Assert.AreEqual(testValue, testValue.Replace("cde", "CDE", 0, StringComparison.Ordinal));
-            Assert.AreEqual(testValue, testValue.Replace("CDE", "CDE", 1, StringComparison.Ordinal));
-            Assert.AreEqual(testValue, testValue.Replace("CDE", "CDE", 2, StringComparison.Ordinal));
-            Assert.AreEqual(testValue, testValue.Replace("CDE", "CDE", 0, StringComparison.Ordinal));
+            Assert.AreEqual("abQdefgabcdefg", testValue.ReplaceOccurrences('c', 'Q', 1));
+            Assert.AreEqual(testValue, testValue.ReplaceOccurrences('h', 'Q', 2));
+            Assert.AreEqual("abQdefgabQdefg", testValue.ReplaceOccurrences('c', 'Q', 3));
+            Assert.AreEqual("abQdefgabQdefg", testValue.ReplaceOccurrences('c', 'Q', 2));
+            Assert.AreEqual(testValue, testValue.ReplaceOccurrences('c', 'Q', 0));
+            Assert.AreEqual("abCDEfgabcdefg", testValue.ReplaceOccurrences("cde", "CDE", 1));
+            Assert.AreEqual("abCDEfgabCDEfg", testValue.ReplaceOccurrences("cde", "CDE", 2));
+            Assert.AreEqual(testValue, testValue.ReplaceOccurrences("cde", "CDE", 0));
+            Assert.AreEqual("abCDEfgabCDEfg", testValue.ReplaceOccurrences("cde", "CDE", 3));
+            Assert.AreEqual("abCDEfgabcdefg", testValue.ReplaceOccurrences("cde", "CDE", 1, StringComparison.Ordinal));
+            Assert.AreEqual("abCDEfgabCDEfg", testValue.ReplaceOccurrences("cde", "CDE", 2, StringComparison.Ordinal));
+            Assert.AreEqual(testValue, testValue.ReplaceOccurrences("cde", "CDE", 0, StringComparison.Ordinal));
+            Assert.AreEqual(testValue, testValue.ReplaceOccurrences("CDE", "CDE", 1, StringComparison.Ordinal));
+            Assert.AreEqual(testValue, testValue.ReplaceOccurrences("CDE", "CDE", 2, StringComparison.Ordinal));
+            Assert.AreEqual(testValue, testValue.ReplaceOccurrences("CDE", "CDE", 0, StringComparison.Ordinal));
 
-            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).Replace('c', 'Q', 0));
-            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).Replace("CDE", "CDE", 0, StringComparison.Ordinal)).WithParameter("source");
-            Assert.ThrowsException<ArgumentNullException>(() => testValue.Replace(null, "CDE", 0, StringComparison.Ordinal)).WithParameter("oldValue");
-            Assert.ThrowsException<ArgumentNullException>(() => testValue.Replace("CDE", null, 0, StringComparison.Ordinal)).WithParameter("newValue");
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).ReplaceOccurrences('c', 'Q', 0));
+            Assert.ThrowsException<ArgumentNullException>(() => ((string)null).ReplaceOccurrences("CDE", "CDE", 0, StringComparison.Ordinal)).WithParameter("source");
+            Assert.ThrowsException<ArgumentNullException>(() => testValue.ReplaceOccurrences(null, "CDE", 0, StringComparison.Ordinal)).WithParameter("oldValue");
+            Assert.ThrowsException<ArgumentNullException>(() => testValue.ReplaceOccurrences("CDE", null, 0, StringComparison.Ordinal)).WithParameter("newValue");
         }
 
         [TestMethod]

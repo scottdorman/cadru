@@ -31,6 +31,8 @@ using System.Security.Principal;
 
 using Cadru.IO.Interop;
 
+using Validation;
+
 namespace Cadru.IO
 {
     /// <summary>
@@ -81,7 +83,7 @@ namespace Cadru.IO
         /// </remarks>
         public ExtendedFileInfo(string fileName)
         {
-            Contracts.Requires.NotNull(fileName, "fileName");
+            Requires.NotNull(fileName, "fileName");
 
             this.originalFileName = fileName;
             this.fileInfo = new FileInfo(fileName);

@@ -25,7 +25,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 using Cadru.Collections.Resources;
-using Cadru.Contracts;
+
+using Validation;
 
 namespace Cadru.Collections
 {
@@ -81,7 +82,7 @@ namespace Cadru.Collections
         /// </exception>
         public MultiValueDictionary(int capacity)
         {
-            Requires.IsTrue(capacity >= 0, nameof(capacity), Strings.ArgumentOutOfRange_NeedNonNegNum);
+            Requires.Argument(capacity >= 0, nameof(capacity), Strings.ArgumentOutOfRange_NeedNonNegNum);
 
             this._dictionary = new Dictionary<TKey, InnerCollectionView>(capacity);
         }
@@ -124,7 +125,7 @@ namespace Cadru.Collections
         /// </remarks>
         public MultiValueDictionary(int capacity, IEqualityComparer<TKey> comparer)
         {
-            Requires.IsTrue(capacity >= 0, nameof(capacity), Strings.ArgumentOutOfRange_NeedNonNegNum);
+            Requires.Argument(capacity >= 0, nameof(capacity), Strings.ArgumentOutOfRange_NeedNonNegNum);
 
             this._dictionary = new Dictionary<TKey, InnerCollectionView>(capacity, comparer);
         }
@@ -335,7 +336,7 @@ namespace Cadru.Collections
         public static MultiValueDictionary<TKey, TValue> Create<TValueCollection>(int capacity)
             where TValueCollection : ICollection<TValue>, new()
         {
-            Requires.IsTrue(capacity >= 0, nameof(capacity), Strings.ArgumentOutOfRange_NeedNonNegNum);
+            Requires.Argument(capacity >= 0, nameof(capacity), Strings.ArgumentOutOfRange_NeedNonNegNum);
 
             if (new TValueCollection().IsReadOnly)
             {
@@ -442,7 +443,7 @@ namespace Cadru.Collections
         public static MultiValueDictionary<TKey, TValue> Create<TValueCollection>(int capacity, IEqualityComparer<TKey> comparer)
             where TValueCollection : ICollection<TValue>, new()
         {
-            Requires.IsTrue(capacity >= 0, nameof(capacity), Strings.ArgumentOutOfRange_NeedNonNegNum);
+            Requires.Argument(capacity >= 0, nameof(capacity), Strings.ArgumentOutOfRange_NeedNonNegNum);
 
             if (new TValueCollection().IsReadOnly)
             {
@@ -668,7 +669,7 @@ namespace Cadru.Collections
         public static MultiValueDictionary<TKey, TValue> Create<TValueCollection>(int capacity, Func<TValueCollection> collectionFactory)
             where TValueCollection : ICollection<TValue>
         {
-            Requires.IsTrue(capacity >= 0, nameof(capacity), Strings.ArgumentOutOfRange_NeedNonNegNum);
+            Requires.Argument(capacity >= 0, nameof(capacity), Strings.ArgumentOutOfRange_NeedNonNegNum);
 
             if (collectionFactory().IsReadOnly)
             {
@@ -783,7 +784,7 @@ namespace Cadru.Collections
         public static MultiValueDictionary<TKey, TValue> Create<TValueCollection>(int capacity, IEqualityComparer<TKey> comparer, Func<TValueCollection> collectionFactory)
             where TValueCollection : ICollection<TValue>
         {
-            Requires.IsTrue(capacity >= 0, nameof(capacity), Strings.ArgumentOutOfRange_NeedNonNegNum);
+            Requires.Argument(capacity >= 0, nameof(capacity), Strings.ArgumentOutOfRange_NeedNonNegNum);
 
             if (collectionFactory().IsReadOnly)
             {
@@ -1031,7 +1032,7 @@ namespace Cadru.Collections
         /// </summary>
         /// <param name="key">The <typeparamref name="TKey"/> of the element.</param>
         /// <param name="value">The <typeparamref name="TValue"/> of the element.</param>
-        /// <returns><c>true</c> if found; otherwise <c>false</c></returns>
+        /// <returns><see langword="true"/> if found; otherwise <see langword="false"/></returns>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> must be non-null
         /// </exception>
@@ -1055,8 +1056,8 @@ namespace Cadru.Collections
         /// <see cref="MultiValueDictionary{TKey,TValue}"/> for
         /// </param>
         /// <returns>
-        /// <c>true</c> if the <see cref="MultiValueDictionary{TKey,TValue}"/>
-        /// contains the requested <typeparamref name="TKey"/>; otherwise <c>false</c>.
+        /// <see langword="true"/> if the <see cref="MultiValueDictionary{TKey,TValue}"/>
+        /// contains the requested <typeparamref name="TKey"/>; otherwise <see langword="false"/>.
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> must be non-null
@@ -1085,8 +1086,8 @@ namespace Cadru.Collections
         /// <see cref="MultiValueDictionary{TKey,TValue}"/> for
         /// </param>
         /// <returns>
-        /// <c>true</c> if the <see cref="MultiValueDictionary{TKey,TValue}"/>
-        /// contains the <paramref name="value"/>; otherwise <c>false</c>
+        /// <see langword="true"/> if the <see cref="MultiValueDictionary{TKey,TValue}"/>
+        /// contains the <paramref name="value"/>; otherwise <see langword="false"/>
         /// </returns>
         public bool ContainsValue(TValue value)
         {
@@ -1121,7 +1122,7 @@ namespace Cadru.Collections
         /// The <typeparamref name="TKey"/> of the elements to remove
         /// </param>
         /// <returns>
-        /// <c>true</c> if the removal was successful; otherwise <c>false</c>
+        /// <see langword="true"/> if the removal was successful; otherwise <see langword="false"/>
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is <c>null</c>.
@@ -1156,7 +1157,7 @@ namespace Cadru.Collections
         /// <paramref name="key"/> must be non-null
         /// </exception>
         /// <returns>
-        /// <c>true</c> if the removal was successful; otherwise <c>false</c>
+        /// <see langword="true"/> if the removal was successful; otherwise <see langword="false"/>
         /// </returns>
         /// <remarks>
         /// If the <typeparamref name="TValue"/> being removed is the last one
@@ -1196,9 +1197,9 @@ namespace Cadru.Collections
         /// found; otherwise contains the default value of <typeparamref name="TValue"/>.
         /// </param>
         /// <returns>
-        /// <c>true</c> if the <see cref="MultiValueDictionary{TKey,TValue}"/>
+        /// <see langword="true"/> if the <see cref="MultiValueDictionary{TKey,TValue}"/>
         /// contains an element with the specified <typeparamref name="TKey"/>;
-        /// otherwise, <c>false</c>.
+        /// otherwise, <see langword="false"/>.
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> must be non-null

@@ -28,8 +28,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 
-using Cadru.Contracts;
 using Cadru.Resources;
+
+using Validation;
 
 namespace Cadru.Extensions
 {
@@ -358,7 +359,7 @@ namespace Cadru.Extensions
         public static bool IsFlagsEnum(this TypeInfo element)
         {
             Requires.NotNull(element, nameof(element));
-            Requires.IsTrue(element.IsEnum);
+            Requires.Argument(element.IsEnum, nameof(element), Strings.ArgumentExceptionMustBeEnum);
 
             return element.GetCustomAttribute<FlagsAttribute>(inherit: false) != null;
         }

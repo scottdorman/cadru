@@ -1130,7 +1130,7 @@
             </summary>
             <param name="key">The <typeparamref name="TKey"/> of the element.</param>
             <param name="value">The <typeparamref name="TValue"/> of the element.</param>
-            <returns><c>true</c> if found; otherwise <c>false</c></returns>
+            <returns><see langword="true"/> if found; otherwise <see langword="false"/></returns>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="key"/> must be non-null
             </exception>
@@ -1146,8 +1146,8 @@
             <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> for
             </param>
             <returns>
-            <c>true</c> if the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>
-            contains the requested <typeparamref name="TKey"/>; otherwise <c>false</c>.
+            <see langword="true"/> if the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>
+            contains the requested <typeparamref name="TKey"/>; otherwise <see langword="false"/>.
             </returns>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="key"/> must be non-null
@@ -1163,8 +1163,8 @@
             <see cref="T:Cadru.Collections.MultiValueDictionary`2"/> for
             </param>
             <returns>
-            <c>true</c> if the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>
-            contains the <paramref name="value"/>; otherwise <c>false</c>
+            <see langword="true"/> if the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>
+            contains the <paramref name="value"/>; otherwise <see langword="false"/>
             </returns>
         </member>
         <member name="M:Cadru.Collections.MultiValueDictionary`2.GetEnumerator">
@@ -1186,7 +1186,7 @@
             The <typeparamref name="TKey"/> of the elements to remove
             </param>
             <returns>
-            <c>true</c> if the removal was successful; otherwise <c>false</c>
+            <see langword="true"/> if the removal was successful; otherwise <see langword="false"/>
             </returns>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="key"/> is <c>null</c>.
@@ -1208,7 +1208,7 @@
             <paramref name="key"/> must be non-null
             </exception>
             <returns>
-            <c>true</c> if the removal was successful; otherwise <c>false</c>
+            <see langword="true"/> if the removal was successful; otherwise <see langword="false"/>
             </returns>
             <remarks>
             If the <typeparamref name="TValue"/> being removed is the last one
@@ -1233,9 +1233,9 @@
             found; otherwise contains the default value of <typeparamref name="TValue"/>.
             </param>
             <returns>
-            <c>true</c> if the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>
+            <see langword="true"/> if the <see cref="T:Cadru.Collections.MultiValueDictionary`2"/>
             contains an element with the specified <typeparamref name="TKey"/>;
-            otherwise, <c>false</c>.
+            otherwise, <see langword="false"/>.
             </returns>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="key"/> must be non-null

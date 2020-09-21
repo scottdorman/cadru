@@ -24,6 +24,10 @@ using System;
 using System.Text;
 using System.Text.RegularExpressions;
 
+using Cadru.Data.Dapper.Resources;
+
+using Validation;
+
 namespace Cadru.Data.Dapper
 {
     /// <summary>
@@ -113,8 +117,8 @@ namespace Cadru.Data.Dapper
         /// <inheritdoc/>
         public virtual string QuoteIdentifier(string identifier)
         {
-            Contracts.Requires.NotNullOrWhiteSpace(identifier, nameof(identifier));
-            Contracts.Requires.IsTrue(this.IsValidIdentifier(identifier));
+            Requires.NotNullOrWhiteSpace(identifier, nameof(identifier));
+            Requires.That(this.IsValidIdentifier(identifier), nameof(identifier), Strings.InvalidIdentifier);
 
             this.ConsistentQuoteDelimiters(this.IdentifierPrefix, this.IdentifierSuffix);
             return this.BuildQuotedString(this.IdentifierPrefix, this.IdentifierSuffix, identifier);
@@ -123,7 +127,7 @@ namespace Cadru.Data.Dapper
         /// <inheritdoc/>
         public virtual string QuoteStringLiteral(string value)
         {
-            Contracts.Requires.NotNullOrWhiteSpace(value, nameof(value));
+            Requires.NotNullOrWhiteSpace(value, nameof(value));
             this.ConsistentQuoteDelimiters(this.QuotePrefix, this.QuoteSuffix);
             return this.BuildQuotedString(this.QuotePrefix, this.QuoteSuffix, value);
         }
@@ -131,7 +135,7 @@ namespace Cadru.Data.Dapper
         /// <inheritdoc/>
         public virtual string UnquoteIdentifier(string identifier)
         {
-            Contracts.Requires.NotNullOrWhiteSpace(identifier, nameof(identifier));
+            Requires.NotNullOrWhiteSpace(identifier, nameof(identifier));
 
             this.ConsistentQuoteDelimiters(this.IdentifierPrefix, this.IdentifierSuffix);
 

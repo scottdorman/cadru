@@ -22,7 +22,7 @@
 
 using System;
 
-using Cadru.Contracts;
+using Validation;
 
 namespace Cadru.Data.Annotations
 {

@@ -23,8 +23,9 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-using Cadru.Contracts;
 using Cadru.Net.Http.Collections;
+
+using Validation;
 
 namespace Cadru.Net.Http
 {

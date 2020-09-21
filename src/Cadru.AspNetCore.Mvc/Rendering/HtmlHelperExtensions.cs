@@ -30,6 +30,8 @@ using Cadru.Extensions;
 
 using Microsoft.AspNetCore.Mvc.Rendering;
 
+using Validation;
+
 namespace Cadru.AspNetCore.Mvc.Rendering
 {
     /// <summary>
@@ -60,8 +62,8 @@ namespace Cadru.AspNetCore.Mvc.Rendering
         public static IEnumerable<SelectListItem> GetEnumSelectList(this IHtmlHelper htmlHelper, Type enumType, string uiHint)
 #pragma warning restore IDE0060 // Remove unused parameter
         {
-            Contracts.Requires.NotNull(uiHint, nameof(uiHint));
-            Contracts.Requires.IsTrue(enumType.IsEnum && !enumType.IsFlagsEnum());
+            Requires.NotNull(uiHint, nameof(uiHint));
+            Requires.Argument(enumType.IsEnum && !enumType.IsFlagsEnum(), nameof(enumType), null);
 
             var selectList = new List<SelectListItem>();
             foreach (var keyValuePair in GetEnumDisplayNamesAndValues(enumType, uiHint))

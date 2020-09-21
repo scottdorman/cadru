@@ -24,9 +24,10 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
-using Cadru.Contracts;
 using Cadru.Extensions;
 using Cadru.Resources;
+
+using Validation;
 
 namespace Cadru.Internal
 {

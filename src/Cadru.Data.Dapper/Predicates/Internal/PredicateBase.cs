@@ -28,6 +28,8 @@ using Cadru.Extensions;
 
 using Dapper;
 
+using Validation;
+
 namespace Cadru.Data.Dapper.Predicates.Internal
 {
     internal abstract partial class PredicateBase : IPredicateBase
@@ -66,7 +68,7 @@ namespace Cadru.Data.Dapper.Predicates.Internal
 
         private static string GetColumnName(ICommandAdapter commandAdapter, string? prefix, string columnName, string? alias)
         {
-            Contracts.Requires.NotNullOrWhiteSpace(columnName, nameof(columnName));
+            Requires.NotNullOrWhiteSpace(columnName, nameof(columnName));
 
             var result = new StringBuilder();
             result.AppendIf(!String.IsNullOrWhiteSpace(prefix), $"{prefix}{commandAdapter.SchemaSeparator}");
@@ -82,7 +84,7 @@ namespace Cadru.Data.Dapper.Predicates.Internal
 
         private static string GetTableName(IObjectMap objectMap, string? alias)
         {
-            Contracts.Requires.NotNull(objectMap, nameof(objectMap));
+            Requires.NotNull(objectMap, nameof(objectMap));
 
             var result = new StringBuilder();
             result.Append(objectMap.FullyQualifiedObjectName);

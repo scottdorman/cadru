@@ -10,7 +10,6 @@
 
 namespace Cadru.Data.Dapper.Resources {
     using System;
-    using System.Reflection;
     
     
     /// <summary>
@@ -40,7 +39,7 @@ namespace Cadru.Data.Dapper.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Cadru.Data.Dapper.Resources.Strings", typeof(Strings).GetTypeInfo().Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Cadru.Data.Dapper.Resources.Strings", typeof(Strings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -58,6 +57,15 @@ namespace Cadru.Data.Dapper.Resources {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The identifier is not a valid SQL identifier..
+        /// </summary>
+        internal static string InvalidIdentifier {
+            get {
+                return ResourceManager.GetString("InvalidIdentifier", resourceCulture);
             }
         }
         

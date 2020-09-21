@@ -34,6 +34,8 @@ using System.Threading.Tasks;
 using Cadru.Net.NetworkInformation;
 using Cadru.Net.NetworkInformation.Interop;
 
+using Validation;
+
 namespace Cadru.Networking
 {
     /// <summary>
@@ -161,7 +163,7 @@ namespace Cadru.Networking
         /// </returns>
         public static ServerInfo GetServerInfo(string serverName)
         {
-            Contracts.Requires.NotNull(serverName, "serverName");
+            Requires.NotNull(serverName, "serverName");
 
             if (!serverName.StartsWith(@"\\", StringComparison.OrdinalIgnoreCase))
             {

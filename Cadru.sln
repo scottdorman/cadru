@@ -16,8 +16,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Core", "src\Cadru.Core\Cadru.Core.csproj", "{1DD42DA1-18DF-4F5C-AAC7-6A413DBC51EB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Contracts", "src\Cadru.Contracts\Cadru.Contracts.csproj", "{73E33E75-2E93-4826-B979-3F568712280F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Collections", "src\Cadru.Collections\Cadru.Collections.csproj", "{36348068-2746-4137-ADF3-8091F680C8F6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Data.Dapper", "src\Cadru.Data.Dapper\Cadru.Data.Dapper.csproj", "{B1DAB83B-065C-4E67-8611-8876178F63BB}"
@@ -41,8 +39,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Core.Tests", "tests\Cadru.Core.Tests\Cadru.Core.Tests.csproj", "{51A7DC24-BA12-47BD-970D-63B86F470F48}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Collections.Tests", "tests\Cadru.Collections.Tests\Cadru.Collections.Tests.csproj", "{E6B0B7D9-C152-4720-9FD2-2F0192FB572B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Contracts.Tests", "tests\Cadru.Contracts.Tests\Cadru.Contracts.Tests.csproj", "{E25F60B9-5BC8-4165-8BF3-0A16AC2E7130}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.UnitTest.Framework.Tests", "tests\Cadru.UnitTest.Framework.Tests\Cadru.UnitTest.Framework.Tests.csproj", "{5FDEAEA5-D601-4EB1-BADA-158D373E234B}"
 EndProject
@@ -78,7 +74,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.AspNetCore.Mvc.TagHel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Extensions.FileProviders.Tests", "tests\Cadru.Extensions.FileProviders.Tests\Cadru.Extensions.FileProviders.Tests.csproj", "{75623B4F-F838-41E5-8A5C-21FCBA9503DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadru.Polly.Tests", "tests\Cadru.Polly.Tests\Cadru.Polly.Tests.csproj", "{7E85B419-460B-45AA-8E8D-DEC960EBBC4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Polly.Tests", "tests\Cadru.Polly.Tests\Cadru.Polly.Tests.csproj", "{7E85B419-460B-45AA-8E8D-DEC960EBBC4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -90,10 +86,6 @@ Global
 		{1DD42DA1-18DF-4F5C-AAC7-6A413DBC51EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DD42DA1-18DF-4F5C-AAC7-6A413DBC51EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DD42DA1-18DF-4F5C-AAC7-6A413DBC51EB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73E33E75-2E93-4826-B979-3F568712280F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73E33E75-2E93-4826-B979-3F568712280F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73E33E75-2E93-4826-B979-3F568712280F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73E33E75-2E93-4826-B979-3F568712280F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{36348068-2746-4137-ADF3-8091F680C8F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{36348068-2746-4137-ADF3-8091F680C8F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36348068-2746-4137-ADF3-8091F680C8F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -142,10 +134,6 @@ Global
 		{E6B0B7D9-C152-4720-9FD2-2F0192FB572B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6B0B7D9-C152-4720-9FD2-2F0192FB572B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6B0B7D9-C152-4720-9FD2-2F0192FB572B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E25F60B9-5BC8-4165-8BF3-0A16AC2E7130}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E25F60B9-5BC8-4165-8BF3-0A16AC2E7130}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E25F60B9-5BC8-4165-8BF3-0A16AC2E7130}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E25F60B9-5BC8-4165-8BF3-0A16AC2E7130}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5FDEAEA5-D601-4EB1-BADA-158D373E234B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5FDEAEA5-D601-4EB1-BADA-158D373E234B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FDEAEA5-D601-4EB1-BADA-158D373E234B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -228,7 +216,6 @@ Global
 		{D65EA883-6347-498A-8DEB-E60EB6187A74} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
 		{51A7DC24-BA12-47BD-970D-63B86F470F48} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
 		{E6B0B7D9-C152-4720-9FD2-2F0192FB572B} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
-		{E25F60B9-5BC8-4165-8BF3-0A16AC2E7130} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
 		{5FDEAEA5-D601-4EB1-BADA-158D373E234B} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
 		{4CF19882-32E4-47B9-A6D8-4B7AB653C1B5} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}
 		{084421E4-2EA7-4F35-98E2-50228D391237} = {C5C88748-C3A2-4546-8FFB-B475ACBD1A71}

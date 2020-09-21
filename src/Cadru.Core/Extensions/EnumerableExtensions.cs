@@ -27,8 +27,9 @@ using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-using Cadru.Internal;
 using Cadru.Resources;
+
+using Validation;
 
 namespace Cadru.Extensions
 {
@@ -193,7 +194,7 @@ namespace Cadru.Extensions
         /// </returns>
         public static bool IsEmpty(this IEnumerable source)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             var empty = false;
 
@@ -439,8 +440,8 @@ namespace Cadru.Extensions
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures", Justification = "Reviewed.")]
         public static IEnumerable<IEnumerable<T>> Partition<T>(this IEnumerable<T> source, int size)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
-            Contracts.Requires.ValidRange(size < 0, nameof(size), Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Requires.NotNull(source, nameof(source));
+            Requires.Range(size > 0, nameof(size), Strings.ArgumentOutOfRange_IndexLessThanZero);
 
             T[]? array = null;
             var count = 0;
@@ -505,6 +506,25 @@ namespace Cadru.Extensions
             return current!;
         }
 
+#if NETSTANDARD2_0
+        public static IEnumerable<T> SkipLast<T>(this IEnumerable<T> source, int n)
+        {
+            var it = source.GetEnumerator();
+            bool hasRemainingItems = false;
+            var cache = new Queue<T>(n + 1);
+
+            do
+            {
+                if (hasRemainingItems = it.MoveNext())
+                {
+                    cache.Enqueue(it.Current);
+                    if (cache.Count > n)
+                        yield return cache.Dequeue();
+                }
+            } while (hasRemainingItems);
+        }
+#endif
+
         /// <summary>
         /// Returns a segment of the specified collection.
         /// </summary>
@@ -523,10 +543,10 @@ namespace Cadru.Extensions
         /// </exception>
         public static IEnumerable<T> Slice<T>(this IEnumerable<T> source, int startIndex, int endIndex)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
-            Contracts.Requires.ValidRange(startIndex > endIndex, nameof(startIndex), Strings.Argument_StartIndexGreaterThanEndIndex);
-            Contracts.Requires.ValidRange(startIndex < 0, nameof(startIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
-            Contracts.Requires.ValidRange(endIndex < 0, nameof(endIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Requires.NotNull(source, nameof(source));
+            Requires.Range(startIndex <= endIndex, nameof(startIndex), Strings.Argument_StartIndexGreaterThanEndIndex);
+            Requires.Range(startIndex >= 0, nameof(startIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Requires.Range(endIndex >= 0, nameof(endIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
 
             var index = 0;
             foreach (var item in source)

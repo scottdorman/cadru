@@ -29,6 +29,8 @@ using System.Globalization;
 using Cadru.Collections.Resources;
 using Cadru.Internal;
 
+using Validation;
+
 namespace Cadru.Collections
 {
     /// <summary>
@@ -104,7 +106,7 @@ namespace Cadru.Collections
         /// </rermarks>
         public LogicalStringComparer(CultureInfo culture)
         {
-            Contracts.Requires.NotNull(culture, nameof(culture));
+            Requires.NotNull(culture, nameof(culture));
 
             this.cultureInfo = culture;
         }
@@ -321,7 +323,7 @@ namespace Cadru.Collections
         /// <inheritdoc/>
         public int GetHashCode(object obj)
         {
-            Contracts.Requires.NotNull(obj, nameof(obj));
+            Requires.NotNull(obj, nameof(obj));
 
             if (obj is string s1)
             {
@@ -334,7 +336,7 @@ namespace Cadru.Collections
         /// <inheritdoc/>
         public int GetHashCode(string obj)
         {
-            Contracts.Requires.NotNull(obj, nameof(obj));
+            Requires.NotNull(obj, nameof(obj));
 
             return obj.GetHashCode();
         }

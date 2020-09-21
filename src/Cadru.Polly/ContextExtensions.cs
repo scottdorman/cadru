@@ -25,12 +25,12 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-using Cadru.Contracts;
-
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 using Polly;
+
+using Validation;
 
 namespace Cadru.Polly
 {

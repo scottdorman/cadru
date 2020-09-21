@@ -25,7 +25,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 using Cadru.Collections.Resources;
-using Cadru.Contracts;
+
+using Validation;
 
 namespace Cadru.Collections
 {
@@ -60,9 +61,9 @@ namespace Cadru.Collections
             public void CopyTo(TValue[] array, int arrayIndex)
             {
                 Requires.NotNull(array, nameof(array));
-                Requires.IsTrue(arrayIndex >= 0, nameof(arrayIndex), Strings.ArgumentOutOfRange_NeedNonNegNum);
-                Requires.IsTrue(arrayIndex <= array.Length, nameof(arrayIndex), Strings.ArgumentOutOfRange_Index);
-                Requires.IsTrue(array.Length - arrayIndex >= this._collection.Count, nameof(arrayIndex), Strings.CopyTo_ArgumentsTooSmall);
+                Requires.Argument(arrayIndex >= 0, nameof(arrayIndex), Strings.ArgumentOutOfRange_NeedNonNegNum);
+                Requires.Argument(arrayIndex <= array.Length, nameof(arrayIndex), Strings.ArgumentOutOfRange_Index);
+                Requires.Argument(array.Length - arrayIndex >= this._collection.Count, nameof(arrayIndex), Strings.CopyTo_ArgumentsTooSmall);
 
                 this._collection.CopyTo(array, arrayIndex);
             }

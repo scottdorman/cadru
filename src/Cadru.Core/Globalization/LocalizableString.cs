@@ -24,8 +24,9 @@ using System;
 using System.Globalization;
 using System.Reflection;
 
-using Cadru.Contracts;
 using Cadru.Resources;
+
+using Validation;
 
 namespace Cadru.Globalization
 {

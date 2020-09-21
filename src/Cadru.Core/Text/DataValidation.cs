@@ -24,6 +24,8 @@ using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
+using Validation;
+
 namespace Cadru.Text
 {
     /// <summary>
@@ -66,7 +68,7 @@ namespace Cadru.Text
         /// </remarks>
         public static bool IsAlpha(this string expression)
         {
-            Contracts.Requires.NotNull(expression, nameof(expression));
+            Requires.NotNull(expression, nameof(expression));
 
             var success = true;
 
@@ -117,7 +119,7 @@ namespace Cadru.Text
         /// </remarks>
         public static bool IsAlphanumeric(this string expression)
         {
-            Contracts.Requires.NotNull(expression, nameof(expression));
+            Requires.NotNull(expression, nameof(expression));
 
             var success = true;
 
@@ -420,7 +422,7 @@ namespace Cadru.Text
         /// <remarks>Alphabetic characters are any letters A-Z or a-z.</remarks>
         public static bool IsStrictlyAlpha(this string expression)
         {
-            Contracts.Requires.NotNull(expression, nameof(expression));
+            Requires.NotNull(expression, nameof(expression));
 
             var success = true;
 
@@ -471,7 +473,7 @@ namespace Cadru.Text
         /// </remarks>
         public static bool IsStrictlyAlphanumeric(this string expression)
         {
-            Contracts.Requires.NotNull(expression, nameof(expression));
+            Requires.NotNull(expression, nameof(expression));
 
             var success = true;
 

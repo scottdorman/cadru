@@ -57,10 +57,7 @@ namespace Cadru.Extensions
         /// The resulting <see cref="DateTimeOffset"/> is less than
         /// <see cref="DateTimeOffset.MinValue"/> or greater than <see cref="DateTimeOffset.MaxValue"/>.
         /// </exception>
-        public static DateTimeOffset AddQuarters(this DateTimeOffset date, double value)
-        {
-            return date.AddMonths(checked((int)value * 3));
-        }
+        public static DateTimeOffset AddQuarters(this DateTimeOffset date, double value) => date.AddMonths(checked((int)value * 3));
 
         /// <summary>
         /// Returns a new <see cref="DateTimeOffset"/> that adds the specified
@@ -114,10 +111,7 @@ namespace Cadru.Extensions
         /// The resulting <see cref="DateTimeOffset"/> is less than
         /// <see cref="DateTimeOffset.MinValue"/> or greater than <see cref="DateTimeOffset.MaxValue"/>.
         /// </exception>
-        public static DateTimeOffset AddWeeks(this DateTimeOffset date, double value)
-        {
-            return date.AddDays(value * 7);
-        }
+        public static DateTimeOffset AddWeeks(this DateTimeOffset date, double value) => date.AddDays(value * 7);
 
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether the
@@ -131,10 +125,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the current instance is between
         /// <paramref name="start"/> and <paramref name="end"/>; otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool Between(this DateTimeOffset date, DateTimeOffset start, DateTimeOffset end)
-        {
-            return Between(date, start, end, true);
-        }
+        public static bool Between(this DateTimeOffset date, DateTimeOffset start, DateTimeOffset end) => Between(date, start, end, true);
 
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether the
@@ -167,10 +158,7 @@ namespace Cadru.Extensions
         /// <returns>
         /// The number of days in the month for the date represented by this instance.
         /// </returns>
-        public static int DaysInMonth(this DateTimeOffset date)
-        {
-            return DateTime.DaysInMonth(date.Year, date.Month);
-        }
+        public static int DaysInMonth(this DateTimeOffset date) => DateTime.DaysInMonth(date.Year, date.Month);
 
         /// <summary>
         /// Returns the elapsed time between the date represented by this
@@ -181,10 +169,7 @@ namespace Cadru.Extensions
         /// A <see cref="TimeSpan"/> representing the elapsed time between the
         /// date represented by this instance and the current date and time.
         /// </returns>
-        public static TimeSpan Elapsed(this DateTimeOffset date)
-        {
-            return date.Elapsed(DateTimeOffset.Now);
-        }
+        public static TimeSpan Elapsed(this DateTimeOffset date) => date.Elapsed(DateTimeOffset.Now);
 
         /// <summary>
         /// Returns the elapsed time between the date represented by this
@@ -196,10 +181,7 @@ namespace Cadru.Extensions
         /// A <see cref="TimeSpan"/> representing the elapsed time between the
         /// date represented by this instance and the current date and time.
         /// </returns>
-        public static TimeSpan Elapsed(this DateTimeOffset date, DateTimeOffset startDate)
-        {
-            return startDate - date;
-        }
+        public static TimeSpan Elapsed(this DateTimeOffset date, DateTimeOffset startDate) => startDate - date;
 
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> representing the first day of
@@ -210,11 +192,7 @@ namespace Cadru.Extensions
         /// A <see cref="DateTimeOffset"/> representing the first day of the
         /// month for the date represented by this instance.
         /// </returns>
-        public static DateTimeOffset FirstDayOfMonth(this DateTimeOffset date)
-        {
-            var firstDate = new DateTimeOffset(date.Year, date.Month, 1, date.Hour, date.Minute, date.Second, date.Offset);
-            return firstDate;
-        }
+        public static DateTimeOffset FirstDayOfMonth(this DateTimeOffset date) => new DateTimeOffset(date.Year, date.Month, 1, date.Hour, date.Minute, date.Second, date.Offset);
 
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> which represents the first
@@ -225,10 +203,7 @@ namespace Cadru.Extensions
         /// A <see cref="DateTimeOffset"/> which represents the first day of the
         /// next quarter of the date represented by this instance.
         /// </returns>
-        public static DateTimeOffset FirstDayOfNextQuarter(this DateTimeOffset date)
-        {
-            return date.FirstDayOfQuarter().AddMonths(3);
-        }
+        public static DateTimeOffset FirstDayOfNextQuarter(this DateTimeOffset date) => date.FirstDayOfQuarter().AddMonths(3);
 
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> which represents the first
@@ -239,10 +214,7 @@ namespace Cadru.Extensions
         /// A <see cref="DateTimeOffset"/> which represents the first day of the
         /// quarter of the date represented by this instance.
         /// </returns>
-        public static DateTimeOffset FirstDayOfQuarter(this DateTimeOffset date)
-        {
-            return new DateTimeOffset(date.Year, ((date.Quarter() - 1) * 3) + 1, 1, date.Hour, date.Minute, date.Second, date.Offset);
-        }
+        public static DateTimeOffset FirstDayOfQuarter(this DateTimeOffset date) => new DateTimeOffset(date.Year, ((date.Quarter() - 1) * 3) + 1, 1, date.Hour, date.Minute, date.Second, date.Offset);
 
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> which represents the first
@@ -253,10 +225,7 @@ namespace Cadru.Extensions
         /// A <see cref="DateTimeOffset"/> which represents the first day of the
         /// week of the date represented by this instance.
         /// </returns>
-        public static DateTimeOffset FirstDayOfWeek(this DateTimeOffset date)
-        {
-            return date.FirstDayOfWeek(DateTimeFormatInfo.CurrentInfo.FirstDayOfWeek);
-        }
+        public static DateTimeOffset FirstDayOfWeek(this DateTimeOffset date) => date.FirstDayOfWeek(DateTimeFormatInfo.CurrentInfo.FirstDayOfWeek);
 
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> which represents the first
@@ -290,10 +259,7 @@ namespace Cadru.Extensions
         /// A <see cref="DateTimeOffset"/> representing the first day of the
         /// year for the date represented by this instance.
         /// </returns>
-        public static DateTimeOffset FirstDayOfYear(this DateTimeOffset date)
-        {
-            return new DateTimeOffset(date.Year, 1, 1, date.Hour, date.Minute, date.Second, date.Offset);
-        }
+        public static DateTimeOffset FirstDayOfYear(this DateTimeOffset date) => new DateTimeOffset(date.Year, 1, 1, date.Hour, date.Minute, date.Second, date.Offset);
 
         /// <summary>
         /// Returns the culture-specific abbreviated name of the month
@@ -304,10 +270,7 @@ namespace Cadru.Extensions
         /// The culture-specific abbreviated name of the month represented by
         /// this instance.
         /// </returns>
-        public static string GetAbbreviatedMonthName(this DateTimeOffset date)
-        {
-            return DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month);
-        }
+        public static string GetAbbreviatedMonthName(this DateTimeOffset date) => DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month);
 
         /// <summary>
         /// Returns the culture-specific abbreviated names of the months.
@@ -316,10 +279,7 @@ namespace Cadru.Extensions
         /// A list that contains the culture-specific abbreviated names of the months.
         /// </returns>
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "This is an extension method.")]
-        public static IList<string> GetAbbreviatedMonthNames()
-        {
-            return CultureInfo.CurrentCulture.DateTimeFormat.AbbreviatedMonthNames.Where(m => !String.IsNullOrEmpty(m)).ToList();
-        }
+        public static IEnumerable<string> GetAbbreviatedMonthNames() => CultureInfo.CurrentCulture.DateTimeFormat.AbbreviatedMonthNames.Where(m => !String.IsNullOrEmpty(m));
 
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> representing the day of the
@@ -334,10 +294,7 @@ namespace Cadru.Extensions
         /// A <see cref="DateTimeOffset"/> representing the day of the week from
         /// the date represented by this instance.
         /// </returns>
-        public static DateTimeOffset GetDayOfWeek(this DateTimeOffset date, DayOfWeek day)
-        {
-            return date.GetDayOfWeek(day, DateTimeFormatInfo.CurrentInfo.FirstDayOfWeek);
-        }
+        public static DateTimeOffset GetDayOfWeek(this DateTimeOffset date, DayOfWeek day) => date.GetDayOfWeek(day, DateTimeFormatInfo.CurrentInfo.FirstDayOfWeek);
 
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> representing the day of the
@@ -357,8 +314,8 @@ namespace Cadru.Extensions
         /// </returns>
         public static DateTimeOffset GetDayOfWeek(this DateTimeOffset date, DayOfWeek day, DayOfWeek startOfWeek)
         {
-            var current = DaysBetween(date.DayOfWeek, startOfWeek);
-            var resultday = DaysBetween(day, startOfWeek);
+            var current = DateTimeExtensions.DaysBetween(date.DayOfWeek, startOfWeek);
+            var resultday = DateTimeExtensions.DaysBetween(day, startOfWeek);
             return date.AddDays(resultday - current);
         }
 
@@ -369,10 +326,7 @@ namespace Cadru.Extensions
         /// <returns>
         /// The culture-specific name of the month represented by this instance.
         /// </returns>
-        public static string GetMonthName(this DateTimeOffset date)
-        {
-            return DateTimeFormatInfo.CurrentInfo.GetMonthName(date.Month);
-        }
+        public static string GetMonthName(this DateTimeOffset date) => DateTimeFormatInfo.CurrentInfo.GetMonthName(date.Month);
 
         /// <summary>
         /// Returns the culture-specific names of the months.
@@ -381,10 +335,7 @@ namespace Cadru.Extensions
         /// A list that contains the culture-specific names of the months.
         /// </returns>
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "This is an extension method.")]
-        public static IList<string> GetMonthNames()
-        {
-            return CultureInfo.CurrentCulture.DateTimeFormat.MonthNames.Where(m => !String.IsNullOrEmpty(m)).ToList();
-        }
+        public static IEnumerable<string> GetMonthNames() => CultureInfo.CurrentCulture.DateTimeFormat.MonthNames.Where(m => !String.IsNullOrEmpty(m));
 
         /// <summary>
         /// Returns the month number for the given month name.
@@ -409,10 +360,7 @@ namespace Cadru.Extensions
         /// A positive integer that represents the week of the year that
         /// includes the date in the <paramref name="time"/> parameter.
         /// </returns>
-        public static int GetWeekOfYear(this DateTimeOffset time)
-        {
-            return GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek);
-        }
+        public static int GetWeekOfYear(this DateTimeOffset time) => GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek);
 
         /// <summary>
         /// Returns the week of the year that includes the date in the specified
@@ -426,10 +374,7 @@ namespace Cadru.Extensions
         /// A positive integer that represents the week of the year that
         /// includes the date in the <paramref name="time"/> parameter.
         /// </returns>
-        public static int GetWeekOfYear(this DateTimeOffset time, CalendarWeekRule rule)
-        {
-            return GetWeekOfYear(time, rule, CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek);
-        }
+        public static int GetWeekOfYear(this DateTimeOffset time, CalendarWeekRule rule) => GetWeekOfYear(time, rule, CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek);
 
         /// <summary>
         /// Returns the week of the year that includes the date in the specified
@@ -446,10 +391,7 @@ namespace Cadru.Extensions
         /// A positive integer that represents the week of the year that
         /// includes the date in the <paramref name="time"/> parameter.
         /// </returns>
-        public static int GetWeekOfYear(this DateTimeOffset time, CalendarWeekRule rule, DayOfWeek firstDayOfWeek)
-        {
-            return CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(time.DateTime, rule, firstDayOfWeek);
-        }
+        public static int GetWeekOfYear(this DateTimeOffset time, CalendarWeekRule rule, DayOfWeek firstDayOfWeek) => CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(time.DateTime, rule, firstDayOfWeek);
 
         /// <summary>
         /// Determines whether the specified date is a leap day.
@@ -459,10 +401,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the specified date is a leap day;
         /// otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool IsLeapDay(this DateTimeOffset date)
-        {
-            return CultureInfo.CurrentCulture.Calendar.IsLeapDay(date.Year, date.Month, date.Day);
-        }
+        public static bool IsLeapDay(this DateTimeOffset date) => CultureInfo.CurrentCulture.Calendar.IsLeapDay(date.Year, date.Month, date.Day);
 
         /// <summary>
         /// Determines whether the specified date is a leap month.
@@ -472,10 +411,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the specified date is a leap month;
         /// otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool IsLeapMonth(this DateTimeOffset date)
-        {
-            return CultureInfo.CurrentCulture.Calendar.IsLeapMonth(date.Year, date.Month);
-        }
+        public static bool IsLeapMonth(this DateTimeOffset date) => CultureInfo.CurrentCulture.Calendar.IsLeapMonth(date.Year, date.Month);
 
         /// <summary>
         /// Determines whether the specified date is a leap year.
@@ -485,10 +421,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the specified date is a leap year;
         /// otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool IsLeapYear(this DateTimeOffset date)
-        {
-            return DateTime.IsLeapYear(date.Year);
-        }
+        public static bool IsLeapYear(this DateTimeOffset date) => DateTime.IsLeapYear(date.Year);
 
         /// <summary>
         /// Determines whether he specified date is a UTC date.
@@ -511,10 +444,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the specified date is a week day;
         /// otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool IsWeekday(this DateTimeOffset date)
-        {
-            return !date.IsWeekend();
-        }
+        public static bool IsWeekday(this DateTimeOffset date) => !date.IsWeekend();
 
         /// <summary>
         /// Determines whether the specified date is a weekend.
@@ -524,10 +454,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the specified date is a weekend;
         /// otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool IsWeekend(this DateTimeOffset date)
-        {
-            return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
-        }
+        public static bool IsWeekend(this DateTimeOffset date) => date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
 
         /// <summary>
         /// Return a <see cref="DateTimeOffset"/> representing the previous day
@@ -557,10 +484,7 @@ namespace Cadru.Extensions
         /// A <see cref="DateTimeOffset"/> representing the last day of the
         /// month for the date represented by this instance.
         /// </returns>
-        public static DateTimeOffset LastDayOfMonth(this DateTimeOffset date)
-        {
-            return new DateTimeOffset(date.Year, date.Month, date.DaysInMonth(), date.Hour, date.Minute, date.Second, date.Offset);
-        }
+        public static DateTimeOffset LastDayOfMonth(this DateTimeOffset date) => new DateTimeOffset(date.Year, date.Month, date.DaysInMonth(), date.Hour, date.Minute, date.Second, date.Offset);
 
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> which represents the last day
@@ -571,10 +495,7 @@ namespace Cadru.Extensions
         /// A <see cref="DateTimeOffset"/> which represents the last day of the
         /// quarter of the date represented by this instance.
         /// </returns>
-        public static DateTimeOffset LastDayOfQuarter(this DateTimeOffset date)
-        {
-            return date.FirstDayOfNextQuarter().AddDays(-1);
-        }
+        public static DateTimeOffset LastDayOfQuarter(this DateTimeOffset date) => date.FirstDayOfNextQuarter().AddDays(-1);
 
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> which represents the last day
@@ -585,10 +506,7 @@ namespace Cadru.Extensions
         /// A <see cref="DateTimeOffset"/> which represents the last day of the
         /// week of the date represented by this instance.
         /// </returns>
-        public static DateTimeOffset LastDayOfWeek(this DateTimeOffset date)
-        {
-            return date.LastDayOfWeek(DateTimeFormatInfo.CurrentInfo.FirstDayOfWeek);
-        }
+        public static DateTimeOffset LastDayOfWeek(this DateTimeOffset date) => date.LastDayOfWeek(DateTimeFormatInfo.CurrentInfo.FirstDayOfWeek);
 
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> which represents the last day
@@ -602,10 +520,7 @@ namespace Cadru.Extensions
         /// A <see cref="DateTimeOffset"/> which represents the last day of the
         /// week of the date represented by this instance.
         /// </returns>
-        public static DateTimeOffset LastDayOfWeek(this DateTimeOffset date, DayOfWeek firstDayOfWeek)
-        {
-            return date.FirstDayOfWeek(firstDayOfWeek).AddDays(6);
-        }
+        public static DateTimeOffset LastDayOfWeek(this DateTimeOffset date, DayOfWeek firstDayOfWeek) => date.FirstDayOfWeek(firstDayOfWeek).AddDays(6);
 
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> representing the last day of
@@ -616,10 +531,7 @@ namespace Cadru.Extensions
         /// A <see cref="DateTimeOffset"/> representing the last day of the year
         /// for the date represented by this instance.
         /// </returns>
-        public static DateTimeOffset LastDayOfYear(this DateTimeOffset date)
-        {
-            return new DateTimeOffset(date.Year, 12, 31, date.Hour, date.Minute, date.Second, date.Offset);
-        }
+        public static DateTimeOffset LastDayOfYear(this DateTimeOffset date) => new DateTimeOffset(date.Year, 12, 31, date.Hour, date.Minute, date.Second, date.Offset);
 
         /// <summary>
         /// Return a <see cref="DateTimeOffset"/> representing the next day of
@@ -647,10 +559,7 @@ namespace Cadru.Extensions
         /// <returns>
         /// The quarter component of the date represented by this instance.
         /// </returns>
-        public static int Quarter(this DateTimeOffset date)
-        {
-            return ((date.Month - 1) / 3) + 1;
-        }
+        public static int Quarter(this DateTimeOffset date) => ((date.Month - 1) / 3) + 1;
 
         /// <summary>
         /// Returns a <see cref="DateTimeOffset"/> representing the day after
@@ -661,10 +570,7 @@ namespace Cadru.Extensions
         /// A <see cref="DateTimeOffset"/> representing the day after the date
         /// represented by this instance.
         /// </returns>
-        public static DateTimeOffset Tomorrow(this DateTimeOffset value)
-        {
-            return value.AddDays(1);
-        }
+        public static DateTimeOffset Tomorrow(this DateTimeOffset value) => value.AddDays(1);
 
         /// <summary>
         /// Convert a <see cref="DateTimeOffset"/> object to a relative date
@@ -674,10 +580,7 @@ namespace Cadru.Extensions
         /// The <see cref="DateTimeOffset"/> object to convert.
         /// </param>
         /// <returns>A relative date/time formatted string.</returns>
-        public static string ToRelativeDateString(this DateTimeOffset value)
-        {
-            return ToRelativeDateString(value, RelativeDateFormatting.DayNames);
-        }
+        public static string ToRelativeDateString(this DateTimeOffset value) => ToRelativeDateString(value, RelativeDateFormatting.DayNames);
 
         /// <summary>
         /// Convert a <see cref="DateTimeOffset"/> object to a relative date
@@ -692,44 +595,19 @@ namespace Cadru.Extensions
         /// <returns>A relative date/time formatted string.</returns>
         public static string ToRelativeDateString(this DateTimeOffset value, RelativeDateFormatting options)
         {
-            var diff = value.Date - DateTimeOffset.Now.Date;
-            var days = diff.Days;
-            string format;
+            var days = (value.Date - DateTime.Now.Date).Days;
 
-            switch (days)
+            return days switch
             {
-                case 0:
-                    format = String.Format(CultureInfo.CurrentCulture, Strings.RelativeDateFormatStringToday, value);
-                    break;
-
-                case 1:
-                    format = Strings.RelativeDateFormatStringTomorrow;
-                    break;
-
-                case -1:
-                    format = Strings.RelativeDateFormatStringYesterday;
-                    break;
-
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                    format = options == RelativeDateFormatting.DayNames ? value.ToString("dddd", CultureInfo.CurrentCulture) : String.Format(CultureInfo.CurrentCulture, Strings.RelativeDateFormatStringDaysFromNow, days);
-                    break;
-
-                case -2:
-                case -3:
-                case -4:
-                case -5:
-                    format = options == RelativeDateFormatting.DayNames ? value.ToString("dddd", CultureInfo.CurrentCulture) : String.Format(CultureInfo.CurrentCulture, Strings.RelativeDateFormatStringDaysAgo, Math.Abs(days));
-                    break;
-
-                default:
-                    format = String.Format(CultureInfo.CurrentCulture, Strings.RelativeDateFormatStringDefault, value);
-                    break;
-            }
-
-            return format;
+                0 => String.Format(CultureInfo.CurrentCulture, Strings.RelativeDateFormatStringToday, value),
+                1 => Strings.RelativeDateFormatStringTomorrow,
+                -1 => Strings.RelativeDateFormatStringYesterday,
+                _ when days >= 2 && days <= 5 && options == RelativeDateFormatting.DayNames => value.ToString("dddd", CultureInfo.CurrentCulture),
+                _ when days >= 2 && days <= 5 => String.Format(CultureInfo.CurrentCulture, Strings.RelativeDateFormatStringDaysFromNow, days),
+                _ when days <= -2 && days >= -5 && options == RelativeDateFormatting.DayNames => value.ToString("dddd", CultureInfo.CurrentCulture),
+                _ when days <= -2 && days >= -5 => String.Format(CultureInfo.CurrentCulture, Strings.RelativeDateFormatStringDaysAgo, Math.Abs(days)),
+                _ => String.Format(CultureInfo.CurrentCulture, Strings.RelativeDateFormatStringDefault, value)
+            };
         }
 
         /// <summary>
@@ -740,10 +618,7 @@ namespace Cadru.Extensions
         /// The <see cref="DateTimeOffset"/> object to convert.
         /// </param>
         /// <returns>A relative date/time formatted string.</returns>
-        public static string ToRelativeTimeString(this DateTimeOffset value)
-        {
-            return ToRelativeTimeString(value, DateTimeOffset.Now);
-        }
+        public static string ToRelativeTimeString(this DateTimeOffset value) => ToRelativeTimeString(value, DateTimeOffset.Now);
 
         /// <summary>
         /// Convert a <see cref="DateTimeOffset"/> object to a relative time
@@ -765,6 +640,7 @@ namespace Cadru.Extensions
             if (Math.Sign(delta) != 0)
             {
                 var baseFormat = Strings.RelativeTimeFormatStringPast;
+
                 if (delta < -0.1)
                 {
                     baseFormat = Strings.RelativeTimeFormatStringFuture;
@@ -772,44 +648,23 @@ namespace Cadru.Extensions
                     diff = -diff;
                 }
 
-                if (delta < Constants.SecondsPerMinute)
+                var months = Convert.ToInt32(Math.Floor(diff.Days / 30d));
+                var years = Convert.ToInt32(Math.Floor(diff.Days / 365d));
+
+                format = delta switch
                 {
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Seconds, diff.Seconds == 1 ? Strings.RelativeTimeFormatStringSecond : Strings.RelativeTimeFormatStringSeconds);
-                }
-                else if (delta < Constants.SecondsPerMinute * 2)
-                {
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Minutes, Strings.RelativeTimeFormatStringMinute);
-                }
-                else if (delta < Constants.SecondsPerHour)
-                {
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Minutes, Strings.RelativeTimeFormatStringMinutes);
-                }
-                else if (delta < Constants.SecondsPerHour * 2)
-                {
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Hours, Strings.RelativeTimeFormatStringHour);
-                }
-                else if (delta < Constants.SecondsPerDay)
-                {
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Hours, Strings.RelativeTimeFormatStringHours);
-                }
-                else if (delta < Constants.SecondsPerDay * 2)
-                {
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Days, Strings.RelativeTimeFormatStringDay);
-                }
-                else if (delta < Constants.ApproximateSecondsPerMonth)
-                {
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Days, Strings.RelativeTimeFormatStringDays);
-                }
-                else if (delta < Constants.ApproximateSecondsPerYear)
-                {
-                    var months = Convert.ToInt32(Math.Floor((double)diff.Days / 30));
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, months, months <= 1 ? Strings.RelativeTimeFormatStringMonth : Strings.RelativeTimeFormatStringMonths);
-                }
-                else
-                {
-                    var years = Convert.ToInt32(Math.Floor((double)diff.Days / 365));
-                    format = String.Format(CultureInfo.CurrentCulture, baseFormat, years, years <= 1 ? Strings.RelativeTimeFormatStringYear : Strings.RelativeTimeFormatStringYears);
-                }
+                    _ when delta < Constants.SecondsPerMinute && diff.Seconds == 1 => String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Seconds, Strings.RelativeTimeFormatStringSecond),
+                    _ when delta < Constants.SecondsPerMinute => String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Seconds, Strings.RelativeTimeFormatStringSeconds),
+                    _ when delta < Constants.SecondsPerMinute * 2 => String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Minutes, Strings.RelativeTimeFormatStringMinute),
+                    _ when delta < Constants.SecondsPerHour => String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Minutes, Strings.RelativeTimeFormatStringMinutes),
+                    _ when delta < Constants.SecondsPerHour * 2 => String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Hours, Strings.RelativeTimeFormatStringHour),
+                    _ when delta < Constants.SecondsPerDay => String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Hours, Strings.RelativeTimeFormatStringHours),
+                    _ when delta < Constants.SecondsPerDay * 2 => String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Days, Strings.RelativeTimeFormatStringDay),
+                    _ when delta < Constants.ApproximateSecondsPerMonth => String.Format(CultureInfo.CurrentCulture, baseFormat, diff.Days, Strings.RelativeTimeFormatStringDays),
+                    _ when delta < Constants.ApproximateSecondsPerYear && months <= 1 => String.Format(CultureInfo.CurrentCulture, baseFormat, months, Strings.RelativeTimeFormatStringMonth),
+                    _ when delta < Constants.ApproximateSecondsPerYear => String.Format(CultureInfo.CurrentCulture, baseFormat, months, Strings.RelativeTimeFormatStringMonths),
+                    _ => String.Format(CultureInfo.CurrentCulture, baseFormat, years, years <= 1 ? Strings.RelativeTimeFormatStringYear : Strings.RelativeTimeFormatStringYears)
+                };
             }
 
             return format;
@@ -824,15 +679,6 @@ namespace Cadru.Extensions
         /// A <see cref="DateTimeOffset"/> representing the day before the date
         /// represented by this instance.
         /// </returns>
-        public static DateTimeOffset Yesterday(this DateTimeOffset value)
-        {
-            return value.AddDays(-1);
-        }
-
-        private static int DaysBetween(DayOfWeek current, DayOfWeek firstDayOfWeek)
-        {
-            var days = current - firstDayOfWeek;
-            return days < 0 ? days + 7 : days;
-        }
+        public static DateTimeOffset Yesterday(this DateTimeOffset value) => value.AddDays(-1);
     }
 }

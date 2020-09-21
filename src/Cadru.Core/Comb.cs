@@ -29,6 +29,8 @@ using Cadru.Extensions;
 using Cadru.Internal;
 using Cadru.Resources;
 
+using Validation;
+
 namespace Cadru
 {
     /// <summary>
@@ -98,8 +100,8 @@ namespace Cadru
         public Comb(byte[] array)
             : this()
         {
-            Contracts.Requires.NotNull(array, nameof(array));
-            Contracts.Requires.IsTrue(array.Length == 16);
+            Requires.NotNull(array, nameof(array));
+            Requires.That(array.Length == 16, nameof(array), Strings.Arg_CombArrayCtor, 16);
 
             this.a = (array[0] << 24) | (array[1] << 16) | (array[2] << 8) | array[3];
             this.b = (short)((array[4] << 8) | array[5]);
@@ -131,8 +133,8 @@ namespace Cadru
         public Comb(int a, short b, short c, byte[] d)
              : this()
         {
-            Contracts.Requires.NotNull(d, nameof(d));
-            Contracts.Requires.IsTrue(d.Length == 8);
+            Requires.NotNull(d, nameof(d));
+            Requires.That(d.Length == 8, nameof(d), Strings.Arg_CombArrayCtor, 8);
 
             this.a = a;
             this.b = b;
@@ -219,7 +221,7 @@ namespace Cadru
         [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         public Comb(string value)
         {
-            Contracts.Requires.NotNullOrEmpty(value, nameof(value));
+            Requires.NotNullOrEmpty(value, nameof(value));
 
             if (!new CombParser(value).Parse(out var guid))
             {
@@ -484,7 +486,7 @@ namespace Cadru
         /// </remarks>
         public static Comb Parse(string input)
         {
-            Contracts.Requires.NotNull(input, nameof(input));
+            Requires.NotNull(input, nameof(input));
 
             if (!TryParse(input, out var guid))
             {
@@ -564,8 +566,8 @@ namespace Cadru
         /// </remarks>
         public static Comb ParseExact(string input, string format)
         {
-            Contracts.Requires.NotNull(input, nameof(input));
-            Contracts.Requires.NotNull(format, nameof(format));
+            Requires.NotNull(input, nameof(input));
+            Requires.NotNull(format, nameof(format));
 
             if (!TryParseExact(input, format, out var guid))
             {

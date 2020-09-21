@@ -6,22 +6,21 @@
     <Description>Provides common extensions and new APIs for the .NET Framework.</Description>
     <PackageTags>$(CommonPackageTags)</PackageTags>
     <RootNamespace>Cadru</RootNamespace>
+    <UserSecretsId>6dcc4dab-1e7d-4092-a279-fe2dc5baf189</UserSecretsId>
   </PropertyGroup>
-  <ItemGroup>
-    <Compile Remove="Caching.cs" />
-  </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="1.1.1" />
     <PackageReference Include="System.Collections.Specialized" Version="4.3.0" />
     <PackageReference Include="System.ComponentModel" Version="4.3.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
     <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0" />
     <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
+    <PackageReference Include="Validation" Version="2.4.22" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Cadru.Contracts\Cadru.Contracts.csproj" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Nullable" Version="1.3.0" PrivateAssets="all"/>
+    <PackageReference Include="System.Memory" Version="4.5.4" />
   </ItemGroup>
 
   <ItemGroup>

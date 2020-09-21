@@ -26,6 +26,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Text;
 
+using Validation;
+
 namespace Cadru.Extensions
 {
     /// <summary>
@@ -48,7 +50,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendAsHexadecimal(this StringBuilder source, int value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             source.Append(ToHex((value >> 28) & 0xf));
             source.Append(ToHex((value >> 24) & 0xf));
@@ -77,7 +79,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendAsHexadecimal(this StringBuilder source, short value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             source.Append(ToHex((value >> 12) & 0xf));
             source.Append(ToHex((value >> 8) & 0xf));
@@ -102,7 +104,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendAsHexadecimal(this StringBuilder source, byte value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             source.Append(ToHex((value >> 4) & 0xf));
             source.Append(ToHex(value & 0xf));
@@ -125,8 +127,8 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendAsHexadecimal(this StringBuilder source, params byte[] values)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
-            Contracts.Requires.NotNull(values, nameof(values));
+            Requires.NotNull(source, nameof(source));
+            Requires.NotNull(values, nameof(values));
 
             foreach (var value in values)
             {
@@ -223,7 +225,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendFormatIf(this StringBuilder source, bool condition, IFormatProvider provider, string format, params object[] args)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -308,7 +310,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendFormatLine(this StringBuilder source, IFormatProvider provider, string format, params object[] args)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             return source.AppendLine(String.Format(provider, format, args));
         }
@@ -356,7 +358,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendFormatLineIf(this StringBuilder source, bool condition, string format, params object[] args)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -406,7 +408,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendFormatLineIf(this StringBuilder source, bool condition, IFormatProvider provider, string format, params object[] args)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -441,7 +443,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, bool value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -470,7 +472,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, byte value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -499,7 +501,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, char value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -528,7 +530,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, char[] value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -558,7 +560,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, double value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -588,7 +590,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, float value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -617,7 +619,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, int value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -646,7 +648,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, long value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -675,7 +677,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, object value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -704,7 +706,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, sbyte value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -733,7 +735,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, short value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -762,7 +764,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, string value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -791,7 +793,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, uint value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -820,7 +822,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, ulong value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -849,7 +851,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, ushort value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -883,7 +885,7 @@ namespace Cadru.Extensions
         /// <exception cref="System.OutOfMemoryException">Out of memory.</exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, char value, int repeatCount)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -929,7 +931,7 @@ namespace Cadru.Extensions
         [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, char[] value, int startIndex, int charCount)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -977,7 +979,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendIf(this StringBuilder source, bool condition, string value, int startIndex, int count)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -1011,7 +1013,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendLineIf(this StringBuilder source, bool condition)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -1041,7 +1043,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendLineIf(this StringBuilder source, bool condition, string value)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {
@@ -1065,7 +1067,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendLines(this StringBuilder source, IEnumerable<string> values)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
             foreach (var value in values)
             {
                 source.AppendLine(value);
@@ -1094,7 +1096,7 @@ namespace Cadru.Extensions
         /// </exception>
         public static StringBuilder AppendLinesIf(this StringBuilder source, bool condition, IEnumerable<string> values)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             if (condition)
             {

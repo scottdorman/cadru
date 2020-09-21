@@ -79,11 +79,11 @@ namespace Cadru.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Byte array for GUID must be exactly {0} bytes long..
+        ///   Looks up a localized string similar to Byte array for COMB must be exactly {0} bytes long..
         /// </summary>
-        internal static string Arg_GuidArrayCtor {
+        internal static string Arg_CombArrayCtor {
             get {
-                return ResourceManager.GetString("Arg_GuidArrayCtor", resourceCulture);
+                return ResourceManager.GetString("Arg_CombArrayCtor", resourceCulture);
             }
         }
         

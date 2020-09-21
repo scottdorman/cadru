@@ -24,7 +24,7 @@ using System;
 using System.Diagnostics;
 using System.Text;
 
-using Cadru.Contracts;
+using Validation;
 
 namespace Cadru.Diagnostics
 {

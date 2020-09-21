@@ -26,6 +26,8 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 
+using Validation;
+
 namespace Cadru.Net.NetworkInformation.Collections
 {
     /// <summary>
@@ -50,8 +52,8 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// <inheritdoc/>
         public int Compare(IPAddress x, IPAddress y)
         {
-            Contracts.Requires.NotNull(x, "x");
-            Contracts.Requires.NotNull(y, "y");
+            Requires.NotNull(x, "x");
+            Requires.NotNull(y, "y");
 
             int result;
 
@@ -115,8 +117,8 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// <remarks>The strings should be a valid date time format.</remarks>
         public int Compare(string x, string y)
         {
-            Contracts.Requires.NotNull(x, "x");
-            Contracts.Requires.NotNull(y, "y");
+            Requires.NotNull(x, "x");
+            Requires.NotNull(y, "y");
 
 
             if (!IPAddress.TryParse(x, out var t1))
@@ -187,7 +189,7 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// <inheritdoc/>
         public int GetHashCode(IPAddress obj)
         {
-            Contracts.Requires.NotNull(obj, "obj");
+            Requires.NotNull(obj, "obj");
 
             return obj.GetHashCode();
         }
@@ -195,7 +197,7 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// <inheritdoc/>
         public int GetHashCode(object obj)
         {
-            Contracts.Requires.NotNull(obj, "obj");
+            Requires.NotNull(obj, "obj");
 
             int hashCode;
 
@@ -229,7 +231,7 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// <inheritdoc/>
         public int GetHashCode(string obj)
         {
-            Contracts.Requires.NotNull(obj, "obj");
+            Requires.NotNull(obj, "obj");
 
             int hashCode;
 

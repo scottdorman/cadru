@@ -24,12 +24,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using Cadru.Contracts;
 using Cadru.Polly.Resources;
 
 using Microsoft.Extensions.Options;
 
 using Polly;
+
+using Validation;
 
 namespace Cadru.Polly.Data
 {

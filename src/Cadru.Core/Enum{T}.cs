@@ -29,6 +29,9 @@ using System.Linq;
 using System.Reflection;
 
 using Cadru.Extensions;
+using Cadru.Resources;
+
+using Validation;
 
 namespace Cadru
 {
@@ -154,8 +157,8 @@ namespace Cadru
         public static IEnumerable<string?> GetDescriptions(bool useNameAsFallback)
         {
             var type = typeof(TEnum).GetTypeInfo();
+            Requires.Argument(type.IsEnum, null, Strings.ArgumentExceptionMustBeEnum);
 
-            Contracts.Requires.IsTrue(type.IsEnum);
             var fields = type.DeclaredFields.Where(f => !f.IsSpecialName);
             var descriptions = new List<string?>();
 

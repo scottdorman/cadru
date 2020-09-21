@@ -26,6 +26,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 
+using Cadru.Resources;
+
+using Validation;
+
 namespace Cadru.Extensions
 {
     /// <summary>
@@ -95,7 +99,9 @@ namespace Cadru.Extensions
         /// </remarks>
         public static string? GetDescription(this Enum value, bool useNameAsFallback)
         {
-            Contracts.Requires.IsEnum(value, nameof(value));
+            Requires.NotNull(value, nameof(value));
+            Requires.That(value.GetType().IsEnum, nameof(value), Strings.ArgumentExceptionMustBeEnum);
+
             var fieldInfo = value.GetType().GetTypeInfo().GetDeclaredField(value.ToString());
             return fieldInfo.GetDescription(useNameAsFallback);
         }

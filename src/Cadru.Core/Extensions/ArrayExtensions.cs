@@ -24,6 +24,8 @@ using System;
 using System.Globalization;
 using System.Text;
 
+using Validation;
+
 namespace Cadru.Extensions
 {
     /// <summary>
@@ -38,7 +40,7 @@ namespace Cadru.Extensions
         /// <returns>The binary string representation of the array</returns>
         public static string BytesToBinaryString(this byte[] source)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             var buffer = new StringBuilder(source.Length * 8);
             foreach (var b in source)
@@ -56,7 +58,7 @@ namespace Cadru.Extensions
         /// <returns>The hexadecimal string representation of the array</returns>
         public static string BytesToString(this byte[] source)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             var buffer = new StringBuilder(source.Length * 8);
             buffer.AppendAsHexadecimal(source);
@@ -86,7 +88,7 @@ namespace Cadru.Extensions
         /// <returns>The reversed array.</returns>
         public static byte[] ReverseArray(this byte[] source)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             var length = source.Length;
             var result = new byte[length];
@@ -108,7 +110,7 @@ namespace Cadru.Extensions
         /// </remarks>
         public static void ReverseArrayInPlace(this byte[] source)
         {
-            Contracts.Requires.NotNull(source, nameof(source));
+            Requires.NotNull(source, nameof(source));
 
             var length = source.Length;
             for (var i = 0; i < (length >> 1); i++)

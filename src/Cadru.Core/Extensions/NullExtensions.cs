@@ -22,7 +22,7 @@
 
 using System;
 
-using Cadru.Internal;
+using Validation;
 
 namespace Cadru.Extensions
 {

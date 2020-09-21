@@ -240,8 +240,8 @@
   <data name="ArgumentOutOfRange_Range" xml:space="preserve">
     <value>Valid values are between {0} and {1}.</value>
   </data>
-  <data name="Arg_GuidArrayCtor" xml:space="preserve">
-    <value>Byte array for GUID must be exactly {0} bytes long.</value>
+  <data name="Arg_CombArrayCtor" xml:space="preserve">
+    <value>Byte array for COMB must be exactly {0} bytes long.</value>
   </data>
   <data name="Format_GuidBrace" xml:space="preserve">
     <value>Expected {0xdddddddd, etc}.</value>

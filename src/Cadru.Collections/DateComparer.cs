@@ -30,6 +30,8 @@ using Cadru.Collections.Resources;
 using Cadru.Extensions;
 using Cadru.Internal;
 
+using Validation;
+
 namespace Cadru.Collections
 {
     /// <summary>
@@ -81,7 +83,7 @@ namespace Cadru.Collections
         /// </rermarks>
         public DateComparer(CultureInfo culture)
         {
-            Contracts.Requires.NotNull(culture, nameof(culture));
+            Requires.NotNull(culture, nameof(culture));
 
             this.cultureInfo = culture;
         }
@@ -248,7 +250,7 @@ namespace Cadru.Collections
         /// <inheritdoc/>
         public int GetHashCode(object obj)
         {
-            Contracts.Requires.NotNull(obj, nameof(obj));
+            Requires.NotNull(obj, nameof(obj));
 
             int hashCode;
 
@@ -283,7 +285,7 @@ namespace Cadru.Collections
         /// <inheritdoc/>
         public int GetHashCode(string obj)
         {
-            Contracts.Requires.NotNull(obj, nameof(obj));
+            Requires.NotNull(obj, nameof(obj));
 
             int hashCode;
 

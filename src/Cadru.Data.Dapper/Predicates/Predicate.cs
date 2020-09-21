@@ -24,9 +24,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-using Cadru.Contracts;
 using Cadru.Data.Dapper.Internal;
 using Cadru.Data.Dapper.Predicates.Internal;
+
+using Validation;
 
 namespace Cadru.Data.Dapper.Predicates
 {

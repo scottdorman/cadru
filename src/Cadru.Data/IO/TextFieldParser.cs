@@ -31,9 +31,10 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-using Cadru.Contracts;
 using Cadru.Data.Resources;
 using Cadru.Extensions;
+
+using Validation;
 
 namespace Cadru.Data.IO
 {
@@ -392,7 +393,7 @@ namespace Cadru.Data.IO
         /// </remarks>
         public string? PeekChars(int numberOfChars)
         {
-            Requires.IsTrue(numberOfChars > 0, nameof(numberOfChars), String.Format(Strings.TextFieldParser_NumberOfCharsMustBePositive, "numberOfChars"));
+            Requires.That(numberOfChars > 0, nameof(numberOfChars), String.Format(Strings.TextFieldParser_NumberOfCharsMustBePositive, "numberOfChars"));
 
             if (this.reader is null || this.buffer is null || this.endOfData)
             {
@@ -503,7 +504,7 @@ namespace Cadru.Data.IO
         /// <param name="tokens">A list of the comment tokens</param>
         public void SetCommentTokens(params string[] tokens)
         {
-            Requires.ValidElements(tokens, t => !this.whiteSpaceRegEx.IsMatch(t), nameof(tokens), String.Format(Strings.TextFieldParser_DelimitersNothing, "tokens"));
+            Requires.That(tokens.Any(t => !this.whiteSpaceRegEx.IsMatch(t)), nameof(tokens), String.Format(Strings.TextFieldParser_DelimitersNothing, "tokens"));
 
             this.commentTokens = tokens;
             this.needPropertyCheck = true;
@@ -515,8 +516,8 @@ namespace Cadru.Data.IO
         /// <param name="delimiters">A list of the delimiters</param>
         public void SetDelimiters(params string[] delimiters)
         {
-            Requires.ValidElements(delimiters, d => !String.IsNullOrWhiteSpace(d), nameof(delimiters), String.Format(Strings.TextFieldParser_DelimitersNothing, "delimiters"));
-            Requires.ValidElements(delimiters, d => d.IndexOfAny(new char[] { '\r', '\n' }) <= 0, nameof(delimiters), String.Format(Strings.TextFieldParser_DelimitersNothing, "delimiters"));
+            Requires.That(delimiters.Any(d => !String.IsNullOrWhiteSpace(d)), nameof(delimiters), Strings.TextFieldParser_DelimitersNothing, "delimiters");
+            Requires.That(delimiters.Any(d => d.IndexOfAny(new char[] { '\r', '\n' }) <= 0), nameof(delimiters), String.Format(Strings.TextFieldParser_DelimitersNothing, "delimiters"));
 
             this.delimiters = delimiters;
             this.needPropertyCheck = true;
@@ -530,11 +531,12 @@ namespace Cadru.Data.IO
         /// <param name="fieldWidths">A list of field widths</param>
         public void SetFieldWidths(params int[] fieldWidths)
         {
-#if NETSTANDARD2_0
-            Requires.ValidElements(fieldWidths.AsSpan().Slice(0, fieldWidths.Length - 1).ToArray(), fw => fw >= 0, nameof(fieldWidths), String.Format(Strings.TextFieldParser_FieldWidthsMustPositive, "fieldWidths"));
-#else
-            Requires.ValidElements(fieldWidths[0..^1], fw => fw >= 0, nameof(fieldWidths), String.Format(Strings.TextFieldParser_FieldWidthsMustPositive, "fieldWidths"));
-#endif
+            Requires.NotNullOrEmpty(fieldWidths, nameof(fieldWidths));
+            static bool predicate(int fw) => fw >= 0;
+            if (fieldWidths.SkipLast(1).Any(x => !predicate(x)))
+            {
+                throw new ArgumentException(Strings.TextFieldParser_FieldWidthsMustPositive, nameof(fieldWidths));
+            }
 
             this.fieldWidths = fieldWidths;
             this.needPropertyCheck = true;
@@ -810,7 +812,7 @@ namespace Cadru.Data.IO
         private void InitializeFromStream(Stream stream, Encoding defaultEncoding, bool detectEncoding)
         {
             Requires.NotNull(stream, nameof(stream));
-            Requires.IsTrue(stream.CanRead, nameof(stream), String.Format(Strings.TextFieldParser_StreamNotReadable, "stream"));
+            Requires.That(stream.CanRead, nameof(stream), String.Format(Strings.TextFieldParser_StreamNotReadable, "stream"));
             Requires.NotNull(defaultEncoding, nameof(defaultEncoding));
 
             this.reader = new StreamReader(stream, defaultEncoding, detectEncoding);
@@ -1229,7 +1231,7 @@ namespace Cadru.Data.IO
         /// <remarks></remarks>
         private void ValidateFieldWidths()
         {
-            Requires.IsTrue(this.fieldWidths != null && this.FieldWidths.Any(), nameof(this.fieldWidths));
+            Verify.Operation(this.fieldWidths != null && this.FieldWidths.Any(), Strings.TextFieldParser_FieldWidthsNothing);
 
             var length = 0;
 #if NETSTANDARD2_0

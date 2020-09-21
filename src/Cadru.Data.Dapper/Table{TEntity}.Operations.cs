@@ -23,10 +23,11 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-using Cadru.Contracts;
 using Cadru.Data.Dapper.Predicates;
 
 using Dapper;
+
+using Validation;
 
 namespace Cadru.Data.Dapper
 {

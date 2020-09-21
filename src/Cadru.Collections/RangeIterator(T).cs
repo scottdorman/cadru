@@ -25,7 +25,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
-using Cadru.Contracts;
+using Validation;
 
 namespace Cadru.Collections
 {
