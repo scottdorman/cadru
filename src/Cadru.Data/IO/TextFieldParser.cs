@@ -1236,7 +1236,7 @@ namespace Cadru.Data.IO
             var length = 0;
 #if NETSTANDARD2_0
             var lastIndex = this.fieldWidths!.Length - 1;
-            foreach (var fw in this.fieldWidths!.AsSpan().Slice(0, lastIndex))
+            foreach (var fw in this.fieldWidths.AsSpan().Slice(0, lastIndex))
             {
                 Debug.Assert(fw > 0, "Bad field width, this should have been caught on input");
                 length += fw;

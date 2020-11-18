@@ -48,4 +48,8 @@ projects from the command-line or the IDE. -->
   <ItemGroup>
     <None Include="$(SolutionDir)\Cadru.licenseheader" Link="Cadru.licenseheader" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Validation" Version="2.5.5-beta" PrivateAssets="all" /> 
+  </ItemGroup>
 </Project>

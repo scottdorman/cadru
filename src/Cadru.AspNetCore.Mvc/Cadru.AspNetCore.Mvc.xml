@@ -533,7 +533,9 @@
             <param name="uiHint">The value of a <see cref="T:System.ComponentModel.DataAnnotations.UIHintAttribute"/> used to filter the enumeration.</param>
             <returns></returns>
         </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute">
+    </members>
+</doc>
+System.Diagnostics.CodeAnalysis.AllowNullAttribute">
             <summary>
                 Specifies that <see langword="null"/> is allowed as an input even if the
                 corresponding type disallows it.

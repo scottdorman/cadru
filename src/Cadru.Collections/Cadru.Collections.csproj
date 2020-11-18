@@ -10,7 +10,6 @@
   <ItemGroup>
     <PackageReference Include="System.ComponentModel" Version="4.3.0" />
     <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
-    <PackageReference Include="Validation" Version="2.4.22" />
   </ItemGroup>
 
   <ItemGroup>

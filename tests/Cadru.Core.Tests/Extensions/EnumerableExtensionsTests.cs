@@ -125,12 +125,12 @@ namespace Cadru.Core.Extensions.Tests
         public void Slice()
         {
             var test = new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            CollectionAssert.AreEqual(new[] { 0, 1, 2, 3 }, test.Slice(0, 3).ToArray());
+            CollectionAssert.AreEqual(new[] { 0, 1, 2 }, test.Slice(0, 3).ToArray());
             CollectionAssert.AreEqual(new[] { 4, 5, 6, 7, 8, 9 }, test.Slice(4, 9).ToArray());
             CollectionAssert.AreEqual(new[] { 9 }, test.Slice(9, 9).ToArray());
 
             var test2 = new[] { 'a', 'b', 'c', 'd' };
-            CollectionAssert.AreEqual(new[] { 'a', 'b', 'c', 'd' }, test2.Slice(0, 3).ToArray());
+            CollectionAssert.AreEqual(new[] { 'a', 'b', 'c' }, test2.Slice(0, 3).ToArray());
             CollectionAssert.AreEqual(new[] { 'b', 'c' }, test2.Slice(1, 2).ToArray());
         }
 

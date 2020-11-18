@@ -175,7 +175,7 @@ namespace Cadru.Collections
         /// </returns>
         public IEnumerator<T> GetEnumerator()
         {
-            Requires.NotNull(this.enumerator, "enumerator");
+            Requires.NotNullAllowStructs(this.enumerator, "enumerator");
             return this.enumerator!.GetEnumerator();
         }
 

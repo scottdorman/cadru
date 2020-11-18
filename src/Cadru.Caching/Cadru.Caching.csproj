@@ -8,8 +8,4 @@
     <PackageTags>$(CommonPackageTags) cache caching keys</PackageTags>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Validation" Version="2.4.22" />
-  </ItemGroup>
-
 </Project>

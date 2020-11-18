@@ -15,7 +15,6 @@
  <ItemGroup>
     <PackageReference Include="System.Diagnostics.FileVersionInfo" Version="4.3.0" />
     <PackageReference Include="System.IO.FileSystem.AccessControl" Version="4.7.0" />
-     <PackageReference Include="Validation" Version="2.4.22" />
 </ItemGroup>
 
 </Project>
