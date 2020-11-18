@@ -507,19 +507,29 @@ namespace Cadru.Extensions
         }
 
 #if NETSTANDARD2_0
-        public static IEnumerable<T> SkipLast<T>(this IEnumerable<T> source, int n)
+        /// <summary>
+        /// Returns a new enumerable collection that contains the elements from source with the last count elements of the source collection omitted.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements in the enumerable collection.</typeparam>
+        /// <param name="source">An enumerable collection instance.</param>
+        /// <param name="count">The number of elements to omit from the end of the collection.</param>
+        /// <returns>A new enumerable collection that contains the elements from source minus count elements from the end of the collection.</returns>
+        public static IEnumerable<T> SkipLast<T>(this IEnumerable<T> source, int count)
         {
             var it = source.GetEnumerator();
-            bool hasRemainingItems = false;
-            var cache = new Queue<T>(n + 1);
+            bool hasRemainingItems;
+            var cache = new Queue<T>(count + 1);
 
             do
             {
-                if (hasRemainingItems = it.MoveNext())
+                hasRemainingItems = it.MoveNext();
+                if (hasRemainingItems)
                 {
                     cache.Enqueue(it.Current);
-                    if (cache.Count > n)
+                    if (cache.Count > count)
+                    {
                         yield return cache.Dequeue();
+                    }
                 }
             } while (hasRemainingItems);
         }
@@ -532,31 +542,25 @@ namespace Cadru.Extensions
         /// <param name="source">
         /// A collection that contains the objects to segment.
         /// </param>
-        /// <param name="startIndex">The starting index of the collection.</param>
-        /// <param name="endIndex">The ending index of the collection.</param>
+        /// <param name="start">The index at which to begin this slice.</param>
+        /// <param name="count">The desired length for the slice.</param>
         /// <returns>
         /// A new <see cref="IEnumerable{T}"/> containing the segment of the
         /// specified collection.
         /// </returns>
         /// <exception cref="System.ArgumentException">
-        /// <paramref name="startIndex"/> must be less than or equal to <paramref name="endIndex"/>.
+        /// <paramref name="start"/> must be less than or equal to <paramref name="count"/>.
         /// </exception>
-        public static IEnumerable<T> Slice<T>(this IEnumerable<T> source, int startIndex, int endIndex)
+        public static IEnumerable<T> Slice<T>(this IEnumerable<T> source, int start, int count)
         {
             Requires.NotNull(source, nameof(source));
-            Requires.Range(startIndex <= endIndex, nameof(startIndex), Strings.Argument_StartIndexGreaterThanEndIndex);
-            Requires.Range(startIndex >= 0, nameof(startIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
-            Requires.Range(endIndex >= 0, nameof(endIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Requires.Range(start <= count, nameof(start), Strings.Argument_StartIndexGreaterThanEndIndex);
+            Requires.Range(start >= 0, nameof(start), Strings.ArgumentOutOfRange_IndexLessThanZero);
+            Requires.Range(count >= 0, nameof(count), Strings.ArgumentOutOfRange_IndexLessThanZero);
 
-            var index = 0;
-            foreach (var item in source)
+            foreach (var item in source.Skip(start).Take(count))
             {
-                if (index >= startIndex && index <= endIndex)
-                {
-                    yield return item;
-                }
-
-                ++index;
+                yield return item;
             }
         }
 
