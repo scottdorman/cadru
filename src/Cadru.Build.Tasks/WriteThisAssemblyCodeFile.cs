@@ -258,9 +258,7 @@ namespace Cadru.Build.Tasks
                 {
                     for (var i = 0; i < entry.Value.Count; i += 2)
                     {
-                        name = (string)entry.Value.ElementAt(i).Value;
-                        var expressionValue = entry.Value.ElementAt(i + 1).Value;
-                        codeTypeMembers.Add(CreateConstant(name, expressionValue, new CodeTypeReference(typeof(string))));
+                        codeTypeMembers.Add(CreateConstant((string)entry.Value.ElementAt(i + 1).Value, entry.Value.ElementAt(i).Value, new CodeTypeReference(typeof(string))));
                     }
                 }
 
