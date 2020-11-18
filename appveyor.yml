@@ -19,7 +19,7 @@ version: $(majorminor).{build}
 branches:
   # whitelist
   only:
-    - v4.6
+    - master
 
   # blacklist
   except:
