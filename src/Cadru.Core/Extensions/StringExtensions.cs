@@ -52,7 +52,7 @@ namespace Cadru.Extensions
         /// characters to a single white space character.
         /// </para>
         /// </remarks>
-        public static string Clean(this string? source) => Clean(source, NormalizationOptions.All);
+        public static string Clean(this string source) => Clean(source, NormalizationOptions.All);
 
         /// <summary>
         /// Returns a new string whose textual value is the normalized form of <paramref name="source"/>.
@@ -62,7 +62,7 @@ namespace Cadru.Extensions
         /// One of the <see cref="NormalizationOptions"/> values.
         /// </param>
         /// <returns>A new, normalized string.</returns>
-        public static string Clean(this string? source, NormalizationOptions options)
+        public static string Clean(this string source, NormalizationOptions options)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -145,7 +145,7 @@ namespace Cadru.Extensions
         /// occurs within this string, or if <paramref name="value"/> is the
         /// empty string (""); otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool Contains(this string? source, string value, StringComparison comparisonType)
+        public static bool Contains(this string source, string value, StringComparison comparisonType)
         {
             Requires.NotNull(source, nameof(source));
             Requires.NotNull(value, nameof(value));
@@ -163,7 +163,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the end of this string instance matches
         /// any of the specified strings; otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool EndsWithAny(this string? source, IEnumerable<string> values) => source.EndsWithAny(values, StringComparison.CurrentCulture);
+        public static bool EndsWithAny(this string source, IEnumerable<string> values) => source.EndsWithAny(values, StringComparison.CurrentCulture);
 
         /// <summary>
         /// Determines whether the end of this string instance matches any of
@@ -178,7 +178,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the end of this string instance matches
         /// any of the specified strings; otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool EndsWithAny(this string? source, IEnumerable<string> values, StringComparison comparisonType)
+        public static bool EndsWithAny(this string source, IEnumerable<string> values, StringComparison comparisonType)
         {
             Requires.NotNull(source, nameof(source));
             Requires.NotNullOrEmpty(values, nameof(values));
@@ -204,7 +204,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the string instance is equal to any of the
         /// specified strings; otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool EqualsAny(this string? source, IEnumerable<string> values) => source.EqualsAny(values, StringComparison.CurrentCulture);
+        public static bool EqualsAny(this string source, IEnumerable<string> values) => source.EqualsAny(values, StringComparison.CurrentCulture);
 
         /// <summary>
         /// Determines whether this string instance is equal to any of the
@@ -219,7 +219,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the string instance is equal to any of the
         /// specified strings; otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool EqualsAny(this string? source, IEnumerable<string> values, StringComparison comparisonType)
+        public static bool EqualsAny(this string source, IEnumerable<string> values, StringComparison comparisonType)
         {
             Requires.NotNull(source, nameof(source));
             Requires.NotNullOrEmpty(values, nameof(values));
@@ -271,7 +271,7 @@ namespace Cadru.Extensions
         /// <para>-or-</para>
         /// <para><paramref name="value"/> is <see langword="null"/>.</para>
         /// </exception>
-        public static int IndexOfOccurrence(this string? source, char value, int occurrence)
+        public static int IndexOfOccurrence(this string source, char value, int occurrence)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -296,7 +296,7 @@ namespace Cadru.Extensions
         /// <para><paramref name="value"/> is <see langword="null"/>.</para>
         /// </exception>
         [SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.IndexOfOccurrence(System.String,System.String,System.Int32,System.Int32)", Justification = "This ultimately calls an overload which provides the comparison.")]
-        public static int IndexOfOccurrence(this string? source, string value, int occurrence)
+        public static int IndexOfOccurrence(this string source, string value, int occurrence)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -321,7 +321,7 @@ namespace Cadru.Extensions
         /// <para>-or-</para>
         /// <para><paramref name="value"/> is <see langword="null"/>.</para>
         /// </exception>
-        public static int IndexOfOccurrence(this string? source, char value, int startIndex, int occurrence)
+        public static int IndexOfOccurrence(this string source, char value, int startIndex, int occurrence)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -346,7 +346,7 @@ namespace Cadru.Extensions
         /// <para>-or-</para>
         /// <para><paramref name="value"/> is <see langword="null"/>.</para>
         /// </exception>
-        public static int IndexOfOccurrence(this string? source, string value, int startIndex, int occurrence)
+        public static int IndexOfOccurrence(this string source, string value, int startIndex, int occurrence)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -377,7 +377,7 @@ namespace Cadru.Extensions
         /// <paramref name="comparisonType"/> is not a valid
         /// <see cref="System.StringComparison"/> System.StringComparison value.
         /// </exception>
-        public static int IndexOfOccurrence(this string? source, string value, int occurrence, StringComparison comparisonType)
+        public static int IndexOfOccurrence(this string source, string value, int occurrence, StringComparison comparisonType)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -403,7 +403,7 @@ namespace Cadru.Extensions
         /// <para>-or-</para>
         /// <para><paramref name="value"/> is <see langword="null"/>.</para>
         /// </exception>
-        public static int IndexOfOccurrence(this string? source, char value, int startIndex, int count, int occurrence)
+        public static int IndexOfOccurrence(this string source, char value, int startIndex, int count, int occurrence)
         {
             Requires.NotNull(source, nameof(source));
             Requires.Range(startIndex >= 0, nameof(startIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
@@ -447,7 +447,7 @@ namespace Cadru.Extensions
         /// <para><paramref name="value"/> is <see langword="null"/>.</para>
         /// </exception>
         [SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.IndexOfOccurrence(System.String,System.String,System.Int32,System.Int32,System.Int32)", Justification = "This ultimately calls an overload which provides the comparison.")]
-        public static int IndexOfOccurrence(this string? source, string value, int startIndex, int count, int occurrence)
+        public static int IndexOfOccurrence(this string source, string value, int startIndex, int count, int occurrence)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -475,7 +475,7 @@ namespace Cadru.Extensions
         /// <para>-or-</para>
         /// <para><paramref name="value"/> is <see langword="null"/>.</para>
         /// </exception>
-        public static int IndexOfOccurrence(this string? source, string value, int startIndex, int occurrence, StringComparison comparisonType)
+        public static int IndexOfOccurrence(this string source, string value, int startIndex, int occurrence, StringComparison comparisonType)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -504,7 +504,7 @@ namespace Cadru.Extensions
         /// <para>-or-</para>
         /// <para><paramref name="value"/> is <see langword="null"/>.</para>
         /// </exception>
-        public static int IndexOfOccurrence(this string? source, string value, int startIndex, int count, int occurrence, StringComparison comparisonType)
+        public static int IndexOfOccurrence(this string source, string value, int startIndex, int count, int occurrence, StringComparison comparisonType)
         {
             Requires.NotNull(source, nameof(source));
             Requires.Range(startIndex >= 0, nameof(startIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
@@ -630,7 +630,7 @@ namespace Cadru.Extensions
         /// The last character in the string of the null character ('\0') if the
         /// string has a zero length.
         /// </returns>
-        public static char LastCharacter(this string? source)
+        public static char LastCharacter(this string source)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -655,7 +655,7 @@ namespace Cadru.Extensions
         /// <paramref name="source"/>, or the entire string if
         /// <paramref name="value"/> is not found in the string.
         /// </returns>
-        public static string LeftSubstring(this string? source, char value) => LeftSubstring(source, value, 1);
+        public static string LeftSubstring(this string source, char value) => LeftSubstring(source, value, 1);
 
         /// <summary>
         /// Retrieves a substring from <paramref name="source"/>. The substring
@@ -670,7 +670,7 @@ namespace Cadru.Extensions
         /// <paramref name="source"/>, or the entire string if
         /// <paramref name="value"/> is not found in the string.
         /// </returns>
-        public static string LeftSubstring(this string? source, char value, int occurrence)
+        public static string LeftSubstring(this string source, char value, int occurrence)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -706,7 +706,7 @@ namespace Cadru.Extensions
         /// <exception cref="ArgumentOutOfRangeException">
         /// <paramref name="endingIndex"/> is less than zero.
         /// </exception>
-        public static string LeftSubstring(this string? source, int endingIndex) => LeftSubstring(source, endingIndex, true);
+        public static string LeftSubstring(this string source, int endingIndex) => LeftSubstring(source, endingIndex, true);
 
         /// <summary>
         /// Retrieves a substring from <paramref name="source"/>. The substring
@@ -723,7 +723,7 @@ namespace Cadru.Extensions
         /// the entire string if <paramref name="endingIndex"/> is not found in
         /// the string.
         /// </returns>
-        public static string LeftSubstring(this string? source, int endingIndex, bool inclusive)
+        public static string LeftSubstring(this string source, int endingIndex, bool inclusive)
         {
             Requires.NotNull(source, nameof(source));
             Requires.Range(endingIndex > 0, nameof(endingIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
@@ -750,7 +750,7 @@ namespace Cadru.Extensions
         /// <paramref name="value"/> is not found in the string.
         /// </returns>
         [SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.LeftSubstring(System.String,System.String,System.Int32)", Justification = "Reviewed.")]
-        public static string LeftSubstring(this string? source, string value) => LeftSubstring(source, value, 1);
+        public static string LeftSubstring(this string source, string value) => LeftSubstring(source, value, 1);
 
         /// <summary>
         /// Retrieves a substring from <paramref name="source"/>. The substring
@@ -765,7 +765,7 @@ namespace Cadru.Extensions
         /// <paramref name="source"/>, or the entire string if
         /// <paramref name="value"/> is not found in the string.
         /// </returns>
-        public static string LeftSubstring(this string? source, string value, int occurrence) => LeftSubstring(source, value, occurrence, StringComparison.Ordinal);
+        public static string LeftSubstring(this string source, string value, int occurrence) => LeftSubstring(source, value, occurrence, StringComparison.Ordinal);
 
         /// <summary>
         /// Retrieves a substring from <paramref name="source"/>. The substring
@@ -783,7 +783,7 @@ namespace Cadru.Extensions
         /// <paramref name="source"/>, or the entire string if
         /// <paramref name="value"/> is not found in the string.
         /// </returns>
-        public static string LeftSubstring(this string? source, string value, int occurrence, StringComparison comparisonType)
+        public static string LeftSubstring(this string source, string value, int occurrence, StringComparison comparisonType)
         {
             Requires.NotNull(source, nameof(source));
             Requires.NotNull(value, nameof(value));
@@ -818,7 +818,7 @@ namespace Cadru.Extensions
         /// is greater than the minimum value but less than the maximum value;
         /// otherwise it returns <see langword="false"/>.
         /// </returns>
-        public static bool LengthBetween(this string? source, int minimum, int maximum) => LengthBetween(source, minimum, maximum, NumericComparisonOptions.IncludeBoth);
+        public static bool LengthBetween(this string source, int minimum, int maximum) => LengthBetween(source, minimum, maximum, NumericComparisonOptions.IncludeBoth);
 
         /// <summary>
         /// Returns a <see cref="Boolean"/> expression indicating whether the
@@ -837,7 +837,7 @@ namespace Cadru.Extensions
         /// is greater than the minimum value but less than the maximum value;
         /// otherwise it returns <see langword="false"/>.
         /// </returns>
-        public static bool LengthBetween(this string? source, int minimum, int maximum, NumericComparisonOptions options)
+        public static bool LengthBetween(this string source, int minimum, int maximum, NumericComparisonOptions options)
         {
             Requires.NotNull(source, nameof(source));
             var length = source.Length;
@@ -861,7 +861,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the length of <paramref name="source"/> is
         /// greater than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LengthGreaterThan(this string? source, int minimum)
+        public static bool LengthGreaterThan(this string source, int minimum)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -879,7 +879,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the length of <paramref name="source"/> is
         /// greater than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LengthGreaterThanOrEqualTo(this string? source, int minimum)
+        public static bool LengthGreaterThanOrEqualTo(this string source, int minimum)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -896,7 +896,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the length of <paramref name="source"/> is
         /// less than the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LengthLessThan(this string? source, int maximum)
+        public static bool LengthLessThan(this string source, int maximum)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -914,7 +914,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the length of <paramref name="source"/> is
         /// less than or equal to the minimum indicated; otherwise <see langword="false"/>.
         /// </returns>
-        public static bool LengthLessThanOrEqualTo(this string? source, int maximum)
+        public static bool LengthLessThanOrEqualTo(this string source, int maximum)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -947,7 +947,7 @@ namespace Cadru.Extensions
         /// <see langword="null"/>, <see cref="String.Empty"/>, or consists only
         /// of white-space characters; otherwise, <paramref name="value"/>.
         /// </returns>
-        public static string? NullIfWhiteSpace(this string? value) => String.IsNullOrWhiteSpace(value) ? null : value;
+        public static string? NullIfWhiteSpace(this string value) => String.IsNullOrWhiteSpace(value) ? null : value;
 
         /// <summary>
         /// Returns the number of times <paramref name="value"/> appears in <paramref name="source"/>.
@@ -959,7 +959,7 @@ namespace Cadru.Extensions
         /// <paramref name="source"/> or 0 if <paramref name="value"/> is not
         /// found in the string.
         /// </returns>
-        public static int OccurrencesOf(this string? source, char value)
+        public static int OccurrencesOf(this string source, char value)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -985,7 +985,7 @@ namespace Cadru.Extensions
         /// <paramref name="source"/> or 0 if <paramref name="value"/> is not
         /// found in the string.
         /// </returns>
-        public static int OccurrencesOf(this string? source, string value)
+        public static int OccurrencesOf(this string source, string value)
         {
             return OccurrencesOf(source, value, StringComparison.Ordinal);
         }
@@ -1003,7 +1003,7 @@ namespace Cadru.Extensions
         /// <paramref name="source"/> or 0 if <paramref name="value"/> is not
         /// found in the string.
         /// </returns>
-        public static int OccurrencesOf(this string? source, string value, StringComparison comparisonType)
+        public static int OccurrencesOf(this string source, string value, StringComparison comparisonType)
         {
             Requires.NotNull(source, nameof(source));
             Requires.NotNull(value, nameof(value));
@@ -1039,7 +1039,7 @@ namespace Cadru.Extensions
         /// A new string representing <paramref name="source"/> with all of the
         /// whitespace characters removed.
         /// </returns>
-        public static string RemoveWhiteSpace(this string? source)
+        public static string RemoveWhiteSpace(this string source)
         {
             Requires.NotNull(source, nameof(source));
             var position = 0;
@@ -1071,7 +1071,7 @@ namespace Cadru.Extensions
         /// <returns>
         /// A new string where <paramref name="oldValue"/> has been replaced by <paramref name="newValue"/>.
         /// </returns>
-        public static string ReplaceOccurrences(this string? source, char oldValue, char newValue, int occurrences)
+        public static string ReplaceOccurrences(this string source, char oldValue, char newValue, int occurrences)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -1106,7 +1106,7 @@ namespace Cadru.Extensions
         /// <returns>
         /// A new string where <paramref name="oldValue"/> has been replaced by <paramref name="newValue"/>.
         /// </returns>
-        public static string ReplaceOccurrences(this string? source, string oldValue, string newValue, int occurrences) => ReplaceOccurrences(source, oldValue, newValue, occurrences, StringComparison.Ordinal);
+        public static string ReplaceOccurrences(this string source, string oldValue, string newValue, int occurrences) => ReplaceOccurrences(source, oldValue, newValue, occurrences, StringComparison.Ordinal);
 
         /// <summary>
         /// Returns a new string where <paramref name="oldValue"/> has been
@@ -1124,7 +1124,7 @@ namespace Cadru.Extensions
         /// <returns>
         /// A new string where <paramref name="oldValue"/> has been replaced by <paramref name="newValue"/>.
         /// </returns>
-        public static string ReplaceOccurrences(this string? source, string oldValue, string newValue, int occurrences, StringComparison comparisonType)
+        public static string ReplaceOccurrences(this string source, string oldValue, string newValue, int occurrences, StringComparison comparisonType)
         {
             Requires.NotNull(source, nameof(source));
             Requires.NotNull(oldValue, nameof(oldValue));
@@ -1179,7 +1179,7 @@ namespace Cadru.Extensions
         /// A new string where the text between <paramref name="start"/> and
         /// <parameref name="end"/> has been replaced by <paramref name="newValue"/>.
         /// </returns>
-        public static string ReplaceBetween(this string? source, char start, char end, string newValue) => ReplaceBetween(source, start, end, newValue, false);
+        public static string ReplaceBetween(this string source, char start, char end, string newValue) => ReplaceBetween(source, start, end, newValue, false);
 
         /// <summary>
         /// Returns a new string where the text between <paramref name="start"/>
@@ -1196,7 +1196,7 @@ namespace Cadru.Extensions
         /// A new string where the text between <paramref name="start"/> and
         /// <parameref name="end"/> has been replaced by <paramref name="newValue"/>.
         /// </returns>
-        public static string ReplaceBetween(this string? source, char start, char end, string newValue, bool inclusive)
+        public static string ReplaceBetween(this string source, char start, char end, string newValue, bool inclusive)
         {
             Requires.NotNull(source, nameof(source));
             Requires.NotNull(newValue, nameof(newValue));
@@ -1242,7 +1242,7 @@ namespace Cadru.Extensions
         /// A new string where the text between <paramref name="start"/> and
         /// <parameref name="end"/> has been replaced by <paramref name="newValue"/>.
         /// </returns>
-        public static string ReplaceBetween(this string? source, int start, int end, string newValue) => ReplaceBetween(source, start, end, newValue, false);
+        public static string ReplaceBetween(this string source, int start, int end, string newValue) => ReplaceBetween(source, start, end, newValue, false);
 
         /// <summary>
         /// Returns a new string where the text between <paramref name="start"/>
@@ -1259,7 +1259,7 @@ namespace Cadru.Extensions
         /// A new string where the text between <paramref name="start"/> and
         /// <parameref name="end"/> has been replaced by <paramref name="newValue"/>.
         /// </returns>
-        public static string ReplaceBetween(this string? source, int start, int end, string newValue, bool inclusive)
+        public static string ReplaceBetween(this string source, int start, int end, string newValue, bool inclusive)
         {
             Requires.NotNull(source, nameof(source));
             Requires.NotNull(newValue, nameof(newValue));
@@ -1299,7 +1299,7 @@ namespace Cadru.Extensions
         /// A new string where the text between <paramref name="start"/> and
         /// <parameref name="end"/> has been replaced by <paramref name="newValue"/>.
         /// </returns>
-        public static string ReplaceBetween(this string? source, string start, string end, string newValue) => ReplaceBetween(source, start, end, newValue, false, StringComparison.Ordinal);
+        public static string ReplaceBetween(this string source, string start, string end, string newValue) => ReplaceBetween(source, start, end, newValue, false, StringComparison.Ordinal);
 
         /// <summary>
         /// Returns a new string where the text between <paramref name="start"/>
@@ -1316,7 +1316,7 @@ namespace Cadru.Extensions
         /// A new string where the text between <paramref name="start"/> and
         /// <parameref name="end"/> has been replaced by <paramref name="newValue"/>.
         /// </returns>
-        public static string ReplaceBetween(this string? source, string start, string end, string newValue, bool inclusive) => ReplaceBetween(source, start, end, newValue, inclusive, StringComparison.Ordinal);
+        public static string ReplaceBetween(this string source, string start, string end, string newValue, bool inclusive) => ReplaceBetween(source, start, end, newValue, inclusive, StringComparison.Ordinal);
 
         /// <summary>
         /// Returns a new string where the text between <paramref name="start"/>
@@ -1336,7 +1336,7 @@ namespace Cadru.Extensions
         /// A new string where the text between <paramref name="start"/> and
         /// <parameref name="end"/> has been replaced by <paramref name="newValue"/>.
         /// </returns>
-        public static string ReplaceBetween(this string? source, string start, string end, string newValue, bool inclusive, StringComparison comparisonType)
+        public static string ReplaceBetween(this string source, string start, string end, string newValue, bool inclusive, StringComparison comparisonType)
         {
             Requires.NotNull(source, nameof(source));
             Requires.NotNull(start, nameof(start));
@@ -1394,13 +1394,9 @@ namespace Cadru.Extensions
         {
             var sizedString = String.Empty;
 
-            if (String.IsNullOrEmpty(source))
+            if (!String.IsNullOrEmpty(source))
             {
-                sizedString = sizedString.PadRight(length, ' ');
-            }
-            else
-            {
-                if (source.Length > length)
+                if (source!.Length > length)
                 {
                     sizedString = source.Substring(0, length);
                 }
@@ -1408,6 +1404,10 @@ namespace Cadru.Extensions
                 {
                     sizedString = source.PadRight(length);
                 }
+            }
+            else
+            {
+                sizedString = sizedString.PadRight(length, ' ');
             }
 
             return sizedString;
@@ -1425,7 +1425,7 @@ namespace Cadru.Extensions
         /// <paramref name="source"/>, or the entire string if
         /// <paramref name="value"/> is not found in the string.
         /// </returns>
-        public static string RightSubstring(this string? source, char value) => RightSubstring(source, value, 1);
+        public static string RightSubstring(this string source, char value) => RightSubstring(source, value, 1);
 
         /// <summary>
         /// Retrieves a substring from <paramref name="source"/>. The substring
@@ -1440,7 +1440,7 @@ namespace Cadru.Extensions
         /// <paramref name="source"/>, or the entire string if
         /// <paramref name="value"/> is not found in the string.
         /// </returns>
-        public static string RightSubstring(this string? source, char value, int occurrence)
+        public static string RightSubstring(this string source, char value, int occurrence)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -1476,7 +1476,7 @@ namespace Cadru.Extensions
         /// <exception cref="ArgumentOutOfRangeException">
         /// <paramref name="endingIndex"/> is less than zero.
         /// </exception>
-        public static string RightSubstring(this string? source, int endingIndex) => RightSubstring(source, endingIndex, true);
+        public static string RightSubstring(this string source, int endingIndex) => RightSubstring(source, endingIndex, true);
 
         /// <summary>
         /// Retrieves a substring from <paramref name="source"/>. The substring
@@ -1493,7 +1493,7 @@ namespace Cadru.Extensions
         /// the entire string if <paramref name="endingIndex"/> is not found in
         /// the string.
         /// </returns>
-        public static string RightSubstring(this string? source, int endingIndex, bool inclusive)
+        public static string RightSubstring(this string source, int endingIndex, bool inclusive)
         {
             Requires.NotNull(source, nameof(source));
             Requires.Range(endingIndex > 0, nameof(endingIndex), Strings.ArgumentOutOfRange_IndexLessThanZero);
@@ -1520,7 +1520,7 @@ namespace Cadru.Extensions
         /// <paramref name="value"/> is not found in the string.
         /// </returns>
         [SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.RightSubstring(System.String,System.String,System.Int32)", Justification = "Reviewed.")]
-        public static string RightSubstring(this string? source, string value) => RightSubstring(source, value, 1);
+        public static string RightSubstring(this string source, string value) => RightSubstring(source, value, 1);
 
         /// <summary>
         /// Retrieves a substring from <paramref name="source"/>. The substring
@@ -1535,7 +1535,7 @@ namespace Cadru.Extensions
         /// <paramref name="source"/>, or the entire string if
         /// <paramref name="value"/> is not found in the string.
         /// </returns>
-        public static string RightSubstring(this string? source, string value, int occurrence) => RightSubstring(source, value, occurrence, StringComparison.Ordinal);
+        public static string RightSubstring(this string source, string value, int occurrence) => RightSubstring(source, value, occurrence, StringComparison.Ordinal);
 
         /// <summary>
         /// Retrieves a substring from <paramref name="source"/>. The substring
@@ -1553,7 +1553,7 @@ namespace Cadru.Extensions
         /// <paramref name="source"/>, or the entire string if
         /// <paramref name="value"/> is not found in the string.
         /// </returns>
-        public static string RightSubstring(this string? source, string value, int occurrence, StringComparison comparisonType)
+        public static string RightSubstring(this string source, string value, int occurrence, StringComparison comparisonType)
         {
             Requires.NotNull(source, nameof(source));
             Requires.NotNull(value, nameof(value));
@@ -1585,7 +1585,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the start of this string instance matches
         /// any of the specified strings; otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool StartsWithAny(this string? source, IEnumerable<string> values) => source.StartsWithAny(values, StringComparison.CurrentCulture);
+        public static bool StartsWithAny(this string source, IEnumerable<string> values) => source.StartsWithAny(values, StringComparison.CurrentCulture);
 
         /// <summary>
         /// Determines whether the start of this string instance matches any of
@@ -1600,7 +1600,7 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the start of this string instance matches
         /// any of the specified strings; otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool StartsWithAny(this string? source, IEnumerable<string> values, StringComparison comparisonType)
+        public static bool StartsWithAny(this string source, IEnumerable<string> values, StringComparison comparisonType)
         {
             Requires.NotNull(source, nameof(source));
             Requires.NotNullOrEmpty(values, nameof(values));
@@ -1630,7 +1630,7 @@ namespace Cadru.Extensions
         /// <paramref name="start"/> or <paramref name="end"/> are not found in
         /// the string.
         /// </returns>
-        public static string SubstringBetween(this string? source, char start, char end) => SubstringBetween(source, start, end, false);
+        public static string SubstringBetween(this string source, char start, char end) => SubstringBetween(source, start, end, false);
 
         /// <summary>
         /// Retrieves a substring from <paramref name="source"/>. The substring
@@ -1649,7 +1649,7 @@ namespace Cadru.Extensions
         /// <paramref name="start"/> or <paramref name="end"/> are not found in
         /// the string.
         /// </returns>
-        public static string SubstringBetween(this string? source, char start, char end, bool inclusive)
+        public static string SubstringBetween(this string source, char start, char end, bool inclusive)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -1695,7 +1695,7 @@ namespace Cadru.Extensions
         /// <paramref name="start"/> or <paramref name="end"/> are not found in
         /// the string.
         /// </returns>
-        public static string SubstringBetween(this string? source, string start, string end) => SubstringBetween(source, start, end, false, StringComparison.Ordinal);
+        public static string SubstringBetween(this string source, string start, string end) => SubstringBetween(source, start, end, false, StringComparison.Ordinal);
 
         /// <summary>
         /// Retrieves a substring from <paramref name="source"/>. The substring
@@ -1714,7 +1714,7 @@ namespace Cadru.Extensions
         /// <paramref name="start"/> or <paramref name="end"/> are not found in
         /// the string.
         /// </returns>
-        public static string SubstringBetween(this string? source, string start, string end, bool inclusive) => SubstringBetween(source, start, end, inclusive, StringComparison.Ordinal);
+        public static string SubstringBetween(this string source, string start, string end, bool inclusive) => SubstringBetween(source, start, end, inclusive, StringComparison.Ordinal);
 
         /// <summary>
         /// Retrieves a substring from <paramref name="source"/>. The substring
@@ -1736,7 +1736,7 @@ namespace Cadru.Extensions
         /// <paramref name="start"/> or <paramref name="end"/> are not found in
         /// the string.
         /// </returns>
-        public static string SubstringBetween(this string? source, string start, string end, bool inclusive, StringComparison comparisonType)
+        public static string SubstringBetween(this string source, string start, string end, bool inclusive, StringComparison comparisonType)
         {
             Requires.NotNull(source, nameof(source));
             Requires.NotNull(start, nameof(start));
@@ -1788,7 +1788,7 @@ namespace Cadru.Extensions
         /// </returns>
         public static string? Truncate(this string? source, int length)
         {
-            if (!String.IsNullOrEmpty(source) && source.Length > length)
+            if (!String.IsNullOrEmpty(source) && source!.Length > length)
             {
                 return source.Substring(0, length);
             }
@@ -1796,7 +1796,7 @@ namespace Cadru.Extensions
             return source;
         }
 
-        internal static string? TrimWhiteSpaceAndNull(this string? source)
+        internal static string TrimWhiteSpaceAndNull(this string source)
         {
             var num = 0;
             var length = source.Length - 1;
