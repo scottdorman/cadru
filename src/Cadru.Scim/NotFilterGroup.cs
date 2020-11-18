@@ -43,7 +43,13 @@ namespace Cadru.Scim.Filters
         /// <inheritdoc/>
         public string ToFilterExpression(bool prependQuerySeprator = true)
         {
-            return $"?filter={ this }";
+            return this.ToFilterExpression(new FilterExpressionFormatOptions { IncludeQuerySeparator = prependQuerySeprator });
+        }
+
+        /// <inheritdoc/>
+        public string ToFilterExpression(FilterExpressionFormatOptions options)
+        {
+            return $@"{(options.IncludeQuerySeparator ? "?" : "")}{(options.IncludeFilterParameterName ? "filter=" : "")}{ this }";
         }
 
         /// <summary>

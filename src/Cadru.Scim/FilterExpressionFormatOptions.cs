@@ -23,29 +23,20 @@
 namespace Cadru.Scim.Filters
 {
     /// <summary>
-    /// Represents common features of an SCIM filter expression or filter group.
+    /// Provides options to be used when formatting an <see cref="IFilter"/>.
     /// </summary>
-    public interface IFilter
+    public sealed class FilterExpressionFormatOptions
     {
         /// <summary>
-        /// Returns a string that represents the current
-        /// <see cref="IFilter"></see> as a valid query
-        /// </summary>
-        /// <param name="prependQuerySeprator">
         /// To prepend the "?" query string separator,
-        /// <see langword="true"></see>; otherwise, <see langword="false"></see>.
-        /// </param>
-        /// <returns>A string that represents the current <see cref="IFilter"/>.</returns>
-        string ToFilterExpression(bool prependQuerySeprator = true);
+        /// <see langword="true"/>; otherwise, <see langword="false"/>
+        /// </summary>
+        public bool IncludeQuerySeparator { get; set; } = true;
 
         /// <summary>
-        /// Returns a string that represents the current
-        /// <see cref="IFilter"></see> as a valid query
+        /// To prepend the "filter=" query string parameter key,
+        /// <see langword="true"/>; otherwise, <see langword="false"/>
         /// </summary>
-        /// <param name="options">
-        /// The options to use when formatting the <see cref="IFilter"/>.
-        /// </param>
-        /// <returns>A string that represents the current <see cref="IFilter"/>.</returns>
-        string ToFilterExpression(FilterExpressionFormatOptions options);
+        public bool IncludeFilterParameterName { get; set; } = true;
     }
 }

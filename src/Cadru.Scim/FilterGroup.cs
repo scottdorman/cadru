@@ -42,7 +42,13 @@ namespace Cadru.Scim.Filters
         /// <inheritdoc/>
         public string ToFilterExpression(bool prependQuerySeprator = true)
         {
-            return $"?filter={ this }";
+            return this.ToFilterExpression(new FilterExpressionFormatOptions { IncludeQuerySeparator = prependQuerySeprator });
+        }
+
+        /// <inheritdoc/>
+        public string ToFilterExpression(FilterExpressionFormatOptions options)
+        {
+            return $@"{(options.IncludeQuerySeparator ? "?" : "")}{(options.IncludeFilterParameterName ? "filter=" : "")}{ this }";
         }
 
         /// <summary>
@@ -52,23 +58,12 @@ namespace Cadru.Scim.Filters
         /// <returns>A string that represents the current <see cref="FilterGroup"></see>.</returns>
         public override string ToString()
         {
-            var brackets = Array.Empty<string>();
-            switch (this.GroupingCharacter)
+            var brackets = this.GroupingCharacter switch
             {
-                case GroupingCharacter.Parentheses:
-                    brackets = new string[]
-                    {
-                        "(", ")"
-                    };
-                    break;
-
-                case GroupingCharacter.SquareBracket:
-                    brackets = new string[]
-                    {
-                        "[", "]"
-                    };
-                    break;
-            }
+                GroupingCharacter.Parentheses => new string[] { "(", ")" },
+                GroupingCharacter.SquareBracket => new string[] { "[", "]" },
+                _ => new string[] { String.Empty, String.Empty }
+            };
 
             return $"{ brackets[0] }{ String.Join($" { this.LogicalOperator } ", this.Filters) }{ brackets[1] }";
         }

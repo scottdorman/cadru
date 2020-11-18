@@ -26,12 +26,32 @@
         <member name="M:Cadru.Scim.Filters.FilterExpression.ToFilterExpression(System.Boolean)">
             <inheritdoc/>
         </member>
+        <member name="M:Cadru.Scim.Filters.FilterExpression.ToFilterExpression(Cadru.Scim.Filters.FilterExpressionFormatOptions)">
+            <inheritdoc/>
+        </member>
         <member name="M:Cadru.Scim.Filters.FilterExpression.ToString">
             <summary>
             Returns a string that represents the current
             <see cref="T:Cadru.Scim.Filters.FilterExpression"></see> as a valid query
             </summary>
             <returns>A string that represents the current <see cref="T:Cadru.Scim.Filters.FilterExpression"></see>.</returns>
+        </member>
+        <member name="T:Cadru.Scim.Filters.FilterExpressionFormatOptions">
+            <summary>
+            Provides options to be used when formatting an <see cref="T:Cadru.Scim.Filters.IFilter"/>.
+            </summary>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterExpressionFormatOptions.IncludeQuerySeparator">
+            <summary>
+            To prepend the "?" query string separator,
+            <see langword="true"/>; otherwise, <see langword="false"/>
+            </summary>
+        </member>
+        <member name="P:Cadru.Scim.Filters.FilterExpressionFormatOptions.IncludeFilterParameterName">
+            <summary>
+            To prepend the "filter=" query string parameter key,
+            <see langword="true"/>; otherwise, <see langword="false"/>
+            </summary>
         </member>
         <member name="T:Cadru.Scim.Filters.FilterExpressionOperator">
             <summary>
@@ -209,6 +229,9 @@
         <member name="M:Cadru.Scim.Filters.FilterGroup.ToFilterExpression(System.Boolean)">
             <inheritdoc/>
         </member>
+        <member name="M:Cadru.Scim.Filters.FilterGroup.ToFilterExpression(Cadru.Scim.Filters.FilterExpressionFormatOptions)">
+            <inheritdoc/>
+        </member>
         <member name="M:Cadru.Scim.Filters.FilterGroup.ToString">
             <summary>
             Returns a string that represents the current
@@ -354,13 +377,23 @@
         <member name="M:Cadru.Scim.Filters.IFilter.ToFilterExpression(System.Boolean)">
             <summary>
             Returns a string that represents the current
-            <see cref="T:Cadru.Scim.Filters.FilterExpression"></see> as a valid query
+            <see cref="T:Cadru.Scim.Filters.IFilter"></see> as a valid query
             </summary>
             <param name="prependQuerySeprator">
             To prepend the "?" query string separator,
             <see langword="true"></see>; otherwise, <see langword="false"></see>.
             </param>
-            <returns>A string that represents the current <see cref="T:Cadru.Scim.Filters.FilterExpression"></see>.</returns>
+            <returns>A string that represents the current <see cref="T:Cadru.Scim.Filters.IFilter"/>.</returns>
+        </member>
+        <member name="M:Cadru.Scim.Filters.IFilter.ToFilterExpression(Cadru.Scim.Filters.FilterExpressionFormatOptions)">
+            <summary>
+            Returns a string that represents the current
+            <see cref="T:Cadru.Scim.Filters.IFilter"></see> as a valid query
+            </summary>
+            <param name="options">
+            The options to use when formatting the <see cref="T:Cadru.Scim.Filters.IFilter"/>.
+            </param>
+            <returns>A string that represents the current <see cref="T:Cadru.Scim.Filters.IFilter"/>.</returns>
         </member>
         <member name="T:Cadru.Scim.Filters.IFilterExpression">
             <summary>
@@ -428,6 +461,9 @@
             <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.NotFilterGroup.ToFilterExpression(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Scim.Filters.NotFilterGroup.ToFilterExpression(Cadru.Scim.Filters.FilterExpressionFormatOptions)">
             <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.NotFilterGroup.ToString">
