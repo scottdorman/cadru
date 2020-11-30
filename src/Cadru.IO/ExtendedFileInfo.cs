@@ -94,7 +94,7 @@ namespace Cadru.IO
             {
                 this.fileVersionInfo = FileVersionInfo.GetVersionInfo(fileName);
                 var fs = new FileSecurity(this.originalFileName, AccessControlSections.Owner);
-                this.FileOwner = fs.GetOwner(typeof(NTAccount)).ToString();
+                this.FileOwner = fs.GetOwner(typeof(NTAccount))?.ToString();
 
                 // Try to fill the SHFILEINFO struct for the file type, if the
                 // returned pointer is 0 then an error occurred.
@@ -255,7 +255,6 @@ namespace Cadru.IO
         public bool? IsPatched => this.fileVersionInfo?.IsPatched;
 
         /// <inheritdoc cref="FileVersionInfo.IsPreRelease"/>
-        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "PreRelease", Justification = "This property follows the same naming convention as the underlying property in the FileVersionInfo class.")]
         public bool? IsPreRelease => this.fileVersionInfo?.IsPreRelease;
 
         /// <inheritdoc cref="FileVersionInfo.IsPrivateBuild"/>
@@ -300,7 +299,6 @@ namespace Cadru.IO
         public string Name => this.fileInfo.Name;
 
         /// <inheritdoc cref="FileVersionInfo.OriginalFilename"/>
-        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "Filename", Justification = "This property follows the same naming convention as the underlying property in the FileVersionInfo class.")]
         public string? OriginalFilename => this.fileVersionInfo?.OriginalFilename;
 
         /// <inheritdoc cref="FileVersionInfo.PrivateBuild"/>

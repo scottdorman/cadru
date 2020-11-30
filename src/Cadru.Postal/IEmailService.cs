@@ -26,7 +26,7 @@ using System.Threading.Tasks;
 namespace Cadru.Postal
 {
     /// <summary>
-    /// Creates and send email.
+    /// Creates and sends an email.
     /// </summary>
     public interface IEmailService
     {

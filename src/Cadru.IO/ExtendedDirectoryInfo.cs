@@ -81,7 +81,7 @@ namespace Cadru.IO
             if (this.directoryInfo.Exists)
             {
                 var ds = this.directoryInfo.GetAccessControl(AccessControlSections.Owner);
-                this.DirectoryOwner = ds.GetOwner(typeof(NTAccount)).ToString();
+                this.DirectoryOwner = ds.GetOwner(typeof(NTAccount))?.ToString();
             }
         }
 
@@ -298,14 +298,12 @@ namespace Cadru.IO
         }
 
         /// <inheritdoc cref="DirectoryInfo.GetFileSystemInfos()"/>
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Infos", Justification = "This is the spelling used in the underlying DirectoryInfo object and is preserved here for consistency.")]
         public FileSystemInfo[] GetFileSystemInfos()
         {
             return this.directoryInfo.GetFileSystemInfos();
         }
 
         /// <inheritdoc cref="DirectoryInfo.GetFileSystemInfos(String)"/>
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Infos", Justification = "This is the spelling used in the underlying DirectoryInfo object and is preserved here for consistency.")]
         public FileSystemInfo[] GetFileSystemInfos(string searchPattern)
         {
             return this.directoryInfo.GetFileSystemInfos(searchPattern);

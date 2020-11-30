@@ -31,7 +31,7 @@ using RazorEngine.Templating;
 namespace Cadru.Postal
 {
     /// <summary>
-    /// Sends email using the default <see cref="SmtpClient"/>.
+    /// Creates and sends an email using the default <see cref="SmtpClient"/>.
     /// </summary>
     public class EmailService : IEmailService
     {
@@ -70,13 +70,7 @@ namespace Cadru.Postal
             return new EmailService(configuration, isolated, createSmtpClient);
         }
 
-        /// <summary>
-        /// Renders the email view and builds a <see cref="MailMessage"/>.
-        /// </summary>
-        /// <param name="email">The email to render.</param>
-        /// <returns>
-        /// A <see cref="MailMessage"/> containing the rendered email.
-        /// </returns>
+        /// <inheritdoc/>
         public async Task<MailMessage> CreateMailMessageAsync(IEmail email)
         {
             var templateOutput = this.Render(email);
@@ -84,6 +78,14 @@ namespace Cadru.Postal
             return mailMessage;
         }
 
+        /// <summary>
+        /// Renders the email view and builds a <see cref="MailMessage"/>.
+        /// </summary>
+        /// <param name="email">The email to render.</param>
+        /// <param name="key">The <see cref="ITemplateKey"/> used to resolve the template.</param>
+        /// <returns>
+        /// A <see cref="MailMessage"/> containing the rendered email.
+        /// </returns>
         public async Task<MailMessage> CreateMailMessageAsync(IEmail email, ITemplateKey key)
         {
             var templateOutput = this.Render(email, key);
@@ -91,15 +93,7 @@ namespace Cadru.Postal
             return mailMessage;
         }
 
-        /// <summary>
-        /// Renders the email view.
-        /// </summary>
-        /// <param name="email">The email to render.</param>
-        /// <param name="viewName">
-        /// The email view name. If <see langword="null"/> then the
-        /// <see cref="Email.ViewName"/> property is used.
-        /// </param>
-        /// <returns>The rendered email view output.</returns>
+        /// <inheritdoc/>
         public virtual string Render(IEmail email, string viewName = null)
         {
             viewName = viewName ?? email.ViewName;
@@ -120,11 +114,7 @@ namespace Cadru.Postal
             return this.razorEngineService.RunCompile(key, model: email);
         }
 
-        /// <summary>
-        /// Saves the email to the specified directory as an asynchronous operation.
-        /// </summary>
-        /// <param name="email">The email to save.</param>
-        /// <param name="path">The directory where the email should be saved.</param>
+        /// <inheritdoc/>
         public async Task SaveToFileAsync(IEmail email, string path)
         {
             using (var mailMessage = await this.CreateMailMessageAsync(email))
@@ -137,10 +127,7 @@ namespace Cadru.Postal
             }
         }
 
-        /// <summary>
-        /// Sends an email to an SMTP client for delivery as an asynchronous operation.
-        /// </summary>
-        /// <param name="email">The email to send.</param>
+        /// <inheritdoc/>
         public async Task SendAsync(IEmail email)
         {
             using (var mailMessage = await this.CreateMailMessageAsync(email))

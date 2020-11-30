@@ -37,7 +37,6 @@ namespace Cadru.Collections
     /// Represents a range, or interval, of values.
     /// </summary>
     /// <typeparam name="T">The type of the objects in the range.</typeparam>
-    [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix", Justification = "Reviewed. Ending in Collection does not make semantic sense in this case.")]
     public sealed class Range<T> : IEnumerable<T> where T : notnull
     {
         private readonly RangeEndpointOption option;

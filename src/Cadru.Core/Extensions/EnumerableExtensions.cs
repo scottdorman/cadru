@@ -437,7 +437,6 @@ namespace Cadru.Extensions
         /// A new <see cref="IEnumerable{T}"/> containing one or more
         /// <see cref="IEnumerable{T}"/> collections.
         /// </returns>
-        [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures", Justification = "Reviewed.")]
         public static IEnumerable<IEnumerable<T>> Partition<T>(this IEnumerable<T> source, int size)
         {
             Requires.NotNull(source, nameof(source));

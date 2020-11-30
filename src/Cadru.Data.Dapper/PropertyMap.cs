@@ -20,6 +20,7 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -62,7 +63,7 @@ namespace Cadru.Data.Dapper
                 var columnAttribute = attributes.OfType<ColumnAttribute>().SingleOrDefault();
                 if (columnAttribute != null)
                 {
-                    this.ColumnName = columnAttribute.Name;
+                    this.ColumnName = columnAttribute.Name!;
                 }
 
                 var databaseGeneratedAttribute = attributes.OfType<DatabaseGeneratedAttribute>().SingleOrDefault();

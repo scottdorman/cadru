@@ -79,7 +79,7 @@ namespace Cadru.Polly
         /// The <see cref="Context"/> to retrieve items from.
         /// </param>
         [return: NotNull]
-        public static T GetRequiredService<T>(this Context context)
+        public static T GetRequiredService<T>(this Context context) where T : notnull
         {
             T service = default;
 

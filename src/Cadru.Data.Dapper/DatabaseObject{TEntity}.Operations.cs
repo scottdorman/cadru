@@ -24,15 +24,13 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 using Cadru.Data.Dapper.Predicates;
 
 using Dapper;
 
 using Microsoft.Extensions.Logging;
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 using Validation;
 
@@ -181,12 +179,12 @@ namespace Cadru.Data.Dapper
         {
             if (this.Context.Options.Logging.CommandDefinitionLoggingEnabled)
             {
-                var jsonString = JsonConvert.SerializeObject(new JObject
+                var jsonString = JsonSerializer.Serialize<object>(new
                 {
-                    { "CommandText", commandDefinition.CommandText },
-                    { "CommandType", commandDefinition.CommandType?.ToString() ?? String.Empty },
-                    { "CommandTimeout", commandDefinition.CommandTimeout },
-                    { "HasTransaction", commandDefinition.Transaction != null },
+                    commandDefinition.CommandText,
+                    CommandType = commandDefinition.CommandType?.ToString() ?? String.Empty,
+                    commandDefinition.CommandTimeout,
+                    HasTransaction = commandDefinition.Transaction != null,
                 });
 
                 this.Context.Logger.LogDebug(jsonString);

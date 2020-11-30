@@ -80,54 +80,34 @@ namespace Cadru.Postal
         {
         }
 
-        /// <summary>
-        /// Gets or sets the name of the area containing the email template.
-        /// </summary>
+        /// <inheritdoc/>
         public string AreaName { get; set; }
 
-        /// <summary>
-        /// Gets the attachments to send with the email.
-        /// </summary>
+        /// <inheritdoc/>
         public List<Attachment> Attachments { get; }
 
-        /// <summary>
-        /// Gets the <see cref="ImageEmbedder"/> instance used to the inline
-        /// images in the rendered view.
-        /// </summary>
+        /// <inheritdoc/>
         public ImageEmbedder ImageEmbedder { get; }
 
-        /// <summary>
-        /// Gets or sets the view data to pass to the view.
-        /// </summary>
+        /// <inheritdoc/>
         public ViewDataDictionary ViewData { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the view containing the email template.
-        /// </summary>
+        /// <inheritdoc/>
         public string ViewName { get; set; }
 
-        /// <summary>
-        /// Adds an attachment to the email.
-        /// </summary>
-        /// <param name="attachment">The attachment to add.</param>
+        /// <inheritdoc/>
         public void Attach(Attachment attachment)
         {
             this.Attachments.Add(attachment);
         }
 
-        /// <summary>
-        /// Convenience method that saves this email asynchronously via a
-        /// default EmailService.
-        /// </summary>
+        /// <inheritdoc/>
         public async Task SaveToFileAsync(string path)
         {
             await EmailService.Create().SaveToFileAsync(this, path);
         }
 
-        /// <summary>
-        /// Convenience method that sends this email asynchronously via a
-        /// default EmailService.
-        /// </summary>
+        /// <inheritdoc/>
         public async Task SendAsync()
         {
             await EmailService.Create().SendAsync(this);
