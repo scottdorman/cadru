@@ -93,8 +93,16 @@ namespace Cadru.IO
             if (this.fileInfo.Exists)
             {
                 this.fileVersionInfo = FileVersionInfo.GetVersionInfo(fileName);
+#if NET5_0
+                if (OperatingSystem.IsWindows())
+                {
+                    var fs = new FileSecurity(this.originalFileName, AccessControlSections.Owner);
+                    this.FileOwner = fs.GetOwner(typeof(NTAccount))?.ToString();
+                }
+#else
                 var fs = new FileSecurity(this.originalFileName, AccessControlSections.Owner);
                 this.FileOwner = fs.GetOwner(typeof(NTAccount))?.ToString();
+#endif
 
                 // Try to fill the SHFILEINFO struct for the file type, if the
                 // returned pointer is 0 then an error occurred.
@@ -187,10 +195,10 @@ namespace Cadru.IO
         }
 
         /// <inheritdoc cref="FileInfo.Directory"/>
-        public DirectoryInfo Directory => this.fileInfo.Directory;
+        public DirectoryInfo? Directory => this.fileInfo.Directory;
 
         /// <inheritdoc cref="FileInfo.DirectoryName"/>
-        public string DirectoryName => this.fileInfo.DirectoryName;
+        public string? DirectoryName => this.fileInfo.DirectoryName;
 
         /// <summary>
         /// Gets the type of executable that this instance of FileVersionInfo describes.
@@ -389,6 +397,9 @@ namespace Cadru.IO
         /// rights to specific actions on the given file.
         /// </para>
         /// </remarks>
+#if NET5_0
+        [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+#endif
         public FileSecurity GetAccessControl()
         {
             return this.fileInfo.GetAccessControl();
@@ -432,6 +443,9 @@ namespace Cadru.IO
         /// rights to specific actions on the given file.
         /// </para>
         /// </remarks>
+#if NET5_0
+        [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+#endif
         public FileSecurity GetAccessControl(AccessControlSections includeSections)
         {
             return this.fileInfo.GetAccessControl(includeSections);
@@ -554,6 +568,9 @@ namespace Cadru.IO
         /// </item>
         /// </list>
         /// </remarks>
+#if NET5_0
+        [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+#endif
         public void SetAccessControl(FileSecurity fileSecurity)
         {
             this.fileInfo.SetAccessControl(fileSecurity);

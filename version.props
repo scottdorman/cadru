@@ -31,6 +31,6 @@ projects from the command-line or the IDE. -->
     <VersionMajor>5</VersionMajor>
     <VersionMinor>0</VersionMinor>
     <VersionPatch>2</VersionPatch>
-    <VersionSuffix>preview-1</VersionSuffix>
+    <VersionSuffix>preview-2</VersionSuffix>
   </PropertyGroup>
 </Project>

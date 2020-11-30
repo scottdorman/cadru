@@ -80,8 +80,16 @@ namespace Cadru.IO
             this.directoryInfo = new DirectoryInfo(path);
             if (this.directoryInfo.Exists)
             {
+#if NET5_0
+                if (OperatingSystem.IsWindows())
+                {
+                    var ds = this.directoryInfo.GetAccessControl(AccessControlSections.Owner);
+                    this.DirectoryOwner = ds.GetOwner(typeof(NTAccount))?.ToString();
+                }
+#else
                 var ds = this.directoryInfo.GetAccessControl(AccessControlSections.Owner);
                 this.DirectoryOwner = ds.GetOwner(typeof(NTAccount))?.ToString();
+#endif
             }
         }
 
@@ -137,7 +145,7 @@ namespace Cadru.IO
         public string Name => this.directoryInfo.Name;
 
         /// <inheritdoc cref="DirectoryInfo.Parent"/>
-        public DirectoryInfo Parent => this.directoryInfo.Parent;
+        public DirectoryInfo? Parent => this.directoryInfo.Parent;
 
         /// <inheritdoc cref="DirectoryInfo.Root"/>
         public DirectoryInfo Root => this.directoryInfo.Root;
@@ -213,6 +221,9 @@ namespace Cadru.IO
         /// Access Control List Entries.
         /// </para>
         /// </remarks>
+#if NET5_0
+        [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+#endif
         public DirectorySecurity GetAccessControl()
         {
             return this.directoryInfo.GetAccessControl();
@@ -256,6 +267,9 @@ namespace Cadru.IO
         /// rights to specific actions on the given file.
         /// </para>
         /// </remarks>
+#if NET5_0
+        [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+#endif
         public DirectorySecurity GetAccessControl(AccessControlSections includeSections)
         {
             return this.directoryInfo.GetAccessControl(includeSections);
@@ -394,6 +408,9 @@ namespace Cadru.IO
         /// </item>
         /// </list>
         /// </remarks>
+#if NET5_0
+        [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+#endif
         public void SetAccessControl(DirectorySecurity directorySecurity)
         {
             this.directoryInfo.SetAccessControl(directorySecurity);

@@ -627,7 +627,7 @@ namespace Cadru.Extensions
         /// <paramref name="index"/> is less than 0 or greater than or equal to
         /// the number of elements in <paramref name="source"/>.
         /// </exception>
-        internal static object ElementAt(this IEnumerable source, int index)
+        internal static object? ElementAt(this IEnumerable source, int index)
         {
             if (index < 0)
             {

@@ -84,8 +84,17 @@ namespace Cadru.Extensions.FileProviders
             if (this.fileInfo.Exists)
             {
                 this.fileVersionInfo = FileVersionInfo.GetVersionInfo(fileName);
+
+#if NET5_0
+                if (OperatingSystem.IsWindows())
+                {
+                    var fs = new FileSecurity(this.originalFileName, AccessControlSections.Owner);
+                    this.FileOwner = fs.GetOwner(typeof(NTAccount))?.ToString();
+                }
+#else
                 var fs = new FileSecurity(this.originalFileName, AccessControlSections.Owner);
                 this.FileOwner = fs.GetOwner(typeof(NTAccount))?.ToString();
+#endif
             }
         }
 
@@ -113,10 +122,10 @@ namespace Cadru.Extensions.FileProviders
         }
 
         /// <inheritdoc cref="FileInfo.Directory"/>
-        public DirectoryInfo Directory => this.fileInfo.Directory;
+        public DirectoryInfo? Directory => this.fileInfo.Directory;
 
         /// <inheritdoc cref="FileInfo.DirectoryName"/>
-        public string DirectoryName => this.fileInfo.DirectoryName;
+        public string? DirectoryName => this.fileInfo.DirectoryName;
 
         /// <inheritdoc cref="FileInfo.Exists"/>
         public bool Exists => this.fileInfo.Exists;
@@ -262,6 +271,9 @@ namespace Cadru.Extensions.FileProviders
         }
 
         /// <inheritdoc cref="FileInfo.Decrypt"/>
+#if NET5_0
+        [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+#endif
         public void Decrypt()
         {
             this.fileInfo.Decrypt();
@@ -274,6 +286,9 @@ namespace Cadru.Extensions.FileProviders
         }
 
         /// <inheritdoc cref="FileInfo.Encrypt"/>
+#if NET5_0
+        [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+#endif
         public void Encrypt()
         {
             this.fileInfo.Encrypt();
@@ -313,6 +328,9 @@ namespace Cadru.Extensions.FileProviders
         /// rights to specific actions on the given file.
         /// </para>
         /// </remarks>
+#if NET5_0
+        [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+#endif
         public FileSecurity GetAccessControl()
         {
             return this.fileInfo.GetAccessControl();
@@ -356,6 +374,9 @@ namespace Cadru.Extensions.FileProviders
         /// rights to specific actions on the given file.
         /// </para>
         /// </remarks>
+#if NET5_0
+        [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+#endif
         public FileSecurity GetAccessControl(AccessControlSections includeSections)
         {
             return this.fileInfo.GetAccessControl(includeSections);
@@ -490,6 +511,9 @@ namespace Cadru.Extensions.FileProviders
         /// </item>
         /// </list>
         /// </remarks>
+#if NET5_0
+        [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+#endif
         public void SetAccessControl(FileSecurity fileSecurity)
         {
             this.fileInfo.SetAccessControl(fileSecurity);
