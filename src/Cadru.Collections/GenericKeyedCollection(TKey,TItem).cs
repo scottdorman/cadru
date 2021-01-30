@@ -32,7 +32,7 @@ namespace Cadru.Collections
     /// </summary>
     /// <typeparam name="TKey">The type of keys in the collection.</typeparam>
     /// <typeparam name="TItem">The type of items in the collection.</typeparam>
-    public class GenericKeyedCollection<TKey, TItem> : KeyedCollection<TKey, TItem>
+    public class GenericKeyedCollection<TKey, TItem> : KeyedCollection<TKey, TItem> where TKey: notnull
     {
         private readonly Func<TItem, TKey> getKeyFunc;
 

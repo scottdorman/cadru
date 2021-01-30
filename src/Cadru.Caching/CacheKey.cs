@@ -87,14 +87,22 @@ namespace Cadru.Caching
 
                             foreach (var element in e)
                             {
-                                tempBuilder.Add(element.ToString());
+                                var key = element.ToString();
+                                if (!String.IsNullOrWhiteSpace(key))
+                                {
+                                    tempBuilder.Add(key);
+                                }
                             }
 
                             keyBuilder.Add(String.Join("-", tempBuilder));
                         }
                         else
                         {
-                            keyBuilder.Add(d.ToString());
+                            var key = d.ToString();
+                            if (!String.IsNullOrWhiteSpace(key))
+                            {
+                                keyBuilder.Add(key);
+                            }
                         }
                     }
                 }
@@ -119,7 +127,7 @@ namespace Cadru.Caching
         private int Hash { get; }
 
         /// <inheritdoc/>
-        public override bool Equals(object obj) => (obj is CacheKey key) ? this.Key == key.Key : this == obj;
+        public override bool Equals(object? obj) => (obj is CacheKey key) ? this.Key == key.Key : this == obj;
 
         /// <inheritdoc/>
         public override int GetHashCode() => this.Hash;

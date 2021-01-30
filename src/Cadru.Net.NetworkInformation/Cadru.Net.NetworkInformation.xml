@@ -1112,13 +1112,13 @@
             system running on the computer.
             </value>
         </member>
-        <member name="M:Cadru.Net.NetworkInformation.ServerInfo.op_Equality(Cadru.Net.NetworkInformation.ServerInfo,Cadru.Net.NetworkInformation.ServerInfo)">
+        <member name="M:Cadru.Net.NetworkInformation.ServerInfo.op_Equality(System.Nullable{Cadru.Net.NetworkInformation.ServerInfo},System.Nullable{Cadru.Net.NetworkInformation.ServerInfo})">
             <inheritdoc/>
         </member>
-        <member name="M:Cadru.Net.NetworkInformation.ServerInfo.op_Inequality(Cadru.Net.NetworkInformation.ServerInfo,Cadru.Net.NetworkInformation.ServerInfo)">
+        <member name="M:Cadru.Net.NetworkInformation.ServerInfo.op_Inequality(System.Nullable{Cadru.Net.NetworkInformation.ServerInfo},System.Nullable{Cadru.Net.NetworkInformation.ServerInfo})">
             <inheritdoc/>
         </member>
-        <member name="M:Cadru.Net.NetworkInformation.ServerInfo.Equals(Cadru.Net.NetworkInformation.ServerInfo,Cadru.Net.NetworkInformation.ServerInfo)">
+        <member name="M:Cadru.Net.NetworkInformation.ServerInfo.Equals(System.Nullable{Cadru.Net.NetworkInformation.ServerInfo},System.Nullable{Cadru.Net.NetworkInformation.ServerInfo})">
             <inheritdoc/>
         </member>
         <member name="M:Cadru.Net.NetworkInformation.ServerInfo.Equals(System.Object)">

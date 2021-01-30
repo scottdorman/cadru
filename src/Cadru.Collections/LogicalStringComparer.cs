@@ -59,7 +59,6 @@ namespace Cadru.Collections
     /// <para><example>Windows Explorer: (1.txt, [1.txt, _1.txt, =1.txt</example></para>
     /// <para><example>this code: (1.txt, =1.txt, [1.txt, _1.txt</example></para>
     /// </remarks>
-    [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
     public sealed class LogicalStringComparer : IComparer, IEqualityComparer, IComparer<string>, IEqualityComparer<string>
     {
         private readonly CultureInfo cultureInfo;
@@ -126,8 +125,6 @@ namespace Cadru.Collections
         /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
         /// and Localization</see>.
         /// </remarks>
-        [SuppressMessage("Microsoft.Globalization", "CA1304:SpecifyCultureInfo", MessageId = "Cadru.Collections.LogicalStringComparer.#ctor", Justification = "This constructor call implicitly passes a culture.")]
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer Default => new LogicalStringComparer();
 
         /// <summary>
@@ -149,11 +146,10 @@ namespace Cadru.Collections
         /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
         /// and Localization</see>.
         /// </remarks>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer DefaultInvariant => new LogicalStringComparer(CultureInfo.InvariantCulture);
 
         /// <inheritdoc/>
-        public int Compare(object x, object y)
+        public int Compare(object? x, object? y)
         {
             int result;
 
@@ -190,8 +186,7 @@ namespace Cadru.Collections
         }
 
         /// <inheritdoc/>
-        [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Reviewed.")]
-        public int Compare(string x, string y)
+        public int Compare(string? x, string? y)
         {
             if (String.IsNullOrEmpty(x) && String.IsNullOrEmpty(y))
             {
@@ -207,8 +202,8 @@ namespace Cadru.Collections
             }
             else
             {
-                var lengthOfX = x.Length;
-                var lengthOfY = y.Length;
+                var lengthOfX = x!.Length;
+                var lengthOfY = y!.Length;
 
                 var sp1 = Char.IsLetterOrDigit(x[0]);
                 var sp2 = Char.IsLetterOrDigit(y[0]);
@@ -309,13 +304,13 @@ namespace Cadru.Collections
         }
 
         /// <inheritdoc/>
-        bool IEqualityComparer.Equals(object x, object y)
+        bool IEqualityComparer.Equals(object? x, object? y)
         {
             return Equals(x, y);
         }
 
         /// <inheritdoc/>
-        public bool Equals(string x, string y)
+        public bool Equals(string? x, string? y)
         {
             return String.Equals(x, y);
         }
@@ -341,7 +336,6 @@ namespace Cadru.Collections
             return obj.GetHashCode();
         }
 
-        [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
         private static int CompareNumbers(string s1, int s1Length, ref int i1, string s2, int s2Length, ref int i2)
         {
             int nzStart1 = i1, nzStart2 = i2;
@@ -387,7 +381,6 @@ namespace Cadru.Collections
             return 1;
         }
 
-        [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
         private static void ScanNumber(string s, int length, int start, ref int nzStart, ref int end)
         {
             nzStart = start;

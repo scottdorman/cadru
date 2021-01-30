@@ -46,38 +46,46 @@ namespace Cadru.Net.NetworkInformation.Collections
         /// Represents an instance of <see cref="IPAddressComparer"/>.
         /// </summary>
         /// <value>The default <see cref="IPAddressComparer"/></value>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer Default => new IPAddressComparer();
 
         /// <inheritdoc/>
-        public int Compare(IPAddress x, IPAddress y)
+        public int Compare(IPAddress? x, IPAddress? y)
         {
-            Requires.NotNull(x, "x");
-            Requires.NotNull(y, "y");
-
             int result;
 
-            var u1 = Convert(x.GetAddressBytes());
-            var u2 = Convert(y.GetAddressBytes());
+            result = x switch
+            {
+                null when y is null => 0,
+                null => -1,
+                _ => CompareBytes(x.GetAddressBytes(), y!.GetAddressBytes())
+            };
 
-            if (u1 < u2)
+            int CompareBytes(byte[] b1, byte[] b2)
             {
-                result = -1;
-            }
-            else if (u1 == u2)
-            {
-                result = 0;
-            }
-            else
-            {
-                result = 1;
+                var u1 = Convert(b1);
+                var u2 = Convert(b2);
+
+                if (u1 < u2)
+                {
+                    result = -1;
+                }
+                else if (u1 == u2)
+                {
+                    result = 0;
+                }
+                else
+                {
+                    result = 1;
+                }
+
+                return result;
             }
 
             return result;
         }
 
         /// <inheritdoc/>
-        public int Compare(object x, object y)
+        public int Compare(object? x, object? y)
         {
             int result;
 
@@ -115,12 +123,8 @@ namespace Cadru.Net.NetworkInformation.Collections
 
         /// <inheritdoc/>
         /// <remarks>The strings should be a valid date time format.</remarks>
-        public int Compare(string x, string y)
+        public int Compare(string? x, string? y)
         {
-            Requires.NotNull(x, "x");
-            Requires.NotNull(y, "y");
-
-
             if (!IPAddress.TryParse(x, out var t1))
             {
                 throw new FormatException(Resources.Strings.Format_Dns_Bad_Ip_Address);
@@ -135,7 +139,7 @@ namespace Cadru.Net.NetworkInformation.Collections
         }
 
         /// <inheritdoc/>
-        public bool Equals(IPAddress x, IPAddress y)
+        public bool Equals(IPAddress? x, IPAddress? y)
         {
             if (x == null)
             {
@@ -146,7 +150,7 @@ namespace Cadru.Net.NetworkInformation.Collections
         }
 
         /// <inheritdoc/>
-        public bool Equals(string x, string y)
+        public bool Equals(string? x, string? y)
         {
             if (x == null && y == null)
             {
@@ -208,7 +212,7 @@ namespace Cadru.Net.NetworkInformation.Collections
             }
             else
             {
-                if (!(obj is string s1))
+                if (obj is not string s1)
                 {
                     hashCode = obj.GetHashCode();
                 }
@@ -255,7 +259,7 @@ namespace Cadru.Net.NetworkInformation.Collections
         }
 
         /// <inheritdoc/>
-        bool IEqualityComparer.Equals(object x, object y)
+        bool IEqualityComparer.Equals(object? x, object? y)
         {
             return Equals(x, y);
         }

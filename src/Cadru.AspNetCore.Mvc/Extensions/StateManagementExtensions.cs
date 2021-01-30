@@ -37,6 +37,12 @@ namespace Cadru.AspNetCore.Mvc.Extensions
     /// </summary>
     public static class StateManagementExtensions
     {
+        private static string GetTypeName<T>()
+        {
+            var type = typeof(T);
+            return $"{type.Namespace}.{type.Name}";
+        }
+
         /// <summary>
         /// Gets the value associated with the specified key.
         /// </summary>
@@ -57,7 +63,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         [return: MaybeNull]
         public static T Get<T>(this ITempDataDictionary storageProvider)
         {
-            storageProvider.TryGetValue<T>(typeof(T).FullName, out var value);
+            storageProvider.TryGetValue<T>(GetTypeName<T>(), out var value);
             return value;
         }
 
@@ -99,7 +105,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         [return: MaybeNull]
         public static T Get<T>(this ISession storageProvider)
         {
-            storageProvider.TryGetValue<T>(typeof(T).FullName, out var value);
+            storageProvider.TryGetValue<T>(GetTypeName<T>(), out var value);
             return value;
         }
 
@@ -141,7 +147,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         [return: MaybeNull]
         public static T Get<T>(this ViewDataDictionary storageProvider)
         {
-            storageProvider.TryGetValue<T>(typeof(T).FullName, out var value);
+            storageProvider.TryGetValue<T>(GetTypeName<T>(), out var value);
             return value;
         }
 
@@ -184,7 +190,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         [return: MaybeNull]
         public static T Peek<T>(this ITempDataDictionary storageProvider)
         {
-            storageProvider.TryPeekValue<T>(typeof(T).FullName, out var value);
+            storageProvider.TryPeekValue<T>(GetTypeName<T>(), out var value);
             return value;
         }
 
@@ -228,7 +234,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         [return: MaybeNull]
         public static T Peek<T>(this ISession storageProvider)
         {
-            return storageProvider.Get<T>(typeof(T).FullName);
+            return storageProvider.Get<T>(GetTypeName<T>());
         }
 
         /// <summary>
@@ -321,7 +327,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// </remarks>
         public static void Put<T>(this ITempDataDictionary storageProvider, T value)
         {
-            storageProvider.Put(typeof(T).FullName, value);
+            storageProvider.Put(GetTypeName<T>(), value);
         }
 
         /// <summary>
@@ -355,7 +361,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// </remarks>
         public static void Put<T>(this ISession storageProvider, T value)
         {
-            storageProvider.Put(typeof(T).FullName, value);
+            storageProvider.Put(GetTypeName<T>(), value);
         }
 
         /// <summary>
@@ -389,7 +395,7 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// </remarks>
         public static void Put<T>(this ViewDataDictionary storageProvider, T value)
         {
-            storageProvider.Put(typeof(T).FullName, value);
+            storageProvider.Put(GetTypeName<T>(), value);
         }
 
         /// <summary>
@@ -423,7 +429,6 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <paramref name="storageProvider"/> contains an element with the
         /// specified key; otherwise, <see langword="false"></see>.
         /// </returns>
-        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static bool TryGetValue<T>(this ITempDataDictionary storageProvider, string key, [MaybeNull] out T value)
         {
             var valid = false;
@@ -461,7 +466,6 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <paramref name="storageProvider"/> contains an element with the
         /// specified key; otherwise, <see langword="false"></see>.
         /// </returns>
-        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static bool TryGetValue<T>(this ISession storageProvider, string key, [MaybeNull] out T value)
         {
             var valid = false;
@@ -500,7 +504,6 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <paramref name="storageProvider"/> contains an element with the
         /// specified key; otherwise, <see langword="false"></see>.
         /// </returns>
-        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static bool TryGetValue<T>(this ViewDataDictionary storageProvider, string key, [MaybeNull] out T value)
         {
             var valid = false;
@@ -539,7 +542,6 @@ namespace Cadru.AspNetCore.Mvc.Extensions
         /// <paramref name="storageProvider"/> contains an element with the
         /// specified key; otherwise, <see langword="false"></see>.
         /// </returns>
-        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static bool TryPeekValue<T>(this ITempDataDictionary storageProvider, string key, [MaybeNull] out T value)
         {
             var valid = false;

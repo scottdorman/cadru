@@ -30,8 +30,6 @@ namespace Cadru.Net.Http
     /// <summary>
     /// A helper class for retrieving and comparing standard URI schemes.
     /// </summary>
-    [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1311:StaticReadonlyFieldsMustBeginWithUpperCaseLetter", Justification = "Reviewed.")]
-    [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
     public sealed class UriScheme : IEquatable<UriScheme>
     {
         private static readonly UriScheme fileScheme = new UriScheme("file");
@@ -141,7 +139,7 @@ namespace Cadru.Net.Http
         /// <see langword="true"/> if both objects represent the same scheme;
         /// otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool operator ==(UriScheme left, UriScheme right)
+        public static bool operator ==(UriScheme? left, UriScheme? right)
         {
             if (left is null || right is null)
             {
@@ -160,7 +158,7 @@ namespace Cadru.Net.Http
         /// <see langword="true"/> if the <paramref name="obj"/> parameter
         /// equals the value of this instance; otherwise, <see langword="false"/>.
         /// </returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj is UriScheme uriScheme)
             {
@@ -181,7 +179,7 @@ namespace Cadru.Net.Http
         /// <see langword="true"/> if the <paramref name="other"/> parameter
         /// equals the value of this instance; otherwise, <see langword="false"/>.
         /// </returns>
-        public bool Equals(UriScheme other)
+        public bool Equals(UriScheme? other)
         {
             if (other == null!)
             {

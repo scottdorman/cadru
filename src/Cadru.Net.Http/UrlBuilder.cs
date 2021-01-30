@@ -69,8 +69,6 @@ namespace Cadru.Net.Http
         /// <para>-or-</para>
         /// <para>paramref name="uri"/&gt; is not a valid URI.</para>
         /// </exception>
-        [SuppressMessage("Microsoft.Usage", "CA2234:PassSystemUriObjectsInsteadOfStrings", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Design", "CA1057:StringUriOverloadsCallSystemUriOverloads", Justification = "Reviewed.")]
         public UrlBuilder(string uri)
         {
             this.builder = new UriBuilder(uri);
@@ -100,8 +98,6 @@ namespace Cadru.Net.Http
         /// <para>-or-</para>
         /// <para>paramref name="uri"/&gt; is not a valid URI.</para>
         /// </exception>
-        [SuppressMessage("Microsoft.Usage", "CA2234:PassSystemUriObjectsInsteadOfStrings", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Design", "CA1057:StringUriOverloadsCallSystemUriOverloads", Justification = "Reviewed.")]
         public UrlBuilder(string uri, string path)
         {
             this.builder = new UriBuilder(uri);
@@ -344,7 +340,7 @@ namespace Cadru.Net.Http
         /// <see cref="System.Uri"/> as the <see cref="System.Uri"/> constructed
         /// by this <see cref="UrlBuilder"/> instance; otherwise, <see langword="false"/>.
         /// </returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             this.builder.Query = this.Query;
             return this.builder.Equals(obj);

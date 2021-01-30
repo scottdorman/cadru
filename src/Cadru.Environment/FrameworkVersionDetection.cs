@@ -543,7 +543,7 @@ namespace Cadru.Environment
             if (!String.IsNullOrEmpty(installPath))
             {
                 var fvi = FileVersionInfo.GetVersionInfo(installPath);
-                if (fvi != null)
+                if (fvi != null && fvi.ProductVersion != null)
                 {
                     version = new Version(fvi.ProductVersion);
                     valid = true;
@@ -667,9 +667,6 @@ namespace Cadru.Environment
         /// determine what service pack for the .NET Framework 1.0 is installed
         /// on the machine.
         /// </devdoc>
-        [SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults",
-            MessageId = "System.Int32.TryParse(System.String,System.Int32@)",
-            Justification = "In this case, we're already defaulting the out parameter but want to make sure the Parse isn't going to throw an exception.")]
         private static int GetNetfx10SPLevel()
         {
             var servicePackLevel = -1;
@@ -692,7 +689,10 @@ namespace Cadru.Environment
                 var index = regValue.LastIndexOf(',');
                 if (index > 0)
                 {
-                    Int32.TryParse(regValue.Substring(index + 1), out servicePackLevel);
+                    if (!Int32.TryParse(regValue.Substring(index + 1), out servicePackLevel))
+                    {
+                        servicePackLevel = -1;
+                    }
                 }
             }
 
@@ -737,7 +737,6 @@ namespace Cadru.Environment
         /// returned that represents a 0.0.0.0 version number if the .NET
         /// Framework 2.0 is not found.
         /// </returns>
-        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         private static Version GetNetfx20ExactVersion()
         {
             var emptyVersion = new Version(0, 0, 0, 0);
@@ -799,8 +798,14 @@ namespace Cadru.Environment
             if (GetRegistryValue(RegistryHive.LocalMachine, CardSpaceServicesRegKeyName, CardSpaceServicesPlusImagePathRegName, RegistryValueKind.ExpandString, out string regValue) && !String.IsNullOrEmpty(regValue))
             {
                 var fileVersionInfo = FileVersionInfo.GetVersionInfo(regValue.Trim('"'));
-                var index = fileVersionInfo.FileVersion.IndexOf(' ');
-                version = new Version(fileVersionInfo.FileVersion.Substring(0, index));
+                if (!String.IsNullOrWhiteSpace(fileVersionInfo.FileVersion))
+                {
+                    var index = fileVersionInfo.FileVersion.IndexOf(' ');
+                    if (index > 0)
+                    {
+                        version = new Version(fileVersionInfo.FileVersion.Substring(0, index));
+                    }
+                }
             }
 
             return version;
@@ -1072,7 +1077,6 @@ namespace Cadru.Environment
         /// <returns>
         /// <see langword="true"/> if the registry value was found; otherwise, <see langword="false"/>.
         /// </returns>
-        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         private static bool GetRegistryValue<T>(RegistryHive hive, string key, string value, RegistryValueKind kind, out T data)
         {
             var success = false;

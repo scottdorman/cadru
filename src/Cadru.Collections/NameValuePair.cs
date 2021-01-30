@@ -68,7 +68,6 @@ namespace Cadru.Collections
         /// <see langword="true"/> if left and right do note represent the same
         /// server; otherwise <see langword="false"/>.
         /// </returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
         public static bool operator !=(NameValuePair<TValue> left, NameValuePair<TValue> right)
         {
             return !left.Equals(right);
@@ -84,7 +83,6 @@ namespace Cadru.Collections
         /// <see langword="true"/> if left and right represent the same server;
         /// otherwise <see langword="false"/>.
         /// </returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
         public static bool operator ==(NameValuePair<TValue> left, NameValuePair<TValue> right)
         {
             return left.Equals(right);
@@ -128,9 +126,9 @@ namespace Cadru.Collections
         /// <see cref="NameValuePair{TValue}"/> equals the value of this
         /// instance; otherwise, <see langword="false"/>.
         /// </returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
-            if (obj.IsNull() || !(obj is NameValuePair<TValue> pair))
+            if (obj.IsNull() || obj is not NameValuePair<TValue> pair)
             {
                 return false;
             }
@@ -162,10 +160,10 @@ namespace Cadru.Collections
         public override string ToString()
         {
             var stringBuilder = new StringBuilder(16);
-            stringBuilder.Append("[");
+            stringBuilder.Append('[');
             if (this.Key.IsNotNull())
             {
-                stringBuilder.Append(this.Key.ToString());
+                stringBuilder.Append(this.Key);
             }
 
             stringBuilder.Append(": ");
@@ -184,7 +182,7 @@ namespace Cadru.Collections
                 }
             }
 
-            stringBuilder.Append("]");
+            stringBuilder.Append(']');
             return stringBuilder.ToString();
         }
     }

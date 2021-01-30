@@ -56,7 +56,6 @@ namespace Cadru.Collections
         /// <exception cref="ArgumentNullException">
         /// <paramref name="comparison"/> is <see langword="null"/>.
         /// </exception>
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "The type must be generic but the Create method shouldn't be.")]
         public new static Comparer<T> Create(Comparison<T> comparison)
         {
             Requires.NotNull(comparison, nameof(comparison));
@@ -66,10 +65,10 @@ namespace Cadru.Collections
 
         /// <inheritdoc/>
         /// <remarks>This compare operation reverses the comparison.</remarks>
-        public override int Compare(T x, T y)
+        public override int Compare(T? x, T? y)
         {
             // This intentionally reverses the order of the comparison parameters.
-            return this.comparison(y, x);
+            return this.comparison(y!, x!);
         }
     }
 }

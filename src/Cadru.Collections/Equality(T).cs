@@ -43,8 +43,7 @@ namespace Cadru.Collections
         /// <typeparam name="TKey">The type of the key returned by <paramref name="keySelector"/>.</typeparam>
         /// <param name="keySelector">A function to extract a key from an element.</param>
         /// <returns>An instance of an <see cref="EqualityComparer{T}"/>.</returns>
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
-        public static IEqualityComparer<TSource> CreateComparer<TKey>(Func<TSource, TKey> keySelector)
+        public static IEqualityComparer<TSource> CreateComparer<TKey>(Func<TSource?, TKey> keySelector) where TKey: notnull
         {
             return CreateComparer(keySelector, null);
         }
@@ -60,18 +59,17 @@ namespace Cadru.Collections
         /// An <see cref="IComparer{T}"/> to compare keys.
         /// </param>
         /// <returns>An instance of an <see cref="EqualityComparer{T}"/>.</returns>
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
-        public static IEqualityComparer<TSource> CreateComparer<TKey>(Func<TSource, TKey> keySelector, IEqualityComparer<TKey>? comparer)
+        public static IEqualityComparer<TSource> CreateComparer<TKey>(Func<TSource?, TKey> keySelector, IEqualityComparer<TKey>? comparer) where TKey : notnull
         {
             return new KeyEqualityComparer<TKey>(keySelector, comparer);
         }
 
-        private class KeyEqualityComparer<V> : IEqualityComparer<TSource>
+        private class KeyEqualityComparer<V> : IEqualityComparer<TSource> where V : notnull
         {
             private readonly IEqualityComparer<V> comparer;
-            private readonly Func<TSource, V> keySelector;
+            private readonly Func<TSource?, V> keySelector;
 
-            public KeyEqualityComparer(Func<TSource, V> keySelector, IEqualityComparer<V>? comparer)
+            public KeyEqualityComparer(Func<TSource?, V> keySelector, IEqualityComparer<V>? comparer)
             {
                 Requires.NotNull(keySelector, nameof(keySelector));
 
@@ -79,7 +77,7 @@ namespace Cadru.Collections
                 this.comparer = comparer ?? EqualityComparer<V>.Default;
             }
 
-            public bool Equals(TSource x, TSource y)
+            public bool Equals(TSource? x, TSource? y)
             {
                 return this.comparer.Equals(this.keySelector(x), this.keySelector(y));
             }

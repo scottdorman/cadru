@@ -48,6 +48,10 @@ projects from the command-line or the IDE. -->
   <ItemGroup>
     <None Include="$(SolutionDir)\Cadru.licenseheader" Link="Cadru.licenseheader" />
   </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Nullable" Version="1.3.0" PrivateAssets="all" />
+  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="Validation" Version="2.5.5-beta" PrivateAssets="all" /> 

@@ -125,11 +125,6 @@ namespace Cadru
         /// <param name="b">The next 2 bytes of the <see cref="Comb"/>.</param>
         /// <param name="c">The next 2 bytes of the <see cref="Comb"/>.</param>
         /// <param name="d">The remaining 8 bytes of the <see cref="Comb"/>.</param>
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "a", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "b", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "c", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "d", Justification = "Reviewed.")]
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
         public Comb(int a, short b, short c, byte[] d)
              : this()
         {
@@ -165,18 +160,6 @@ namespace Cadru
         /// <param name="i">The next byte of the <see cref="Comb"/>.</param>
         /// <param name="j">The next byte of the <see cref="Comb"/>.</param>
         /// <param name="k">The next byte of the <see cref="Comb"/>.</param>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "a", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "b", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "c", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "d", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "e", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "f", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "g", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "h", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "i", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "j", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "k", Justification = "Reviewed.")]
         public Comb(int a, short b, short c, byte d, byte e, byte f, byte g, byte h, byte i, byte j, byte k)
              : this()
         {
@@ -218,7 +201,6 @@ namespace Cadru
         /// but not more.
         /// </para>
         /// </param>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         public Comb(string value)
         {
             Requires.NotNullOrEmpty(value, nameof(value));
@@ -776,7 +758,7 @@ namespace Cadru
         /// <exception cref="System.ArgumentException">
         /// <paramref name="obj"/> is not a <see cref="Comb"/>.
         /// </exception>
-        public int CompareTo(object obj)
+        public int CompareTo(object? obj)
         {
             if (obj == null)
             {
@@ -835,9 +817,9 @@ namespace Cadru
         /// <see cref="Comb"/> and has the same value as this instance;
         /// otherwise, <see langword="false"/>.
         /// </returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
-            if (!(obj is Comb comb))
+            if (obj is not Comb comb)
             {
                 return false;
             }
@@ -889,7 +871,6 @@ namespace Cadru
         /// <see cref="String.ToUpper()"/> method on the returned string.
         /// </para>
         /// </returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         public override string ToString()
         {
             return this.ToString("D", null);
@@ -967,7 +948,7 @@ namespace Cadru
         /// <see cref="String.ToUpper()"/> method on the returned string.
         /// </para>
         /// </remarks>
-        public string ToString(string format)
+        public string ToString(string? format)
         {
             if (format.IsNullOrEmpty())
             {
@@ -1166,9 +1147,7 @@ namespace Cadru
         /// Types</see> article.
         /// </para>
         /// </remarks>
-        [SuppressMessage("Microsoft.Globalization", "CA1305:SpecifyIFormatProvider", MessageId = "Cadru.Comb.ToString(System.String)", Justification = "Reviewed.")]
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1628:DocumentationTextMustBeginWithACapitalLetter", Justification = "Reviewed.")]
-        public string ToString(string format, IFormatProvider? formatProvider)
+        public string ToString(string? format, IFormatProvider? formatProvider)
         {
             return this.ToString(format);
         }
@@ -1200,7 +1179,6 @@ namespace Cadru
             return buffer;
         }
 
-        [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
         private static int Compare(Comb x, Comb y)
         {
             var xBuffer = x.ToByteArray();
@@ -1229,30 +1207,15 @@ namespace Cadru
                 return "D";
             }
 
-            switch (format[0])
+            return (format[0]) switch
             {
-                case 'N':
-                case 'n':
-                    return "N";
-
-                case 'D':
-                case 'd':
-                    return "D";
-
-                case 'B':
-                case 'b':
-                    return "B";
-
-                case 'P':
-                case 'p':
-                    return "P";
-
-                case 'X':
-                case 'x':
-                    return "X";
-            }
-
-            throw new FormatException(Strings.Format_InvalidGuidFormatSpecification);
+                'N' or 'n' => "N",
+                'D' or 'd' => "D",
+                'B' or 'b' => "B",
+                'P' or 'p' => "P",
+                'X' or 'x' => "X",
+                _ => throw new FormatException(Strings.Format_InvalidGuidFormatSpecification),
+            };
         }
 
         private DateTimeOffset GetDateTimeOffset()

@@ -103,8 +103,6 @@ namespace Cadru.Collections
         /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
         /// and Localization</see>.
         /// </remarks>
-        [SuppressMessage("Microsoft.Globalization", "CA1304:SpecifyCultureInfo", MessageId = "Cadru.Collections.DateComparer.#ctor", Justification = "This constructor call implicitly passes a culture.")]
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer Default => new DateComparer();
 
         /// <summary>
@@ -125,7 +123,6 @@ namespace Cadru.Collections
         /// <see href="http://msdn.microsoft.com/en-us/library/vstudio/h6270d0z(v=vs.100).aspx">Encoding
         /// and Localization</see>.
         /// </remarks>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:PropertySummaryDocumentationMustMatchAccessors", Justification = "Reviewed.")]
         public static IComparer DefaultInvariant => new DateComparer(CultureInfo.InvariantCulture);
 
         /// <inheritdoc/>
@@ -135,7 +132,7 @@ namespace Cadru.Collections
         }
 
         /// <inheritdoc/>
-        public int Compare(object x, object y)
+        public int Compare(object? x, object? y)
         {
             int result;
 
@@ -173,7 +170,7 @@ namespace Cadru.Collections
 
         /// <inheritdoc/>
         /// <remarks>The strings should be a valid date time format.</remarks>
-        public int Compare(string x, string y)
+        public int Compare(string? x, string? y)
         {
             if (!DateTime.TryParse(x, this.cultureInfo, DateTimeStyles.None, out var t1))
             {
@@ -195,7 +192,7 @@ namespace Cadru.Collections
         }
 
         /// <inheritdoc/>
-        public bool Equals(string x, string y)
+        public bool Equals(string? x, string? y)
         {
             if (x.IsNull() && y.IsNull())
             {
@@ -236,7 +233,7 @@ namespace Cadru.Collections
         }
 
         /// <inheritdoc/>
-        bool IEqualityComparer.Equals(object x, object y)
+        bool IEqualityComparer.Equals(object? x, object? y)
         {
             return Equals(x, y);
         }

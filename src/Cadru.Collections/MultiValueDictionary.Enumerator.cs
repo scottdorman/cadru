@@ -31,7 +31,7 @@ namespace Cadru.Collections
     public partial class MultiValueDictionary<TKey, TValue>
     {
         private sealed class Enumerator :
-            IEnumerator<KeyValuePair<TKey, IReadOnlyCollection<TValue>>>
+            IEnumerator<KeyValuePair<TKey, IReadOnlyCollection<TValue>>> 
         {
             private readonly MultiValueDictionary<TKey, TValue> _multiValueDictionary;
             private readonly int _version;

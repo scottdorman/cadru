@@ -23,6 +23,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 using Validation;
 
@@ -100,7 +101,7 @@ namespace Cadru.Extensions
         /// <exception cref="System.ArgumentNullException">
         /// <paramref name="key"/> is <see langword="null"/>.
         /// </exception>
-        public static TValue GetValueOrDefault<TValue>(this IDictionary source, object key, TValue defaultValue)
+        public static TValue? GetValueOrDefault<TValue>(this IDictionary source, object key, TValue defaultValue)
         {
             Requires.NotNull(source, nameof(source));
 
@@ -252,7 +253,7 @@ namespace Cadru.Extensions
         /// <exception cref="System.ArgumentNullException">
         /// <paramref name="key"/> is <see langword="null"/>.
         /// </exception>
-        public static bool TryGetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue, out TValue value)
+        public static bool TryGetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue, [MaybeNullWhen(false)] out TValue value)
         {
             Requires.NotNull(dictionary, nameof(dictionary));
 
@@ -289,7 +290,7 @@ namespace Cadru.Extensions
         /// <exception cref="System.ArgumentNullException">
         /// <paramref name="key"/> is <see langword="null"/>.
         /// </exception>
-        public static bool TryGetValueOrDefault<TValue>(this IDictionary dictionary, object key, TValue defaultValue, out TValue value)
+        public static bool TryGetValueOrDefault<TValue>(this IDictionary dictionary, object key, TValue defaultValue, [MaybeNullWhen(false)] out TValue value)
         {
             Requires.NotNull(dictionary, nameof(dictionary));
 

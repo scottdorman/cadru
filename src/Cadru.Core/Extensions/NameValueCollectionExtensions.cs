@@ -36,7 +36,7 @@ namespace Cadru.Extensions
         ///<returns>The index of the first matching item, or -1 if no items match.</returns>
         public static int GetKeyIndex(this NameValueCollection nameValueCollection, string key)
         {
-            return nameValueCollection.AllKeys.FindIndex(e => e.Equals(key, StringComparison.OrdinalIgnoreCase));
+            return nameValueCollection.AllKeys.FindIndex(e => (e?.Equals(key, StringComparison.OrdinalIgnoreCase) ?? false));
         }
     }
 }

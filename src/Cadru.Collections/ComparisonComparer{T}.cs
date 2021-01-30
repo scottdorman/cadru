@@ -55,7 +55,6 @@ namespace Cadru.Collections
         /// <exception cref="ArgumentNullException">
         /// <paramref name="comparison"/> is <see langword="null"/>.
         /// </exception>
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "The type must be generic but the Create method shouldn't be.")]
         public new static Comparer<T> Create(Comparison<T> comparison)
         {
             Requires.NotNull(comparison, nameof(comparison));
@@ -64,9 +63,9 @@ namespace Cadru.Collections
         }
 
         /// <inheritdoc/>
-        public override int Compare(T x, T y)
+        public override int Compare(T? x, T? y)
         {
-            return this.comparison(x, y);
+            return this.comparison(x!, y!);
         }
     }
 }

@@ -39,8 +39,6 @@ namespace Cadru
     /// Provides a class for working with enumerations.
     /// </summary>
     /// <typeparam name="TEnum">The enumeration type.</typeparam>
-    [SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix", Justification = "Reviewed.")]
-    [SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", Justification = "Reviewed.")]
     public static class Enum<TEnum> where TEnum : struct
     {
         /// <summary>
@@ -69,7 +67,6 @@ namespace Cadru
         /// type as <typeparamref name="TEnum"/>.
         /// </p>
         /// </exception>
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static string? GetDescription(TEnum value)
         {
             return GetDescription(value, useNameAsFallback: true);
@@ -116,11 +113,10 @@ namespace Cadru
         /// type as <typeparamref name="TEnum"/>.
         /// </p>
         /// </exception>
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static string? GetDescription(TEnum value, bool useNameAsFallback)
         {
-            var fieldInfo = value.GetType().GetTypeInfo().GetDeclaredField(value.ToString());
-            return fieldInfo.GetDescription(useNameAsFallback);
+            var fieldInfo = value.GetType().GetTypeInfo().GetDeclaredField(value.ToString()!);
+            return fieldInfo?.GetDescription(useNameAsFallback);
         }
 
         /// <summary>
@@ -130,7 +126,6 @@ namespace Cadru
         /// <exception cref="ArgumentException">
         /// <typeparamref name="TEnum"/> is not an <see cref="Enum"/>.
         /// </exception>
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static IEnumerable<string?> GetDescriptions()
         {
             return GetDescriptions(useNameAsFallback: true);
@@ -153,7 +148,6 @@ namespace Cadru
         /// <see langword="true"/>, then the name of the enumerated constant is
         /// used; otherwise, a <see langword="null"/> is used.
         /// </remarks>
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static IEnumerable<string?> GetDescriptions(bool useNameAsFallback)
         {
             var type = typeof(TEnum).GetTypeInfo();
@@ -196,8 +190,7 @@ namespace Cadru
         /// type as <typeparamref name="TEnum"/>.
         /// </p>
         /// </exception>
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
-        public static string GetName(TEnum value)
+        public static string? GetName(TEnum value)
         {
             return Enum.GetName(typeof(TEnum), value);
         }
@@ -209,8 +202,6 @@ namespace Cadru
         /// <exception cref="ArgumentException">
         /// <typeparamref name="TEnum"/> is not an <see cref="Enum"/>.
         /// </exception>
-        [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static IEnumerable<string> GetNames()
         {
             return Enum.GetNames(typeof(TEnum));
@@ -223,8 +214,6 @@ namespace Cadru
         /// <exception cref="ArgumentException">
         /// <typeparamref name="TEnum"/> is not an <see cref="Enum"/>.
         /// </exception>
-        [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static Type GetUnderlyingType()
         {
             return Enum.GetUnderlyingType(typeof(TEnum));
@@ -247,8 +236,6 @@ namespace Cadru
         /// reflection-only context.
         /// </p>
         /// </exception>
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
-        [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviewed.")]
         public static IEnumerable<TEnum> GetValues()
         {
             return Enum.GetValues(typeof(TEnum)).OfType<TEnum>();
@@ -284,7 +271,6 @@ namespace Cadru
         /// <see cref="Byte"/>, <see cref="UInt16"/>, <see cref="UInt32"/>,
         /// <see cref="UInt64"/>, or <see cref="String"/>.
         /// </exception>
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static bool IsDefined(object value)
         {
             return Enum.IsDefined(typeof(TEnum), value);
@@ -319,7 +305,6 @@ namespace Cadru
         /// <paramref name="value"/> is outside the range of the underlying type
         /// of <typeparamref name="TEnum"/>.
         /// </exception>
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static TEnum Parse(string value)
         {
             return Parse(value, true);
@@ -359,7 +344,6 @@ namespace Cadru
         /// <paramref name="value"/> is outside the range of the underlying type
         /// of <typeparamref name="TEnum"/>.
         /// </exception>
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static TEnum Parse(string value, bool ignoreCase)
         {
             return (TEnum)Enum.Parse(typeof(TEnum), value, ignoreCase);
@@ -384,7 +368,6 @@ namespace Cadru
         /// <see cref="UInt64"/>, or <see cref="String"/>.
         /// </p>
         /// </exception>
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static TEnum ToEnum(object value)
         {
             return (TEnum)Enum.ToObject(typeof(TEnum), value);
@@ -411,7 +394,6 @@ namespace Cadru
         /// <exception cref="ArgumentException">
         /// <typeparamref name="TEnum"/> is not an enumeration type.
         /// </exception>
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static bool TryParse(string value, out TEnum result)
         {
             return TryParse(value, true, out result);
@@ -443,7 +425,6 @@ namespace Cadru
         /// <exception cref="ArgumentException">
         /// <typeparamref name="TEnum"/> is not an enumeration type.
         /// </exception>
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Reviewed.")]
         public static bool TryParse(string value, bool ignoreCase, out TEnum result)
         {
             return Enum.TryParse<TEnum>(value, ignoreCase, out result);

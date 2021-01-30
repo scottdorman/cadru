@@ -90,7 +90,7 @@ namespace Cadru.Net.NetworkInformation
             }
         }
 
-        private void NetworkAddressChanged(object sender, EventArgs e)
+        private void NetworkAddressChanged(object? sender, EventArgs e)
         {
             var current = NetworkInterface.GetIsNetworkAvailable() ? ConnectionStatus.Connected : ConnectionStatus.Disconnected;
             this.ChangeNetworkStatus(current);

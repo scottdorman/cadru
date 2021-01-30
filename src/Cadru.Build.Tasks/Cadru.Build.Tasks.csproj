@@ -3,6 +3,8 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
     <Description>Provides additional MSBuild tasks.</Description>
     <PackageTags>$(CommonPackageTags) collections logical natural string comparison date comparison comparer</PackageTags>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="RoslynWriteThisAssemblyCodeFile.cs" />

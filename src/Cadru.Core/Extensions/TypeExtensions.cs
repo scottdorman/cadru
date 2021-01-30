@@ -53,9 +53,9 @@ namespace Cadru.Extensions
         /// A custom attribute that matches <typeparamref name="T"/>, or
         /// <see langword="null"/> if no such attribute is found.
         /// </returns>
-        public static T GetAttributeOfType<T>(this FieldInfo element, bool inherit = false) where T : Attribute
+        public static T? GetAttributeOfType<T>(this FieldInfo element, bool inherit = false) where T : Attribute
         {
-            return element.GetCustomAttributes<T>(inherit).FirstOrDefault();
+            return element.GetCustomAttributes<T>(inherit)?.FirstOrDefault();
         }
 
         /// <summary>
@@ -117,7 +117,6 @@ namespace Cadru.Extensions
         /// <exception cref="System.TypeLoadException">
         /// A custom attribute type cannot be loaded.
         /// </exception>
-        [SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
         public static bool HasCustomAttribute<T>(this Type element, bool inherit = false) where T : Attribute
         {
             Requires.NotNull(element, nameof(element));
@@ -166,7 +165,6 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if the specified type implements the
         /// interface; otherwise, <see langword="false"/>.
         /// </returns>
-        [SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "Reviewed.")]
         public static bool HasInterface<TInterface>(this Type element)
         {
             Requires.NotNull(element, nameof(element));
@@ -261,7 +259,7 @@ namespace Cadru.Extensions
             if (element.IsNullable())
             {
                 var underlyingType = Nullable.GetUnderlyingType(type);
-                return underlyingType.IsDate();
+                return underlyingType?.IsDate() ?? false;
             }
 
             return type == typeof(DateTime);
@@ -297,7 +295,7 @@ namespace Cadru.Extensions
             if (element.IsNullable())
             {
                 var underlyingType = Nullable.GetUnderlyingType(type);
-                return underlyingType.IsDateOffset();
+                return underlyingType?.IsDateOffset() ?? false;
             }
 
             return type == typeof(DateTimeOffset);
@@ -371,7 +369,6 @@ namespace Cadru.Extensions
         /// <returns>
         /// <see langword="true"/> if the specified type is nullable; otherwise, <see langword="false"/>.
         /// </returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         public static bool IsNullable(this Type element)
         {
             Requires.NotNull(element, nameof(element));
@@ -428,7 +425,7 @@ namespace Cadru.Extensions
             if (element.IsNullable())
             {
                 var underlyingType = Nullable.GetUnderlyingType(type);
-                return underlyingType.IsNumeric();
+                return underlyingType?.IsNumeric() ?? false;
             }
 
             return type == typeof(decimal);

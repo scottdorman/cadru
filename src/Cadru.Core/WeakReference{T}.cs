@@ -73,9 +73,9 @@ namespace Cadru
         /// thrown while setting this property if the value is a null reference
         /// or if the object has been finalized during the set operation.
         /// </exception>
-        public new T Target
+        public new T? Target
         {
-            get => (T)base.Target;
+            get => (T?)base.Target;
             set => base.Target = value;
         }
     }

@@ -134,31 +134,12 @@ namespace Cadru.Net.Http.Extensions
         /// <returns>A valid <see cref="HttpRequestMessage"/>.</returns>
         public static HttpRequestMessage CreateRequestMessage(this HttpClient httpClient, HttpMethod method, Uri uri, QueryStringParametersDictionary? queryStringParameters = null, IDictionary<string, string>? headerCollection = null)
         {
-            Uri? requestUri = null;
-            if ((uri == null) && (httpClient.BaseAddress == null))
+            if (httpClient.BaseAddress == null && (uri == null || !uri.IsAbsoluteUri))
             {
                 throw new InvalidOperationException(Strings.net_http_client_invalid_requesturi);
             }
-            if (uri == null)
-            {
-                requestUri = httpClient.BaseAddress;
-            }
-            else
-            {
-                // If the request Uri is an absolute Uri, just use it. Otherwise
-                // try to combine it with the base Uri.
-                if (!uri.IsAbsoluteUri)
-                {
-                    if (httpClient.BaseAddress == null)
-                    {
-                        throw new InvalidOperationException(Strings.net_http_client_invalid_requesturi);
-                    }
-                    else
-                    {
-                        requestUri = new Uri(httpClient.BaseAddress, uri);
-                    }
-                }
-            }
+
+            var requestUri = uri == null ? httpClient.BaseAddress! : new Uri(httpClient.BaseAddress!, uri);
 
             if (queryStringParameters != null)
             {

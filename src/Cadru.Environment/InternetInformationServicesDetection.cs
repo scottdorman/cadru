@@ -264,8 +264,6 @@ namespace Cadru.Environment
         /// Services feature is installed; otherwise <see langword="false"/>.
         /// </returns>
         /// <remarks>Features only apply to IIS versions 7 and later.</remarks>
-        [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity",
-            Justification = "This method appears to be complex because of it's length, but it's almost all just a switch statement which then calls out to other methods to do the work.")]
         public static bool IsInstalled(InternetInformationServicesFeature feature)
         {
             var ret = false;
@@ -491,7 +489,6 @@ namespace Cadru.Environment
         /// <returns>
         /// <see langword="true"/> if the registry value was found; otherwise, <see langword="false"/>.
         /// </returns>
-        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         private static bool GetRegistryValue<T>(RegistryHive hive, string key, string value, RegistryValueKind kind, out T data)
         {
             var success = false;

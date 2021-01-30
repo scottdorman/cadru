@@ -23,6 +23,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 using Cadru.Collections.Resources;
 
@@ -50,7 +51,7 @@ namespace Cadru.Collections
     /// <typeparam name="TKey">The type of the key.</typeparam>
     /// <typeparam name="TValue">The type of the value.</typeparam>
     public partial class MultiValueDictionary<TKey, TValue> :
-        IReadOnlyDictionary<TKey, IReadOnlyCollection<TValue>>
+        IReadOnlyDictionary<TKey, IReadOnlyCollection<TValue>> where TKey : notnull
     {
         private readonly Dictionary<TKey, InnerCollectionView> _dictionary;
         private int _version;
@@ -1212,7 +1213,7 @@ namespace Cadru.Collections
             }
 
             var success = this._dictionary.TryGetValue(key, out var collection);
-            value = collection;
+            value = collection!;
             return success;
         }
     }

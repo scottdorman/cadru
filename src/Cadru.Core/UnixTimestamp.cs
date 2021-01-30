@@ -534,7 +534,7 @@ namespace Cadru
         /// <exception cref="System.ArgumentException">
         /// <paramref name="obj"/> is not a <see cref="UnixTimestamp"/>.
         /// </exception>
-        public int CompareTo(object obj)
+        public int CompareTo(object? obj)
         {
             if (obj == null)
             {
@@ -596,7 +596,7 @@ namespace Cadru
         /// The current instance and <paramref name="obj"/> are equal if their
         /// <see cref="Seconds"/> property values are equal.
         /// </remarks>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj is UnixTimestamp timestamp)
             {
@@ -714,12 +714,11 @@ namespace Cadru
         /// <exception cref="FormatException">
         /// <paramref name="format"/> is invalid or not supported.
         /// </exception>
-        public string ToString(string format, IFormatProvider formatProvider)
+        public string ToString(string? format, IFormatProvider? formatProvider)
         {
             return this.seconds.ToString(format, formatProvider);
         }
 
-        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         private static long DateToSeconds(int year, int month, int day, int hour, int minute, int second)
         {
             long sec;

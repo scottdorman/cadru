@@ -62,7 +62,7 @@ namespace Cadru.Data.Excel
         }
 
         /// <inheritdoc/>
-        public IDataReader? GetData(int i)
+        public IDataReader GetData(int i)
         {
             return null;
         }

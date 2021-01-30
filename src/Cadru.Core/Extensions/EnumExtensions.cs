@@ -103,7 +103,7 @@ namespace Cadru.Extensions
             Requires.That(value.GetType().IsEnum, nameof(value), Strings.ArgumentExceptionMustBeEnum);
 
             var fieldInfo = value.GetType().GetTypeInfo().GetDeclaredField(value.ToString());
-            return fieldInfo.GetDescription(useNameAsFallback);
+            return fieldInfo?.GetDescription(useNameAsFallback);
         }
     }
 }

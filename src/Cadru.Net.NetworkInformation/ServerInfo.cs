@@ -103,27 +103,25 @@ namespace Cadru.Net.NetworkInformation
         public ServerTypes ServerType { get; }
 
         /// <inheritdoc/>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
-        public static bool operator ==(ServerInfo left, ServerInfo right)
+        public static bool operator ==(ServerInfo? left, ServerInfo? right)
         {
             return left.Equals(right);
         }
 
         /// <inheritdoc/>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1625:ElementDocumentationMustNotBeCopiedAndPasted", Justification = "Reviewed.")]
-        public static bool operator !=(ServerInfo left, ServerInfo right)
+        public static bool operator !=(ServerInfo? left, ServerInfo? right)
         {
             return !left.Equals(right);
         }
 
         /// <inheritdoc/>
-        public static bool Equals(ServerInfo left, ServerInfo right)
+        public static bool Equals(ServerInfo? left, ServerInfo? right)
         {
             return left == right;
         }
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj is ServerInfo s)
             {

@@ -257,12 +257,12 @@ namespace Cadru.Data.Excel
             return result;
         }
 
-        private Sheet GetSheetByIndex(int sheetIndex)
+        private Sheet? GetSheetByIndex(int sheetIndex)
         {
             return this.sheets.ElementAtOrDefault(sheetIndex);
         }
 
-        private Sheet GetSheetByName(string sheetName)
+        private Sheet? GetSheetByName(string sheetName)
         {
             return this.sheets.FirstOrDefault(x => x.Name == sheetName);
         }

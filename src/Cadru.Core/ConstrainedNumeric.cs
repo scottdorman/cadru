@@ -92,7 +92,7 @@ namespace Cadru
         }
 
         /// <inheritdoc/>
-        public int CompareTo(object obj)
+        public int CompareTo(object? obj)
         {
             if (obj == null)
             {
@@ -118,9 +118,9 @@ namespace Cadru
         public int CompareTo(T other) => this.Value.CompareTo(other);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
-            if (!(obj is ConstrainedNumeric<T> cn))
+            if (obj is not ConstrainedNumeric<T> cn)
             {
                 return false;
             }

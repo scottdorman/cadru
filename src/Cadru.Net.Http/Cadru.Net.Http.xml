@@ -101,6 +101,24 @@
             inner handler.
             </summary>
         </member>
+        <member name="T:Cadru.Net.Http.EmptyContent">
+            <summary>
+             Provides HTTP content based on an empty string.
+            </summary>
+        </member>
+        <member name="M:Cadru.Net.Http.EmptyContent.Create">
+            <summary>
+            Creates a new instance of the <see cref="T:Cadru.Net.Http.EmptyContent"/> class.
+            </summary>
+            <returns>A <see cref="T:System.Net.Http.HttpContent"/> instance.</returns>
+        </member>
+        <member name="M:Cadru.Net.Http.EmptyContent.Create(System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:Cadru.Net.Http.EmptyContent"/> class.
+            </summary>
+            <param name="mediaType">The media type to use for the content.</param>
+            <returns>A <see cref="T:System.Net.Http.HttpContent"/> instance.</returns>
+        </member>
         <member name="T:Cadru.Net.Http.Extensions.HttpClientExtensions">
             <summary>
             Extension methods that aid in making formatted requests using <see cref="T:System.Net.Http.HttpClient"></see>.
