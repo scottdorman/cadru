@@ -52,12 +52,8 @@ namespace Cadru.Scim.Filters
             return $@"{(options.IncludeQuerySeparator ? "?" : "")}{(options.IncludeFilterParameterName ? "filter=" : "")}{ this }";
         }
 
-        /// <summary>
-        /// Returns a string that represents the current
-        /// <see cref="NotFilterGroup"></see> as a valid query
-        /// </summary>
-        /// <returns>A string that represents the current <see cref="NotFilterGroup"></see>.</returns>
-        public override string ToString()
+        /// <inheritdoc/>
+        public override string? ToString()
         {
             var brackets = Array.Empty<string>();
             switch (this.GroupingCharacter)

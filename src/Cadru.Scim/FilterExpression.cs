@@ -53,12 +53,8 @@ namespace Cadru.Scim.Filters
             return $@"{(options.IncludeQuerySeparator ? "?" : "")}{(options.IncludeFilterParameterName ? "filter=" : "")}{ this }";
         }
 
-        /// <summary>
-        /// Returns a string that represents the current
-        /// <see cref="FilterExpression"></see> as a valid query
-        /// </summary>
-        /// <returns>A string that represents the current <see cref="FilterExpression"></see>.</returns>
-        public override string ToString()
+        /// <inheritdoc/>
+        public override string? ToString()
         {
             string expression;
             if (this.Operator == FilterExpressionOperator.Present)

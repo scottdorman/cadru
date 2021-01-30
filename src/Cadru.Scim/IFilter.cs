@@ -47,5 +47,12 @@ namespace Cadru.Scim.Filters
         /// </param>
         /// <returns>A string that represents the current <see cref="IFilter"/>.</returns>
         string ToFilterExpression(FilterExpressionFormatOptions options);
+
+        /// <summary>
+        /// Returns a string that represents the current
+        /// <see cref="FilterExpression"></see> as a valid query
+        /// </summary>
+        /// <returns>A string that represents the current <see cref="FilterExpression"></see>.</returns>
+        string? ToString();
     }
 }
