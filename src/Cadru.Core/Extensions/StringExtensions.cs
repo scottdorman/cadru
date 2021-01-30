@@ -195,6 +195,21 @@ namespace Cadru.Extensions
         }
 
         /// <summary>
+        /// Returns a new string with <paramref name="trailingCharacter"/> at the end of <paramref name="source"/>.
+        /// </summary>
+        /// <param name="source">The source <see cref="String"/>.</param>
+        /// <param name="trailingCharacter">The character to compare to the character at the end of this instance.</param>
+        /// <returns>The string instance with the <paramref name="trailingCharacter"/> at the end.</returns>
+        public static string EnsureTrailingCharacter(this string source, char trailingCharacter)
+        {
+#if NETSTANDARD2_0
+            return source.EndsWith(trailingCharacter.ToString()) ? source : $"{source}{trailingCharacter}";
+#else
+            return source.EndsWith(trailingCharacter) ? source : $"{source}{trailingCharacter}";
+#endif
+        }
+
+        /// <summary>
         /// Determines whether this string instance is equal to any of the
         /// specified strings.
         /// </summary>
@@ -249,7 +264,7 @@ namespace Cadru.Extensions
         /// System.String equivalent of the corresponding instances of
         /// System.Object in args.
         /// </returns>
-        public static string FormatWith(this string? instance, params object[] args)
+        public static string FormatWith(this string instance, params object[] args)
         {
             return String.Format(CultureInfo.CurrentCulture, instance, args);
         }
@@ -295,7 +310,6 @@ namespace Cadru.Extensions
         /// <para>-or-</para>
         /// <para><paramref name="value"/> is <see langword="null"/>.</para>
         /// </exception>
-        [SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.IndexOfOccurrence(System.String,System.String,System.Int32,System.Int32)", Justification = "This ultimately calls an overload which provides the comparison.")]
         public static int IndexOfOccurrence(this string source, string value, int occurrence)
         {
             Requires.NotNull(source, nameof(source));
@@ -446,7 +460,6 @@ namespace Cadru.Extensions
         /// <para>-or-</para>
         /// <para><paramref name="value"/> is <see langword="null"/>.</para>
         /// </exception>
-        [SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.IndexOfOccurrence(System.String,System.String,System.Int32,System.Int32,System.Int32)", Justification = "This ultimately calls an overload which provides the comparison.")]
         public static int IndexOfOccurrence(this string source, string value, int startIndex, int count, int occurrence)
         {
             Requires.NotNull(source, nameof(source));
@@ -749,7 +762,6 @@ namespace Cadru.Extensions
         /// <paramref name="source"/>, or the entire string if
         /// <paramref name="value"/> is not found in the string.
         /// </returns>
-        [SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.LeftSubstring(System.String,System.String,System.Int32)", Justification = "Reviewed.")]
         public static string LeftSubstring(this string source, string value) => LeftSubstring(source, value, 1);
 
         /// <summary>
@@ -1519,7 +1531,6 @@ namespace Cadru.Extensions
         /// <paramref name="source"/>, or the entire string if
         /// <paramref name="value"/> is not found in the string.
         /// </returns>
-        [SuppressMessage("Microsoft.Globalization", "CA1307:SpecifyStringComparison", MessageId = "Cadru.Extensions.StringExtensions.RightSubstring(System.String,System.String,System.Int32)", Justification = "Reviewed.")]
         public static string RightSubstring(this string source, string value) => RightSubstring(source, value, 1);
 
         /// <summary>

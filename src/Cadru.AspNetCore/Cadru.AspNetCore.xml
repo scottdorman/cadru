@@ -239,21 +239,27 @@
             Additional key-value pairs to be added to the logging scope.
             </summary>
         </member>
-        <member name="P:Cadru.AspNetCore.Http.RequestResponseLoggingScope.ContentType">
-            <summary>
-            The value of the Content-Type content header on an HTTP response.
-            </summary>
-        </member>
-        <member name="P:Cadru.AspNetCore.Http.RequestResponseLoggingScope.HttpMethod">
-            <summary>
-            The HTTP method used by the request message. The default is the GET method.
-            </summary>
-        </member>
         <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingScope.ToLoggingScope">
             <summary>
             Returns a collection of key-value pairs to be used in the logging scope.
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:Cadru.AspNetCore.Http.RequestResponseLogginScopeFactory">
+            <summary>
+            Provides methods for creating a
+            <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> from an
+            <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>.
+            </summary>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLogginScopeFactory.ToScopeObjectAsync(System.Net.Http.HttpRequestMessage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLogginScopeFactory.ToScopeObjectAsync(Microsoft.AspNetCore.Http.HttpRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLogginScopeFactory.ToScopeObjectAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer">
             <summary>

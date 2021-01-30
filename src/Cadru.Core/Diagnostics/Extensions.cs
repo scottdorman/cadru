@@ -21,6 +21,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
@@ -46,6 +47,25 @@ namespace Cadru.Diagnostics
         {
             Requires.NotNull(e, nameof(e));
             return e.Flatten(new StringBuilder());
+        }
+
+        /// <summary>
+        /// Returns a collection containing the <see cref="Exception.Message"/>
+        /// of all exceptions in the hierarchy.
+        /// </summary>
+        /// <param name="e">The exception to traverse.</param>
+        /// <returns>A string collection of all of the exception messages.</returns>
+        /// <remarks>This method follows all nested <see cref="Exception.InnerException"/> properties.</remarks>
+        public static IEnumerable<string> GetAllMessages(this Exception e)
+        {
+            yield return e.Message;
+            var innerException = e.InnerException;
+
+            while (innerException != null)
+            {
+                yield return innerException.Message;
+                innerException = innerException.InnerException;
+            }
         }
 
         /// <summary>

@@ -68,7 +68,7 @@ namespace Cadru.AspNetCore.Http
         }
 
         /// <inheritdoc/>
-        protected override async Task<HttpResponseMessage?> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             var loggingScope = Enumerable.Empty<KeyValuePair<string, string>>();
 
