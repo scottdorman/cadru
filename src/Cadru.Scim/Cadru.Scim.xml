@@ -30,11 +30,7 @@
             <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterExpression.ToString">
-            <summary>
-            Returns a string that represents the current
-            <see cref="T:Cadru.Scim.Filters.FilterExpression"></see> as a valid query
-            </summary>
-            <returns>A string that represents the current <see cref="T:Cadru.Scim.Filters.FilterExpression"></see>.</returns>
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Scim.Filters.FilterExpressionFormatOptions">
             <summary>
@@ -233,11 +229,7 @@
             <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.FilterGroup.ToString">
-            <summary>
-            Returns a string that represents the current
-            <see cref="T:Cadru.Scim.Filters.FilterGroup"></see> as a valid query
-            </summary>
-            <returns>A string that represents the current <see cref="T:Cadru.Scim.Filters.FilterGroup"></see>.</returns>
+            <inheritdoc/>
         </member>
         <member name="T:Cadru.Scim.Filters.FilterGroupExtensions">
             <summary>
@@ -395,6 +387,13 @@
             </param>
             <returns>A string that represents the current <see cref="T:Cadru.Scim.Filters.IFilter"/>.</returns>
         </member>
+        <member name="M:Cadru.Scim.Filters.IFilter.ToString">
+            <summary>
+            Returns a string that represents the current
+            <see cref="T:Cadru.Scim.Filters.FilterExpression"></see> as a valid query
+            </summary>
+            <returns>A string that represents the current <see cref="T:Cadru.Scim.Filters.FilterExpression"></see>.</returns>
+        </member>
         <member name="T:Cadru.Scim.Filters.IFilterExpression">
             <summary>
             Represents an SCIM filter expression.
@@ -467,11 +466,7 @@
             <inheritdoc/>
         </member>
         <member name="M:Cadru.Scim.Filters.NotFilterGroup.ToString">
-            <summary>
-            Returns a string that represents the current
-            <see cref="T:Cadru.Scim.Filters.NotFilterGroup"></see> as a valid query
-            </summary>
-            <returns>A string that represents the current <see cref="T:Cadru.Scim.Filters.NotFilterGroup"></see>.</returns>
+            <inheritdoc/>
         </member>
     </members>
 </doc>
