@@ -12,10 +12,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="2.2.0" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <PackageReference Include="Nullable" Version="1.3.0" PrivateAssets="all" />
-  </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Cadru.Core\Cadru.Core.csproj" />
   </ItemGroup>

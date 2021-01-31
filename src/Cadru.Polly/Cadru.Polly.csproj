@@ -17,10 +17,6 @@
     <PackageReference Include="Polly.Contrib.WaitAndRetry" Version="1.1.1" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <PackageReference Include="Nullable" Version="1.3.0" PrivateAssets="all" />
-  </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Cadru.Core\Cadru.Core.csproj" />
     <ProjectReference Include="..\Cadru.Data.Annotations\Cadru.Data.Annotations.csproj" />
