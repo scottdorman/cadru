@@ -418,12 +418,6 @@
             </summary>
             <value>The reason phrase sent by the server.</value>
         </member>
-        <member name="P:Cadru.Net.Http.HttpRequestWithStatusException.StatusCode">
-            <summary>
-            Gets the status code of the HTTP response.
-            </summary>
-            <value>The status code of the HTTP response.</value>
-        </member>
         <member name="T:Cadru.Net.Http.HttpTransientErrorDetectionStrategy">
             <summary>
             Represents a strategy that determines whether or not a given

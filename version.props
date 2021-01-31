@@ -30,7 +30,7 @@ projects from the command-line or the IDE. -->
   <PropertyGroup>
     <VersionMajor>5</VersionMajor>
     <VersionMinor>0</VersionMinor>
-    <VersionPatch>4</VersionPatch>
+    <VersionPatch>5</VersionPatch>
     <VersionSuffix>preview-3</VersionSuffix>
   </PropertyGroup>
 </Project>
