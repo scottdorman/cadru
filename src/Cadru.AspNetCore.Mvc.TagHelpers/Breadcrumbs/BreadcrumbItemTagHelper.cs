@@ -65,7 +65,7 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
         /// </summary>
         [HtmlAttributeNotBound]
         [ViewContext]
-        public ViewContext ViewContext { get; set; }
+        public ViewContext? ViewContext { get; set; }
 
         /// <summary>
         /// Gets the <see cref="IHtmlGenerator"/> used to generate the

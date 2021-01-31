@@ -48,14 +48,15 @@ namespace Cadru.AspNetCore.Mvc.Razor
                 throw new ArgumentNullException(nameof(viewLocations));
             }
 
-            context.Values.TryGetValue(ValueKey, out var value);
-
-            if (!String.IsNullOrEmpty(value))
+            if (context.Values.TryGetValue(ValueKey, out var value))
             {
-                return viewLocations;
+                if (!String.IsNullOrEmpty(value))
+                {
+                }
             }
 
-            return this.ExpandViewLocationsCore(viewLocations, value);
+
+            return viewLocations;
         }
 
         /// <inheritdoc/>

@@ -52,81 +52,88 @@ namespace Cadru.Build.Tasks
         /// This can be the <see cref="GetVersionProperties.BuildDate"/> property value.
         /// </remarks>
         [Required]
-        public string BuildDate { get; set; }
+        public string? BuildDate { get; set; }
 
         /// <summary>
         /// The release notes XML file to be updated.
         /// </summary>
         [Required]
-        public ITaskItem File { get; set; }
+        public ITaskItem? File { get; set; }
 
         /// <summary>
         /// An optional milestone value to include in the release notes entry.
         /// </summary>
-        public string Milestone { get; set; }
+        public string? Milestone { get; set; }
 
         /// <summary>
         /// The build version.
         /// </summary>
         [Required]
-        public string Version { get; set; }
+        public string? Version { get; set; }
 
         /// <summary>
         /// Main entry point.
         /// </summary>
         public override bool Execute()
         {
-            var document = XDocument.Load(this.File.ItemSpec);
-            var entry = document.Root.Descendants("entry").SingleOrDefault(e => e.Attribute("version").Value == "vNext" || String.IsNullOrEmpty(e.Attribute("version").Value) || e.Attribute("version").Value == this.Version);
-            if (entry != null)
+            if (this.File != null)
             {
-                this.Log.LogMessage("Build entry found; updating attributes.");
-                entry.Attribute("version").Value = this.Version;
-                entry.Attribute("build-date").Value = this.BuildDate;
-
-                if (!String.IsNullOrWhiteSpace(this.Milestone))
+                var document = XDocument.Load(this.File.ItemSpec);
+                if (document.Root != null)
                 {
-                    var milestoneAttribute = entry.Attribute("milestone");
-                    if (milestoneAttribute != null)
-                    {
-                        milestoneAttribute.Value = this.Milestone;
-                    }
-                }
+                    var versionString = this.Version ?? String.Empty;
+                    var buildDateString = this.BuildDate ?? String.Empty;
 
-                document.Save(this.File.ItemSpec);
-            }
-            else
-            {
-                this.Log.LogMessage("Build entry not found.");
-                if (this.AddIfNotFound)
-                {
-                    this.Log.LogMessage("Adding new build entry.");
-                    entry = new XElement("entry",
-                        new XAttribute("build-date", this.BuildDate),
-                        new XAttribute("version", this.Version),
-                        new XElement("content",
-                            new XElement("ul")));
-
-                    if (!String.IsNullOrWhiteSpace(this.Milestone))
+                    var entry = document.Root.Descendants("entry").SingleOrDefault(e => e.Attribute("version")?.Value == "vNext" || String.IsNullOrEmpty(e.Attribute("version")?.Value) || e.Attribute("version")?.Value == this.Version);
+                    if (entry != null)
                     {
-                        entry.Add(new XAttribute("milestone", this.Milestone));
-                    }
+                        this.Log.LogMessage("Build entry found; updating attributes.");
+                        entry.Attribute("version")?.SetValue(versionString);
+                        entry.Attribute("build-date")?.SetValue(buildDateString);
 
-                    var commentTemplate = document.DescendantNodes().OfType<XComment>().FirstOrDefault();
-                    if (commentTemplate != null)
-                    {
-                        commentTemplate.AddAfterSelf(entry);
+                        if (!String.IsNullOrWhiteSpace(this.Milestone))
+                        {
+                            entry.Attribute("milestone")?.SetValue(this.Milestone);
+                        }
+
+                        document.Save(this.File.ItemSpec);
                     }
                     else
                     {
-                        document.Root.AddFirst(entry);
+                        this.Log.LogMessage("Build entry not found.");
+                        if (this.AddIfNotFound)
+                        {
+                            this.Log.LogMessage("Adding new build entry.");
+                            entry = new XElement("entry",
+                                new XAttribute("build-date", buildDateString),
+                                new XAttribute("version", versionString),
+                                new XElement("content",
+                                    new XElement("ul")));
+
+                            if (!String.IsNullOrWhiteSpace(this.Milestone))
+                            {
+                                entry.Add(new XAttribute("milestone", this.Milestone));
+                            }
+
+                            var commentTemplate = document.DescendantNodes().OfType<XComment>().FirstOrDefault();
+                            if (commentTemplate != null)
+                            {
+                                commentTemplate.AddAfterSelf(entry);
+                            }
+                            else
+                            {
+                                document.Root.AddFirst(entry);
+                            }
+
+                            document.Save(this.File.ItemSpec);
+                        }
                     }
 
-                    document.Save(this.File.ItemSpec);
+                    return true;
                 }
             }
 
-            return true;
+            return false;
         }
     }
 }

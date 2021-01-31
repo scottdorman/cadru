@@ -50,28 +50,31 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
         /// An expression to be evaluated against the current model.
         /// </summary>
         [HtmlAttributeName(PlaceholderAttributeName)]
-        public ModelExpression Placeholder { get; set; }
+        public ModelExpression? Placeholder { get; set; }
 
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             base.Process(context, output);
 
-            var placeholder = this.GetPlaceholder(this.Placeholder.ModelExplorer);
-            if (!output.Attributes.TryGetAttribute("placeholder", out _))
+            if (this.Placeholder != null)
             {
-                output.Attributes.Add(new TagHelperAttribute("placeholder", placeholder));
+                var placeholder = this.GetPlaceholder();
+                if (!output.Attributes.TryGetAttribute("placeholder", out _))
+                {
+                    output.Attributes.Add(new TagHelperAttribute("placeholder", placeholder));
+                }
             }
         }
 
-        private string GetPlaceholder(ModelExplorer modelExplorer)
+        private string? GetPlaceholder()
         {
-            string placeholder;
-            placeholder = modelExplorer.Metadata.Placeholder;
+            var modelExplorer = this.Placeholder?.ModelExplorer;
+            var placeholder = modelExplorer?.Metadata.Placeholder;
 
             if (String.IsNullOrWhiteSpace(placeholder))
             {
-                placeholder = modelExplorer.Metadata.GetDisplayName();
+                placeholder = modelExplorer?.Metadata.GetDisplayName();
             }
 
             return placeholder;

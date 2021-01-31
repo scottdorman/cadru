@@ -102,7 +102,7 @@ namespace Cadru.Extensions
 
                         if (whitespaceCount >= 0)
                         {
-                            builder.Append(" ");
+                            builder.Append(' ');
                         }
 
                         whitespaceCount = 0;
@@ -131,6 +131,7 @@ namespace Cadru.Extensions
             return builder.ToString();
         }
 
+#if NETSTANDARD2_0
         /// <summary>
         /// Returns a value indicating whether the specified
         /// <see cref="String"/> object occurs within this string.
@@ -152,6 +153,7 @@ namespace Cadru.Extensions
 
             return source.IndexOf(value, comparisonType) >= 0;
         }
+#endif
 
         /// <summary>
         /// Determines whether the end of this string instance matches any of

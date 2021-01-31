@@ -35,7 +35,7 @@ namespace Cadru.Data.Dapper
         /// <inheritdoc/>
         public override Comb Parse(object value)
         {
-            return new Comb(value.ToString());
+            return new Comb(value.ToString() ?? String.Empty);
         }
 
         /// <inheritdoc/>

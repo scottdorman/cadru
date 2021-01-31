@@ -52,7 +52,7 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
         /// The CSS classes for the icon element.
         /// </summary>
         [HtmlAttributeName(IconAttributeName)]
-        public string IconCss { get; set; }
+        public string? IconCss { get; set; }
 
         /// <inheritdoc/>
         public async override void Process(TagHelperContext context, TagHelperOutput output)
@@ -86,11 +86,11 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
 
             if (this.ShouldBeActive())
             {
-                this.MakeActive(output);
+                MakeActive(output);
             }
         }
 
-        private void MakeActive(TagHelperOutput output)
+        private static void MakeActive(TagHelperOutput output)
         {
             if (output.Attributes.TryGetAttribute("class", out var classAttribute))
             {

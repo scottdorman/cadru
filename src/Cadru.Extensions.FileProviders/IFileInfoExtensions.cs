@@ -47,10 +47,8 @@ namespace Cadru.Extensions.FileProviders
         /// <returns>A string containing all the text in the file.</returns>
         public static async Task<string> ReadAllText(this IFileInfo fileInfo)
         {
-            using (var streamReader = new StreamReader(fileInfo.CreateReadStream()))
-            {
-                return await streamReader.ReadToEndAsync();
-            }
+            using var streamReader = new StreamReader(fileInfo.CreateReadStream());
+            return await streamReader.ReadToEndAsync();
         }
 
         /// <summary>
@@ -76,7 +74,12 @@ namespace Cadru.Extensions.FileProviders
         /// <returns>A <see cref="Uri"/> representing the path.</returns>
         public static Uri ToUri(this IFileInfo fileInfo)
         {
-            return new Uri(String.Concat(@"//", fqdn, @"/", fileInfo.PhysicalPath.Substring(Path.GetPathRoot(fileInfo.PhysicalPath).Length)));
+            var pathLength = Path.GetPathRoot(fileInfo.PhysicalPath)?.Length ?? 0;
+#if NETSTANDARD2_0
+            return new Uri(String.Concat(@"//", fqdn, @"/", fileInfo.PhysicalPath.Substring(pathLength)));
+#else
+            return new Uri(String.Concat(@"//", fqdn, @"/", fileInfo.PhysicalPath[pathLength..]));
+#endif
         }
 
         private static string GetFullyQualifiedDomainName()

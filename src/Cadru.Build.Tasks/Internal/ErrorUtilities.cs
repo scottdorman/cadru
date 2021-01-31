@@ -21,14 +21,17 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using Cadru.Build.Tasks.Resources;
+
+using Validation;
 
 namespace Cadru.Build.Tasks.Internal
 {
     internal static class ErrorUtilities
     {
-        internal static void ThrowInternalError(string message, Exception innerException, params object[] args)
+        internal static void ThrowInternalError(string message, Exception? innerException, params object?[] args)
         {
             throw new Exception(String.Format(message, args), innerException);
         }
@@ -39,11 +42,11 @@ namespace Cadru.Build.Tasks.Internal
             {
                 // PERF NOTE: explicitly passing null for the arguments array
                 // prevents memory allocation
-                ThrowInternalError(unformattedMessage, null, null);
+                ThrowInternalError(unformattedMessage, null, Array.Empty<object>());
             }
         }
 
-        internal static void VerifyThrowArgumentLength(string parameter, string parameterName)
+        internal static void VerifyThrowArgumentLength([NotNull] string parameter, string parameterName)
         {
             VerifyThrowArgumentNull(parameter, parameterName);
 
@@ -53,7 +56,7 @@ namespace Cadru.Build.Tasks.Internal
             }
         }
 
-        internal static void VerifyThrowArgumentLengthIfNotNull(string parameter, string parameterName)
+        internal static void VerifyThrowArgumentLengthIfNotNull([ValidatedNotNull] string parameter, string parameterName)
         {
             if (parameter != null && parameter.Length == 0)
             {
@@ -61,13 +64,13 @@ namespace Cadru.Build.Tasks.Internal
             }
         }
 
-        internal static void VerifyThrowArgumentNull(object parameter, string parameterName)
+        internal static void VerifyThrowArgumentNull([NotNull] object parameter, string parameterName)
         {
             if (parameter == null)
             {
                 // Most ArgumentNullException overloads append its own rather
                 // clunky multi-line message. So use the one overload that doesn't.
-                throw new ArgumentNullException(String.Format(Strings.Shared_ParameterCannotBeNull, parameterName), (Exception)null);
+                throw new ArgumentNullException(String.Format(Strings.Shared_ParameterCannotBeNull, parameterName), (Exception?)null);
             }
         }
     }

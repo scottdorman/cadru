@@ -121,7 +121,7 @@ namespace Cadru.Data.Dapper
             Requires.That(this.IsValidIdentifier(identifier), nameof(identifier), Strings.InvalidIdentifier);
 
             this.ConsistentQuoteDelimiters(this.IdentifierPrefix, this.IdentifierSuffix);
-            return this.BuildQuotedString(this.IdentifierPrefix, this.IdentifierSuffix, identifier);
+            return BuildQuotedString(this.IdentifierPrefix, this.IdentifierSuffix, identifier);
         }
 
         /// <inheritdoc/>
@@ -129,7 +129,7 @@ namespace Cadru.Data.Dapper
         {
             Requires.NotNullOrWhiteSpace(value, nameof(value));
             this.ConsistentQuoteDelimiters(this.QuotePrefix, this.QuoteSuffix);
-            return this.BuildQuotedString(this.QuotePrefix, this.QuoteSuffix, value);
+            return BuildQuotedString(this.QuotePrefix, this.QuoteSuffix, value);
         }
 
         /// <inheritdoc/>
@@ -139,7 +139,7 @@ namespace Cadru.Data.Dapper
 
             this.ConsistentQuoteDelimiters(this.IdentifierPrefix, this.IdentifierSuffix);
 
-            if (this.RemoveStringQuotes(identifier, this.IdentifierPrefix, this.IdentifierSuffix, out var unquotedIdentifier)
+            if (RemoveStringQuotes(identifier, this.IdentifierPrefix, this.IdentifierSuffix, out var unquotedIdentifier)
                 && !this.IsValidIdentifier(unquotedIdentifier))
             {
                 throw new InvalidOperationException();
@@ -148,7 +148,7 @@ namespace Cadru.Data.Dapper
             return unquotedIdentifier;
         }
 
-        internal string BuildQuotedString(string prefix, string suffix, string value)
+        internal static string BuildQuotedString(string prefix, string suffix, string value)
         {
             var resultString = new StringBuilder(value.Length + prefix.Length + suffix.Length);
             AppendQuotedString(resultString, prefix, suffix, value);
@@ -184,7 +184,7 @@ namespace Cadru.Data.Dapper
         // the return value is true if the string was quoted and false if it was
         // not this allows the caller to determine if it is an error or not for
         // the quotedString to not be quoted
-        private bool RemoveStringQuotes(string quotedString, string prefix, string suffix, out string unquotedString)
+        private static bool RemoveStringQuotes(string quotedString, string prefix, string suffix, out string unquotedString)
         {
             var prefixLength = prefix != null ? prefix.Length : 0;
             var suffixLength = suffix != null ? suffix.Length : 0;
@@ -205,7 +205,7 @@ namespace Cadru.Data.Dapper
             }
 
             // is the prefix present?
-            if (prefixLength > 0 && !quotedString.StartsWith(prefix, StringComparison.Ordinal))
+            if (prefixLength > 0 && !quotedString.StartsWith(prefix!, StringComparison.Ordinal))
             {
                 unquotedString = quotedString;
                 return false;
@@ -214,7 +214,7 @@ namespace Cadru.Data.Dapper
             // is the suffix present?
             if (suffixLength > 0)
             {
-                if (!quotedString.EndsWith(suffix, StringComparison.Ordinal))
+                if (!quotedString.EndsWith(suffix!, StringComparison.Ordinal))
                 {
                     unquotedString = quotedString;
                     return false;

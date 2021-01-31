@@ -49,7 +49,7 @@ namespace Cadru.AspNetCore.Mvc.TagHelpers
         /// The CSS classes for the icon element.
         /// </summary>
         [HtmlAttributeName(IconAttributeName)]
-        public string IconCss { get; set; }
+        public string? IconCss { get; set; }
 
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)

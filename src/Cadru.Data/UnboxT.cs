@@ -56,7 +56,7 @@ namespace Cadru.Data
             {
                 if (typeInfo.IsNullable())
                 {
-                    return (Func<object, T>)typeof(UnboxT<T>).GetTypeInfo().DeclaredMethods.SingleOrDefault(m => m.Name == "NullableField" && m.IsStatic && !m.IsPublic).MakeGenericMethod(type.GenericTypeArguments[0]).CreateDelegate(typeof(Func<object, T>));
+                    return (Func<object, T>)typeof(UnboxT<T>).GetTypeInfo().DeclaredMethods.Single(m => m.Name == "NullableField" && m.IsStatic && !m.IsPublic).MakeGenericMethod(type.GenericTypeArguments[0]).CreateDelegate(typeof(Func<object, T>));
                 }
 
                 if (typeInfo.IsBoolean())
@@ -96,18 +96,25 @@ namespace Cadru.Data
             }
             else
             {
-                DateTime.TryParse(value.ToString(), out var parsedResult);
-                result = parsedResult;
+                if (DateTime.TryParse(value.ToString(), out var parsedResult))
+                {
+                    result = parsedResult;
+                }
+                else
+                {
+                    throw new InvalidCastException();
+                }
             }
 
             return (T)result;
         }
 
+#pragma warning disable IDE0051 // Remove unused private members
         private static Nullable<TElem> NullableField<TElem>(object value) where TElem : struct
         {
             if (DBNull.Value == value || value == null)
             {
-                return default(TElem?);
+                return default;
             }
 
             try
@@ -116,9 +123,10 @@ namespace Cadru.Data
             }
             catch
             {
-                return default(TElem?);
+                return default;
             }
         }
+#pragma warning restore IDE0051 // Remove unused private members
 
         private static T ReferenceField(object value)
         {

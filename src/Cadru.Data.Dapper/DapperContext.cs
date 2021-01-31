@@ -82,7 +82,7 @@ namespace Cadru.Data.Dapper
                 var instance = Activator.CreateInstance(contextProperty.PropertyType, this);
                 if (instance != null)
                 {
-                    contextProperty.MethodInfo.Invoke(this, new[] { instance });
+                    contextProperty.MethodInfo?.Invoke(this, new[] { instance });
                 }
             }
         }

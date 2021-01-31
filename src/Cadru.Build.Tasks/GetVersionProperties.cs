@@ -128,13 +128,13 @@ namespace Cadru.Build.Tasks
         /// Gets the value of the build date.
         /// </summary>
         [Output]
-        public string BuildDate { get; private set; }
+        public string? BuildDate { get; private set; }
 
         /// <summary>
         /// Gets or sets the path to the properties file to be updated.
         /// </summary>
         [Required]
-        public ITaskItem PropertiesFile { get; set; }
+        public ITaskItem? PropertiesFile { get; set; }
 
         /// <summary>
         /// Gets the value of the revision component of the version number.
@@ -152,47 +152,55 @@ namespace Cadru.Build.Tasks
         /// </summary>
         public override bool Execute()
         {
-            var now = DateTimeOffset.UtcNow;
-            this.BuildDate = now.ToString();
-
-            Enum.TryParse<VersionStrategy>(this.Strategy, out var versionStrategy);
-
-            switch (versionStrategy)
+            if (this.PropertiesFile != null)
             {
-                case VersionStrategy.ShortDate:
-                    this.ShortDateStrategy(now);
-                    break;
+                var now = DateTimeOffset.UtcNow;
+                this.BuildDate = now.ToString();
 
-                case VersionStrategy.VisualStudio:
-                    this.VisualStudioStrategy(now);
-                    break;
+                if (!Enum.TryParse<VersionStrategy>(this.Strategy, out var versionStrategy))
+                {
+                    versionStrategy = VersionStrategy.ShortDate;
+                }
 
-                case VersionStrategy.DayOfYear:
-                    this.DayOfYearStrategy(now);
-                    break;
+                switch (versionStrategy)
+                {
+                    case VersionStrategy.ShortDate:
+                        this.ShortDateStrategy(now);
+                        break;
+
+                    case VersionStrategy.VisualStudio:
+                        this.VisualStudioStrategy(now);
+                        break;
+
+                    case VersionStrategy.DayOfYear:
+                        this.DayOfYearStrategy(now);
+                        break;
+                }
+
+                XDocument document;
+
+                if (!File.Exists(this.PropertiesFile.ItemSpec))
+                {
+                    document = new XDocument(new XComment("This file may be overwritten by automation."),
+                        new XElement("Project",
+                            new XElement("PropertyGroup",
+                                new XElement("BuildDate", this.BuildDate),
+                                new XElement("VersionBuild", this.Build),
+                                new XElement("VersionRevision", this.Revision))));
+                }
+                else
+                {
+                    document = XDocument.Load(this.PropertiesFile.ItemSpec);
+                    document.Root?.XPathSelectElement("//BuildDate")?.SetValue(this.BuildDate);
+                    document.Root?.XPathSelectElement("//VersionBuild")?.SetValue(this.Build);
+                    document.Root?.XPathSelectElement("//VersionRevision")?.SetValue(this.Revision);
+                }
+
+                document.Save(this.PropertiesFile.ItemSpec);
+                return true;
             }
 
-            XDocument document;
-
-            if (!File.Exists(this.PropertiesFile.ItemSpec))
-            {
-                document = new XDocument(new XComment("This file may be overwritten by automation."),
-                    new XElement("Project",
-                        new XElement("PropertyGroup",
-                            new XElement("BuildDate", this.BuildDate),
-                            new XElement("VersionBuild", this.Build),
-                            new XElement("VersionRevision", this.Revision))));
-            }
-            else
-            {
-                document = XDocument.Load(this.PropertiesFile.ItemSpec);
-                document.Root.XPathSelectElement("//BuildDate").SetValue(this.BuildDate);
-                document.Root.XPathSelectElement("//VersionBuild").SetValue(this.Build);
-                document.Root.XPathSelectElement("//VersionRevision").SetValue(this.Revision);
-            }
-
-            document.Save(this.PropertiesFile.ItemSpec);
-            return true;
+            return false;
         }
 
         private void DayOfYearStrategy(DateTimeOffset now)

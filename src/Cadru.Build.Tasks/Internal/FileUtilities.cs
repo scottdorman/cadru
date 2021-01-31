@@ -84,7 +84,7 @@ namespace Cadru.Build.Tasks.Internal
         /// </summary>
         internal static string GetTemporaryFile(string extension)
         {
-            return GetTemporaryFile(null, extension);
+            return GetTemporaryFile(null!, extension);
         }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace Cadru.Build.Tasks.Internal
 
             try
             {
-                directory = directory ?? Path.GetTempPath();
+                directory ??= Path.GetTempPath();
 
                 Directory.CreateDirectory(directory);
 
@@ -134,7 +134,7 @@ namespace Cadru.Build.Tasks.Internal
         /// </summary>
         internal static string GetTemporaryFileName(string extension)
         {
-            return GetTemporaryFile(null, extension, false);
+            return GetTemporaryFile(null!, extension, false);
         }
     }
 }

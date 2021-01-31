@@ -60,13 +60,13 @@ namespace Cadru.Build.Tasks
         /// "VisualBasic". Emitted file will have the default extension for that language.
         /// </summary>
         [Required]
-        public string Language { get; set; }
+        public string? Language { get; set; }
 
         /// <summary>
         /// The root namespace for the generated code.
         /// </summary>
         [Required]
-        public string RootNamespace { get; set; }
+        public string? RootNamespace { get; set; }
 
         /// <summary>
         /// Description of attributes to write. Item include is the full type
@@ -78,14 +78,13 @@ namespace Cadru.Build.Tasks
         /// "_Parameter1", "_Parameter2" etc. If a parameter index is skipped,
         /// it's an error.
         /// </summary>
-        [SuppressMessage("Performance", "CA1819:Properties should not return arrays", Justification = "<Pending>")]
-        public ITaskItem[] AssemblyAttributes { get; set; }
+        public ITaskItem[] AssemblyAttributes { get; set; } = Array.Empty<ITaskItem>();
 
         /// <summary>
         /// Destination folder for the generated code. Typically the
         /// intermediate folder.
         /// </summary>
-        public ITaskItem OutputDirectory { get; set; }
+        public ITaskItem? OutputDirectory { get; set; }
 
         /// <summary>
         /// The path to the file that was generated. If this is set, and a file
@@ -95,7 +94,7 @@ namespace Cadru.Build.Tasks
         /// will be used, and the default extension for the language selected.
         /// </summary>
         [Output]
-        public ITaskItem OutputFile { get; set; }
+        public ITaskItem? OutputFile { get; set; }
 
         /// <summary>
         /// Main entry point.
@@ -135,7 +134,7 @@ namespace Cadru.Build.Tasks
                     this.OutputFile = new TaskItem(Path.Combine(this.OutputDirectory.ItemSpec, this.OutputFile.ItemSpec));
                 }
 
-                this.OutputFile = this.OutputFile ?? new TaskItem(FileUtilities.GetTemporaryFile(this.OutputDirectory.ItemSpec, extension));
+                this.OutputFile ??= new TaskItem(FileUtilities.GetTemporaryFile(this.OutputDirectory!.ItemSpec, extension));
 
                 File.WriteAllText(this.OutputFile.ItemSpec, code); // Overwrites file if it already exists (and can be overwritten)
             }
@@ -150,7 +149,7 @@ namespace Cadru.Build.Tasks
             return !this.Log.HasLoggedErrors;
         }
 
-        private static CodeMemberField CreateConstant(string name, object value, CodeTypeReference codeTypeReference)
+        private static CodeMemberField CreateConstant(string? name, object? value, CodeTypeReference codeTypeReference)
         {
             var member = new CodeMemberField(codeTypeReference, name);
             member.Attributes = (member.Attributes & ~MemberAttributes.AccessMask & ~MemberAttributes.ScopeMask) | MemberAttributes.Public | MemberAttributes.Const;
@@ -163,129 +162,136 @@ namespace Cadru.Build.Tasks
         /// returns null. If no meaningful code is generated, returns empty
         /// string. Returns the default language extension as an out parameter.
         /// </summary>
-        [SuppressMessage("Microsoft.Globalization", "CA1305:SpecifyIFormatProvider", MessageId = "System.IO.StringWriter.#ctor(System.Text.StringBuilder)", Justification = "Reads fine to me")]
+ //       [SuppressMessage("Microsoft.Globalization", "CA1305:SpecifyIFormatProvider", MessageId = "System.IO.StringWriter.#ctor(System.Text.StringBuilder)", Justification = "Reads fine to me")]
         private string GenerateCode(out string extension)
         {
-            var excludeAttributes = new List<string>
+            extension = String.Empty;
+            var haveGeneratedContent = false;
+            var generatedCode = new StringBuilder();
+
+            if (!String.IsNullOrWhiteSpace(this.Language))
+            {
+                var excludeAttributes = new List<string>
             {
                 "InternalsVisibleTo"
             };
 
-            extension = null;
-            var haveGeneratedContent = false;
+                CodeDomProvider provider;
 
-            CodeDomProvider provider;
-
-            try
-            {
-                provider = CodeDomProvider.CreateProvider(this.Language);
-            }
-            catch (SystemException e) when
+                try
+                {
+                    provider = CodeDomProvider.CreateProvider(this.Language);
+                }
+                catch (SystemException e) when
 #if FEATURE_SYSTEM_CONFIGURATION
             (e is ConfigurationException || e is SecurityException)
 #else
             (e.GetType().Name == "ConfigurationErrorsException") //TODO: catch specific exception type once it is public https://github.com/dotnet/corefx/issues/40456
 #endif
-            {
-                this.Log.LogErrorWithCodeFromResources("WriteCodeFragment.CouldNotCreateProvider", this.Language, e.Message);
-                return null;
-            }
-
-            extension = provider.FileExtension;
-
-            var unit = new CodeCompileUnit();
-            var globalNamespace = new CodeNamespace(this.RootNamespace);
-            unit.Namespaces.Add(globalNamespace);
-
-            // Declare authorship. Unfortunately CodeDOM puts this comment after
-            // the attributes.
-            var comment = String.Format(Strings.WriteCodeFragment_Comment, this.GetType().Name);
-            globalNamespace.Comments.Add(new CodeCommentStatement(comment));
-
-            if (this.AssemblyAttributes == null)
-            {
-                return String.Empty;
-            }
-
-            // For convenience, bring in the namespaces, where many assembly
-            // attributes lie
-            globalNamespace.Imports.Add(new CodeNamespaceImport("System"));
-            var codeTypeMembers = new CodeTypeMemberCollection();
-
-            var rawFieldData = new Dictionary<string, List<KeyValuePair<string, object>>>();
-
-            foreach (var attributeItem in this.AssemblyAttributes)
-            {
-                // All of the possible assembly attributes take a single
-                // constructor argument with the exception of AssemblyMetadata.
-                // That means, they all have only one entry in the metadata
-                // collection except AssemblyMetadata attributes, which will
-                // have two.
-                var customMetadata = attributeItem.CloneCustomMetadata();
-
-                foreach (DictionaryEntry entry in customMetadata)
                 {
-                    var name = (string)entry.Key;
-                    var value = (string)entry.Value;
-                    if (name.StartsWith("_Parameter", StringComparison.OrdinalIgnoreCase))
+                    this.Log.LogErrorWithCodeFromResources("WriteCodeFragment.CouldNotCreateProvider", this.Language, e.Message);
+                    return String.Empty;
+                }
+
+                extension = provider.FileExtension;
+
+                var unit = new CodeCompileUnit();
+                var globalNamespace = new CodeNamespace(this.RootNamespace);
+                unit.Namespaces.Add(globalNamespace);
+
+                // Declare authorship. Unfortunately CodeDOM puts this comment after
+                // the attributes.
+                var comment = String.Format(Strings.WriteCodeFragment_Comment, this.GetType().Name);
+                globalNamespace.Comments.Add(new CodeCommentStatement(comment));
+
+                if (this.AssemblyAttributes == null)
+                {
+                    return String.Empty;
+                }
+
+                // For convenience, bring in the namespaces, where many assembly
+                // attributes lie
+                globalNamespace.Imports.Add(new CodeNamespaceImport("System"));
+                var codeTypeMembers = new CodeTypeMemberCollection();
+
+                var rawFieldData = new Dictionary<string, List<KeyValuePair<string, object?>>>();
+
+                foreach (var attributeItem in this.AssemblyAttributes)
+                {
+                    // All of the possible assembly attributes take a single
+                    // constructor argument with the exception of AssemblyMetadata.
+                    // That means, they all have only one entry in the metadata
+                    // collection except AssemblyMetadata attributes, which will
+                    // have two.
+                    var customMetadata = attributeItem.CloneCustomMetadata();
+
+                    foreach (DictionaryEntry entry in customMetadata)
                     {
-                        if (!rawFieldData.TryGetValue(attributeItem.ItemSpec, out var data))
+                        var name = (string)entry.Key;
+                        var value = (string?)entry.Value;
+                        if (name.StartsWith("_Parameter", StringComparison.OrdinalIgnoreCase))
                         {
-                            data = new List<KeyValuePair<string, object>>();
-                            rawFieldData.Add(attributeItem.ItemSpec, data);
+                            if (!rawFieldData.TryGetValue(attributeItem.ItemSpec, out var data))
+                            {
+                                data = new List<KeyValuePair<string, object?>>();
+                                rawFieldData.Add(attributeItem.ItemSpec, data);
+                            }
+
+                            data.Add(new KeyValuePair<string, object?>(name, value));
                         }
-
-                        data.Add(new KeyValuePair<string, object>(name, value));
                     }
                 }
-            }
 
-            foreach (var entry in rawFieldData)
-            {
-                var name = entry.Key.Substring(entry.Key.LastIndexOf('.') + 1).Replace("Attribute", "");
+                foreach (var entry in rawFieldData)
+                {
+#if NETSTANDARD2_0
+                    var name = entry.Key.Substring(entry.Key.LastIndexOf('.') + 1).Replace("Attribute", "");
+#else
+                    var name = entry.Key[(entry.Key.LastIndexOf('.') + 1)..].Replace("Attribute", "");
+#endif
 
-                if (excludeAttributes.Contains(name))
-                {
-                    continue;
-                }
-
-                if (entry.Value.Count == 1)
-                {
-                    var expressionValue = entry.Value.First().Value;
-                    codeTypeMembers.Add(CreateConstant(name, expressionValue, new CodeTypeReference(typeof(string))));
-                }
-                else
-                {
-                    for (var i = 0; i < entry.Value.Count; i += 2)
+                    if (excludeAttributes.Contains(name))
                     {
-                        codeTypeMembers.Add(CreateConstant((string)entry.Value.ElementAt(i + 1).Value, entry.Value.ElementAt(i).Value, new CodeTypeReference(typeof(string))));
+                        continue;
                     }
+
+                    if (entry.Value.Count == 1)
+                    {
+                        var expressionValue = entry.Value.First().Value;
+                        codeTypeMembers.Add(CreateConstant(name, expressionValue, new CodeTypeReference(typeof(string))));
+                    }
+                    else
+                    {
+                        for (var i = 0; i < entry.Value.Count; i += 2)
+                        {
+                            var entryValue = entry.Value;
+                            if (entryValue != null)
+                            {
+                                codeTypeMembers.Add(CreateConstant(entryValue.ElementAt(i + 1).Value?.ToString(), entryValue.ElementAt(i).Value, new CodeTypeReference(typeof(string))));
+                            }
+                        }
+                    }
+
+                    haveGeneratedContent = true;
                 }
 
-                haveGeneratedContent = true;
-            }
+                var thisAssembly = new CodeTypeDeclaration("ThisAssembly")
+                {
+                    IsStruct = true
+                };
 
-            var thisAssembly = new CodeTypeDeclaration("ThisAssembly")
-            {
-                IsStruct = true
-            };
+                thisAssembly.Members.AddRange(codeTypeMembers);
+                globalNamespace.Types.Add(thisAssembly);
 
-            thisAssembly.Members.AddRange(codeTypeMembers);
-            globalNamespace.Types.Add(thisAssembly);
-
-            var generatedCode = new StringBuilder();
-            using (var writer = new StringWriter(generatedCode, CultureInfo.CurrentCulture))
-            {
-                generatedCode.AppendLine(new CodeWarningPragmaDirective(WarningPragmaMode.Disable, new string[] { "CS1591" }).ToPragmaString(this.Language));
+                using var writer = new StringWriter(generatedCode, CultureInfo.CurrentCulture);
+                generatedCode.AppendLine(new CodeWarningPragmaDirective(WarningPragmaMode.Disable, new string[] { "CS1591" }).ToPragmaString(this.Language!));
                 provider.GenerateCodeFromCompileUnit(unit, writer, new CodeGeneratorOptions());
-                generatedCode.AppendLine(new CodeWarningPragmaDirective(WarningPragmaMode.Restore, new string[] { "CS1591" }).ToPragmaString(this.Language));
+                generatedCode.AppendLine(new CodeWarningPragmaDirective(WarningPragmaMode.Restore, new string[] { "CS1591" }).ToPragmaString(this.Language!));
             }
-
-            var code = generatedCode.ToString();
 
             // If we just generated infrastructure, don't bother returning
             // anything as there's no point writing the file
-            return haveGeneratedContent ? code : String.Empty;
+            return haveGeneratedContent ? generatedCode.ToString() : String.Empty;
         }
     }
 }

@@ -92,12 +92,17 @@ namespace Cadru.AspNetCore.Mvc.Rendering
             foreach (var name in Enum.GetNames(underlyingType))
             {
                 var field = underlyingType.GetField(name);
-                if (HasUiHint(field, uiHint))
+                if (field != null)
                 {
-                    var displayName = GetDisplayName(field);
-                    var value = ((Enum)field.GetValue(obj: null)).ToString("d");
-
-                    displayNamesAndValues.Add(new KeyValuePair<string, string>(displayName, value));
+                    if (HasUiHint(field, uiHint))
+                    {
+                        var displayName = GetDisplayName(field);
+                        var value = field.GetValue(obj: null);
+                        if (value != null)
+                        {
+                            displayNamesAndValues.Add(new KeyValuePair<string, string>(displayName, ((Enum)value).ToString()));
+                        }
+                    }
                 }
             }
 

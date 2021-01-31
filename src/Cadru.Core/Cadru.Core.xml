@@ -5418,22 +5418,6 @@
             </param>
             <returns>A new, normalized string.</returns>
         </member>
-        <member name="M:Cadru.Extensions.StringExtensions.Contains(System.String,System.String,System.StringComparison)">
-            <summary>
-            Returns a value indicating whether the specified
-            <see cref="T:System.String"/> object occurs within this string.
-            </summary>
-            <param name="source">The source <see cref="T:System.String"/>.</param>
-            <param name="value">The string to seek.</param>
-            <param name="comparisonType">
-            One of the enumeration values that specifies how the strings will be compared.
-            </param>
-            <returns>
-            <see langword="true"/> if the <paramref name="value"/> parameter
-            occurs within this string, or if <paramref name="value"/> is the
-            empty string (""); otherwise, <see langword="false"/>.
-            </returns>
-        </member>
         <member name="M:Cadru.Extensions.StringExtensions.EndsWithAny(System.String,System.Collections.Generic.IEnumerable{System.String})">
             <summary>
             Determines whether the end of this string instance matches any of
