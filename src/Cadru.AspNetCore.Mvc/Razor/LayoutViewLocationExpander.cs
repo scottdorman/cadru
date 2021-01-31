@@ -52,6 +52,7 @@ namespace Cadru.AspNetCore.Mvc.Razor
             {
                 if (!String.IsNullOrEmpty(value))
                 {
+                    return ExpandViewLocationsCore(viewLocations, value);
                 }
             }
 
@@ -70,7 +71,7 @@ namespace Cadru.AspNetCore.Mvc.Razor
             context.Values[ValueKey] = context.ActionContext.RouteData.Values[ValueKey]?.ToString();
         }
 
-        private IEnumerable<string> ExpandViewLocationsCore(IEnumerable<string> viewLocations, string value)
+        private static IEnumerable<string> ExpandViewLocationsCore(IEnumerable<string> viewLocations, string value)
         {
             foreach (var location in viewLocations)
             {
