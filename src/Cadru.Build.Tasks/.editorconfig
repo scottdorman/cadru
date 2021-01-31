@@ -1,0 +1,3 @@
+[Strings.Designer.cs]
+dotnet_diagnostic.CS1587.severity = none
+dotnet_diagnostic.CS1570.severity = none
