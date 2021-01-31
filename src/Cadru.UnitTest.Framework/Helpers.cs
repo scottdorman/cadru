@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 using Cadru.UnitTest.Framework.Resources;
@@ -10,6 +11,34 @@ namespace Cadru.UnitTest.Framework
 {
     internal static class Helpers
     {
+        /// <summary>
+        /// Checks the parameter for valid conditions
+        /// </summary>
+        /// <param name="param">
+        /// The parameter.
+        /// </param>
+        /// <param name="assertionName">
+        /// The assertion Name.
+        /// </param>
+        /// <param name="parameterName">
+        /// parameter name
+        /// </param>
+        /// <param name="message">
+        /// message for the invalid parameter exception
+        /// </param>
+        /// <param name="parameters">
+        /// The parameters.
+        /// </param>
+#pragma warning disable CS8777 // Parameter must have a non-null value when exiting.
+        internal static void CheckParameterNotNull([NotNull] object param, string assertionName, string parameterName, string message, params object?[] parameters)
+        {
+            if (param == null)
+            {
+                HandleFail(assertionName, String.Format(CultureInfo.CurrentCulture, Strings.NullParameterToAssert, parameterName, message), parameters);
+            }
+        }
+#pragma warning restore CS8777 // Parameter must have a non-null value when exiting.
+
         /// <summary>
         /// Helper function that creates and throws an AssertionFailedException
         /// </summary>
@@ -22,7 +51,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// The parameters.
         /// </param>
-        internal static void HandleFail(string assertionName, string? message, params object[]? parameters)
+        internal static void HandleFail(string assertionName, string message, params object?[] parameters)
         {
             var finalMessage = String.Empty;
             if (!String.IsNullOrEmpty(message))
@@ -50,7 +79,7 @@ namespace Cadru.UnitTest.Framework
         /// <returns>
         /// The converted string.
         /// </returns>
-        internal static string? ReplaceNulls(object? input)
+        internal static string ReplaceNulls(object input)
         {
             // Use the localized "(null)" string for null values.
             if (input == null)
@@ -84,7 +113,7 @@ namespace Cadru.UnitTest.Framework
         /// <remarks>
         /// This is only public and still present to preserve compatibility with the V1 framework.
         /// </remarks>
-        public static string? ReplaceNullChars(string? input)
+        public static string ReplaceNullChars(string input)
         {
             if (String.IsNullOrEmpty(input))
             {

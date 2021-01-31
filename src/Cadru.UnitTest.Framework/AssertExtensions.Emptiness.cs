@@ -18,10 +18,8 @@ namespace Cadru.UnitTest.Framework
         /// </summary>
         /// <param name="assert">The <see cref="Assert"/> instance to extend.</param>
         /// <param name="value">The value to be tested.</param>
-        public static void IsEmpty(this Assert assert, string? value)
-        {
-            assert.IsEmpty(value, Strings.IsEmptyStringFailMsg);
-        }
+        [Obsolete("Use StringAssert.That.IsEmpty", error: true)]
+        public static void IsEmpty(this Assert assert, string? value) => StringAssert.That.IsEmpty(value);
 
         /// <summary>
         /// Asserts that a string is empty.
@@ -31,10 +29,8 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">
         /// A message to display. This message can be seen in the unit test results.
         /// </param>
-        public static void IsEmpty(this Assert assert, string? value, string message)
-        {
-            assert.IsEmpty(value, message, value?.Length!);
-        }
+        [Obsolete("Use StringAssert.That.IsEmpty", error: true)]
+        public static void IsEmpty(this Assert assert, string? value, string message) => StringAssert.That.IsEmpty(value, message);
 
         /// <summary>
         /// Asserts that a string is empty.
@@ -47,28 +43,16 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsEmpty(this Assert assert, string? value, string message, params object[] parameters)
-        {
-            if (value == null)
-            {
-                Helpers.HandleFail("Assert.IsEmpty", Strings.IsEmptyStringFailOnNullMsg);
-            }
-
-            if (value!.Length != 0)
-            {
-                Helpers.HandleFail("Assert.IsEmpty", message, parameters);
-            }
-        }
+        [Obsolete("Use StringAssert.That.IsEmpty", error: true)]
+        public static void IsEmpty(this Assert assert, string? value, string message, params object?[] parameters) => StringAssert.That.IsEmpty(value, message, parameters);
 
         /// <summary>
         /// Asserts that a string is not empty.
         /// </summary>
         /// <param name="assert">The <see cref="Assert"/> instance to extend.</param>
         /// <param name="value">The value to be tested.</param>
-        public static void IsNotEmpty(this Assert assert, string? value)
-        {
-            assert.IsNotEmpty(value, Strings.IsNotEmptyStringFailMsg);
-        }
+        [Obsolete("Use StringAssert.That.IsNotEmpty", error: true)]
+        public static void IsNotEmpty(this Assert assert, string? value) => StringAssert.That.IsNotEmpty(value);
 
         /// <summary>
         /// Asserts that a string is not empty.
@@ -78,10 +62,8 @@ namespace Cadru.UnitTest.Framework
         /// <param name="message">
         /// A message to display. This message can be seen in the unit test results.
         /// </param>
-        public static void IsNotEmpty(this Assert assert, string? value, string message)
-        {
-            assert.IsNotEmpty(value, message, Array.Empty<object>());
-        }
+        [Obsolete("Use StringAssert.That.IsNotEmpty", error: true)]
+        public static void IsNotEmpty(this Assert assert, string? value, string message) => StringAssert.That.IsNotEmpty(value, message);
 
         /// <summary>
         /// Asserts that a string is not empty.
@@ -94,17 +76,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsNotEmpty(this Assert assert, string? value, string message, params object[] parameters)
-        {
-            if (value == null)
-            {
-                Helpers.HandleFail("Assert.IsNotEmpty", Strings.IsNotEmptyStringFailOnNullMsg);
-            }
-
-            if (value?.Length == 0)
-            {
-                Helpers.HandleFail("Assert.IsNotEmpty", message, parameters);
-            }
-        }
+        [Obsolete("Use StringAssert.That.IsNotEmpty", error: true)]
+        public static void IsNotEmpty(this Assert assert, string? value, string message, params object?[] parameters) => StringAssert.That.IsNotEmpty(value, message, parameters);
     }
 }

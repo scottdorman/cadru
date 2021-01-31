@@ -46,7 +46,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsNaN(this Assert assert, double value, string message, params object[] parameters)
+        public static void IsNaN(this Assert assert, double value, string message, params object?[] parameters)
         {
             if (!Double.IsNaN(value))
             {
@@ -88,7 +88,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsNaN(this Assert assert, float value, string message, params object[] parameters)
+        public static void IsNaN(this Assert assert, float value, string message, params object?[] parameters)
         {
             if (!Single.IsNaN(value))
             {

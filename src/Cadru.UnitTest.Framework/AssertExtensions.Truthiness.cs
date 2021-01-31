@@ -62,7 +62,7 @@ namespace Cadru.UnitTest.Framework
         /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
         /// <paramref name="condition"/> evaluates to <see langword="true"/>.
         /// </exception>
-        public static void IsFalse(this Assert assert, bool? condition, string message, params object[] parameters)
+        public static void IsFalse(this Assert assert, bool? condition, string message, params object?[] parameters)
         {
             if (!condition.HasValue || condition.Value)
             {
@@ -121,7 +121,7 @@ namespace Cadru.UnitTest.Framework
         /// <exception cref="Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
         /// <paramref name="condition"/> evaluates to <see langword="false"/>.
         /// </exception>
-        public static void IsTrue(this Assert assert, bool? condition, string message, params object[] parameters)
+        public static void IsTrue(this Assert assert, bool? condition, string message, params object?[] parameters)
         {
             if (!condition.HasValue || !condition.Value)
             {

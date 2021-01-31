@@ -115,6 +115,33 @@ namespace Cadru.UnitTest.Framework.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to String &apos;{0}&apos; contains string &apos;{1}&apos;. {2}..
+        /// </summary>
+        internal static string DoesNotContainFail {
+            get {
+                return ResourceManager.GetString("DoesNotContainFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to String &apos;{0}&apos; ends with string &apos;{1}&apos;. {2}..
+        /// </summary>
+        internal static string DoesNotEndWithFail {
+            get {
+                return ResourceManager.GetString("DoesNotEndWithFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to String &apos;{0}&apos; starts with string &apos;{1}&apos;. {2}..
+        /// </summary>
+        internal static string DoesNotStartWithFail {
+            get {
+                return ResourceManager.GetString("DoesNotStartWithFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An exception of type {1} was thrown but was not expected. {0}
         ///Exception Message: {2}
         ///Stack Trace: {3}.
@@ -212,6 +239,24 @@ namespace Cadru.UnitTest.Framework.Resources {
         internal static string IsNotEmptyStringFailOnNullMsg {
             get {
                 return ResourceManager.GetString("IsNotEmptyStringFailOnNullMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected an ordered collection..
+        /// </summary>
+        internal static string IsOrderedFail {
+            get {
+                return ResourceManager.GetString("IsOrderedFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The parameter &apos;{0}&apos; is invalid. The value cannot be null. {1}..
+        /// </summary>
+        internal static string NullParameterToAssert {
+            get {
+                return ResourceManager.GetString("NullParameterToAssert", resourceCulture);
             }
         }
         

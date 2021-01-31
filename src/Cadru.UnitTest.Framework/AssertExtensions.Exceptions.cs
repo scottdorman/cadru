@@ -60,8 +60,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
-        public static void DoesNotThrowException(this Assert assert, Action action, string message, params object[] parameters)
+        public static void DoesNotThrowException(this Assert assert, Action action, string message, params object?[] parameters)
         {
             if (action == null)
             {
@@ -79,9 +78,7 @@ namespace Cadru.UnitTest.Framework
             }
             catch (Exception ex)
             {
-                Helpers.HandleFail("Assert.DoesNotThrowException", message, parameters, ex.GetType().Name,
-                    ex.Message,
-                    ex.StackTrace);
+                Helpers.HandleFail("Assert.DoesNotThrowException", message, parameters, ex.GetType().Name, ex.Message, ex.StackTrace);
             }
         }
     }

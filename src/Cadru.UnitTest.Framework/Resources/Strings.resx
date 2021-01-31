@@ -135,6 +135,15 @@
   <data name="Common_NullInMessages" xml:space="preserve">
     <value>(null)</value>
   </data>
+  <data name="DoesNotContainFail" xml:space="preserve">
+    <value>String '{0}' contains string '{1}'. {2}.</value>
+  </data>
+  <data name="DoesNotEndWithFail" xml:space="preserve">
+    <value>String '{0}' ends with string '{1}'. {2}.</value>
+  </data>
+  <data name="DoesNotStartWithFail" xml:space="preserve">
+    <value>String '{0}' starts with string '{1}'. {2}.</value>
+  </data>
   <data name="DoesNotThrowExceptionFailMsg" xml:space="preserve">
     <value>An exception of type {1} was thrown but was not expected. {0}
 Exception Message: {2}
@@ -169,6 +178,12 @@ Stack Trace: {3}</value>
   </data>
   <data name="IsNotEmptyStringFailOnNullMsg" xml:space="preserve">
     <value>Expected a string with 1 or more characters but actual was (null).</value>
+  </data>
+  <data name="IsOrderedFail" xml:space="preserve">
+    <value>Expected an ordered collection.</value>
+  </data>
+  <data name="NullParameterToAssert" xml:space="preserve">
+    <value>The parameter '{0}' is invalid. The value cannot be null. {1}.</value>
   </data>
   <data name="WrongExceptionThrown" xml:space="preserve">
     <value>Threw exception {0}, but exception {1} was expected.

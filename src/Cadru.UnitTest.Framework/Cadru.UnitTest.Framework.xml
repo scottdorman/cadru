@@ -2362,613 +2362,46 @@
             An array of parameters to use when formatting <paramref name="message"/>.
             </param>
         </member>
-        <member name="T:Cadru.UnitTest.Framework.ConditionAssert">
+        <member name="M:Cadru.UnitTest.Framework.CollectionAssertExtensions.IsOrdered(Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert,System.Collections.IEnumerable,System.String,System.Object[])">
             <summary>
-            Contains assertion types that are not provided with the standard MSTest assertions.
+            Assert that an array, list or other collection is ordered
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert"/> instance to extend.</param>
+            <param name="collection">An array, list or other collection implementing IEnumerable</param>
+            <param name="message">The message to be displayed on failure</param>
+            <param name="args">Arguments to be used in formatting the message</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.CollectionAssertExtensions.IsOrdered(Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert,System.Collections.IEnumerable)">
+            <summary>
+            Assert that an array, list or other collection is ordered
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert"/> instance to extend.</param>
+            <param name="collection">An array, list or other collection implementing IEnumerable</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.CollectionAssertExtensions.IsOrdered(Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert,System.Collections.IEnumerable,System.Collections.IComparer,System.String,System.Object[])">
+            <summary>
+            Assert that an array, list or other collection is ordered
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert"/> instance to extend.</param>
+            <param name="collection">An array, list or other collection implementing IEnumerable</param>
+            <param name="comparer">A custom comparer to perform the comparisons</param>
+            <param name="message">The message to be displayed on failure</param>
+            <param name="args">Arguments to be used in formatting the message</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.CollectionAssertExtensions.IsOrdered(Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert,System.Collections.IEnumerable,System.Collections.IComparer)">
+            <summary>
+            Assert that an array, list or other collection is ordered
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert"/> instance to extend.</param>
+            <param name="collection">An array, list or other collection implementing IEnumerable</param>
+            <param name="comparer">A custom comparer to perform the comparisons</param>
+        </member>
+        <member name="T:Cadru.UnitTest.Framework.ExceptionExtensions">
+            <summary>
+            Contains extensions for working with Exceptions in MSTest.
             </summary>
         </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.Greater``1(``0,``0)">
-            <summary>
-            Verifies that the first value is greater than the second value.
-            </summary>
-            <typeparam name="T">The type of the values to compare.</typeparam>
-            <param name="arg1">The first value, expected to be greater.</param>
-            <param name="arg2">The second value, expected to be less.</param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.Greater``1(``0,``0,System.String)">
-            <summary>
-            Verifies that the first value is greater than the second value.
-            </summary>
-            <typeparam name="T">The type of the values to compare.</typeparam>
-            <param name="arg1">The first value, expected to be greater.</param>
-            <param name="arg2">The second value, expected to be less.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.Greater``1(``0,``0,System.String,System.Object[])">
-            <summary>
-            Verifies that the first value is greater than the second value.
-            </summary>
-            <typeparam name="T">The type of the values to compare.</typeparam>
-            <param name="arg1">The first value, expected to be greater.</param>
-            <param name="arg2">The second value, expected to be less.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsGreaterOrEqual``1(``0,``0)">
-            <summary>
-            Verifies that the first value is greater than or equal to the second value.
-            </summary>
-            <typeparam name="T">The type of the values to compare.</typeparam>
-            <param name="arg1">The first value, expected to be greater.</param>
-            <param name="arg2">The second value, expected to be less.</param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.GreaterOrEqual``1(``0,``0,System.String)">
-            <summary>
-            Verifies that the first value is greater than or equal to the second value.
-            </summary>
-            <typeparam name="T">The type of the values to compare.</typeparam>
-            <param name="arg1">The first value, expected to be greater.</param>
-            <param name="arg2">The second value, expected to be less.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.GreaterOrEqual``1(``0,``0,System.String,System.Object[])">
-            <summary>
-            Verifies that the first value is greater than or equal to the second value.
-            </summary>
-            <typeparam name="T">The type of the values to compare.</typeparam>
-            <param name="arg1">The first value, expected to be greater.</param>
-            <param name="arg2">The second value, expected to be less.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsFalse(System.Nullable{System.Boolean})">
-            <summary>
-            Verifies that the specified condition is <see langword="false"/>.
-            The assertion fails if the condition is <see langword="true"/>.
-            </summary>
-            <param name="condition">The condition to verify is <see langword="false"/>.</param>
-            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-            <paramref name="condition"/> evaluates to <see langword="true"/>.
-            </exception>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsFalse(System.Nullable{System.Boolean},System.String)">
-            <summary>
-            Verifies that the specified condition is <see langword="false"/>.
-            The assertion fails if the condition is <see langword="true"/>.
-            Displays a message if the assertion fails.
-            </summary>
-            <param name="condition">The condition to verify is <see langword="false"/>.</param>
-            <param name="message">
-            A message to display if the assertion fails. This message can be
-            seen in the unit test results.
-            </param>
-            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-            <paramref name="condition"/> evaluates to <see langword="true"/>.
-            </exception>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsFalse(System.Nullable{System.Boolean},System.String,System.Object[])">
-            <summary>
-            Verifies that the specified condition is <see langword="false"/>.
-            The assertion fails if the condition is <see langword="true"/>.
-            Displays a message if the assertion fails, and applies the specified
-            formatting to it.
-            </summary>
-            <param name="condition">The condition to verify is <see langword="false"/>.</param>
-            <param name="message">
-            A message to display if the assertion fails. This message can be
-            seen in the unit test results.
-            </param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-            <paramref name="condition"/> evaluates to <see langword="true"/>.
-            </exception>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsNaN(System.Double)">
-            <summary>
-            Verifies that the value is <see cref="F:System.Double.NaN"/>.
-            </summary>
-            <param name="value">The value to test.</param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsNaN(System.Double,System.String)">
-            <summary>
-            Verifies that the value is <see cref="F:System.Double.NaN"/>.
-            </summary>
-            <param name="value">The value to test.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsNaN(System.Double,System.String,System.Object[])">
-            <summary>
-            Verifies that the value is <see cref="F:System.Double.NaN"/>.
-            </summary>
-            <param name="value">The value to test.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsTrue(System.Nullable{System.Boolean})">
-            <summary>
-            Verifies that the specified condition is <see langword="true"/>. The
-            assertion fails if the condition is <see langword="false"/>.
-            </summary>
-            <param name="condition">The condition to verify is <see langword="true"/>.</param>
-            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-            <paramref name="condition"/> evaluates to <see langword="false"/>.
-            </exception>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsTrue(System.Nullable{System.Boolean},System.String)">
-            <summary>
-            Verifies that the specified condition is <see langword="true"/>. The
-            assertion fails if the condition is <see langword="false"/>.
-            Displays a message if the assertion fails.
-            </summary>
-            <param name="condition">The condition to verify is <see langword="true"/>.</param>
-            <param name="message">
-            A message to display if the assertion fails. This message can be
-            seen in the unit test results.
-            </param>
-            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-            <paramref name="condition"/> evaluates to <see langword="false"/>.
-            </exception>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.IsTrue(System.Nullable{System.Boolean},System.String,System.Object[])">
-            <summary>
-            Verifies that the specified condition is <see langword="true"/>. The
-            assertion fails if the condition is <see langword="false"/>.
-            Displays a message if the assertion fails, and applies the specified
-            formatting to it.
-            </summary>
-            <param name="condition">The condition to verify is <see langword="true"/>.</param>
-            <param name="message">
-            A message to display if the assertion fails. This message can be
-            seen in the unit test results.
-            </param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
-            <paramref name="condition"/> evaluates to <see langword="false"/>.
-            </exception>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.Less``1(``0,``0)">
-            <summary>
-            Verifies that the first value is less than the second value.
-            </summary>
-            <typeparam name="T">The type of the values to compare.</typeparam>
-            <param name="arg1">The first value, expected to be less.</param>
-            <param name="arg2">The second value, expected to be greater.</param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.Less``1(``0,``0,System.String)">
-            <summary>
-            Verifies that the first value is less than the second value.
-            </summary>
-            <typeparam name="T">The type of the values to compare.</typeparam>
-            <param name="arg1">The first value, expected to be less.</param>
-            <param name="arg2">The second value, expected to be greater.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.Less``1(``0,``0,System.String,System.Object[])">
-            <summary>
-            Verifies that the first value is less than the second value.
-            </summary>
-            <typeparam name="T">The type of the values to compare.</typeparam>
-            <param name="arg1">The first value, expected to be less.</param>
-            <param name="arg2">The second value, expected to be greater.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.LessOrEqual``1(``0,``0)">
-            <summary>
-            Verifies that the first value is less than or equal to the second value.
-            </summary>
-            <typeparam name="T">The type of the values to compare.</typeparam>
-            <param name="arg1">The first value, expected to be less.</param>
-            <param name="arg2">The second value, expected to be greater.</param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.LessOrEqual``1(``0,``0,System.String)">
-            <summary>
-            Verifies that the first value is less than or equal to the second value.
-            </summary>
-            <typeparam name="T">The type of the values to compare.</typeparam>
-            <param name="arg1">The first value, expected to be less.</param>
-            <param name="arg2">The second value, expected to be greater.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ConditionAssert.LessOrEqual``1(``0,``0,System.String,System.Object[])">
-            <summary>
-            Verifies that the first value is less than or equal to the second value.
-            </summary>
-            <typeparam name="T">The type of the values to compare.</typeparam>
-            <param name="arg1">The first value, expected to be less.</param>
-            <param name="arg2">The second value, expected to be greater.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-        </member>
-        <member name="T:Cadru.UnitTest.Framework.CustomAssert">
-            <summary>
-            Contains assertion types that are not provided with the standard MSTest assertions.
-            </summary>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.CustomAssert.AreEqualIgnoringCase(System.String,System.String)">
-            <summary>
-            Asserts that two strings are equal, without regard to case.
-            </summary>
-            <param name="expected">The expected string.</param>
-            <param name="actual">The actual string.</param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.CustomAssert.AreEqualIgnoringCase(System.String,System.String,System.String)">
-            <summary>
-            Asserts that two strings are equal, without regard to case.
-            </summary>
-            <param name="expected">The expected string.</param>
-            <param name="actual">The actual string.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.CustomAssert.AreEqualIgnoringCase(System.String,System.String,System.String,System.Object[])">
-            <summary>
-            Asserts that two strings are equal, without regard to case.
-            </summary>
-            <param name="expected">The expected string.</param>
-            <param name="actual">The actual string.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsEmpty(System.Collections.ICollection)">
-            <summary>
-            Assert that an array, list or other collection is empty.
-            </summary>
-            <param name="collection">The value to be tested.</param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsEmpty(System.Collections.ICollection,System.String)">
-            <summary>
-            Assert that an array, list or other collection is empty.
-            </summary>
-            <param name="collection">The value to be tested.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsEmpty(System.Collections.ICollection,System.String,System.Object[])">
-            <summary>
-            Assert that an array, list or other collection is empty.
-            </summary>
-            <param name="collection">The value to be tested.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsEmpty(System.String)">
-            <summary>
-            Asserts that a string is empty.
-            </summary>
-            <param name="value">The value to be tested.</param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsEmpty(System.String,System.String)">
-            <summary>
-            Asserts that a string is empty.
-            </summary>
-            <param name="value">The value to be tested.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsEmpty(System.String,System.String,System.Object[])">
-            <summary>
-            Asserts that a string is empty.
-            </summary>
-            <param name="value">The value to be tested.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsNotEmpty(System.Collections.ICollection)">
-            <summary>
-            Assert that an array, list or other collection is not empty.
-            </summary>
-            <param name="collection">The value to be tested.</param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsNotEmpty(System.Collections.ICollection,System.String)">
-            <summary>
-            Assert that an array, list or other collection is not empty.
-            </summary>
-            <param name="collection">The value to be tested.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsNotEmpty(System.Collections.ICollection,System.String,System.Object[])">
-            <summary>
-            Assert that an array, list or other collection is not empty.
-            </summary>
-            <param name="collection">The value to be tested.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsNotEmpty(System.String)">
-            <summary>
-            Asserts that a string is not empty.
-            </summary>
-            <param name="value">The value to be tested.</param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsNotEmpty(System.String,System.String)">
-            <summary>
-            Asserts that a string is not empty.
-            </summary>
-            <param name="value">The value to be tested.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.CustomAssert.IsNotEmpty(System.String,System.String,System.Object[])">
-            <summary>
-            Asserts that a string is not empty.
-            </summary>
-            <param name="value">The value to be tested.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-        </member>
-        <member name="T:Cadru.UnitTest.Framework.ExceptionAssert">
-            <summary>
-            Contains assertion types that are not provided with the standard MSTest assertions.
-            </summary>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch(System.Action,System.String,System.Object[])">
-            <summary>
-            Verifies that <paramref name="code"/> throws an exception when
-            called and returns it.
-            </summary>
-            <param name="code">The code to test.</param>
-            <param name="message">The message that will be displayed on failure.</param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch(System.Action,System.String)">
-            <summary>
-            Verifies that <paramref name="code"/> throws an exception when
-            called and returns it.
-            </summary>
-            <param name="code">The code to test.</param>
-            <param name="message">The message that will be displayed on failure.</param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch(System.Action)">
-            <summary>
-            Verifies that <paramref name="code"/> throws an exception when
-            called and returns it.
-            </summary>
-            <param name="code">The code to test.</param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch(System.Type,System.Action,System.String,System.Object[])">
-            <summary>
-            Verifies that <paramref name="code"/> throws an exception of a
-            certain Type or one derived from it when called and returns it.
-            </summary>
-            <param name="expectedExceptionType">The expected exception type.</param>
-            <param name="code">The code to test.</param>
-            <param name="message">The message that will be displayed on failure.</param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch(System.Type,System.Action,System.String)">
-            <summary>
-            Verifies that <paramref name="code"/> throws an exception of a
-            certain Type or one derived from it when called and returns it.
-            </summary>
-            <param name="expectedExceptionType">The expected exception type.</param>
-            <param name="code">The code to test.</param>
-            <param name="message">The message that will be displayed on failure.</param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch(System.Type,System.Action)">
-            <summary>
-            Verifies that <paramref name="code"/> throws an exception of a
-            certain Type or one derived from it when called and returns it.
-            </summary>
-            <param name="expectedExceptionType">The expected exception type.</param>
-            <param name="code">The code to test.</param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch``1(System.Action,System.String,System.Object[])">
-            <summary>
-            Verifies that <paramref name="code"/> throws an exception of a
-            certain Type or one derived from it when called and returns it.
-            </summary>
-            <typeparam name="T">The expected exception type.</typeparam>
-            <param name="code">The code to test.</param>
-            <param name="message">The message that will be displayed on failure.</param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch``1(System.Action,System.String)">
-            <summary>
-            Verifies that <paramref name="code"/> throws an exception of a
-            certain Type or one derived from it when called and returns it.
-            </summary>
-            <typeparam name="T">The expected exception type.</typeparam>
-            <param name="code">The code to test.</param>
-            <param name="message">The message that will be displayed on failure.</param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Catch``1(System.Action)">
-            <summary>
-            Verifies that <paramref name="code"/> throws an exception of a
-            certain Type or one derived from it when called and returns it.
-            </summary>
-            <typeparam name="T">The expected exception type.</typeparam>
-            <param name="code">The code to test.</param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.DoesNotThrow(System.Action,System.String,System.Object[])">
-            <summary>
-            Verifies that <paramref name="code"/> does not throw an exception.
-            </summary>
-            <param name="code">The code to test.</param>
-            <param name="message">The message that will be displayed on failure.</param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.DoesNotThrow(System.Action,System.String)">
-            <summary>
-            Verifies that <paramref name="code"/> does not throw an exception.
-            </summary>
-            <param name="code">The code to test.</param>
-            <param name="message">The message that will be displayed on failure.</param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.DoesNotThrow(System.Action)">
-            <summary>
-            Verifies that <paramref name="code"/> does not throw an exception.
-            </summary>
-            <param name="code">The code to test.</param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws(System.Action,System.String,System.Object[])">
-            <summary>
-            Verifies that <paramref name="code"/> throws an exception when called.
-            </summary>
-            <param name="code">The code to test.</param>
-            <param name="message">The message that will be displayed on failure.</param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws(System.Action,System.String)">
-            <summary>
-            Verifies that <paramref name="code"/> throws an exception when called.
-            </summary>
-            <param name="code">The code to test.</param>
-            <param name="message">The message that will be displayed on failure.</param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws(System.Action)">
-            <summary>
-            Verifies that <paramref name="code"/> throws an exception when called.
-            </summary>
-            <param name="code">The code to test.</param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws(System.Type,System.Action,System.String,System.Object[])">
-            <summary>
-            Verifies that <paramref name="code"/> throws a particular exception
-            when called.
-            </summary>
-            <param name="expectedExceptionType">The exception Type expected.</param>
-            <param name="code">The code to test.</param>
-            <param name="message">The message that will be displayed on failure.</param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws(System.Type,System.Action,System.String)">
-            <summary>
-            Verifies that <paramref name="code"/> throws a particular exception
-            when called.
-            </summary>
-            <param name="expectedExceptionType">The exception Type expected.</param>
-            <param name="code">The code to test.</param>
-            <param name="message">The message that will be displayed on failure.</param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws(System.Type,System.Action)">
-            <summary>
-            Verifies that <paramref name="code"/> throws a particular exception
-            when called.
-            </summary>
-            <param name="expectedExceptionType">The exception Type expected.</param>
-            <param name="code">The code to test.</param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws``1(System.Action,System.String,System.Object[])">
-            <summary>
-            Verifies that <paramref name="code"/> throws a particular exception
-            when called.
-            </summary>
-            <typeparam name="T">Type of the expected exception.</typeparam>
-            <param name="code">The code to test.</param>
-            <param name="message">The message that will be displayed on failure.</param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws``1(System.Action,System.String)">
-            <summary>
-            Verifies that <paramref name="code"/> throws a particular exception
-            when called.
-            </summary>
-            <typeparam name="T">Type of the expected exception.</typeparam>
-            <param name="code">The code to test.</param>
-            <param name="message">The message that will be displayed on failure.</param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.Throws``1(System.Action)">
-            <summary>
-            Verifies that <paramref name="code"/> throws a particular exception
-            when called.
-            </summary>
-            <typeparam name="T">Type of the expected exception.</typeparam>
-            <param name="code">The code to test.</param>
-            <returns>The <see cref="T:System.Exception"/> thrown by <paramref name="code"/>.</returns>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.WithInnerException``1(``0,System.Type)">
+        <member name="M:Cadru.UnitTest.Framework.ExceptionExtensions.WithInnerException``1(``0,System.Type)">
             <summary>
             Verifies that <see cref="P:System.Exception.InnerException"/>
             is of the specified type.
@@ -2980,7 +2413,7 @@
             <param name="innerException">The expected type of the inner exception.</param>
             <returns>The original <see cref="T:System.Exception"/>.</returns>
         </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.WithInnerException``1(System.Exception)">
+        <member name="M:Cadru.UnitTest.Framework.ExceptionExtensions.WithInnerException``1(System.Exception)">
             <summary>
             Verifies that <see cref="P:System.Exception.InnerException"/>
             is of the specified type.
@@ -2991,7 +2424,7 @@
             </param>
             <returns>The original <see cref="T:System.Exception"/>.</returns>
         </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.WithMessage``1(``0,System.String,Cadru.UnitTest.Framework.ExceptionMessageComparison)">
+        <member name="M:Cadru.UnitTest.Framework.ExceptionExtensions.WithMessage``1(``0,System.String,Cadru.UnitTest.Framework.ExceptionMessageComparison)">
             <summary>
             Verifies that the exception <see cref="P:System.Exception.Message"/> contains
             the given text.
@@ -3006,7 +2439,7 @@
             </param>
             <returns>The original <see cref="T:System.Exception"/>.</returns>
         </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.WithMessage``1(``0,System.String)">
+        <member name="M:Cadru.UnitTest.Framework.ExceptionExtensions.WithMessage``1(``0,System.String)">
             <summary>
             Verifies that the exception <see cref="P:System.Exception.Message"/> is equal
             to the given text.
@@ -3018,7 +2451,7 @@
             <param name="message">The text to compare.</param>
             <returns>The original <see cref="T:System.Exception"/>.</returns>
         </member>
-        <member name="M:Cadru.UnitTest.Framework.ExceptionAssert.WithParameter``1(``0,System.String)">
+        <member name="M:Cadru.UnitTest.Framework.ExceptionExtensions.WithParameter``1(``0,System.String)">
             <summary>
             Verifies that the exception
             <see cref="P:System.ArgumentException.ParamName"/> property is equal to the
@@ -3035,7 +2468,7 @@
         <member name="T:Cadru.UnitTest.Framework.ExceptionMessageComparison">
             <summary>
             Options used by the
-            <see cref="M:Cadru.UnitTest.Framework.ExceptionAssert.WithMessage``1(``0,System.String,Cadru.UnitTest.Framework.ExceptionMessageComparison)"/>
+            <see cref="M:Cadru.UnitTest.Framework.ExceptionExtensions.WithMessage``1(``0,System.String,Cadru.UnitTest.Framework.ExceptionMessageComparison)"/>
             method to determine how to compare the exception message.
             </summary>
         </member>
@@ -3058,6 +2491,26 @@
             <summary>
             The exception message should end with the given string.
             </summary>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.Helpers.CheckParameterNotNull(System.Object,System.String,System.String,System.String,System.Object[])">
+            <summary>
+            Checks the parameter for valid conditions
+            </summary>
+            <param name="param">
+            The parameter.
+            </param>
+            <param name="assertionName">
+            The assertion Name.
+            </param>
+            <param name="parameterName">
+            parameter name
+            </param>
+            <param name="message">
+            message for the invalid parameter exception
+            </param>
+            <param name="parameters">
+            The parameters.
+            </param>
         </member>
         <member name="M:Cadru.UnitTest.Framework.Helpers.HandleFail(System.String,System.String,System.Object[])">
             <summary>
@@ -3145,6 +2598,21 @@
               Looks up a localized string similar to (null).
             </summary>
         </member>
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.DoesNotContainFail">
+            <summary>
+              Looks up a localized string similar to String &apos;{0}&apos; contains string &apos;{1}&apos;. {2}..
+            </summary>
+        </member>
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.DoesNotEndWithFail">
+            <summary>
+              Looks up a localized string similar to String &apos;{0}&apos; ends with string &apos;{1}&apos;. {2}..
+            </summary>
+        </member>
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.DoesNotStartWithFail">
+            <summary>
+              Looks up a localized string similar to String &apos;{0}&apos; starts with string &apos;{1}&apos;. {2}..
+            </summary>
+        </member>
         <member name="P:Cadru.UnitTest.Framework.Resources.Strings.DoesNotThrowExceptionFailMsg">
              <summary>
                Looks up a localized string similar to An exception of type {1} was thrown but was not expected. {0}
@@ -3202,6 +2670,16 @@
               Looks up a localized string similar to Expected a string with 1 or more characters but actual was (null)..
             </summary>
         </member>
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.IsOrderedFail">
+            <summary>
+              Looks up a localized string similar to Expected an ordered collection..
+            </summary>
+        </member>
+        <member name="P:Cadru.UnitTest.Framework.Resources.Strings.NullParameterToAssert">
+            <summary>
+              Looks up a localized string similar to The parameter &apos;{0}&apos; is invalid. The value cannot be null. {1}..
+            </summary>
+        </member>
         <member name="P:Cadru.UnitTest.Framework.Resources.Strings.WrongExceptionThrown">
              <summary>
                Looks up a localized string similar to Threw exception {0}, but exception {1} was expected.
@@ -3209,64 +2687,47 @@
             Stack Trace: {4}.
              </summary>
         </member>
-        <member name="T:Cadru.UnitTest.Framework.TypeAssert">
+        <member name="T:Cadru.UnitTest.Framework.StringAssertExtensions">
             <summary>
-            Contains assertion types that are not provided with the standard MSTest assertions.
+            A collection of helpers to test various conditions within unit tests.
+            If the condition being tested is not met, an exception is thrown.
+            </summary>
+            <summary>
+            A collection of helpers to test various conditions within unit tests.
+            If the condition being tested is not met, an exception is thrown.
+            </summary>
+            <summary>
+            A collection of helpers to test various conditions within unit tests.
+            If the condition being tested is not met, an exception is thrown.
+            </summary>
+            <summary>
+            A collection of helpers to test various conditions within unit tests.
+            If the condition being tested is not met, an exception is thrown.
             </summary>
         </member>
-        <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsAssignableFrom(System.Object,System.Type)">
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.IsEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String)">
             <summary>
-            Asserts that an object may be assigned a value of a given <see cref="T:System.Type"/>.
+            Asserts that a string is empty.
             </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
             <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
         </member>
-        <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsAssignableFrom(System.Object,System.Type,System.String)">
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.IsEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String)">
             <summary>
-            Asserts that an object may be assigned a value of a given <see cref="T:System.Type"/>.
+            Asserts that a string is empty.
             </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
             <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
             <param name="message">
             A message to display. This message can be seen in the unit test results.
             </param>
         </member>
-        <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsAssignableFrom(System.Object,System.Type,System.String,System.Object[])">
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.IsEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.Object[])">
             <summary>
-            Asserts that an object may be assigned a value of a given <see cref="T:System.Type"/>.
+            Asserts that a string is empty.
             </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
             <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-            <param name="parameters">
-            An array of parameters to use when formatting <paramref name="message"/>.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsNotAssignableFrom(System.Object,System.Type)">
-            <summary>
-            Asserts that an object may not be assigned a value of a given <see cref="T:System.Type"/>.
-            </summary>
-            <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsNotAssignableFrom(System.Object,System.Type,System.String)">
-            <summary>
-            Asserts that an object may not be assigned a value of a given <see cref="T:System.Type"/>.
-            </summary>
-            <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
-            <param name="message">
-            A message to display. This message can be seen in the unit test results.
-            </param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsNotAssignableFrom(System.Object,System.Type,System.String,System.Object[])">
-            <summary>
-            Asserts that an object may not be assigned a value of a given <see cref="T:System.Type"/>.
-            </summary>
-            <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
             <param name="message">
             A message to display. This message can be seen in the unit test results.
             </param>
@@ -3274,41 +2735,741 @@
             An array of parameters to use when formatting <paramref name="message"/>.
             </param>
         </member>
-        <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsType``1(System.Object)">
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.IsNotEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String)">
             <summary>
-            Asserts that an object is of the given <see cref="T:System.Type"/>.
+            Asserts that a string is not empty.
             </summary>
-            <typeparam name="T">The expected <see cref="T:System.Type"/>.</typeparam>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
             <param name="value">The value to be tested.</param>
         </member>
-        <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsType(System.Object,System.Type)">
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.IsNotEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String)">
             <summary>
-            Asserts that an object is of the given <see cref="T:System.Type"/>.
+            Asserts that a string is not empty.
             </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
             <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
-        </member>
-        <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsType(System.Object,System.Type,System.String)">
-            <summary>
-            Asserts that an object is of the given <see cref="T:System.Type"/>.
-            </summary>
-            <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
             <param name="message">
             A message to display. This message can be seen in the unit test results.
             </param>
         </member>
-        <member name="M:Cadru.UnitTest.Framework.TypeAssert.IsType(System.Object,System.Type,System.String,System.Object[])">
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.IsNotEmpty(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.Object[])">
             <summary>
-            Asserts that an object is of the given <see cref="T:System.Type"/>.
+            Asserts that a string is not empty.
             </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
             <param name="value">The value to be tested.</param>
-            <param name="expectedType">The expected <see cref="T:System.Type"/>.</param>
             <param name="message">
             A message to display. This message can be seen in the unit test results.
             </param>
             <param name="parameters">
             An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.AreEqualIgnoringCase(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String)">
+            <summary>
+            Asserts that two strings are equal, without regard to case.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="expected">The expected string.</param>
+            <param name="actual">The actual string.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.AreEqualIgnoringCase(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.String)">
+            <summary>
+            Asserts that two strings are equal, without regard to case.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="expected">The expected string.</param>
+            <param name="actual">The actual string.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.AreEqualIgnoringCase(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.String,System.Object[])">
+            <summary>
+            Asserts that two strings are equal, without regard to case.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="expected">The expected string.</param>
+            <param name="actual">The actual string.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.AreNotEqualIgnoringCase(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String)">
+            <summary>
+            Asserts that two strings are not equal, without regard to case.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="expected">The expected string.</param>
+            <param name="actual">The actual string.</param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.AreNotEqualIgnoringCase(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.String)">
+            <summary>
+            Asserts that two strings are not equal, without regard to case.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="expected">The expected string.</param>
+            <param name="actual">The actual string.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.AreNotEqualIgnoringCase(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.String,System.Object[])">
+            <summary>
+            Asserts that two strings are not equal, without regard to case.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="expected">The expected string.</param>
+            <param name="actual">The actual string.</param>
+            <param name="message">
+            A message to display. This message can be seen in the unit test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotContain(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String)">
+            <summary>
+            Tests whether the specified string does not contain the specified substring
+            and throws an exception if the substring does occur within the
+            test string.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to contain <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to occur within <paramref name="value"/>.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="substring"/> is not found in
+            <paramref name="value"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotContain(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.StringComparison)">
+            <summary>
+            Tests whether the specified string does not contain the specified substring
+            and throws an exception if the substring does occur within the
+            test string.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to contain <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to occur within <paramref name="value"/>.
+            </param>
+            <param name="comparisonType">
+            The comparison method to compare strings <paramref name="comparisonType"/>.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="substring"/> is not found in
+            <paramref name="value"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotContain(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.String)">
+            <summary>
+            Tests whether the specified string does not contain the specified substring
+            and throws an exception if the substring does occur within the
+            test string.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to contain <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to occur within <paramref name="value"/>.
+            </param>
+            <param name="message">
+            The message to include in the exception when <paramref name="substring"/>
+            is not in <paramref name="value"/>. The message is shown in
+            test results.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="substring"/> is not found in
+            <paramref name="value"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotContain(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.String,System.StringComparison)">
+            <summary>
+            Tests whether the specified string does not contain the specified substring
+            and throws an exception if the substring does occur within the
+            test string.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to contain <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to occur within <paramref name="value"/>.
+            </param>
+            <param name="message">
+            The message to include in the exception when <paramref name="substring"/>
+            is not in <paramref name="value"/>. The message is shown in
+            test results.
+            </param>
+            <param name="comparisonType">
+            The comparison method to compare strings <paramref name="comparisonType"/>.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="substring"/> is not found in
+            <paramref name="value"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotContain(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.String,System.Object[])">
+            <summary>
+            Tests whether the specified string does not contain the specified substring
+            and throws an exception if the substring does occur within the
+            test string.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to contain <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to occur within <paramref name="value"/>.
+            </param>
+            <param name="message">
+            The message to include in the exception when <paramref name="substring"/>
+            is not in <paramref name="value"/>. The message is shown in
+            test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="substring"/> is not found in
+            <paramref name="value"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotContain(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.String,System.StringComparison,System.Object[])">
+            <summary>
+            Tests whether the specified string does not contain the specified substring
+            and throws an exception if the substring does occur within the
+            test string.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to contain <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to occur within <paramref name="value"/>.
+            </param>
+            <param name="message">
+            The message to include in the exception when <paramref name="substring"/>
+            is not in <paramref name="value"/>. The message is shown in
+            test results.
+            </param>
+            <param name="comparisonType">
+            The comparison method to compare strings <paramref name="comparisonType"/>.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="substring"/> is not found in
+            <paramref name="value"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotStartWith(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String)">
+            <summary>
+            Tests whether the specified string begins with the specified substring
+            and throws an exception if the test string does not start with the
+            substring.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to begin with <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to be a prefix of <paramref name="value"/>.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="value"/> does not begin with
+            <paramref name="substring"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotStartWith(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.StringComparison)">
+            <summary>
+            Tests whether the specified string begins with the specified substring
+            and throws an exception if the test string does not start with the
+            substring.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to begin with <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to be a prefix of <paramref name="value"/>.
+            </param>
+            <param name="comparisonType">
+            The comparison method to compare strings <paramref name="comparisonType"/>.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="value"/> does not begin with
+            <paramref name="substring"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotStartWith(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.String)">
+            <summary>
+            Tests whether the specified string begins with the specified substring
+            and throws an exception if the test string does not start with the
+            substring.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to begin with <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to be a prefix of <paramref name="value"/>.
+            </param>
+            <param name="message">
+            The message to include in the exception when <paramref name="value"/>
+            does not begin with <paramref name="substring"/>. The message is
+            shown in test results.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="value"/> does not begin with
+            <paramref name="substring"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotStartWith(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.String,System.Object[])">
+            <summary>
+            Tests whether the specified string begins with the specified substring
+            and throws an exception if the test string does not start with the
+            substring.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to begin with <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to be a prefix of <paramref name="value"/>.
+            </param>
+            <param name="message">
+            The message to include in the exception when <paramref name="value"/>
+            does not begin with <paramref name="substring"/>. The message is
+            shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="value"/> does not begin with
+            <paramref name="substring"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotStartWith(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.String,System.StringComparison)">
+            <summary>
+            Tests whether the specified string begins with the specified substring
+            and throws an exception if the test string does not start with the
+            substring.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to begin with <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to be a prefix of <paramref name="value"/>.
+            </param>
+            <param name="message">
+            The message to include in the exception when <paramref name="value"/>
+            does not begin with <paramref name="substring"/>. The message is
+            shown in test results.
+            </param>
+            <param name="comparisonType">
+            The comparison method to compare strings <paramref name="comparisonType"/>.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="value"/> does not begin with
+            <paramref name="substring"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotStartWith(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.String,System.StringComparison,System.Object[])">
+            <summary>
+            Tests whether the specified string begins with the specified substring
+            and throws an exception if the test string does not start with the
+            substring.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to begin with <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to be a prefix of <paramref name="value"/>.
+            </param>
+            <param name="message">
+            The message to include in the exception when <paramref name="value"/>
+            does not begin with <paramref name="substring"/>. The message is
+            shown in test results.
+            </param>
+            <param name="comparisonType">
+            The comparison method to compare strings <paramref name="comparisonType"/>.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="value"/> does not begin with
+            <paramref name="substring"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotEndWith(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String)">
+            <summary>
+            Tests whether the specified string ends with the specified substring
+            and throws an exception if the test string does not end with the
+            substring.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to end with <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to be a suffix of <paramref name="value"/>.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="value"/> does not end with
+            <paramref name="substring"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotEndWith(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.StringComparison)">
+            <summary>
+            Tests whether the specified string ends with the specified substring
+            and throws an exception if the test string does not end with the
+            substring.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to end with <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to be a suffix of <paramref name="value"/>.
+            </param>
+            <param name="comparisonType">
+            The comparison method to compare strings <paramref name="comparisonType"/>.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="value"/> does not end with
+            <paramref name="substring"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotEndWith(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.String)">
+            <summary>
+            Tests whether the specified string ends with the specified substring
+            and throws an exception if the test string does not end with the
+            substring.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to end with <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to be a suffix of <paramref name="value"/>.
+            </param>
+            <param name="message">
+            The message to include in the exception when <paramref name="value"/>
+            does not end with <paramref name="substring"/>. The message is
+            shown in test results.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="value"/> does not end with
+            <paramref name="substring"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotEndWith(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.String,System.Object[])">
+            <summary>
+            Tests whether the specified string ends with the specified substring
+            and throws an exception if the test string does not end with the
+            substring.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to end with <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to be a suffix of <paramref name="value"/>.
+            </param>
+            <param name="message">
+            The message to include in the exception when <paramref name="value"/>
+            does not end with <paramref name="substring"/>. The message is
+            shown in test results.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="value"/> does not end with
+            <paramref name="substring"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotEndWith(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.String,System.StringComparison)">
+            <summary>
+            Tests whether the specified string ends with the specified substring
+            and throws an exception if the test string does not end with the
+            substring.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to end with <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to be a suffix of <paramref name="value"/>.
+            </param>
+            <param name="message">
+            The message to include in the exception when <paramref name="value"/>
+            does not end with <paramref name="substring"/>. The message is
+            shown in test results.
+            </param>
+            <param name="comparisonType">
+            The comparison method to compare strings <paramref name="comparisonType"/>.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="value"/> does not end with
+            <paramref name="substring"/>.
+            </exception>
+        </member>
+        <member name="M:Cadru.UnitTest.Framework.StringAssertExtensions.DoesNotEndWith(Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert,System.String,System.String,System.String,System.StringComparison,System.Object[])">
+            <summary>
+            Tests whether the specified string ends with the specified substring
+            and throws an exception if the test string does not end with the
+            substring.
+            </summary>
+            <param name="assert">The <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert"/> instance to extend.</param>
+            <param name="value">
+            The string that is expected to end with <paramref name="substring"/>.
+            </param>
+            <param name="substring">
+            The string expected to be a suffix of <paramref name="value"/>.
+            </param>
+            <param name="message">
+            The message to include in the exception when <paramref name="value"/>
+            does not end with <paramref name="substring"/>. The message is
+            shown in test results.
+            </param>
+            <param name="comparisonType">
+            The comparison method to compare strings <paramref name="comparisonType"/>.
+            </param>
+            <param name="parameters">
+            An array of parameters to use when formatting <paramref name="message"/>.
+            </param>
+            <exception cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException">
+            Thrown if <paramref name="value"/> does not end with
+            <paramref name="substring"/>.
+            </exception>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute">
+            <summary>
+                Specifies that <see langword="null"/> is allowed as an input even if the
+                corresponding type disallows it.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.AllowNullAttribute.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DisallowNullAttribute">
+            <summary>
+                Specifies that <see langword="null"/> is disallowed as an input even if the
+                corresponding type allows it.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DisallowNullAttribute.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DisallowNullAttribute"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute">
+            <summary>
+                Specifies that a method that will never return under any circumstance.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute.#ctor">
+             <summary>
+                 Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute"/> class.
+             </summary>
+            
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute">
+            <summary>
+                Specifies that the method will not return if the associated <see cref="T:System.Boolean"/>
+                parameter is passed the specified value.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.ParameterValue">
+            <summary>
+                Gets the condition parameter value.
+                Code after the method is considered unreachable by diagnostics if the argument
+                to the associated parameter matches this value.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.#ctor(System.Boolean)">
+            <summary>
+                Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute"/>
+                class with the specified parameter value.
+            </summary>
+            <param name="parameterValue">
+                The condition parameter value.
+                Code after the method is considered unreachable by diagnostics if the argument
+                to the associated parameter matches this value.
+            </param>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullAttribute">
+            <summary>
+                Specifies that an output may be <see langword="null"/> even if the
+                corresponding type disallows it.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MaybeNullAttribute.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.MaybeNullAttribute"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute">
+            <summary>
+                Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue"/>, 
+                the parameter may be <see langword="null"/> even if the corresponding type disallows it.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue">
+            <summary>
+                Gets the return value condition.
+                If the method returns this value, the associated parameter may be <see langword="null"/>.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>
+                 Initializes the attribute with the specified return value condition.
+            </summary>
+            <param name="returnValue">
+                The return value condition.
+                If the method returns this value, the associated parameter may be <see langword="null"/>.
+            </param>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute">
+            <summary>
+                Specifies that the method or property will ensure that the listed field and property members have
+                not-<see langword="null"/> values.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.Members">
+            <summary>
+                Gets field or property member names.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String)">
+            <summary>
+                Initializes the attribute with a field or property member.
+            </summary>
+            <param name="member">
+                The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String[])">
+            <summary>
+                Initializes the attribute with the list of field and property members.
+            </summary>
+            <param name="members">
+                The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute">
+            <summary>
+                Specifies that the method or property will ensure that the listed field and property members have
+                non-<see langword="null"/> values when returning with the specified return value condition.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.ReturnValue">
+            <summary>
+                Gets the return value condition.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members">
+            <summary>
+                Gets field or property member names.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String)">
+            <summary>
+                Initializes the attribute with the specified return value condition and a field or property member.
+            </summary>
+            <param name="returnValue">
+                The return value condition. If the method returns this value,
+                the associated parameter will not be <see langword="null"/>.
+            </param>
+            <param name="member">
+                The field or property member that is promised to be not-<see langword="null"/>.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String[])">
+            <summary>
+                Initializes the attribute with the specified return value condition and list
+                of field and property members.
+            </summary>
+            <param name="returnValue">
+                The return value condition. If the method returns this value,
+                the associated parameter will not be <see langword="null"/>.
+            </param>
+            <param name="members">
+                The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullAttribute">
+            <summary>
+                Specifies that an output is not <see langword="null"/> even if the
+                corresponding type allows it.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullAttribute.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.NotNullAttribute"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute">
+            <summary>
+                Specifies that the output will be non-<see langword="null"/> if the
+                named parameter is non-<see langword="null"/>.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.ParameterName">
+            <summary>
+                Gets the associated parameter name.
+                The output will be non-<see langword="null"/> if the argument to the
+                parameter specified is non-<see langword="null"/>.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.#ctor(System.String)">
+            <summary>
+                Initializes the attribute with the associated parameter name.
+            </summary>
+            <param name="parameterName">
+                The associated parameter name.
+                The output will be non-<see langword="null"/> if the argument to the
+                parameter specified is non-<see langword="null"/>.
+            </param>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute">
+            <summary>
+                Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue"/>,
+                the parameter will not be <see langword="null"/> even if the corresponding type allows it.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue">
+            <summary>
+                Gets the return value condition.
+                If the method returns this value, the associated parameter will not be <see langword="null"/>.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>
+                Initializes the attribute with the specified return value condition.
+            </summary>
+            <param name="returnValue">
+                The return value condition.
+                If the method returns this value, the associated parameter will not be <see langword="null"/>.
             </param>
         </member>
     </members>

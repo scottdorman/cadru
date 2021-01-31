@@ -42,10 +42,10 @@ namespace Cadru.Net.Http.Tests
             Assert.ThrowsException<ArgumentNullException>(() => { request.AsFormattedString(); });
 
             request = new HttpRequestMessage();
-            Assert.That.IsNotEmpty(request.AsFormattedString());
+            StringAssert.That.IsNotEmpty(request.AsFormattedString());
 
             request.Content = new StringContent("body content");
-            Assert.That.IsNotEmpty(request.AsFormattedString());
+            StringAssert.That.IsNotEmpty(request.AsFormattedString());
             StringAssert.Contains(request.AsFormattedString(), "Body:");
         }
 
@@ -80,7 +80,7 @@ namespace Cadru.Net.Http.Tests
             Assert.IsNotNull(requestMessage);
             Assert.IsTrue(requestMessage.Method == HttpMethod.Get);
             Assert.AreEqual("https://example.com/test?test=testvalue", requestMessage.RequestUri.AbsoluteUri);
-            Assert.That.IsNotEmpty(requestMessage.RequestUri.Query);
+            StringAssert.That.IsNotEmpty(requestMessage.RequestUri.Query);
         }
     }
 }

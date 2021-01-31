@@ -52,7 +52,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsGreaterOrEqual(this Assert assert, byte expected, byte actual, string message, params object[] parameters)
+        public static void IsGreaterOrEqual(this Assert assert, byte expected, byte actual, string message, params object?[] parameters)
         {
             if (expected < actual)
             {
@@ -99,7 +99,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsGreaterOrEqual(this Assert assert, sbyte expected, sbyte actual, string message, params object[] parameters)
+        public static void IsGreaterOrEqual(this Assert assert, sbyte expected, sbyte actual, string message, params object?[] parameters)
         {
             if (expected < actual)
             {
@@ -147,7 +147,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsGreaterOrEqual(this Assert assert, char expected, char actual, string message, params object[] parameters)
+        public static void IsGreaterOrEqual(this Assert assert, char expected, char actual, string message, params object?[] parameters)
         {
             if (expected < actual)
             {
@@ -194,7 +194,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsGreaterOrEqual(this Assert assert, decimal expected, decimal actual, string message, params object[] parameters)
+        public static void IsGreaterOrEqual(this Assert assert, decimal expected, decimal actual, string message, params object?[] parameters)
         {
             if (expected < actual)
             {
@@ -241,7 +241,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsGreaterOrEqual(this Assert assert, double expected, double actual, string message, params object[] parameters)
+        public static void IsGreaterOrEqual(this Assert assert, double expected, double actual, string message, params object?[] parameters)
         {
             if (Double.IsNaN(expected) || Double.IsNaN(actual) || expected < actual)
             {
@@ -288,7 +288,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsGreaterOrEqual(this Assert assert, float expected, float actual, string message, params object[] parameters)
+        public static void IsGreaterOrEqual(this Assert assert, float expected, float actual, string message, params object?[] parameters)
         {
             if (Single.IsNaN(expected) || Single.IsNaN(actual) || expected < actual)
             {
@@ -335,7 +335,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsGreaterOrEqual(this Assert assert, int expected, int actual, string message, params object[] parameters)
+        public static void IsGreaterOrEqual(this Assert assert, int expected, int actual, string message, params object?[] parameters)
         {
             if (expected < actual)
             {
@@ -382,7 +382,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsGreaterOrEqual(this Assert assert, uint expected, uint actual, string message, params object[] parameters)
+        public static void IsGreaterOrEqual(this Assert assert, uint expected, uint actual, string message, params object?[] parameters)
         {
             if (expected < actual)
             {
@@ -429,7 +429,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsGreaterOrEqual(this Assert assert, long expected, long actual, string message, params object[] parameters)
+        public static void IsGreaterOrEqual(this Assert assert, long expected, long actual, string message, params object?[] parameters)
         {
             if (expected < actual)
             {
@@ -477,7 +477,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsGreaterOrEqual(this Assert assert, ulong expected, ulong actual, string message, params object[] parameters)
+        public static void IsGreaterOrEqual(this Assert assert, ulong expected, ulong actual, string message, params object?[] parameters)
         {
             if (expected < actual)
             {
@@ -524,7 +524,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsGreaterOrEqual(this Assert assert, short expected, short actual, string message, params object[] parameters)
+        public static void IsGreaterOrEqual(this Assert assert, short expected, short actual, string message, params object?[] parameters)
         {
             if (expected < actual)
             {
@@ -571,7 +571,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsGreaterOrEqual(this Assert assert, ushort expected, ushort actual, string message, params object[] parameters)
+        public static void IsGreaterOrEqual(this Assert assert, ushort expected, ushort actual, string message, params object?[] parameters)
         {
             if (expected < actual)
             {
@@ -621,7 +621,7 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsGreaterOrEqual<T>(this Assert assert, T expected, T actual, string message, params object[] parameters) where T : IComparable
+        public static void IsGreaterOrEqual<T>(this Assert assert, T expected, T actual, string message, params object?[] parameters) where T : IComparable
         {
             if (expected.CompareTo(actual) < 0)
             {

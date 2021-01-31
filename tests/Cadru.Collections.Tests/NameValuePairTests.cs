@@ -74,8 +74,6 @@ namespace Cadru.Collections.Tests
             Assert.IsTrue(nvp.Equals(nvp2));
             Assert.IsTrue(nvp.Equals((object)nvp2));
 
-            Assert.IsFalse(nvp == null);
-            Assert.IsTrue(nvp != null);
             Assert.IsFalse(nvp.Equals(null));
 
             Assert.IsFalse(nvp.Equals("test"));

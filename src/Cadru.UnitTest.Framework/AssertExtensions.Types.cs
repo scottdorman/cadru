@@ -50,12 +50,12 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsType<T>(this Assert assert, object value, string message, params object[] parameters)
+        public static void IsType<T>(this Assert assert, object value, string message, params object?[] parameters)
         {
             assert.IsType(value, typeof(T), message, parameters);
         }
 
-        internal static void IsType(this Assert assert, object value, Type expectedType, string message, params object[] parameters)
+        internal static void IsType(this Assert assert, object value, Type expectedType, string message, params object?[] parameters)
         {
             if (value?.GetType() != expectedType)
             {
@@ -97,12 +97,12 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsAssignableFrom<T>(this Assert assert, object value, string message, params object[] parameters)
+        public static void IsAssignableFrom<T>(this Assert assert, object value, string message, params object?[] parameters)
         {
             assert.IsAssignableFrom(value, typeof(T), message, parameters);
         }
 
-        internal static void IsAssignableFrom(this Assert assert, object value, Type expectedType, string message, params object[] parameters)
+        internal static void IsAssignableFrom(this Assert assert, object value, Type expectedType, string message, params object?[] parameters)
         {
             if (value == null || !value.GetType().IsAssignableFrom(expectedType))
             {
@@ -145,12 +145,12 @@ namespace Cadru.UnitTest.Framework
         /// <param name="parameters">
         /// An array of parameters to use when formatting <paramref name="message"/>.
         /// </param>
-        public static void IsNotAssignableFrom<T>(this Assert assert, object value, string message, params object[] parameters)
+        public static void IsNotAssignableFrom<T>(this Assert assert, object value, string message, params object?[] parameters)
         {
             assert.IsNotAssignableFrom(value, typeof(T), message, parameters);
         }
 
-        internal static void IsNotAssignableFrom(this Assert assert, object value, Type expectedType, string message, params object[] parameters)
+        internal static void IsNotAssignableFrom(this Assert assert, object value, Type expectedType, string message, params object?[] parameters)
         {
             if (value == null || value.GetType().IsAssignableFrom(expectedType))
             {

@@ -34,21 +34,21 @@ namespace Cadru.UnitTest.Framework.Tests
         [TestMethod]
         public void CaseInsensitiveCompare()
         {
-            Assert.That.AreEqualIgnoringCase("name", "NAME");
-            Assert.That.AreEqualIgnoringCase("name", "NAME", "test message");
+            StringAssert.That.AreEqualIgnoringCase("name", "NAME");
+            StringAssert.That.AreEqualIgnoringCase("name", "NAME", "test message");
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void CaseInsensitiveCompareFails()
         {
-            Assert.That.AreEqualIgnoringCase("Name", "NAMES");
-            Assert.That.AreEqualIgnoringCase("Name", "NAMES", "test message");
+            StringAssert.That.AreEqualIgnoringCase("Name", "NAMES");
+            StringAssert.That.AreEqualIgnoringCase("Name", "NAMES", "test message");
         }
 
         [TestMethod]
         public void IsEmpty()
         {
-            Assert.That.IsEmpty("", "Failed on empty String");
+            StringAssert.That.IsEmpty("", "Failed on empty String");
             CollectionAssert.That.IsEmpty(Array.Empty<int>(), "Failed on empty Array");
             CollectionAssert.That.IsEmpty(new ArrayList(), "Failed on empty ArrayList");
             CollectionAssert.That.IsEmpty(new Hashtable(), "Failed on empty Hashtable");
@@ -63,13 +63,13 @@ namespace Cadru.UnitTest.Framework.Tests
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void IsEmptyFailsOnNullString()
         {
-            Assert.That.IsEmpty((string)null);
+            StringAssert.That.IsEmpty((string)null);
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void IsEmptyFailsOnString()
         {
-            Assert.That.IsEmpty("Hi!");
+            StringAssert.That.IsEmpty("Hi!");
         }
 
         [TestMethod]
@@ -82,7 +82,7 @@ namespace Cadru.UnitTest.Framework.Tests
                 { "array", array }
             };
 
-            Assert.That.IsNotEmpty("Hi!", "Failed on String");
+            StringAssert.That.IsNotEmpty("Hi!", "Failed on String");
             CollectionAssert.That.IsNotEmpty(array, "Failed on Array");
             CollectionAssert.That.IsNotEmpty(list, "Failed on ArrayList");
             CollectionAssert.That.IsNotEmpty(hash, "Failed on Hashtable");
@@ -109,7 +109,7 @@ namespace Cadru.UnitTest.Framework.Tests
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void IsNotEmptyFailsOnEmptyString()
         {
-            Assert.That.IsNotEmpty("");
+            StringAssert.That.IsNotEmpty("");
         }
     }
 }
