@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="RequestResponseLoggingScope.cs"
+// <copyright file="LoggingScope.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2020 Scott Dorman.
@@ -23,13 +23,13 @@
 using System;
 using System.Collections.Generic;
 
-namespace Cadru.AspNetCore.Http
+namespace Cadru.Core.Logging
 {
     /// <summary>
     /// An object that can be used to provide additional logging data through a
     /// logging scope.
     /// </summary>
-    public class RequestResponseLoggingScope
+    public class LoggingScope
     {
         /// <summary>
         /// Additional key-value pairs to be added to the logging scope.
@@ -40,7 +40,7 @@ namespace Cadru.AspNetCore.Http
         /// Returns a collection of key-value pairs to be used in the logging scope.
         /// </summary>
         /// <returns></returns>
-        public virtual IEnumerable<KeyValuePair<string, string>> ToLoggingScope()
+        public virtual IEnumerable<KeyValuePair<string, string>> AsEnumerable()
         {
             foreach (var additionalItem in this.AdditionalItems)
             {

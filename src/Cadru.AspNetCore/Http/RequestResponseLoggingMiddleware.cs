@@ -83,7 +83,7 @@ namespace Cadru.AspNetCore.Http
             if (this._options.CaptureScopes)
             {
                 var scopeObject = await this._loggingScopeFactory.ToScopeObjectAsync(context.Request);
-                loggingScope = scopeObject.ToLoggingScope();
+                loggingScope = scopeObject.AsEnumerable();
             }
 
             using (this._options.CaptureScopes ? this._logger.BeginScope(loggingScope) : EmptyDisposable.Instance)

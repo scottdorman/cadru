@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="IRequestResponseLoggingScopeFactory.cs"
+// <copyright file="ILoggingScopeFactory.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2020 Scott Dorman.
@@ -23,19 +23,21 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
+using Cadru.Core.Logging;
+
 using Microsoft.AspNetCore.Http;
 
 namespace Cadru.AspNetCore.Http
 {
     /// <summary>
     /// Provides methods for creating a
-    /// <see cref="RequestResponseLoggingScope"/> from an
+    /// <see cref="LoggingScope"/> from an
     /// <see cref="HttpRequestMessage"/> or <see cref="HttpRequest"/>.
     /// </summary>
     public interface IRequestResponseLoggingScopeFactory
     {
         /// <summary>
-        /// Creates a <see cref="RequestResponseLoggingScope"/> instance from
+        /// Creates a <see cref="LoggingScope"/> instance from
         /// the given <see cref="HttpRequestMessage"/>.
         /// </summary>
         /// <param name="requestMessage">
@@ -43,13 +45,13 @@ namespace Cadru.AspNetCore.Http
         /// to the logging scope.
         /// </param>
         /// <returns>
-        /// A <see cref="RequestResponseLoggingScope"/> with properties
+        /// A <see cref="LoggingScope"/> with properties
         /// populated from the <paramref name="requestMessage"/>.
         /// </returns>
-        Task<RequestResponseLoggingScope> ToScopeObjectAsync(HttpRequestMessage requestMessage);
+        Task<LoggingScope> ToScopeObjectAsync(HttpRequestMessage requestMessage);
 
         /// <summary>
-        /// Creates a <see cref="RequestResponseLoggingScope"/> instance from
+        /// Creates a <see cref="LoggingScope"/> instance from
         /// the given <see cref="HttpRequest"/>.
         /// </summary>
         /// <param name="request">
@@ -57,13 +59,13 @@ namespace Cadru.AspNetCore.Http
         /// logging scope.
         /// </param>
         /// <returns>
-        /// A <see cref="RequestResponseLoggingScope"/> with properties
+        /// A <see cref="LoggingScope"/> with properties
         /// populated from the <paramref name="request"/>.
         /// </returns>
-        Task<RequestResponseLoggingScope> ToScopeObjectAsync(HttpRequest request);
+        Task<LoggingScope> ToScopeObjectAsync(HttpRequest request);
 
         /// <summary>
-        /// Creates a <see cref="RequestResponseLoggingScope"/> instance from
+        /// Creates a <see cref="LoggingScope"/> instance from
         /// the given <see cref="HttpContext"/>.
         /// </summary>
         /// <param name="httpContext">
@@ -71,9 +73,9 @@ namespace Cadru.AspNetCore.Http
         /// logging scope.
         /// </param>
         /// <returns>
-        /// A <see cref="RequestResponseLoggingScope"/> with properties
+        /// A <see cref="LoggingScope"/> with properties
         /// populated from the <paramref name="httpContext"/>.
         /// </returns>
-        Task<RequestResponseLoggingScope> ToScopeObjectAsync(HttpContext httpContext);
+        Task<LoggingScope> ToScopeObjectAsync(HttpContext httpContext);
     }
 }

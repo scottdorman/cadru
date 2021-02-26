@@ -8139,6 +8139,23 @@
             corresponding instances of <see cref="T:System.String"/> in args.
             </returns>
         </member>
+        <member name="T:Cadru.Core.Logging.LoggingScope">
+            <summary>
+            An object that can be used to provide additional logging data through a
+            logging scope.
+            </summary>
+        </member>
+        <member name="P:Cadru.Core.Logging.LoggingScope.AdditionalItems">
+            <summary>
+            Additional key-value pairs to be added to the logging scope.
+            </summary>
+        </member>
+        <member name="M:Cadru.Core.Logging.LoggingScope.AsEnumerable">
+            <summary>
+            Returns a collection of key-value pairs to be used in the logging scope.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Cadru.Resources.Strings">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.

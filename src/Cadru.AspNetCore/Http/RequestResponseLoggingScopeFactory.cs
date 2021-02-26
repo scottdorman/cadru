@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
+using Cadru.Core.Logging;
+
 using Microsoft.AspNetCore.Http;
 
 namespace Cadru.AspNetCore.Http
 {
     /// <summary>
     /// Provides methods for creating a
-    /// <see cref="RequestResponseLoggingScope"/> from an
+    /// <see cref="LoggingScope"/> from an
     /// <see cref="HttpRequestMessage"/> or <see cref="HttpRequest"/>.
     /// </summary>
-    public class RequestResponseLogginScopeFactory : IRequestResponseLoggingScopeFactory
+    public abstract class RequestResponseLoggingScopeFactory : IRequestResponseLoggingScopeFactory
     {
         /// <inheritdoc/>
-        public virtual async Task<RequestResponseLoggingScope> ToScopeObjectAsync(HttpRequestMessage requestMessage)
+        public virtual async Task<LoggingScope> ToScopeObjectAsync(HttpRequestMessage requestMessage)
         {
-            return await Task.FromResult(new RequestResponseLoggingScope
+            return await Task.FromResult(new LoggingScope
             {
                 AdditionalItems =
                 {
@@ -28,9 +30,9 @@ namespace Cadru.AspNetCore.Http
         }
 
         /// <inheritdoc/>
-        public virtual async Task<RequestResponseLoggingScope> ToScopeObjectAsync(HttpRequest request)
+        public virtual async Task<LoggingScope> ToScopeObjectAsync(HttpRequest request)
         {
-            return await Task.FromResult(new RequestResponseLoggingScope
+            return await Task.FromResult(new LoggingScope
             {
                 AdditionalItems =
                 {
@@ -40,12 +42,10 @@ namespace Cadru.AspNetCore.Http
             });
         }
 
-
         /// <inheritdoc/>
-        public virtual async Task<RequestResponseLoggingScope> ToScopeObjectAsync(HttpContext httpContext)
+        public virtual async Task<LoggingScope> ToScopeObjectAsync(HttpContext httpContext)
         {
             return await this.ToScopeObjectAsync(httpContext.Request);
         }
-
     }
 }

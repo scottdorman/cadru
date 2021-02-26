@@ -45,6 +45,8 @@ namespace Cadru.AspNetCore.Http
         public static IServiceCollection AddRequestResponseLogging([NotNull] this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<RequestResponseLoggingOptions>(configuration as IConfigurationSection ?? configuration.GetSection(RequestResponseLoggingOptions.SectionKey));
+            services.AddTransient<IRequestResponseLoggingSerializer, RequestResponseLoggingSerializer>();
+            services.AddSingleton<IRequestResponseLoggingScopeFactory, DefaultRequestResponseLoggingScopeFactory>();
             return services;
         }
 

@@ -4,6 +4,13 @@
         <name>Cadru.AspNetCore</name>
     </assembly>
     <members>
+        <member name="T:Cadru.AspNetCore.Http.DefaultRequestResponseLoggingScopeFactory">
+            <summary>
+            Provides methods for creating a
+            <see cref="!:RequestResponseLoggingScope"/> from an
+            <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>.
+            </summary>
+        </member>
         <member name="M:Cadru.AspNetCore.Http.Internal.Extensions.IsSuccessStatusCode(System.Net.Http.HttpResponseMessage)">
             <summary>
             Gets a value that indicates if the HTTP response was successful.
@@ -40,13 +47,13 @@
         <member name="T:Cadru.AspNetCore.Http.IRequestResponseLoggingScopeFactory">
             <summary>
             Provides methods for creating a
-            <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> from an
+            <see cref="T:Cadru.Core.Logging.LoggingScope"/> from an
             <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>.
             </summary>
         </member>
         <member name="M:Cadru.AspNetCore.Http.IRequestResponseLoggingScopeFactory.ToScopeObjectAsync(System.Net.Http.HttpRequestMessage)">
             <summary>
-            Creates a <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> instance from
+            Creates a <see cref="T:Cadru.Core.Logging.LoggingScope"/> instance from
             the given <see cref="T:System.Net.Http.HttpRequestMessage"/>.
             </summary>
             <param name="requestMessage">
@@ -54,13 +61,13 @@
             to the logging scope.
             </param>
             <returns>
-            A <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> with properties
+            A <see cref="T:Cadru.Core.Logging.LoggingScope"/> with properties
             populated from the <paramref name="requestMessage"/>.
             </returns>
         </member>
         <member name="M:Cadru.AspNetCore.Http.IRequestResponseLoggingScopeFactory.ToScopeObjectAsync(Microsoft.AspNetCore.Http.HttpRequest)">
             <summary>
-            Creates a <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> instance from
+            Creates a <see cref="T:Cadru.Core.Logging.LoggingScope"/> instance from
             the given <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>.
             </summary>
             <param name="request">
@@ -68,13 +75,13 @@
             logging scope.
             </param>
             <returns>
-            A <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> with properties
+            A <see cref="T:Cadru.Core.Logging.LoggingScope"/> with properties
             populated from the <paramref name="request"/>.
             </returns>
         </member>
         <member name="M:Cadru.AspNetCore.Http.IRequestResponseLoggingScopeFactory.ToScopeObjectAsync(Microsoft.AspNetCore.Http.HttpContext)">
             <summary>
-            Creates a <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> instance from
+            Creates a <see cref="T:Cadru.Core.Logging.LoggingScope"/> instance from
             the given <see cref="T:Microsoft.AspNetCore.Http.HttpContext"/>.
             </summary>
             <param name="httpContext">
@@ -82,7 +89,7 @@
             logging scope.
             </param>
             <returns>
-            A <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> with properties
+            A <see cref="T:Cadru.Core.Logging.LoggingScope"/> with properties
             populated from the <paramref name="httpContext"/>.
             </returns>
         </member>
@@ -228,37 +235,20 @@
             Gets or sets the log level of messages.
             </summary>
         </member>
-        <member name="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope">
-            <summary>
-            An object that can be used to provide additional logging data through a
-            logging scope.
-            </summary>
-        </member>
-        <member name="P:Cadru.AspNetCore.Http.RequestResponseLoggingScope.AdditionalItems">
-            <summary>
-            Additional key-value pairs to be added to the logging scope.
-            </summary>
-        </member>
-        <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingScope.ToLoggingScope">
-            <summary>
-            Returns a collection of key-value pairs to be used in the logging scope.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Cadru.AspNetCore.Http.RequestResponseLogginScopeFactory">
+        <member name="T:Cadru.AspNetCore.Http.RequestResponseLoggingScopeFactory">
             <summary>
             Provides methods for creating a
-            <see cref="T:Cadru.AspNetCore.Http.RequestResponseLoggingScope"/> from an
+            <see cref="T:Cadru.Core.Logging.LoggingScope"/> from an
             <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>.
             </summary>
         </member>
-        <member name="M:Cadru.AspNetCore.Http.RequestResponseLogginScopeFactory.ToScopeObjectAsync(System.Net.Http.HttpRequestMessage)">
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingScopeFactory.ToScopeObjectAsync(System.Net.Http.HttpRequestMessage)">
             <inheritdoc/>
         </member>
-        <member name="M:Cadru.AspNetCore.Http.RequestResponseLogginScopeFactory.ToScopeObjectAsync(Microsoft.AspNetCore.Http.HttpRequest)">
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingScopeFactory.ToScopeObjectAsync(Microsoft.AspNetCore.Http.HttpRequest)">
             <inheritdoc/>
         </member>
-        <member name="M:Cadru.AspNetCore.Http.RequestResponseLogginScopeFactory.ToScopeObjectAsync(Microsoft.AspNetCore.Http.HttpContext)">
+        <member name="M:Cadru.AspNetCore.Http.RequestResponseLoggingScopeFactory.ToScopeObjectAsync(Microsoft.AspNetCore.Http.HttpContext)">
             <inheritdoc/>
         </member>
         <member name="T:Cadru.AspNetCore.Http.RequestResponseLoggingSerializer">
