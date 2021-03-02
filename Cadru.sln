@@ -76,6 +76,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Extensions.FileProvid
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.Polly.Tests", "tests\Cadru.Polly.Tests\Cadru.Polly.Tests.csproj", "{7E85B419-460B-45AA-8E8D-DEC960EBBC4C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadru.ApiClient", "src\Cadru.ApiClient\Cadru.ApiClient.csproj", "{4CB47B27-3375-4E0F-80D9-9F1297A2DC5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -206,6 +208,10 @@ Global
 		{7E85B419-460B-45AA-8E8D-DEC960EBBC4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E85B419-460B-45AA-8E8D-DEC960EBBC4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E85B419-460B-45AA-8E8D-DEC960EBBC4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CB47B27-3375-4E0F-80D9-9F1297A2DC5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CB47B27-3375-4E0F-80D9-9F1297A2DC5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CB47B27-3375-4E0F-80D9-9F1297A2DC5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CB47B27-3375-4E0F-80D9-9F1297A2DC5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

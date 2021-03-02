@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cadru.ApiClient</name>
+    </assembly>
+    <members>
+        <member name="T:Cadru.ApiClient.Configuration.ApiConfiguration">
+            <summary>
+            Represents common API configuration parameters.
+            </summary>
+        </member>
+        <member name="M:Cadru.ApiClient.Configuration.ApiConfiguration.GetBaseUrl">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cadru.ApiClient.Configuration.ApiConfiguration.BaseUrl">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.ApiClient.Configuration.ConfigurationExtensions">
+            <summary>
+            Extension methods for setting up <see cref="T:Cadru.ApiClient.Configuration.IApiConfiguration"/> related
+            services in an <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            </summary>
+        </member>
+        <member name="M:Cadru.ApiClient.Configuration.ConfigurationExtensions.BindConfigurationSection``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)">
+            <summary>
+            Attempts to bind the configuration values to an object instance by matching
+            property names against configuration keys recursively.
+            </summary>
+            <typeparam name="T">The object instance type.</typeparam>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> to add services to.</param>
+            <param name="configuration">A set of key/value configuration properties.</param>
+            <param name="instance">The bound object instance.</param>
+            <returns>
+            The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional calls can be chained.
+            </returns>
+        </member>
+        <member name="T:Cadru.ApiClient.Configuration.IApiConfiguration">
+            <summary>
+            Represents common API configuration parameters.
+            </summary>
+        </member>
+        <member name="M:Cadru.ApiClient.Configuration.IApiConfiguration.GetBaseUrl">
+            <summary>
+            Gets the base URL for the service, ensuring that it has a trailing '/' character.
+            </summary>
+            <returns>The base URL for the service with a trailing '/' character.</returns>
+        </member>
+        <member name="P:Cadru.ApiClient.Configuration.IApiConfiguration.BaseUrl">
+            <summary>
+            The base URL for the service.
+            </summary>
+        </member>
+        <member name="T:Cadru.ApiClient.Extensions.ExceptionExtensions">
+            <summary>
+            Extension methods for converting an <see cref="T:System.Exception"/> into a collection
+            of <see cref="T:Cadru.ApiClient.Models.ErrorDetail"/> instances.
+            </summary>
+        </member>
+        <member name="M:Cadru.ApiClient.Extensions.ExceptionExtensions.GetErrorDetails(System.Exception)">
+            <summary>
+            Converts the given <see cref="T:System.Exception"/> into a collection
+            of <see cref="T:Cadru.ApiClient.Models.ErrorDetail"/> instances.
+            </summary>
+            <param name="e">The exception to convert.</param>
+            <returns>A collection of <see cref="T:Cadru.ApiClient.Models.ErrorDetail"/> instances representing
+            all of the exceptions in the exception hierarchy.</returns>
+        </member>
+        <member name="T:Cadru.ApiClient.Extensions.ModelSerializationExtensions">
+            <summary>
+            Provides basic routines for serialization.
+            </summary>
+        </member>
+        <member name="M:Cadru.ApiClient.Extensions.ModelSerializationExtensions.ToFormData(System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Net.Http.FormUrlEncodedContent"/> class
+            with the collection of key/value pairs representing the value.
+            </summary>
+            <param name="value">The value to represent.</param>
+            <returns>A populated <see cref="T:System.Net.Http.FormUrlEncodedContent"/> instance
+            representing all of the serializable properties in <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:Cadru.ApiClient.Extensions.ModelSerializationExtensions.ToDictionary(System.Object,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Converts the value of a type to an <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="serializerOptions">The options to control serialization behavior.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IDictionary`2"/> representation of the value</returns>
+        </member>
+        <member name="M:Cadru.ApiClient.Extensions.ModelSerializationExtensions.ToKeyValuePairs(System.Object,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Converts the value of a type to a collection of <see cref="T:System.Collections.Generic.KeyValuePair`2"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="serializerOptions">The options to control serialization behavior.</param>
+            <returns>A collection of <see cref="T:System.Collections.Generic.KeyValuePair`2"/> instances which represent the value.</returns>
+            <remarks>
+            <para>The value is first serialized to a JSON string, which is then recursively parsed to
+            create the key/value pairs.
+            </para>
+            <para>
+            Nested objects are defined using keys which show their hierarchy in dot (".") notation, and
+            collections are shown using an indexed notation.
+            </para>
+            </remarks>
+        </member>
+        <member name="T:Cadru.ApiClient.Models.ApiError">
+            <summary>
+            Represents an error from an endpoint call.
+            </summary>
+        </member>
+        <member name="M:Cadru.ApiClient.Models.ApiError.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.ApiClient.Models.ApiError"/> class.
+            </summary>
+        </member>
+        <member name="M:Cadru.ApiClient.Models.ApiError.#ctor(System.Nullable{System.Guid},System.String,System.String,System.Collections.Generic.IEnumerable{Cadru.ApiClient.Models.ErrorDetail})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.ApiClient.Models.ApiError"/> class
+            with the given information.
+            </summary>
+            <param name="id">The unique identifier for the error.</param>
+            <param name="httpStatus">The HTTP status code of the error.</param>
+            <param name="description">The description of the error.</param>
+            <param name="errorDetails">A collection of <see cref="T:Cadru.ApiClient.Models.ErrorDetail"/> instances.</param>
+        </member>
+        <member name="M:Cadru.ApiClient.Models.ApiError.#ctor(System.Nullable{System.Guid},System.Net.HttpStatusCode,System.String,System.Collections.Generic.IEnumerable{Cadru.ApiClient.Models.ErrorDetail})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cadru.ApiClient.Models.ApiError"/> class
+            with the given information.
+            </summary>
+            <param name="id">The unique identifier for the error.</param>
+            <param name="httpStatusCode">The HTTP status code of the error.</param>
+            <param name="description">The description of the error.</param>
+            <param name="errorDetails">A collection of <see cref="T:Cadru.ApiClient.Models.ErrorDetail"/> instances.</param>
+        </member>
+        <member name="P:Cadru.ApiClient.Models.ApiError.Id">
+            <summary>
+            The unique identifier for the error.
+            </summary>
+        </member>
+        <member name="P:Cadru.ApiClient.Models.ApiError.HttpStatus">
+            <summary>
+            The HTTP status code of the error.
+            </summary>
+        </member>
+        <member name="P:Cadru.ApiClient.Models.ApiError.Description">
+            <summary>
+            The description of the error.
+            </summary>
+        </member>
+        <member name="P:Cadru.ApiClient.Models.ApiError.Details">
+            <summary>
+            A collection of <see cref="T:Cadru.ApiClient.Models.ErrorDetail"/> instances.
+            </summary>
+        </member>
+        <member name="T:Cadru.ApiClient.Models.ApiResult">
+            <summary>
+            Represents the response of an endpoint call.
+            </summary>
+        </member>
+        <member name="P:Cadru.ApiClient.Models.ApiResult.Cadru#ApiClient#Models#IApiResult#IsError">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cadru.ApiClient.Models.ApiResult.Error">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.ApiClient.Models.ApiResult.ErrorResult``1(Cadru.ApiClient.Models.ApiError)">
+            <summary>
+            Creates
+            </summary>
+            <typeparam name="TData"></typeparam>
+            <param name="apiError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.ApiClient.Models.ApiResult.FromString``1(System.String)">
+            <summary>
+            Deserializes the JSON to the specified type.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.ApiClient.Models.ApiResult.FromObject``1(``0)">
+            <summary>
+            Creates a new <see cref="T:Cadru.ApiClient.Models.IApiResult`1"/> from the given object instance.
+            </summary>
+            <typeparam name="TData">The type of payload model.</typeparam>
+            <param name="value">The object instance.</param>
+            <returns>A new <see cref="T:Cadru.ApiClient.Models.IApiResult`1"/> representing the response.</returns>
+        </member>
+        <member name="M:Cadru.ApiClient.Models.ApiResult.ToString(Newtonsoft.Json.Formatting,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Serializes the object to a JSON string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cadru.ApiClient.Models.ApiResult`1">
+            <summary>
+            Represents the response of an endpoint call.
+            </summary>
+            <typeparam name="TData">The type of payload model.</typeparam>
+        </member>
+        <member name="P:Cadru.ApiClient.Models.ApiResult`1.Data">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.ApiClient.Models.ErrorDetail">
+            <summary>
+            Represents a display-friendly error message
+            </summary>
+        </member>
+        <member name="P:Cadru.ApiClient.Models.ErrorDetail.Header">
+            <summary>
+            The error message header.
+            </summary>
+        </member>
+        <member name="P:Cadru.ApiClient.Models.ErrorDetail.Message">
+            <summary>
+            The error message content.
+            </summary>
+        </member>
+        <member name="T:Cadru.ApiClient.Models.IApiResult">
+            <summary>
+            Represents the response of an endpoint call.
+            </summary>
+        </member>
+        <member name="P:Cadru.ApiClient.Models.IApiResult.IsError">
+            <summary>
+            A boolean value that indicates if the response is an error.
+            </summary>
+        </member>
+        <member name="P:Cadru.ApiClient.Models.IApiResult.Error">
+            <summary>
+            An <see cref="T:Cadru.ApiClient.Models.ApiError"/> instance representing the error from the response.
+            </summary>
+        </member>
+        <member name="T:Cadru.ApiClient.Models.IApiResult`1">
+            <summary>
+            Represents the response of an endpoint call.
+            </summary>
+            <typeparam name="TData">The type of payload model.</typeparam>
+        </member>
+        <member name="P:Cadru.ApiClient.Models.IApiResult`1.Data">
+            <summary>
+            The returned response object.
+            </summary>
+        </member>
+        <member name="T:Cadru.ApiClient.Services.IResponseParser">
+            <summary>
+            Represents an API response parser
+            </summary>
+        </member>
+        <member name="M:Cadru.ApiClient.Services.IResponseParser.ParseAsync``1(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Parses the <paramref name="response"/> into an appropriate <see cref="T:Cadru.ApiClient.Models.IApiResult`1"/> instance.
+            </summary>
+            <typeparam name="TData">The type of payload model.</typeparam>
+            <param name="response">The <see cref="T:System.Net.Http.HttpResponseMessage"/>.</param>
+            <returns>An <see cref="T:Cadru.ApiClient.Models.IApiResult`1"/> instance.</returns>
+        </member>
+    </members>
+</doc>
