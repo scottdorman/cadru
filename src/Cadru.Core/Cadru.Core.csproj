@@ -6,7 +6,6 @@
     <Description>Provides common extensions and new APIs for the .NET Framework.</Description>
     <PackageTags>$(CommonPackageTags)</PackageTags>
     <RootNamespace>Cadru</RootNamespace>
-    <UserSecretsId>6dcc4dab-1e7d-4092-a279-fe2dc5baf189</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

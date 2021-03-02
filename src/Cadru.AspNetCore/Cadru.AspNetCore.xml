@@ -7,7 +7,7 @@
         <member name="T:Cadru.AspNetCore.Http.DefaultRequestResponseLoggingScopeFactory">
             <summary>
             Provides methods for creating a
-            <see cref="!:RequestResponseLoggingScope"/> from an
+            <see cref="T:Cadru.Core.Logging.LoggingScope"/> from an
             <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>.
             </summary>
         </member>

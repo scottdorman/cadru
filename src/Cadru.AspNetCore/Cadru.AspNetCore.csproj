@@ -5,7 +5,6 @@
     <Nullable>enable</Nullable>
     <Description>Provides ASP.NET Core middleware and other extensions for request and/response logging.</Description>
     <PackageTags>$(CommonPackageTags) aspnetcore middlweware response request logging mime mappping</PackageTags>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
