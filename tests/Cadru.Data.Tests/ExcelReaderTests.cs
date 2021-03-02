@@ -38,7 +38,6 @@ namespace Cadru.Data.Tests
         [DeploymentItem("Adjustments Table Upload 20170616.xlsx")]
         public void GetField()
         {
-            //var filePath = @"D:\Users\Scott\Source\github\cadru\tests\Cadru.Data.Tests\Plan Assignment DELETE File 20170615.xlsx";
             var filePath = @"Adjustments Table Upload 20170616.xlsx";
 
             using (var stream = File.OpenRead(filePath))

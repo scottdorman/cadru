@@ -629,7 +629,7 @@ namespace Cadru.Data.IO
         /// When there are no end of line characters, the index is the length
         /// (one past the end)
         /// </remarks>
-        private int GetEndOfLineIndex(string line)
+        private static int GetEndOfLineIndex(string line)
         {
             Debug.Assert(line != null, "We are parsing a Nothing");
             var length = line!.Length;
@@ -790,7 +790,7 @@ namespace Cadru.Data.IO
             Requires.NotNullOrWhiteSpace(path, nameof(path));
             Requires.NotNull(defaultEncoding, nameof(defaultEncoding));
 
-            var fullPath = this.ValidatePath(path);
+            var fullPath = ValidatePath(path);
             var fileStreamTemp = new FileStream(fullPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             this.InitializeFromStream(fileStreamTemp, defaultEncoding, detectEncoding);
         }
@@ -833,7 +833,7 @@ namespace Cadru.Data.IO
                 var index = 0;
                 var fields = new List<string>();
                 string field;
-                var lineEndIndex = this.GetEndOfLineIndex(line);
+                var lineEndIndex = GetEndOfLineIndex(line);
 
                 while (index <= lineEndIndex)
                 {
@@ -884,7 +884,7 @@ namespace Cadru.Data.IO
                                         }
 
                                         lineBuilder.Append(newLine);
-                                        lineEndIndex = this.GetEndOfLineIndex(line);
+                                        lineEndIndex = GetEndOfLineIndex(line);
                                         endHelper.BuildField(line, endOfLine);
                                         if (endHelper.MalformedLine)
                                         {
@@ -1284,7 +1284,7 @@ namespace Cadru.Data.IO
         /// <param name="path">The path to be validated</param>
         /// <returns>The full name and path</returns>
         /// <remarks>Throws if the file doesn't exist or if the path is malformed</remarks>
-        private string ValidatePath(string path)
+        private static string ValidatePath(string path)
         {
             // Validate and get full path
             var fullPath = FileSystem.NormalizeFilePath(path, nameof(path));
