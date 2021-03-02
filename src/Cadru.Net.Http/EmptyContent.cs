@@ -23,6 +23,6 @@ namespace Cadru.Net.Http
         /// </summary>
         /// <param name="mediaType">The media type to use for the content.</param>
         /// <returns>A <see cref="HttpContent"/> instance.</returns>
-        public static HttpContent Create(string mediaType) => new StringContent(String.Empty, Encoding.UTF8, mediaType);
+        public static HttpContent Create(string? mediaType) => new StringContent(String.Empty, Encoding.UTF8, mediaType);
     }
 }
