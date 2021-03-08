@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.8.0" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.9.0" />
     <PackageReference Include="Microsoft.Build.Tasks.Core" Version="16.8.0" />
     <PackageReference Include="System.CodeDom" Version="5.0.0" />
   </ItemGroup>
