@@ -38,7 +38,7 @@ namespace Cadru.ApiClient.Models
         /// <typeparam name="T"></typeparam>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static T FromString<T>(string value) where T : ApiResult
+        public static T? FromString<T>(string value) where T : ApiResult
         {
             return JsonConvert.DeserializeObject<T>(value);
         }
