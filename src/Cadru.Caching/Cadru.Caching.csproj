@@ -1,11 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
+     <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <Description>Provides a standard implementation for creating and using cache keys.</Description>
     <PackageTags>$(CommonPackageTags) cache caching keys</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Validation" Version="2.5.51" />
+  </ItemGroup>
 
 </Project>
