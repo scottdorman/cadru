@@ -8139,6 +8139,35 @@
             corresponding instances of <see cref="T:System.String"/> in args.
             </returns>
         </member>
+        <member name="T:Cadru.Core.Logging.LoggerFactoryExtensions">
+            <summary>
+            <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/> extension methods for common scenarios.
+            </summary>
+        </member>
+        <member name="M:Cadru.Core.Logging.LoggerFactoryExtensions.SafeCreateLogger``1(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance using the full
+            name of the given type.
+            </summary>
+            <typeparam name="T">The type.</typeparam>
+            <param name="factory">The factory.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.Logging.ILogger"/> that was created.</returns>
+            <remarks>If the provider <paramref name="factory"/> is <see langword="null"/>,
+            then the <see cref="T:Microsoft.Extensions.Logging.Abstractions.NullLoggerFactory"/> is used to create the
+            <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance.</remarks>
+        </member>
+        <member name="M:Cadru.Core.Logging.LoggerFactoryExtensions.SafeCreateLogger(Microsoft.Extensions.Logging.ILoggerFactory,System.Type)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance using the full
+            name of the given type.
+            </summary>
+            <param name="factory">The factory.</param>
+            <param name="type">The type.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.Logging.ILogger"/> that was created.</returns>
+            <remarks>If the provider <paramref name="factory"/> is <see langword="null"/>,
+            then the <see cref="T:Microsoft.Extensions.Logging.Abstractions.NullLoggerFactory"/> is used to create the
+            <see cref="T:Microsoft.Extensions.Logging.ILogger"/> instance.</remarks>
+        </member>
         <member name="T:Cadru.Core.Logging.LoggingScope">
             <summary>
             An object that can be used to provide additional logging data through a

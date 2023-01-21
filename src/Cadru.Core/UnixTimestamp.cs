@@ -64,7 +64,7 @@ namespace Cadru
 
         private const long MaxSeconds = 253402300799L;
         private const long MinSeconds = -62135596800L;
-        private static readonly DateTime Epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+        private static readonly DateTime Epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
         private readonly long seconds;
 
         /// <summary>

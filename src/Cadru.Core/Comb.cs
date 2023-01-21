@@ -53,19 +53,19 @@ namespace Cadru
         /// <see cref="Comb.Empty"/> field to determine whether a
         /// <see cref="Comb"/> is non-zero.
         /// </remarks>
-        public static readonly Comb Empty = new Comb(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        public static readonly Comb Empty = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
         /// <summary>
         /// Represents the greatest possible date and time value which can be
         /// held by a <see cref="Comb"/>.
         /// </summary>
-        public static readonly DateTimeOffset MaxDate = new DateTimeOffset(9999, 12, 31, 23, 59, 5, 999, TimeSpan.Zero);
+        public static readonly DateTimeOffset MaxDate = new(9999, 12, 31, 23, 59, 5, 999, TimeSpan.Zero);
 
         /// <summary>
         /// Represents the earliest possible date and time value which can be
         /// held by a <see cref="Comb"/>.
         /// </summary>
-        public static readonly DateTimeOffset MinDate = new DateTimeOffset(1, 1, 1, 0, 0, 0, TimeSpan.Zero);
+        public static readonly DateTimeOffset MinDate = new(1, 1, 1, 0, 0, 0, TimeSpan.Zero);
 
         // SQL Server is only accurate to 1/300th of a millisecond, so we need
         // to account for that accuracy limitation in our calculations.
@@ -101,7 +101,7 @@ namespace Cadru
             : this()
         {
             Requires.NotNull(array, nameof(array));
-            Requires.That(array.Length == 16, nameof(array), Strings.Arg_CombArrayCtor, 16);
+            Requires.Argument(array.Length == 16, nameof(array), Strings.Arg_CombArrayCtor, 16);
 
             this.a = (array[0] << 24) | (array[1] << 16) | (array[2] << 8) | array[3];
             this.b = (short)((array[4] << 8) | array[5]);
@@ -129,7 +129,7 @@ namespace Cadru
              : this()
         {
             Requires.NotNull(d, nameof(d));
-            Requires.That(d.Length == 8, nameof(d), Strings.Arg_CombArrayCtor, 8);
+            Requires.Argument(d.Length == 8, nameof(d), Strings.Arg_CombArrayCtor, 8);
 
             this.a = a;
             this.b = b;

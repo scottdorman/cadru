@@ -21,6 +21,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using Validation;
 
@@ -70,9 +71,18 @@ namespace Cadru.Extensions
         /// <see langword="true"/> if <paramref name="source"/> is not
         /// <see langword="null"/> or <see cref="Guid.Empty"/>; otherwise, <see langword="false"/>.
         /// </returns>
+#if NETSTANDARD2_1_OR_GREATER || NET5_0_OR_GREATER
+        [return: NotNullIfNotNull("source")]
+#endif
         public static bool IsNullOrEmpty([ValidatedNotNull] this Guid? source)
         {
-            return source == null || source.Value == Guid.Empty;
+            var empty = !source.HasValue;
+            if (!empty)
+            {
+                empty = source!.Value == Guid.Empty;
+            }
+
+            return empty;
         }
     }
 }

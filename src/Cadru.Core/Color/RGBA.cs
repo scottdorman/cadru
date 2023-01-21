@@ -21,6 +21,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Globalization;
 
 using Cadru.Resources;
 
@@ -115,16 +116,16 @@ namespace Cadru.Color
                 if (hex.Length == 6)
                 {
                     this.Alpha = 1;
-                    this.Red = Byte.Parse(hex.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-                    this.Green = Byte.Parse(hex.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
-                    this.Blue = Byte.Parse(hex.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+                    this.Red = Byte.Parse(hex.Substring(0, 2), NumberStyles.HexNumber);
+                    this.Green = Byte.Parse(hex.Substring(2, 2), NumberStyles.HexNumber);
+                    this.Blue = Byte.Parse(hex.Substring(4, 2), NumberStyles.HexNumber);
                 }
                 else if (hex.Length == 8)
                 {
-                    this.Alpha = Byte.Parse(hex.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-                    this.Red = Byte.Parse(hex.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
-                    this.Green = Byte.Parse(hex.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
-                    this.Blue = Byte.Parse(hex.Substring(6, 2), System.Globalization.NumberStyles.HexNumber);
+                    this.Alpha = Byte.Parse(hex.Substring(0, 2), NumberStyles.HexNumber);
+                    this.Red = Byte.Parse(hex.Substring(2, 2), NumberStyles.HexNumber);
+                    this.Green = Byte.Parse(hex.Substring(4, 2), NumberStyles.HexNumber);
+                    this.Blue = Byte.Parse(hex.Substring(6, 2), NumberStyles.HexNumber);
                 }
                 else
                 {

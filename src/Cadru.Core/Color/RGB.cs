@@ -21,6 +21,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Globalization;
 
 using Cadru.Resources;
 
@@ -85,9 +86,9 @@ namespace Cadru.Color
                 hex = hex.TrimStart('#');
                 if (hex.Length == 6)
                 {
-                    this.Red = Byte.Parse(hex.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-                    this.Green = Byte.Parse(hex.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
-                    this.Blue = Byte.Parse(hex.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+                    this.Red = Byte.Parse(hex.Substring(0, 2), NumberStyles.HexNumber);
+                    this.Green = Byte.Parse(hex.Substring(2, 2), NumberStyles.HexNumber);
+                    this.Blue = Byte.Parse(hex.Substring(4, 2), NumberStyles.HexNumber);
                 }
                 else
                 {

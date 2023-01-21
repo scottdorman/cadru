@@ -100,7 +100,7 @@ namespace Cadru.Extensions
         public static string? GetDescription(this Enum value, bool useNameAsFallback)
         {
             Requires.NotNull(value, nameof(value));
-            Requires.That(value.GetType().IsEnum, nameof(value), Strings.ArgumentExceptionMustBeEnum);
+            Requires.Argument(value.GetType().IsEnum, nameof(value), Strings.ArgumentExceptionMustBeEnum);
 
             var fieldInfo = value.GetType().GetTypeInfo().GetDeclaredField(value.ToString());
             return fieldInfo?.GetDescription(useNameAsFallback);

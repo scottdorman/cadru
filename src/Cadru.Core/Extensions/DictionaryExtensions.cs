@@ -105,14 +105,14 @@ namespace Cadru.Extensions
         {
             Requires.NotNull(source, nameof(source));
 
-            TValue result;
+            TValue? result;
             if (source is Dictionary<object, TValue> temp)
             {
                 result = temp.GetValueOrDefault<object, TValue>(key, defaultValue);
             }
             else
             {
-                result = source.Contains(key) ? (TValue)source[key] : defaultValue;
+                result = !source.Contains(key) ? defaultValue : (TValue?)source[key];
             }
 
             return result;
@@ -302,7 +302,7 @@ namespace Cadru.Extensions
             else
             {
                 found = dictionary.Contains(key);
-                value = found ? (TValue)dictionary[key] : defaultValue;
+                value = !found ? defaultValue : (TValue?)dictionary[key];
             }
 
             return found;
