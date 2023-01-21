@@ -9,7 +9,7 @@
 
 #environment variables
 environment:
-   majorminor: 5.0
+   majorminor: 6.0
    #APPVEYOR_BLOCK_DOTNETCORE_TESTS_AUTORUN: true
 
 # version format
@@ -29,7 +29,7 @@ branches:
 #    environment configuration    #
 #---------------------------------#
 
-image: Visual Studio 2019
+image: Visual Studio 2022
 
 init:
   - git config --global core.autocrlf input
