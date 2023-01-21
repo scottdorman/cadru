@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cadru.Json</name>
+    </assembly>
+    <members>
+        <member name="T:Cadru.Json.DataAnnotations.JsonComparableAttribute">
+            <summary>
+            Specifies if the property should be considered when performing a JSON
+            diff operation.
+            </summary>
+        </member>
+        <member name="P:Cadru.Json.DataAnnotations.JsonComparableAttribute.Comparable">
+            <summary>
+            Indicates if the property should be compared.
+            </summary>
+        </member>
+        <member name="T:Cadru.Json.DataAnnotations.JsonStringEnumValueAttribute">
+            <summary>
+            Specifies the enum string value that is present in the JSON when serializing and deserializing.
+            </summary>
+        </member>
+        <member name="M:Cadru.Json.DataAnnotations.JsonStringEnumValueAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:Cadru.Json.DataAnnotations.JsonStringEnumValueAttribute"/> with the specified string value.
+            </summary>
+            <param name="value">The string value of the enum.</param>
+        </member>
+        <member name="P:Cadru.Json.DataAnnotations.JsonStringEnumValueAttribute.Value">
+            <summary>
+            The string value of the enum.
+            </summary>
+        </member>
+        <member name="T:Cadru.Json.JsonUtilities">
+            <summary>
+            Utility methods for determining the differences between two JSON
+            objects.
+            </summary>
+        </member>
+        <member name="M:Cadru.Json.JsonUtilities.GetDiff``1(``0,``0)">
+            <summary>
+            Generates JSON representing the difference between two objects.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="original"></param>
+            <param name="other"></param>
+            <returns></returns>
+            <remarks>This only looks at properties which have the <see
+            cref="T:Cadru.Json.DataAnnotations.JsonComparableAttribute"/> applied.</remarks>
+        </member>
+        <member name="T:Cadru.Json.Resources.Strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Cadru.Json.Resources.Strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Cadru.Json.Resources.Strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Cadru.Json.Resources.Strings.CharSetInvalid">
+            <summary>
+              Looks up a localized string similar to The character set provided in ContentType is invalid..
+            </summary>
+        </member>
+        <member name="P:Cadru.Json.Resources.Strings.JsonConverter_BooleanEnabled_ConversionFailure">
+            <summary>
+              Looks up a localized string similar to Error converting value {0} to a Boolean value..
+            </summary>
+        </member>
+        <member name="P:Cadru.Json.Resources.Strings.JsonConverter_IPAddress_ParseError">
+            <summary>
+              Looks up a localized string similar to Error parsing IP address string: {0}.
+            </summary>
+        </member>
+        <member name="P:Cadru.Json.Resources.Strings.JsonConverter_IPAddress_UnexpectedToken">
+            <summary>
+              Looks up a localized string similar to Unexpected token or value when parsing IP address. Token: {0}, Value: {1}.
+            </summary>
+        </member>
+        <member name="P:Cadru.Json.Resources.Strings.JsonConverter_UnixDateTimeConverter_ConversionFailure">
+            <summary>
+              Looks up a localized string similar to Cannot convert date value that is before Unix epoch of 00:00:00 UTC on 1 January 1970..
+            </summary>
+        </member>
+        <member name="P:Cadru.Json.Resources.Strings.JsonConverter_UnixDateTimeConverter_ParseError">
+            <summary>
+              Looks up a localized string similar to Error parsing the date value..
+            </summary>
+        </member>
+        <member name="P:Cadru.Json.Resources.Strings.SerializeWrongType">
+            <summary>
+              Looks up a localized string similar to The specified type {0} must derive from the specific value&apos;s type {1}..
+            </summary>
+        </member>
+        <member name="T:Cadru.Json.SerializationExtensions">
+            <summary>
+            Extension methods to help serialize an object.
+            </summary>
+        </member>
+        <member name="M:Cadru.Json.SerializationExtensions.ToJson``1(``0,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Converts the value of a type specified by a generic type parameter into a JSON
+            string.
+            </summary>
+            <typeparam name="TValue">The type of the value to serialize.</typeparam>
+            <param name="value">The value to convert.</param>
+            <param name="options">Options to control the conversion behavior.</param>
+            <returns>The JSON string representation of the value.</returns>
+            <exception cref="T:System.NotSupportedException">
+            There is no compatible <see cref="T:System.Text.Json.Serialization.JsonConverter"/>
+            for <typeparamref name="TValue"/> or its serializable members.
+            </exception>
+        </member>
+        <member name="M:Cadru.Json.SerializationExtensions.ToJson(System.Object,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Converts the value of a specified type into a JSON string.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="inputType">The type of the value to serialize.</param>
+            <param name="options">Options to control the conversion behavior.</param>
+            <returns>The JSON string representation of the value.</returns>
+            <exception cref="T:System.ArgumentException">
+            <paramref name="inputType"/> is not compatible with value.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            <paramref name="inputType"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.NotSupportedException">
+            There is no compatible <see cref="T:System.Text.Json.Serialization.JsonConverter"/>
+            for <paramref name="inputType"/> or its serializable members.
+            </exception>
+        </member>
+        <member name="M:Cadru.Json.SerializationExtensions.ToFormData(System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Net.Http.FormUrlEncodedContent"/> class
+            with the collection of key/value pairs representing the value.
+            </summary>
+            <param name="value">The value to represent.</param>
+            <returns>A populated <see cref="T:System.Net.Http.FormUrlEncodedContent"/> instance
+            representing all of the serializable properties in <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:Cadru.Json.SerializationExtensions.ToDictionary(System.Object,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Converts the value of a type to an <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="serializerOptions">The options to control serialization behavior.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IDictionary`2"/> representation of the value</returns>
+        </member>
+        <member name="M:Cadru.Json.SerializationExtensions.ToKeyValuePairs(System.Object,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Converts the value of a type to a collection of <see cref="T:System.Collections.Generic.KeyValuePair`2"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="serializerOptions">The options to control serialization behavior.</param>
+            <returns>A collection of <see cref="T:System.Collections.Generic.KeyValuePair`2"/> instances which represent the value.</returns>
+            <remarks>
+            <para>The value is first serialized to a JSON string, which is then recursively parsed to
+            create the key/value pairs.
+            </para>
+            <para>
+            Nested objects are defined using keys which show their hierarchy in dot (".") notation, and
+            collections are shown using an indexed notation.
+            </para>
+            </remarks>
+        </member>
+        <member name="T:Cadru.Json.Serialization.Converters.BooleanConverter">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Json.Serialization.Converters.BooleanConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Json.Serialization.Converters.BooleanConverter.Write(System.Text.Json.Utf8JsonWriter,System.Boolean,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.Json.Serialization.Converters.DictionaryStringObjectJsonConverter">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Json.Serialization.Converters.DictionaryStringObjectJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Json.Serialization.Converters.DictionaryStringObjectJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.Collections.Generic.Dictionary{System.String,System.Object},System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.Json.Serialization.Converters.IPAddressConverter">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Json.Serialization.Converters.IPAddressConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Json.Serialization.Converters.IPAddressConverter.Write(System.Text.Json.Utf8JsonWriter,System.Net.IPAddress,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cadru.Json.Serialization.Converters.UnixDateTimeConverter">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Json.Serialization.Converters.UnixDateTimeConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cadru.Json.Serialization.Converters.UnixDateTimeConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTime,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>
