@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
+     <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <Description>Provides additional collection classes and extensions.</Description>
@@ -8,12 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.ComponentModel" Version="4.3.0" />
-    <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Cadru.Core\Cadru.Core.csproj" />
+    <ProjectReference Include="..\Cadru.Core\Cadru.Core.csproj" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +24,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Validation" Version="2.5.51" />
   </ItemGroup>
 
 </Project>

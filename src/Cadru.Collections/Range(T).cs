@@ -77,7 +77,7 @@ namespace Cadru.Collections
         public Range(T lowerBound, T upperBound, IComparer<T> comparer, RangeEndpointOption option)
         {
             Requires.NotNull(comparer, nameof(comparer));
-            Requires.That(comparer.Compare(lowerBound, upperBound) <= 0, nameof(lowerBound), Strings.ArgumentOutOfRange_UpperBound);
+            Requires.Argument(comparer.Compare(lowerBound, upperBound) <= 0, nameof(lowerBound), Strings.ArgumentOutOfRange_UpperBound);
 
             this.LowerBound = lowerBound;
             this.UpperBound = upperBound;
