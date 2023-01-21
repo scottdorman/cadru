@@ -81,7 +81,7 @@ namespace Cadru.Polly
         [return: NotNull]
         public static T GetRequiredService<T>(this Context context) where T : notnull
         {
-            T service = default;
+            T service = default!;
 
             if (context.TryGetValue(PolicyContextItems.Services, out var objectValue) && objectValue is IServiceProvider serviceProvider)
             {
@@ -96,9 +96,9 @@ namespace Cadru.Polly
         /// The <see cref="Context"/> to retrieve items from.
         /// </param>
         [return: MaybeNull]
-        public static T GetService<T>(this Context context)
+        public static T? GetService<T>(this Context context)
         {
-            T service = default;
+            T? service = default;
 
             if (context.TryGetValue(PolicyContextItems.Services, out var objectValue) && objectValue is IServiceProvider serviceProvider)
             {
