@@ -149,11 +149,11 @@ namespace Cadru.Build.Tasks
             return !this.Log.HasLoggedErrors;
         }
 
-        private static CodeMemberField CreateConstant(string? name, object? value, CodeTypeReference codeTypeReference)
+        private static CodeMemberField CreateConstant(string name, object? value, CodeTypeReference codeTypeReference)
         {
             var member = new CodeMemberField(codeTypeReference, name);
             member.Attributes = (member.Attributes & ~MemberAttributes.AccessMask & ~MemberAttributes.ScopeMask) | MemberAttributes.Public | MemberAttributes.Const;
-            member.InitExpression = new CodePrimitiveExpression(value);
+            member.InitExpression = value == null ? new CodePrimitiveExpression() : new CodePrimitiveExpression(value);
             return member;
         }
 
@@ -196,7 +196,7 @@ namespace Cadru.Build.Tasks
                 extension = provider.FileExtension;
 
                 var unit = new CodeCompileUnit();
-                var globalNamespace = new CodeNamespace(this.RootNamespace);
+                var globalNamespace = String.IsNullOrWhiteSpace(this.RootNamespace) ? new CodeNamespace() : new CodeNamespace(this.RootNamespace);
                 unit.Namespaces.Add(globalNamespace);
 
                 // Declare authorship. Unfortunately CodeDOM puts this comment after
@@ -244,12 +244,7 @@ namespace Cadru.Build.Tasks
 
                 foreach (var entry in rawFieldData)
                 {
-#if NETSTANDARD2_0
-                    var name = entry.Key.Substring(entry.Key.LastIndexOf('.') + 1).Replace("Attribute", "");
-#else
                     var name = entry.Key[(entry.Key.LastIndexOf('.') + 1)..].Replace("Attribute", "");
-#endif
-
                     if (excludeAttributes.Contains(name))
                     {
                         continue;
@@ -267,7 +262,11 @@ namespace Cadru.Build.Tasks
                             var entryValue = entry.Value;
                             if (entryValue != null)
                             {
-                                codeTypeMembers.Add(CreateConstant(entryValue.ElementAt(i + 1).Value?.ToString(), entryValue.ElementAt(i).Value, new CodeTypeReference(typeof(string))));
+                                var entryValueName = entryValue.ElementAt(i + 1).Value?.ToString();
+                                if (!String.IsNullOrEmpty(entryValueName))
+                                {
+                                    codeTypeMembers.Add(CreateConstant(entryValueName, entryValue.ElementAt(i).Value, new CodeTypeReference(typeof(string))));
+                                }
                             }
                         }
                     }
