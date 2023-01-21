@@ -118,7 +118,7 @@ namespace Cadru.Data.Dapper
         public virtual string QuoteIdentifier(string identifier)
         {
             Requires.NotNullOrWhiteSpace(identifier, nameof(identifier));
-            Requires.That(this.IsValidIdentifier(identifier), nameof(identifier), Strings.InvalidIdentifier);
+            Requires.Argument(this.IsValidIdentifier(identifier), nameof(identifier), Strings.InvalidIdentifier);
 
             this.ConsistentQuoteDelimiters(this.IdentifierPrefix, this.IdentifierSuffix);
             return BuildQuotedString(this.IdentifierPrefix, this.IdentifierSuffix, identifier);

@@ -39,7 +39,7 @@ namespace Cadru.Data.Dapper
     /// </typeparam>
     public class ObjectMap<T> : IObjectMap where T : class
     {
-        private readonly Dictionary<string, object> additionalValues = new Dictionary<string, object>();
+        private readonly Dictionary<string, object>? additionalValues = new Dictionary<string, object>();
         private readonly List<IPropertyMap> properties = new List<IPropertyMap>();
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace Cadru.Data.Dapper
         }
 
         /// <inheritdoc/>
-        public IReadOnlyDictionary<string, object> AdditionalValues => this.additionalValues;
+        public IReadOnlyDictionary<string, object>? AdditionalValues => this.additionalValues;
 
         /// <inheritdoc/>
         public ICommandAdapter CommandAdapter { get; private set; }

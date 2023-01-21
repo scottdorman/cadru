@@ -55,7 +55,10 @@ namespace Cadru.Data.Dapper
             this.LogCommandDefinition(command);
 
             var executionContext = this.Context.GetSyncExecutionEnvironment();
-            return executionContext.Policy.Execute((context) => this.Context.Connection.Query<TEntity>(command), executionContext.Context);
+            OnActionStarting(new(CommandOperation.Read, this.ObjectMap, executionContext));
+            var results = executionContext.Policy.Execute((context) => this.Context.Connection.Query<TEntity>(command), executionContext.Context);
+            OnActionCompleted(new(CommandOperation.Read, this.ObjectMap));
+            return results;
         }
 
         /// <summary>
@@ -78,7 +81,10 @@ namespace Cadru.Data.Dapper
             this.LogCommandDefinition(command);
 
             var executionContext = this.Context.GetAsyncExecutionEnvironment();
-            return await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.QueryAsync<TEntity>(command), executionContext.Context);
+            OnActionStarting(new(CommandOperation.Read, this.ObjectMap, executionContext));
+            var results = await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.QueryAsync<TEntity>(command), executionContext.Context);
+            OnActionCompleted(new(CommandOperation.Read, this.ObjectMap));
+            return results;
         }
 
         /// <summary>
@@ -98,7 +104,10 @@ namespace Cadru.Data.Dapper
             this.LogCommandDefinition(command);
 
             var executionContext = this.Context.GetSyncExecutionEnvironment();
-            return executionContext.Policy.Execute((context) => this.Context.Connection.QueryFirstOrDefault<TEntity>(command), executionContext.Context);
+            OnActionStarting(new(CommandOperation.Read, this.ObjectMap, executionContext));
+            var results = executionContext.Policy.Execute((context) => this.Context.Connection.QueryFirstOrDefault<TEntity>(command), executionContext.Context);
+            OnActionCompleted(new(CommandOperation.Read, this.ObjectMap));
+            return results;
         }
 
         /// <summary>
@@ -121,7 +130,10 @@ namespace Cadru.Data.Dapper
             this.LogCommandDefinition(command);
 
             var executionContext = this.Context.GetAsyncExecutionEnvironment();
-            return await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.QueryFirstOrDefaultAsync<TEntity>(command), executionContext.Context);
+            OnActionStarting(new(CommandOperation.Read, this.ObjectMap, executionContext));
+            var results = await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.QueryFirstOrDefaultAsync<TEntity>(command), executionContext.Context);
+            OnActionCompleted(new(CommandOperation.Read, this.ObjectMap));
+            return results;
         }
 
         /// <summary>
@@ -142,7 +154,10 @@ namespace Cadru.Data.Dapper
             this.LogCommandDefinition(command);
 
             var executionContext = this.Context.GetSyncExecutionEnvironment();
-            return executionContext.Policy.Execute((context) => this.Context.Connection.QueryFirstOrDefault<TEntity>(command), executionContext.Context);
+            OnActionStarting(new(CommandOperation.Read, this.ObjectMap, executionContext));
+            var results = executionContext.Policy.Execute((context) => this.Context.Connection.QueryFirstOrDefault<TEntity>(command), executionContext.Context);
+            OnActionCompleted(new(CommandOperation.Read, this.ObjectMap));
+            return results;
         }
 
         /// <summary>
@@ -166,7 +181,10 @@ namespace Cadru.Data.Dapper
             this.LogCommandDefinition(command);
 
             var executionContext = this.Context.GetAsyncExecutionEnvironment();
-            return await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.QueryFirstOrDefaultAsync<TEntity>(command), executionContext.Context);
+            OnActionStarting(new(CommandOperation.Read, this.ObjectMap, executionContext));
+            var results = await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.QueryFirstOrDefaultAsync<TEntity>(command), executionContext.Context);
+            OnActionCompleted(new(CommandOperation.Read, this.ObjectMap));
+            return results;
         }
 
         /// <summary>

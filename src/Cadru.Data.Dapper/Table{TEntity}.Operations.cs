@@ -48,7 +48,10 @@ namespace Cadru.Data.Dapper
             this.LogCommandDefinition(command);
 
             var executionContext = this.Context.GetSyncExecutionEnvironment();
-            return executionContext.Policy.Execute((context) => this.Context.Connection.Execute(command), executionContext.Context);
+            OnActionStarting(new(CommandOperation.Delete, this.ObjectMap, executionContext));
+            var results = executionContext.Policy.Execute((context) => this.Context.Connection.Execute(command), executionContext.Context);
+            OnActionCompleted(new(CommandOperation.Delete, this.ObjectMap));
+            return results;
         }
 
         /// <summary>
@@ -69,7 +72,10 @@ namespace Cadru.Data.Dapper
             this.LogCommandDefinition(command);
 
             var executionContext = this.Context.GetAsyncExecutionEnvironment();
-            return await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.ExecuteAsync(command), executionContext.Context);
+            OnActionStarting(new(CommandOperation.Delete, this.ObjectMap, executionContext));
+            var results = await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.ExecuteAsync(command), executionContext.Context);
+            OnActionCompleted(new(CommandOperation.Delete, this.ObjectMap));
+            return results;
         }
 
         /// <summary>
@@ -87,7 +93,10 @@ namespace Cadru.Data.Dapper
             this.LogCommandDefinition(command);
 
             var executionContext = this.Context.GetSyncExecutionEnvironment();
-            return executionContext.Policy.Execute((context) => this.Context.Connection.QuerySingle<int?>(command), executionContext.Context);
+            OnActionStarting(new(CommandOperation.Insert, this.ObjectMap, executionContext));
+            var results = executionContext.Policy.Execute((context) => this.Context.Connection.QuerySingle<int?>(command), executionContext.Context);
+            OnActionCompleted(new(CommandOperation.Insert, this.ObjectMap));
+            return results;
         }
 
         /// <summary>
@@ -104,7 +113,10 @@ namespace Cadru.Data.Dapper
             this.LogCommandDefinition(command);
 
             var executionContext = this.Context.GetSyncExecutionEnvironment();
-            return executionContext.Policy.Execute((context) => this.Context.Connection.QuerySingle<int?>(command), executionContext.Context);
+            OnActionStarting(new(CommandOperation.Insert, this.ObjectMap, executionContext));
+            var results = executionContext.Policy.Execute((context) => this.Context.Connection.QuerySingle<int?>(command), executionContext.Context);
+            OnActionCompleted(new(CommandOperation.Insert, this.ObjectMap));
+            return results;
         }
 
         /// <summary>
@@ -125,7 +137,10 @@ namespace Cadru.Data.Dapper
             this.LogCommandDefinition(command);
 
             var executionContext = this.Context.GetAsyncExecutionEnvironment();
-            return await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.QuerySingleAsync<int?>(command), executionContext.Context);
+            OnActionStarting(new(CommandOperation.Insert, this.ObjectMap, executionContext));
+            var results = await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.QuerySingleAsync<int?>(command), executionContext.Context);
+            OnActionCompleted(new(CommandOperation.Insert, this.ObjectMap));
+            return results;
         }
 
         /// <summary>
@@ -145,7 +160,10 @@ namespace Cadru.Data.Dapper
             this.LogCommandDefinition(command);
 
             var executionContext = this.Context.GetAsyncExecutionEnvironment();
-            return await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.QuerySingleAsync<int?>(command), executionContext.Context);
+            OnActionStarting(new(CommandOperation.Insert, this.ObjectMap, executionContext));
+            var results = await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.QuerySingleAsync<int?>(command), executionContext.Context);
+            OnActionCompleted(new(CommandOperation.Insert, this.ObjectMap));
+            return results;
         }
 
         /// <summary>
@@ -164,7 +182,10 @@ namespace Cadru.Data.Dapper
             this.LogCommandDefinition(command);
 
             var executionContext = this.Context.GetSyncExecutionEnvironment();
-            return executionContext.Policy.Execute((context) => this.Context.Connection.Execute(command), executionContext.Context);
+            OnActionStarting(new(CommandOperation.Update, this.ObjectMap, executionContext));
+            var results = executionContext.Policy.Execute((context) => this.Context.Connection.Execute(command), executionContext.Context);
+            OnActionCompleted(new(CommandOperation.Update, this.ObjectMap));
+            return results;
         }
 
         /// <summary>
@@ -184,7 +205,10 @@ namespace Cadru.Data.Dapper
             this.LogCommandDefinition(command);
 
             var executionContext = this.Context.GetSyncExecutionEnvironment();
-            return executionContext.Policy.Execute((context) => this.Context.Connection.Execute(command), executionContext.Context);
+            OnActionStarting(new(CommandOperation.Update, this.ObjectMap, executionContext));
+            var results = executionContext.Policy.Execute((context) => this.Context.Connection.Execute(command), executionContext.Context);
+            OnActionCompleted(new(CommandOperation.Update, this.ObjectMap));
+            return results;
         }
 
         /// <summary>
@@ -206,7 +230,10 @@ namespace Cadru.Data.Dapper
             this.LogCommandDefinition(command);
 
             var executionContext = this.Context.GetAsyncExecutionEnvironment();
-            return await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.ExecuteAsync(command), executionContext.Context);
+            OnActionStarting(new(CommandOperation.Update, this.ObjectMap, executionContext));
+            var results = await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.ExecuteAsync(command), executionContext.Context);
+            OnActionCompleted(new(CommandOperation.Update, this.ObjectMap));
+            return results;
         }
 
         /// <summary>
@@ -229,7 +256,10 @@ namespace Cadru.Data.Dapper
             this.LogCommandDefinition(command);
 
             var executionContext = this.Context.GetAsyncExecutionEnvironment();
-            return await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.ExecuteAsync(command), executionContext.Context);
+            OnActionStarting(new(CommandOperation.Update, this.ObjectMap, executionContext));
+            var results = await executionContext.Policy.ExecuteAsync(async (context) => await this.Context.Connection.ExecuteAsync(command), executionContext.Context);
+            OnActionCompleted(new(CommandOperation.Update, this.ObjectMap));
+            return results;
         }
     }
 }

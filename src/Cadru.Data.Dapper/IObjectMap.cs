@@ -34,7 +34,7 @@ namespace Cadru.Data.Dapper
         /// <summary>
         /// A dictionary containing additional metadata information about the entity.
         /// </summary>
-        IReadOnlyDictionary<string, object> AdditionalValues { get; }
+        IReadOnlyDictionary<string, object>? AdditionalValues { get; }
 
         /// <summary>
         /// The <see cref="ICommandAdapter"/> used by this object to create SQL statements.

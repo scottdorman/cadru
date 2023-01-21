@@ -20,6 +20,10 @@
 // </license>
 //------------------------------------------------------------------------------
 
+using System;
+
+using Cadru.Polly;
+
 using Dapper;
 
 namespace Cadru.Data.Dapper
@@ -32,6 +36,14 @@ namespace Cadru.Data.Dapper
     /// </typeparam>
     public abstract partial class DatabaseObject<TEntity> : IDatabaseObject where TEntity : class
     {
+        protected virtual void OnActionCompleted(DatabaseAction databaseAction)
+        {
+        }
+
+        protected virtual void OnActionStarting(DatabaseActionStarting databaseAction)
+        {
+        }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="DatabaseObject{TDatabase}"/> class.
