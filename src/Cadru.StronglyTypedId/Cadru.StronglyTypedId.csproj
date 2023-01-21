@@ -1,0 +1,109 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+      <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+      <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <developmentDependency>true</developmentDependency>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+  </ItemGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;xDEBUG_SOURCE_GENERATOR</DefineConstants>
+    <DocumentationFile>Cadru.StronglyTypedId.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>Cadru.StronglyTypedId.xml</DocumentationFile>
+  </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageScribanIncludeSource>true</PackageScribanIncludeSource>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <EmbeddedResource Include="Templates\**\*.csx" />
+        <EmbeddedResource Include="Attributes\*.cs" Link="Templates\Attributes\%(Filename)%(Extension)" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <None Remove="Templates\Char\Class.csx" />
+      <None Remove="Templates\Char\DapperTypeHandler.csx" />
+      <None Remove="Templates\Char\JsonConverter.csx" />
+      <None Remove="Templates\Char\NewtonsoftJsonConverter.csx" />
+      <None Remove="Templates\Char\Record.csx" />
+      <None Remove="Templates\Char\Struct.csx" />
+      <None Remove="Templates\Char\TypeConverter.csx" />
+      <None Remove="Templates\Char\ValueConverter.csx" />
+      <None Remove="Templates\Guid\DapperTypeHandler.csx" />
+      <None Remove="Templates\Guid\NewtonsoftJsonConverter.csx" />
+      <None Remove="Templates\Guid\ValueConverter.csx" />
+      <None Remove="Templates\Guid_Class.csx" />
+      <None Remove="Templates\Guid_JsonConverter.csx" />
+      <None Remove="Templates\Guid_Record - Copy.csx" />
+      <None Remove="Templates\Guid_Struct.csx" />
+      <None Remove="Templates\Guid_StructClass - Copy (2).csx" />
+      <None Remove="Templates\Guid_TypeConverter.csx" />
+      <None Remove="Templates\Byte\Class.csx" />
+      <None Remove="Templates\Byte\DapperTypeHandler.csx" />
+      <None Remove="Templates\Byte\JsonConverter.csx" />
+      <None Remove="Templates\Byte\NewtonsoftJsonConverter.csx" />
+      <None Remove="Templates\Byte\Record.csx" />
+      <None Remove="Templates\Byte\Struct.csx" />
+      <None Remove="Templates\Byte\TypeConverter.csx" />
+      <None Remove="Templates\Byte\ValueConverter.csx" />
+      <None Remove="Templates\Int\DapperTypeHandler.csx" />
+      <None Remove="Templates\Int\NewtonsoftJsonConverter.csx" />
+      <None Remove="Templates\Int\ValueConverter.csx" />
+      <None Remove="Templates\Long\DapperTypeHandler.csx" />
+      <None Remove="Templates\Long\NewtonsoftJsonConverter.csx" />
+      <None Remove="Templates\Long\ValueConverter.csx" />
+      <None Remove="Templates\NullableString\DapperTypeHandler.csx" />
+      <None Remove="Templates\NullableString\NewtonsoftJsonConverter.csx" />
+      <None Remove="Templates\NullableString\ValueConverter.csx" />
+      <None Remove="Templates\Short\DapperTypeHandler.csx" />
+      <None Remove="Templates\Short\NewtonsoftJsonConverter.csx" />
+      <None Remove="Templates\Short\ValueConverter.csx" />
+      <None Remove="Templates\String\DapperTypeHandler.csx" />
+      <None Remove="Templates\String\ValueConverter.csx" />
+      <None Remove="Templates\String_NewtonsoftJsonConverter.csx" />
+    </ItemGroup>
+    
+  <ItemGroup>
+	  <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.4.0" PrivateAssets="all" />
+	  <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.4.0" PrivateAssets="all" />
+      <PackageReference Include="Scriban" Version="5.5.2" IncludeAssets="build" GeneratePathProperty="true" PrivateAssets="all" />
+      <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+  </ItemGroup>
+    
+  <ItemGroup>
+    <EmbeddedResource Update="Attributes\StronglyTypedIdAttribute.cs" Link="Templates\Attributes\StronglyTypedIdAttribute.cs" />
+    <EmbeddedResource Update="Diagnostics\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+    
+  <ItemGroup>
+    <Folder Include="Templates\Attributes\" />
+  </ItemGroup>
+    
+  <ItemGroup>
+    <Compile Update="Diagnostics\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+    
+  <ItemGroup>
+    <PackageReference Update="Validation" Version="2.5.51" />
+  </ItemGroup>
+
+</Project>
