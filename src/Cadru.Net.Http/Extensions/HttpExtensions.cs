@@ -22,10 +22,12 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Text.Json.Nodes;
 
 using Cadru.Net.Http.Collections;
 using Cadru.Net.Http.Resources;
@@ -199,18 +201,25 @@ namespace Cadru.Net.Http.Extensions
         /// </summary>
         /// <param name="message">HttpResponseMessage</param>
         /// <returns>Json string</returns>
-        public static JObject GetHeadersAsJson(this HttpResponseMessage message)
+        public static JsonObject GetHeadersAsJson(this HttpResponseMessage message)
         {
             if (message == null)
             {
-                return new JObject();
+                return new JsonObject();
             }
-            var jObject = new JObject();
+
+            var jObject = new JsonObject();
             foreach (var httpResponseHeader in message.Headers)
             {
                 if (httpResponseHeader.Value.Count() > 1)
                 {
-                    jObject[httpResponseHeader.Key] = new JArray(httpResponseHeader.Value);
+                    var jsonArray = new JsonArray();
+                    foreach (var item in httpResponseHeader.Value)
+                    {
+                        jsonArray.Add(item);
+                    }
+
+                    jObject[httpResponseHeader.Key] = jsonArray;
                 }
                 else
                 {
@@ -224,7 +233,13 @@ namespace Cadru.Net.Http.Extensions
                 {
                     if (httpResponseHeader.Value.Count() > 1)
                     {
-                        jObject[httpResponseHeader.Key] = new JArray(httpResponseHeader.Value);
+                        var jsonArray = new JsonArray();
+                        foreach (var item in httpResponseHeader.Value)
+                        {
+                            jsonArray.Add(item);
+                        }
+
+                        jObject[httpResponseHeader.Key] = jsonArray;
                     }
                     else
                     {
@@ -240,11 +255,11 @@ namespace Cadru.Net.Http.Extensions
         /// </summary>
         /// <param name="headers">HttpHeaders</param>
         /// <returns>Json string</returns>
-        public static JObject ToJson(this HttpHeaders headers)
+        public static JsonObject ToJson(this HttpHeaders headers)
         {
             if (headers == null || !headers.Any())
             {
-                return new JObject();
+                return new JsonObject();
             }
             else
             {
@@ -257,20 +272,26 @@ namespace Cadru.Net.Http.Extensions
         /// </summary>
         /// <param name="headers">Dictionary</param>
         /// <returns>Json string</returns>
-        public static JObject ToJson(this IDictionary<string, IEnumerable<string>> headers)
+        public static JsonObject ToJson(this IDictionary<string, IEnumerable<string>> headers)
         {
             if (headers == null || !headers.Any())
             {
-                return new JObject();
+                return new JsonObject();
             }
             else
             {
-                var jObject = new JObject();
+                var jObject = new JsonObject();
                 foreach (var httpResponseHeader in headers)
                 {
                     if (httpResponseHeader.Value.Count() > 1)
                     {
-                        jObject[httpResponseHeader.Key] = new JArray(httpResponseHeader.Value);
+                        var jsonArray = new JsonArray();
+                        foreach (var item in httpResponseHeader.Value)
+                        {
+                            jsonArray.Add(item);
+                        }
+
+                        jObject[httpResponseHeader.Key] = jsonArray;
                     }
                     else
                     {
@@ -292,7 +313,7 @@ namespace Cadru.Net.Http.Extensions
         /// <see langword="true"/> if the specified header name and values are
         /// stored in the collection; otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool TryGetHeaderValue(this HttpRequestMessage requestMessage, string name, out string? value)
+        public static bool TryGetHeaderValue(this HttpRequestMessage requestMessage, string name, [NotNullWhen(true)] out string? value)
         {
             var found = false;
             value = null;
@@ -305,5 +326,49 @@ namespace Cadru.Net.Http.Extensions
 
             return found;
         }
+
+#if NET5_0_OR_GREATER
+        public static void SetProperty<TValue>(this HttpRequestMessage requestMessage, string key, TValue value)
+        {
+            requestMessage.Options.Set(new HttpRequestOptionsKey<TValue>(key), value);
+        }
+
+        public static bool TryGetProperty<TValue>(this HttpRequestMessage requestMessage, string key, [MaybeNullWhen(false)] out TValue value)
+        {
+            return requestMessage.Options.TryGetValue(new HttpRequestOptionsKey<TValue>(key), out value);
+        }
+#else
+#if NETSTANDARD2_0
+        private static bool TryAdd(this IDictionary<string, object> keyValuePairs, string key, object value)
+        {
+            if (!keyValuePairs.ContainsKey(key))
+            {
+                keyValuePairs.Add(key, value);
+                return true;
+            }
+
+            return false;
+        }
+#endif
+        public static void SetProperty(this HttpRequestMessage requestMessage, string key, object value)
+        {
+           if (!requestMessage.Properties.TryAdd(key, value))
+            {
+                requestMessage.Properties[key] = value;
+            }
+        }
+
+        public static bool TryGetProperty<T>(this HttpRequestMessage requestMessage, string name, [MaybeNullWhen(false)] out T value)
+        {
+            if (requestMessage.Properties.TryGetValue(name, out var temp))
+            {
+                value = (T)temp;
+                return true;
+            }
+
+            value = default;
+            return false;
+        }
+#endif
     }
 }

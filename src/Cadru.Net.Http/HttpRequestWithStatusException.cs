@@ -42,10 +42,6 @@ namespace Cadru.Net.Http
         public HttpRequestWithStatusException(HttpResponseMessage responseMessage) :
             base(GetFormattedMessage(responseMessage))
         {
-#if !NET5_0
-            this.StatusCode = responseMessage.StatusCode;
-#endif
-
             this.ReasonPhrase = responseMessage.ReasonPhrase;
         }
 
@@ -60,10 +56,6 @@ namespace Cadru.Net.Http
         public HttpRequestWithStatusException(HttpResponseMessage responseMessage, Exception inner) :
             base(GetFormattedMessage(responseMessage), inner)
         {
-#if !NET5_0
-            this.StatusCode = responseMessage.StatusCode;
-#endif
-
             this.ReasonPhrase = responseMessage.ReasonPhrase;
         }
 
@@ -105,14 +97,6 @@ namespace Cadru.Net.Http
         /// </summary>
         /// <value>The reason phrase sent by the server.</value>
         public string? ReasonPhrase { get; }
-
-#if !NET5_0
-        /// <summary>
-        /// Gets the status code of the HTTP response.
-        /// </summary>
-        /// <value>The status code of the HTTP response.</value>
-        public HttpStatusCode? StatusCode { get; }
-#endif
 
         private static string GetFormattedMessage(HttpResponseMessage responseMessage)
         {

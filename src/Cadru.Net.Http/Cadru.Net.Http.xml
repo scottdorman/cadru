@@ -366,6 +366,147 @@
             <see cref="F:System.String.Empty"/> if the segment is not found.
             </returns>
         </member>
+        <member name="T:Cadru.Net.Http.HttpRequestMessageBuilder">
+            <summary>
+            Provides a fluent expression builder for creating a <see cref="T:System.Net.Http.HttpRequestMessage"/>.
+            </summary>
+        </member>
+        <member name="P:Cadru.Net.Http.HttpRequestMessageBuilder.HttpMethod">
+            <summary>
+            Gets the HTTP method used by the HTTP request message.
+            </summary>
+            <value>The HTTP method used by the request message.</value>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestMessageBuilder.Create(System.Net.Http.HttpMethod,System.Uri,System.String,System.Object)">
+            <summary>
+            Creates a <see cref="T:Cadru.Net.Http.HttpRequestMessageBuilder"/>.
+            </summary>
+            <param name="method"></param>
+            <param name="baseUri"></param>
+            <param name="relativeUri"></param>
+            <param name="replacementObject"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestMessageBuilder.Create(System.Net.Http.HttpMethod,System.Uri)">
+            <summary>
+            Creates a <see cref="T:Cadru.Net.Http.HttpRequestMessageBuilder"/>.
+            </summary>
+            <param name="method"></param>
+            <param name="uri"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestMessageBuilder.Build">
+            <summary>
+            Builds a <see cref="T:System.Net.Http.HttpRequestMessage"/> from the current builder.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cadru.Net.Http.HttpRequestMessageBuilderFluentExtensions">
+            <summary>
+            Provides a fluent expression builder for creating a <see cref="T:System.Net.Http.HttpRequestMessage"/>.
+            </summary>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestMessageBuilderFluentExtensions.WithQueryParameters(Cadru.Net.Http.HttpRequestMessageBuilder,Cadru.Net.Http.Collections.QueryStringParametersDictionary)">
+            <summary>
+            Adds the provided query string parameters to the request.
+            </summary>
+            <param name="httpRequestMessageBuilder"></param>
+            <param name="queryStringParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestMessageBuilderFluentExtensions.WithQueryParameter(Cadru.Net.Http.HttpRequestMessageBuilder,System.String,System.String)">
+            <summary>
+            Adds the provided query string parameter to the request.
+            </summary>
+            <param name="httpRequestMessageBuilder"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestMessageBuilderFluentExtensions.WithQueryParameter``1(Cadru.Net.Http.HttpRequestMessageBuilder,System.String,``0)">
+            <summary>
+            Adds the provided query string parameter to the request.
+            </summary>
+            <param name="httpRequestMessageBuilder"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestMessageBuilderFluentExtensions.WithQueryParameter(Cadru.Net.Http.HttpRequestMessageBuilder,System.Collections.Generic.KeyValuePair{System.String,System.String})">
+            <summary>
+            Adds the provided query string parameter to the request.
+            </summary>
+            <param name="httpRequestMessageBuilder"></param>
+            <param name="keyValuePair"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestMessageBuilderFluentExtensions.WithProperty``1(Cadru.Net.Http.HttpRequestMessageBuilder,System.String,``0)">
+            <summary>
+            Sets the value of a specified HTTP request option.
+            </summary>
+            <typeparam name="TValue"></typeparam>
+            <param name="httpRequestMessageBuilder"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestMessageBuilderFluentExtensions.WithRequestHeader(Cadru.Net.Http.HttpRequestMessageBuilder,System.String,System.String)">
+            <summary>
+            Sets the value of a specified HTTP request header.
+            </summary>
+            <param name="httpRequestMessageBuilder"></param>
+            <param name="name"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestMessageBuilderFluentExtensions.WithRequestHeader(Cadru.Net.Http.HttpRequestMessageBuilder,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Sets the value of a specified HTTP request header.
+            </summary>
+            <param name="httpRequestMessageBuilder"></param>
+            <param name="name"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestMessageBuilderFluentExtensions.WithBearerToken(Cadru.Net.Http.HttpRequestMessageBuilder,System.String)">
+            <summary>
+            Sets the <see cref="T:System.Net.Http.HttpRequestMessage"/> Authorization header value.
+            </summary>
+            <param name="httpRequestMessageBuilder"></param>
+            <param name="accessToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestMessageBuilderFluentExtensions.WithAuthorization(Cadru.Net.Http.HttpRequestMessageBuilder,System.Net.Http.Headers.AuthenticationHeaderValue)">
+            <summary>
+            Sets the <see cref="T:System.Net.Http.HttpRequestMessage"/> Authorization header value.
+            </summary>
+            <param name="httpRequestMessageBuilder"></param>
+            <param name="authorization"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestMessageBuilderFluentExtensions.WithContent(Cadru.Net.Http.HttpRequestMessageBuilder,System.Net.Http.HttpContent,System.Net.Http.Headers.MediaTypeHeaderValue,System.Net.Http.Headers.ContentDispositionHeaderValue)">
+            <summary>
+            Sets the <see cref="T:System.Net.Http.HttpRequestMessage"/> Content.
+            </summary>
+            <param name="httpRequestMessageBuilder"></param>
+            <param name="content"></param>
+            <param name="contentType"></param>
+            <param name="contentDisposition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cadru.Net.Http.HttpRequestMessageFluentBuilder.CreateRequestMessage(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.Uri)">
+            <summary>
+            Creates a valid <see cref="T:System.Net.Http.HttpRequestMessage"/> with the given properties.
+            </summary>
+            <param name="httpClient">
+            The <see cref="T:System.Net.Http.HttpClient"/> instance used to create the message.
+            </param>
+            <param name="method">The HTTP method.</param>
+            <param name="uri">The <see cref="T:System.Uri"/> to request.</param>
+            <returns>A valid <see cref="T:System.Net.Http.HttpRequestMessage"/>.</returns>
+        </member>
         <member name="T:Cadru.Net.Http.HttpRequestWithStatusException">
             <summary>
             Inherits HttpRequestException adding HttpStatusCode to the exception.
