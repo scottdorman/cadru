@@ -75,11 +75,7 @@ namespace Cadru.Extensions.FileProviders
         public static Uri ToUri(this IFileInfo fileInfo)
         {
             var pathLength = Path.GetPathRoot(fileInfo.PhysicalPath)?.Length ?? 0;
-#if NETSTANDARD2_0
-            return new Uri(String.Concat(@"//", fqdn, @"/", fileInfo.PhysicalPath.Substring(pathLength)));
-#else
-            return new Uri(String.Concat(@"//", fqdn, @"/", fileInfo.PhysicalPath[pathLength..]));
-#endif
+            return new Uri(String.Concat(@"//", fqdn, @"/", fileInfo.PhysicalPath?[pathLength..]));
         }
 
         private static string GetFullyQualifiedDomainName()

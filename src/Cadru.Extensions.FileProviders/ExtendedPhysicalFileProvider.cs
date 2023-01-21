@@ -45,10 +45,13 @@ namespace Cadru.Extensions.FileProviders
     /// <see cref="PhysicalFileProvider.Watch(String)"/> will use <see cref="PollingFileChangeToken"/>.
     /// </para>
     /// </remarks>
-    public class ExtendedPhysicalFileProvider : PhysicalFileProvider
+    public class ExtendedPhysicalFileProvider : PhysicalFileProvider, IExtendedPhysicalFileProvider
     {
-        private static readonly char[] _pathSeparators = new[]
-            {Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar};
+        private static readonly char[] _pathSeparators = new char[2]
+        {
+            Path.DirectorySeparatorChar,
+            Path.AltDirectorySeparatorChar
+        };
 
         private readonly ExclusionFilters _filters;
 
@@ -78,21 +81,14 @@ namespace Cadru.Extensions.FileProviders
             this._filters = filters;
         }
 
-        /// <summary>
-        /// Creates a directory at the given path.
-        /// </summary>
-        /// <param name="subpath">A path under the root directory</param>
-        /// <returns>
-        /// The directory information. Caller must check
-        /// <see cref="IFileInfo.Exists"/> property.
-        /// </returns>
+        /// <inheritdoc/>
         public IFileInfo CreateDirectory(string subpath)
         {
             PhysicalDirectoryInfo? physicalDirectoryInfo = null;
             var fileInfo = this.GetDirectoryInfo(subpath);
-            if (!(fileInfo is NotFoundFileInfo))
+            if (fileInfo is not NotFoundFileInfo)
             {
-                var fileSystemInfo = new DirectoryInfo(fileInfo.PhysicalPath);
+                var fileSystemInfo = new DirectoryInfo(fileInfo.PhysicalPath ?? fileInfo.Name);
                 if (!fileSystemInfo.Exists)
                 {
                     fileSystemInfo.Create();
@@ -105,21 +101,14 @@ namespace Cadru.Extensions.FileProviders
             return physicalDirectoryInfo ?? fileInfo;
         }
 
-        /// <summary>
-        /// Creates a file at the given path.
-        /// </summary>
-        /// <param name="subpath">A path under the root directory</param>
-        /// <returns>
-        /// The file information. Caller must check
-        /// <see cref="IFileInfo.Exists"/> property.
-        /// </returns>
+        /// <inheritdoc/>
         public IFileInfo CreateFile(string subpath)
         {
             PhysicalFileInfo? physicalFileInfo = null;
             var fileInfo = this.GetFileInfo(subpath);
-            if (!(fileInfo is NotFoundFileInfo))
+            if (fileInfo is not NotFoundFileInfo)
             {
-                var fileSystemInfo = new FileInfo(fileInfo.PhysicalPath);
+                var fileSystemInfo = new FileInfo(fileInfo.PhysicalPath ?? fileInfo.Name);
                 if (!fileSystemInfo.Exists)
                 {
                     fileSystemInfo.Create();
@@ -132,18 +121,10 @@ namespace Cadru.Extensions.FileProviders
             return physicalFileInfo ?? fileInfo;
         }
 
-        /// <summary>
-        /// Locate a directory at the given path by directly mapping path
-        /// segments to physical directories.
-        /// </summary>
-        /// <param name="subpath">A path under the root directory</param>
-        /// <returns>
-        /// The directory information. Caller must check
-        /// <see cref="IFileInfo.Exists"/> property.
-        /// </returns>
+        /// <inheritdoc/>
         public IFileInfo GetDirectoryInfo(string subpath)
         {
-            if (String.IsNullOrEmpty(subpath) || PathUtils.HasInvalidPathChars(subpath))
+            if (string.IsNullOrEmpty(subpath) || PathUtils.HasInvalidPathChars(subpath))
             {
                 return new NotFoundFileInfo(subpath);
             }
@@ -158,7 +139,7 @@ namespace Cadru.Extensions.FileProviders
             }
 
             var fullPath = this.GetFullPath(subpath);
-            if (fullPath == null)
+            if (fullPath is null)
             {
                 return new NotFoundFileInfo(subpath);
             }
@@ -173,7 +154,6 @@ namespace Cadru.Extensions.FileProviders
             return new PhysicalDirectoryInfo(directoryInfo);
         }
 
-        [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         private string? GetFullPath(string path)
         {
             if (PathUtils.PathNavigatesAboveRoot(path))

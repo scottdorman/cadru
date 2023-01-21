@@ -41,7 +41,6 @@ namespace Cadru.Extensions.FileProviders
     {
         private readonly FileInfo fileInfo;
         private readonly FileVersionInfo? fileVersionInfo;
-        private readonly string originalFileName;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ExtendedFileInfo"/>
@@ -78,23 +77,18 @@ namespace Cadru.Extensions.FileProviders
         /// </remarks>
         public ExtendedFileInfo(IFileInfo fileInfo)
         {
-            var fileName = fileInfo.PhysicalPath;
-            this.originalFileName = fileName;
+            var fileName = fileInfo.PhysicalPath ?? fileInfo.Name;
+
             this.fileInfo = new FileInfo(fileName);
             if (this.fileInfo.Exists)
             {
                 this.fileVersionInfo = FileVersionInfo.GetVersionInfo(fileName);
 
-#if NET5_0
                 if (OperatingSystem.IsWindows())
                 {
-                    var fs = new FileSecurity(this.originalFileName, AccessControlSections.Owner);
+                    var fs = this.fileInfo.GetAccessControl(AccessControlSections.Owner);
                     this.FileOwner = fs.GetOwner(typeof(NTAccount))?.ToString();
                 }
-#else
-                var fs = new FileSecurity(this.originalFileName, AccessControlSections.Owner);
-                this.FileOwner = fs.GetOwner(typeof(NTAccount))?.ToString();
-#endif
             }
         }
 
@@ -271,9 +265,7 @@ namespace Cadru.Extensions.FileProviders
         }
 
         /// <inheritdoc cref="FileInfo.Decrypt"/>
-#if NET5_0
         [System.Runtime.Versioning.SupportedOSPlatform("windows")]
-#endif
         public void Decrypt()
         {
             this.fileInfo.Decrypt();
@@ -286,9 +278,7 @@ namespace Cadru.Extensions.FileProviders
         }
 
         /// <inheritdoc cref="FileInfo.Encrypt"/>
-#if NET5_0
         [System.Runtime.Versioning.SupportedOSPlatform("windows")]
-#endif
         public void Encrypt()
         {
             this.fileInfo.Encrypt();
@@ -328,9 +318,7 @@ namespace Cadru.Extensions.FileProviders
         /// rights to specific actions on the given file.
         /// </para>
         /// </remarks>
-#if NET5_0
         [System.Runtime.Versioning.SupportedOSPlatform("windows")]
-#endif
         public FileSecurity GetAccessControl()
         {
             return this.fileInfo.GetAccessControl();
@@ -374,9 +362,7 @@ namespace Cadru.Extensions.FileProviders
         /// rights to specific actions on the given file.
         /// </para>
         /// </remarks>
-#if NET5_0
         [System.Runtime.Versioning.SupportedOSPlatform("windows")]
-#endif
         public FileSecurity GetAccessControl(AccessControlSections includeSections)
         {
             return this.fileInfo.GetAccessControl(includeSections);
@@ -511,15 +497,16 @@ namespace Cadru.Extensions.FileProviders
         /// </item>
         /// </list>
         /// </remarks>
-#if NET5_0
         [System.Runtime.Versioning.SupportedOSPlatform("windows")]
-#endif
         public void SetAccessControl(FileSecurity fileSecurity)
         {
             this.fileInfo.SetAccessControl(fileSecurity);
         }
 
-        /// <inheritdoc cref="FileInfo.ToString"/>
+        /// <summary>
+        /// Returns the path as a string. Use the <see cref="Name"/> property for the full path.
+        /// </summary>
+        /// <returns>A string representing the path.</returns>
         public override string ToString()
         {
             return this.fileInfo.ToString();

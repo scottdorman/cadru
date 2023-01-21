@@ -60,13 +60,12 @@ namespace Cadru.Extensions.FileProviders.Internal
             return path.IndexOfAny(_invalidFileNameChars) != -1;
         }
 
-        [SuppressMessage("Minor Code Smell", "S3626:Jump statements should not be redundant", Justification = "This is identical to the implementation in https://github.com/dotnet/runtime/tree/master/src/libraries/Microsoft.Extensions.FileProviders.Physical/src/Internal")]
         internal static bool PathNavigatesAboveRoot(string path)
         {
             var tokenizer = new StringTokenizer(path, _pathSeparators);
             var depth = 0;
 
-            foreach (var segment in tokenizer)
+            foreach (StringSegment segment in tokenizer)
             {
                 if (segment.Equals(".") || segment.Equals(""))
                 {
