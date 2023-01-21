@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 using Cadru.UnitTest.Framework.Resources;
 
@@ -10,7 +11,7 @@ namespace Cadru.UnitTest.Framework
     /// A collection of helpers to test various conditions within unit tests.
     /// If the condition being tested is not met, an exception is thrown.
     /// </summary>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>")]
+    [SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>")]
     public static partial class AssertExtensions
     {
         /// <summary>

@@ -21,6 +21,7 @@
 //------------------------------------------------------------------------------
 
 using System.Diagnostics.CodeAnalysis;
+using System.Net;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -85,7 +86,7 @@ namespace Cadru.UnitTest.Framework.Tests
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void NotLessIComparable()
         {
-            Assert.That.IsLess(System.Net.DecompressionMethods.Deflate, System.Net.DecompressionMethods.GZip);
+            Assert.That.IsLess(DecompressionMethods.Deflate, DecompressionMethods.GZip);
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]

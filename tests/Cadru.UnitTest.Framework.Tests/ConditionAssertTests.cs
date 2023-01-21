@@ -19,7 +19,7 @@
 //    limitations under the License.
 // </license>
 //------------------------------------------------------------------------------
-
+using System;
 using System.Diagnostics.CodeAnalysis;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -32,7 +32,7 @@ namespace Cadru.UnitTest.Framework.Tests
         [TestMethod]
         public void IsNaN()
         {
-            Assert.That.IsNaN(System.Double.NaN);
+            Assert.That.IsNaN(Double.NaN);
         }
 
         [TestMethod]

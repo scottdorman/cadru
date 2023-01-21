@@ -21,6 +21,7 @@
 //------------------------------------------------------------------------------
 
 using System.Diagnostics.CodeAnalysis;
+using System.Net;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -76,7 +77,7 @@ namespace Cadru.UnitTest.Framework.Tests
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
         public void NotGreaterIComparable()
         {
-            Assert.That.IsGreater(System.Net.DecompressionMethods.GZip, System.Net.DecompressionMethods.Deflate);
+            Assert.That.IsGreater(DecompressionMethods.GZip, DecompressionMethods.Deflate);
         }
 
         [TestMethod, ExpectedException(typeof(AssertFailedException))]
