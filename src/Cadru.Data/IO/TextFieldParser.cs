@@ -56,7 +56,7 @@ namespace Cadru.Data.IO
         // Codes for whitespace as used by String.Trim excluding line end chars
         // as those are handled separately
         private readonly int[] whitespaceCodes = new int[] { 0x9, 0xB, 0xC, 0x20, 0x85, 0xA0, 0x1680, 0x2000, 0x2001, 0x2002, 0x2003, 0x2004, 0x2005, 0x2006, 0x2007, 0x2008, 0x2009, 0x200A, 0x200B, 0x2028, 0x2029, 0x3000, 0xFEFF };
-        private readonly Regex whiteSpaceRegEx = new Regex(@"\s", DefaultRegexOptions);
+        private readonly Regex whiteSpaceRegEx = new(@"\s", DefaultRegexOptions);
 
         private Regex? beginQuotesRegex;
 
@@ -393,7 +393,7 @@ namespace Cadru.Data.IO
         /// </remarks>
         public string? PeekChars(int numberOfChars)
         {
-            Requires.That(numberOfChars > 0, nameof(numberOfChars), String.Format(Strings.TextFieldParser_NumberOfCharsMustBePositive, "numberOfChars"));
+            Requires.Argument(numberOfChars > 0, nameof(numberOfChars), String.Format(Strings.TextFieldParser_NumberOfCharsMustBePositive, "numberOfChars"));
 
             if (this.reader is null || this.buffer is null || this.endOfData)
             {
@@ -504,7 +504,7 @@ namespace Cadru.Data.IO
         /// <param name="tokens">A list of the comment tokens</param>
         public void SetCommentTokens(params string[] tokens)
         {
-            Requires.That(tokens.Any(t => !this.whiteSpaceRegEx.IsMatch(t)), nameof(tokens), String.Format(Strings.TextFieldParser_DelimitersNothing, "tokens"));
+            Requires.Argument(tokens.Any(t => !this.whiteSpaceRegEx.IsMatch(t)), nameof(tokens), String.Format(Strings.TextFieldParser_DelimitersNothing, "tokens"));
 
             this.commentTokens = tokens;
             this.needPropertyCheck = true;
@@ -516,8 +516,8 @@ namespace Cadru.Data.IO
         /// <param name="delimiters">A list of the delimiters</param>
         public void SetDelimiters(params string[] delimiters)
         {
-            Requires.That(delimiters.Any(d => !String.IsNullOrWhiteSpace(d)), nameof(delimiters), Strings.TextFieldParser_DelimitersNothing, "delimiters");
-            Requires.That(delimiters.Any(d => d.IndexOfAny(new char[] { '\r', '\n' }) <= 0), nameof(delimiters), String.Format(Strings.TextFieldParser_DelimitersNothing, "delimiters"));
+            Requires.Argument(delimiters.Any(d => !String.IsNullOrWhiteSpace(d)), nameof(delimiters), Strings.TextFieldParser_DelimitersNothing, "delimiters");
+            Requires.Argument(delimiters.Any(d => d.IndexOfAny(new char[] { '\r', '\n' }) <= 0), nameof(delimiters), String.Format(Strings.TextFieldParser_DelimitersNothing, "delimiters"));
 
             this.delimiters = delimiters;
             this.needPropertyCheck = true;
@@ -812,7 +812,7 @@ namespace Cadru.Data.IO
         private void InitializeFromStream(Stream stream, Encoding defaultEncoding, bool detectEncoding)
         {
             Requires.NotNull(stream, nameof(stream));
-            Requires.That(stream.CanRead, nameof(stream), String.Format(Strings.TextFieldParser_StreamNotReadable, "stream"));
+            Requires.Argument(stream.CanRead, nameof(stream), String.Format(Strings.TextFieldParser_StreamNotReadable, "stream"));
             Requires.NotNull(defaultEncoding, nameof(defaultEncoding));
 
             this.reader = new StreamReader(stream, defaultEncoding, detectEncoding);
@@ -1186,7 +1186,7 @@ namespace Cadru.Data.IO
             QuoteBuilder.Append(this.EndQuotePattern + "(");
             for (int i = 0, loopTo = Length - 1; i <= loopTo; i++)
             {
-                if (this.delimiters[i] is object)
+                if (this.delimiters[i] is not null)
                 {
                     // Make sure delimiter is legal
                     if (this.HasFieldsEnclosedInQuotes && this.delimiters[i].IndexOf('"') > -1)

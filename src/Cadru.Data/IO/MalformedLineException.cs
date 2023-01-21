@@ -94,7 +94,7 @@ namespace Cadru.Data.IO
         /// <param name="context"></param>
         protected MalformedLineException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
-            if (info is object)
+            if (info is not null)
             {
                 this.LineNumber = info.GetInt32(LINE_NUMBER_PROPERTY);
             }
@@ -119,13 +119,9 @@ namespace Cadru.Data.IO
         /// <param name="context"></param>
         /// <remarks></remarks>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        public override void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
+        public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            if (info is object) // Fix FxCop violation ValidateArgumentsOfPublicMethods.
-            {
-                info.AddValue(LINE_NUMBER_PROPERTY, this.LineNumber, typeof(long));
-            }
-
+            info?.AddValue(LINE_NUMBER_PROPERTY, this.LineNumber, typeof(long));
             base.GetObjectData(info, context);
         }
 
