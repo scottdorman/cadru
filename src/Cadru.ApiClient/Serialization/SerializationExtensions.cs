@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="IResponseParser.cs"
+// <copyright file="SerializationExtensions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2021 Scott Dorman.
@@ -20,24 +20,27 @@
 // </license>
 //------------------------------------------------------------------------------
 
-using System.Net.Http;
-using System.Threading.Tasks;
+using System.Text.Json;
 
 using Cadru.ApiClient.Models;
 
-namespace Cadru.ApiClient.Services
+namespace Cadru.ApiClient.Serialization
 {
     /// <summary>
-    /// Represents an API response parser
+    /// Extension methods to help serialize an <see cref="IApiResult{TData}"/>.
     /// </summary>
-    public interface IResponseParser
+    public static class SerializationExtensions
     {
         /// <summary>
-        /// Parses the <paramref name="response"/> into an appropriate <see cref="IApiResult{TData}"/> instance.
+        /// Converts the value of the <paramref name="apiResult"/> into a JSON
+        /// string.
         /// </summary>
-        /// <typeparam name="TData">The type of payload model.</typeparam>
-        /// <param name="response">The <see cref="HttpResponseMessage"/>.</param>
-        /// <returns>An <see cref="IApiResult{TData}"/> instance.</returns>
-        Task<IApiResult<TData>> ParseAsync<TData>(HttpResponseMessage response) where TData : class;
+        /// <param name="apiResult">The <see cref="IApiResult{TData}"/> to convert.</param>
+        /// <returns>A JSON string that represents the <paramref name="apiResult"/>.</returns>
+        public static string ToJson<TData>(this IApiResult<TData> apiResult)
+            where TData : class
+        {
+            return JsonSerializer.Serialize(apiResult, DefaultJsonSerializerOptions.Create());
+        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="IResponseParser.cs"
+// <copyright file="ApiClientOptions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2021 Scott Dorman.
@@ -20,24 +20,35 @@
 // </license>
 //------------------------------------------------------------------------------
 
-using System.Net.Http;
-using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-using Cadru.ApiClient.Models;
+using Cadru.Extensions;
 
-namespace Cadru.ApiClient.Services
+namespace Cadru.ApiClient.Configuration
 {
     /// <summary>
-    /// Represents an API response parser
+    /// Represents common API configuration parameters.
     /// </summary>
-    public interface IResponseParser
+    public abstract class ApiClientOptions : IApiClientOptions
     {
-        /// <summary>
-        /// Parses the <paramref name="response"/> into an appropriate <see cref="IApiResult{TData}"/> instance.
-        /// </summary>
-        /// <typeparam name="TData">The type of payload model.</typeparam>
-        /// <param name="response">The <see cref="HttpResponseMessage"/>.</param>
-        /// <returns>An <see cref="IApiResult{TData}"/> instance.</returns>
-        Task<IApiResult<TData>> ParseAsync<TData>(HttpResponseMessage response) where TData : class;
+        /// <inheritdoc/>
+        public Uri GetBaseUrl()
+        {
+            if (!String.IsNullOrWhiteSpace(this.BaseUrl))
+            {
+                return new Uri(this.BaseUrl!.EnsureTrailingCharacter('/'));
+            }
+
+            throw new InvalidOperationException();
+        }
+
+        /// <inheritdoc/>
+        [Required]
+        public string? BaseUrl { get; set; }
+
+        /// <inheritdoc/>
+        public IDictionary<string, string> DefaultRequestHeaders { get; } = new Dictionary<string, string>();
     }
 }

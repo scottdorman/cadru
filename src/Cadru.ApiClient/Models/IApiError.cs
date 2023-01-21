@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="IApiResult.cs"
+// <copyright file="ApiError.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2021 Scott Dorman.
@@ -20,36 +20,46 @@
 // </license>
 //------------------------------------------------------------------------------
 
-using System.Diagnostics.CodeAnalysis;
+using System;
+using System.Collections.Generic;
 using System.Net;
+using System.Text.Json;
 
 namespace Cadru.ApiClient.Models
 {
     /// <summary>
-    /// Represents the response of an endpoint call.
+    /// Represents an error from an endpoint call.
     /// </summary>
-    /// <typeparam name="TData">The type of payload model.</typeparam>
-    public interface IApiResult<out TData> where TData : class
+    public interface IApiError
     {
         /// <summary>
-        /// The returned response object.
+        /// The description of the error.
         /// </summary>
-        TData? Data { get; }
+        string? Description { get; }
 
         /// <summary>
-        /// A boolean value that indicates if the response is an error.
+        /// A collection of <see cref="IErrorDetail"/> instances.
         /// </summary>
-#if !NETSTANDARD2_1
-        [MemberNotNullWhen(false, nameof(Data))]
-        [MemberNotNullWhen(true, nameof(Error))]
-#endif
-        bool IsError { get; }
+        IEnumerable<IErrorDetail> Details { get; }
 
         /// <summary>
-        /// An <see cref="ApiError"/> instance representing the error from the response.
+        /// The error code of the error.
         /// </summary>
-        IApiError? Error { get; }
+        string? ErrorCode { get; }
 
-        CookieCollection? Cookies { get; internal set; }
+        /// <summary>
+        /// The HTTP status code of the error.
+        /// </summary>
+        HttpStatusCode? HttpStatusCode { get; }
+
+        /// <summary>
+        /// The unique identifier for the error.
+        /// </summary>
+        Guid? Id { get; }
+
+        /// <summary>
+        /// The <see cref="JsonDocument"/> representing the HTTP response body.
+        /// </summary>
+        JsonDocument? ResponseContent { get; }
     }
 }

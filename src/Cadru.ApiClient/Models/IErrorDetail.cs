@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="IResponseParser.cs"
+// <copyright file="ErrorDetail.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2021 Scott Dorman.
@@ -20,24 +20,12 @@
 // </license>
 //------------------------------------------------------------------------------
 
-using System.Net.Http;
-using System.Threading.Tasks;
-
-using Cadru.ApiClient.Models;
-
-namespace Cadru.ApiClient.Services
+namespace Cadru.ApiClient.Models
 {
     /// <summary>
-    /// Represents an API response parser
+    /// Represents the details of an error
     /// </summary>
-    public interface IResponseParser
+    public interface IErrorDetail
     {
-        /// <summary>
-        /// Parses the <paramref name="response"/> into an appropriate <see cref="IApiResult{TData}"/> instance.
-        /// </summary>
-        /// <typeparam name="TData">The type of payload model.</typeparam>
-        /// <param name="response">The <see cref="HttpResponseMessage"/>.</param>
-        /// <returns>An <see cref="IApiResult{TData}"/> instance.</returns>
-        Task<IApiResult<TData>> ParseAsync<TData>(HttpResponseMessage response) where TData : class;
     }
 }

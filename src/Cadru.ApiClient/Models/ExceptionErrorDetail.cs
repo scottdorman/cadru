@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="IResponseParser.cs"
+// <copyright file="ErrorDetail.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2021 Scott Dorman.
@@ -20,24 +20,32 @@
 // </license>
 //------------------------------------------------------------------------------
 
-using System.Net.Http;
-using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Text.Json.Serialization;
 
-using Cadru.ApiClient.Models;
+using Cadru.ApiClient.Serialization;
 
-namespace Cadru.ApiClient.Services
+namespace Cadru.ApiClient.Models
 {
-    /// <summary>
-    /// Represents an API response parser
-    /// </summary>
-    public interface IResponseParser
+    [JsonConverter(typeof(ExceptionErrorDetailConverter))]
+    [DebuggerDisplay("{Message,nq}")]
+    public sealed class ExceptionErrorDetail : IErrorDetail
     {
+        internal ExceptionErrorDetail()
+        {
+        }
+
+        [JsonConstructor]
+        internal ExceptionErrorDetail(string? message) : this()
+        {
+            this.Message = message;
+        }
+
         /// <summary>
-        /// Parses the <paramref name="response"/> into an appropriate <see cref="IApiResult{TData}"/> instance.
+        /// The error message content.
         /// </summary>
-        /// <typeparam name="TData">The type of payload model.</typeparam>
-        /// <param name="response">The <see cref="HttpResponseMessage"/>.</param>
-        /// <returns>An <see cref="IApiResult{TData}"/> instance.</returns>
-        Task<IApiResult<TData>> ParseAsync<TData>(HttpResponseMessage response) where TData : class;
+        [JsonPropertyName(JsonSerializationPropertyNames.Message)]
+        [JsonInclude]
+        public string? Message { get; internal set; }
     }
 }

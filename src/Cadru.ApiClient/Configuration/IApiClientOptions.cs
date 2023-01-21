@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="IResponseParser.cs"
+// <copyright file="IApiClientOptions.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2021 Scott Dorman.
@@ -20,24 +20,32 @@
 // </license>
 //------------------------------------------------------------------------------
 
-using System.Net.Http;
-using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-using Cadru.ApiClient.Models;
-
-namespace Cadru.ApiClient.Services
+namespace Cadru.ApiClient.Configuration
 {
     /// <summary>
-    /// Represents an API response parser
+    /// Represents common API configuration parameters.
     /// </summary>
-    public interface IResponseParser
+    public interface IApiClientOptions
     {
         /// <summary>
-        /// Parses the <paramref name="response"/> into an appropriate <see cref="IApiResult{TData}"/> instance.
+        /// Gets the base URL for the service, ensuring that it has a trailing '/' character.
         /// </summary>
-        /// <typeparam name="TData">The type of payload model.</typeparam>
-        /// <param name="response">The <see cref="HttpResponseMessage"/>.</param>
-        /// <returns>An <see cref="IApiResult{TData}"/> instance.</returns>
-        Task<IApiResult<TData>> ParseAsync<TData>(HttpResponseMessage response) where TData : class;
+        /// <returns>The base URL for the service with a trailing '/' character.</returns>
+        Uri GetBaseUrl();
+
+        /// <summary>
+        /// The base URL for the service.
+        /// </summary>
+        [Required]
+        string? BaseUrl { get; set; }
+
+        /// <summary>
+        /// The headers which should be sent with each request.
+        /// </summary>
+        IDictionary<string, string> DefaultRequestHeaders { get; }
     }
 }

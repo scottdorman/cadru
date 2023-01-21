@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="IResponseParser.cs"
+// <copyright file="IApiClientBuilder.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2021 Scott Dorman.
@@ -21,23 +21,30 @@
 //------------------------------------------------------------------------------
 
 using System.Net.Http;
-using System.Threading.Tasks;
 
-using Cadru.ApiClient.Models;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Cadru.ApiClient.Services
+namespace Cadru.ApiClient.Configuration.DependencyInjection
 {
     /// <summary>
-    /// Represents an API response parser
+    /// A builder for configuring named <see cref="Services.ApiClient"/>
+    /// instances returned by <see cref="IHttpClientFactory"/>.
     /// </summary>
-    public interface IResponseParser
+    public interface IApiClientBuilder
     {
         /// <summary>
-        /// Parses the <paramref name="response"/> into an appropriate <see cref="IApiResult{TData}"/> instance.
+        /// Gets the name of the client configured by this builder.
         /// </summary>
-        /// <typeparam name="TData">The type of payload model.</typeparam>
-        /// <param name="response">The <see cref="HttpResponseMessage"/>.</param>
-        /// <returns>An <see cref="IApiResult{TData}"/> instance.</returns>
-        Task<IApiResult<TData>> ParseAsync<TData>(HttpResponseMessage response) where TData : class;
+        string Name { get; }
+
+        /// <summary>
+        /// Gets the <see cref="IHttpClientBuilder"/> for configuring the <see cref="HttpClient"/>.
+        /// </summary>
+        public IHttpClientBuilder HttpClientBuilder { get; }
+
+        /// <summary>
+        /// Gets the application service collection.
+        /// </summary>
+        IServiceCollection Services { get; }
     }
 }

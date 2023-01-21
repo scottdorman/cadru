@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="IResponseParser.cs"
+// <copyright file="JsonSerializationPropertyNames.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2021 Scott Dorman.
@@ -20,24 +20,18 @@
 // </license>
 //------------------------------------------------------------------------------
 
-using System.Net.Http;
-using System.Threading.Tasks;
-
-using Cadru.ApiClient.Models;
-
-namespace Cadru.ApiClient.Services
+namespace Cadru.ApiClient.Serialization
 {
-    /// <summary>
-    /// Represents an API response parser
-    /// </summary>
-    public interface IResponseParser
+    internal static class JsonSerializationPropertyNames
     {
-        /// <summary>
-        /// Parses the <paramref name="response"/> into an appropriate <see cref="IApiResult{TData}"/> instance.
-        /// </summary>
-        /// <typeparam name="TData">The type of payload model.</typeparam>
-        /// <param name="response">The <see cref="HttpResponseMessage"/>.</param>
-        /// <returns>An <see cref="IApiResult{TData}"/> instance.</returns>
-        Task<IApiResult<TData>> ParseAsync<TData>(HttpResponseMessage response) where TData : class;
+        public const string Description = "description";
+        public const string ErrorDetails = "errorDetails";
+        public const string ErrorCode = "errorCode";
+        public const string StatusCode = "statusCode";
+        public const string Id = "id";
+        public const string MessageHeader = "messageHeader";
+        public const string Message = "message";
+        public const string Error = "error";
+        public const string Data = "data";
     }
 }

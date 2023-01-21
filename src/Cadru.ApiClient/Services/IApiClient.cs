@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="IResponseParser.cs"
+// <copyright file="ApiClient.cs"
 //  company="Scott Dorman"
 //  library="Cadru">
 //    Copyright (C) 2001-2021 Scott Dorman.
@@ -20,24 +20,18 @@
 // </license>
 //------------------------------------------------------------------------------
 
-using System.Net.Http;
-using System.Threading.Tasks;
-
-using Cadru.ApiClient.Models;
+using System.Net;
+using System.Net.Http.Headers;
 
 namespace Cadru.ApiClient.Services
 {
-    /// <summary>
-    /// Represents an API response parser
-    /// </summary>
-    public interface IResponseParser
+    public interface IApiClient
     {
         /// <summary>
-        /// Parses the <paramref name="response"/> into an appropriate <see cref="IApiResult{TData}"/> instance.
+        /// Gets or sets the value of the Authorization header for an HTTP request.
         /// </summary>
-        /// <typeparam name="TData">The type of payload model.</typeparam>
-        /// <param name="response">The <see cref="HttpResponseMessage"/>.</param>
-        /// <returns>An <see cref="IApiResult{TData}"/> instance.</returns>
-        Task<IApiResult<TData>> ParseAsync<TData>(HttpResponseMessage response) where TData : class;
+        public AuthenticationHeaderValue? AuthenticationHeaderValue { get; set; }
+
+        public CookieContainer? Cookies { get; }
     }
 }

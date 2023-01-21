@@ -1,13 +1,30 @@
-﻿using System;
+﻿//------------------------------------------------------------------------------
+// <copyright file="ModelSerializationExtensions.cs"
+//  company="Scott Dorman"
+//  library="Cadru">
+//    Copyright (C) 2001-2021 Scott Dorman.
+// </copyright>
+//
+// <license>
+//    Licensed under the Microsoft Public License (Ms-PL) (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//    http://opensource.org/licenses/Ms-PL.html
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+// </license>
+//------------------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-
-using Cadru.ApiClient.Models;
 
 namespace Cadru.ApiClient.Extensions
 {
@@ -25,7 +42,13 @@ namespace Cadru.ApiClient.Extensions
         /// representing all of the serializable properties in <paramref name="value"/>.</returns>
         public static FormUrlEncodedContent ToFormData(this object value)
         {
+#if NET5_0
+#pragma warning disable CS8620 // Argument cannot be used for parameter due to differences in the nullability of reference types.
+#endif
             return new FormUrlEncodedContent(value.ToKeyValuePairs());
+#if NET5_0
+#pragma warning restore CS8620 // Argument cannot be used for parameter due to differences in the nullability of reference types.
+#endif
         }
 
         /// <summary>
@@ -34,7 +57,7 @@ namespace Cadru.ApiClient.Extensions
         /// <param name="value">The value to convert.</param>
         /// <param name="serializerOptions">The options to control serialization behavior.</param>
         /// <returns>An <see cref="IDictionary{TKey, TValue}"/> representation of the value</returns>
-        public static IDictionary<string?, string?> ToDictionary(this object value, JsonSerializerOptions? serializerOptions = null)
+        public static IDictionary<string, string> ToDictionary(this object value, JsonSerializerOptions? serializerOptions = null)
         {
             return value.ToKeyValuePairs(serializerOptions).ToDictionary(keySelector => keySelector.Key, elementSelector => elementSelector.Value)!;
         }
@@ -54,9 +77,9 @@ namespace Cadru.ApiClient.Extensions
         /// collections are shown using an indexed notation.
         /// </para>
         /// </remarks>
-        public static IEnumerable<KeyValuePair<string?, string?>> ToKeyValuePairs(this object value, JsonSerializerOptions? serializerOptions = null)
+        public static IEnumerable<KeyValuePair<string, string>> ToKeyValuePairs(this object value, JsonSerializerOptions? serializerOptions = null)
         {
-            string? GetStringValue(JsonElement jsonElement)
+            string GetStringValue(JsonElement jsonElement)
             {
                 string? rawText = null;
 
@@ -74,7 +97,7 @@ namespace Cadru.ApiClient.Extensions
                 return rawText ?? jsonElement.GetRawText();
             }
 
-            IEnumerable<KeyValuePair<string?, string?>> EnumerateElement(JsonElement jsonElement, string? parentProperty = null)
+            IEnumerable<KeyValuePair<string, string>> EnumerateElement(JsonElement jsonElement, string? parentProperty = null)
             {
                 if (jsonElement.ValueKind == JsonValueKind.Object)
                 {
@@ -91,7 +114,7 @@ namespace Cadru.ApiClient.Extensions
                         }
                         else
                         {
-                            yield return new KeyValuePair<string?, string?>(propertyKey, GetStringValue(jsonProperty.Value));
+                            yield return new KeyValuePair<string, string>(propertyKey, GetStringValue(jsonProperty.Value));
                         }
                     }
                 }
@@ -111,13 +134,13 @@ namespace Cadru.ApiClient.Extensions
                         }
                         else
                         {
-                            yield return new KeyValuePair<string?, string?>(arrayElementParentProperty, GetStringValue(jsonArrayElement));
+                            yield return new KeyValuePair<string, string>(arrayElementParentProperty, GetStringValue(jsonArrayElement));
                         }
                     }
                 }
             }
 
-            var dictionary = Enumerable.Empty<KeyValuePair<string?, string?>>();
+            var dictionary = Enumerable.Empty<KeyValuePair<string, string>>();
             if (value != null)
             {
                 var document = JsonDocument.Parse(JsonSerializer.Serialize(value, serializerOptions));
