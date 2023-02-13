@@ -12,7 +12,7 @@
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.IO.RecyclableMemoryStream" Version="2.2.1" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.IO.RecyclableMemoryStream" Version="2.3.1" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>
